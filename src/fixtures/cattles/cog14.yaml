@@ -1,0 +1,44 @@
+- model: cattles.Cattle
+  pk: 130001
+  fields:
+    name: 肥育乳公牛550公斤以上
+    code: 肥育乳公牛550公斤以上
+    config: 14
+    unit: 2
+    type: 2
+
+- model: cattles.Cattle
+  pk: 130002
+  fields:
+    name: 乳公架仔牛150-200公斤
+    code: 乳公架仔牛150-200公斤
+    config: 14
+    unit: 2
+    type: 2
+
+- model: cattles.Cattle
+  pk: 130003
+  fields:
+    name: 肥育肉用母牛
+    code: 肥育肉用母牛
+    config: 14
+    unit: 2
+    type: 2
+
+- model: cattles.Cattle
+  pk: 130004
+  fields:
+    name: 閹公牛
+    code: 閹公牛
+    config: 14
+    unit: 2
+    type: 2
+
+- model: cattles.Cattle
+  pk: 130005
+  fields:
+    name: 週齡仔公牛
+    code: 週齡仔公牛(隻)
+    config: 14
+    unit: 6
+    type: 2

@@ -1,0 +1,86 @@
+- model: hogs.Hog
+  pk: 70001
+  fields:
+    name: 規格豬
+    type: 1
+    track_item: false
+    config: 8
+    unit: 3
+
+- model: hogs.Hog
+  pk: 70002
+  fields:
+    name: 非規格豬
+    type: 1
+    track_item: false
+    config: 8
+    unit: 3
+
+- model: hogs.Hog
+  pk: 70003
+  fields:
+    name: 淘汰種豬
+    type: 1
+    track_item: false
+    config: 8
+    unit: 3
+
+- model: hogs.Hog
+  pk: 70004
+  fields:
+    name: 75公斤以下
+    code: 75公斤以下
+    type: 1
+    config: 8
+    unit: 3
+    parent: 70002
+
+- model: hogs.Hog
+  pk: 70005
+  fields:
+    name: 75-95公斤
+    code: 75(含)-95(不含)
+    type: 1
+    config: 8
+    unit: 3
+    parent: 70001
+
+- model: hogs.Hog
+  pk: 70006
+  fields:
+    name: 95-115公斤
+    code: 95(含)-115(含)
+    type: 1
+    config: 8
+    unit: 3
+    parent: 70001
+
+- model: hogs.Hog
+  pk: 70007
+  fields:
+    name: 115公斤以上
+    code: 115公斤以上
+    type: 1
+    config: 8
+    unit: 3
+    parent: 70001
+
+- model: hogs.Hog
+  pk: 70008
+  fields:
+    name: 淘汰種豬
+    code: 淘汰種豬
+    type: 1
+    config: 8
+    unit: 3
+    parent: 70003
+
+- model: hogs.Hog
+  pk: 70009
+  fields:
+    name: 其他豬
+    code: 其他豬
+    type: 1
+    config: 8
+    unit: 3
+    parent: 70002

@@ -1,0 +1,17 @@
+- model: flowers.Flower
+  pk: 30001
+  fields:
+    name: 全部花卉
+    config: 4
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 30002
+  fields:
+    name: 全部花卉
+    code: L
+    config: 4
+    unit: 5
+    type: 1
+    parent: 30001

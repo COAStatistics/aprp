@@ -1,0 +1,102 @@
+#logo img {
+    width: 150px;
+    height: auto;
+}
+
+#logo {
+    margin-top: 8px;
+}
+
+.smart-style-2 nav ul ul ul ul ul ul ul li a {
+    padding-left: 70px;
+}
+
+.smart-style-2 nav ul ul ul ul ul ul ul ul li a {
+    padding-left: 80px;
+}
+
+.nav-pills > li > a {
+    border-radius: 0;
+    color: #333;
+    background-color: #f5f5f5;
+    margin-bottom: 0;
+}
+
+.nav-pills.nav-pills-primary > li > a:focus,
+.nav-pills.nav-pills-primary > li.active > a {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.nav-pills.nav-pills-info > li > a:focus,
+.nav-pills.nav-pills-info > li.active > a {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+.nav-pills.nav-pills-blueDark > li > a:focus,
+.nav-pills.nav-pills-blueDark > li.active > a {
+    color: #fff;
+background: #2C3742!important;
+    border-color: #2C3742!important;
+}
+
+.fixed-ribbon #content {
+    padding-top: 42px;
+}
+
+button.multiselect {
+    padding: 3px 6px;
+    cursor: pointer;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>li>a:hover>label {
+    color: #fff;
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a>label {
+    color: #fff;
+}
+
+.padding-left-0 {
+    padding-left: 0 !important;
+}
+
+.no-min-height {
+    min-height: auto !important;
+}
+
+#main {
+    min-height: 400px !important;
+}
+
+.ajax-loading-animation {
+    margin-left: 15px;
+}
+
+.flag.flag-zh-hant {
+    background-position: -64px -154px
+}
+
+.flag.flag-en {
+    background-position: -144px -154px
+}
+
+.dt-toolbar>:last-child .DTTT, .dt-toolbar>:last-child .dataTables_filter>:only-child {
+    float: left;
+}
+.dt-toolbar>:last-child .DTTT, .dt-toolbar>:last-child .dataTables_filter>:only-child > input[type="search"] {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.ui-datepicker .ui-datepicker-next:hover,
+.ui-datepicker .ui-datepicker-prev:hover {
+    cursor: pointer;
+}
+
+
+
+

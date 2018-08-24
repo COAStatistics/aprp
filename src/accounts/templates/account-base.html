@@ -1,0 +1,93 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<html id="extr-page">
+	<head>
+		<meta charset="utf-8">
+		<title>{% trans 'Agriculture Products Price Report Platform' %} -
+            {% block title %}
+            {% endblock title %}
+        </title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- #CSS Links -->
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/font-awesome.min.css' %}">
+
+		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/smartadmin-production.min.css' %}">
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/smartadmin-skins.min.css' %}">
+
+		<!-- SmartAdmin RTL Support -->
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/smartadmin-rtl.min.css' %}">
+
+		<!-- Custom Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/smartadmin.custom.css' %}">
+
+		<!-- #FAVICONS -->
+		<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+		<link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+
+		<!-- #GOOGLE FONT -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+
+	</head>
+
+	<body class="animated fadeInDown">
+
+		<header id="header">
+
+			<div id="logo-group">
+				<span id="logo"> <img src="{% static 'img/logo.png' %}" alt="{% trans 'Agriculture Products Price Report Platform' %}"> </span>
+			</div>
+
+            {% block header_link %}
+            {% endblock header_link %}
+
+		</header>
+
+		<div id="main" role="main">
+
+			<!-- MAIN CONTENT -->
+			<div id="content" class="container">
+
+                {% block content %}
+                {% endblock content %}
+
+			</div>
+
+		</div>
+
+		<!--================================================== -->
+
+	    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+	    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script> if (!window.jQuery) { document.write('<script src="{% static 'vendor/js/libs/jquery-3.2.1.min.js' %}"><\/script>');} </script>
+
+	    <!--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script> if (!window.jQuery.ui) { document.write('<script src="{% static 'vendor/js/libs/jquery-ui.min.js' %}"><\/script>');} </script>-->
+
+		<!-- IMPORTANT: APP CONFIG -->
+		<script src="{% static 'vendor/js/app.config.seed.js' %}"></script>
+
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events
+		<script src="vendor/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+
+		<!-- BOOTSTRAP JS -->
+		<script src="{% static 'vendor/js/bootstrap/bootstrap.min.js' %}"></script>
+
+		<!--[if IE 8]>
+
+			<h1>{% trans 'Your browser is out of date, please update your browser by going to' %} www.microsoft.com/download</h1>
+
+		<![endif]-->
+
+		<!-- MAIN APP JS FILE -->
+		<script src="{% static 'vendor/js/app.js' %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,121 @@
+- model: chickens.Chicken
+  pk: 90004
+  fields:
+    name: 紅羽土雞
+    track_item: false
+    config: 10
+    unit: 2
+
+- model: chickens.Chicken
+  pk: 90005
+  fields:
+    name: 黑羽土雞
+    track_item: false
+    config: 10
+    unit: 2
+
+- model: chickens.Chicken
+  pk: 90006
+  fields:
+    name: 白肉雞
+    track_item: false
+    config: 10
+    unit: 2
+
+- model: chickens.Chicken
+  pk: 90007
+  fields:
+    name: 雞蛋
+    track_item: false
+    config: 10
+    unit: 2
+
+- model: chickens.Chicken
+  pk: 90008
+  fields:
+    name: 紅羽土雞北區
+    code: 紅羽土雞北區
+    type: 2
+    config: 10
+    unit: 2
+    parent: 90004
+
+- model: chickens.Chicken
+  pk: 90009
+  fields:
+    name: 紅羽土雞中區
+    code: 紅羽土雞中區
+    type: 2
+    config: 10
+    unit: 2
+    parent: 90004
+
+- model: chickens.Chicken
+  pk: 90010
+  fields:
+    name: 紅羽土雞南區
+    code: 紅羽土雞南區
+    type: 2
+    config: 10
+    unit: 2
+    parent: 90004
+
+- model: chickens.Chicken
+  pk: 90011
+  fields:
+    name: 黑羽土雞舍飼(南區)公
+    code: 黑羽土雞舍飼(南區)公
+    type: 2
+    config: 10
+    unit: 2
+    parent: 90005
+
+- model: chickens.Chicken
+  pk: 90012
+  fields:
+    name: 黑羽土雞舍飼(南區)母
+    code: 黑羽土雞舍飼(南區)母
+    type: 2
+    config: 10
+    unit: 2
+    parent: 90005
+
+- model: chickens.Chicken
+  pk: 90013
+  fields:
+    name: 2公斤以上
+    code: 白肉雞(2.0Kg以上)
+    type: 2
+    config: 10
+    unit: 2
+    parent: 90006
+
+- model: chickens.Chicken
+  pk: 90014
+  fields:
+    name: 1.75-1.99公斤 # 監控品項規格，API沒有改
+    code: 白肉雞(1.75-1.95Kg)
+    type: 2
+    config: 10
+    unit: 2
+    parent: 90006
+
+- model: chickens.Chicken
+  pk: 90015
+  fields:
+    name: 門市價高屏
+    code: 白肉雞(門市價高屏)
+    type: 3
+    config: 10
+    unit: 2
+    parent: 90006
+
+- model: chickens.Chicken
+  pk: 90016
+  fields:
+    name: 雞蛋
+    code: 雞蛋(產地)
+    type: 2
+    config: 10
+    unit: 2
+    parent: 90007

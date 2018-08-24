@@ -1,0 +1,179 @@
+- model: fruits.Fruit
+  pk: 59001
+  fields:
+    name: 桶柑
+    code: 桶柑
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50092
+
+- model: fruits.Fruit
+  pk: 59002
+  fields:
+    name: 海梨柑
+    code: 海梨柑
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50094
+
+- model: fruits.Fruit
+  pk: 59003
+  fields:
+    name: 椪柑
+    code: 椪柑
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50076
+
+- model: fruits.Fruit
+  pk: 59004
+  fields:
+    name: 香蕉(內銷)
+    code: 香蕉(內銷)
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50061
+
+- model: fruits.Fruit
+  pk: 59005
+  fields:
+    name: 柳橙
+    code: 柳橙
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50096
+
+- model: fruits.Fruit
+  pk: 59006
+  fields:
+    name: 棗子
+    code: 棗子
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50008
+
+- model: fruits.Fruit
+  pk: 59007
+  fields:
+    name: 蓮霧
+    code: 蓮霧
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50202
+
+- model: fruits.Fruit
+  pk: 59008
+  fields:
+    name: 鳳梨(17號)
+    code: 鳳梨(17號)
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50066
+
+- model: fruits.Fruit
+  pk: 59009
+  fields:
+    name: 青梅(竿採)
+    code: 青梅(竿採)
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50016
+
+- model: fruits.Fruit
+  pk: 59010
+  fields:
+    name: 木瓜
+    code: 木瓜
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50144
+
+- model: fruits.Fruit
+  pk: 59011
+  fields:
+    name: 檸檬
+    code: 檸檬
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50102
+
+- model: fruits.Fruit
+  pk: 59012
+  fields:
+    name: 新興梨
+    code: 新興梨
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 59013
+  fields:
+    name: 芒果(愛文)
+    code: 芒果(愛文)
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50208
+
+- model: fruits.Fruit
+  pk: 59014
+  fields:
+    name: 番石榴(珍珠)
+    code: 番石榴(珍珠)
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50195
+
+- model: fruits.Fruit
+  pk: 59015
+  fields:
+    name: 文旦
+    code: 文旦
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50128
+
+- model: fruits.Fruit
+  pk: 59016
+  fields:
+    name: 龍眼(大粒)
+    code: 龍眼(大粒)
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50157
+
+- model: fruits.Fruit
+  pk: 59017
+  fields:
+    name: 紅龍果
+    code: 紅龍果
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50039
+
+- model: fruits.Fruit
+  pk: 59018
+  fields:
+    name: 青梅(手採)
+    code: 青梅(手採)
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50016

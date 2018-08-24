@@ -1,0 +1,75 @@
+{% load i18n %}
+
+<!--
+    * To use this template, must have these parameters,
+    * 1. index => 'price', 'volume', 'weight'
+    * 2. active => True, False
+    * 3. option => Dict
+-->
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <!-- add "collapsed" class to close -->
+            <a class="{% if not active %}collapsed{% endif %}"
+               data-toggle="collapse" data-parent="#chart-{{ chart.id }}-panel-group"
+               href="#chart-{{ chart.id }}-panel-collapse-{{ option.type.id }}-{{ index }}">
+                <i class="fa fa-fw fa-plus-circle txt-color-green"></i>
+                <i class="fa fa-fw fa-minus-circle txt-color-red"></i>
+                {% if index == 'price' %}
+                    {% trans 'Average Price' %}
+                {% elif index == 'volume' %}
+                    {% trans 'Average Volume' %}
+                {% elif index == 'weight' %}
+                    {% trans 'Average Weight' %}
+                {% endif %}
+            </a>
+        </h4>
+    </div>
+    <!-- add class "in" to open -->
+    <div id="chart-{{ chart.id }}-panel-collapse-{{ option.type.id }}-{{ index }}" class="panel-collapse collapse {% if active %}in{% endif %}">
+        <div class="panel-body padding-10">
+            <div class="row padding-10">
+                <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                    <!-- start {{ index }} chart widget -->
+                    <div class="jarviswidget jarviswidget-color-redLight" id="chart-{{ chart.id }}-widget-{{ option.type.id }}-{{ index }}"
+                         data-widget-editbutton="false" data-widget-deletebutton="false">
+
+                        <header>
+                            <span class="widget-icon"> <i class="fa fa-area-chart"></i> </span>
+                            <h2 class="font-md"><strong>{% trans 'Chart' %}</strong></h2>
+                        </header>
+
+                        <!-- widget div-->
+                        <div>
+
+                            <!-- widget edit box -->
+                            <div class="jarviswidget-editbox">
+                                <!-- This area used as dropdown edit box -->
+
+                            </div>
+                            <!-- end widget edit box -->
+
+                            <!-- widget content -->
+                            <div class="widget-body no-padding">
+                                {% include 'contents/selected-year-info.html' %}
+                                <div class="padding-10" id="chart-{{ chart.id }}-widget-{{ option.type.id }}-{{ index }}-body"></div>
+                            </div>
+                            <!-- end widget content -->
+
+                        </div>
+                        <!-- end widget div -->
+
+                    </div>
+                    <!-- end widget -->
+
+                    <!-- start {{ index }} datatable widget -->
+                    {% include 'contents/raw-widget-single-type-index.html' %}
+                    <!-- end widget -->
+
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

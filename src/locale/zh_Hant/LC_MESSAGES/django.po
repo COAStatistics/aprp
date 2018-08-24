@@ -1,0 +1,1118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-23 14:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: accounts/forms.py:17
+msgid "Please Input Chinese Only"
+msgstr "請輸入中文"
+
+#: accounts/forms.py:21 accounts/forms.py:83 accounts/forms.py:110
+#: accounts/forms.py:177 accounts/views.py:114
+msgid "Account"
+msgstr "帳號"
+
+#: accounts/forms.py:22 accounts/forms.py:112
+msgid "First Name"
+msgstr "名字"
+
+#: accounts/forms.py:23 accounts/forms.py:113
+msgid "Last Name"
+msgstr "姓氏"
+
+#: accounts/forms.py:24 accounts/models.py:38
+msgid "Group"
+msgstr "群組"
+
+#: accounts/forms.py:24
+msgid "Choose one of the following..."
+msgstr "請選擇"
+
+#: accounts/forms.py:25 accounts/models.py:186 accounts/models.py:200
+#: accounts/models.py:201
+msgid "Reset Email"
+msgstr "變更電子信箱"
+
+#: accounts/forms.py:57 accounts/forms.py:152
+msgid "This email has already been registered"
+msgstr "此電子信箱已經被註冊"
+
+#: accounts/forms.py:63
+msgid "To use this group, please change your email to this unit:"
+msgstr "要變更到此群組，請先變更您的信箱到此單位："
+
+#: accounts/forms.py:84 accounts/forms.py:114 accounts/forms.py:157
+msgid "Password"
+msgstr "密碼"
+
+#: accounts/forms.py:96
+msgid "Your account or password is incorrect"
+msgstr "您輸入的帳號或密碼不正確，請重試"
+
+#: accounts/forms.py:111 accounts/forms.py:176
+msgid "Email"
+msgstr "電子信箱"
+
+#: accounts/forms.py:115 accounts/forms.py:158
+msgid "Confirm Password"
+msgstr "確認密碼"
+
+#: accounts/forms.py:116
+msgid "Condition"
+msgstr "同意條約"
+
+#: accounts/forms.py:132
+msgid "You must agree out terms and conditions!"
+msgstr "請先同意使用條款！"
+
+#: accounts/forms.py:139 accounts/forms.py:171
+msgid "Password must match"
+msgstr "密碼與密碼確認不符"
+
+#: accounts/forms.py:148
+msgid "Please register with email under domain \"@mail.coa.gov.tw\""
+msgstr "請使用農委會及所屬單位信箱註冊"
+
+#: accounts/forms.py:191 accounts/templates/resend-email.html.py:38
+msgid "Please advise your email or account"
+msgstr "請輸入你的信箱或帳號"
+
+#: accounts/forms.py:196
+msgid "Your account or email is incorrect"
+msgstr "您輸入的信箱或帳號不正確，請重試"
+
+#: accounts/forms.py:205
+msgid "This email is not exist"
+msgstr "此信箱尚未註冊，請重新確認"
+
+#: accounts/forms.py:213
+msgid "This account is not exist"
+msgstr "此帳號未註冊，請重新確認"
+
+#: accounts/models.py:37 configs/models.py:18 configs/models.py:124
+#: configs/models.py:176 configs/models.py:221 configs/models.py:272
+#: configs/models.py:289 logs/models.py:21 watchlists/models.py:37
+msgid "Name"
+msgstr "名稱"
+
+#: accounts/models.py:39
+msgid "Email Dns"
+msgstr "信箱域名"
+
+#: accounts/models.py:40 comments/models.py:57 configs/models.py:23
+#: watchlists/models.py:127
+msgid "Parent"
+msgstr "上一層物件"
+
+#: accounts/models.py:45
+msgid "Group Information"
+msgstr "群組資訊"
+
+#: accounts/models.py:46
+msgid "Group Informations"
+msgstr "群組資訊"
+
+#: accounts/models.py:76 accounts/models.py:99 posts/models.py:31
+#: watchlists/models.py:38
+msgid "User"
+msgstr "使用者"
+
+#: accounts/models.py:77
+msgid "Is Editor"
+msgstr "可編輯人員"
+
+#: accounts/models.py:78
+msgid "Profile"
+msgstr "大頭貼"
+
+#: accounts/models.py:81
+msgid "User Information"
+msgstr "帳戶資訊"
+
+#: accounts/models.py:82
+msgid "User Informations"
+msgstr "帳戶資訊"
+
+#: accounts/models.py:100
+msgid "Activate Key"
+msgstr "驗證碼"
+
+#: accounts/models.py:101
+msgid "Expired"
+msgstr "是否過期"
+
+#: accounts/models.py:106
+msgid "Abstract Profile"
+msgstr "抽象帳戶驗證"
+
+#: accounts/models.py:107
+msgid "Abstract Profiles"
+msgstr "抽象帳戶驗證"
+
+#: accounts/models.py:138
+msgid "Activation Profile"
+msgstr "帳戶啟用驗證"
+
+#: accounts/models.py:139
+msgid "Activation Profiles"
+msgstr "帳戶啟動驗證"
+
+#: accounts/models.py:149 accounts/views.py:114
+msgid "Activate"
+msgstr "啟用"
+
+#: accounts/models.py:150
+msgid "Account Activation"
+msgstr "啟用帳戶"
+
+#: accounts/models.py:151
+msgid "Please activate your account by clicking the link below"
+msgstr "點擊以下連結來啟用您的帳戶"
+
+#: accounts/models.py:152 accounts/templates/register.html.py:128
+msgid "Thank you for your registration"
+msgstr "感謝註冊"
+
+#: accounts/models.py:163
+msgid "Reset Password Profile"
+msgstr "重設密碼驗證"
+
+#: accounts/models.py:164
+msgid "Reset Password Profiles"
+msgstr "重設密碼驗證"
+
+#: accounts/models.py:174 accounts/models.py:175
+#: accounts/templates/reset-password.html:8
+#: accounts/templates/reset-password.html:22
+#: accounts/templates/reset-password.html:53
+msgid "Reset Password"
+msgstr "重設密碼"
+
+#: accounts/models.py:176
+msgid "Please click the following button to reset your password"
+msgstr "點擊以下連結以重設您的密碼"
+
+#: accounts/models.py:189
+msgid "Reset Email Profile"
+msgstr "重設電子信箱驗證"
+
+#: accounts/models.py:190
+msgid "Reset Email Profiles"
+msgstr "重設電子信箱驗證"
+
+#: accounts/models.py:202
+msgid "Please click the following button to reset your email"
+msgstr "點擊以下連結以重設您的信箱"
+
+#: accounts/templates/account-base.html:8
+#: accounts/templates/account-base.html:45
+#: accounts/templates/introduction.html:5 templates/footer.html.py:7
+#: templates/header.html:9 templates/index.html.py:9
+msgid "Agriculture Products Price Report Platform"
+msgstr "重要農產品每日價量資訊平台"
+
+#: accounts/templates/account-base.html:85 templates/lock.html.py:94
+msgid "Your browser is out of date, please update your browser by going to"
+msgstr "您使用的瀏覽器太過老舊；你可以從這裡升級瀏覽器："
+
+#: accounts/templates/edit_info.html:5
+msgid "Edit your information"
+msgstr "編輯個人資料"
+
+#: accounts/templates/edit_info.html:23
+#: comments/templates/partial_comment_create.html:14
+#: comments/templates/partial_comment_delete.html:15
+#: comments/templates/partial_comment_update.html:14
+#: posts/templates/partial_post_create.html:14
+#: posts/templates/partial_post_delete.html:15
+#: posts/templates/partial_post_update.html:14
+msgid "Cancel"
+msgstr "取消"
+
+#: accounts/templates/edit_info.html:24
+#: comments/templates/partial_comment_create.html:15
+#: comments/templates/partial_comment_delete.html:16
+#: comments/templates/partial_comment_update.html:15
+#: posts/templates/partial_post_create.html:15
+#: posts/templates/partial_post_delete.html:16
+#: posts/templates/partial_post_update.html:15
+#: templates/ajax/chart-3-content.html:59
+#: templates/ajax/chart-4-content.html:51
+msgid "Submit"
+msgstr "確認"
+
+#: accounts/templates/introduction.html:9
+msgid ""
+"The platform combined the price and the trading volume of agricultural "
+"products from Council of Agriculture (COA) and the affiliated agencies "
+"including Agriculture and Food Agency, Fisheries Agency and Department of "
+"Animal Industry in order to provide quick visual research and help the staff "
+"in COA and affiliated agencies control the price and the trading volume "
+"trend of agricultural products. "
+msgstr ""
+"本平台整合農委會及所屬機關（構）公布之農、漁、畜產品之價格及交易量資訊，提供"
+"便捷之視覺化查詢功能，期協助本會暨所屬機關（構）同仁即時掌握農產品價量動向。"
+
+#: accounts/templates/introduction.html:18 templates/ajax/about.html.py:42
+msgid "Monitored items"
+msgstr "監控品項"
+
+#: accounts/templates/introduction.html:20
+msgid ""
+"Currently, there are 63 items consist of 10 overall and categorized items of "
+"vegetables, fruits and flowers in Taipei Agricultural Products Wholesale "
+"Market and 53 daily-monitored important agricultural products in COA."
+msgstr ""
+"目前主要涵括台北一、二果菜市場10個蔬菜、水果、花卉之整體及分類項目，以及53個"
+"本會每日監控之重要農產品共計63項"
+
+#: accounts/templates/introduction.html:24 templates/ajax/about.html.py:50
+msgid "Features"
+msgstr "功能說明"
+
+#: accounts/templates/introduction.html:26
+msgid ""
+"Showing daily price/volume trends, year by year trends and distribution plot "
+"with charts."
+msgstr ""
+"現階段先行開發「近2週每日價量」、「每日價量趨勢」、「歷年每日價格走勢」、「歷"
+"年各月價格分布」等4項功能，主要提供價格及交易量（毛豬另提供重量）整合資訊。"
+
+#: accounts/templates/login.html:8 accounts/templates/mail_content.html:141
+#: accounts/templates/register.html:12 accounts/templates/resend-email.html:12
+#: accounts/templates/reset-password.html:12
+msgid "Log in"
+msgstr "登入"
+
+#: accounts/templates/login.html:13
+msgid "Need an account"
+msgstr "需要新的帳號嗎"
+
+#: accounts/templates/login.html:14 accounts/templates/register.html.py:8
+#: accounts/templates/register.html:25 accounts/templates/register.html:122
+msgid "Register"
+msgstr "註冊"
+
+#: accounts/templates/login.html:27
+msgid "Sign In"
+msgstr "請登入"
+
+#: accounts/templates/login.html:60
+msgid "Forgot password"
+msgstr "忘記密碼"
+
+#: accounts/templates/login.html:67
+msgid "Remember me"
+msgstr "記住我"
+
+#: accounts/templates/login.html:72
+msgid "Login"
+msgstr "登入"
+
+#: accounts/templates/mail_content.html:124
+msgid "Any further questions please contact us"
+msgstr "任何問題歡迎聯繫我們"
+
+#: accounts/templates/mail_content.html:125
+msgid "Good luck! Hope it works"
+msgstr "祝您有愉快的一天"
+
+#: accounts/templates/mail_content.html:140
+msgid "COA Statistics 2018"
+msgstr "農委會統計室 2018"
+
+#: accounts/templates/mail_content.html:141
+msgid "Want to login right now"
+msgstr "現在登入"
+
+#: accounts/templates/register.html:12 accounts/templates/resend-email.html:12
+#: accounts/templates/reset-password.html:12
+msgid "Already have an account"
+msgstr "已經有帳號了"
+
+#: accounts/templates/register.html:35 accounts/templates/resend-email.html:30
+msgid "Email has been sent"
+msgstr "信件已經寄出"
+
+#: accounts/templates/register.html:36 accounts/templates/resend-email.html:31
+msgid "Please check your mail box"
+msgstr "請查看您的信箱"
+
+#: accounts/templates/register.html:36
+msgid "Click the link in the email to activate your account"
+msgstr "請點擊信件連結來啟用您的帳號"
+
+#: accounts/templates/register.html:113
+msgid "I have read the"
+msgstr "我已閱讀過"
+
+#: accounts/templates/register.html:113
+msgid "Terms and Conditions"
+msgstr "使用條款"
+
+#: accounts/templates/resend-email.html:8 accounts/views.py:89
+msgid "Forgot Password"
+msgstr "忘記密碼"
+
+#: accounts/templates/resend-email.html:21
+#: accounts/templates/reset-password.html:62
+msgid "Resend Email"
+msgstr "重寄驗證信"
+
+#: accounts/templates/resend-email.html:39
+msgid "We will resend an email to your mail box"
+msgstr "系統將寄送新的驗證信給您"
+
+#: accounts/templates/resend-email.html:49
+#: accounts/templates/resend-email.html:63
+msgid "Enter your"
+msgstr "請輸入您的"
+
+#: accounts/templates/resend-email.html:60
+msgid "OR"
+msgstr "或"
+
+#: accounts/templates/resend-email.html:76
+msgid "Send Email"
+msgstr "寄送驗證信"
+
+#: accounts/templates/reset-password.html:58
+msgid "Link Invalid"
+msgstr "連結已失效"
+
+#: accounts/templates/reset-password.html:59
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset"
+msgstr "您使用的重設密碼連結已經失效，可能已經使用過了。請再重寄一次驗證信"
+
+#: accounts/views.py:128
+msgid "Your account is already activated"
+msgstr "您的帳號已經啟用過了"
+
+#: cattles/models.py:29
+msgid "Cattle"
+msgstr "牛"
+
+#: cattles/models.py:30
+msgid "Cattles"
+msgstr "牛"
+
+#: chickens/models.py:29
+msgid "Chicken"
+msgstr "雞"
+
+#: chickens/models.py:30
+msgid "Chickens"
+msgstr "雞"
+
+#: comments/models.py:58 posts/models.py:33
+msgid "File"
+msgstr "檔案"
+
+#: comments/models.py:59 posts/models.py:34
+msgid "Content"
+msgstr "內容"
+
+#: comments/models.py:60 posts/models.py:38
+msgid "Timestamp"
+msgstr "時間戳"
+
+#: comments/models.py:65 posts/templates/partial_post.html.py:18
+msgid "Comment"
+msgstr "留言"
+
+#: comments/models.py:66
+msgid "Comments"
+msgstr "留言"
+
+#: comments/templates/partial_comment_create.html:5
+msgid "Create a new comment"
+msgstr "發布一篇新的留言"
+
+#: comments/templates/partial_comment_delete.html:6
+msgid "Confirm comment deletion"
+msgstr "刪除確認"
+
+#: comments/templates/partial_comment_delete.html:12
+msgid "Are you sure you want to delete the comment"
+msgstr "確定要刪除這個回覆嗎"
+
+#: comments/templates/partial_comment_update.html:5
+msgid "Update comment"
+msgstr "編輯回覆"
+
+#: configs/models.py:19 configs/models.py:125 configs/models.py:177
+#: configs/models.py:273 logs/models.py:22
+msgid "Code"
+msgstr "代碼"
+
+#: configs/models.py:20 configs/models.py:131 configs/models.py:178
+msgid "Config"
+msgstr "品項種類"
+
+#: configs/models.py:21 configs/models.py:179 configs/models.py:227
+#: watchlists/models.py:146
+msgid "Type"
+msgstr "供應階段"
+
+#: configs/models.py:22 configs/models.py:254
+#: templates/contents/unit-info.html:7 templates/contents/unit-info.html:9
+#: templates/contents/unit-info.html:11
+msgid "Unit"
+msgstr "單位"
+
+#: configs/models.py:24
+msgid "Track Item"
+msgstr "是否抓取資料"
+
+#: configs/models.py:25 configs/models.py:128 configs/models.py:180
+#: configs/models.py:222 configs/models.py:251 configs/models.py:275
+#: dailytrans/models.py:56 logs/models.py:23 posts/models.py:37
+#: watchlists/models.py:41 watchlists/models.py:42 watchlists/models.py:128
+#: watchlists/models.py:153
+msgid "Updated"
+msgstr "上次更新"
+
+#: configs/models.py:30
+msgid "Abstract Product"
+msgstr "抽象品項"
+
+#: configs/models.py:31
+msgid "Abstract Products"
+msgstr "抽象品項"
+
+#: configs/models.py:126 configs/models.py:278
+#: templates/ajax/chart-1-content.html:27
+#: templates/ajax/chart-2-content.html:26
+#: templates/contents/index-panel.html:41
+msgid "Chart"
+msgstr "圖表"
+
+#: configs/models.py:127
+msgid "Type Level"
+msgstr "供應階段選單層別"
+
+#: configs/models.py:132
+msgid "Configs"
+msgstr "品項分類"
+
+#: configs/models.py:185 dailytrans/models.py:48 watchlists/models.py:126
+msgid "Source"
+msgstr "來源"
+
+#: configs/models.py:186
+msgid "Sources"
+msgstr "來源"
+
+#: configs/models.py:228
+msgid "Types"
+msgstr "供應階段"
+
+#: configs/models.py:248 templates/contents/unit-info.html.py:15
+msgid "Price Unit"
+msgstr "價格單位"
+
+#: configs/models.py:249 templates/contents/unit-info.html.py:18
+msgid "Volume Unit"
+msgstr "交易量單位"
+
+#: configs/models.py:250 templates/contents/unit-info.html.py:21
+msgid "Weight Unit"
+msgstr "重量單位"
+
+#: configs/models.py:255
+msgid "Units"
+msgstr "單位"
+
+#: configs/models.py:274
+msgid "Template Name"
+msgstr "模板"
+
+#: configs/models.py:279
+msgid "Charts"
+msgstr "圖表"
+
+#: configs/models.py:292 dailytrans/utils.py:326
+msgid "Month"
+msgstr "月份"
+
+#: configs/models.py:293
+msgid "Months"
+msgstr "月份"
+
+#: crops/models.py:29
+msgid "Crop"
+msgstr "蔬菜"
+
+#: crops/models.py:30
+msgid "Crops"
+msgstr "蔬菜"
+
+#: dailytrans/models.py:47 templates/contents/watchlist-profile-table.html.py:9
+#: watchlists/models.py:125 watchlists/models.py:144
+msgid "Product"
+msgstr "品項"
+
+#: dailytrans/models.py:49
+msgid "Up Price"
+msgstr "上價"
+
+#: dailytrans/models.py:50
+msgid "Mid Price"
+msgstr "中價"
+
+#: dailytrans/models.py:51
+msgid "Low Pirce"
+msgstr "下價"
+
+#: dailytrans/models.py:52 dailytrans/utils.py:114 dailytrans/utils.py:133
+#: dailytrans/utils.py:149 templates/contents/index-panel.html.py:20
+#: templates/contents/integration-table.html:12
+msgid "Average Price"
+msgstr "日均價格"
+
+#: dailytrans/models.py:53 dailytrans/utils.py:116
+#: templates/contents/index-panel.html:24
+#: templates/contents/integration-table.html:19
+msgid "Average Weight"
+msgstr "日均重量"
+
+#: dailytrans/models.py:54 templates/contents/integration-table.html.py:16
+msgid "Volume"
+msgstr "交易量"
+
+#: dailytrans/models.py:55 dailytrans/utils.py:113 dailytrans/utils.py:132
+#: dailytrans/utils.py:148 dailytrans/utils.py:208
+#: templates/contents/integration-table.html:11
+msgid "Date"
+msgstr "日期"
+
+#: dailytrans/models.py:61
+msgid "Daily Transition"
+msgstr "日交易"
+
+#: dailytrans/models.py:62
+msgid "Daily Transitions"
+msgstr "日交易"
+
+#: dailytrans/utils.py:115 dailytrans/utils.py:134
+msgid "Sum Volume"
+msgstr "總交易量"
+
+#: dailytrans/utils.py:327
+msgid "Min"
+msgstr "最小值"
+
+#: dailytrans/utils.py:328
+msgid "25%"
+msgstr "第一四分位數"
+
+#: dailytrans/utils.py:329
+msgid "50%"
+msgstr "中位數"
+
+#: dailytrans/utils.py:330
+msgid "75%"
+msgstr "第三四分位數"
+
+#: dailytrans/utils.py:331
+msgid "Max"
+msgstr "最大值"
+
+#: dailytrans/utils.py:332
+msgid "Mean"
+msgstr "平均值"
+
+#: dailytrans/utils.py:477
+msgid "This Term"
+msgstr "本期"
+
+#: dailytrans/utils.py:485
+msgid "Last Term"
+msgstr "上期"
+
+#: dashboard/settings/base.py:212
+msgid "Traditional Chinese"
+msgstr "繁體中文"
+
+#: dashboard/settings/base.py:213
+msgid "English"
+msgstr ""
+
+#: ducks/models.py:29
+msgid "Duck"
+msgstr "鴨"
+
+#: ducks/models.py:30
+msgid "Ducks"
+msgstr "鴨"
+
+#: flowers/models.py:29
+msgid "Flower"
+msgstr "花卉"
+
+#: flowers/models.py:30
+msgid "Flowers"
+msgstr "花卉"
+
+#: fruits/models.py:29
+msgid "Fruit"
+msgstr "水果"
+
+#: fruits/models.py:30
+msgid "Fruits"
+msgstr "水果"
+
+#: gooses/models.py:29
+msgid "Goose"
+msgstr "鵝"
+
+#: gooses/models.py:30
+msgid "Gooses"
+msgstr "鵝"
+
+#: hogs/models.py:29
+msgid "Hog"
+msgstr "毛豬"
+
+#: hogs/models.py:30
+msgid "Hogs"
+msgstr "毛豬"
+
+#: logs/models.py:13
+msgid "Log Type"
+msgstr "日誌類型"
+
+#: logs/models.py:16
+msgid "Log"
+msgstr "日誌"
+
+#: logs/models.py:17
+msgid "Logs"
+msgstr "日誌"
+
+#: logs/models.py:26
+msgid "LogType"
+msgstr "日誌類型"
+
+#: logs/models.py:27
+msgid "LogTypes"
+msgstr "日誌類型"
+
+#: posts/models.py:32
+msgid "Title"
+msgstr "標題"
+
+#: posts/models.py:35
+msgid "Publish"
+msgstr "發布時間"
+
+#: posts/models.py:36
+msgid "Read Time"
+msgstr "點閱次數"
+
+#: posts/models.py:41
+msgid "Post"
+msgstr "貼文"
+
+#: posts/models.py:42
+msgid "Posts"
+msgstr "貼文"
+
+#: posts/templates/partial_post.html:21 posts/templates/partial_post.html:40
+#: posts/templates/partial_post.html:66 posts/templates/partial_post.html:88
+msgid "Edit"
+msgstr "編輯"
+
+#: posts/templates/partial_post.html:23 posts/templates/partial_post.html:44
+#: posts/templates/partial_post.html:70 posts/templates/partial_post.html:92
+msgid "Delete"
+msgstr "刪除"
+
+#: posts/templates/partial_post.html:35 posts/templates/partial_post.html:61
+msgid "Reply"
+msgstr "回覆"
+
+#: posts/templates/partial_post_create.html:5
+msgid "Create a new post"
+msgstr "發表一篇新的貼文"
+
+#: posts/templates/partial_post_delete.html:6
+msgid "Confirm post deletion"
+msgstr "刪除確認"
+
+#: posts/templates/partial_post_delete.html:12
+msgid "Are you sure you want to delete the post"
+msgstr "確定要刪除這篇貼文嗎"
+
+#: posts/templates/partial_post_update.html:5
+msgid "Update post"
+msgstr "更新貼文"
+
+#: rams/models.py:29
+msgid "Ram"
+msgstr "羊"
+
+#: rams/models.py:30
+msgid "Rams"
+msgstr "羊"
+
+#: rices/models.py:29
+msgid "Rice"
+msgstr "稻米"
+
+#: rices/models.py:30
+msgid "Rices"
+msgstr "稻米"
+
+#: seafoods/models.py:29
+msgid "Seafood"
+msgstr "水產品"
+
+#: seafoods/models.py:30
+msgid "Seafoods"
+msgstr "水產品"
+
+#: templates/ajax/about.html:12 templates/navigation.html.py:56
+msgid "Main"
+msgstr "主頁"
+
+#: templates/ajax/about.html:14 templates/navigation.html.py:59
+#: templates/shortcut.html:8
+msgid "About"
+msgstr "關於"
+
+#: templates/ajax/about.html:31
+msgid ""
+"This website is used for Council of Agriculture and affiliated institution "
+"only"
+msgstr "本平台僅供本會暨所屬機關(構)人員使用，網頁連結及帳號密碼請勿對外提供"
+
+#: templates/ajax/about.html:37
+msgid "The purpose of construction"
+msgstr "建置目的"
+
+#: templates/ajax/about.html:39
+msgid ""
+"The platform combined the price and the trading volume of agricultural "
+"products from Council of Agriculture (COA) and the affiliated agencies "
+"including Agriculture and Food Agency, Fisheries Agency and Department of "
+"Animal Industry in order to provide quick visual research and help the staff "
+"in COA and affiliated agencies control the price and the trading volume "
+"trend of agricultural products. We keep developing user interfaces of price "
+"monitoring alerts and traceable agricultural events in the platform to aid "
+"the users handle the price and the trading volume trend of agricultural "
+"products in time and figure out the reasons for particular price and trading "
+"volume variation historically. Furthermore, we will extend the query "
+"function of social media, comments and production period to provide One-Stop "
+"Service integrated related information about price and the trading volume of "
+"agricultural products."
+msgstr ""
+"本平台整合農委會及所屬機關（構）公布之農、漁、畜產品之價格及交易量資訊，提供"
+"便捷之視覺化查詢功能，期協助本會暨所屬機關（構）同仁即時掌握農產品價量動向。"
+"本平台將陸續開發監控價格警示、產銷事件簿登錄等介面，協助使用者即時掌握農產品"
+"價量動向，了解歷年特殊價量變化原因，亦將逐步擴納新聞輿情與回應、產期等資訊查"
+"詢功能，提供平台使用者農產品價量相關資訊之一站式服務（One-Stop Service）。"
+
+#: templates/ajax/about.html:43
+msgid ""
+"Currently, there are 63 items consist of 10 overall and categorized items of "
+"vegetables, fruits and flowers in Taipei Agricultural Products Wholesale "
+"Market and 53 daily-monitored important agricultural products in COA. The "
+"wholesale prices of monitored items in including price and trading volume "
+"(only parts of information of vegetables, fruits and flowers are contained "
+"in Taipei Agricultural Products Wholesale Market); however, the monitored "
+"items with price of origin only cover local transaction price. It is "
+"feasible to reserve or increase other agricultural products in the platform "
+"and we will in time add items which are contained in current wholesale or "
+"local Markets as acquired."
+msgstr ""
+"目前主要涵括台北一、二果菜市場10個蔬菜、水果、花卉之整體及分類項目，以及53個"
+"本會每日監控之重要農產品共計63項，其中以批發價格監控品項同時包含價格及交易量"
+"資訊（蔬果花卉部分僅含台北一、二果菜市場資訊），以產地價格監控者則僅涵蓋產地"
+"交易價格。本平台保留增加其他農產品資訊之彈性，未來得視需要即時擴增現行批發市"
+"場已涵蓋或產地已進行查價之項目。"
+
+#: templates/ajax/about.html:46
+msgid "Source of information"
+msgstr "資料來源"
+
+#: templates/ajax/about.html:47
+msgid ""
+"The information was provided by National Animal Industry Foundation "
+"(wholesale market price), Agriculture and Food Agency (local price), "
+"Agricultural Market Infrastructure System (wholesale market price), Taiwan "
+"Aquaculture Development Foundation (local price) and other industrial "
+"organizations, which constructed related Application Programming Interface "
+"(API) based on the current information system. Next, we retrieved the "
+"information from specific scheduled program according to Machine To Machine "
+"(M2M) or open data platform in COA."
+msgstr ""
+"資料提供者包括中央畜產會（批發價量）、農糧署（產地價）、農產品批發市場交易行"
+"情站（批發價量）、台灣養殖漁業發展基金會（池邊產地價）等產業機關（構），分別"
+"於其現行資訊系統建置相關應用程式介面（Application Programming Interface, "
+"API），本平台再依特定排程以自動化作業模式（Machine To Machine, M2M）介接，或"
+"逕至本會開放資料平台接取相關資訊。"
+
+#: templates/ajax/about.html:51
+msgid ""
+"Showing daily price/volume trends, year by year trends and distribution plot "
+"with charts, each chart provide raw data, integration data and exporting "
+"services."
+msgstr ""
+"現階段先行開發「近2週每日價量」、「每日價量趨勢」、「歷年每日價格走勢」、「歷"
+"年各月價格分布」等4項功能，主要提供價格及交易量（毛豬另提供重量）整合資訊。功"
+"能下方列有歷年整合資訊及每日資料，後3項功能亦提供期間之查詢彈性，可依需調整圖"
+"表涵蓋時間。此外，亦提供資料列印或下載等輸出服務。"
+
+#: templates/ajax/about.html:54
+msgid "Cooperation Units"
+msgstr "合作單位"
+
+#: templates/ajax/about.html:55
+msgid ""
+"1. The platform was constructed by statistics office in COA and Taiwan "
+"Agricultural Research Institute (Agricultural Policy Research Center). All "
+"of the technical supports were provided by statistical information "
+"integrated team in Agricultural Policy Research Center. 2. The related "
+"information of price and the trading volume was provided by Livestock "
+"Research Institute, Agriculture and Food Agency and Fishery Agency and they "
+"help connect affiliated industrial organization to provide automatic "
+"interface service. We will keep providing the information about “comments”, "
+"“production and trading events” and “monitored price”. 3. Information "
+"Management Center provides interface technique based on open data platform "
+"in COA and Research & Development Departments and professional consult to "
+"help eliminate obstacle interface."
+msgstr ""
+"1.本平台係由本會統計室與農科院農業政策研究中心（農政中心）共同合作建置，其中"
+"農政中心統計資訊整合團隊提供平台建置所有資訊技術支援。<br>2.本會畜牧處、農糧"
+"署及漁業署為本平台所需相關價量資料，協助聯繫所屬系統廠商並提供自動介接服務，"
+"未來並將持續提供「輿情與回應」、「產銷事件簿」及「監控價格」等資訊。<br>3.資"
+"訊中心就本會開放資料及各業務單位資料介接技術，提供專業諮詢服務並協助排除介接"
+"障礙。"
+
+#: templates/ajax/about.html:58
+msgid "Future prospects"
+msgstr "未來展望"
+
+#: templates/ajax/about.html:59
+msgid ""
+"The purpose of the platform was to provide friendly visual interface "
+"research of the price and the trading volume of agricultural products and "
+"its related information will be extended into step by step. Owning to the "
+"constriction of human resources and time, it takes time to cooperate among "
+"industrial departments for completing information in the back end; "
+"otherwise, the fully functional version cannot be accomplished in a short "
+"time. The first stage of the platform expects to be completed in October, "
+"2018. Subsequently, we will integrate the information such as weather "
+"information related to production, the prices of important agricultural "
+"products in different stages, annually agricultural damage overview of "
+"individual products, and domestic or import quantum of products into the "
+"platform according to human resources and accessibility of data."
+msgstr ""
+"本平台旨在開發友善優質之農產品價量資訊視覺化查詢界面，舉凡與其相關資訊未來均"
+"得逐步規劃納入，惟囿於人力與時間限制，完整功能非一蹴可幾，後臺資料之完備亦須"
+"時間逐步與產業單位合作產出，本平台第一階段工作預計於107年10月底完成，隨後將視"
+"作業人力狀況與資料可及性，持續開發如生產相關氣象資訊、各項產品歷年農業災損概"
+"況、重要農產品各階段價格、產品別國產及進口量等功能。"
+
+#: templates/ajax/chart-3-content.html:25
+#: templates/ajax/chart-4-content.html:24
+msgid "Settings"
+msgstr "設定"
+
+#: templates/ajax/chart-3-content.html:34
+msgid "Display years"
+msgstr "調整顯示年份"
+
+#: templates/ajax/chart-3-content.html:45
+#: templates/ajax/chart-4-content.html:33
+msgid "Average years"
+msgstr "調整平均年份"
+
+#: templates/ajax/chart-3-content.html:60
+#: templates/ajax/chart-4-content.html:52
+msgid "Close"
+msgstr "取消"
+
+#: templates/ajax/chart-tab.html:22
+msgid "Product Profile"
+msgstr "監控資訊"
+
+#: templates/ajax/integration-panel.html:5
+msgid "Date Range"
+msgstr "日期區間"
+
+#: templates/ajax/no-data.html:484
+msgid "NO DATA"
+msgstr "尚無資料"
+
+#: templates/ajax/no-data.html:487
+msgid ""
+"No data to display, this product might be low season in current date range"
+msgstr "目前無資料可供顯示，此區間可能非品項之產季"
+
+#: templates/ajax/no-data.html:490
+msgid "Any further question please contact us"
+msgstr "若有任何問題請與我們聯繫"
+
+#: templates/contents/index-panel.html:22
+#: templates/contents/integration-table.html:15
+msgid "Average Volume"
+msgstr "日均交易量"
+
+#: templates/contents/integration-table.html:13 watchlists/models.py:147
+msgid "Price"
+msgstr "價格"
+
+#: templates/contents/integration-table.html:13
+#: templates/contents/integration-table.html:16
+#: templates/contents/integration-table.html:20
+msgid "Spark Line"
+msgstr "趨勢圖"
+
+#: templates/contents/integration-table.html:20
+msgid "Weight"
+msgstr "重量"
+
+#: templates/contents/integration-widget-type-panel-groups.html:26
+msgid "Integration Data"
+msgstr "整合資訊"
+
+#: templates/contents/monitor-profile-table.html:7
+msgid "Monitor Price"
+msgstr "監控價格"
+
+#: templates/contents/monitor-profile-table.html:8 watchlists/models.py:150
+msgid "Info"
+msgstr "監控基準價格訂定理由"
+
+#: templates/contents/monitor-profile-table.html:9 watchlists/models.py:152
+msgid "Period"
+msgstr "監控期間"
+
+#: templates/contents/monitor-profile-table.html:10 watchlists/models.py:151
+msgid "Action"
+msgstr "因應措施"
+
+#: templates/contents/product-profile.html:26
+msgid "Watchlist Item Profile"
+msgstr "監控品項內容及監控地點"
+
+#: templates/contents/product-profile.html:93 watchlists/models.py:156
+#: watchlists/models.py:157
+msgid "Monitor Profile"
+msgstr "監控價格內容及因應措施"
+
+#: templates/contents/raw-widget-single-type-index.html:28
+#: templates/contents/raw-widget-type-panel-groups.html:26
+msgid "Raw Data"
+msgstr "原始資料"
+
+#: templates/contents/selected-year-info.html:5
+msgid "Year Selected"
+msgstr "選擇年份"
+
+#: templates/contents/watchlist-profile-table.html:10 watchlists/models.py:133
+msgid "Watchlist Item"
+msgstr "監控品項"
+
+#: templates/contents/watchlist-profile-table.html:12
+msgid "Monitor Source"
+msgstr "監控地點"
+
+#: templates/header.html:19
+msgid "Collapse Menu"
+msgstr "選單"
+
+#: templates/header.html:56
+msgid "Sign Out"
+msgstr "登出"
+
+#: templates/header.html:56
+msgid ""
+"You can improve your security further after logging out by closing this "
+"opened browser"
+msgstr "建議您登出後關閉分頁以提高安全性"
+
+#: templates/header.html:79
+msgid "Full Screen"
+msgstr "全螢幕"
+
+#: templates/navigation.html:32 watchlists/models.py:45
+#: watchlists/models.py:145
+msgid "Watchlist"
+msgstr "監控清單"
+
+#: templates/navigation.html:65
+msgid "Grand Totals"
+msgstr "合計項目"
+
+#: templates/navigation.html:81
+msgid "Agricultures"
+msgstr "農產品"
+
+#: templates/navigation.html:97
+msgid "Livestocks"
+msgstr "畜禽產品"
+
+#: templates/navigation.html:113
+msgid "Fisheries"
+msgstr "漁產品"
+
+#: watchlists/models.py:21
+msgid "<"
+msgstr "低於"
+
+#: watchlists/models.py:22
+msgid "<="
+msgstr "低於（含）"
+
+#: watchlists/models.py:23
+msgid ">"
+msgstr "高於"
+
+#: watchlists/models.py:24
+msgid ">="
+msgstr "高於（含）"
+
+#: watchlists/models.py:39
+msgid "Is Default"
+msgstr "預設（唯一）"
+
+#: watchlists/models.py:40
+msgid "Watch All"
+msgstr "監控全部（唯一）"
+
+#: watchlists/models.py:46
+msgid "Watchlists"
+msgstr "監控清單"
+
+#: watchlists/models.py:134
+msgid "Watchlist Items"
+msgstr "監控品項"
+
+#: watchlists/models.py:148
+msgid "Comparison"
+msgstr "比較方式"
+
+#: watchlists/models.py:149
+msgid "Color"
+msgstr "顯示顏色"
+

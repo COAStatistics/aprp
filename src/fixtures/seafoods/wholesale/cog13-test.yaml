@@ -1,0 +1,68 @@
+- model: seafoods.Seafood
+  pk: 120001
+  fields:
+    name: 養殖類
+    config: 13
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 12190
+  fields:
+    name: 尼羅紅魚
+    config: 13
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 12191
+  fields:
+    name: 尼羅紅魚
+    code: 1012
+    type: 1
+    config: 13
+    parent: 12190
+
+
+- model: seafoods.Seafood
+  pk: 120007
+  fields:
+    name: 吳郭魚
+    config: 13
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120008
+  fields:
+    name: 吳郭魚
+    code: 1011
+    type: 1
+    config: 13
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120009
+  fields:
+    name: 吳郭魚內銷
+    code: 1011
+    type: 2
+    config: 13
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120010
+  fields:
+    name: 吳郭魚外銷條凍
+    code: 1011C
+    type: 2
+    config: 13
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120011
+  fields:
+    name: 吳郭魚外銷切片
+    code: 1011D
+    type: 2
+    config: 13
+    parent: 120007

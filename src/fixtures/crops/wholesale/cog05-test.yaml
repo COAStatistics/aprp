@@ -1,0 +1,97 @@
+- model: crops.Crop
+  pk: 40002
+  fields:
+    name: 葉菜類
+    code: L
+    config: 5
+    track_item: false
+
+- model: crops.Crop
+  pk: 40163
+  fields:
+    name: 甘藍
+    type: 1
+    config: 5
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40164
+  fields:
+    name: 甘藍-初秋
+    code: LA1
+    type: 1
+    config: 5
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40165
+  fields:
+    name: 甘藍-改良種
+    code: LA2
+    type: 1
+    config: 5
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40166
+  fields:
+    name: 甘藍-紫色
+    code: LA4
+    type: 1
+    config: 5
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40167
+  fields:
+    name: 甘藍-甘藍心
+    code: LA5
+    type: 1
+    config: 5
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40168
+  fields:
+    name: 甘藍-甘藍芽
+    code: LA6
+    type: 1
+    config: 5
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40169
+  fields:
+    name: 甘藍-進口
+    code: LA9
+    type: 1
+    config: 5
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40170
+  fields:
+    name: 甘藍-其他
+    code: LA0
+    type: 1
+    config: 5
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40171
+  fields:
+    name: 甘藍-甜甘藍
+    code: LA3
+    type: 1
+    config: 5
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40172
+  fields:
+    name: 甘藍-改良尖
+    code: LA7
+    type: 1
+    config: 5
+    parent: 40163

@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load watchlist_filter %}
+
+{% with sources=product|source_filter:watchlist|join:" , " %}
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>{% trans 'Product' %}</th>
+                <th>{% trans 'Watchlist Item' %}</th>
+                {% if sources %}
+                <th>{% trans 'Monitor Source' %}</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ product }}</td>
+                <td>{{ product|product_filter:watchlist|join:" , " }}</td>
+                {% if sources %}
+                <td>{{ sources }}</td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endwith %}
+

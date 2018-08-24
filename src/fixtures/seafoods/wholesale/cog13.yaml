@@ -1,0 +1,8568 @@
+- model: seafoods.Seafood
+  pk: 120001
+  fields:
+    name: 養殖類
+    config: 13
+    unit: 1
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120002
+  fields:
+    name: 沿近海類
+    config: 13
+    unit: 1
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120003
+  fields:
+    name: 凍結類
+    config: 13
+    unit: 1
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120004
+  fields:
+    name: 蝦類
+    config: 13
+    unit: 1
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120005
+  fields:
+    name: 貝類
+    config: 13
+    unit: 1
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120006
+  fields:
+    name: 其他類
+    config: 13
+    unit: 1
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120007
+  fields:
+    name: 吳郭魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120008
+  fields:
+    name: 吳郭魚
+    code: 1011
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120012
+  fields:
+    name: 其他吳郭
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120013
+  fields:
+    name: 其他吳郭
+    code: 1019
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120012
+
+- model: seafoods.Seafood
+  pk: 120014
+  fields:
+    name: 鯽魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120015
+  fields:
+    name: 鯽魚
+    code: 1022
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120014
+
+- model: seafoods.Seafood
+  pk: 120016
+  fields:
+    name: 草魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120017
+  fields:
+    name: 草魚
+    code: 1023
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120016
+
+- model: seafoods.Seafood
+  pk: 120021
+  fields:
+    name: 金目鱸
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120022
+  fields:
+    name: 金目鱸
+    code: 1071
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120021
+
+- model: seafoods.Seafood
+  pk: 120023
+  fields:
+    name: 加州鱸
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120024
+  fields:
+    name: 加州鱸
+    code: 1072
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120023
+
+- model: seafoods.Seafood
+  pk: 120025
+  fields:
+    name: 七星鱸
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120026
+  fields:
+    name: 七星鱸
+    code: 1073
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120025
+
+- model: seafoods.Seafood
+  pk: 120028
+  fields:
+    name: 銀花鱸
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120029
+  fields:
+    name: 銀花鱸
+    code: 1074
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120028
+
+- model: seafoods.Seafood
+  pk: 120030
+  fields:
+    name: 田蛙
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120031
+  fields:
+    name: 田蛙
+    code: 1141
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120030
+
+- model: seafoods.Seafood
+  pk: 120032
+  fields:
+    name: 甲魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120033
+  fields:
+    name: 甲魚
+    code: 1151
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120032
+
+- model: seafoods.Seafood
+  pk: 120034
+  fields:
+    name: 黑鯛(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120035
+  fields:
+    name: 黑鯛(養殖)
+    code: 1163
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120034
+
+- model: seafoods.Seafood
+  pk: 120036
+  fields:
+    name: 黃鍚鯛
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120037
+  fields:
+    name: 黃鍚鯛
+    code: 1165
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120036
+
+- model: seafoods.Seafood
+  pk: 120038
+  fields:
+    name: 黃臘鰺(紅杉)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120039
+  fields:
+    name: 黃臘鰺(紅杉)
+    code: 1181
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120038
+
+- model: seafoods.Seafood
+  pk: 120040
+  fields:
+    name: 午仔魚(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120041
+  fields:
+    name: 午仔魚(養殖)
+    code: 1272
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120040
+
+- model: seafoods.Seafood
+  pk: 120042
+  fields:
+    name: 盤仔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120043
+  fields:
+    name: 盤仔
+    code: 2013
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120042
+
+- model: seafoods.Seafood
+  pk: 120044
+  fields:
+    name: 紅魚(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120045
+  fields:
+    name: 紅魚(沿海)
+    code: 2042
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120044
+
+- model: seafoods.Seafood
+  pk: 120046
+  fields:
+    name: 紅新娘
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120047
+  fields:
+    name: 紅新娘
+    code: 2047
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120046
+
+- model: seafoods.Seafood
+  pk: 120048
+  fields:
+    name: 紅目鰱
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120049
+  fields:
+    name: 紅目鰱
+    code: 2051
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120048
+
+- model: seafoods.Seafood
+  pk: 120050
+  fields:
+    name: 黃花(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120051
+  fields:
+    name: 黃花(沿海)
+    code: 2061
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120050
+
+- model: seafoods.Seafood
+  pk: 120052
+  fields:
+    name: 白口
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120053
+  fields:
+    name: 白口
+    code: 2064
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120052
+
+- model: seafoods.Seafood
+  pk: 120054
+  fields:
+    name: 火口
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120055
+  fields:
+    name: 火口
+    code: 2065
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120054
+
+- model: seafoods.Seafood
+  pk: 120056
+  fields:
+    name: 鮸魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120057
+  fields:
+    name: 鮸魚
+    code: 2067
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120056
+
+- model: seafoods.Seafood
+  pk: 120058
+  fields:
+    name: 其他黃花(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120059
+  fields:
+    name: 其他黃花(沿海)
+    code: 2069
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120058
+
+- model: seafoods.Seafood
+  pk: 120060
+  fields:
+    name: 巴闌
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120061
+  fields:
+    name: 巴闌
+    code: 2074
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120060
+
+- model: seafoods.Seafood
+  pk: 120062
+  fields:
+    name: 甘(瓜)仔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120063
+  fields:
+    name: 甘(瓜)仔
+    code: 2077
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120062
+
+- model: seafoods.Seafood
+  pk: 120064
+  fields:
+    name: 紅魽
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120065
+  fields:
+    name: 紅魽
+    code: 2079
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120064
+
+- model: seafoods.Seafood
+  pk: 120066
+  fields:
+    name: 油魽
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120067
+  fields:
+    name: 油魽
+    code: 2081
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120066
+
+- model: seafoods.Seafood
+  pk: 120068
+  fields:
+    name: 紅古
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120069
+  fields:
+    name: 紅古
+    code: 2082
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120068
+
+- model: seafoods.Seafood
+  pk: 120070
+  fields:
+    name: 白鯧
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120071
+  fields:
+    name: 白鯧
+    code: 2091
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120070
+
+- model: seafoods.Seafood
+  pk: 120072
+  fields:
+    name: 勿仔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120073
+  fields:
+    name: 勿仔
+    code: 2106
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120072
+
+- model: seafoods.Seafood
+  pk: 120074
+  fields:
+    name: 其他鮪魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120075
+  fields:
+    name: 其他鮪魚
+    code: 2119
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120074
+
+- model: seafoods.Seafood
+  pk: 120076
+  fields:
+    name: 黑皮旗
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120077
+  fields:
+    name: 黑皮旗
+    code: 2133
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120076
+
+- model: seafoods.Seafood
+  pk: 120078
+  fields:
+    name: 其他旗魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120079
+  fields:
+    name: 其他旗魚
+    code: 2139
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120078
+
+- model: seafoods.Seafood
+  pk: 120080
+  fields:
+    name: 馬加
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120081
+  fields:
+    name: 馬加
+    code: 2142
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120080
+
+- model: seafoods.Seafood
+  pk: 120082
+  fields:
+    name: 大鯊
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120083
+  fields:
+    name: 大鯊
+    code: 2151
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120082
+
+- model: seafoods.Seafood
+  pk: 120084
+  fields:
+    name: 其他鯊魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120085
+  fields:
+    name: 其他鯊魚
+    code: 2159
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120084
+
+- model: seafoods.Seafood
+  pk: 120086
+  fields:
+    name: 花枝
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120087
+  fields:
+    name: 花枝
+    code: 2163
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120086
+
+- model: seafoods.Seafood
+  pk: 120088
+  fields:
+    name: 透抽
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120089
+  fields:
+    name: 透抽
+    code: 2164
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120088
+
+- model: seafoods.Seafood
+  pk: 120090
+  fields:
+    name: 軟舌
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120091
+  fields:
+    name: 軟舌
+    code: 2165
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120090
+
+- model: seafoods.Seafood
+  pk: 120092
+  fields:
+    name: 小卷
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120093
+  fields:
+    name: 小卷
+    code: 2166
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120092
+
+- model: seafoods.Seafood
+  pk: 120094
+  fields:
+    name: 馬頭魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120095
+  fields:
+    name: 馬頭魚
+    code: 2181
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120094
+
+- model: seafoods.Seafood
+  pk: 120096
+  fields:
+    name: 狗母
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120097
+  fields:
+    name: 狗母
+    code: 2211
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120096
+
+- model: seafoods.Seafood
+  pk: 120098
+  fields:
+    name: 海鰻
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120099
+  fields:
+    name: 海鰻
+    code: 2221
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120098
+
+- model: seafoods.Seafood
+  pk: 120100
+  fields:
+    name: 海鯰
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120101
+  fields:
+    name: 海鯰
+    code: 2231
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120100
+
+- model: seafoods.Seafood
+  pk: 120102
+  fields:
+    name: 午仔魚(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120103
+  fields:
+    name: 午仔魚(沿海)
+    code: 2271
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120102
+
+- model: seafoods.Seafood
+  pk: 120104
+  fields:
+    name: 尖梭
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120105
+  fields:
+    name: 尖梭
+    code: 2301
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120104
+
+- model: seafoods.Seafood
+  pk: 120106
+  fields:
+    name: 鯖魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120107
+  fields:
+    name: 鯖魚
+    code: 2331
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120106
+
+- model: seafoods.Seafood
+  pk: 120108
+  fields:
+    name: 白帶魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120109
+  fields:
+    name: 白帶魚
+    code: 2341
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120108
+
+- model: seafoods.Seafood
+  pk: 120110
+  fields:
+    name: 鱝(魴仔)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120111
+  fields:
+    name: 鱝(魴仔)
+    code: 2351
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120110
+
+- model: seafoods.Seafood
+  pk: 120112
+  fields:
+    name: 牛尾
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120113
+  fields:
+    name: 牛尾
+    code: 2441
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120112
+
+- model: seafoods.Seafood
+  pk: 120114
+  fields:
+    name: 英哥
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120115
+  fields:
+    name: 英哥
+    code: 2481
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120114
+
+- model: seafoods.Seafood
+  pk: 120116
+  fields:
+    name: 青筆
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120117
+  fields:
+    name: 青筆
+    code: 2541
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120116
+
+- model: seafoods.Seafood
+  pk: 120118
+  fields:
+    name: 什魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120119
+  fields:
+    name: 什魚
+    code: 2562
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120118
+
+- model: seafoods.Seafood
+  pk: 120120
+  fields:
+    name: 象魚(臭肚)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120121
+  fields:
+    name: 象魚(臭肚)
+    code: 2563
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120120
+
+- model: seafoods.Seafood
+  pk: 120122
+  fields:
+    name: 肉栓(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120123
+  fields:
+    name: 肉栓(沿海)
+    code: 2568
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120122
+
+- model: seafoods.Seafood
+  pk: 120124
+  fields:
+    name: 烏公
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120125
+  fields:
+    name: 烏公
+    code: 2602
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120124
+
+- model: seafoods.Seafood
+  pk: 120126
+  fields:
+    name: 烏殼
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120127
+  fields:
+    name: 烏殼
+    code: 2603
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120126
+
+- model: seafoods.Seafood
+  pk: 120128
+  fields:
+    name: 其他非凍結魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120129
+  fields:
+    name: 其他非凍結魚
+    code: 2999
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120128
+
+- model: seafoods.Seafood
+  pk: 120130
+  fields:
+    name: 赤海(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120131
+  fields:
+    name: 赤海(凍)
+    code: 3031
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120130
+
+- model: seafoods.Seafood
+  pk: 120132
+  fields:
+    name: 紅目鰱(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120133
+  fields:
+    name: 紅目鰱(凍)
+    code: 3051
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120132
+
+- model: seafoods.Seafood
+  pk: 120134
+  fields:
+    name: 白口(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120135
+  fields:
+    name: 白口(凍)
+    code: 3064
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120134
+
+- model: seafoods.Seafood
+  pk: 120136
+  fields:
+    name: 黑鯧(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120137
+  fields:
+    name: 黑鯧(凍)
+    code: 3092
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120136
+
+- model: seafoods.Seafood
+  pk: 120138
+  fields:
+    name: 丁香(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120139
+  fields:
+    name: 丁香(凍)
+    code: 3105
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120138
+
+- model: seafoods.Seafood
+  pk: 120140
+  fields:
+    name: 勿仔(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120141
+  fields:
+    name: 勿仔(凍)
+    code: 3106
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120140
+
+- model: seafoods.Seafood
+  pk: 120142
+  fields:
+    name: 黑皮旗(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120143
+  fields:
+    name: 黑皮旗(凍)
+    code: 3133
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120142
+
+- model: seafoods.Seafood
+  pk: 120144
+  fields:
+    name: 馬加(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120145
+  fields:
+    name: 馬加(凍)
+    code: 3142
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120144
+
+- model: seafoods.Seafood
+  pk: 120146
+  fields:
+    name: 海鱺(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120147
+  fields:
+    name: 海鱺(凍)
+    code: 3491
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120146
+
+- model: seafoods.Seafood
+  pk: 120148
+  fields:
+    name: 秋刀(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120149
+  fields:
+    name: 秋刀(凍)
+    code: 3521
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120148
+
+- model: seafoods.Seafood
+  pk: 120150
+  fields:
+    name: 柳葉魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120151
+  fields:
+    name: 柳葉魚(凍)
+    code: 3632
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120150
+
+- model: seafoods.Seafood
+  pk: 120152
+  fields:
+    name: 鱈魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120153
+  fields:
+    name: 鱈魚(凍)
+    code: 3641
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120152
+
+- model: seafoods.Seafood
+  pk: 120154
+  fields:
+    name: 溪蝦
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120155
+  fields:
+    name: 溪蝦
+    code: 4010
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120154
+
+- model: seafoods.Seafood
+  pk: 120156
+  fields:
+    name: 草蝦養
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120157
+  fields:
+    name: 草蝦養
+    code: 4012
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120156
+
+- model: seafoods.Seafood
+  pk: 120158
+  fields:
+    name: 大正蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120159
+  fields:
+    name: 大正蝦海
+    code: 4061
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120158
+
+- model: seafoods.Seafood
+  pk: 120160
+  fields:
+    name: 劍蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120161
+  fields:
+    name: 劍蝦海
+    code: 4071
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120160
+
+- model: seafoods.Seafood
+  pk: 120162
+  fields:
+    name: 白秋蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120163
+  fields:
+    name: 白秋蝦海
+    code: 4081
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120162
+
+- model: seafoods.Seafood
+  pk: 120164
+  fields:
+    name: 厚殼蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120165
+  fields:
+    name: 厚殼蝦海
+    code: 4091
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120164
+
+- model: seafoods.Seafood
+  pk: 120166
+  fields:
+    name: 其他蝦類
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120167
+  fields:
+    name: 其他蝦類
+    code: 4509
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120166
+
+- model: seafoods.Seafood
+  pk: 120168
+  fields:
+    name: 紅蟳
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120169
+  fields:
+    name: 紅蟳
+    code: 4512
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120168
+
+- model: seafoods.Seafood
+  pk: 120170
+  fields:
+    name: 花市仔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120171
+  fields:
+    name: 花市仔
+    code: 4521
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120170
+
+- model: seafoods.Seafood
+  pk: 120172
+  fields:
+    name: 鳳螺(海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120173
+  fields:
+    name: 鳳螺(海)
+    code: 5111
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120172
+
+- model: seafoods.Seafood
+  pk: 120174
+  fields:
+    name: 花螺(海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120175
+  fields:
+    name: 花螺(海)
+    code: 5121
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120174
+
+- model: seafoods.Seafood
+  pk: 120176
+  fields:
+    name: 鱈魚片
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120177
+  fields:
+    name: 鱈魚片
+    code: 6009
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120176
+
+- model: seafoods.Seafood
+  pk: 120178
+  fields:
+    name: 紅魚(其他)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120179
+  fields:
+    name: 紅魚(其他)
+    code: 6011
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120178
+
+- model: seafoods.Seafood
+  pk: 120180
+  fields:
+    name: 鹹魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120181
+  fields:
+    name: 鹹魚
+    code: 6021
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120180
+
+- model: seafoods.Seafood
+  pk: 120182
+  fields:
+    name: 熟卷
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120183
+  fields:
+    name: 熟卷
+    code: 6050
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120182
+
+- model: seafoods.Seafood
+  pk: 120184
+  fields:
+    name: 熟小破
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120185
+  fields:
+    name: 熟小破
+    code: 6051
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120184
+
+- model: seafoods.Seafood
+  pk: 120186
+  fields:
+    name: 烏魚子
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120187
+  fields:
+    name: 烏魚子
+    code: 6052
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120186
+
+- model: seafoods.Seafood
+  pk: 120188
+  fields:
+    name: 其他
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120189
+  fields:
+    name: 其他
+    code: 9999
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120188
+
+- model: seafoods.Seafood
+  pk: 120190
+  fields:
+    name: 尼羅紅魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120191
+  fields:
+    name: 尼羅紅魚
+    code: 1012
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120190
+
+- model: seafoods.Seafood
+  pk: 120192
+  fields:
+    name: 大頭鰱
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120193
+  fields:
+    name: 大頭鰱
+    code: 1024
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120192
+
+- model: seafoods.Seafood
+  pk: 120194
+  fields:
+    name: 烏鰡
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120195
+  fields:
+    name: 烏鰡
+    code: 1027
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120194
+
+- model: seafoods.Seafood
+  pk: 120198
+  fields:
+    name: 虱目魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120199
+  fields:
+    name: 虱目魚
+    code: 1041
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120198
+
+- model: seafoods.Seafood
+  pk: 120201
+  fields:
+    name: 烏仔魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120202
+  fields:
+    name: 烏仔魚
+    code: 1051
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120201
+
+- model: seafoods.Seafood
+  pk: 120203
+  fields:
+    name: 豆仔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120204
+  fields:
+    name: 豆仔
+    code: 1061
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120203
+
+- model: seafoods.Seafood
+  pk: 120205
+  fields:
+    name: 鱺魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120206
+  fields:
+    name: 鱺魚
+    code: 1081
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120205
+
+- model: seafoods.Seafood
+  pk: 120207
+  fields:
+    name: 鱒魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120208
+  fields:
+    name: 鱒魚
+    code: 1121
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120207
+
+- model: seafoods.Seafood
+  pk: 120209
+  fields:
+    name: 象魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120210
+  fields:
+    name: 象魚
+    code: 1170
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120209
+
+- model: seafoods.Seafood
+  pk: 120211
+  fields:
+    name: 青石斑
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120212
+  fields:
+    name: 青石斑
+    code: 1171
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120211
+
+- model: seafoods.Seafood
+  pk: 120214
+  fields:
+    name: 淡水珍珠石斑
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120215
+  fields:
+    name: 淡水珍珠石斑
+    code: 1172
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120214
+
+- model: seafoods.Seafood
+  pk: 120216
+  fields:
+    name: 其他養殖
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120217
+  fields:
+    name: 其他養殖
+    code: 1999
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120216
+
+- model: seafoods.Seafood
+  pk: 120218
+  fields:
+    name: 赤宗
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120219
+  fields:
+    name: 赤宗
+    code: 2012
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120218
+
+- model: seafoods.Seafood
+  pk: 120220
+  fields:
+    name: 赤翅(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120221
+  fields:
+    name: 赤翅(沿海)
+    code: 2014
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120220
+
+- model: seafoods.Seafood
+  pk: 120222
+  fields:
+    name: 花身(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120223
+  fields:
+    name: 花身(沿海)
+    code: 2017
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120222
+
+- model: seafoods.Seafood
+  pk: 120224
+  fields:
+    name: 金線
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120225
+  fields:
+    name: 金線
+    code: 2021
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120224
+
+- model: seafoods.Seafood
+  pk: 120226
+  fields:
+    name: 秋姑
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120227
+  fields:
+    name: 秋姑
+    code: 2041
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120226
+
+- model: seafoods.Seafood
+  pk: 120228
+  fields:
+    name: 黑口
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120229
+  fields:
+    name: 黑口
+    code: 2063
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120228
+
+- model: seafoods.Seafood
+  pk: 120230
+  fields:
+    name: 硬尾
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120231
+  fields:
+    name: 硬尾
+    code: 2073
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120230
+
+- model: seafoods.Seafood
+  pk: 120232
+  fields:
+    name: 鐵甲
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120233
+  fields:
+    name: 鐵甲
+    code: 2076
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120232
+
+- model: seafoods.Seafood
+  pk: 120234
+  fields:
+    name: 青魽
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120235
+  fields:
+    name: 青魽
+    code: 2078
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120234
+
+- model: seafoods.Seafood
+  pk: 120236
+  fields:
+    name: 黑魽
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120237
+  fields:
+    name: 黑魽
+    code: 2080
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120236
+
+- model: seafoods.Seafood
+  pk: 120238
+  fields:
+    name: 紅尾冬
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120239
+  fields:
+    name: 紅尾冬
+    code: 2083
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120238
+
+- model: seafoods.Seafood
+  pk: 120240
+  fields:
+    name: 丁香
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120241
+  fields:
+    name: 丁香
+    code: 2105
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120240
+
+- model: seafoods.Seafood
+  pk: 120242
+  fields:
+    name: 小串仔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120243
+  fields:
+    name: 小串仔
+    code: 2115
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120242
+
+- model: seafoods.Seafood
+  pk: 120244
+  fields:
+    name: 土魠
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120245
+  fields:
+    name: 土魠
+    code: 2141
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120244
+
+- model: seafoods.Seafood
+  pk: 120246
+  fields:
+    name: 白北
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120247
+  fields:
+    name: 白北
+    code: 2143
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120246
+
+- model: seafoods.Seafood
+  pk: 120248
+  fields:
+    name: 鯊條
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120249
+  fields:
+    name: 鯊條
+    code: 2152
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120248
+
+- model: seafoods.Seafood
+  pk: 120250
+  fields:
+    name: 魷魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120251
+  fields:
+    name: 魷魚
+    code: 2161
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120250
+
+- model: seafoods.Seafood
+  pk: 120252
+  fields:
+    name: 章魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120253
+  fields:
+    name: 章魚
+    code: 2169
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120252
+
+- model: seafoods.Seafood
+  pk: 120254
+  fields:
+    name: 石斑魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120255
+  fields:
+    name: 石斑魚
+    code: 2201
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120254
+
+- model: seafoods.Seafood
+  pk: 120256
+  fields:
+    name: 小紅鱠
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120257
+  fields:
+    name: 小紅鱠
+    code: 2202
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120256
+
+- model: seafoods.Seafood
+  pk: 120258
+  fields:
+    name: 變身苦
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120259
+  fields:
+    name: 變身苦
+    code: 2242
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120258
+
+- model: seafoods.Seafood
+  pk: 120260
+  fields:
+    name: 皮刀
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120261
+  fields:
+    name: 皮刀
+    code: 2251
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120260
+
+- model: seafoods.Seafood
+  pk: 120262
+  fields:
+    name: 肉魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120263
+  fields:
+    name: 肉魚
+    code: 2261
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120262
+
+- model: seafoods.Seafood
+  pk: 120264
+  fields:
+    name: 龍舌
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120265
+  fields:
+    name: 龍舌
+    code: 2411
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120264
+
+- model: seafoods.Seafood
+  pk: 120266
+  fields:
+    name: 厚唇
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120267
+  fields:
+    name: 厚唇
+    code: 2431
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120266
+
+- model: seafoods.Seafood
+  pk: 120268
+  fields:
+    name: 秋哥
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120269
+  fields:
+    name: 秋哥
+    code: 2471
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120268
+
+- model: seafoods.Seafood
+  pk: 120270
+  fields:
+    name: 赤筆
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120271
+  fields:
+    name: 赤筆
+    code: 2501
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120270
+
+- model: seafoods.Seafood
+  pk: 120272
+  fields:
+    name: 金龍(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120273
+  fields:
+    name: 金龍(沿海)
+    code: 2511
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120272
+
+- model: seafoods.Seafood
+  pk: 120274
+  fields:
+    name: 國光
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120275
+  fields:
+    name: 國光
+    code: 2531
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120274
+
+- model: seafoods.Seafood
+  pk: 120276
+  fields:
+    name: 沙腸
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120277
+  fields:
+    name: 沙腸
+    code: 2551
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120276
+
+- model: seafoods.Seafood
+  pk: 120278
+  fields:
+    name: 其他烏魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120279
+  fields:
+    name: 其他烏魚
+    code: 2609
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120278
+
+- model: seafoods.Seafood
+  pk: 120280
+  fields:
+    name: 鮭魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120281
+  fields:
+    name: 鮭魚
+    code: 2781
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120280
+
+- model: seafoods.Seafood
+  pk: 120282
+  fields:
+    name: 加臘(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120283
+  fields:
+    name: 加臘(凍)
+    code: 3011
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120282
+
+- model: seafoods.Seafood
+  pk: 120284
+  fields:
+    name: 金線(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120285
+  fields:
+    name: 金線(凍)
+    code: 3021
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120284
+
+- model: seafoods.Seafood
+  pk: 120286
+  fields:
+    name: 青魽(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120287
+  fields:
+    name: 青魽(凍)
+    code: 3078
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120286
+
+- model: seafoods.Seafood
+  pk: 120288
+  fields:
+    name: 其他鯧類(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120289
+  fields:
+    name: 其他鯧類(凍)
+    code: 3099
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120288
+
+- model: seafoods.Seafood
+  pk: 120290
+  fields:
+    name: 土魠(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120291
+  fields:
+    name: 土魠(凍)
+    code: 3141
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120290
+
+- model: seafoods.Seafood
+  pk: 120292
+  fields:
+    name: 透抽(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120293
+  fields:
+    name: 透抽(凍)
+    code: 3164
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120292
+
+- model: seafoods.Seafood
+  pk: 120294
+  fields:
+    name: 白帶魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120295
+  fields:
+    name: 白帶魚(凍)
+    code: 3341
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120294
+
+- model: seafoods.Seafood
+  pk: 120296
+  fields:
+    name: 龍舌(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120297
+  fields:
+    name: 龍舌(凍)
+    code: 3411
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120296
+
+- model: seafoods.Seafood
+  pk: 120298
+  fields:
+    name: 什魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120299
+  fields:
+    name: 什魚(凍)
+    code: 3562
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120298
+
+- model: seafoods.Seafood
+  pk: 120300
+  fields:
+    name: 剝皮魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120301
+  fields:
+    name: 剝皮魚(凍)
+    code: 3571
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120300
+
+- model: seafoods.Seafood
+  pk: 120302
+  fields:
+    name: 其他凍結(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120303
+  fields:
+    name: 其他凍結(凍)
+    code: 3999
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120302
+
+- model: seafoods.Seafood
+  pk: 120304
+  fields:
+    name: 紅尾蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120305
+  fields:
+    name: 紅尾蝦海
+    code: 4041
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120304
+
+- model: seafoods.Seafood
+  pk: 120306
+  fields:
+    name: 蟳
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120307
+  fields:
+    name: 蟳
+    code: 4511
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120306
+
+- model: seafoods.Seafood
+  pk: 120308
+  fields:
+    name: 牡蠣養
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120309
+  fields:
+    name: 牡蠣養
+    code: 5012
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120308
+
+- model: seafoods.Seafood
+  pk: 120311
+  fields:
+    name: 文蛤養
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120312
+  fields:
+    name: 文蛤養
+    code: 5022
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120311
+
+- model: seafoods.Seafood
+  pk: 120314
+  fields:
+    name: 蜆(養)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120315
+  fields:
+    name: 蜆(養)
+    code: 5092
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120314
+
+- model: seafoods.Seafood
+  pk: 120316
+  fields:
+    name: 鯉魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120317
+  fields:
+    name: 鯉魚
+    code: 1021
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120316
+
+- model: seafoods.Seafood
+  pk: 120318
+  fields:
+    name: 泥鰍
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120319
+  fields:
+    name: 泥鰍
+    code: 1102
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120318
+
+- model: seafoods.Seafood
+  pk: 120320
+  fields:
+    name: 赤翅(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120321
+  fields:
+    name: 赤翅(養殖)
+    code: 1162
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120320
+
+- model: seafoods.Seafood
+  pk: 120322
+  fields:
+    name: 紅鰽
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120323
+  fields:
+    name: 紅鰽
+    code: 1164
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120322
+
+- model: seafoods.Seafood
+  pk: 120324
+  fields:
+    name: 烏殼(養)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120325
+  fields:
+    name: 烏殼(養)
+    code: 1603
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120324
+
+- model: seafoods.Seafood
+  pk: 120326
+  fields:
+    name: 黑鯛(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120327
+  fields:
+    name: 黑鯛(沿海)
+    code: 2015
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120326
+
+- model: seafoods.Seafood
+  pk: 120328
+  fields:
+    name: 赤海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120329
+  fields:
+    name: 赤海
+    code: 2031
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120328
+
+- model: seafoods.Seafood
+  pk: 120330
+  fields:
+    name: 鰺魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120331
+  fields:
+    name: 鰺魚
+    code: 2085
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120330
+
+- model: seafoods.Seafood
+  pk: 120332
+  fields:
+    name: 其他鰺類
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120333
+  fields:
+    name: 其他鰺類
+    code: 2089
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120332
+
+- model: seafoods.Seafood
+  pk: 120334
+  fields:
+    name: 其他鯧類
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120335
+  fields:
+    name: 其他鯧類
+    code: 2099
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120334
+
+- model: seafoods.Seafood
+  pk: 120336
+  fields:
+    name: 長鰭鮪
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120337
+  fields:
+    name: 長鰭鮪
+    code: 2111
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120336
+
+- model: seafoods.Seafood
+  pk: 120338
+  fields:
+    name: 花鰹
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120339
+  fields:
+    name: 花鰹
+    code: 2122
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120338
+
+- model: seafoods.Seafood
+  pk: 120340
+  fields:
+    name: 白皮旗
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120341
+  fields:
+    name: 白皮旗
+    code: 2134
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120340
+
+- model: seafoods.Seafood
+  pk: 120342
+  fields:
+    name: 雨傘旗
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120343
+  fields:
+    name: 雨傘旗
+    code: 2135
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120342
+
+- model: seafoods.Seafood
+  pk: 120344
+  fields:
+    name: 咬狗
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120345
+  fields:
+    name: 咬狗
+    code: 2391
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120344
+
+- model: seafoods.Seafood
+  pk: 120346
+  fields:
+    name: 扁魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120347
+  fields:
+    name: 扁魚
+    code: 2401
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120346
+
+- model: seafoods.Seafood
+  pk: 120348
+  fields:
+    name: 長加
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120349
+  fields:
+    name: 長加
+    code: 2461
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120348
+
+- model: seafoods.Seafood
+  pk: 120350
+  fields:
+    name: 加志
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120351
+  fields:
+    name: 加志
+    code: 2512
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120350
+
+- model: seafoods.Seafood
+  pk: 120352
+  fields:
+    name: 剝皮魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120353
+  fields:
+    name: 剝皮魚
+    code: 2571
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120352
+
+- model: seafoods.Seafood
+  pk: 120354
+  fields:
+    name: 其他鮪魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120355
+  fields:
+    name: 其他鮪魚(凍)
+    code: 3119
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120354
+
+- model: seafoods.Seafood
+  pk: 120356
+  fields:
+    name: 白北(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120357
+  fields:
+    name: 白北(凍)
+    code: 3143
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120356
+
+- model: seafoods.Seafood
+  pk: 120358
+  fields:
+    name: 魷魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120359
+  fields:
+    name: 魷魚(凍)
+    code: 3161
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120358
+
+- model: seafoods.Seafood
+  pk: 120360
+  fields:
+    name: 章魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120361
+  fields:
+    name: 章魚(凍)
+    code: 3169
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120360
+
+- model: seafoods.Seafood
+  pk: 120362
+  fields:
+    name: 肉魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120363
+  fields:
+    name: 肉魚(凍)
+    code: 3261
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120362
+
+- model: seafoods.Seafood
+  pk: 120364
+  fields:
+    name: 白蝦
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120365
+  fields:
+    name: 白蝦
+    code: 4015
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120364
+
+- model: seafoods.Seafood
+  pk: 120367
+  fields:
+    name: 斑節蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120368
+  fields:
+    name: 斑節蝦海
+    code: 4051
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120367
+
+- model: seafoods.Seafood
+  pk: 120369
+  fields:
+    name: 紅蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120370
+  fields:
+    name: 紅蝦海
+    code: 4101
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120369
+
+- model: seafoods.Seafood
+  pk: 120371
+  fields:
+    name: 熟丁香
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120372
+  fields:
+    name: 熟丁香
+    code: 6071
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120371
+
+- model: seafoods.Seafood
+  pk: 120373
+  fields:
+    name: 香魚(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120374
+  fields:
+    name: 香魚(養殖)
+    code: 1191
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120373
+
+- model: seafoods.Seafood
+  pk: 120375
+  fields:
+    name: 金龍(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120376
+  fields:
+    name: 金龍(養殖)
+    code: 1511
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120375
+
+- model: seafoods.Seafood
+  pk: 120377
+  fields:
+    name: 目孔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120378
+  fields:
+    name: 目孔
+    code: 2072
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120377
+
+- model: seafoods.Seafood
+  pk: 120379
+  fields:
+    name: 黃鰭鮪
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120380
+  fields:
+    name: 黃鰭鮪
+    code: 2113
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120379
+
+- model: seafoods.Seafood
+  pk: 120381
+  fields:
+    name: 煙仔虎
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120382
+  fields:
+    name: 煙仔虎
+    code: 2124
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120381
+
+- model: seafoods.Seafood
+  pk: 120383
+  fields:
+    name: 其他鰹類
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120384
+  fields:
+    name: 其他鰹類
+    code: 2129
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120383
+
+- model: seafoods.Seafood
+  pk: 120385
+  fields:
+    name: 其他頭足
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120386
+  fields:
+    name: 其他頭足
+    code: 2179
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120385
+
+- model: seafoods.Seafood
+  pk: 120387
+  fields:
+    name: 油魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120388
+  fields:
+    name: 油魚
+    code: 2321
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120387
+
+- model: seafoods.Seafood
+  pk: 120389
+  fields:
+    name: 火口(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120390
+  fields:
+    name: 火口(凍)
+    code: 3065
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120389
+
+- model: seafoods.Seafood
+  pk: 120391
+  fields:
+    name: 鱙仔(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120392
+  fields:
+    name: 鱙仔(凍)
+    code: 3103
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120391
+
+- model: seafoods.Seafood
+  pk: 120393
+  fields:
+    name: 其他鰆類(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120394
+  fields:
+    name: 其他鰆類(凍)
+    code: 3149
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120393
+
+- model: seafoods.Seafood
+  pk: 120395
+  fields:
+    name: 軟舌(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120396
+  fields:
+    name: 軟舌(凍)
+    code: 3165
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120395
+
+- model: seafoods.Seafood
+  pk: 120397
+  fields:
+    name: 紅條(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120398
+  fields:
+    name: 紅條(凍)
+    code: 3203
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120397
+
+- model: seafoods.Seafood
+  pk: 120399
+  fields:
+    name: 鯖魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120400
+  fields:
+    name: 鯖魚(凍)
+    code: 3331
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120399
+
+- model: seafoods.Seafood
+  pk: 120401
+  fields:
+    name: 熟鯖魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120402
+  fields:
+    name: 熟鯖魚
+    code: 6081
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120401
+
+- model: seafoods.Seafood
+  pk: 120403
+  fields:
+    name: 鯰魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120404
+  fields:
+    name: 鯰魚
+    code: 1111
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120403
+
+- model: seafoods.Seafood
+  pk: 120405
+  fields:
+    name: 四破
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120406
+  fields:
+    name: 四破
+    code: 2071
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120405
+
+- model: seafoods.Seafood
+  pk: 120407
+  fields:
+    name: 黑尾冬
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120408
+  fields:
+    name: 黑尾冬
+    code: 2084
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120407
+
+- model: seafoods.Seafood
+  pk: 120409
+  fields:
+    name: 黑鯧
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120410
+  fields:
+    name: 黑鯧
+    code: 2092
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120409
+
+- model: seafoods.Seafood
+  pk: 120411
+  fields:
+    name: 劍旗魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120412
+  fields:
+    name: 劍旗魚
+    code: 2131
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120411
+
+- model: seafoods.Seafood
+  pk: 120413
+  fields:
+    name: 紅肉旗
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120414
+  fields:
+    name: 紅肉旗
+    code: 2132
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120413
+
+- model: seafoods.Seafood
+  pk: 120415
+  fields:
+    name: 其他鰆類
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120416
+  fields:
+    name: 其他鰆類
+    code: 2149
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120415
+
+- model: seafoods.Seafood
+  pk: 120417
+  fields:
+    name: 鯊煙
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120418
+  fields:
+    name: 鯊煙
+    code: 2153
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120417
+
+- model: seafoods.Seafood
+  pk: 120419
+  fields:
+    name: 海鱺(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120420
+  fields:
+    name: 海鱺(沿海)
+    code: 2491
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120419
+
+- model: seafoods.Seafood
+  pk: 120421
+  fields:
+    name: 烏母
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120422
+  fields:
+    name: 烏母
+    code: 2601
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120421
+
+- model: seafoods.Seafood
+  pk: 120423
+  fields:
+    name: 水針
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120424
+  fields:
+    name: 水針
+    code: 2611
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120423
+
+- model: seafoods.Seafood
+  pk: 120425
+  fields:
+    name: 四破(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120426
+  fields:
+    name: 四破(凍)
+    code: 3071
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120425
+
+- model: seafoods.Seafood
+  pk: 120427
+  fields:
+    name: 紅魽(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120428
+  fields:
+    name: 紅魽(凍)
+    code: 3079
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120427
+
+- model: seafoods.Seafood
+  pk: 120429
+  fields:
+    name: 沙腸(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120430
+  fields:
+    name: 沙腸(凍)
+    code: 3551
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120429
+
+- model: seafoods.Seafood
+  pk: 120431
+  fields:
+    name: 鮭魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120432
+  fields:
+    name: 鮭魚(凍)
+    code: 3781
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120431
+
+- model: seafoods.Seafood
+  pk: 120433
+  fields:
+    name: 沙蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120434
+  fields:
+    name: 沙蝦海
+    code: 4021
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120433
+
+- model: seafoods.Seafood
+  pk: 120435
+  fields:
+    name: 紅尾蝦養
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120436
+  fields:
+    name: 紅尾蝦養
+    code: 4042
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120435
+
+- model: seafoods.Seafood
+  pk: 120437
+  fields:
+    name: 其他加工
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120438
+  fields:
+    name: 其他加工
+    code: 6049
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120437
+
+- model: seafoods.Seafood
+  pk: 120439
+  fields:
+    name: 熟四破
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120440
+  fields:
+    name: 熟四破
+    code: 6061
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120439
+
+- model: seafoods.Seafood
+  pk: 120441
+  fields:
+    name: 花身(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120442
+  fields:
+    name: 花身(養殖)
+    code: 1168
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120441
+
+- model: seafoods.Seafood
+  pk: 120443
+  fields:
+    name: 其他鯛類(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120444
+  fields:
+    name: 其他鯛類(養殖)
+    code: 1169
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120443
+
+- model: seafoods.Seafood
+  pk: 120445
+  fields:
+    name: 其他黃花(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120446
+  fields:
+    name: 其他黃花(養殖)
+    code: 1799
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120445
+
+- model: seafoods.Seafood
+  pk: 120447
+  fields:
+    name: 加臘(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120448
+  fields:
+    name: 加臘(沿海)
+    code: 2011
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120447
+
+- model: seafoods.Seafood
+  pk: 120449
+  fields:
+    name: 三牙
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120450
+  fields:
+    name: 三牙
+    code: 2062
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120449
+
+- model: seafoods.Seafood
+  pk: 120451
+  fields:
+    name: 紅尾
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120452
+  fields:
+    name: 紅尾
+    code: 2075
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120451
+
+- model: seafoods.Seafood
+  pk: 120453
+  fields:
+    name: 真鰹
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120454
+  fields:
+    name: 真鰹
+    code: 2121
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120453
+
+- model: seafoods.Seafood
+  pk: 120455
+  fields:
+    name: 闊北
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120456
+  fields:
+    name: 闊北
+    code: 2146
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120455
+
+- model: seafoods.Seafood
+  pk: 120457
+  fields:
+    name: 龍尖
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120458
+  fields:
+    name: 龍尖
+    code: 2191
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120457
+
+- model: seafoods.Seafood
+  pk: 120459
+  fields:
+    name: 下雜魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120460
+  fields:
+    name: 下雜魚
+    code: 2564
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120459
+
+- model: seafoods.Seafood
+  pk: 120461
+  fields:
+    name: 鮸魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120462
+  fields:
+    name: 鮸魚(凍)
+    code: 3067
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120461
+
+- model: seafoods.Seafood
+  pk: 120463
+  fields:
+    name: 白鯧(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120464
+  fields:
+    name: 白鯧(凍)
+    code: 3091
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120463
+
+- model: seafoods.Seafood
+  pk: 120465
+  fields:
+    name: 沙煙(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120466
+  fields:
+    name: 沙煙(凍)
+    code: 3153
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120465
+
+- model: seafoods.Seafood
+  pk: 120467
+  fields:
+    name: 其他沙魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120468
+  fields:
+    name: 其他沙魚(凍)
+    code: 3159
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120467
+
+- model: seafoods.Seafood
+  pk: 120469
+  fields:
+    name: 海瓜子
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120470
+  fields:
+    name: 海瓜子
+    code: 5888
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120469
+
+- model: seafoods.Seafood
+  pk: 120471
+  fields:
+    name: 花蚧子
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120472
+  fields:
+    name: 花蚧子
+    code: 5889
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120471
+
+- model: seafoods.Seafood
+  pk: 120473
+  fields:
+    name: 其他貝類
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120474
+  fields:
+    name: 其他貝類
+    code: 5999
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120473
+
+- model: seafoods.Seafood
+  pk: 120475
+  fields:
+    name: 黃花(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120476
+  fields:
+    name: 黃花(養殖)
+    code: 1167
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120475
+
+- model: seafoods.Seafood
+  pk: 120477
+  fields:
+    name: 其他溫類
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120478
+  fields:
+    name: 其他溫類
+    code: 2109
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120477
+
+- model: seafoods.Seafood
+  pk: 120479
+  fields:
+    name: 石喬(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120480
+  fields:
+    name: 石喬(凍)
+    code: 3145
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120479
+
+- model: seafoods.Seafood
+  pk: 120481
+  fields:
+    name: 小蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120482
+  fields:
+    name: 小蝦海
+    code: 4121
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120481
+
+- model: seafoods.Seafood
+  pk: 120483
+  fields:
+    name: 市仔管
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120484
+  fields:
+    name: 市仔管
+    code: 4522
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120483
+
+- model: seafoods.Seafood
+  pk: 120485
+  fields:
+    name: 鐘螺(海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120486
+  fields:
+    name: 鐘螺(海)
+    code: 5061
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120485
+
+- model: seafoods.Seafood
+  pk: 120487
+  fields:
+    name: 海參
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120488
+  fields:
+    name: 海參
+    code: 6012
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120487
+
+- model: seafoods.Seafood
+  pk: 120489
+  fields:
+    name: 鮭
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120490
+  fields:
+    name: 鮭
+    code: 6016
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120489
+
+- model: seafoods.Seafood
+  pk: 120491
+  fields:
+    name: 烏公(養)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120492
+  fields:
+    name: 烏公(養)
+    code: 1602
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120491
+
+- model: seafoods.Seafood
+  pk: 120493
+  fields:
+    name: 角鯊
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120494
+  fields:
+    name: 角鯊
+    code: 2155
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120493
+
+- model: seafoods.Seafood
+  pk: 120495
+  fields:
+    name: 翻車魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120496
+  fields:
+    name: 翻車魚
+    code: 2901
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120495
+
+- model: seafoods.Seafood
+  pk: 120497
+  fields:
+    name: 紅魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120498
+  fields:
+    name: 紅魚(凍)
+    code: 3042
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120497
+
+- model: seafoods.Seafood
+  pk: 120499
+  fields:
+    name: 花枝(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120500
+  fields:
+    name: 花枝(凍)
+    code: 3163
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120499
+
+- model: seafoods.Seafood
+  pk: 120501
+  fields:
+    name: 小卷(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120502
+  fields:
+    name: 小卷(凍)
+    code: 3166
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120501
+
+- model: seafoods.Seafood
+  pk: 120503
+  fields:
+    name: 其他頭足(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120504
+  fields:
+    name: 其他頭足(凍)
+    code: 3179
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120503
+
+- model: seafoods.Seafood
+  pk: 120505
+  fields:
+    name: 三點仔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120506
+  fields:
+    name: 三點仔
+    code: 4513
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120505
+
+- model: seafoods.Seafood
+  pk: 120507
+  fields:
+    name: 其他蟹類
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120508
+  fields:
+    name: 其他蟹類
+    code: 4999
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120507
+
+- model: seafoods.Seafood
+  pk: 120509
+  fields:
+    name: 圓花鰹
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120510
+  fields:
+    name: 圓花鰹
+    code: 2123
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120509
+
+- model: seafoods.Seafood
+  pk: 120511
+  fields:
+    name: 九岩
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120512
+  fields:
+    name: 九岩
+    code: 2532
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120511
+
+- model: seafoods.Seafood
+  pk: 120513
+  fields:
+    name: 飛魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120514
+  fields:
+    name: 飛魚
+    code: 2281
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120513
+
+- model: seafoods.Seafood
+  pk: 120515
+  fields:
+    name: 黑鮪
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120516
+  fields:
+    name: 黑鮪
+    code: 2114
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120515
+
+- model: seafoods.Seafood
+  pk: 120517
+  fields:
+    name: 黑鯊
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120518
+  fields:
+    name: 黑鯊
+    code: 2156
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120517
+
+- model: seafoods.Seafood
+  pk: 120519
+  fields:
+    name: 紅鰽海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120520
+  fields:
+    name: 紅鰽海
+    code: 2048
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120519
+
+- model: seafoods.Seafood
+  pk: 120521
+  fields:
+    name: 竹蟶海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120522
+  fields:
+    name: 竹蟶海
+    code: 5101
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120521
+
+- model: seafoods.Seafood
+  pk: 120523
+  fields:
+    name: 其他鯛類(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120524
+  fields:
+    name: 其他鯛類(沿海)
+    code: 2019
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120523
+
+- model: seafoods.Seafood
+  pk: 120525
+  fields:
+    name: 萬引
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120526
+  fields:
+    name: 萬引
+    code: 2292
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120525
+
+- model: seafoods.Seafood
+  pk: 120527
+  fields:
+    name: 午仔魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120528
+  fields:
+    name: 午仔魚(凍)
+    code: 3271
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120527
+
+- model: seafoods.Seafood
+  pk: 120529
+  fields:
+    name: 竹梭
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120530
+  fields:
+    name: 竹梭
+    code: 2302
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120529
+
+- model: seafoods.Seafood
+  pk: 120531
+  fields:
+    name: 三牙(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120532
+  fields:
+    name: 三牙(凍)
+    code: 3062
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120531
+
+- model: seafoods.Seafood
+  pk: 120533
+  fields:
+    name: 泰國蝦養
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120534
+  fields:
+    name: 泰國蝦養
+    code: 4032
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120533
+
+- model: seafoods.Seafood
+  pk: 120535
+  fields:
+    name: 土剎
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120536
+  fields:
+    name: 土剎
+    code: 1101
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120535
+
+- model: seafoods.Seafood
+  pk: 120537
+  fields:
+    name: 油口
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120538
+  fields:
+    name: 油口
+    code: 2066
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120537
+
+- model: seafoods.Seafood
+  pk: 120539
+  fields:
+    name: 海鯽魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120540
+  fields:
+    name: 海鯽魚
+    code: 2238
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120539
+
+- model: seafoods.Seafood
+  pk: 120541
+  fields:
+    name: 油魽(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120542
+  fields:
+    name: 油魽(凍)
+    code: 3081
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120541
+
+- model: seafoods.Seafood
+  pk: 120543
+  fields:
+    name: 其他熟魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120544
+  fields:
+    name: 其他熟魚
+    code: 6099
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120543
+
+- model: seafoods.Seafood
+  pk: 120545
+  fields:
+    name: 大眼鮪
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120546
+  fields:
+    name: 大眼鮪
+    code: 2112
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120545
+
+- model: seafoods.Seafood
+  pk: 120547
+  fields:
+    name: 石喬
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120548
+  fields:
+    name: 石喬
+    code: 2145
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120547
+
+- model: seafoods.Seafood
+  pk: 120549
+  fields:
+    name: 鯊翅
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120550
+  fields:
+    name: 鯊翅
+    code: 2154
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120549
+
+- model: seafoods.Seafood
+  pk: 120551
+  fields:
+    name: 暑魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120552
+  fields:
+    name: 暑魚
+    code: 2291
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120551
+
+- model: seafoods.Seafood
+  pk: 120553
+  fields:
+    name: 白鯛
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120554
+  fields:
+    name: 白鯛
+    code: 2016
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120553
+
+- model: seafoods.Seafood
+  pk: 120555
+  fields:
+    name: 櫻花蝦
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120556
+  fields:
+    name: 櫻花蝦
+    code: 4161
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120555
+
+- model: seafoods.Seafood
+  pk: 120557
+  fields:
+    name: 水鯊
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120558
+  fields:
+    name: 水鯊
+    code: 2157
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120557
+
+- model: seafoods.Seafood
+  pk: 120559
+  fields:
+    name: 智仔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120560
+  fields:
+    name: 智仔
+    code: 2361
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120559
+
+- model: seafoods.Seafood
+  pk: 120561
+  fields:
+    name: 白皮旗(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120562
+  fields:
+    name: 白皮旗(凍)
+    code: 3134
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120561
+
+- model: seafoods.Seafood
+  pk: 120563
+  fields:
+    name: 牛蛙
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120564
+  fields:
+    name: 牛蛙
+    code: 1131
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120563
+
+- model: seafoods.Seafood
+  pk: 120565
+  fields:
+    name: 鱙仔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120566
+  fields:
+    name: 鱙仔
+    code: 2103
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120565
+
+- model: seafoods.Seafood
+  pk: 120567
+  fields:
+    name: 草蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120568
+  fields:
+    name: 草蝦海
+    code: 4011
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120567
+
+- model: seafoods.Seafood
+  pk: 120569
+  fields:
+    name: 海鱺(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120570
+  fields:
+    name: 海鱺(養殖)
+    code: 1166
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120569
+
+- model: seafoods.Seafood
+  pk: 120571
+  fields:
+    name: 蘆蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120572
+  fields:
+    name: 蘆蝦海
+    code: 4111
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120571
+
+- model: seafoods.Seafood
+  pk: 120573
+  fields:
+    name: 馬加沙
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120574
+  fields:
+    name: 馬加沙
+    code: 2158
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120573
+
+- model: seafoods.Seafood
+  pk: 120575
+  fields:
+    name: 翻車魚肉
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120576
+  fields:
+    name: 翻車魚肉
+    code: 5901
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120575
+
+- model: seafoods.Seafood
+  pk: 120577
+  fields:
+    name: 魚丸
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120578
+  fields:
+    name: 魚丸
+    code: 6031
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120577
+
+- model: seafoods.Seafood
+  pk: 120579
+  fields:
+    name: 油魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120580
+  fields:
+    name: 油魚(凍)
+    code: 3321
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120579
+
+- model: seafoods.Seafood
+  pk: 120581
+  fields:
+    name: 下雜魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120582
+  fields:
+    name: 下雜魚(凍)
+    code: 3564
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120581
+
+- model: seafoods.Seafood
+  pk: 120583
+  fields:
+    name: 其他鰹類(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120584
+  fields:
+    name: 其他鰹類(凍)
+    code: 3129
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120583
+
+- model: seafoods.Seafood
+  pk: 120585
+  fields:
+    name: 水鯊(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120586
+  fields:
+    name: 水鯊(凍)
+    code: 3157
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120585
+
+- model: seafoods.Seafood
+  pk: 120587
+  fields:
+    name: 白松
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120588
+  fields:
+    name: 白松
+    code: 2421
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120587
+
+- model: seafoods.Seafood
+  pk: 120589
+  fields:
+    name: 其他鰺類(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120590
+  fields:
+    name: 其他鰺類(凍)
+    code: 3089
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120589
+
+- model: seafoods.Seafood
+  pk: 120591
+  fields:
+    name: 大鯊【凍】
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120592
+  fields:
+    name: 大鯊【凍】
+    code: 3151
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120591
+
+- model: seafoods.Seafood
+  pk: 120593
+  fields:
+    name: 雨傘旗(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120594
+  fields:
+    name: 雨傘旗(凍)
+    code: 3135
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120593
+
+- model: seafoods.Seafood
+  pk: 120595
+  fields:
+    name: 鮭魚片
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120596
+  fields:
+    name: 鮭魚片
+    code: 6010
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120595
+
+- model: seafoods.Seafood
+  pk: 120597
+  fields:
+    name: 西鯧
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120598
+  fields:
+    name: 西鯧
+    code: 2094
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120597
+
+- model: seafoods.Seafood
+  pk: 120599
+  fields:
+    name: 沙條(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120600
+  fields:
+    name: 沙條(凍)
+    code: 3152
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120599
+
+- model: seafoods.Seafood
+  pk: 120601
+  fields:
+    name: 秋刀
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120602
+  fields:
+    name: 秋刀
+    code: 2521
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120601
+
+- model: seafoods.Seafood
+  pk: 120603
+  fields:
+    name: 真鰹(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120604
+  fields:
+    name: 真鰹(凍)
+    code: 3121
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120603
+
+- model: seafoods.Seafood
+  pk: 120605
+  fields:
+    name: 劍旗魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120606
+  fields:
+    name: 劍旗魚(凍)
+    code: 3131
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120605
+
+- model: seafoods.Seafood
+  pk: 120607
+  fields:
+    name: 暑魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120608
+  fields:
+    name: 暑魚(凍)
+    code: 3291
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120607
+
+- model: seafoods.Seafood
+  pk: 120609
+  fields:
+    name: 蝦姑海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120610
+  fields:
+    name: 蝦姑海
+    code: 4141
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120609
+
+- model: seafoods.Seafood
+  pk: 120611
+  fields:
+    name: 石斑魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120612
+  fields:
+    name: 石斑魚(凍)
+    code: 3201
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120611
+
+- model: seafoods.Seafood
+  pk: 120613
+  fields:
+    name: 赤宗(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120614
+  fields:
+    name: 赤宗(凍)
+    code: 3012
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120613
+
+- model: seafoods.Seafood
+  pk: 120615
+  fields:
+    name: 紅肉旗(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120616
+  fields:
+    name: 紅肉旗(凍)
+    code: 3132
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120615
+
+- model: seafoods.Seafood
+  pk: 120617
+  fields:
+    name: 馬加沙凍
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120618
+  fields:
+    name: 馬加沙凍
+    code: 3158
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120617
+
+- model: seafoods.Seafood
+  pk: 120619
+  fields:
+    name: 狗母(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120620
+  fields:
+    name: 狗母(凍)
+    code: 3211
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120619
+
+- model: seafoods.Seafood
+  pk: 120621
+  fields:
+    name: 銀鯧
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120622
+  fields:
+    name: 銀鯧
+    code: 2093
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120621
+
+- model: seafoods.Seafood
+  pk: 120623
+  fields:
+    name: 大眼鮪(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120624
+  fields:
+    name: 大眼鮪(凍)
+    code: 3112
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120623
+
+- model: seafoods.Seafood
+  pk: 120625
+  fields:
+    name: 黃鰭鮪(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120626
+  fields:
+    name: 黃鰭鮪(凍)
+    code: 3113
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120625
+
+- model: seafoods.Seafood
+  pk: 120627
+  fields:
+    name: 沙翅(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120628
+  fields:
+    name: 沙翅(凍)
+    code: 3154
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120627
+
+- model: seafoods.Seafood
+  pk: 120629
+  fields:
+    name: 尖梭(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120630
+  fields:
+    name: 尖梭(凍)
+    code: 3301
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120629
+
+- model: seafoods.Seafood
+  pk: 120631
+  fields:
+    name: 甘(瓜)仔(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120632
+  fields:
+    name: 甘(瓜)仔(凍)
+    code: 3077
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120631
+
+- model: seafoods.Seafood
+  pk: 120633
+  fields:
+    name: 青鱗(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120634
+  fields:
+    name: 青鱗(凍)
+    code: 3102
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120633
+
+- model: seafoods.Seafood
+  pk: 120635
+  fields:
+    name: 龍尖(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120636
+  fields:
+    name: 龍尖(凍)
+    code: 3191
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120635
+
+- model: seafoods.Seafood
+  pk: 120637
+  fields:
+    name: 鱔魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120638
+  fields:
+    name: 鱔魚
+    code: 1091
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120637
+
+- model: seafoods.Seafood
+  pk: 120639
+  fields:
+    name: 墨魚賊
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120640
+  fields:
+    name: 墨魚賊
+    code: 2162
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120639
+
+- model: seafoods.Seafood
+  pk: 120641
+  fields:
+    name: 竹葉鰱
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120642
+  fields:
+    name: 竹葉鰱
+    code: 1025
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120641
+
+- model: seafoods.Seafood
+  pk: 120643
+  fields:
+    name: 青鱗
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120644
+  fields:
+    name: 青鱗
+    code: 2102
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120643
+
+- model: seafoods.Seafood
+  pk: 120645
+  fields:
+    name: 咬狗(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120646
+  fields:
+    name: 咬狗(凍)
+    code: 3391
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120645
+
+- model: seafoods.Seafood
+  pk: 120647
+  fields:
+    name: 加臘(養殖)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120648
+  fields:
+    name: 加臘(養殖)
+    code: 1161
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120647
+
+- model: seafoods.Seafood
+  pk: 120649
+  fields:
+    name: 鯁魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120650
+  fields:
+    name: 鯁魚
+    code: 1026
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120649
+
+- model: seafoods.Seafood
+  pk: 120651
+  fields:
+    name: 其他鯛類(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120652
+  fields:
+    name: 其他鯛類(凍)
+    code: 3019
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120651
+
+- model: seafoods.Seafood
+  pk: 120653
+  fields:
+    name: 花身(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120654
+  fields:
+    name: 花身(凍)
+    code: 3017
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120653
+
+- model: seafoods.Seafood
+  pk: 120655
+  fields:
+    name: 鱝(魴仔)(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120656
+  fields:
+    name: 鱝(魴仔)(凍)
+    code: 3351
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120655
+
+- model: seafoods.Seafood
+  pk: 120657
+  fields:
+    name: 黃花(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120658
+  fields:
+    name: 黃花(凍)
+    code: 3061
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120657
+
+- model: seafoods.Seafood
+  pk: 120659
+  fields:
+    name: 黑鯊(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120660
+  fields:
+    name: 黑鯊(凍)
+    code: 3156
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120659
+
+- model: seafoods.Seafood
+  pk: 120661
+  fields:
+    name: 石鯽
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120662
+  fields:
+    name: 石鯽
+    code: 2241
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120661
+
+- model: seafoods.Seafood
+  pk: 120663
+  fields:
+    name: 金龍(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120664
+  fields:
+    name: 金龍(凍)
+    code: 3511
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120663
+
+- model: seafoods.Seafood
+  pk: 120665
+  fields:
+    name: 扁魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120666
+  fields:
+    name: 扁魚(凍)
+    code: 3401
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120665
+
+- model: seafoods.Seafood
+  pk: 120667
+  fields:
+    name: 赤筆(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120668
+  fields:
+    name: 赤筆(凍)
+    code: 3501
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120667
+
+- model: seafoods.Seafood
+  pk: 120669
+  fields:
+    name: 長鰭鮪(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120670
+  fields:
+    name: 長鰭鮪(凍)
+    code: 3111
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120669
+
+- model: seafoods.Seafood
+  pk: 120671
+  fields:
+    name: 黑皮刀(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120672
+  fields:
+    name: 黑皮刀(凍)
+    code: 3252
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120671
+
+- model: seafoods.Seafood
+  pk: 120673
+  fields:
+    name: 海鰻(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120674
+  fields:
+    name: 海鰻(凍)
+    code: 3221
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120673
+
+- model: seafoods.Seafood
+  pk: 120675
+  fields:
+    name: 巴闌(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120676
+  fields:
+    name: 巴闌(凍)
+    code: 3074
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120675
+
+- model: seafoods.Seafood
+  pk: 120677
+  fields:
+    name: 文蛤(海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120678
+  fields:
+    name: 文蛤(海)
+    code: 5021
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120677
+
+- model: seafoods.Seafood
+  pk: 120679
+  fields:
+    name: 皮刀(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120680
+  fields:
+    name: 皮刀(凍)
+    code: 3251
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120679
+
+- model: seafoods.Seafood
+  pk: 120681
+  fields:
+    name: 墨魚賊(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120682
+  fields:
+    name: 墨魚賊(凍)
+    code: 3162
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120681
+
+- model: seafoods.Seafood
+  pk: 120683
+  fields:
+    name: 九孔(養)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120684
+  fields:
+    name: 九孔(養)
+    code: 5052
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120683
+
+- model: seafoods.Seafood
+  pk: 120685
+  fields:
+    name: 目斗
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120686
+  fields:
+    name: 目斗
+    code: 2168
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120685
+
+- model: seafoods.Seafood
+  pk: 120687
+  fields:
+    name: 紅尾(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120688
+  fields:
+    name: 紅尾(凍)
+    code: 3075
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120687
+
+- model: seafoods.Seafood
+  pk: 120689
+  fields:
+    name: 加志(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120690
+  fields:
+    name: 加志(凍)
+    code: 3512
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120689
+
+- model: seafoods.Seafood
+  pk: 120691
+  fields:
+    name: 臭肉
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120692
+  fields:
+    name: 臭肉
+    code: 2101
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120691
+
+- model: seafoods.Seafood
+  pk: 120693
+  fields:
+    name: 魚腸(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120694
+  fields:
+    name: 魚腸(凍)
+    code: 3660
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120693
+
+- model: seafoods.Seafood
+  pk: 120695
+  fields:
+    name: 日月蟶(海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120696
+  fields:
+    name: 日月蟶(海)
+    code: 5081
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120695
+
+- model: seafoods.Seafood
+  pk: 120697
+  fields:
+    name: 西刀
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120698
+  fields:
+    name: 西刀
+    code: 2311
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120697
+
+- model: seafoods.Seafood
+  pk: 120699
+  fields:
+    name: 盤仔(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120700
+  fields:
+    name: 盤仔(凍)
+    code: 3013
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120699
+
+- model: seafoods.Seafood
+  pk: 120701
+  fields:
+    name: 黑皮刀
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120702
+  fields:
+    name: 黑皮刀
+    code: 2252
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120701
+
+- model: seafoods.Seafood
+  pk: 120703
+  fields:
+    name: 其他烏魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120704
+  fields:
+    name: 其他烏魚(凍)
+    code: 3609
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120703
+
+- model: seafoods.Seafood
+  pk: 120705
+  fields:
+    name: 其他旗魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120706
+  fields:
+    name: 其他旗魚(凍)
+    code: 3139
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120705
+
+- model: seafoods.Seafood
+  pk: 120707
+  fields:
+    name: 銀鯧(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120708
+  fields:
+    name: 銀鯧(凍)
+    code: 3093
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120707
+
+- model: seafoods.Seafood
+  pk: 120709
+  fields:
+    name: 黑鮪(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120710
+  fields:
+    name: 黑鮪(凍)
+    code: 3114
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120709
+
+- model: seafoods.Seafood
+  pk: 120711
+  fields:
+    name: 西鯧(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120712
+  fields:
+    name: 西鯧(凍)
+    code: 3094
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120711
+
+- model: seafoods.Seafood
+  pk: 120713
+  fields:
+    name: 龍蝦海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120714
+  fields:
+    name: 龍蝦海
+    code: 4131
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120713
+
+- model: seafoods.Seafood
+  pk: 120715
+  fields:
+    name: 馬頭魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120716
+  fields:
+    name: 馬頭魚(凍)
+    code: 3181
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120715
+
+- model: seafoods.Seafood
+  pk: 120717
+  fields:
+    name: 大正蝦養
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120718
+  fields:
+    name: 大正蝦養
+    code: 4062
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120717
+
+- model: seafoods.Seafood
+  pk: 120719
+  fields:
+    name: 小串仔(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120720
+  fields:
+    name: 小串仔(凍)
+    code: 3115
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120719
+
+- model: seafoods.Seafood
+  pk: 120721
+  fields:
+    name: 青鞭
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120722
+  fields:
+    name: 青鞭
+    code: 2381
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120721
+
+- model: seafoods.Seafood
+  pk: 120723
+  fields:
+    name: 待訂
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120724
+  fields:
+    name: 待訂
+    code: 2997
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120723
+
+- model: seafoods.Seafood
+  pk: 120725
+  fields:
+    name: 秋姑(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120726
+  fields:
+    name: 秋姑(凍)
+    code: 3041
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120725
+
+- model: seafoods.Seafood
+  pk: 120727
+  fields:
+    name: 鯖河魨
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120728
+  fields:
+    name: 鯖河魨
+    code: 2621
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120727
+
+- model: seafoods.Seafood
+  pk: 120729
+  fields:
+    name: 其他黃花(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120730
+  fields:
+    name: 其他黃花(凍)
+    code: 3069
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120729
+
+- model: seafoods.Seafood
+  pk: 120731
+  fields:
+    name: 牛尾(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120732
+  fields:
+    name: 牛尾(凍)
+    code: 3441
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120731
+
+- model: seafoods.Seafood
+  pk: 120733
+  fields:
+    name: 花狗母
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120734
+  fields:
+    name: 花狗母
+    code: 2212
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120733
+
+- model: seafoods.Seafood
+  pk: 120735
+  fields:
+    name: 鰣魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120736
+  fields:
+    name: 鰣魚(凍)
+    code: 3561
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120735
+
+- model: seafoods.Seafood
+  pk: 120737
+  fields:
+    name: 龍王
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120738
+  fields:
+    name: 龍王
+    code: 1075
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120737
+
+- model: seafoods.Seafood
+  pk: 120739
+  fields:
+    name: 英哥(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120740
+  fields:
+    name: 英哥(凍)
+    code: 3481
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120739
+
+- model: seafoods.Seafood
+  pk: 120741
+  fields:
+    name: 苦蚵
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120742
+  fields:
+    name: 苦蚵
+    code: 2104
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120741
+
+- model: seafoods.Seafood
+  pk: 120743
+  fields:
+    name: 烏公(台中)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120744
+  fields:
+    name: 烏公(台中)
+    code: 1062
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120743
+
+- model: seafoods.Seafood
+  pk: 120745
+  fields:
+    name: 其他溫類(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120746
+  fields:
+    name: 其他溫類(凍)
+    code: 3109
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120745
+
+- model: seafoods.Seafood
+  pk: 120747
+  fields:
+    name: 硬尾(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120748
+  fields:
+    name: 硬尾(凍)
+    code: 3073
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120747
+
+- model: seafoods.Seafood
+  pk: 120749
+  fields:
+    name: 烏鞭
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120750
+  fields:
+    name: 烏鞭
+    code: 2371
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120749
+
+- model: seafoods.Seafood
+  pk: 120751
+  fields:
+    name: 香魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120752
+  fields:
+    name: 香魚(凍)
+    code: 3631
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120751
+
+- model: seafoods.Seafood
+  pk: 120753
+  fields:
+    name: 國光(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120754
+  fields:
+    name: 國光(凍)
+    code: 3531
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120753
+
+- model: seafoods.Seafood
+  pk: 120755
+  fields:
+    name: 蜊(養)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120756
+  fields:
+    name: 蜊(養)
+    code: 5032
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120755
+
+- model: seafoods.Seafood
+  pk: 120757
+  fields:
+    name: 目孔(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120758
+  fields:
+    name: 目孔(凍)
+    code: 3072
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120757
+
+- model: seafoods.Seafood
+  pk: 120759
+  fields:
+    name: 海鯰(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120760
+  fields:
+    name: 海鯰(凍)
+    code: 3231
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120759
+
+- model: seafoods.Seafood
+  pk: 120761
+  fields:
+    name: 鰣魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120762
+  fields:
+    name: 鰣魚
+    code: 2561
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120761
+
+- model: seafoods.Seafood
+  pk: 120763
+  fields:
+    name: 黑口(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120764
+  fields:
+    name: 黑口(凍)
+    code: 3063
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120763
+
+- model: seafoods.Seafood
+  pk: 120765
+  fields:
+    name: 烏母(台中)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120766
+  fields:
+    name: 烏母(台中)
+    code: 1063
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120765
+
+- model: seafoods.Seafood
+  pk: 120767
+  fields:
+    name: 香魚(沿海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120768
+  fields:
+    name: 香魚(沿海)
+    code: 2631
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120767
+
+- model: seafoods.Seafood
+  pk: 120769
+  fields:
+    name: 蝦猴海
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120770
+  fields:
+    name: 蝦猴海
+    code: 4142
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120769
+
+- model: seafoods.Seafood
+  pk: 120771
+  fields:
+    name: 斑節蝦養
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120772
+  fields:
+    name: 斑節蝦養
+    code: 4052
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120771
+
+- model: seafoods.Seafood
+  pk: 120773
+  fields:
+    name: 青筆(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120774
+  fields:
+    name: 青筆(凍)
+    code: 3541
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120773
+
+- model: seafoods.Seafood
+  pk: 120775
+  fields:
+    name: 烏母(養)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120776
+  fields:
+    name: 烏母(養)
+    code: 1601
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120775
+
+- model: seafoods.Seafood
+  pk: 120777
+  fields:
+    name: 水針(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120778
+  fields:
+    name: 水針(凍)
+    code: 3611
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120777
+
+- model: seafoods.Seafood
+  pk: 120779
+  fields:
+    name: 金鼓(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120780
+  fields:
+    name: 金鼓(凍)
+    code: 3451
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120779
+
+- model: seafoods.Seafood
+  pk: 120781
+  fields:
+    name: 臭肉(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120782
+  fields:
+    name: 臭肉(凍)
+    code: 3101
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120781
+
+- model: seafoods.Seafood
+  pk: 120783
+  fields:
+    name: 肉栓(蝦)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120784
+  fields:
+    name: 肉栓(蝦)
+    code: 4162
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120783
+
+- model: seafoods.Seafood
+  pk: 120785
+  fields:
+    name: 長加(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120786
+  fields:
+    name: 長加(凍)
+    code: 3461
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120785
+
+- model: seafoods.Seafood
+  pk: 120787
+  fields:
+    name: 黑鯛(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120788
+  fields:
+    name: 黑鯛(凍)
+    code: 3015
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120787
+
+- model: seafoods.Seafood
+  pk: 120789
+  fields:
+    name: 飛魚卵
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120790
+  fields:
+    name: 飛魚卵
+    code: 2282
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120789
+
+- model: seafoods.Seafood
+  pk: 120791
+  fields:
+    name: 白松(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120792
+  fields:
+    name: 白松(凍)
+    code: 3421
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120791
+
+- model: seafoods.Seafood
+  pk: 120793
+  fields:
+    name: 赤尾青蝦
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120794
+  fields:
+    name: 赤尾青蝦
+    code: 4151
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120793
+
+- model: seafoods.Seafood
+  pk: 120795
+  fields:
+    name: 白鯛(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120796
+  fields:
+    name: 白鯛(凍)
+    code: 3016
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120795
+
+- model: seafoods.Seafood
+  pk: 120797
+  fields:
+    name: 小紅鱠(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120798
+  fields:
+    name: 小紅鱠(凍)
+    code: 3202
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120797
+
+- model: seafoods.Seafood
+  pk: 120799
+  fields:
+    name: 沙蝦(養)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120800
+  fields:
+    name: 沙蝦(養)
+    code: 4022
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120799
+
+- model: seafoods.Seafood
+  pk: 120801
+  fields:
+    name: 菜蟳
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120802
+  fields:
+    name: 菜蟳
+    code: 4532
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120801
+
+- model: seafoods.Seafood
+  pk: 120803
+  fields:
+    name: 金鼓
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120804
+  fields:
+    name: 金鼓
+    code: 2451
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120803
+
+- model: seafoods.Seafood
+  pk: 120805
+  fields:
+    name: 西齒(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120806
+  fields:
+    name: 西齒(凍)
+    code: 3144
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120805
+
+- model: seafoods.Seafood
+  pk: 120807
+  fields:
+    name: 油口(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120808
+  fields:
+    name: 油口(凍)
+    code: 3066
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120807
+
+- model: seafoods.Seafood
+  pk: 120809
+  fields:
+    name: 秋哥(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120810
+  fields:
+    name: 秋哥(凍)
+    code: 3471
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120809
+
+- model: seafoods.Seafood
+  pk: 120811
+  fields:
+    name: 闊弓
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120812
+  fields:
+    name: 闊弓
+    code: 2167
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120811
+
+- model: seafoods.Seafood
+  pk: 120813
+  fields:
+    name: 肉栓(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120814
+  fields:
+    name: 肉栓(凍)
+    code: 3568
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120813
+
+- model: seafoods.Seafood
+  pk: 120815
+  fields:
+    name: 西齒
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120816
+  fields:
+    name: 西齒
+    code: 2144
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120815
+
+- model: seafoods.Seafood
+  pk: 120817
+  fields:
+    name: 鐵甲(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120818
+  fields:
+    name: 鐵甲(凍)
+    code: 3076
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120817
+
+- model: seafoods.Seafood
+  pk: 120819
+  fields:
+    name: 目斗(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120820
+  fields:
+    name: 目斗(凍)
+    code: 3168
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120819
+
+- model: seafoods.Seafood
+  pk: 120821
+  fields:
+    name: 黑魽(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120822
+  fields:
+    name: 黑魽(凍)
+    code: 3080
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120821
+
+- model: seafoods.Seafood
+  pk: 120823
+  fields:
+    name: 煙仔虎(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120824
+  fields:
+    name: 煙仔虎(凍)
+    code: 3124
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120823
+
+- model: seafoods.Seafood
+  pk: 120825
+  fields:
+    name: 厚唇(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120826
+  fields:
+    name: 厚唇(凍)
+    code: 3431
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120825
+
+- model: seafoods.Seafood
+  pk: 120827
+  fields:
+    name: 石鯽(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120828
+  fields:
+    name: 石鯽(凍)
+    code: 3241
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120827
+
+- model: seafoods.Seafood
+  pk: 120829
+  fields:
+    name: 九孔(海)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120830
+  fields:
+    name: 九孔(海)
+    code: 5051
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120829
+
+- model: seafoods.Seafood
+  pk: 120831
+  fields:
+    name: 西刀(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120832
+  fields:
+    name: 西刀(凍)
+    code: 3311
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120831
+
+- model: seafoods.Seafood
+  pk: 120833
+  fields:
+    name: 智仔(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120834
+  fields:
+    name: 智仔(凍)
+    code: 3361
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120833
+
+- model: seafoods.Seafood
+  pk: 120835
+  fields:
+    name: 苦蚵(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120836
+  fields:
+    name: 苦蚵(凍)
+    code: 3104
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120835
+
+- model: seafoods.Seafood
+  pk: 120837
+  fields:
+    name: 飛魚(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120838
+  fields:
+    name: 飛魚(凍)
+    code: 3281
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120837
+
+- model: seafoods.Seafood
+  pk: 120839
+  fields:
+    name: 龍膽石斑
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120840
+  fields:
+    name: 龍膽石斑
+    code: 1173
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120839
+
+- model: seafoods.Seafood
+  pk: 120842
+  fields:
+    name: 其他鯉類
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120843
+  fields:
+    name: 其他鯉類
+    code: 1029
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120842
+
+- model: seafoods.Seafood
+  pk: 120844
+  fields:
+    name: 西刀舌(養)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120845
+  fields:
+    name: 西刀舌(養)
+    code: 5072
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120844
+
+- model: seafoods.Seafood
+  pk: 120846
+  fields:
+    name: 烏母(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120847
+  fields:
+    name: 烏母(凍)
+    code: 3601
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120846
+
+- model: seafoods.Seafood
+  pk: 120848
+  fields:
+    name: 烏殼(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120849
+  fields:
+    name: 烏殼(凍)
+    code: 3603
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120848
+
+- model: seafoods.Seafood
+  pk: 120850
+  fields:
+    name: 烏鞭(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120851
+  fields:
+    name: 烏鞭(凍)
+    code: 3371
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120850
+
+- model: seafoods.Seafood
+  pk: 120852
+  fields:
+    name: 花鰹(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120853
+  fields:
+    name: 花鰹(凍)
+    code: 3122
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120852
+
+- model: seafoods.Seafood
+  pk: 120854
+  fields:
+    name: 血蚶(養)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120005
+
+- model: seafoods.Seafood
+  pk: 120855
+  fields:
+    name: 血蚶(養)
+    code: 5042
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120854
+
+- model: seafoods.Seafood
+  pk: 120856
+  fields:
+    name: 虱目魚頭
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120857
+  fields:
+    name: 虱目魚頭
+    code: 1043
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120856
+
+- model: seafoods.Seafood
+  pk: 120858
+  fields:
+    name: 青衣
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120859
+  fields:
+    name: 青衣
+    code: 2483
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120858
+
+- model: seafoods.Seafood
+  pk: 120860
+  fields:
+    name: 剝皮魚去頭
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120861
+  fields:
+    name: 剝皮魚去頭
+    code: 2572
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120860
+
+- model: seafoods.Seafood
+  pk: 120862
+  fields:
+    name: 虱目魚肚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120863
+  fields:
+    name: 虱目魚肚
+    code: 1042
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120862
+
+- model: seafoods.Seafood
+  pk: 120864
+  fields:
+    name: 圓鱈
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120865
+  fields:
+    name: 圓鱈
+    code: 3642
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120864
+
+- model: seafoods.Seafood
+  pk: 120866
+  fields:
+    name: 紅鰱魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120867
+  fields:
+    name: 紅鰱魚
+    code: 2482
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120866
+
+- model: seafoods.Seafood
+  pk: 120868
+  fields:
+    name: 富貴魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120869
+  fields:
+    name: 富貴魚
+    code: 1201
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120868
+
+- model: seafoods.Seafood
+  pk: 120870
+  fields:
+    name: 旗魚肉
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120871
+  fields:
+    name: 旗魚肉
+    code: 2136
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120870
+
+- model: seafoods.Seafood
+  pk: 120872
+  fields:
+    name: 蝦仁
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120004
+
+- model: seafoods.Seafood
+  pk: 120873
+  fields:
+    name: 蝦仁
+    code: 4016
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120872
+
+- model: seafoods.Seafood
+  pk: 120874
+  fields:
+    name: 三角仔【養】
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120875
+  fields:
+    name: 三角仔【養】
+    code: 1086
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120874
+
+- model: seafoods.Seafood
+  pk: 120876
+  fields:
+    name: 海菜
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120877
+  fields:
+    name: 海菜
+    code: 6101
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120876
+
+- model: seafoods.Seafood
+  pk: 120878
+  fields:
+    name: 圓鱈片
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120879
+  fields:
+    name: 圓鱈片
+    code: 6008
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120878
+
+- model: seafoods.Seafood
+  pk: 120880
+  fields:
+    name: 三角仔
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120881
+  fields:
+    name: 三角仔
+    code: 2086
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120880
+
+- model: seafoods.Seafood
+  pk: 120882
+  fields:
+    name: 剝皮魚去頭【凍】
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120883
+  fields:
+    name: 剝皮魚去頭【凍】
+    code: 3572
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120882
+
+- model: seafoods.Seafood
+  pk: 120884
+  fields:
+    name: 赤翅(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120885
+  fields:
+    name: 赤翅(凍)
+    code: 3014
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120884
+
+- model: seafoods.Seafood
+  pk: 120886
+  fields:
+    name: 旗魚肉【凍】
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120887
+  fields:
+    name: 旗魚肉【凍】
+    code: 3136
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120886
+
+- model: seafoods.Seafood
+  pk: 120888
+  fields:
+    name: 圓花鰹(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120889
+  fields:
+    name: 圓花鰹(凍)
+    code: 3123
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120888
+
+- model: seafoods.Seafood
+  pk: 120890
+  fields:
+    name: 其他石斑魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120891
+  fields:
+    name: 其他石斑魚
+    code: 1179
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120890
+
+- model: seafoods.Seafood
+  pk: 120892
+  fields:
+    name: 魚卵
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120893
+  fields:
+    name: 魚卵
+    code: 6112
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120892
+
+- model: seafoods.Seafood
+  pk: 120894
+  fields:
+    name: 魚肚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120895
+  fields:
+    name: 魚肚
+    code: 6110
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120894
+
+- model: seafoods.Seafood
+  pk: 120896
+  fields:
+    name: 魚內臟
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120897
+  fields:
+    name: 魚內臟
+    code: 6111
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120896
+
+- model: seafoods.Seafood
+  pk: 120898
+  fields:
+    name: 黑鮪肉
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120002
+
+- model: seafoods.Seafood
+  pk: 120899
+  fields:
+    name: 黑鮪肉
+    code: 2116
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120898
+
+- model: seafoods.Seafood
+  pk: 120900
+  fields:
+    name: 紅皮刀凍
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120901
+  fields:
+    name: 紅皮刀凍
+    code: 3910
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120900
+
+- model: seafoods.Seafood
+  pk: 120902
+  fields:
+    name: 魚肉
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120903
+  fields:
+    name: 魚肉
+    code: 6114
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120902
+
+- model: seafoods.Seafood
+  pk: 120904
+  fields:
+    name: 魚皮
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 120905
+  fields:
+    name: 魚皮
+    code: 6113
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120904
+
+- model: seafoods.Seafood
+  pk: 120906
+  fields:
+    name: 竹梭凍
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120907
+  fields:
+    name: 竹梭凍
+    code: 3302
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120906
+
+- model: seafoods.Seafood
+  pk: 120908
+  fields:
+    name: 翻車魚凍
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120909
+  fields:
+    name: 翻車魚凍
+    code: 3901
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120908
+
+- model: seafoods.Seafood
+  pk: 120910
+  fields:
+    name: 萬引(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120911
+  fields:
+    name: 萬引(凍)
+    code: 3292
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120910
+
+- model: seafoods.Seafood
+  pk: 120912
+  fields:
+    name: 鯖河魨(凍)
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120003
+
+- model: seafoods.Seafood
+  pk: 120913
+  fields:
+    name: 鯖河魨(凍)
+    code: 3621
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120912
+
+- model: seafoods.Seafood
+  pk: 120196
+  fields:
+    name: 鰻魚
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120963
+  fields:
+    name: 白鰻
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120196
+
+- model: seafoods.Seafood
+  pk: 120197
+  fields:
+    name: 白鰻
+    code: 1031
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120963
+
+- model: seafoods.Seafood
+  pk: 120018
+  fields:
+    name: 其他鰻類
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120196
+
+- model: seafoods.Seafood
+  pk: 120019
+  fields:
+    name: 其他鰻類
+    code: 1039
+    type: 1
+    config: 13
+    unit: 1
+    parent: 120018

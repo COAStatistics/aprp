@@ -1,0 +1,25 @@
+{% load i18n %}
+
+<!-- start unit into -->
+<p class="alert alert-info no-margin">
+    {% if index %}
+        {% if index == 'price' %}
+        <i class="fa fa-circle"></i> {% trans 'Unit' %}: <strong>{{ unit.price_unit }}</strong>
+        {% elif index == 'volume' %}
+        <i class="fa fa-circle"></i> {% trans 'Unit' %}: <strong>{{ unit.volume_unit }}</strong>
+        {% elif index == 'weight' %}
+        <i class="fa fa-circle"></i> {% trans 'Unit' %}: <strong>{{ unit.weight_unit }}</strong>
+        {% endif %}
+    {% else %}
+        {% if unit.price_unit %}
+        <i class="fa fa-circle"></i> {% trans 'Price Unit' %}: <strong>{{ unit.price_unit }}</strong>
+        {% endif %}
+        {% if unit.volume_unit %}
+        <i class="fa fa-circle"></i> {% trans 'Volume Unit' %}: <strong>{{ unit.volume_unit }}</strong>
+        {% endif %}
+        {% if unit.weight_unit %}
+        <i class="fa fa-circle"></i> {% trans 'Weight Unit' %}: <strong>{{ unit.weight_unit }}</strong>
+        {% endif %}
+    {% endif %}
+</p>
+<!-- end unit info -->

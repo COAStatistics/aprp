@@ -1,0 +1,43 @@
+- model: crops.Crop
+  pk: 40003
+  fields:
+    name: 花果菜類
+    code: F
+    config: 5
+    track_item: false
+
+- model: crops.Crop
+  pk: 40160
+  fields:
+    name: 落花生
+    type: 1
+    config: 5
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 49011
+  fields:
+    name: 落花生(帶殼)
+    code: 落花生(帶殼)
+    type: 2
+    config: 5
+    parent: 40160
+
+- model: crops.Crop
+  pk: 49002
+  fields:
+    name: 紅豆
+    type: 2
+    config: 5
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 49003
+  fields:
+    name: 紅豆(中等)
+    code: 紅豆(中等)
+    type: 2
+    config: 5
+    parent: 49002

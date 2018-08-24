@@ -1,0 +1,134 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<!-- #NAVIGATION -->
+<!-- Left panel : Navigation area -->
+<!-- Note: This width of the aside area can be adjusted through LESS/SASS variables -->
+<aside id="left-panel">
+
+    <!-- User info -->
+    <div class="login-info">
+        <span> <!-- User image size is adjusted inside CSS, it should stay as is -->
+
+            <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+                <img src="{% static 'img/avatars/user.png' %}" alt="me" class="" />
+                <span>
+                     {{ user.info.full_name }}
+                </span>
+                <i class="fa fa-angle-down"></i>
+            </a>
+
+        </span>
+    </div>
+    <!-- end user info -->
+
+    <!-- Watchlist info -->
+    <div class="login-info">
+        <span> <!-- User image size is adjusted inside CSS, it should stay as is -->
+
+            <a href="javascript:void(0);" data-action="toggleShortcutWatchlist">
+                <img src="{% static 'img/avatars/watchlist.png' %}" alt="watchlist" class="" />
+                <span>
+                     {% trans 'Watchlist' %}
+                </span>
+                <i class="fa fa-angle-down"></i>
+            </a>
+
+        </span>
+    </div>
+    <!-- end user info -->
+
+    <!-- NAVIGATION : This navigation is also responsive
+
+    To make this navigation dynamic please make sure to link the node
+    (the reference to the nav > ul) after page load. Or the navigation
+    will not initialize.
+    -->
+    <nav>
+        <!--
+        NOTE: Notice the gaps after each icon usage <i></i>..
+        Please note that these links work a bit different than
+        traditional href="" links. See documentation for details.
+        -->
+
+        <ul>
+            <li>
+                <a href="{% url 'about' %}" title="Main"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{% trans 'Main' %}</span></a>
+                <ul>
+                    <li class="">
+                        <a href="{% url 'about' %}" title="About"><i class="fa fa-lg fa-fw fa-info"></i> <span class="menu-item-parent">{% trans 'About' %}</span></a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-yellow"></i> <span class="menu-item-parent">{% trans 'Grand Totals' %}</span></a>
+                <ul>
+                    {% for config in totals %}
+                    <li>
+                        <!--navigate on this item -->
+                        <a title="{{ config.name }}"
+                           href="{% url 'chart_tab' wi=user_watchlist.id ct='config' oi=config.id %}"
+                           data-load data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='config' oi=config.id %}">
+                            {{ config.name }}
+                        </a>
+                        <!-- dynamically load ul here -->
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-green"></i> <span class="menu-item-parent">{% trans 'Agricultures' %}</span></a>
+                <ul>
+                    {% for config in agricultures %}
+                    <li>
+                        <!-- don't navigate on this item, set href to # -->
+                        <a title="{{ config.name }}"
+                           href="#"
+                           data-load data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='config' oi=config.id %}">
+                            {{ config.name }}
+                        </a>
+                        <!-- dynamically load ul here -->
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-red"></i> <span class="menu-item-parent">{% trans 'Livestocks' %}</span></a>
+                <ul>
+                    {% for config in livestocks %}
+                    <li>
+                        <!-- don't navigate on this item, set href to # -->
+                        <a title="{{ config.name }}"
+                           href="#"
+                           data-load data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='config' oi=config.id %}">
+                            {{ config.name }}
+                        </a>
+                        <!-- dynamically load ul here -->
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">{% trans 'Fisheries' %}</span></a>
+                <ul>
+                    {% for product in fisheries %}
+                    <li>
+                        <!-- if don't navigate on this item, set href to # -->
+                        <a title="{{ product.name }}"
+                           href="{% if product.to_direct %}{% url 'chart_tab' wi=user_watchlist.id ct='product' oi=product.id lct='config' loi=product.config.id %}{% else %}#{% endif %}"
+                           data-load
+                           data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='product' oi=product.id lct='config' loi=product.config.id %}">
+                            {{ product.name }}
+                        </a>
+                        <!-- dynamically load ul here -->
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <span class="minifyme" data-action="minifyMenu"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+
+</aside>
+<!-- END NAVIGATION -->

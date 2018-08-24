@@ -1,0 +1,1064 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-17 11:07+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: accounts/forms.py:17
+msgid "Please Input Chinese Only"
+msgstr ""
+
+#: accounts/forms.py:21 accounts/forms.py:83 accounts/forms.py:110
+#: accounts/forms.py:177 accounts/views.py:114
+msgid "Account"
+msgstr ""
+
+#: accounts/forms.py:22 accounts/forms.py:112
+msgid "First Name"
+msgstr ""
+
+#: accounts/forms.py:23 accounts/forms.py:113
+msgid "Last Name"
+msgstr ""
+
+#: accounts/forms.py:24 accounts/models.py:38
+msgid "Group"
+msgstr ""
+
+#: accounts/forms.py:24
+msgid "Choose one of the following..."
+msgstr ""
+
+#: accounts/forms.py:25 accounts/models.py:186 accounts/models.py:200
+#: accounts/models.py:201
+msgid "Reset Email"
+msgstr ""
+
+#: accounts/forms.py:57 accounts/forms.py:152
+msgid "This email has already been registered"
+msgstr ""
+
+#: accounts/forms.py:63
+msgid "To use this group, please change your email to this unit:"
+msgstr ""
+
+#: accounts/forms.py:84 accounts/forms.py:114 accounts/forms.py:157
+msgid "Password"
+msgstr ""
+
+#: accounts/forms.py:96
+msgid "Your account or password is incorrect"
+msgstr ""
+
+#: accounts/forms.py:111 accounts/forms.py:176
+msgid "Email"
+msgstr ""
+
+#: accounts/forms.py:115 accounts/forms.py:158
+msgid "Confirm Password"
+msgstr ""
+
+#: accounts/forms.py:116
+msgid "Condition"
+msgstr ""
+
+#: accounts/forms.py:132
+msgid "You must agree out terms and conditions!"
+msgstr ""
+
+#: accounts/forms.py:139 accounts/forms.py:171
+msgid "Password must match"
+msgstr ""
+
+#: accounts/forms.py:148
+msgid "Please register with email under domain \"@mail.coa.gov.tw\""
+msgstr ""
+
+#: accounts/forms.py:191 accounts/templates/resend-email.html.py:38
+msgid "Please advise your email or account"
+msgstr ""
+
+#: accounts/forms.py:196
+msgid "Your account or email is incorrect"
+msgstr ""
+
+#: accounts/forms.py:205
+msgid "This email is not exist"
+msgstr ""
+
+#: accounts/forms.py:213
+msgid "This account is not exist"
+msgstr ""
+
+#: accounts/models.py:37 configs/models.py:18 configs/models.py:124
+#: configs/models.py:176 configs/models.py:221 configs/models.py:272
+#: configs/models.py:289 logs/models.py:21 watchlists/models.py:37
+msgid "Name"
+msgstr ""
+
+#: accounts/models.py:39
+msgid "Email Dns"
+msgstr ""
+
+#: accounts/models.py:40 comments/models.py:57 configs/models.py:23
+#: watchlists/models.py:127
+msgid "Parent"
+msgstr ""
+
+#: accounts/models.py:45
+msgid "Group Information"
+msgstr ""
+
+#: accounts/models.py:46
+msgid "Group Informations"
+msgstr ""
+
+#: accounts/models.py:76 accounts/models.py:99 posts/models.py:31
+#: watchlists/models.py:38
+msgid "User"
+msgstr ""
+
+#: accounts/models.py:77
+msgid "Is Editor"
+msgstr ""
+
+#: accounts/models.py:78
+msgid "Profile"
+msgstr ""
+
+#: accounts/models.py:81
+msgid "User Information"
+msgstr ""
+
+#: accounts/models.py:82
+msgid "User Informations"
+msgstr ""
+
+#: accounts/models.py:100
+msgid "Activate Key"
+msgstr ""
+
+#: accounts/models.py:101
+msgid "Expired"
+msgstr ""
+
+#: accounts/models.py:106
+msgid "Abstract Profile"
+msgstr ""
+
+#: accounts/models.py:107
+msgid "Abstract Profiles"
+msgstr ""
+
+#: accounts/models.py:138
+msgid "Activation Profile"
+msgstr ""
+
+#: accounts/models.py:139
+msgid "Activation Profiles"
+msgstr ""
+
+#: accounts/models.py:149 accounts/views.py:114
+msgid "Activate"
+msgstr ""
+
+#: accounts/models.py:150
+msgid "Account Activation"
+msgstr ""
+
+#: accounts/models.py:151
+msgid "Please activate your account by clicking the link below"
+msgstr ""
+
+#: accounts/models.py:152 accounts/templates/register.html.py:128
+msgid "Thank you for your registration"
+msgstr ""
+
+#: accounts/models.py:163
+msgid "Reset Password Profile"
+msgstr ""
+
+#: accounts/models.py:164
+msgid "Reset Password Profiles"
+msgstr ""
+
+#: accounts/models.py:174 accounts/models.py:175
+#: accounts/templates/reset-password.html:8
+#: accounts/templates/reset-password.html:22
+#: accounts/templates/reset-password.html:53
+msgid "Reset Password"
+msgstr ""
+
+#: accounts/models.py:176
+msgid "Please click the following button to reset your password"
+msgstr ""
+
+#: accounts/models.py:189
+msgid "Reset Email Profile"
+msgstr ""
+
+#: accounts/models.py:190
+msgid "Reset Email Profiles"
+msgstr ""
+
+#: accounts/models.py:202
+msgid "Please click the following button to reset your email"
+msgstr ""
+
+#: accounts/templates/account-base.html:8
+#: accounts/templates/account-base.html:45
+#: accounts/templates/introduction.html:5 templates/footer.html.py:7
+#: templates/header.html:9 templates/index.html.py:9
+msgid "Agriculture Products Price Report Platform"
+msgstr ""
+
+#: accounts/templates/account-base.html:85 templates/lock.html.py:94
+msgid "Your browser is out of date, please update your browser by going to"
+msgstr ""
+
+#: accounts/templates/edit_info.html:5
+msgid "Edit your information"
+msgstr ""
+
+#: accounts/templates/edit_info.html:23
+#: comments/templates/partial_comment_create.html:14
+#: comments/templates/partial_comment_delete.html:15
+#: comments/templates/partial_comment_update.html:14
+#: posts/templates/partial_post_create.html:14
+#: posts/templates/partial_post_delete.html:15
+#: posts/templates/partial_post_update.html:14
+msgid "Cancel"
+msgstr ""
+
+#: accounts/templates/edit_info.html:24
+#: comments/templates/partial_comment_create.html:15
+#: comments/templates/partial_comment_delete.html:16
+#: comments/templates/partial_comment_update.html:15
+#: posts/templates/partial_post_create.html:15
+#: posts/templates/partial_post_delete.html:16
+#: posts/templates/partial_post_update.html:15
+#: templates/ajax/chart-3-content.html:59
+#: templates/ajax/chart-4-content.html:51
+msgid "Submit"
+msgstr ""
+
+#: accounts/templates/introduction.html:9
+msgid ""
+"The platform combined the price and the trading volume of agricultural "
+"products from Council of Agriculture (COA) and the affiliated agencies "
+"including Agriculture and Food Agency, Fisheries Agency and Department of "
+"Animal Industry in order to provide quick visual research and help the staff "
+"in COA and affiliated agencies control the price and the trading volume "
+"trend of agricultural products. "
+msgstr ""
+
+#: accounts/templates/introduction.html:18 templates/ajax/about.html.py:42
+msgid "Monitored items"
+msgstr ""
+
+#: accounts/templates/introduction.html:20
+msgid ""
+"Currently, there are 63 items consist of 10 overall and categorized items of "
+"vegetables, fruits and flowers in Taipei Agricultural Products Wholesale "
+"Market and 53 daily-monitored important agricultural products in COA."
+msgstr ""
+
+#: accounts/templates/introduction.html:24 templates/ajax/about.html.py:50
+msgid "Features"
+msgstr ""
+
+#: accounts/templates/introduction.html:26
+msgid ""
+"Showing daily price/volume trends, year by year trends and distribution plot "
+"with charts."
+msgstr ""
+
+#: accounts/templates/login.html:8 accounts/templates/mail_content.html:141
+#: accounts/templates/register.html:12 accounts/templates/resend-email.html:12
+#: accounts/templates/reset-password.html:12
+msgid "Log in"
+msgstr ""
+
+#: accounts/templates/login.html:13
+msgid "Need an account"
+msgstr ""
+
+#: accounts/templates/login.html:14 accounts/templates/register.html.py:8
+#: accounts/templates/register.html:25 accounts/templates/register.html:122
+msgid "Register"
+msgstr ""
+
+#: accounts/templates/login.html:27
+msgid "Sign In"
+msgstr ""
+
+#: accounts/templates/login.html:60
+msgid "Forgot password"
+msgstr ""
+
+#: accounts/templates/login.html:67
+msgid "Remember me"
+msgstr ""
+
+#: accounts/templates/login.html:72
+msgid "Login"
+msgstr ""
+
+#: accounts/templates/mail_content.html:124
+msgid "Any further questions please contact us"
+msgstr ""
+
+#: accounts/templates/mail_content.html:125
+msgid "Good luck! Hope it works"
+msgstr ""
+
+#: accounts/templates/mail_content.html:140
+msgid "COA Statistics 2018"
+msgstr ""
+
+#: accounts/templates/mail_content.html:141
+msgid "Want to login right now"
+msgstr ""
+
+#: accounts/templates/register.html:12 accounts/templates/resend-email.html:12
+#: accounts/templates/reset-password.html:12
+msgid "Already have an account"
+msgstr ""
+
+#: accounts/templates/register.html:35 accounts/templates/resend-email.html:30
+msgid "Email has been sent"
+msgstr ""
+
+#: accounts/templates/register.html:36 accounts/templates/resend-email.html:31
+msgid "Please check your mail box"
+msgstr ""
+
+#: accounts/templates/register.html:36
+msgid "Click the link in the email to activate your account"
+msgstr ""
+
+#: accounts/templates/register.html:113
+msgid "I have read the"
+msgstr ""
+
+#: accounts/templates/register.html:113
+msgid "Terms and Conditions"
+msgstr ""
+
+#: accounts/templates/resend-email.html:8 accounts/views.py:89
+msgid "Forgot Password"
+msgstr ""
+
+#: accounts/templates/resend-email.html:21
+#: accounts/templates/reset-password.html:62
+msgid "Resend Email"
+msgstr ""
+
+#: accounts/templates/resend-email.html:39
+msgid "We will resend an email to your mail box"
+msgstr ""
+
+#: accounts/templates/resend-email.html:49
+#: accounts/templates/resend-email.html:63
+msgid "Enter your"
+msgstr ""
+
+#: accounts/templates/resend-email.html:60
+msgid "OR"
+msgstr ""
+
+#: accounts/templates/resend-email.html:76
+msgid "Send Email"
+msgstr ""
+
+#: accounts/templates/reset-password.html:58
+msgid "Link Invalid"
+msgstr ""
+
+#: accounts/templates/reset-password.html:59
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset"
+msgstr ""
+
+#: accounts/views.py:128
+msgid "Your account is already activated"
+msgstr ""
+
+#: cattles/models.py:29
+msgid "Cattle"
+msgstr ""
+
+#: cattles/models.py:30
+msgid "Cattles"
+msgstr ""
+
+#: chickens/models.py:29
+msgid "Chicken"
+msgstr ""
+
+#: chickens/models.py:30
+msgid "Chickens"
+msgstr ""
+
+#: comments/models.py:58 posts/models.py:33
+msgid "File"
+msgstr ""
+
+#: comments/models.py:59 posts/models.py:34
+msgid "Content"
+msgstr ""
+
+#: comments/models.py:60 posts/models.py:38
+msgid "Timestamp"
+msgstr ""
+
+#: comments/models.py:65 posts/templates/partial_post.html.py:18
+msgid "Comment"
+msgstr ""
+
+#: comments/models.py:66
+msgid "Comments"
+msgstr ""
+
+#: comments/templates/partial_comment_create.html:5
+msgid "Create a new comment"
+msgstr ""
+
+#: comments/templates/partial_comment_delete.html:6
+msgid "Confirm comment deletion"
+msgstr ""
+
+#: comments/templates/partial_comment_delete.html:12
+msgid "Are you sure you want to delete the comment"
+msgstr ""
+
+#: comments/templates/partial_comment_update.html:5
+msgid "Update comment"
+msgstr ""
+
+#: configs/models.py:19 configs/models.py:125 configs/models.py:177
+#: configs/models.py:273 logs/models.py:22
+msgid "Code"
+msgstr ""
+
+#: configs/models.py:20 configs/models.py:131 configs/models.py:178
+msgid "Config"
+msgstr ""
+
+#: configs/models.py:21 configs/models.py:179 configs/models.py:227
+#: watchlists/models.py:146
+msgid "Type"
+msgstr ""
+
+#: configs/models.py:22 configs/models.py:254
+#: templates/contents/unit-info.html:7 templates/contents/unit-info.html:9
+#: templates/contents/unit-info.html:11
+msgid "Unit"
+msgstr ""
+
+#: configs/models.py:24
+msgid "Track Item"
+msgstr ""
+
+#: configs/models.py:25 configs/models.py:128 configs/models.py:180
+#: configs/models.py:222 configs/models.py:251 configs/models.py:275
+#: dailytrans/models.py:56 logs/models.py:23 posts/models.py:37
+#: watchlists/models.py:41 watchlists/models.py:42 watchlists/models.py:128
+#: watchlists/models.py:153
+msgid "Updated"
+msgstr ""
+
+#: configs/models.py:30
+msgid "Abstract Product"
+msgstr ""
+
+#: configs/models.py:31
+msgid "Abstract Products"
+msgstr ""
+
+#: configs/models.py:126 configs/models.py:278
+#: templates/ajax/chart-1-content.html:27
+#: templates/ajax/chart-2-content.html:26
+#: templates/contents/index-panel.html:41
+msgid "Chart"
+msgstr ""
+
+#: configs/models.py:127
+msgid "Type Level"
+msgstr ""
+
+#: configs/models.py:132
+msgid "Configs"
+msgstr ""
+
+#: configs/models.py:185 dailytrans/models.py:48 watchlists/models.py:126
+msgid "Source"
+msgstr ""
+
+#: configs/models.py:186
+msgid "Sources"
+msgstr ""
+
+#: configs/models.py:228
+msgid "Types"
+msgstr ""
+
+#: configs/models.py:248 templates/contents/unit-info.html.py:15
+msgid "Price Unit"
+msgstr ""
+
+#: configs/models.py:249 templates/contents/unit-info.html.py:18
+msgid "Volume Unit"
+msgstr ""
+
+#: configs/models.py:250 templates/contents/unit-info.html.py:21
+msgid "Weight Unit"
+msgstr ""
+
+#: configs/models.py:255
+msgid "Units"
+msgstr ""
+
+#: configs/models.py:274
+msgid "Template Name"
+msgstr ""
+
+#: configs/models.py:279
+msgid "Charts"
+msgstr ""
+
+#: configs/models.py:292 dailytrans/utils.py:333
+msgid "Month"
+msgstr ""
+
+#: configs/models.py:293
+msgid "Months"
+msgstr ""
+
+#: crops/models.py:29
+msgid "Crop"
+msgstr ""
+
+#: crops/models.py:30
+msgid "Crops"
+msgstr ""
+
+#: dailytrans/models.py:47 templates/contents/watchlist-profile-table.html.py:8
+#: watchlists/models.py:125 watchlists/models.py:144
+msgid "Product"
+msgstr ""
+
+#: dailytrans/models.py:49
+msgid "Up Price"
+msgstr ""
+
+#: dailytrans/models.py:50
+msgid "Mid Price"
+msgstr ""
+
+#: dailytrans/models.py:51
+msgid "Low Pirce"
+msgstr ""
+
+#: dailytrans/models.py:52 dailytrans/utils.py:121 dailytrans/utils.py:140
+#: dailytrans/utils.py:156 templates/contents/index-panel.html.py:20
+#: templates/contents/integration-table.html:12
+msgid "Average Price"
+msgstr ""
+
+#: dailytrans/models.py:53 dailytrans/utils.py:123
+#: templates/contents/index-panel.html:24
+#: templates/contents/integration-table.html:19
+msgid "Average Weight"
+msgstr ""
+
+#: dailytrans/models.py:54 templates/contents/integration-table.html.py:16
+msgid "Volume"
+msgstr ""
+
+#: dailytrans/models.py:55 dailytrans/utils.py:120 dailytrans/utils.py:139
+#: dailytrans/utils.py:155 dailytrans/utils.py:215
+#: templates/contents/integration-table.html:11
+msgid "Date"
+msgstr ""
+
+#: dailytrans/models.py:61
+msgid "Daily Transition"
+msgstr ""
+
+#: dailytrans/models.py:62
+msgid "Daily Transitions"
+msgstr ""
+
+#: dailytrans/utils.py:122 dailytrans/utils.py:141
+msgid "Sum Volume"
+msgstr ""
+
+#: dailytrans/utils.py:334
+msgid "Min"
+msgstr ""
+
+#: dailytrans/utils.py:335
+msgid "25%"
+msgstr ""
+
+#: dailytrans/utils.py:336
+msgid "50%"
+msgstr ""
+
+#: dailytrans/utils.py:337
+msgid "75%"
+msgstr ""
+
+#: dailytrans/utils.py:338
+msgid "Max"
+msgstr ""
+
+#: dailytrans/utils.py:339
+msgid "Mean"
+msgstr ""
+
+#: dailytrans/utils.py:484
+msgid "This Term"
+msgstr ""
+
+#: dailytrans/utils.py:492
+msgid "Last Term"
+msgstr ""
+
+#: dashboard/settings/base.py:212
+msgid "Traditional Chinese"
+msgstr ""
+
+#: dashboard/settings/base.py:213
+msgid "English"
+msgstr ""
+
+#: ducks/models.py:29
+msgid "Duck"
+msgstr ""
+
+#: ducks/models.py:30
+msgid "Ducks"
+msgstr ""
+
+#: flowers/models.py:29
+msgid "Flower"
+msgstr ""
+
+#: flowers/models.py:30
+msgid "Flowers"
+msgstr ""
+
+#: fruits/models.py:29
+msgid "Fruit"
+msgstr ""
+
+#: fruits/models.py:30
+msgid "Fruits"
+msgstr ""
+
+#: gooses/models.py:29
+msgid "Goose"
+msgstr ""
+
+#: gooses/models.py:30
+msgid "Gooses"
+msgstr ""
+
+#: hogs/models.py:29
+msgid "Hog"
+msgstr ""
+
+#: hogs/models.py:30
+msgid "Hogs"
+msgstr ""
+
+#: logs/models.py:13
+msgid "Log Type"
+msgstr ""
+
+#: logs/models.py:16
+msgid "Log"
+msgstr ""
+
+#: logs/models.py:17
+msgid "Logs"
+msgstr ""
+
+#: logs/models.py:26
+msgid "LogType"
+msgstr ""
+
+#: logs/models.py:27
+msgid "LogTypes"
+msgstr ""
+
+#: posts/models.py:32
+msgid "Title"
+msgstr ""
+
+#: posts/models.py:35
+msgid "Publish"
+msgstr ""
+
+#: posts/models.py:36
+msgid "Read Time"
+msgstr ""
+
+#: posts/models.py:41
+msgid "Post"
+msgstr ""
+
+#: posts/models.py:42
+msgid "Posts"
+msgstr ""
+
+#: posts/templates/partial_post.html:21 posts/templates/partial_post.html:40
+#: posts/templates/partial_post.html:66 posts/templates/partial_post.html:88
+msgid "Edit"
+msgstr ""
+
+#: posts/templates/partial_post.html:23 posts/templates/partial_post.html:44
+#: posts/templates/partial_post.html:70 posts/templates/partial_post.html:92
+msgid "Delete"
+msgstr ""
+
+#: posts/templates/partial_post.html:35 posts/templates/partial_post.html:61
+msgid "Reply"
+msgstr ""
+
+#: posts/templates/partial_post_create.html:5
+msgid "Create a new post"
+msgstr ""
+
+#: posts/templates/partial_post_delete.html:6
+msgid "Confirm post deletion"
+msgstr ""
+
+#: posts/templates/partial_post_delete.html:12
+msgid "Are you sure you want to delete the post"
+msgstr ""
+
+#: posts/templates/partial_post_update.html:5
+msgid "Update post"
+msgstr ""
+
+#: rams/models.py:29
+msgid "Ram"
+msgstr ""
+
+#: rams/models.py:30
+msgid "Rams"
+msgstr ""
+
+#: rices/models.py:29
+msgid "Rice"
+msgstr ""
+
+#: rices/models.py:30
+msgid "Rices"
+msgstr ""
+
+#: seafoods/models.py:29
+msgid "Seafood"
+msgstr ""
+
+#: seafoods/models.py:30
+msgid "Seafoods"
+msgstr ""
+
+#: templates/ajax/about.html:12 templates/navigation.html.py:56
+msgid "Main"
+msgstr ""
+
+#: templates/ajax/about.html:14 templates/navigation.html.py:59
+#: templates/shortcut.html:8
+msgid "About"
+msgstr ""
+
+#: templates/ajax/about.html:31
+msgid ""
+"This website is used for Council of Agriculture and affiliated institution "
+"only"
+msgstr ""
+
+#: templates/ajax/about.html:37
+msgid "The purpose of construction"
+msgstr ""
+
+#: templates/ajax/about.html:39
+msgid ""
+"The platform combined the price and the trading volume of agricultural "
+"products from Council of Agriculture (COA) and the affiliated agencies "
+"including Agriculture and Food Agency, Fisheries Agency and Department of "
+"Animal Industry in order to provide quick visual research and help the staff "
+"in COA and affiliated agencies control the price and the trading volume "
+"trend of agricultural products. We keep developing user interfaces of price "
+"monitoring alerts and traceable agricultural events in the platform to aid "
+"the users handle the price and the trading volume trend of agricultural "
+"products in time and figure out the reasons for particular price and trading "
+"volume variation historically. Furthermore, we will extend the query "
+"function of social media, comments and production period to provide One-Stop "
+"Service integrated related information about price and the trading volume of "
+"agricultural products."
+msgstr ""
+
+#: templates/ajax/about.html:43
+msgid ""
+"Currently, there are 63 items consist of 10 overall and categorized items of "
+"vegetables, fruits and flowers in Taipei Agricultural Products Wholesale "
+"Market and 53 daily-monitored important agricultural products in COA. The "
+"wholesale prices of monitored items in including price and trading volume "
+"(only parts of information of vegetables, fruits and flowers are contained "
+"in Taipei Agricultural Products Wholesale Market); however, the monitored "
+"items with price of origin only cover local transaction price. It is "
+"feasible to reserve or increase other agricultural products in the platform "
+"and we will in time add items which are contained in current wholesale or "
+"local Markets as acquired."
+msgstr ""
+
+#: templates/ajax/about.html:46
+msgid "Source of information"
+msgstr ""
+
+#: templates/ajax/about.html:47
+msgid ""
+"The information was provided by National Animal Industry Foundation "
+"(wholesale market price), Agriculture and Food Agency (local price), "
+"Agricultural Market Infrastructure System (wholesale market price), Taiwan "
+"Aquaculture Development Foundation (local price) and other industrial "
+"organizations, which constructed related Application Programming Interface "
+"(API) based on the current information system. Next, we retrieved the "
+"information from specific scheduled program according to Machine To Machine "
+"(M2M) or open data platform in COA."
+msgstr ""
+
+#: templates/ajax/about.html:51
+msgid ""
+"Showing daily price/volume trends, year by year trends and distribution plot "
+"with charts, each chart provide raw data, integration data and exporting "
+"services."
+msgstr ""
+
+#: templates/ajax/about.html:54
+msgid "Cooperation Units"
+msgstr ""
+
+#: templates/ajax/about.html:55
+msgid ""
+"1. The platform was constructed by statistics office in COA and Taiwan "
+"Agricultural Research Institute (Agricultural Policy Research Center). All "
+"of the technical supports were provided by statistical information "
+"integrated team in Agricultural Policy Research Center. 2. The related "
+"information of price and the trading volume was provided by Livestock "
+"Research Institute, Agriculture and Food Agency and Fishery Agency and they "
+"help connect affiliated industrial organization to provide automatic "
+"interface service. We will keep providing the information about “comments”, "
+"“production and trading events” and “monitored price”. 3. Information "
+"Management Center provides interface technique based on open data platform "
+"in COA and Research & Development Departments and professional consult to "
+"help eliminate obstacle interface."
+msgstr ""
+
+#: templates/ajax/about.html:58
+msgid "Future prospects"
+msgstr ""
+
+#: templates/ajax/about.html:59
+msgid ""
+"The purpose of the platform was to provide friendly visual interface "
+"research of the price and the trading volume of agricultural products and "
+"its related information will be extended into step by step. Owning to the "
+"constriction of human resources and time, it takes time to cooperate among "
+"industrial departments for completing information in the back end; "
+"otherwise, the fully functional version cannot be accomplished in a short "
+"time. The first stage of the platform expects to be completed in October, "
+"2018. Subsequently, we will integrate the information such as weather "
+"information related to production, the prices of important agricultural "
+"products in different stages, annually agricultural damage overview of "
+"individual products, and domestic or import quantum of products into the "
+"platform according to human resources and accessibility of data."
+msgstr ""
+
+#: templates/ajax/chart-3-content.html:25
+#: templates/ajax/chart-4-content.html:24
+msgid "Settings"
+msgstr ""
+
+#: templates/ajax/chart-3-content.html:34
+msgid "Display years"
+msgstr ""
+
+#: templates/ajax/chart-3-content.html:45
+#: templates/ajax/chart-4-content.html:33
+msgid "Average years"
+msgstr ""
+
+#: templates/ajax/chart-3-content.html:60
+#: templates/ajax/chart-4-content.html:52
+msgid "Close"
+msgstr ""
+
+#: templates/ajax/chart-tab.html:22
+msgid "Product Profile"
+msgstr ""
+
+#: templates/ajax/integration-panel.html:5
+msgid "Date Range"
+msgstr ""
+
+#: templates/ajax/no-data.html:484
+msgid "NO DATA"
+msgstr ""
+
+#: templates/ajax/no-data.html:487
+msgid ""
+"No data to display, this product might be low season in current date range"
+msgstr ""
+
+#: templates/ajax/no-data.html:490
+msgid "Any further question please contact us"
+msgstr ""
+
+#: templates/contents/index-panel.html:22
+#: templates/contents/integration-table.html:15
+msgid "Average Volume"
+msgstr ""
+
+#: templates/contents/integration-table.html:13 watchlists/models.py:147
+msgid "Price"
+msgstr ""
+
+#: templates/contents/integration-table.html:13
+#: templates/contents/integration-table.html:16
+#: templates/contents/integration-table.html:20
+msgid "Spark Line"
+msgstr ""
+
+#: templates/contents/integration-table.html:20
+msgid "Weight"
+msgstr ""
+
+#: templates/contents/integration-widget-type-panel-groups.html:26
+msgid "Integration Data"
+msgstr ""
+
+#: templates/contents/monitor-profile-table.html:7
+msgid "Monitor Price"
+msgstr ""
+
+#: templates/contents/monitor-profile-table.html:8 watchlists/models.py:150
+msgid "Info"
+msgstr ""
+
+#: templates/contents/monitor-profile-table.html:9 watchlists/models.py:152
+msgid "Period"
+msgstr ""
+
+#: templates/contents/monitor-profile-table.html:10 watchlists/models.py:151
+msgid "Action"
+msgstr ""
+
+#: templates/contents/product-profile.html:26
+msgid "Watchlist Item Profile"
+msgstr ""
+
+#: templates/contents/product-profile.html:93 watchlists/models.py:156
+#: watchlists/models.py:157
+msgid "Monitor Profile"
+msgstr ""
+
+#: templates/contents/raw-widget-single-type-index.html:28
+#: templates/contents/raw-widget-type-panel-groups.html:26
+msgid "Raw Data"
+msgstr ""
+
+#: templates/contents/selected-year-info.html:5
+msgid "Year Selected"
+msgstr ""
+
+#: templates/contents/watchlist-profile-table.html:9 watchlists/models.py:133
+msgid "Watchlist Item"
+msgstr ""
+
+#: templates/contents/watchlist-profile-table.html:10
+msgid "Monitor Source"
+msgstr ""
+
+#: templates/header.html:19
+msgid "Collapse Menu"
+msgstr ""
+
+#: templates/header.html:56
+msgid "Sign Out"
+msgstr ""
+
+#: templates/header.html:56
+msgid ""
+"You can improve your security further after logging out by closing this "
+"opened browser"
+msgstr ""
+
+#: templates/header.html:79
+msgid "Full Screen"
+msgstr ""
+
+#: templates/navigation.html:32 watchlists/models.py:45
+#: watchlists/models.py:145
+msgid "Watchlist"
+msgstr ""
+
+#: templates/navigation.html:65
+msgid "Grand Totals"
+msgstr ""
+
+#: templates/navigation.html:81
+msgid "Agricultures"
+msgstr ""
+
+#: templates/navigation.html:97
+msgid "Livestocks"
+msgstr ""
+
+#: templates/navigation.html:113
+msgid "Fisheries"
+msgstr ""
+
+#: watchlists/models.py:39
+msgid "Is Default"
+msgstr ""
+
+#: watchlists/models.py:40
+msgid "Watch All"
+msgstr ""
+
+#: watchlists/models.py:46
+msgid "Watchlists"
+msgstr ""
+
+#: watchlists/models.py:134
+msgid "Watchlist Items"
+msgstr ""
+
+#: watchlists/models.py:148
+msgid "Comparison"
+msgstr ""
+
+#: watchlists/models.py:149
+msgid "Color"
+msgstr ""

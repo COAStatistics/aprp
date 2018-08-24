@@ -1,0 +1,101 @@
+{% load i18n %}
+{% load json_filters %}
+
+<section id="chart-{{ chart.id }}-widget-grid" class="padding-10">
+    <div class="row padding-10">
+    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <!-- start chart widget -->
+        <div class="jarviswidget jarviswidget-color-redLight" id="chart-{{ chart.id }}-widget-highchart"
+             data-widget-editbutton="false" data-widget-deletebutton="false">
+            <!-- widget options:
+                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+                data-widget-colorbutton="false"
+                data-widget-editbutton="false"
+                data-widget-togglebutton="false"
+                data-widget-deletebutton="false"
+                data-widget-fullscreenbutton="false"
+                data-widget-custombutton="false"
+                data-widget-collapsed="true"
+                data-widget-sortable="false"
+
+            -->
+            <header>
+                <span class="widget-icon"> <i class="fa fa-area-chart"></i> </span>
+                <h2 class="font-md"><strong>{% trans 'Chart' %}</strong></h2>
+            </header>
+
+            <!-- widget div-->
+            <div>
+
+                <!-- widget edit box -->
+                <div class="jarviswidget-editbox">
+                    <!-- This area used as dropdown edit box -->
+
+                </div>
+                <!-- end widget edit box -->
+
+                <!-- widget content -->
+                <div class="widget-body">
+                    <div id="chart-{{ chart.id }}-widget-highchart-body"></div>
+                </div>
+                <!-- end widget content -->
+
+            </div>
+            <!-- end widget div -->
+
+        </div>
+        <!-- end widget -->
+
+            <!-- start integration widget -->
+            {% include 'contents/integration-widget-type-panel-groups.html' %}
+            <!-- end widget -->
+
+            <!-- start chart widget -->
+            {% include 'contents/raw-widget-type-panel-groups.html' %}
+            <!-- end widget -->
+
+    </article>
+</div>
+</section>
+
+<script>
+
+	pageSetUp();
+
+	// pagefunction
+
+	var pagefunction = function() {
+
+	    dynamic_setup_widgets('chart-{{ chart.id }}-widget-grid');
+
+        var seriesOptions = {{ series_options|stringify|safe }}
+        var unit = {{ unit|stringify|safe }}
+
+        chart2Helper.init('chart-{{ chart.id }}');
+
+        var chart = chart2Helper.create('chart-{{ chart.id }}-widget-highchart-body', seriesOptions, unit);
+
+        // init raw datatable
+        chart2Helper.container.find('.datatable-raw').each(function(){
+            var container = $(this).attr('id');
+            dataTableHelper.createRaw(container);
+        })
+
+        // init integration datatable
+        var min = chart2Helper.manager.dateRange.min;
+        var max = chart2Helper.manager.dateRange.max;
+        var $container = $('#chart-{{ chart.id }}-widget-integration div[data-load]');
+        integrationHelper.loadTable($container, min, max);
+
+	};
+
+	// end pagefunction
+
+	// run pagefunction on load
+
+	pagefunction();
+
+
+</script>

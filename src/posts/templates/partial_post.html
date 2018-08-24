@@ -1,0 +1,111 @@
+{% load i18n %}
+{% load timesince_filter %}
+
+<div class="card mb-3 post" data-id="{{ post.id }}">
+  <!--<a href="#" role="button">-->
+    <!--<img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">-->
+  <!--</a>-->
+  <div class="card-body">
+    <h6 class="card-title mb-1"><a href="#" role="button">{{ post.user.info.full_name }}</a></h6>
+    <p class="card-text font-weight-bold lead">{{ post.title }}</p>
+    <p class="card-text">{{ post.content|linebreaksbr }}</p>
+  </div>
+  <hr class="my-0">
+  <div class="card-body py-2 small">
+    <!--<a href="#" role="button" class="mr-3 d-inline-block">-->
+      <!--<i class="fa fa-fw fa-thumb-tack"></i>Follow</a>-->
+    <a href="#" role="button" class="mr-3 d-inline-block js-create-comment" data-url="{% url 'comments:comment_create' %}">
+      <i class="fa fa-fw fa-comment"></i>{% trans 'Comment' %}</a>
+    {% if user == post.user %}
+    <a href="#" role="button" class="mr-3 d-inline-block js-update-post" data-url="{% url 'posts:post_update' post.id %}">
+      <i class="fa fa-fw fa-edit"></i>{% trans 'Edit' %}</a>
+    <a href="#" role="button" class="mr-3 d-inline-block js-delete-post" data-url="{% url 'posts:post_delete' post.id %}">
+      <i class="fa fa-fw fa-trash"></i>{% trans 'Delete' %}</a>
+    {% endif %}
+  </div>
+  <hr class="my-0">
+  <div class="card-body small bg-faded">
+    {% for comment in post.comments %}
+    <div class="media">
+      <img class="d-flex mr-3" src="https://eventseeker.com/assets/images/profile-pic.png" width="45" height="45" alt="">
+      <div class="media-body">
+        <h6 class="mt-0 mb-1"><a href="#" role="button" class="js-user-posts" role="button">{{ comment.user.info.full_name }}</a></h6><p>{{ comment.content|linebreaksbr }}</p>
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item">
+            <a href="#" role="button" class="js-create-comment" data-parent-id="{{ comment.id }}" data-url="{% url 'comments:comment_create' %}">{% trans 'Reply' %}</a>
+          </li>
+          <li class="list-inline-item">·</li>
+          {% if user == comment.user %}
+          <li class="list-inline-item">
+            <a href="#" role="button" class="js-update-comment" data-parent-id="" data-url="{% url 'comments:comment_update' comment.id %}">{% trans 'Edit' %}</a>
+          </li>
+          <li class="list-inline-item">·</li>
+          <li class="list-inline-item">
+            <a href="#" role="button" class="js-delete-comment" data-parent-id="" data-url="{% url 'comments:comment_delete' comment.id %}">{% trans 'Delete' %}</a>
+          </li>
+          <li class="list-inline-item">·</li>
+          {% endif %}
+          <li class="list-inline-item">
+            <a title="{{ comment.timestamp }}">{{ comment.timestamp|timesince_filter }}</a>
+          </li>
+        </ul>
+        {% for child in comment.children %}
+        <div class="media mt-3">
+          <a class="d-flex mr-3" href="#" role="button">
+            <img src="https://eventseeker.com/assets/images/profile-pic.png" width="45" height="45" alt="">
+          </a>
+          <div class="media-body">
+            <h6 class="mt-0 mb-1"><a href="#" role="button">{{ child.user.info.full_name }}</a></h6><p>{{ child.content|linebreaksbr }}</p>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a href="#" role="button" class="js-create-comment" data-parent-id="{{ child.id }}" data-url="{% url 'comments:comment_create' %}">{% trans 'Reply' %}</a>
+              </li>
+              <li class="list-inline-item">·</li>
+              {% if user == child.user %}
+              <li class="list-inline-item">
+                <a href="#" role="button" class="js-update-comment" data-parent-id="{{ comment.id }}" data-url="{% url 'comments:comment_update' child.id %}">{% trans 'Edit' %}</a>
+              </li>
+              <li class="list-inline-item">·</li>
+              <li class="list-inline-item">
+                <a href="#" role="button" class="js-delete-comment" data-parent-id="{{ comment.id }}" data-url="{% url 'comments:comment_delete' child.id %}">{% trans 'Delete' %}</a>
+              </li>
+              <li class="list-inline-item">·</li>
+              {% endif %}
+              <li class="list-inline-item">
+                <a title="{{ child.timestamp }}">{{ child.timestamp|timesince_filter }}</a>
+              </li>
+            </ul>
+            {% for child2 in child.children %}
+            <div class="media mt-3 comment" data-id="{{ child2.id }}">
+              <a class="d-flex mr-3" href="#" role="button">
+                <img src="https://eventseeker.com/assets/images/profile-pic.png" width="45" height="45" alt="">
+              </a>
+              <div class="media-body">
+                <h6 class="mt-0 mb-1"><a href="#" role="button">{{ child2.user.info.full_name }}</a></h6><p>{{ child2.content|linebreaksbr }}</p>
+                <ul class="list-inline mb-0">
+                  {% if user == child2.user %}
+                  <li class="list-inline-item">
+                    <a href="#" role="button" class="js-update-comment" data-parent-id="{{ child.id }}" data-url="{% url 'comments:comment_update' child2.id %}">{% trans 'Edit' %}</a>
+                  </li>
+                  <li class="list-inline-item">·</li>
+                  <li class="list-inline-item">
+                    <a href="#" role="button" class="js-delete-comment" data-parent-id="{{ child.id }}" data-url="{% url 'comments:comment_delete' child2.id %}">{% trans 'Delete' %}</a>
+                  </li>
+                  <li class="list-inline-item">·</li>
+                  {% endif %}
+                  <li class="list-inline-item">
+                    <a title="{{ child.timestamp }}">{{ child.timestamp|timesince_filter }}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="card-footer small text-muted">{{ post.timestamp }}</div>
+</div>

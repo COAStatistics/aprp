@@ -1,0 +1,53 @@
+{% load i18n %}
+
+<!--
+    * To use this template, must have these parameters,
+    * 1. series_options => List of Dict
+-->
+
+<!-- start datatable widget -->
+<div class="jarviswidget jarviswidget-color-magenta" id="chart-{{ chart.id }}-widget-integration"
+     data-widget-editbutton="false" data-widget-deletebutton="false">
+    <!-- widget options:
+        usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+        data-widget-colorbutton="false"
+        data-widget-editbutton="false"
+        data-widget-togglebutton="false"
+        data-widget-deletebutton="false"
+        data-widget-fullscreenbutton="false"
+        data-widget-custombutton="false"
+        data-widget-collapsed="true"
+        data-widget-sortable="false"
+
+    -->
+    <header>
+        <span class="widget-icon"> <i class="fa fa-th"></i> </span>
+        <h2 class="font-md"><strong>{% trans 'Integration Data' %}</strong></h2>
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+
+        <!-- widget content -->
+        <div class="widget-body no-padding no-min-height">
+            <div data-load-url="{% if lct and loi %}{% url 'integration_table' ci=ci wi=wi ct=ct oi=oi lct=lct loi=loi %}{% else %}{% url 'integration_table' ci=ci wi=wi ct=ct oi=oi %}{% endif %}"
+                 data-load>
+                <!-- dynamically load integration panels here -->
+            </div>
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->
+

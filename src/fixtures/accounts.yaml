@@ -1,0 +1,157 @@
+# Group
+
+- model: auth.Group
+  pk: 1
+  fields:
+    name: 農委會
+    permissions: [38]
+
+- model: auth.Group
+  pk: 2
+  fields:
+    name: Gmail測試群組
+    permissions: [38]
+
+- model: auth.Group
+  pk: 3
+  fields:
+    name: 農糧署
+    permissions: [38, 46, 109]
+
+- model: auth.Group
+  pk: 4
+  fields:
+    name: 漁業署
+    permissions: [38, 46, 109]
+
+- model: auth.Group
+  pk: 5
+  fields:
+    name: 農委會統計室
+    permissions: [38, 46, 109]
+
+- model: auth.Group
+  pk: 6
+  fields:
+    name: 農委會畜牧處
+    permissions: [38, 46, 109]
+
+- model: auth.Group
+  pk: 7
+  fields:
+    name: 農糧署統計室
+    permissions: [38, 46, 109]
+
+- model: auth.Group
+  pk: 8
+  fields:
+    name: 農糧署會計室
+    permissions: [38, 46, 109]
+
+- model: auth.Group
+  pk: 9
+  fields:
+    name: 漁業署統計室
+    permissions: [38, 46, 109]
+
+- model: auth.Group
+  pk: 10
+  fields:
+    name: 漁業署會計室
+    permissions: [38, 46, 109]
+
+# GroupInformation First Layer
+
+- model: accounts.GroupInformation
+  pk: 1
+  fields:
+    name: 農委會
+    group: 1
+    email_dns: mail.coa.gov.tw
+
+- model: accounts.GroupInformation
+  pk: 2
+  fields:
+    name: Gmail測試群組
+    group: 2
+    email_dns: gmail.com
+
+
+# GroupInformation Second Layer
+
+- model: accounts.GroupInformation
+  pk: 3
+  fields:
+    name: 農糧署
+    group: 3
+    email_dns: mail.afa.gov.tw
+    parent: 1
+
+- model: accounts.GroupInformation
+  pk: 4
+  fields:
+    name: 漁業署
+    group: 4
+    email_dns: mail.fa.gov.tw
+    parent: 1
+
+- model: accounts.GroupInformation
+  pk: 5
+  fields:
+    name: 統計室
+    group: 5
+    parent: 1
+    email_dns: mail.coa.gov.tw
+
+- model: accounts.GroupInformation
+  pk: 6
+  fields:
+    name: 畜牧處
+    group: 6
+    parent: 1
+    email_dns: mail.coa.gov.tw
+
+# GroupInformation Third Layer
+
+- model: accounts.GroupInformation
+  pk: 7
+  fields:
+    name: 統計室
+    group: 7
+    parent: 3
+    email_dns: mail.afa.gov.tw
+
+- model: accounts.GroupInformation
+  pk: 8
+  fields:
+    name: 會計室
+    group: 8
+    parent: 3
+    email_dns: mail.afa.gov.tw
+
+
+- model: accounts.GroupInformation
+  pk: 9
+  fields:
+    name: 統計室
+    group: 9
+    parent: 4
+    email_dns: mail.fa.gov.tw
+
+- model: accounts.GroupInformation
+  pk: 10
+  fields:
+    name: 會計室
+    group: 10
+    parent: 4
+    email_dns: mail.fa.gov.tw
+
+
+
+
+
+
+
+
+
+

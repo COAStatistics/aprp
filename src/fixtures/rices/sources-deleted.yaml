@@ -1,0 +1,300 @@
+#農糧署提供資料，因透過各縣市算出的平均，與當日平均不同，因為縣市有加權後計算出的當日平均，目前以日平均價為主，刪除來源。
+## Rice Sources
+#
+## Type : 1
+#
+#- model: configs.Source
+#  pk: 1
+#  fields:
+#    name: 基隆市
+#    configs: [1]
+#    type: 1
+#
+#
+#- model: configs.Source
+#  pk: 2
+#  fields:
+#    name: 新北市
+#    configs: [1]
+#    type: 1
+#
+#
+#- model: configs.Source
+#  pk: 3
+#  fields:
+#    name: 臺北市
+#    configs: [1]
+#    type: 1
+#
+#
+#- model: configs.Source
+#  pk: 4
+#  fields:
+#    name: 新竹市
+#    configs: [1]
+#    type: 1
+#
+#
+#- model: configs.Source
+#  pk: 5
+#  fields:
+#    name: 臺中市
+#    configs: [1]
+#    code: 400
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 6
+#  fields:
+#    name: 臺南市
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 7
+#  fields:
+#    name: 嘉義市
+#    configs: [1]
+#    code: 600
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 8
+#  fields:
+#    name: 高雄市
+#    configs: [1]
+#    code: 800
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 9
+#  fields:
+#    name: 宜蘭縣
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 10
+#  fields:
+#    name: 桃園市
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 11
+#  fields:
+#    name: 新竹縣
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 12
+#  fields:
+#    name: 苗栗縣
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 13
+#  fields:
+#    name: 彰化縣
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 14
+#  fields:
+#    name: 南投縣
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 15
+#  fields:
+#    name: 雲林縣
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 16
+#  fields:
+#    name: 嘉義縣
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 17
+#  fields:
+#    name: 屏東縣
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 18
+#  fields:
+#    name: 臺東縣
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 19
+#  fields:
+#    name: 花蓮縣
+#    configs: [1]
+#    type: 1
+#
+#- model: configs.Source
+#  pk: 20
+#  fields:
+#    name: 澎湖縣
+#    configs: [1]
+#    type: 1
+#
+## type: 3
+#
+#- model: configs.Source
+#  pk: 21
+#  fields:
+#    name: 基隆市
+#    configs: [1]
+#    type: 3
+#
+#
+#- model: configs.Source
+#  pk: 22
+#  fields:
+#    name: 新北市
+#    configs: [1]
+#    type: 3
+#
+#
+#- model: configs.Source
+#  pk: 23
+#  fields:
+#    name: 臺北市
+#    configs: [1]
+#    type: 3
+#
+#
+#- model: configs.Source
+#  pk: 24
+#  fields:
+#    name: 新竹市
+#    configs: [1]
+#    type: 3
+#
+#
+#- model: configs.Source
+#  pk: 25
+#  fields:
+#    name: 臺中市
+#    configs: [1]
+#    code: 400
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 26
+#  fields:
+#    name: 臺南市
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 27
+#  fields:
+#    name: 嘉義市
+#    configs: [1]
+#    code: 600
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 28
+#  fields:
+#    name: 高雄市
+#    configs: [1]
+#    code: 800
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 29
+#  fields:
+#    name: 宜蘭縣
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 30
+#  fields:
+#    name: 桃園市
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 31
+#  fields:
+#    name: 新竹縣
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 32
+#  fields:
+#    name: 苗栗縣
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 33
+#  fields:
+#    name: 彰化縣
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 34
+#  fields:
+#    name: 南投縣
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 35
+#  fields:
+#    name: 雲林縣
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 36
+#  fields:
+#    name: 嘉義縣
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 37
+#  fields:
+#    name: 屏東縣
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 38
+#  fields:
+#    name: 臺東縣
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 39
+#  fields:
+#    name: 花蓮縣
+#    configs: [1]
+#    type: 3
+#
+#- model: configs.Source
+#  pk: 40
+#  fields:
+#    name: 澎湖縣
+#    configs: [1]
+#    type: 3

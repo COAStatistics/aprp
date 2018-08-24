@@ -1,0 +1,79 @@
+{% extends 'account-base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+{% trans 'Log in' %}
+{% endblock title %}
+
+{% block header_link %}
+<span id="extr-page-header-space">
+	<!--<span class="hidden-mobile hidden-xs">{% trans 'Need an account' %}?</span> -->
+	<!--<a href="{% url 'accounts:register' %}" class="btn btn-danger">{% trans 'Register' %}</a> -->
+</span>
+{% endblock header_link %}
+
+{% block content %}
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+		{% include 'introduction.html' %}
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+		<div class="well no-padding">
+			<form method="POST" action="" id="login-form" class="smart-form client-form">{% csrf_token %}
+				<header>
+					{% trans 'Sign In' %}
+				</header>
+
+				<fieldset>
+					<section>
+						{% for error in form.non_field_errors %}
+							<div class="alert alert-danger">
+								<strong>{{ error|escape }}</strong>
+							</div>
+						{% endfor %}
+					</section>
+					<section>
+						<label class="label">{{ form.username.label_tag }}</label>
+						<label for="{{ form.username.auto_id }}" class="input"> <i class="icon-append fa fa-user"></i>
+							<input id="{{ form.username.auto_id }}" type="username" name="username"
+							{% if form.username.value != None %} value="{{ form.username.value|stringformat:'s' }}"{% endif %}>
+							<b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> {{ form.username.help_text }}</b>
+						</label>
+						{% for error in form.username.errors %}
+							<small class="help-block text-danger" style="">{{ error|escape }}</small>
+						{% endfor %}
+					</section>
+
+					<section>
+						<label for="{{ form.password.auto_id }}" class="label">{{ form.password.label_tag }}</label>
+						<label id="{{ form.password.auto_id }}" class="input"> <i class="icon-append fa fa-lock"></i>
+							<input type="password" name="password">
+							<b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> {{ form.password.help_text }}</b>
+						</label>
+						{% for error in form.password.errors %}
+							<small class="help-block text-danger" style="">{{ error|escape }}</small>
+						{% endfor %}
+						<!--<div class="note">-->
+							<!--<a href="{% url 'accounts:forgot_password' %}">{% trans 'Forgot password' %}?</a>-->
+						<!--</div>-->
+					</section>
+
+					<section>
+						<label for="id_remember" class="checkbox">
+							<input id="id_remember" type="checkbox" name="remember" checked="checked">
+							<i></i>{% trans 'Remember me' %}
+						</label>
+					</section>
+				</fieldset>
+				<footer>
+					<input type="submit" class="btn btn-primary btn-block prevent-double-click" value="{% trans 'Login' %}">
+				</footer>
+			</form>
+
+		</div>
+	</div>
+</div>
+{% endblock content %}

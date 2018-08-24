@@ -1,0 +1,59 @@
+- model: gooses.Goose
+  pk: 110001
+  fields:
+    name: 土鵝
+    track_item: false
+    config: 12
+    unit: 2
+
+- model: gooses.Goose
+  pk: 110002
+  fields:
+    name: 白羅曼鵝
+    track_item: false
+    config: 12
+    unit: 2
+
+- model: gooses.Goose
+  pk: 110003
+  fields:
+    name: 肉鵝
+    code: 肉鵝(上鵝)價格/土鵝
+    type: 2
+    config: 12
+    unit: 2
+    parent: 110001
+
+- model: gooses.Goose
+  pk: 110004
+  fields:
+    name: 小鵝
+    code: 小鵝產地價格(隻)/土鵝
+    type: 2
+    config: 12
+    unit: 2
+    parent: 110001
+
+- model: gooses.Goose
+  pk: 110005
+  fields:
+    name: 肉鵝
+    code: 肉鵝(上鵝)價格/白羅曼鵝
+    type: 2
+    config: 12
+    unit: 2
+    parent: 110002
+
+- model: gooses.Goose
+  pk: 110006
+  fields:
+    name: 小鵝
+    code: 小鵝產地價格(隻)/白羅曼鵝
+    type: 2
+    config: 12
+    unit: 2
+    parent: 110002
+
+
+
+

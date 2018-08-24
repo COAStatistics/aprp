@@ -1,0 +1,115 @@
+- model: fruits.Fruit
+  pk: 50182
+  fields:
+    name: 梨
+    config: 6
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50183
+  fields:
+    name: 梨-世紀梨
+    code: O3
+    type: 1
+    config: 6
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50184
+  fields:
+    name: 梨-橫山梨
+    code: O1
+    type: 1
+    config: 6
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50185
+  fields:
+    name: 梨-新興梨
+    code: O4
+    type: 1
+    config: 6
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50186
+  fields:
+    name: 梨-豐水梨
+    code: O5
+    type: 1
+    config: 6
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50187
+  fields:
+    name: 梨-鳥梨
+    code: O7
+    type: 1
+    config: 6
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50188
+  fields:
+    name: 梨-秋水梨
+    code: O2
+    type: 1
+    config: 6
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50189
+  fields:
+    name: 梨-4029梨
+    code: O8
+    type: 1
+    config: 6
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50190
+  fields:
+    name: 梨-其他
+    code: O0
+    type: 1
+    config: 6
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50191
+  fields:
+    name: 梨-幸水梨
+    code: O6
+    type: 1
+    config: 6
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50192
+  fields:
+    name: 梨-進口
+    code: O9
+    type: 1
+    config: 6
+    track_item: false
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50193
+  fields:
+    name: 梨-進口
+    code: O9
+    type: 1
+    config: 6
+    parent: 50192
+
+- model: fruits.Fruit
+  pk: 50194
+  fields:
+    name: 西洋梨-西洋梨進口
+    code: O99
+    type: 1
+    config: 6
+    parent: 50192

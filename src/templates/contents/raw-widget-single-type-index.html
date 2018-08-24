@@ -1,0 +1,61 @@
+{% load i18n %}
+
+<!--
+    * To use this template, must have these parameters,
+    * 1. index => 'price', 'volume', 'weight'
+    * 2. type => Type instance
+    * 3. raw => Dictionary with key "columns" and "rows"
+-->
+
+<!-- start datatable widget -->
+<div class="jarviswidget jarviswidget-color-yellow" id="chart-{{ chart.id }}-widget-raw-{{ type.id }}-{{ index }}"
+     data-widget-editbutton="false" data-widget-deletebutton="false">
+    <!-- widget options:
+        usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+        data-widget-colorbutton="false"
+        data-widget-editbutton="false"
+        data-widget-togglebutton="false"
+        data-widget-deletebutton="false"
+        data-widget-fullscreenbutton="false"
+        data-widget-custombutton="false"
+        data-widget-collapsed="true"
+        data-widget-sortable="false"
+
+    -->
+    <header>
+        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+        <h2 class="font-md"><strong>{% trans 'Raw Data' %}</strong></h2>
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+
+        <!-- widget content -->
+        <div class="widget-body no-min-height no-padding">
+            <!-- start year info -->
+            {% include 'contents/selected-year-info.html' %}
+            <!-- end year info -->
+
+            <!-- start unit into -->
+            {% include 'contents/unit-info.html' with index=index %}
+            <!-- end unit info -->
+
+            <div class="padding-10">
+                {% include 'contents/raw-table.html' %}
+            </div>
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->

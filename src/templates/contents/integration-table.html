@@ -1,0 +1,28 @@
+{% load i18n %}
+
+<div class="table-responsive">
+    <!-- advise attribute "data-type-id" for load more -->
+    <!-- advise class "table-integration" for load more and init -->
+    <table id="chart-{{ chart.id }}-integration-{{ option.type.id }}-table{% if index %}-{{ index }}{% endif %}"
+           data-type-id="{{ option.type.id }}"
+           class="table table-striped table-bordered table-hover table-integration" width="100%">
+        <thead>
+            <tr>
+                <th>{% trans 'Date' %}</th>
+                <th>{% trans 'Average Price' %}</th>
+                <th data-hide="phone">{% trans 'Price' %} {% trans 'Spark Line' %}</th>
+                {% if option.has_volume %}
+                <th>{% trans 'Average Volume' %}</th>
+                <th data-hide="phone">{% trans 'Volume' %} {% trans 'Spark Line' %}</th>
+                {% endif %}
+                {% if option.has_weight %}
+                <th>{% trans 'Average Weight' %}</th>
+                <th data-hide="phone">{% trans 'Weight' %} {% trans 'Spark Line' %}</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody class="tbody-sparkline">
+            {% include 'ajax/integration-row.html' %}
+        </tbody>
+    </table>
+</div>

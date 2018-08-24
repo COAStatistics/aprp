@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% if chart.id == 4 %}
+    <p class="alert alert-success no-margin">
+        <i class="fa fa-check"></i> {% trans 'Year Selected' %} :
+        <strong>
+        {% if method == 'GET' or not selected_years %}
+            {{ option.years|join:" + " }}
+        {% else %}
+            {{ selected_years|join:" + " }}
+        {% endif %}
+        </strong>
+    </p>
+{% endif %}

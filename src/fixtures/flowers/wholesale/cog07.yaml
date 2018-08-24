@@ -1,0 +1,1071 @@
+# FA 康乃馨
+# FB 火鶴花 
+# FC 大菊
+# FD 小菊
+# FE 非洲菊
+
+- model: flowers.Flower
+  pk: 60001
+  fields:
+    name: 康乃馨
+    code: FA
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60002
+  fields:
+    name: 火鶴花
+    code: FB
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60003
+  fields:
+    name: 大菊
+    code: FC
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60004
+  fields:
+    name: 小菊
+    code: FD
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60005
+  fields:
+    name: 非洲菊
+    code: FE
+    config: 7
+    unit: 5
+    track_item: false
+
+# FG 劍蘭
+# FH 其他花卉
+# FH101 天堂鳥
+# FH230 夜來香
+# FH251 秀線
+
+- model: flowers.Flower
+  pk: 60006
+  fields:
+    name: 劍蘭
+    code: FG
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60007
+  fields:
+    name: 其他花卉
+    code: FH
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60008
+  fields:
+    name: 天堂鳥
+    code: FH101
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60009
+  fields:
+    name: 夜來香
+    code: FH230
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60010
+  fields:
+    name: 秀線
+    code: FH251
+    config: 7
+    unit: 5
+    track_item: false
+
+#  FH29 向日葵
+#  FH330 雞冠花
+#  FH381 麒麟草
+#  FK 葵百合
+#  FL 姬百合
+
+- model: flowers.Flower
+  pk: 60011
+  fields:
+    name: 向日葵
+    code: FH29
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60050
+  fields:
+    name: 雞冠花
+    code: FH330
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60012
+  fields:
+    name: 麒麟草
+    code: FH381
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60013
+  fields:
+    name: 葵百合
+    code: FK
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60014
+  fields:
+    name: 姬百合
+    code: FL
+    config: 7
+    unit: 5
+    track_item: false
+
+#  FO 蘭花
+#  FO3 文心蘭
+#  FR 玫瑰
+#  FS 香水百合
+#  FT 鐵砲百合
+
+- model: flowers.Flower
+  pk: 60015
+  fields:
+    name: 蘭花
+    code: FO
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60016
+  fields:
+    name: 文心蘭
+    code: FO3
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60017
+  fields:
+    name: 玫瑰
+    code: FR
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60018
+  fields:
+    name: 香水百合
+    code: FS
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60019
+  fields:
+    name: 鐵砲百合
+    code: FT
+    config: 7
+    unit: 5
+    track_item: false
+
+#  FU 洋桔梗
+#  FW 重量計花卉
+#  FW030 金慧星
+#  FW4 卡斯比亞
+#  FW5 滿天星
+
+- model: flowers.Flower
+  pk: 60020
+  fields:
+    name: 洋桔梗
+    code: FU
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60021
+  fields:
+    name: 重量計花卉
+    code: FW
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60022
+  fields:
+    name: 金慧星
+    code: FW030
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60023
+  fields:
+    name: 卡斯比亞
+    code: FW4
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60024
+  fields:
+    name: 滿天星
+    code: FW5
+    config: 7
+    unit: 5
+    track_item: false
+
+#  FY 切葉類
+#  IA 進口康乃馨
+#  IB 進口火鶴花
+#  IC 進口大菊
+#  ID 進口小菊
+
+- model: flowers.Flower
+  pk: 60025
+  fields:
+    name: 切葉類
+    code: FY
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60026
+  fields:
+    name: 進口康乃馨
+    code: IA
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60027
+  fields:
+    name: 進口火鶴花
+    code: IB
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60028
+  fields:
+    name: 進口大菊
+    code: IC
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60029
+  fields:
+    name: 進口小菊
+    code: ID
+    config: 7
+    unit: 5
+    track_item: false
+
+#  IE 進口非洲菊
+#  IG 進口劍蘭
+#  IH 進口其他花卉
+#  IH41 進口愛麗絲
+#  IH44 進口小蒼蘭
+
+- model: flowers.Flower
+  pk: 60030
+  fields:
+    name: 進口非洲菊
+    code: IE
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60031
+  fields:
+    name: 進口劍蘭
+    code: IG
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60032
+  fields:
+    name: 進口其他花卉
+    code: IH
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60033
+  fields:
+    name: 進口愛麗絲
+    code: IH41
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60034
+  fields:
+    name: 進口小蒼蘭
+    code: IH44
+    config: 7
+    unit: 5
+    track_item: false
+
+#  IH61 進口鬱金香
+#  IH63 進口彩色海芋
+#  IK 進口葵百合
+#  IL 進口姬百合
+#  IO 進口蘭花 
+
+- model: flowers.Flower
+  pk: 60035
+  fields:
+    name: 進口鬱金香
+    code: IH61
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60036
+  fields:
+    name: 進口彩色海芋
+    code: IH63
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60037
+  fields:
+    name: 進口葵百合
+    code: IK
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60038
+  fields:
+    name: 進口姬百合
+    code: IL
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60039
+  fields:
+    name: 進口蘭花
+    code: IO
+    config: 7
+    unit: 5
+    track_item: false
+    
+#  IO5 進口石斛蘭 
+#  IR 進口玫瑰 
+#  IS 進口香水百合 
+#  IT 進口鐵砲百合 
+#  IU 進口洋桔梗 
+  
+- model: flowers.Flower
+  pk: 60040
+  fields:
+    name: 進口石斛蘭
+    code: IO5
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60041
+  fields:
+    name: 進口玫瑰
+    code: IR
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60042
+  fields:
+    name: 進口香水百合
+    code: IS
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60043
+  fields:
+    name: 進口鐵砲百合
+    code: IT
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60044
+  fields:
+    name: 進口洋桔梗
+    code: IU
+    config: 7
+    unit: 5
+    track_item: false
+    
+#  IW 進口重量計花卉 
+#  IW030 進口金慧星 
+#  IW2 進口孔雀 
+#  IY 進口切葉類 
+#  L0 進口花議價
+
+- model: flowers.Flower
+  pk: 60045
+  fields:
+    name: 進口重量計花卉
+    code: IW
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60046
+  fields:
+    name: 進口金慧星
+    code: IW030
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60047
+  fields:
+    name: 進口孔雀
+    code: IW2
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60048
+  fields:
+    name: 進口切葉類
+    code: IY
+    config: 7
+    unit: 5
+    track_item: false
+
+- model: flowers.Flower
+  pk: 60049
+  fields:
+    name: 進口花議價
+    code: L0
+    config: 7
+    unit: 5
+    track_item: false
+
+# FA 康乃馨
+# FB 火鶴花
+# FC 大菊
+# FD 小菊
+# FE 非洲菊
+
+# ========================================
+
+- model: flowers.Flower
+  pk: 60100
+  fields:
+    name: 康乃馨
+    code: FA
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60001
+
+- model: flowers.Flower
+  pk: 60051
+  fields:
+    name: 火鶴花
+    code: FB
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60002
+
+- model: flowers.Flower
+  pk: 60052
+  fields:
+    name: 大菊
+    code: FC
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60003
+
+- model: flowers.Flower
+  pk: 60053
+  fields:
+    name: 小菊
+    code: FD
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60004
+
+- model: flowers.Flower
+  pk: 60054
+  fields:
+    name: 非洲菊
+    code: FE
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60005
+
+# FG 劍蘭
+# FH 其他花卉
+# FH101 天堂鳥
+# FH230 夜來香
+# FH251 秀線
+
+- model: flowers.Flower
+  pk: 60055
+  fields:
+    name: 劍蘭
+    code: FG
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60006
+
+- model: flowers.Flower
+  pk: 60056
+  fields:
+    name: 其他花卉
+    code: FH
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60007
+
+- model: flowers.Flower
+  pk: 60057
+  fields:
+    name: 天堂鳥
+    code: FH101
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60008
+
+- model: flowers.Flower
+  pk: 60058
+  fields:
+    name: 夜來香
+    code: FH230
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60009
+
+- model: flowers.Flower
+  pk: 60059
+  fields:
+    name: 秀線
+    code: FH251
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60010
+
+#  FH29 向日葵
+#  FH330 雞冠花
+#  FH381 麒麟草
+#  FK 葵百合
+#  FL 姬百合
+
+- model: flowers.Flower
+  pk: 60060
+  fields:
+    name: 向日葵
+    code: FH29
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60011
+
+- model: flowers.Flower
+  pk: 60061
+  fields:
+    name: 雞冠花
+    code: FH330
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60050
+
+- model: flowers.Flower
+  pk: 60062
+  fields:
+    name: 麒麟草
+    code: FH381
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60012
+
+- model: flowers.Flower
+  pk: 60063
+  fields:
+    name: 葵百合
+    code: FK
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60013
+
+- model: flowers.Flower
+  pk: 60064
+  fields:
+    name: 姬百合
+    code: FL
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60014
+
+#  FO 蘭花
+#  FO3 文心蘭
+#  FR 玫瑰
+#  FS 香水百合
+#  FT 鐵砲百合
+
+- model: flowers.Flower
+  pk: 60065
+  fields:
+    name: 蘭花
+    code: FO
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60015
+
+- model: flowers.Flower
+  pk: 60066
+  fields:
+    name: 文心蘭
+    code: FO3
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60016
+
+- model: flowers.Flower
+  pk: 60067
+  fields:
+    name: 玫瑰
+    code: FR
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60017
+
+- model: flowers.Flower
+  pk: 60068
+  fields:
+    name: 香水百合
+    code: FS
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60018
+
+- model: flowers.Flower
+  pk: 60069
+  fields:
+    name: 鐵砲百合
+    code: FT
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60019
+
+#  FU 洋桔梗
+#  FW 重量計花卉
+#  FW030 金慧星
+#  FW4 卡斯比亞
+#  FW5 滿天星
+
+- model: flowers.Flower
+  pk: 60070
+  fields:
+    name: 洋桔梗
+    code: FU
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60020
+
+- model: flowers.Flower
+  pk: 60071
+  fields:
+    name: 重量計花卉
+    code: FW
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60021
+
+- model: flowers.Flower
+  pk: 60072
+  fields:
+    name: 金慧星
+    code: FW030
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60022
+
+- model: flowers.Flower
+  pk: 60073
+  fields:
+    name: 卡斯比亞
+    code: FW4
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60023
+
+- model: flowers.Flower
+  pk: 60074
+  fields:
+    name: 滿天星
+    code: FW5
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60024
+
+#  FY 切葉類
+#  IA 進口康乃馨
+#  IB 進口火鶴花
+#  IC 進口大菊
+#  ID 進口小菊
+
+- model: flowers.Flower
+  pk: 60075
+  fields:
+    name: 切葉類
+    code: FY
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60025
+
+- model: flowers.Flower
+  pk: 60076
+  fields:
+    name: 進口康乃馨
+    code: IA
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60026
+
+- model: flowers.Flower
+  pk: 60077
+  fields:
+    name: 進口火鶴花
+    code: IB
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60027
+
+- model: flowers.Flower
+  pk: 60078
+  fields:
+    name: 進口大菊
+    code: IC
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60028
+
+- model: flowers.Flower
+  pk: 60079
+  fields:
+    name: 進口小菊
+    code: ID
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60029
+
+#  IE 進口非洲菊
+#  IG 進口劍蘭
+#  IH 進口其他花卉
+#  IH41 進口愛麗絲
+#  IH44 進口小蒼蘭
+
+- model: flowers.Flower
+  pk: 60080
+  fields:
+    name: 進口非洲菊
+    code: IE
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60030
+
+- model: flowers.Flower
+  pk: 60081
+  fields:
+    name: 進口劍蘭
+    code: IG
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60031
+
+- model: flowers.Flower
+  pk: 60082
+  fields:
+    name: 進口其他花卉
+    code: IH
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60032
+
+- model: flowers.Flower
+  pk: 60083
+  fields:
+    name: 進口愛麗絲
+    code: IH41
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60033
+
+- model: flowers.Flower
+  pk: 60084
+  fields:
+    name: 進口小蒼蘭
+    code: IH44
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60034
+
+#  IH61 進口鬱金香
+#  IH63 進口彩色海芋
+#  IK 進口葵百合
+#  IL 進口姬百合
+#  IO 進口蘭花
+
+- model: flowers.Flower
+  pk: 60085
+  fields:
+    name: 進口鬱金香
+    code: IH61
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60035
+
+- model: flowers.Flower
+  pk: 60086
+  fields:
+    name: 進口彩色海芋
+    code: IH63
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60036
+
+- model: flowers.Flower
+  pk: 60087
+  fields:
+    name: 進口葵百合
+    code: IK
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60037
+
+- model: flowers.Flower
+  pk: 60088
+  fields:
+    name: 進口姬百合
+    code: IL
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60038
+
+- model: flowers.Flower
+  pk: 60089
+  fields:
+    name: 進口蘭花
+    code: IO
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60039
+
+#  IO5 進口石斛蘭
+#  IR 進口玫瑰
+#  IS 進口香水百合
+#  IT 進口鐵砲百合
+#  IU 進口洋桔梗
+
+- model: flowers.Flower
+  pk: 60090
+  fields:
+    name: 進口石斛蘭
+    code: IO5
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60040
+
+- model: flowers.Flower
+  pk: 60091
+  fields:
+    name: 進口玫瑰
+    code: IR
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60041
+
+- model: flowers.Flower
+  pk: 60092
+  fields:
+    name: 進口香水百合
+    code: IS
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60042
+
+- model: flowers.Flower
+  pk: 60093
+  fields:
+    name: 進口鐵砲百合
+    code: IT
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60043
+
+- model: flowers.Flower
+  pk: 60094
+  fields:
+    name: 進口洋桔梗
+    code: IU
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60044
+
+#  IW 進口重量計花卉
+#  IW030 進口金慧星
+#  IW2 進口孔雀
+#  IY 進口切葉類
+#  L0 進口花議價
+
+- model: flowers.Flower
+  pk: 60095
+  fields:
+    name: 進口重量計花卉
+    code: IW
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60045
+
+- model: flowers.Flower
+  pk: 60096
+  fields:
+    name: 進口金慧星
+    code: IW030
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60046
+
+- model: flowers.Flower
+  pk: 60097
+  fields:
+    name: 進口孔雀
+    code: IW2
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60047
+
+- model: flowers.Flower
+  pk: 60098
+  fields:
+    name: 進口切葉類
+    code: IY
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60048
+
+- model: flowers.Flower
+  pk: 60099
+  fields:
+    name: 進口花議價
+    code: L0
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60049

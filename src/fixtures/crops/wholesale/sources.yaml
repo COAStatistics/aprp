@@ -1,0 +1,157 @@
+# Crop Sources
+
+- model: configs.Source
+  pk: 10001
+  fields:
+    name: 臺北一
+    code: 104
+    configs: [2, 5]
+    type: 1
+
+
+- model: configs.Source
+  pk: 10002
+  fields:
+    name: 臺北二
+    code: 109
+    configs: [2, 5]
+    type: 1
+
+
+- model: configs.Source
+  pk: 10003
+  fields:
+    name: 板橋區
+    code: 220
+    configs: [2, 5]
+    type: 1
+
+- model: configs.Source
+  pk: 10004
+  fields:
+    name: 三重區
+    code: 241
+    configs: [2, 5]
+    type: 1
+
+- model: configs.Source
+  pk: 10005
+  fields:
+    name: 宜蘭市
+    code: 260
+    configs: [2, 5]
+    type: 1
+
+- model: configs.Source
+  pk: 10006
+  fields:
+    name: 桃農
+    code: 338
+    configs: [2, 5]
+    type: 1
+
+- model: configs.Source
+  pk: 10007
+  fields:
+    name: 豐原區
+    code: 420
+    configs: [2, 5]
+    type: 1
+
+- model: configs.Source
+  pk: 10008
+  fields:
+    name: 東勢區
+    code: 423
+    configs: [2, 5]
+    type: 1
+
+- model: configs.Source
+  pk: 10009
+  fields:
+    name: 南投市
+    code: 540
+    configs: [2, 5]
+    type: 1
+
+- model: configs.Source
+  pk: 10010
+  fields:
+    name: 鳳山區
+    code: 830
+    configs: [2, 5]
+    type: 1
+
+- model: configs.Source
+  pk: 10011
+  fields:
+    name: 臺東市
+    code: 930
+    configs: [2, 5]
+    type: 1
+
+
+- model: configs.Source
+  pk: 10012
+  fields:
+    name: 嘉義市
+    configs: [2, 5]
+    code: 600
+    type: 1
+
+- model: configs.Source
+  pk: 10013
+  fields:
+    name: 高雄市
+    configs: [2, 5]
+    code: 800
+    type: 1
+
+- model: configs.Source
+  pk: 10014
+  fields:
+    name: 臺中市
+    configs: [2, 5]
+    code: 400
+    type: 1
+
+- model: configs.Source
+  pk: 10015
+  fields:
+    name: 屏東市
+    configs: [2, 5]
+    code: 900
+    type: 1
+
+- model: configs.Source
+  pk: 10016
+  fields:
+    name: 溪湖鎮
+    configs: [2, 5]
+    code: 514
+    type: 1
+
+- model: configs.Source
+  pk: 10017
+  fields:
+    name: 西螺鎮
+    configs: [2, 5]
+    code: 648
+    type: 1
+
+- model: configs.Source
+  pk: 10018
+  fields:
+    name: 花蓮市
+    configs: [2, 5]
+    code: 950
+    type: 1
+
+- model: configs.Source
+  pk: 10019
+  fields:
+    name: 永靖鄉
+    configs: [2, 5]
+    code: 512
+    type: 1
+

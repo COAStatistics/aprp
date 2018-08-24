@@ -1,0 +1,109 @@
+- model: crops.Crop
+  pk: 49001
+  fields:
+    name: 甘藷
+    code: 甘藷
+    type: 2
+    config: 5
+    unit: 2
+    parent: 40477
+
+- model: crops.Crop
+  pk: 49002
+  fields:
+    name: 紅豆
+    type: 2
+    config: 5
+    unit: 2
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 49003
+  fields:
+    name: 紅豆(中等)
+    code: 紅豆(中等)
+    type: 2
+    config: 5
+    unit: 2
+    parent: 49002
+
+- model: crops.Crop
+  pk: 49004
+  fields:
+    name: 洋蔥(內銷)
+    code: 洋蔥(內銷)
+    type: 2
+    config: 5
+    unit: 2
+    parent: 40422
+
+- model: crops.Crop
+  pk: 49005
+  fields:
+    name: 蒜頭(蒜球)
+    code: 蒜頭(蒜球)
+    type: 2
+    config: 5
+    unit: 2
+    parent: 40438
+
+- model: crops.Crop
+  pk: 49006
+  fields:
+    name: 加工麻竹筍
+    code: 加工麻竹筍
+    type: 2
+    config: 5
+    unit: 2
+    parent: 40447
+
+- model: crops.Crop
+  pk: 49007
+  fields:
+    name: 乾香菇
+    type: 2
+    config: 5
+    unit: 2
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 49008
+  fields:
+    name: 香菇(太空包)乾
+    code: 香菇(太空包)乾
+    type: 2
+    config: 5
+    unit: 2
+    parent: 49007
+
+- model: crops.Crop
+  pk: 49009
+  fields:
+    name: 結球白菜
+    code: 結球白菜
+    type: 2
+    config: 5
+    unit: 2
+    parent: 40185
+
+- model: crops.Crop
+  pk: 49010
+  fields:
+    name: 甘藍
+    code: 甘藍
+    type: 2
+    config: 5
+    unit: 2
+    parent: 40163
+
+- model: crops.Crop
+  pk: 49011
+  fields:
+    name: 落花生(帶殼)
+    code: 落花生(帶殼)
+    type: 2
+    config: 5
+    unit: 2
+    parent: 40160

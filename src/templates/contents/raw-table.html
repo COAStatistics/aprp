@@ -1,0 +1,61 @@
+{% load humanize %}
+{% load index_filter %}
+{% load round_filter %}
+
+<!--
+    * To use this template, must have these parameters,
+    * 1. type => Type instance
+    * 2. raw => Dictionary with key "columns" and "rows"
+    * 3. index => optional
+-->
+
+<div class="table-responsive">
+    <!-- advise class "datatable-raw" to init -->
+    <table id="chart-{{ chart.id }}-raw-{{ type.id }}-table{% if index %}-{{ index }}{% endif %}"
+           class="table table-striped table-bordered table-hover datatable-raw" width="100%">
+        <thead>
+        <tr class="hidden-xs hidden-sm">
+            {% for column in raw.columns %}
+            <th class="hasinput" style="width:{% widthratio 100 raw.columns|length 1 %}%">
+                <input type="text" class="form-control" placeholder="Filter {{ column.value }}" />
+            </th>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for column in raw.columns %}
+            <th>{{ column.value }}</th>
+            {% endfor %}
+        </tr>
+
+        </thead>
+        <tbody>
+            {% for row in raw.rows %}
+            <tr>
+                {% for value in row %}
+                    {% with column=raw.columns|index_filter:forloop.counter0 %}
+                        {% if column.format == 'date' %}
+                            <td>
+                                <!--<span style="display:none;">{{ value|date:"Ymd" }}</span>-->
+                                {% if chart.id == 3 %}
+                                    {{ value|date:"m/d" }}
+                                {% else %}
+                                    {{ value|date:"Y/m/d" }}
+                                {% endif %}
+                            </td>
+                        {% elif column.format == 'avg_price' %}
+                            <td>{{ value|round_filter:2|intcomma }}</td>
+                        {% elif column.format == 'sum_volume' %}
+                            <td>{{ value|round_filter|intcomma }}</td>
+                        {% elif column.format == 'avg_avg_weight' %}
+                            <td>{{ value|round_filter:2|intcomma }}</td>
+                        {% else %}
+                            <td>{{ value }}</td>
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>

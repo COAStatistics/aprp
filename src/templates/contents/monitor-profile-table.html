@@ -1,0 +1,25 @@
+{% load i18n %}
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>{% trans 'Monitor Price' %}</th>
+                <th>{% trans 'Info' %}</th>
+                <th>{% trans 'Period' %}</th>
+                <th>{% trans 'Action' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for profile in monitor_profiles %}
+            <tr class="{{ profile.color }}">
+                <td>{{ profile.format_price }}</td>
+                <td>{{ profile.info|default_if_none:""|linebreaks }}</td>
+                <td>{{ profile.period|default_if_none:""|linebreaks }}</td>
+                <td>{{ profile.action|default_if_none:""|linebreaks }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+

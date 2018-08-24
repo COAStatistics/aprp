@@ -1,0 +1,74 @@
+{% load i18n %}
+
+<!--
+    * To use this template, must have these parameters,
+    * 1. series_options => List of Dict
+-->
+
+<!-- start datatable widget -->
+<div class="jarviswidget jarviswidget-color-yellow" id="chart-{{ chart.id }}-widget-raw"
+     data-widget-editbutton="false" data-widget-deletebutton="false">
+    <!-- widget options:
+        usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+        data-widget-colorbutton="false"
+        data-widget-editbutton="false"
+        data-widget-togglebutton="false"
+        data-widget-deletebutton="false"
+        data-widget-fullscreenbutton="false"
+        data-widget-custombutton="false"
+        data-widget-collapsed="true"
+        data-widget-sortable="false"
+
+    -->
+    <header>
+        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+        <h2 class="font-md"><strong>{% trans 'Raw Data' %}</strong></h2>
+    </header>
+
+    <!-- widget div-->
+    <div>
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+
+        <!-- widget content -->
+        <div class="widget-body no-padding no-min-height">
+
+            {% include 'contents/unit-info.html' %}
+
+            <div class="panel-group smart-accordion-default" id="chart-{{ chart.id }}-widget-raw-panel">
+                {% for option in series_options %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <!-- add "collapsed" class to close -->
+                            <a class="{% if forloop.counter0 != 0 %}collapsed{% endif %}"
+                               data-toggle="collapse" data-parent="#chart-{{ chart.id }}-widget-raw-panel"
+                               href="#chart-{{ chart.id }}-widget-raw-panel-{{ option.type.id }}-body">
+                                <i class="fa fa-fw fa-plus-circle txt-color-green"></i>
+                                <i class="fa fa-fw fa-minus-circle txt-color-red"></i> {{ option.type.name }}
+                            </a>
+                        </h4>
+                    </div>
+                    <!-- add class "in" to open -->
+                    <div id="chart-{{ chart.id }}-widget-raw-panel-{{ option.type.id }}-body" class="panel-collapse collapse {% if forloop.counter0 == 0 %}in{% endif %}">
+                        <div class="panel-body">
+                            {% include 'contents/raw-table.html' with type=option.type raw=option.raw %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+<!-- end widget -->

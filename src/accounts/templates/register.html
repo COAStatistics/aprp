@@ -1,0 +1,135 @@
+{% extends 'account-base.html' %}
+
+{% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{% trans 'Register' %}
+{% endblock title %}
+
+{% block header_link %}
+<span id="extr-page-header-space"> <span class="hidden-mobile hidden-xs">{% trans 'Already have an account' %}</span> <a href="{% url 'accounts:login' %}" class="btn btn-danger">{% trans 'Log in' %}</a> </span>
+{% endblock header_link %}
+
+{% block content %}
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+		{% include 'introduction.html' %}
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+
+		<div class="well no-padding">
+			<form method="POST" id="smart-form-register" class="smart-form client-form" action="">{% csrf_token %}
+				<header>
+					{% trans 'Register' %}
+				</header>
+
+				<fieldset>
+					<section>
+                        {% if mail_sent %}
+                        <div class="alert alert-success fade in">
+                            <button class="close" data-dismiss="alert">
+                                ×
+                            </button>
+                            <h5 class="alert-heading"><i class="fa-fw fa fa-check"></i> {% trans 'Email has been sent' %}!</h5>
+                            {% trans 'Please check your mail box' %} {% trans 'Click the link in the email to activate your account' %}
+                        </div>
+                        {% endif %}
+						{% for error in form.non_field_errors %}
+							<div class="alert alert-danger">
+								<strong>{{ error|escape }}</strong>
+							</div>
+						{% endfor %}
+					</section>
+					<section>
+						<label for="{{ form.username.auto_id }}" class="input"> <i class="icon-append fa fa-user"></i>
+							<input id="{{ form.username.auto_id }}" type="text" name="username" placeholder='{{ form.username.label }}'
+							{% if form.username.value != None %} value="{{ form.username.value|stringformat:'s' }}"{% endif %}>
+							<b class="tooltip tooltip-bottom-right">{{ form.username.help_text }}</b>
+						</label>
+						{% for error in form.username.errors %}
+							<small class="help-block text-danger" style="">{{ error|escape }}</small>
+						{% endfor %}
+					</section>
+
+					<section>
+						<label for="{{ form.email.auto_id }}" class="input"> <i class="icon-append fa fa-envelope"></i>
+							<input id="{{ form.email.auto_id }}" type="email" name="email" placeholder="{{ form.email.label }}"
+							{% if form.email.value != None %} value="{{ form.email.value|stringformat:'s' }}"{% endif %}>
+							<b class="tooltip tooltip-bottom-right">{{ form.email.help_text }}</b>
+						</label>
+						{% for error in form.email.errors %}
+							<small class="help-block text-danger" style="">{{ error|escape }}</small>
+						{% endfor %}
+					</section>
+
+					<section>
+						<label for="{{ form.password.auto_id }}" class="input"> <i class="icon-append fa fa-lock"></i>
+							<input id="{{ form.password.auto_id }}" type="password" name="password" placeholder="{{ form.password.label }}">
+							<b class="tooltip tooltip-bottom-right">{{ form.password.help_text }}</b>
+						</label>
+						{% for error in form.password.errors %}
+							<small class="help-block text-danger" style="">{{ error|escape }}</small>
+						{% endfor %}
+					</section>
+
+					<section>
+						<label for="{{ form.password2.auto_id }}" class="input"> <i class="icon-append fa fa-lock"></i>
+							<input id="{{ form.password2.auto_id }}" name="password2" type="password" placeholder="{{ form.password2.label }}">
+							<b class="tooltip tooltip-bottom-right">{{ form.password2.help_text }}</b>
+						</label>
+						{% for error in form.password2.errors %}
+							<small class="help-block text-danger" style="">{{ error|escape }}</small>
+						{% endfor %}
+					</section>
+				</fieldset>
+
+				<fieldset>
+					<div class="row">
+						<section class="col col-6">
+							<label for="{{ form.first_name.auto_id }}" class="input">
+								<input id="{{ form.first_name.auto_id }}" type="text" name="first_name" placeholder="{{ form.first_name.label }}"
+							    {% if form.first_name.value != None %} value="{{ form.first_name.value|stringformat:'s' }}"{% endif %}>
+							</label>
+							{% for error in form.first_name.errors %}
+								<small class="help-block text-danger" style="">{{ error|escape }}</small>
+							{% endfor %}
+						</section>
+						<section class="col col-6">
+							<label for="{{ form.last_name.auto_id }}" class="input">
+								<input id="{{ form.last_name.auto_id }}" type="text" name="last_name" placeholder="{{ form.last_name.label }}"
+							    {% if form.last_name.value != None %} value="{{ form.last_name.value|stringformat:'s' }}"{% endif %}>
+							</label>
+							{% for error in form.last_name.errors %}
+								<small class="help-block text-danger" style="">{{ error|escape }}</small>
+							{% endfor %}
+						</section>
+					</div>
+
+					<section>
+						<label for="{{ form.condition.auto_id }}" class="checkbox">
+							<input id="{{ form.condition.auto_id }}" name="condition" type="checkbox">
+							<i></i>{%  trans 'I have read the' %} <a href="#" data-toggle="modal" data-target="#myModal"> {% trans 'Terms and Conditions' %} </a>
+						</label>
+						{% for error in form.condition.errors %}
+							<small class="help-block text-danger" style="">{{ error|escape }}</small>
+						{% endfor %}
+					</section>
+
+				</fieldset>
+				<footer>
+					<input type="submit" class="btn btn-primary btn-block prevent-double-click" value="{% trans 'Register' %}">
+				</footer>
+
+				<div class="message">
+					<i class="fa fa-check"></i>
+					<p>
+						{% trans 'Thank you for your registration' %}!
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock content %}

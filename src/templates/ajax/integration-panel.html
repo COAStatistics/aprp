@@ -1,0 +1,58 @@
+{% load i18n %}
+
+
+<p class="alert alert-danger no-margin">
+    <i class="fa fa-clock-o"></i> {% trans 'Date Range' %} :
+    <strong>{{ start_date_format }} - {{ end_date_format }}</strong>
+</p>
+
+{% include 'contents/unit-info.html' %}
+
+<div class="panel-group smart-accordion-default" id="chart-{{ chart.id }}-widget-integration-panel">
+    {% for option in series_options %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <!-- add "collapsed" class to close -->
+                <a class="{% if forloop.counter0 != 0 %}collapsed{% endif %}"
+                   data-toggle="collapse" data-parent="#chart-{{ chart.id }}-widget-integration-panel"
+                   href="#chart-{{ chart.id }}-widget-integration-panel-{{ option.type.id }}-body">
+                    <i class="fa fa-fw fa-plus-circle txt-color-green"></i>
+                    <i class="fa fa-fw fa-minus-circle txt-color-red"></i> {{ option.type.name }}
+                </a>
+            </h4>
+        </div>
+        <!-- add class "in" to open -->
+        <div id="chart-{{ chart.id }}-widget-integration-panel-{{ option.type.id }}-body" class="panel-collapse collapse {% if forloop.counter0 == 0 %}in{% endif %}">
+            <div class="panel-body">
+                {% include 'contents/integration-table.html' %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+
+	pageSetUp();
+
+	// pagefunction
+
+	var pagefunction = function() {
+
+        // init integration datatable
+        $('#chart-{{ chart.id }}-widget-integration-panel').find('.table-integration').each(function(){
+            var container = $(this).attr('id');
+            $table = dataTableHelper.createIntegration(container);
+        })
+
+	};
+
+	// end pagefunction
+
+	// run pagefunction on load
+
+	pagefunction();
+
+
+</script>

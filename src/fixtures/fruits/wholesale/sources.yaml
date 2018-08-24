@@ -1,0 +1,115 @@
+# Fruit Sources
+- model: configs.Source
+  pk: 20001
+  fields:
+    name: 臺北一
+    code: 104
+    configs: [3, 6]
+    type: 1
+
+
+- model: configs.Source
+  pk: 20002
+  fields:
+    name: 臺北二
+    code: 109
+    configs: [3, 6]
+    type: 1
+
+- model: configs.Source
+  pk: 20003
+  fields:
+    name: 板橋區
+    code: 220
+    configs: [3, 6]
+    type: 1
+
+- model: configs.Source
+  pk: 20004
+  fields:
+    name: 三重區
+    code: 241
+    configs: [3, 6]
+    type: 1
+
+- model: configs.Source
+  pk: 20005
+  fields:
+    name: 宜蘭市
+    code: 260
+    configs: [3, 6]
+    type: 1
+
+- model: configs.Source
+  pk: 20006
+  fields:
+    name: 桃農
+    code: 338
+    configs: [3, 6]
+    type: 1
+
+- model: configs.Source
+  pk: 20007
+  fields:
+    name: 豐原區
+    code: 420
+    configs: [3, 6]
+    type: 1
+
+- model: configs.Source
+  pk: 20008
+  fields:
+    name: 東勢鎮
+    code: 423
+    configs: [3, 6]
+    type: 1
+
+- model: configs.Source
+  pk: 20009
+  fields:
+    name: 南投市
+    code: 540
+    configs: [3, 6]
+    type: 1
+
+- model: configs.Source
+  pk: 20010
+  fields:
+    name: 鳳山區
+    code: 830
+    configs: [3, 6]
+    type: 1
+
+- model: configs.Source
+  pk: 20011
+  fields:
+    name: 臺東市
+    code: 930
+    configs: [3, 6]
+    type: 1
+
+
+- model: configs.Source
+  pk: 20012
+  fields:
+    name: 嘉義市
+    configs: [3, 6]
+    code: 600
+    type: 1
+
+- model: configs.Source
+  pk: 20013
+  fields:
+    name: 高雄市
+    configs: [3, 6]
+    code: 800
+    type: 1
+
+- model: configs.Source
+  pk: 20014
+  fields:
+    name: 臺中市
+    configs: [3, 6]
+    code: 400
+    type: 1
+

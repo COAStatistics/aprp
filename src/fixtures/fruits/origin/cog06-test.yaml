@@ -1,0 +1,31 @@
+- model: fruits.Fruit
+  pk: 50128
+  fields:
+    name: 柚子
+    config: 6
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 59015
+  fields:
+    name: 文旦
+    code: 文旦
+    type: 2
+    config: 6
+    parent: 50128
+
+- model: fruits.Fruit
+  pk: 50016
+  fields:
+    name: 梅
+    config: 6
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 59009
+  fields:
+    name: 青梅(竿採)
+    code: 青梅(竿採)
+    type: 2
+    config: 6
+    parent: 50016

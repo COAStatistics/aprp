@@ -1,0 +1,620 @@
+- model: configs.Source
+  pk: 10030
+  fields:
+    name: 峨眉鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10031
+  fields:
+    name: 員山鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10032
+  fields:
+    name: 和平區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10033
+  fields:
+    name: 關西鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10034
+  fields:
+    name: 卓蘭鎮農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10035
+  fields:
+    name: 豐原區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10036
+  fields:
+    name: 石岡區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10037
+  fields:
+    name: 東勢區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10038
+  fields:
+    name: 古坑鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10039
+  fields:
+    name: 竹崎地區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10040
+  fields:
+    name: 白河區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10041
+  fields:
+    name: 中寮鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10042
+  fields:
+    name: 中埔鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10043
+  fields:
+    name: 旗山區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10044
+  fields:
+    name: 美濃區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10045
+  fields:
+    name: 高樹鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10046
+  fields:
+    name: 大林鎮農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10047
+  fields:
+    name: 東山區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10048
+  fields:
+    name: 虎尾鎮農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10049
+  fields:
+    name: 土庫鎮農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10050
+  fields:
+    name: 北港鎮農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10051
+  fields:
+    name: 元長鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10052
+  fields:
+    name: 燕巢區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10053
+  fields:
+    name: 阿蓮區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10054
+  fields:
+    name: 六龜區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10055
+  fields:
+    name: 枋寮地區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10056
+  fields:
+    name: 南州鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10057
+  fields:
+    name: 萬丹鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10058
+  fields:
+    name: 新園鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10059
+  fields:
+    name: 大城鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10060
+  fields:
+    name: 水林鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10061
+  fields:
+    name: 伸港鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10062
+  fields:
+    name: 恆春鎮農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10063
+  fields:
+    name: 車城地區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10064
+  fields:
+    name: 枋山地區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10065
+  fields:
+    name: 四湖鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10066
+  fields:
+    name: 關廟區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10067
+  fields:
+    name: 內埔地區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10068
+  fields:
+    name: 大樹區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10069
+  fields:
+    name: 東河鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10070
+  fields:
+    name: 國姓鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10071
+  fields:
+    name: 甲仙地區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10072
+  fields:
+    name: 鹿野地區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10073
+  fields:
+    name: 民雄鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10074
+  fields:
+    name: 名間鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10075
+  fields:
+    name: 大內區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10076
+  fields:
+    name: 九如鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10077
+  fields:
+    name: 里港鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10078
+  fields:
+    name: 大湖地區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10079
+  fields:
+    name: 玉井區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10080
+  fields:
+    name: 南化區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10081
+  fields:
+    name: 社頭鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10082
+  fields:
+    name: 大社區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10083
+  fields:
+    name: 麻豆區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10084
+  fields:
+    name: 斗六市農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10085
+  fields:
+    name: 瑞穗鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10086
+  fields:
+    name: 西湖鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10087
+  fields:
+    name: 霧峰區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10088
+  fields:
+    name: 林內鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10089
+  fields:
+    name: 長治鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10090
+  fields:
+    name: 芳苑鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10091
+  fields:
+    name: 新社區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10092
+  fields:
+    name: 埔里鎮農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10093
+  fields:
+    name: 魚池鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10094
+  fields:
+    name: 西螺鎮農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10095
+  fields:
+    name: 莿桐鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10096
+  fields:
+    name: 二林鎮農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10097
+  fields:
+    name: 水里鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10098
+  fields:
+    name: 信義鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10099
+  fields:
+    name: 埤頭鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10100
+  fields:
+    name: 溪洲鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10101
+  fields:
+    name: 東勢鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10102
+  fields:
+    name: 太平區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10103
+  fields:
+    name: 芬園鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10104
+  fields:
+    name: 草屯鎮農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10105
+  fields:
+    name: 南投市農會
+    configs: [5, 6]
+    type: 2
+
+- model: configs.Source
+  pk: 10106
+  fields:
+    name: 鹽埔辦事處
+    configs: [5, 6]
+    type: 2
+
+- model: configs.Source
+  pk: 10107
+  fields:
+    name: 新埤辦事處
+    configs: [5, 6]
+    type: 2

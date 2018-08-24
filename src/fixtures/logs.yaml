@@ -1,0 +1,86 @@
+- model: logs.LogType
+  pk: 1
+  fields:
+    name: Rice App Logs
+    code: LOT-rices
+    
+- model: logs.LogType
+  pk: 2
+  fields:
+    name: Crop App Logs
+    code: LOT-crops
+    
+- model: logs.LogType
+  pk: 3
+  fields:
+    name: Fruit App Logs
+    code: LOT-fruits
+    
+- model: logs.LogType
+  pk: 4
+  fields:
+    name: Hog App Logs
+    code: LOT-hogs
+
+- model: logs.LogType
+  pk: 5
+  fields:
+    name: Ram App Logs
+    code: LOT-rams
+
+- model: logs.LogType
+  pk: 6
+  fields:
+    name: Chicken App Logs
+    code: LOT-chickens
+
+- model: logs.LogType
+  pk: 7
+  fields:
+    name: Seafood App Logs
+    code: LOT-seafoods
+
+- model: logs.LogType
+  pk: 8
+  fields:
+    name: Duck App Logs
+    code: LOT-ducks
+
+- model: logs.LogType
+  pk: 9
+  fields:
+    name: Goose App Logs
+    code: LOT-gooses
+
+- model: logs.LogType
+  pk: 10
+  fields:
+    name: Watchlist App Logs
+    code: LOT-cattles
+
+
+- model: logs.LogType
+  pk: 11
+  fields:
+    name: DailyTran App Logs
+    code: LOT-dailytrans
+    
+- model: logs.LogType
+  pk: 12
+  fields:
+    name: Post App Logs
+    code: LOT-posts
+    
+- model: logs.LogType
+  pk: 13
+  fields:
+    name: Comment App Logs
+    code: LOT-comment
+
+- model: logs.LogType
+  pk: 14
+  fields:
+    name: Watchlist App Logs
+    code: LOT-watchlists
+
+

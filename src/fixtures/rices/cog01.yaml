@@ -1,0 +1,269 @@
+- model: rices.Rice
+  pk: 1
+  fields:
+    name: 白米
+    config: 1
+    unit: 2
+    track_item: false
+
+- model: rices.Rice
+  pk: 2
+  fields:
+    name: 硬種(蓬萊)
+    code: japt
+    config: 1
+    unit: 2
+    track_item: false
+    parent: 1
+
+- model: rices.Rice
+  pk: 3
+  fields:
+    name: 硬種(蓬萊)
+    code: pt_1japt
+    type: 1
+    config: 1
+    unit: 2
+    parent: 2
+
+- model: rices.Rice
+  pk: 4
+  fields:
+    name: 硬種(蓬萊)
+    code: pt_2japt
+    type: 3
+    config: 1
+    unit: 2
+    parent: 2
+
+- model: rices.Rice
+  pk: 5
+  fields:
+    name: 硬秈(在來)
+    code: tsait
+    config: 1
+    unit: 2
+    track_item: false
+    parent: 1
+
+- model: rices.Rice
+  pk: 6
+  fields:
+    name: 硬秈(在來)
+    code: pt_2tsait
+    type: 1
+    config: 1
+    unit: 2
+    parent: 5
+
+- model: rices.Rice
+  pk: 7
+  fields:
+    name: 硬秈(在來)
+    code: pt_1tsait
+    type: 3
+    config: 1
+    unit: 2
+    parent: 5
+
+- model: rices.Rice
+  pk: 8
+  fields:
+    name: 軟秈
+    code: sangt
+    config: 1
+    unit: 2
+    track_item: false
+    parent: 1
+
+- model: rices.Rice
+  pk: 9
+  fields:
+    name: 軟秈
+    code: pt_2sangt
+    type: 1
+    config: 1
+    unit: 2
+    parent: 8
+
+- model: rices.Rice
+  pk: 10
+  fields:
+    name: 軟秈
+    code: pt_1sangt
+    type: 3
+    config: 1
+    unit: 2
+    parent: 8
+
+- model: rices.Rice
+  pk: 11
+  fields:
+    name: 圓糯
+    code: glutrt
+    config: 1
+    unit: 2
+    track_item: false
+    parent: 1
+
+- model: rices.Rice
+  pk: 12
+  fields:
+    name: 圓糯
+    code: pt_2glutrt
+    type: 1
+    config: 1
+    unit: 2
+    parent: 11
+
+- model: rices.Rice
+  pk: 13
+  fields:
+    name: 圓糯
+    code: pt_1glutrt
+    type: 3
+    config: 1
+    unit: 2
+    parent: 11
+
+- model: rices.Rice
+  pk: 14
+  fields:
+    name: 長糯
+    code: glutlt
+    config: 1
+    unit: 2
+    track_item: false
+    parent: 1
+
+- model: rices.Rice
+  pk: 15
+  fields:
+    name: 長糯
+    code: pt_2glutlt
+    type: 1
+    config: 1
+    unit: 2
+    parent: 14
+
+- model: rices.Rice
+  pk: 16
+  fields:
+    name: 長糯
+    code: pt_1glutlt
+    type: 3
+    config: 1
+    unit: 2
+    parent: 14
+
+
+- model: rices.Rice
+  pk: 17
+  fields:
+    name: 稻穀
+    config: 1
+    unit: 2
+    track_item: false
+
+- model: rices.Rice
+  pk: 18
+  fields:
+    name: 硬種(蓬萊)
+    code: japt
+    config: 1
+    unit: 2
+    track_item: false
+    parent: 17
+
+- model: rices.Rice
+  pk: 19
+  fields:
+    name: 硬種(蓬萊)
+    code: pt_1japt
+    type: 1
+    config: 1
+    unit: 2
+    parent: 18
+
+- model: rices.Rice
+  pk: 20
+  fields:
+    name: 硬秈(在來)
+    code: tsait
+    config: 1
+    unit: 2
+    track_item: false
+    parent: 17
+
+- model: rices.Rice
+  pk: 21
+  fields:
+    name: 硬秈(在來)
+    code: pt_4tsait
+    type: 1
+    config: 1
+    unit: 2
+    parent: 20
+
+
+- model: rices.Rice
+  pk: 22
+  fields:
+    name: 軟秈
+    code: sangt
+    config: 1
+    unit: 2
+    track_item: false
+    parent: 17
+
+- model: rices.Rice
+  pk: 23
+  fields:
+    name: 軟秈
+    code: pt_4sangt
+    type: 1
+    config: 1
+    unit: 2
+    parent: 22
+
+- model: rices.Rice
+  pk: 24
+  fields:
+    name: 圓糯
+    code: glutrt
+    config: 1
+    unit: 2
+    track_item: false
+    parent: 17
+
+- model: rices.Rice
+  pk: 25
+  fields:
+    name: 圓糯
+    code: pt_4glutrt
+    type: 1
+    config: 1
+    unit: 2
+    parent: 24
+
+- model: rices.Rice
+  pk: 26
+  fields:
+    name: 長糯
+    code: glutlt
+    config: 1
+    unit: 2
+    track_item: false
+    parent: 17
+
+- model: rices.Rice
+  pk: 27
+  fields:
+    name: 長糯
+    code: pt_4glutlt
+    type: 1
+    config: 1
+    unit: 2
+    parent: 26
+
+

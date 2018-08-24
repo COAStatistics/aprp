@@ -1,0 +1,13 @@
+- model: configs.Source
+  pk: 50001
+  fields:
+    name: 彰化縣
+    configs: [9]
+    type: 1
+
+- model: configs.Source
+  pk: 50002
+  fields:
+    name: 雲林縣
+    configs: [9]
+    type: 1

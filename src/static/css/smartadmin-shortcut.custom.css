@@ -1,0 +1,103 @@
+.fixed-header #shortcutWatchlist {
+    position: fixed;
+}
+
+#shortcutWatchlist .selected {
+    border: 1px solid #0091d9!important;
+    position: relative;
+}
+#shortcutWatchlist .selected:before {
+    display: block;
+    position: absolute;
+    content: "\f00c";
+    color: #fff;
+    right: 4px;
+    top: 3px;
+    font-family: FontAwesome;
+    z-index: 2;
+}
+#shortcutWatchlist .selected:after {
+    width: 0;
+    height: 0;
+    border-top: 35px solid #0091d9;
+    border-left: 35px solid rgba(0, 0, 0, 0);
+    position: absolute;
+    display: block;
+    right: 0;
+    content: "";
+    top: 0;
+    z-index: 1;
+}
+#shortcutWatchlist {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+    background-color: #33302F;
+    background-color: rgba(0, 0, 0, .85);
+    z-index: 907;
+    display: none;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#shortcutWatchlist ul {
+    padding: 15px 20px 10px;
+    list-style: none;
+    margin: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    border-bottom: 1px solid #423F3F;
+}
+#shortcutWatchlist ul li {
+    display: inline-block;
+    width: auto;
+}
+#shortcutWatchlist ul li .jarvismetro-tile {
+    margin: 0 3px 3px;
+    border: none;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+#shortcutWatchlist ul li .jarvismetro-tile:hover {
+    color: #fff;
+    text-decoration: none;
+}
+#shortcutWatchlist ul li .jarvismetro-tile:active, #shortcutWatchlist ul li .jarvismetro-tile:focus {
+    left: 0;
+    top: 0;
+}
+.shortcut-on #response-btn {
+    display: none!important;
+}
+.shortcut-on #left-bar .navbar, .shortcut-on #main .navbar {
+    border: none!important;
+}
+
+.smart-style-1 #show-shortcutWatchlist:hover>i {
+    color: #fff;
+}
+
+}.smart-style-2 #shortcutWatchlist {
+    background-color: rgba(255, 255, 255, .9);
+}
+.smart-style-2 #shortcutWatchlist ul {
+    -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    border-bottom: 1px solid #A8BADB;
+}
+
+.smart-style-3 #shortcutWatchlist {
+    background-color: rgba(25, 16, 6, .85);
+}
+
+.smart-style-5 #shortcutWatchlist {
+    background-color: rgba(27, 16, 43, .75);
+}
+
+.smart-style-5 #shortcutWatchlist ul li .jarvismetro-tile {
+    border-radius: 50% 0!important;
+}

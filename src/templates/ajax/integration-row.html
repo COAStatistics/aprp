@@ -1,0 +1,26 @@
+{% load round_filter %}
+{% load spark_points_flat %}
+{% load humanize %}
+
+
+{% for dic in option.integration %}
+<tr>
+    <td>{{ dic.name }}</td>
+    <td data-base="{{ dic.base|yesno:'true,false' }}" data-value="{{ dic.avg_price }}">{{ dic.avg_price|round_filter:2|intcomma }}</td>
+    <td data-hide="phone"
+        data-datelist="{{ dic.points|spark_points_flat:'unix' }}"
+        data-sparkline="{{ dic.points|spark_points_flat:'avg_price' }}"></td>
+    {% if option.has_volume %}
+    <td data-base="{{ dic.base|yesno:'true,false' }}" data-value="{{ dic.sum_volume }}">{{ dic.sum_volume|round_filter|intcomma }}</td>
+    <td data-hide="phone"
+        data-datelist="{{ dic.points|spark_points_flat:'unix' }}"
+        data-sparkline="{{ dic.points|spark_points_flat:'sum_volume' }}"></td>
+    {% endif %}
+    {% if option.has_weight %}
+    <td data-base="{{ dic.base|yesno:'true,false' }}" data-value="{{ dic.avg_avg_weight }}">{{ dic.avg_avg_weight|round_filter:2|intcomma }}</td>
+    <td data-hide="phone"
+        data-datelist="{{ dic.points|spark_points_flat:'unix' }}"
+        data-sparkline="{{ dic.points|spark_points_flat:'avg_avg_weight' }}"></td>
+    {% endif %}
+</tr>
+{% endfor %}

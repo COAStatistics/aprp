@@ -1,0 +1,30 @@
+{% load i18n %}
+
+<!-- #SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+     Note: These tiles are completely responsive, you can add as many as you like -->
+<div id="shortcut">
+    <ul>
+        <li>
+            <a href="#{% url 'about' %}" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-info fa-4x"></i> <span>{% trans 'About' %}</span></span></a>
+        </li>
+    </ul>
+</div>
+
+<!-- #SHORTCUT CUSTOM : With large tiles (activated via clicking watchlist tag)
+     Note: Customize at 2018/06/30, for user to select watchlist and redirect to index with specific collapse menu item(products) set
+     Reference: app.custom.js, smartadmin-shortcut.custom.css -->
+<div id="shortcutWatchlist" class="escape-key">
+    <ul>
+        {% for watchlist in watchlists %}
+            <li>
+                <a href="{% url 'set_user_watchlist' wi=watchlist.id %}" class="jarvismetro-tile big-cubes bg-color-greenLight {% if watchlist == user_watchlist %}selected{% endif %}"> <span class="iconbox">
+                    <i class="fa fa-list-alt fa-4x"></i>
+                    <span>{{ watchlist.name }}
+                        <span class="label pull-right bg-color-greenDark">{{ watchlist.children.count }}</span></span>
+                    </span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<!-- END SHORTCUT AREA -->

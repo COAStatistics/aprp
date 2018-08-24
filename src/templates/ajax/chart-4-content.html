@@ -1,0 +1,136 @@
+{% load i18n %}
+{% load json_filters %}
+
+<ul id="chart-{{ chart.id }}-tab" class="nav nav-pills nav-pills-info nav-justified" style="{% if series_options|length <= 1 %}display:none;{% endif %}">
+    {% for option in series_options %}
+    <li class="{% if forloop.counter0 == 0 %}active{% endif %}">
+        <a href="#chart-{{ chart.id }}-{{ option.type.id }}-content" data-toggle="tab">{{ option.type.id }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<div id="chart-{{ chart.id }}-content" class="tab-content no-padding">
+    <section id="chart-{{ chart.id }}-widget-grid">
+        {% for option in series_options %}
+        <div class="tab-pane fade {% if forloop.counter0 == 0 %}in active{% endif %}" id="chart-{{ chart.id }}-{{ option.type.id }}-content">
+            <div class="panel-group smart-accordion-default" id="chart-{{ chart.id }}-panel-group">
+
+                <!-- start settings panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#chart-{{ chart.id }}-panel-collapse-{{ option.type.id }}-toolbar" class="collapsed">
+                                <i class="fa fa-fw fa-plus-circle txt-color-green"></i>
+                                <i class="fa fa-fw fa-minus-circle txt-color-red"></i> {% trans 'Settings' %}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="chart-{{ chart.id }}-panel-collapse-{{ option.type.id }}-toolbar" class="panel-collapse collapse">
+                        <div class="panel-body padding-10" id="chart-{{ chart.id }}-panel-body-{{ option.type.id }}-toolbar">
+                            <div action="" class="smart-form">
+                                <fieldset>
+                                    <section>
+                                        <label class="label">{% trans 'Average years' %}</label>
+                                        <label class="select select-multiple">
+                                            <!-- Advise data-name -->
+                                            <select class="select-block" multiple='multiple' data-name="average-years">
+                                                {% for year in option.years %}
+                                                    {% if year|stringformat:"i" in selected_years or method == 'GET' or not selected_years %}
+                                                        <option value='{{ year }}' selected="selected">{{ year }}</option>
+                                                    {% else %}
+                                                        <option value='{{ year }}'>{{ year }}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                        </label>
+                                    </section>
+                                </fieldset>
+                                <footer>
+                                    <!-- Advise js-panel-collapse-close & js-panel-toolbar-submit -->
+                                    <button class="btn btn-primary js-panel-collapse-close js-panel-toolbar-submit"
+                                            data-type-id="{{ option.type.id }}">{% trans 'Submit' %}</button>
+                                    <button type="button" class="btn btn-default js-panel-collapse-close">{% trans 'Close' %}</button>
+                                </footer>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end settings div -->
+
+                {% include 'contents/index-panel.html' with index='price' active=True type=option.type raw=option.price.raw %}
+
+                {% if 'volume' in option %}
+
+                    {% include 'contents/index-panel.html' with index='volume' active=False type=option.type raw=option.volume.raw %}
+
+                {% endif %}
+
+                {% if 'weight' in option %}
+
+                    {% include 'contents/index-panel.html' with index='weight' active=False type=option.type raw=option.weight.raw %}
+
+                {% endif %}
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </section>
+</div>
+
+<script>
+
+	pageSetUp();
+
+	// PAGE RELATED SCRIPTS
+
+	// pagefunction
+
+	var pagefunction = function() {
+
+	    dynamic_setup_widgets('chart-{{ chart.id }}-widget-grid');
+
+	    chart4Helper.init('chart-{{ chart.id }}');
+
+        var unit = {{ unit|stringify|safe }}
+
+        {% for option in series_options %}
+            var type = {{ option.type|stringify|safe }};
+            {% if 'price' in option %}
+                var series = {{ option.price.highchart|stringify|safe }}
+                var chart = chart4Helper.create('chart-{{ chart.id }}-widget-{{ option.type.id }}-price-body', series, unit, type, 'price');
+            {% endif %}
+            {% if 'volume' in option %}
+                var series = {{ option.volume.highchart|stringify|safe }}
+                var chart = chart4Helper.create('chart-{{ chart.id }}-widget-{{ option.type.id }}-volume-body', series, unit, type, 'volume');
+            {% endif %}
+            {% if 'weight' in option %}
+                var series = {{ option.weight.highchart|stringify|safe }}
+                var chart = chart4Helper.create('chart-{{ chart.id }}-widget-{{ option.type.id }}-weight-body', series, unit, type, 'weight');
+            {% endif %}
+        {% endfor %}
+
+        // init settings panel
+        chart4Helper.container.find('select.select-block[multiple="multiple"][data-name="average-years"]').multiselect({
+            buttonWidth: '100%',
+            numberDisplayed: 10,
+            allSelectedText: false,
+            delimiterText: ' + ',
+        });
+
+        // init raw datatable
+        chart4Helper.container.find('.datatable-raw').each(function(){
+            var container = $(this).attr('id');
+            dataTableHelper.createRaw(container);
+        })
+
+	};
+
+	// end pagefunction
+
+	// run pagefunction on load
+
+	pagefunction();
+
+
+</script>

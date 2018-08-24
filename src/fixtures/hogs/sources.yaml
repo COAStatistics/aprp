@@ -1,0 +1,155 @@
+# Hog Sources
+
+- model: configs.Source
+  pk: 40001
+  fields:
+    name: 新北市
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40002
+  fields:
+    name: 臺中市
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40003
+  fields:
+    name: 臺南市
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40004
+  fields:
+    name: 嘉義市
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40005
+  fields:
+    name: 高雄市
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40006
+  fields:
+    name: 宜蘭縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40007
+  fields:
+    name: 桃園市
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40008
+  fields:
+    name: 新竹縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40009
+  fields:
+    name: 苗栗縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40010
+  fields:
+    name: 彰化縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40011
+  fields:
+    name: 南投縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40012
+  fields:
+    name: 雲林縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40013
+  fields:
+    name: 嘉義縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40014
+  fields:
+    name: 屏東縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40015
+  fields:
+    name: 臺東縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40016
+  fields:
+    name: 花蓮縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40017
+  fields:
+    name: 澎湖縣
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40018
+  fields:
+    name: 臺中大安
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40019
+  fields:
+    name: 臺南安南
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40020
+  fields:
+    name: 高雄岡山
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40021
+  fields:
+    name: 高雄鳳山
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40022
+  fields:
+    name: 高雄旗山
+    configs: [8]
+    type: 1

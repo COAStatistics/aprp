@@ -1,0 +1,1409 @@
+- model: seafoods.Seafood
+  pk: 120366
+  fields:
+    name: 白蝦
+    code: 4015
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120364
+
+- model: seafoods.Seafood
+  pk: 120936
+  fields:
+    name: 40尾/0.6公斤
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120366
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120937
+  fields:
+    name: 50尾/0.6公斤
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120366
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120841
+  fields:
+    name: 龍膽石斑
+    code: 1173
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120839
+
+- model: seafoods.Seafood
+  pk: 120933
+  fields:
+    name: 30台斤以上/尾
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120841
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120934
+  fields:
+    name: 10-20台斤/尾
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120841
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120935
+  fields:
+    name: 20-30台斤/尾
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120841
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120009
+  fields:
+    name: 吳郭魚內銷
+    code: 1011
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120914
+  fields:
+    name: 0.6-0.8公斤/尾
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120009
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120915
+  fields:
+    name: 0.4公斤/尾
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120009
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120916
+  fields:
+    name: 0.6公斤/尾
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120009
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120010
+  fields:
+    name: 吳郭魚外銷條凍
+    code: 1011C
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120917
+  fields:
+    name: 800g以上
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120010
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120918
+  fields:
+    name: 600g以下
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120010
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120919
+  fields:
+    name: 600-800g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120010
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120011
+  fields:
+    name: 吳郭魚外銷切片
+    code: 1011D
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120920
+  fields:
+    name: 1200g以上
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120011
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120921
+  fields:
+    name: 1000g以下
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120011
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120922
+  fields:
+    name: 1000-1200g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120011
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120027
+  fields:
+    name: 七星鱸
+    code: 1073
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120025
+
+- model: seafoods.Seafood
+  pk: 120929
+  fields:
+    name: 0.6-0.8公斤/尾
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120027
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120200
+  fields:
+    name: 虱目魚
+    code: 1041
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120198
+
+- model: seafoods.Seafood
+  pk: 120926
+  fields:
+    name: 0.6公斤/尾
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120200
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120927
+  fields:
+    name: 0.45以下公斤/尾
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120200
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120928
+  fields:
+    name: 0.45-0.6公斤/尾
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120200
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120213
+  fields:
+    name: 石斑
+    code: 1171
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120211
+
+- model: seafoods.Seafood
+  pk: 120930
+  fields:
+    name: 0.9公斤以上/尾
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120213
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120931
+  fields:
+    name: 0.6公斤/尾
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120213
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120932
+  fields:
+    name: 0.6-0.9公斤/尾
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120213
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120310
+  fields:
+    name: 牡蠣
+    code: 5012
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120308
+
+- model: seafoods.Seafood
+  pk: 120938
+  fields:
+    name: 1公斤
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120310
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120313
+  fields:
+    name: 文蛤
+    code: 5022
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120311
+
+- model: seafoods.Seafood
+  pk: 120939
+  fields:
+    name: 35-40粒/0.6公斤
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120313
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120940
+  fields:
+    name: 70-90粒/0.6公斤
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120313
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120941
+  fields:
+    name: 40-60粒/0.6公斤
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120313
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120942
+  fields:
+    name: 吳郭魚(外銷A)
+    code: 1011A
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120943
+  fields:
+    name: 800g以上
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120942
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120944
+  fields:
+    name: 600g以下
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120942
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120945
+  fields:
+    name: 600-800g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120942
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120946
+  fields:
+    name: 吳郭魚105
+    code: 1011E
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120947
+  fields:
+    name: 600-800g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120946
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120948
+  fields:
+    name: 金目鱸
+    code: 1073A
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120021
+
+- model: seafoods.Seafood
+  pk: 120949
+  fields:
+    name: 600-800g
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120948
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120950
+  fields:
+    name: 600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120948
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120951
+  fields:
+    name: 七星鱸(條凍)
+    code: 1071
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120025
+
+- model: seafoods.Seafood
+  pk: 120952
+  fields:
+    name: 800g
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120951
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120953
+  fields:
+    name: 虱目魚晚撈
+    code: 1041A
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120198
+
+- model: seafoods.Seafood
+  pk: 120954
+  fields:
+    name: 0.6公斤/尾
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120953
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120955
+  fields:
+    name: 0.45以下公斤/尾
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120953
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120956
+  fields:
+    name: 0.45-0.6公斤/尾
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120953
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120957
+  fields:
+    name: 海水吳郭魚
+    code: 1019
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120957
+  fields:
+    name: 2尾/斤
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120956
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120958
+  fields:
+    name: 3尾/斤
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120956
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120959
+  fields:
+    name: 鰻魚
+    code: 1031
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120963
+
+- model: seafoods.Seafood
+  pk: 120960
+  fields:
+    name: 3尾/公斤
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120959
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120961
+  fields:
+    name: 5尾/公斤
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120959
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120962
+  fields:
+    name: 4尾/公斤
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120959
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120964
+  fields:
+    name: 鰻魚A
+    code: 1031
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120963
+
+- model: seafoods.Seafood
+  pk: 120965
+  fields:
+    name: 3.5尾/公斤
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120964
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120966
+  fields:
+    name: 吳郭魚(外銷B)
+    code: 1101B
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120967
+  fields:
+    name: 1公斤/尾以上(切片)
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120966
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120968
+  fields:
+    name: 0.6公斤以下/尾
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120966
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120969
+  fields:
+    name: 0.6-0.8公斤/尾(條凍)
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120966
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120970
+  fields:
+    name: 黃鰭鯛(赤鰭)
+    code: 1162
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120971
+  fields:
+    name: 600g以下
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120966
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120972
+  fields:
+    name: 600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120966
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120973
+  fields:
+    name: 黑鯛
+    code: 1163
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120034
+
+- model: seafoods.Seafood
+  pk: 120974
+  fields:
+    name: 600g以下
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120973
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120975
+  fields:
+    name: 600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120973
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120976
+  fields:
+    name: 紅槽
+    code: 1164
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120034
+
+- model: seafoods.Seafood
+  pk: 120977
+  fields:
+    name: 600g以上
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120973
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120978
+  fields:
+    name: 600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120973
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120979
+  fields:
+    name: 黃錫鯛
+    code: 1165
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120980
+  fields:
+    name: 600g
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120979
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120981
+  fields:
+    name: 300g-375g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120979
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120982
+  fields:
+    name: 225g-300g
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120979
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120983
+  fields:
+    name: 石斑(105)
+    code: 1171A
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120211
+
+- model: seafoods.Seafood
+  pk: 120984
+  fields:
+    name: 900g以上
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120983
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120985
+  fields:
+    name: 午仔魚
+    code: 1272
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120040
+
+- model: seafoods.Seafood
+  pk: 120986
+  fields:
+    name: 375g-450g
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120985
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120987
+  fields:
+    name: 300g-375g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120985
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120988
+  fields:
+    name: 225g-300g
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120985
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120989
+  fields:
+    name: 紅魚(海雞母)
+    code: 2042
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120044
+
+- model: seafoods.Seafood
+  pk: 120990
+  fields:
+    name: 600g以上
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120989
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120991
+  fields:
+    name: 600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120989
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120992
+  fields:
+    name: 600g以下
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120989
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120993
+  fields:
+    name: 紅鼓
+    code: 2082
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120994
+  fields:
+    name: 675g
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120993
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120995
+  fields:
+    name: 600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120985
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120996
+  fields:
+    name: 300g-600g
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120993
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120997
+  fields:
+    name: 烏魚殼
+    code: 2609
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120998
+  fields:
+    name: 3斤/尾
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120997
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120999
+  fields:
+    name: 草蝦
+    code: 4012
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120156
+
+- model: seafoods.Seafood
+  pk: 121000
+  fields:
+    name: 20尾/600g
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120999
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121001
+  fields:
+    name: 21~30尾/600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120999
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121002
+  fields:
+    name: 31~40尾/600g
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120999
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121003
+  fields:
+    name: 白蝦A
+    code: 4015A
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120364
+
+- model: seafoods.Seafood
+  pk: 121004
+  fields:
+    name: 31~40尾/600g
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121003
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121005
+  fields:
+    name: 沙蝦
+    code: 4022
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120799
+
+- model: seafoods.Seafood
+  pk: 121006
+  fields:
+    name: 120尾/600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121005
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121007
+  fields:
+    name: 160尾/600g
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121005
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121008
+  fields:
+    name: 泰國蝦
+    code: 4032
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120533
+
+- model: seafoods.Seafood
+  pk: 121009
+  fields:
+    name: 12尾/600g
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121008
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121010
+  fields:
+    name: 16尾/600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121008
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121011
+  fields:
+    name: 25尾/600g
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121008
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121012
+  fields:
+    name: 斑節蝦
+    code: 4052
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120771
+
+- model: seafoods.Seafood
+  pk: 121013
+  fields:
+    name: 70尾/600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121012
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121014
+  fields:
+    name: 71~100尾/600g
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121012
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121015
+  fields:
+    name: 蟳
+    code: 4511
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120306
+
+- model: seafoods.Seafood
+  pk: 121016
+  fields:
+    name: 600g/隻
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121015
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121017
+  fields:
+    name: 300g~600g/隻
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121015
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121018
+  fields:
+    name: 大閘蟹
+    code: 4514
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120507
+
+- model: seafoods.Seafood
+  pk: 121019
+  fields:
+    name: 4兩以上/隻
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121018
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121020
+  fields:
+    name: 3-4兩以上/隻
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121018
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121021
+  fields:
+    name: 3兩以上/隻
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121018
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121022
+  fields:
+    name: 甲魚
+    code: 4533
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120032
+
+- model: seafoods.Seafood
+  pk: 121023
+  fields:
+    name: 12兩/隻
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121022
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121024
+  fields:
+    name: 九孔
+    code: 5052
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120683
+
+- model: seafoods.Seafood
+  pk: 121025
+  fields:
+    name: 8-15粒/600g
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121024
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121026
+  fields:
+    name: 16-25粒/600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121024
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121027
+  fields:
+    name: 26-36粒/600g
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121024
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121028
+  fields:
+    name: 蜆
+    code: 5092
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120314
+
+- model: seafoods.Seafood
+  pk: 121029
+  fields:
+    name: 100粒/0.6公斤
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121028
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121030
+  fields:
+    name: 200粒/0.6公斤
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121028
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121031
+  fields:
+    name: 烏魚子濕子
+    code: 6052
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120186
+
+- model: seafoods.Seafood
+  pk: 121032
+  fields:
+    name: 8兩
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121031
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121033
+  fields:
+    name: 甲魚卵
+    code: 6053
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120032
+
+- model: seafoods.Seafood
+  pk: 121034
+  fields:
+    name: 1顆
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121033
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121035
+  fields:
+    name: 大閘蟹苗
+    code: 6054
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120507
+
+- model: seafoods.Seafood
+  pk: 121036
+  fields:
+    name: 2cm/隻
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121035
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121037
+  fields:
+    name: 龍鬚菜
+    code: 9901
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120006
+
+- model: seafoods.Seafood
+  pk: 121038
+  fields:
+    name: 600g
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121037
+    track_item: false

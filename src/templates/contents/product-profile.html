@@ -1,0 +1,141 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<section id="product-profile-widget-grid" class="padding-10">
+    <div class="row padding-10">
+
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <!-- start chart widget -->
+            <div class="jarviswidget jarviswidget-color-greenDark" id="watchlist-profile-widget"
+                 data-widget-editbutton="false" data-widget-deletebutton="false">
+                <!-- widget options:
+                    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+                    data-widget-colorbutton="false"
+                    data-widget-editbutton="false"
+                    data-widget-togglebutton="false"
+                    data-widget-deletebutton="false"
+                    data-widget-fullscreenbutton="false"
+                    data-widget-custombutton="false"
+                    data-widget-collapsed="true"
+                    data-widget-sortable="false"
+                -->
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                    <h2 class="font-md"><strong>{% trans 'Watchlist Item Profile' %}</strong></h2>
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding no-min-height">
+                        <div class="panel-group smart-accordion-default" id="watchlist-profile-widget-panel">
+                            {% for type in types %}
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <!-- add "collapsed" class to close -->
+                                        <a class="{% if forloop.counter0 != 0 %}collapsed{% endif %}"
+                                           data-toggle="collapse" data-parent="#watchlist-profile-widget-panel"
+                                           href="#watchlist-profile-widget-panel-{{ type.id }}-body">
+                                            <i class="fa fa-fw fa-plus-circle txt-color-green"></i>
+                                            <i class="fa fa-fw fa-minus-circle txt-color-red"></i> {{ type.name }}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <!-- add class "in" to open -->
+                                <div id="watchlist-profile-widget-panel-{{ type.id }}-body" class="panel-collapse collapse {% if forloop.counter0 == 0 %}in{% endif %}">
+                                    <div class="panel-body no-padding">
+                                        {% include 'contents/watchlist-profile-table.html' %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+        </article>
+
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <!-- start chart widget -->
+            <div class="jarviswidget jarviswidget-color-greenLight" id="monitor-profile-widget"
+                 data-widget-editbutton="false" data-widget-deletebutton="false">
+                <!-- widget options:
+                    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+                    data-widget-colorbutton="false"
+                    data-widget-editbutton="false"
+                    data-widget-togglebutton="false"
+                    data-widget-deletebutton="false"
+                    data-widget-fullscreenbutton="false"
+                    data-widget-custombutton="false"
+                    data-widget-collapsed="true"
+                    data-widget-sortable="false"
+                -->
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-usd"></i> </span>
+                    <h2 class="font-md"><strong>{% trans 'Monitor Profile' %}</strong></h2>
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding no-min-height">
+                        <div class="panel-group smart-accordion-default" id="monitor-profile-widget-panel">
+                            {% for type in types %}
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <!-- add "collapsed" class to close -->
+                                        <a class="{% if forloop.counter0 != 0 %}collapsed{% endif %}"
+                                           data-toggle="collapse" data-parent="#monitor-profile-widget-panel"
+                                           href="#monitor-profile-widget-panel-{{ type.id }}-body">
+                                            <i class="fa fa-fw fa-plus-circle txt-color-green"></i>
+                                            <i class="fa fa-fw fa-minus-circle txt-color-red"></i> {{ type.name }}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <!-- add class "in" to open -->
+                                <div id="monitor-profile-widget-panel-{{ type.id }}-body" class="panel-collapse collapse {% if forloop.counter0 == 0 %}in{% endif %}">
+                                    <div class="panel-body no-padding">
+                                        {% include 'contents/monitor-profile-table.html' %}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+        </article>
+    </div>
+</section>

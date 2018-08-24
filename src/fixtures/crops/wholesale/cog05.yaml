@@ -1,0 +1,5385 @@
+- model: crops.Crop
+  pk: 40001
+  fields:
+    name: 葉菜類
+    code: L
+    config: 5
+    unit: 1
+    track_item: false
+
+- model: crops.Crop
+  pk: 40002
+  fields:
+    name: 根莖菜類
+    code: S
+    config: 5
+    unit: 1
+    track_item: false
+
+- model: crops.Crop
+  pk: 40003
+  fields:
+    name: 花果菜類
+    code: F
+    config: 5
+    unit: 1
+    track_item: false
+
+- model: crops.Crop
+  pk: 40004
+  fields:
+    name: 姑菌類
+    code: M
+    config: 5
+    unit: 1
+    track_item: false
+
+- model: crops.Crop
+  pk: 40005
+  fields:
+    name: 醃製類
+    code: O
+    config: 5
+    unit: 1
+    track_item: false
+
+- model: crops.Crop
+  pk: 40006
+  fields:
+    name: 其他花類
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40007
+  fields:
+    name: 其他花類
+    code: FA0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40006
+
+- model: crops.Crop
+  pk: 40008
+  fields:
+    name: 黃秋葵
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40009
+  fields:
+    name: 黃秋葵
+    code: FA1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40008
+
+- model: crops.Crop
+  pk: 40010
+  fields:
+    name: 樊花
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40011
+  fields:
+    name: 樊花
+    code: FA2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40010
+
+- model: crops.Crop
+  pk: 40012
+  fields:
+    name: 瓊花
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40013
+  fields:
+    name: 瓊花
+    code: FA4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40012
+
+- model: crops.Crop
+  pk: 40014
+  fields:
+    name: 百果
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40015
+  fields:
+    name: 百果-進口
+    code: FA9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40014
+
+- model: crops.Crop
+  pk: 40016
+  fields:
+    name: 花椰菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40017
+  fields:
+    name: 花椰菜-其他
+    code: FB0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40016
+
+- model: crops.Crop
+  pk: 40018
+  fields:
+    name: 花椰菜-進口
+    code: FB9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40016
+
+- model: crops.Crop
+  pk: 40019
+  fields:
+    name: 花椰菜-青梗
+    code: FB1
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40016
+
+- model: crops.Crop
+  pk: 40020
+  fields:
+    name: FB1
+    code: FB1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40019
+
+- model: crops.Crop
+  pk: 40021
+  fields:
+    name: FB11
+    code: FB11
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40019
+
+- model: crops.Crop
+  pk: 40022
+  fields:
+    name: FB12
+    code: FB12
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40019
+
+- model: crops.Crop
+  pk: 40023
+  fields:
+    name: 花椰菜-白梗
+    code: FB2
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40016
+
+- model: crops.Crop
+  pk: 40024
+  fields:
+    name: FB2
+    code: FB2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40023
+
+- model: crops.Crop
+  pk: 40025
+  fields:
+    name: FB22
+    code: FB22
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40023
+
+- model: crops.Crop
+  pk: 40026
+  fields:
+    name: FB21
+    code: FB21
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40023
+
+- model: crops.Crop
+  pk: 40027
+  fields:
+    name: 胡瓜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40028
+  fields:
+    name: 胡瓜-黑刺
+    code: FC1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40027
+
+- model: crops.Crop
+  pk: 40029
+  fields:
+    name: 胡瓜-改良種
+    code: FC2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40027
+
+- model: crops.Crop
+  pk: 40030
+  fields:
+    name: 花胡瓜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40031
+  fields:
+    name: 花胡瓜
+    code: FD1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40030
+
+- model: crops.Crop
+  pk: 40032
+  fields:
+    name: 花胡瓜-其他
+    code: FD0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40030
+
+- model: crops.Crop
+  pk: 40033
+  fields:
+    name: 花胡瓜-進口
+    code: FD9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40030
+
+- model: crops.Crop
+  pk: 40034
+  fields:
+    name: 冬瓜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40035
+  fields:
+    name: 冬瓜-白皮
+    code: FE1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40034
+
+- model: crops.Crop
+  pk: 40036
+  fields:
+    name: 冬瓜-青皮
+    code: FE2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40034
+
+- model: crops.Crop
+  pk: 40037
+  fields:
+    name: 冬瓜-其他
+    code: FE0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40034
+
+- model: crops.Crop
+  pk: 40038
+  fields:
+    name: 冬瓜-毛瓜
+    code: FE3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40034
+
+- model: crops.Crop
+  pk: 40039
+  fields:
+    name: 冬瓜-進口
+    code: FE9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40034
+
+- model: crops.Crop
+  pk: 40040
+  fields:
+    name: 絲瓜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40041
+  fields:
+    name: 絲瓜-絲瓜
+    code: FF1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40040
+
+- model: crops.Crop
+  pk: 40042
+  fields:
+    name: 絲瓜-角瓜
+    code: FF2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40040
+
+- model: crops.Crop
+  pk: 40043
+  fields:
+    name: 絲瓜-白瓜
+    code: FF3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40040
+
+- model: crops.Crop
+  pk: 40044
+  fields:
+    name: 絲瓜-長絲瓜
+    code: FF4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40040
+
+- model: crops.Crop
+  pk: 40045
+  fields:
+    name: 絲瓜-其他
+    code: FF0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40040
+
+- model: crops.Crop
+  pk: 40046
+  fields:
+    name: 苦瓜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40047
+  fields:
+    name: 苦瓜-其他
+    code: FG0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40046
+
+- model: crops.Crop
+  pk: 40048
+  fields:
+    name: 苦瓜-白大米
+    code: FG1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40046
+
+- model: crops.Crop
+  pk: 40049
+  fields:
+    name: 苦瓜-青大米
+    code: FG2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40046
+
+- model: crops.Crop
+  pk: 40050
+  fields:
+    name: 苦瓜-翠綠
+    code: FG4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40046
+
+- model: crops.Crop
+  pk: 40051
+  fields:
+    name: 苦瓜-山苦瓜
+    code: FG3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40046
+
+- model: crops.Crop
+  pk: 40052
+  fields:
+    name: 苦瓜-進口
+    code: FG9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40046
+
+- model: crops.Crop
+  pk: 40053
+  fields:
+    name: 扁蒲
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40054
+  fields:
+    name: 扁蒲-花蒲
+    code: FH3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40053
+
+- model: crops.Crop
+  pk: 40055
+  fields:
+    name: 扁蒲-梨子蒲
+    code: FH4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40053
+
+- model: crops.Crop
+  pk: 40056
+  fields:
+    name: 扁蒲-圓形
+    code: FH2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40053
+
+- model: crops.Crop
+  pk: 40057
+  fields:
+    name: 扁蒲-長形
+    code: FH1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40053
+
+- model: crops.Crop
+  pk: 40058
+  fields:
+    name: 扁蒲-其他
+    code: FH0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40053
+
+- model: crops.Crop
+  pk: 40059
+  fields:
+    name: 茄子
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40060
+  fields:
+    name: 茄子-胭脂茄
+    code: FI1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40059
+
+- model: crops.Crop
+  pk: 40061
+  fields:
+    name: 茄子-麻荸茄
+    code: FI2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40059
+
+- model: crops.Crop
+  pk: 40062
+  fields:
+    name: 茄子-日本種
+    code: FI3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40059
+
+- model: crops.Crop
+  pk: 40063
+  fields:
+    name: 茄子-其他
+    code: FI0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40059
+
+- model: crops.Crop
+  pk: 40064
+  fields:
+    name: 番茄
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40065
+  fields:
+    name: 蕃茄-黑柿
+    code: FJ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40064
+
+- model: crops.Crop
+  pk: 40066
+  fields:
+    name: 蕃茄-牛蕃茄
+    code: FJ3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40064
+
+- model: crops.Crop
+  pk: 40067
+  fields:
+    name: 蕃茄-其他
+    code: FJ0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40064
+
+- model: crops.Crop
+  pk: 40068
+  fields:
+    name: 蕃茄-粉柿
+    code: FJ2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40064
+
+- model: crops.Crop
+  pk: 40069
+  fields:
+    name: 甜椒
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40070
+  fields:
+    name: 甜椒-新香
+    code: FK3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40069
+
+- model: crops.Crop
+  pk: 40071
+  fields:
+    name: 甜椒-彩色種
+    code: FK4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40069
+
+- model: crops.Crop
+  pk: 40072
+  fields:
+    name: 甜椒-青椒
+    code: FK5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40069
+
+- model: crops.Crop
+  pk: 40073
+  fields:
+    name: 甜椒-進口
+    code: FK9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40069
+
+- model: crops.Crop
+  pk: 40074
+  fields:
+    name: 甜椒-其他
+    code: FK0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40069
+
+- model: crops.Crop
+  pk: 40075
+  fields:
+    name: 豌豆
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40076
+  fields:
+    name: 豌豆-白花
+    code: FL1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40075
+
+- model: crops.Crop
+  pk: 40077
+  fields:
+    name: 豌豆-紅花
+    code: FL2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40075
+
+- model: crops.Crop
+  pk: 40078
+  fields:
+    name: 豌豆-豌豆苗
+    code: FL5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40075
+
+- model: crops.Crop
+  pk: 40079
+  fields:
+    name: 豌豆-甜豌豆
+    code: FL6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40075
+
+- model: crops.Crop
+  pk: 40080
+  fields:
+    name: 豌豆-進口
+    code: FL9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40075
+
+- model: crops.Crop
+  pk: 40081
+  fields:
+    name: 豌豆-豆莢
+    code: FL3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40075
+
+- model: crops.Crop
+  pk: 40082
+  fields:
+    name: 豌豆-豆仁
+    code: FL4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40075
+
+- model: crops.Crop
+  pk: 40083
+  fields:
+    name: 菜豆
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40084
+  fields:
+    name: 菜豆-青色
+    code: FM2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40083
+
+- model: crops.Crop
+  pk: 40085
+  fields:
+    name: 菜豆-其他
+    code: FM0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40083
+
+- model: crops.Crop
+  pk: 40086
+  fields:
+    name: 菜豆-白色
+    code: FM1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40083
+
+- model: crops.Crop
+  pk: 40087
+  fields:
+    name: 菜豆-紅色
+    code: FM3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40083
+
+- model: crops.Crop
+  pk: 40088
+  fields:
+    name: 菜豆-進口
+    code: FM9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40083
+
+- model: crops.Crop
+  pk: 40089
+  fields:
+    name: 敏豆
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40090
+  fields:
+    name: 敏豆-白豆
+    code: FN1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40089
+
+- model: crops.Crop
+  pk: 40091
+  fields:
+    name: 敏豆-粉豆
+    code: FN3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40089
+
+- model: crops.Crop
+  pk: 40092
+  fields:
+    name: 敏豆-醜豆
+    code: FN5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40089
+
+- model: crops.Crop
+  pk: 40093
+  fields:
+    name: 敏豆-翼豆
+    code: FN4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40089
+
+- model: crops.Crop
+  pk: 40094
+  fields:
+    name: 敏豆-青豆
+    code: FN2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40089
+
+- model: crops.Crop
+  pk: 40095
+  fields:
+    name: 敏豆-其他
+    code: FN0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40089
+
+- model: crops.Crop
+  pk: 40096
+  fields:
+    name: 敏豆-進口
+    code: FN9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40089
+
+- model: crops.Crop
+  pk: 40097
+  fields:
+    name: 蠶豆
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40098
+  fields:
+    name: 蠶豆-豆仁
+    code: FO2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40097
+
+- model: crops.Crop
+  pk: 40099
+  fields:
+    name: 蠶豆-豆莢
+    code: FO1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40097
+
+- model: crops.Crop
+  pk: 40100
+  fields:
+    name: 萊豆
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40101
+  fields:
+    name: 萊豆-豆莢
+    code: FP1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40100
+
+- model: crops.Crop
+  pk: 40102
+  fields:
+    name: 萊豆-豆仁
+    code: FP2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40100
+
+- model: crops.Crop
+  pk: 40103
+  fields:
+    name: 鵲豆
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40104
+  fields:
+    name: 鵲豆-肉豆
+    code: FP3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40103
+
+- model: crops.Crop
+  pk: 40105
+  fields:
+    name: 毛豆
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40106
+  fields:
+    name: 毛豆-豆莢
+    code: FQ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40105
+
+- model: crops.Crop
+  pk: 40107
+  fields:
+    name: 毛豆-豆仁
+    code: FQ2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40105
+
+- model: crops.Crop
+  pk: 40108
+  fields:
+    name: 毛豆-進口
+    code: FQ9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40105
+
+- model: crops.Crop
+  pk: 40109
+  fields:
+    name: 青花苔
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40110
+  fields:
+    name: 青花苔
+    code: FR1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40109
+
+- model: crops.Crop
+  pk: 40111
+  fields:
+    name: 青花苔-青花筍
+    code: FR2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40109
+
+- model: crops.Crop
+  pk: 40112
+  fields:
+    name: 青花苔-進口
+    code: FR9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40109
+
+- model: crops.Crop
+  pk: 40113
+  fields:
+    name: 越瓜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40114
+  fields:
+    name: 越瓜
+    code: FS1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40113
+
+- model: crops.Crop
+  pk: 40115
+  fields:
+    name: 越瓜-加工
+    code: FS2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40113
+
+- model: crops.Crop
+  pk: 40116
+  fields:
+    name: 越瓜-其他
+    code: FS0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40113
+
+- model: crops.Crop
+  pk: 40117
+  fields:
+    name: 南瓜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40118
+  fields:
+    name: 南瓜-其他
+    code: FT0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40117
+
+- model: crops.Crop
+  pk: 40119
+  fields:
+    name: 南瓜-木瓜形
+    code: FT1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40117
+
+- model: crops.Crop
+  pk: 40120
+  fields:
+    name: 南瓜-黃如意
+    code: FT3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40117
+
+- model: crops.Crop
+  pk: 40121
+  fields:
+    name: 南瓜-觀賞
+    code: FT4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40117
+
+- model: crops.Crop
+  pk: 40122
+  fields:
+    name: 南瓜-青如意
+    code: FT5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40117
+
+- model: crops.Crop
+  pk: 40123
+  fields:
+    name: 南瓜-圓形
+    code: FT2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40117
+
+- model: crops.Crop
+  pk: 40124
+  fields:
+    name: 南瓜-進口
+    code: FT9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40117
+
+- model: crops.Crop
+  pk: 40125
+  fields:
+    name: 南瓜-東昇
+    code: FT6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40117
+
+- model: crops.Crop
+  pk: 40126
+  fields:
+    name: 南瓜-栗子
+    code: FT7
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40117
+
+- model: crops.Crop
+  pk: 40127
+  fields:
+    name: 隼人瓜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40128
+  fields:
+    name: 隼人瓜
+    code: FU1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40127
+
+- model: crops.Crop
+  pk: 40129
+  fields:
+    name: 隼人瓜苗-瓜苗
+    code: FU2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40127
+
+- model: crops.Crop
+  pk: 40130
+  fields:
+    name: 石蓮花
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40131
+  fields:
+    name: 石蓮花
+    code: FU3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40130
+
+- model: crops.Crop
+  pk: 40132
+  fields:
+    name: 辣椒
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40133
+  fields:
+    name: 辣椒-其他
+    code: FV0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40132
+
+- model: crops.Crop
+  pk: 40134
+  fields:
+    name: 辣椒-紅小
+    code: FV1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40132
+
+- model: crops.Crop
+  pk: 40135
+  fields:
+    name: 辣椒-青小
+    code: FV2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40132
+
+- model: crops.Crop
+  pk: 40136
+  fields:
+    name: 辣椒-朝天椒
+    code: FV4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40132
+
+- model: crops.Crop
+  pk: 40137
+  fields:
+    name: 辣椒-雞心
+    code: FV3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40132
+
+- model: crops.Crop
+  pk: 40138
+  fields:
+    name: 辣椒-青龍
+    code: FV5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40132
+
+- model: crops.Crop
+  pk: 40139
+  fields:
+    name: 辣椒-糯米椒
+    code: FV6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40132
+
+- model: crops.Crop
+  pk: 40140
+  fields:
+    name: 辣椒-進口
+    code: FV9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40132
+
+- model: crops.Crop
+  pk: 40141
+  fields:
+    name: 金針花
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40142
+  fields:
+    name: 金針花
+    code: FW1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40141
+
+- model: crops.Crop
+  pk: 40143
+  fields:
+    name: 金針花-進口
+    code: FW9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40141
+
+- model: crops.Crop
+  pk: 40144
+  fields:
+    name: 洛神花
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40145
+  fields:
+    name: 洛神花
+    code: FW2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40144
+
+- model: crops.Crop
+  pk: 40146
+  fields:
+    name: 花豆
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40147
+  fields:
+    name: 花豆-花豆
+    code: FX1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40146
+
+- model: crops.Crop
+  pk: 40148
+  fields:
+    name: 虎豆
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40149
+  fields:
+    name: 虎豆-福豆
+    code: FX2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40148
+
+- model: crops.Crop
+  pk: 40150
+  fields:
+    name: 玉米
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40151
+  fields:
+    name: 玉米-其他
+    code: FY0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40150
+
+- model: crops.Crop
+  pk: 40152
+  fields:
+    name: 玉米-超甜白
+    code: FY3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40150
+
+- model: crops.Crop
+  pk: 40153
+  fields:
+    name: 玉米-玉米筍
+    code: FY4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40150
+
+- model: crops.Crop
+  pk: 40154
+  fields:
+    name: 玉米-糯米(黑)
+    code: FY5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40150
+
+- model: crops.Crop
+  pk: 40155
+  fields:
+    name: 玉米-甜軟殼
+    code: FY6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40150
+
+- model: crops.Crop
+  pk: 40156
+  fields:
+    name: 玉米-糯米(白)
+    code: FY7
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40150
+
+- model: crops.Crop
+  pk: 40157
+  fields:
+    name: 玉米-進口
+    code: FY9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40150
+
+- model: crops.Crop
+  pk: 40158
+  fields:
+    name: 玉米-白玉米
+    code: FY1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40150
+
+- model: crops.Crop
+  pk: 40159
+  fields:
+    name: 玉米-甜硬殼
+    code: FY2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40150
+
+- model: crops.Crop
+  pk: 40160
+  fields:
+    name: 落花生
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40003
+
+- model: crops.Crop
+  pk: 40161
+  fields:
+    name: 落花生-生落花生
+    code: FZ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40160
+
+- model: crops.Crop
+  pk: 40162
+  fields:
+    name: 落花生-熟落花生
+    code: FZ2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40160
+
+- model: crops.Crop
+  pk: 40163
+  fields:
+    name: 甘藍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40164
+  fields:
+    name: 甘藍-初秋
+    code: LA1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40165
+  fields:
+    name: 甘藍-改良種
+    code: LA2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40166
+  fields:
+    name: 甘藍-紫色
+    code: LA4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40167
+  fields:
+    name: 甘藍-甘藍心
+    code: LA5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40168
+  fields:
+    name: 甘藍-甘藍芽
+    code: LA6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40169
+  fields:
+    name: 甘藍-進口
+    code: LA9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40170
+  fields:
+    name: 甘藍-其他
+    code: LA0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40171
+  fields:
+    name: 甘藍-甜甘藍
+    code: LA3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40172
+  fields:
+    name: 甘藍-改良尖
+    code: LA7
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40163
+
+- model: crops.Crop
+  pk: 40173
+  fields:
+    name: 小白菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40174
+  fields:
+    name: 小白菜-其他
+    code: LB0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40173
+
+- model: crops.Crop
+  pk: 40175
+  fields:
+    name: 小白菜-水耕
+    code: LB8
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40173
+
+- model: crops.Crop
+  pk: 40176
+  fields:
+    name: 小白菜-奶油白
+    code: LB3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40173
+
+- model: crops.Crop
+  pk: 40177
+  fields:
+    name: 小白菜-土白菜
+    code: LB1
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40173
+
+- model: crops.Crop
+  pk: 40178
+  fields:
+    name: 小白菜-土白菜
+    code: LB1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40177
+
+- model: crops.Crop
+  pk: 40179
+  fields:
+    name: 小白菜-土白菜
+    code: LB12
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40177
+
+- model: crops.Crop
+  pk: 40180
+  fields:
+    name: 小白菜-土白菜
+    code: LB11
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40177
+
+- model: crops.Crop
+  pk: 40181
+  fields:
+    name: 小白菜-蚵仔白
+    code: LB2
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40173
+
+- model: crops.Crop
+  pk: 40182
+  fields:
+    name: 小白菜-蚵仔白
+    code: LB2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40181
+
+- model: crops.Crop
+  pk: 40183
+  fields:
+    name: 小白菜-蚵仔白
+    code: LB22
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40181
+
+- model: crops.Crop
+  pk: 40184
+  fields:
+    name: 小白菜-蚵仔白
+    code: LB21
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40181
+
+- model: crops.Crop
+  pk: 40185
+  fields:
+    name: 包心白
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40186
+  fields:
+    name: 包心白菜-其他
+    code: LC0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40185
+
+- model: crops.Crop
+  pk: 40187
+  fields:
+    name: 包心白菜-包白
+    code: LC1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40185
+
+- model: crops.Crop
+  pk: 40188
+  fields:
+    name: 包心白菜-包頭蓮
+    code: LC3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40185
+
+- model: crops.Crop
+  pk: 40189
+  fields:
+    name: 包心白菜-冬白芽
+    code: LC6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40185
+
+- model: crops.Crop
+  pk: 40190
+  fields:
+    name: 包心白-進口
+    code: LC9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40185
+
+- model: crops.Crop
+  pk: 40191
+  fields:
+    name: 包心白菜-天津白
+    code: LC5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40185
+
+- model: crops.Crop
+  pk: 40192
+  fields:
+    name: 包心白菜-成功白
+    code: LC2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40185
+
+- model: crops.Crop
+  pk: 40193
+  fields:
+    name: 包心白菜-大土
+    code: LC7
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40185
+
+- model: crops.Crop
+  pk: 40194
+  fields:
+    name: 青江白菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40195
+  fields:
+    name: 青江白菜-小梗
+    code: LD1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40194
+
+- model: crops.Crop
+  pk: 40196
+  fields:
+    name: 青江白菜-大梗
+    code: LD2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40194
+
+- model: crops.Crop
+  pk: 40197
+  fields:
+    name: 青江白菜-水耕
+    code: LD8
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40194
+
+- model: crops.Crop
+  pk: 40198
+  fields:
+    name: 皇宮菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40199
+  fields:
+    name: 皇宮菜-小葉
+    code: LE1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40198
+
+- model: crops.Crop
+  pk: 40200
+  fields:
+    name: 皇宮菜-大葉
+    code: LE2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40198
+
+- model: crops.Crop
+  pk: 40201
+  fields:
+    name: 蕹菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40202
+  fields:
+    name: 蕹菜-大葉
+    code: LF1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40201
+
+- model: crops.Crop
+  pk: 40203
+  fields:
+    name: 蕹菜-小葉
+    code: LF2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40201
+
+- model: crops.Crop
+  pk: 40204
+  fields:
+    name: 蕹菜-水蕹菜
+    code: LF3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40201
+
+- model: crops.Crop
+  pk: 40205
+  fields:
+    name: 蕹菜-其他
+    code: LF0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40201
+
+- model: crops.Crop
+  pk: 40206
+  fields:
+    name: 蕹菜-水耕
+    code: LF8
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40201
+
+- model: crops.Crop
+  pk: 40207
+  fields:
+    name: 芹菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40208
+  fields:
+    name: 芹菜-青梗
+    code: LG1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40207
+
+- model: crops.Crop
+  pk: 40209
+  fields:
+    name: 芹菜-白梗
+    code: LG2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40207
+
+- model: crops.Crop
+  pk: 40210
+  fields:
+    name: 芹菜-西洋芹菜
+    code: LG3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40207
+
+- model: crops.Crop
+  pk: 40211
+  fields:
+    name: 芹菜-山芹菜
+    code: LG4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40207
+
+- model: crops.Crop
+  pk: 40212
+  fields:
+    name: 芹菜-芹菜管
+    code: LG5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40207
+
+- model: crops.Crop
+  pk: 40213
+  fields:
+    name: 芹菜-水耕
+    code: LG8
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40207
+
+- model: crops.Crop
+  pk: 40214
+  fields:
+    name: 芹菜-進口
+    code: LG9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40207
+
+- model: crops.Crop
+  pk: 40215
+  fields:
+    name: 菠菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40216
+  fields:
+    name: 菠菜-圓葉
+    code: LH1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40215
+
+- model: crops.Crop
+  pk: 40217
+  fields:
+    name: 菠菜-角葉
+    code: LH2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40215
+
+- model: crops.Crop
+  pk: 40218
+  fields:
+    name: 菠菜-進口
+    code: LH9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40215
+
+- model: crops.Crop
+  pk: 40219
+  fields:
+    name: 菠菜-甜菠菜
+    code: LH3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40215
+
+- model: crops.Crop
+  pk: 40220
+  fields:
+    name: 萵苣菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40221
+  fields:
+    name: 萵苣菜-廣東萵
+    code: LI1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40220
+
+- model: crops.Crop
+  pk: 40222
+  fields:
+    name: 萵苣菜-結球萵
+    code: LI2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40220
+
+- model: crops.Crop
+  pk: 40223
+  fields:
+    name: 萵苣菜-本島圓葉
+    code: LI3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40220
+
+- model: crops.Crop
+  pk: 40224
+  fields:
+    name: 萵苣菜-本島尖葉
+    code: LI4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40220
+
+- model: crops.Crop
+  pk: 40225
+  fields:
+    name: 萵苣菜-油麥菜
+    code: LI5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40220
+
+- model: crops.Crop
+  pk: 40226
+  fields:
+    name: 萵苣菜-蘿美
+    code: LI6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40220
+
+- model: crops.Crop
+  pk: 40227
+  fields:
+    name: 萵苣菜-水耕
+    code: LI8
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40220
+
+- model: crops.Crop
+  pk: 40228
+  fields:
+    name: 萵苣菜-其他
+    code: LI0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40220
+
+- model: crops.Crop
+  pk: 40229
+  fields:
+    name: 萵苣菜-進口
+    code: LI9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40220
+
+- model: crops.Crop
+  pk: 40230
+  fields:
+    name: 萵苣菜-紅捲綠捲
+    code: LI7
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40220
+
+- model: crops.Crop
+  pk: 40231
+  fields:
+    name: 芥菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40232
+  fields:
+    name: 芥菜-芥菜仁
+    code: LJ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40231
+
+- model: crops.Crop
+  pk: 40233
+  fields:
+    name: 芥菜-大芥菜
+    code: LJ3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40231
+
+- model: crops.Crop
+  pk: 40234
+  fields:
+    name: 芥菜-小芥菜
+    code: LJ4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40231
+
+- model: crops.Crop
+  pk: 40235
+  fields:
+    name: 芥菜-翡翠娃娃菜
+    code: LJ5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40231
+
+- model: crops.Crop
+  pk: 40236
+  fields:
+    name: 芥菜-水耕
+    code: LJ8
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40231
+
+- model: crops.Crop
+  pk: 40237
+  fields:
+    name: 芥藍菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40238
+  fields:
+    name: 芥藍菜
+    code: LK2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40237
+
+- model: crops.Crop
+  pk: 40239
+  fields:
+    name: 芥藍菜-芥藍芽
+    code: LK3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40237
+
+- model: crops.Crop
+  pk: 40240
+  fields:
+    name: 芥藍菜-蒲公
+    code: LK1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40237
+
+- model: crops.Crop
+  pk: 40241
+  fields:
+    name: 芥藍菜-其他
+    code: LK0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40237
+
+- model: crops.Crop
+  pk: 40242
+  fields:
+    name: 芥藍菜-水耕
+    code: LK8
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40237
+
+- model: crops.Crop
+  pk: 40243
+  fields:
+    name: 芥藍菜-進口
+    code: LK9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40237
+
+- model: crops.Crop
+  pk: 40244
+  fields:
+    name: 茼蒿
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40245
+  fields:
+    name: 茼蒿-其他
+    code: LL0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40244
+
+- model: crops.Crop
+  pk: 40246
+  fields:
+    name: 茼蒿
+    code: LL1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40244
+
+- model: crops.Crop
+  pk: 40247
+  fields:
+    name: 茼蒿-水耕
+    code: LL8
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40244
+
+- model: crops.Crop
+  pk: 40248
+  fields:
+    name: 茼蒿-山茼蒿
+    code: LL2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40244
+
+- model: crops.Crop
+  pk: 40249
+  fields:
+    name: 莧菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40250
+  fields:
+    name: 莧菜-紅莧菜
+    code: LM1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40249
+
+- model: crops.Crop
+  pk: 40251
+  fields:
+    name: 莧菜-白莧菜
+    code: LM2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40249
+
+- model: crops.Crop
+  pk: 40252
+  fields:
+    name: 莧菜-水耕
+    code: LM8
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40249
+
+- model: crops.Crop
+  pk: 40253
+  fields:
+    name: 油菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40254
+  fields:
+    name: 油菜
+    code: LN1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40253
+
+- model: crops.Crop
+  pk: 40255
+  fields:
+    name: 油菜-小松菜
+    code: LN2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40253
+
+- model: crops.Crop
+  pk: 40256
+  fields:
+    name: 甘薯葉
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40257
+  fields:
+    name: 甘藷葉
+    code: LO1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40256
+
+- model: crops.Crop
+  pk: 40258
+  fields:
+    name: 芫荽
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40259
+  fields:
+    name: 芫荽
+    code: LP1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40258
+
+- model: crops.Crop
+  pk: 40260
+  fields:
+    name: 芫荽-進口
+    code: LP9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40258
+
+- model: crops.Crop
+  pk: 40261
+  fields:
+    name: 九層塔
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40262
+  fields:
+    name: 九層塔
+    code: LP2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40261
+
+- model: crops.Crop
+  pk: 40263
+  fields:
+    name: 羅勒
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40264
+  fields:
+    name: 羅勒
+    code: LP3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40263
+
+- model: crops.Crop
+  pk: 40265
+  fields:
+    name: 紅鳳菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40266
+  fields:
+    name: 紅鳳菜-紅鳳菜
+    code: LQ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40265
+
+- model: crops.Crop
+  pk: 40267
+  fields:
+    name: 紅鳳菜-白鳳菜
+    code: LQ2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40265
+
+- model: crops.Crop
+  pk: 40268
+  fields:
+    name: 塌棵菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40269
+  fields:
+    name: 塌棵菜
+    code: LR1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40268
+
+- model: crops.Crop
+  pk: 40270
+  fields:
+    name: 茴香
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40271
+  fields:
+    name: 茴香
+    code: LS1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40270
+
+- model: crops.Crop
+  pk: 40272
+  fields:
+    name: 海菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40273
+  fields:
+    name: 海菜-海帶
+    code: LT2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40272
+
+- model: crops.Crop
+  pk: 40274
+  fields:
+    name: 海菜-龍鬚菜
+    code: LT1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40272
+
+- model: crops.Crop
+  pk: 40275
+  fields:
+    name: 海菜-水蓮
+    code: LT3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40272
+
+- model: crops.Crop
+  pk: 40276
+  fields:
+    name: 菾菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40277
+  fields:
+    name: 菾菜-茄茉菜
+    code: LU1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40276
+
+- model: crops.Crop
+  pk: 40278
+  fields:
+    name: 巴西利
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40279
+  fields:
+    name: 巴西利
+    code: LV1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40278
+
+- model: crops.Crop
+  pk: 40280
+  fields:
+    name: 巴西利-進口
+    code: LV9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40278
+
+- model: crops.Crop
+  pk: 40281
+  fields:
+    name: 蕨菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40282
+  fields:
+    name: 蕨菜-過貓
+    code: LX1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40281
+
+- model: crops.Crop
+  pk: 40283
+  fields:
+    name: 蕨菜-山蘇
+    code: LX2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40281
+
+- model: crops.Crop
+  pk: 40284
+  fields:
+    name: 西洋菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40285
+  fields:
+    name: 西洋菜
+    code: LY1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40284
+
+- model: crops.Crop
+  pk: 40286
+  fields:
+    name: 黑甜仔菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40287
+  fields:
+    name: 黑甜仔菜
+    code: LY2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40286
+
+- model: crops.Crop
+  pk: 40288
+  fields:
+    name: 豬母菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40289
+  fields:
+    name: 豬母菜
+    code: LY3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40288
+
+- model: crops.Crop
+  pk: 40290
+  fields:
+    name: 人參葉
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40291
+  fields:
+    name: 人參葉
+    code: LY4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40290
+
+- model: crops.Crop
+  pk: 40292
+  fields:
+    name: 珍珠菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40293
+  fields:
+    name: 珍珠菜
+    code: LY5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40292
+
+- model: crops.Crop
+  pk: 40294
+  fields:
+    name: 香椿
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40295
+  fields:
+    name: 香椿
+    code: LY6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40294
+
+- model: crops.Crop
+  pk: 40296
+  fields:
+    name: 薺菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40297
+  fields:
+    name: 薺菜
+    code: LZ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40296
+
+- model: crops.Crop
+  pk: 40298
+  fields:
+    name: 藤川七
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40001
+
+- model: crops.Crop
+  pk: 40299
+  fields:
+    name: 藤川七-川七葉
+    code: LZ2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40298
+
+- model: crops.Crop
+  pk: 40300
+  fields:
+    name: 洋菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40301
+  fields:
+    name: 洋菇
+    code: MA1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40300
+
+- model: crops.Crop
+  pk: 40302
+  fields:
+    name: 洋菇(盒)-盒裝
+    code: MA2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40300
+
+- model: crops.Crop
+  pk: 40303
+  fields:
+    name: 洋菇-其他
+    code: MA0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40300
+
+- model: crops.Crop
+  pk: 40304
+  fields:
+    name: 草菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40305
+  fields:
+    name: 草菇
+    code: MB1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40304
+
+- model: crops.Crop
+  pk: 40306
+  fields:
+    name: 草菇-其他
+    code: MB0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40304
+
+- model: crops.Crop
+  pk: 40307
+  fields:
+    name: 濕木耳
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40308
+  fields:
+    name: 濕木耳
+    code: MC1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40307
+
+- model: crops.Crop
+  pk: 40309
+  fields:
+    name: 濕木耳(盒)-盒裝
+    code: MC2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40307
+
+- model: crops.Crop
+  pk: 40310
+  fields:
+    name: 濕木耳-其他
+    code: MC0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40307
+
+- model: crops.Crop
+  pk: 40311
+  fields:
+    name: 濕香菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40312
+  fields:
+    name: 溼香菇
+    code: MD1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40311
+
+- model: crops.Crop
+  pk: 40313
+  fields:
+    name: 濕香菇-其他
+    code: MD0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40311
+
+- model: crops.Crop
+  pk: 40314
+  fields:
+    name: 金絲菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40315
+  fields:
+    name: 金絲菇
+    code: ME1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40314
+
+- model: crops.Crop
+  pk: 40316
+  fields:
+    name: 金絲菇(盒)-盒裝
+    code: ME2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40314
+
+- model: crops.Crop
+  pk: 40317
+  fields:
+    name: 金絲菇-其他
+    code: ME0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40314
+
+- model: crops.Crop
+  pk: 40318
+  fields:
+    name: 蠔菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40319
+  fields:
+    name: 蠔菇-鮑魚菇
+    code: MF1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40318
+
+- model: crops.Crop
+  pk: 40320
+  fields:
+    name: 蠔菇(盒)-盒裝
+    code: MF2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40318
+
+- model: crops.Crop
+  pk: 40321
+  fields:
+    name: 蠔菇-其他
+    code: MF0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40318
+
+- model: crops.Crop
+  pk: 40322
+  fields:
+    name: 巴西蘑菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40323
+  fields:
+    name: 巴西蘑菇-盒裝
+    code: MG2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40322
+
+- model: crops.Crop
+  pk: 40324
+  fields:
+    name: 巴西蘑菇
+    code: MG1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40322
+
+- model: crops.Crop
+  pk: 40325
+  fields:
+    name: 巴西蘑菇-其他
+    code: MG0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40322
+
+- model: crops.Crop
+  pk: 40326
+  fields:
+    name: 松茸
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40327
+  fields:
+    name: 松茸
+    code: MH1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40326
+
+- model: crops.Crop
+  pk: 40328
+  fields:
+    name: 松茸-盒裝
+    code: MH2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40326
+
+- model: crops.Crop
+  pk: 40329
+  fields:
+    name: 秀珍菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40330
+  fields:
+    name: 秀珍菇
+    code: MI1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40329
+
+- model: crops.Crop
+  pk: 40331
+  fields:
+    name: 秀珍菇(盒)-盒裝
+    code: MI2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40329
+
+- model: crops.Crop
+  pk: 40332
+  fields:
+    name: 秀珍菇-其他
+    code: MI0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40329
+
+- model: crops.Crop
+  pk: 40333
+  fields:
+    name: 杏鮑菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40334
+  fields:
+    name: 杏鮑菇
+    code: MJ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40333
+
+- model: crops.Crop
+  pk: 40335
+  fields:
+    name: 杏鮑菇-盒裝
+    code: MJ2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40333
+
+- model: crops.Crop
+  pk: 40336
+  fields:
+    name: 杏鮑菇-其他
+    code: MJ0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40333
+
+- model: crops.Crop
+  pk: 40337
+  fields:
+    name: 鴻禧菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40338
+  fields:
+    name: 鴻禧菇
+    code: MK1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40337
+
+- model: crops.Crop
+  pk: 40339
+  fields:
+    name: 鴻禧菇-盒裝
+    code: MK2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40337
+
+- model: crops.Crop
+  pk: 40340
+  fields:
+    name: 鴻禧菇-其他
+    code: MK0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40337
+
+- model: crops.Crop
+  pk: 40341
+  fields:
+    name: 珊瑚菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40342
+  fields:
+    name: 珊瑚菇
+    code: ML1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40341
+
+- model: crops.Crop
+  pk: 40343
+  fields:
+    name: 珊瑚菇-盒裝
+    code: ML2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40341
+
+- model: crops.Crop
+  pk: 40344
+  fields:
+    name: 珊瑚菇-其他
+    code: ML0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40341
+
+- model: crops.Crop
+  pk: 40345
+  fields:
+    name: 猴頭菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40346
+  fields:
+    name: 猴頭菇
+    code: MM1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40345
+
+- model: crops.Crop
+  pk: 40347
+  fields:
+    name: 猴頭菇-盒裝
+    code: MM2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40345
+
+- model: crops.Crop
+  pk: 40348
+  fields:
+    name: 柳松菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40349
+  fields:
+    name: 柳松菇
+    code: MN1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40348
+
+- model: crops.Crop
+  pk: 40350
+  fields:
+    name: 柳松菇-盒裝
+    code: MN2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40348
+
+- model: crops.Crop
+  pk: 40351
+  fields:
+    name: 柳松菇-其他
+    code: MN0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40348
+
+- model: crops.Crop
+  pk: 40352
+  fields:
+    name: 其他菇類
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40004
+
+- model: crops.Crop
+  pk: 40353
+  fields:
+    name: 其他菇類-其他菇類
+    code: MX1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40352
+
+- model: crops.Crop
+  pk: 40354
+  fields:
+    name: 鹹菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40355
+  fields:
+    name: 鹹菜-清心
+    code: OA1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40354
+
+- model: crops.Crop
+  pk: 40356
+  fields:
+    name: 鹹菜-帶葉
+    code: OA2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40354
+
+- model: crops.Crop
+  pk: 40357
+  fields:
+    name: 雪里紅
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40358
+  fields:
+    name: 雪裡紅
+    code: OB1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40357
+
+- model: crops.Crop
+  pk: 40359
+  fields:
+    name: 榨菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40360
+  fields:
+    name: 其他蔬菜
+    code: OC1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40359
+
+- model: crops.Crop
+  pk: 40361
+  fields:
+    name: 蘿蔔乾
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40362
+  fields:
+    name: 蘿蔔乾
+    code: OD1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40361
+
+- model: crops.Crop
+  pk: 40363
+  fields:
+    name: 醃瓜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40364
+  fields:
+    name: 醃瓜-漬
+    code: OE2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40363
+
+- model: crops.Crop
+  pk: 40365
+  fields:
+    name: 醃瓜-乾
+    code: OE1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40363
+
+- model: crops.Crop
+  pk: 40366
+  fields:
+    name: 熟筍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40367
+  fields:
+    name: 熟筍-箭竹筍
+    code: OG2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40366
+
+- model: crops.Crop
+  pk: 40368
+  fields:
+    name: 熟筍-桂竹筍
+    code: OG1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40366
+
+- model: crops.Crop
+  pk: 40369
+  fields:
+    name: 桶筍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40370
+  fields:
+    name: 桶筍-麻竹筍
+    code: OH1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40369
+
+- model: crops.Crop
+  pk: 40371
+  fields:
+    name: 桶筍-綠竹筍
+    code: OH2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40369
+
+- model: crops.Crop
+  pk: 40372
+  fields:
+    name: 桶筍-桂竹筍
+    code: OH3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40369
+
+- model: crops.Crop
+  pk: 40373
+  fields:
+    name: 桶筍-箭竹筍
+    code: OH4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40369
+
+- model: crops.Crop
+  pk: 40374
+  fields:
+    name: 筍乾
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40375
+  fields:
+    name: 筍乾
+    code: OI1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40374
+
+- model: crops.Crop
+  pk: 40376
+  fields:
+    name: 筍絲
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40377
+  fields:
+    name: 筍絲
+    code: OI2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40376
+
+- model: crops.Crop
+  pk: 40378
+  fields:
+    name: 筍片
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40379
+  fields:
+    name: 筍片
+    code: OI3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40378
+
+- model: crops.Crop
+  pk: 40380
+  fields:
+    name: 筍茸
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40381
+  fields:
+    name: 筍茸
+    code: OI4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40380
+
+- model: crops.Crop
+  pk: 40382
+  fields:
+    name: 朴菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40383
+  fields:
+    name: 朴菜
+    code: OL1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40382
+
+- model: crops.Crop
+  pk: 40384
+  fields:
+    name: 其他
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40005
+
+- model: crops.Crop
+  pk: 40385
+  fields:
+    name: 其他蔬菜
+    code: OX1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40384
+
+- model: crops.Crop
+  pk: 40386
+  fields:
+    name: 其他蔬菜-進口
+    code: OX9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40384
+
+- model: crops.Crop
+  pk: 40387
+  fields:
+    name: 蘿蔔
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40388
+  fields:
+    name: 蘿蔔-進口
+    code: SA9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40387
+
+- model: crops.Crop
+  pk: 40389
+  fields:
+    name: 蘿蔔-其他
+    code: SA0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40387
+
+- model: crops.Crop
+  pk: 40390
+  fields:
+    name: 蘿蔔-白玉蘿蔔
+    code: SA6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40387
+
+- model: crops.Crop
+  pk: 40391
+  fields:
+    name: 蘿蔔-甜菜根
+    code: SA7
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40387
+
+- model: crops.Crop
+  pk: 40392
+  fields:
+    name: 蘿蔔-矸仔
+    code: SA3
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40387
+
+- model: crops.Crop
+  pk: 40393
+  fields:
+    name: 蘿蔔-矸仔
+    code: SA3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40392
+
+- model: crops.Crop
+  pk: 40394
+  fields:
+    name: 蘿蔔-矸仔
+    code: SA32
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40392
+
+- model: crops.Crop
+  pk: 40395
+  fields:
+    name: 蘿蔔-矸仔
+    code: SA31
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40392
+
+- model: crops.Crop
+  pk: 40396
+  fields:
+    name: 蘿蔔-梅花
+    code: SA1
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40387
+
+- model: crops.Crop
+  pk: 40397
+  fields:
+    name: 蘿蔔-梅花
+    code: SA1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40396
+
+- model: crops.Crop
+  pk: 40398
+  fields:
+    name: 蘿蔔-梅花
+    code: SA12
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40396
+
+- model: crops.Crop
+  pk: 40399
+  fields:
+    name: 蘿蔔-梅花
+    code: SA11
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40396
+
+- model: crops.Crop
+  pk: 40400
+  fields:
+    name: 蘿蔔-櫻桃
+    code: SA4
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40387
+
+- model: crops.Crop
+  pk: 40401
+  fields:
+    name: 蘿蔔-櫻桃
+    code: SA4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40400
+
+- model: crops.Crop
+  pk: 40402
+  fields:
+    name: 蘿蔔-櫻桃
+    code: SA42
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40400
+
+- model: crops.Crop
+  pk: 40403
+  fields:
+    name: 蘿蔔-櫻桃
+    code: SA41
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40400
+
+- model: crops.Crop
+  pk: 40404
+  fields:
+    name: 蘿蔔-椿仔
+    code: SA2
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40387
+
+- model: crops.Crop
+  pk: 40405
+  fields:
+    name: 蘿蔔-椿仔
+    code: SA2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40404
+
+- model: crops.Crop
+  pk: 40406
+  fields:
+    name: 蘿蔔-椿仔
+    code: SA22
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40404
+
+- model: crops.Crop
+  pk: 40407
+  fields:
+    name: 蘿蔔-青色
+    code: SA5
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40387
+
+- model: crops.Crop
+  pk: 40408
+  fields:
+    name: 蘿蔔-青色
+    code: SA5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40407
+
+- model: crops.Crop
+  pk: 40409
+  fields:
+    name: 蘿蔔-青色
+    code: SA52
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40407
+
+- model: crops.Crop
+  pk: 40410
+  fields:
+    name: 蘿蔔-青色
+    code: SA51
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40407
+
+- model: crops.Crop
+  pk: 40411
+  fields:
+    name: 胡蘿蔔
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40412
+  fields:
+    name: 胡蘿蔔-進口
+    code: SB9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40411
+
+- model: crops.Crop
+  pk: 40413
+  fields:
+    name: 胡蘿蔔-未洗
+    code: SB1
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40411
+
+- model: crops.Crop
+  pk: 40414
+  fields:
+    name: 胡蘿蔔-未洗
+    code: SB1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40413
+
+- model: crops.Crop
+  pk: 40415
+  fields:
+    name: 胡蘿蔔-未洗
+    code: SB11
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40413
+
+- model: crops.Crop
+  pk: 40416
+  fields:
+    name: 胡蘿蔔-清洗
+    code: SB2
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40411
+
+- model: crops.Crop
+  pk: 40417
+  fields:
+    name: 胡蘿蔔-清洗
+    code: SB2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40416
+
+- model: crops.Crop
+  pk: 40418
+  fields:
+    name: 胡蘿蔔-清洗
+    code: SB21
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40416
+
+- model: crops.Crop
+  pk: 40419
+  fields:
+    name: 馬鈴薯
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40420
+  fields:
+    name: 馬鈴薯-本產
+    code: SC1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40419
+
+- model: crops.Crop
+  pk: 40421
+  fields:
+    name: 馬鈴薯-進口
+    code: SC9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40419
+
+- model: crops.Crop
+  pk: 40422
+  fields:
+    name: 洋蔥
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40423
+  fields:
+    name: 洋蔥-本產
+    code: SD1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40422
+
+- model: crops.Crop
+  pk: 40424
+  fields:
+    name: 洋蔥-進口
+    code: SD9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40422
+
+- model: crops.Crop
+  pk: 40425
+  fields:
+    name: 青蔥
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40426
+  fields:
+    name: 青蔥-日蔥
+    code: SE1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40425
+
+- model: crops.Crop
+  pk: 40427
+  fields:
+    name: 青蔥-北蔥
+    code: SE2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40425
+
+- model: crops.Crop
+  pk: 40428
+  fields:
+    name: 青蔥-大蔥
+    code: SE3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40425
+
+- model: crops.Crop
+  pk: 40429
+  fields:
+    name: 青蔥-珠蔥
+    code: SE4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40425
+
+- model: crops.Crop
+  pk: 40430
+  fields:
+    name: 青蔥-紅蔥頭
+    code: SE5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40425
+
+- model: crops.Crop
+  pk: 40431
+  fields:
+    name: 青蔥-粉蔥
+    code: SE6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40425
+
+- model: crops.Crop
+  pk: 40432
+  fields:
+    name: 青蔥-進口蔥
+    code: SE9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40425
+
+- model: crops.Crop
+  pk: 40433
+  fields:
+    name: 韭菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40434
+  fields:
+    name: 韭菜-白頭
+    code: SF1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40433
+
+- model: crops.Crop
+  pk: 40435
+  fields:
+    name: 韭菜-韭菜黃
+    code: SF2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40433
+
+- model: crops.Crop
+  pk: 40436
+  fields:
+    name: 韭菜-韭菜花
+    code: SF3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40433
+
+- model: crops.Crop
+  pk: 40437
+  fields:
+    name: 韭菜-青頭
+    code: SF4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40433
+
+- model: crops.Crop
+  pk: 40438
+  fields:
+    name: 大蒜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40439
+  fields:
+    name: 大蒜-硬梗
+    code: SG1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40438
+
+- model: crops.Crop
+  pk: 40440
+  fields:
+    name: 大蒜-軟梗
+    code: SG2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40438
+
+- model: crops.Crop
+  pk: 40441
+  fields:
+    name: 大蒜-蒜苔
+    code: SG3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40438
+
+- model: crops.Crop
+  pk: 40442
+  fields:
+    name: 大蒜-蒜頭
+    code: SG5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40438
+
+- model: crops.Crop
+  pk: 40443
+  fields:
+    name: 大蒜-蒜仁
+    code: SG6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40438
+
+- model: crops.Crop
+  pk: 40444
+  fields:
+    name: 大蒜-蒜瓣
+    code: SG7
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40438
+
+- model: crops.Crop
+  pk: 40445
+  fields:
+    name: 大蒜-進口
+    code: SG9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40438
+
+- model: crops.Crop
+  pk: 40446
+  fields:
+    name: 大蒜-蔥蒜
+    code: SG4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40438
+
+- model: crops.Crop
+  pk: 40447
+  fields:
+    name: 竹筍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40448
+  fields:
+    name: 竹筍-孟宗筍
+    code: SH4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40447
+
+- model: crops.Crop
+  pk: 40449
+  fields:
+    name: 竹筍-烏殼綠
+    code: SH5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40447
+
+- model: crops.Crop
+  pk: 40450
+  fields:
+    name: 竹筍-去殼
+    code: SH7
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40447
+
+- model: crops.Crop
+  pk: 40451
+  fields:
+    name: 竹筍-麻竹筍
+    code: SH1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40447
+
+- model: crops.Crop
+  pk: 40452
+  fields:
+    name: 竹筍-綠竹筍
+    code: SH2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40447
+
+- model: crops.Crop
+  pk: 40453
+  fields:
+    name: 竹筍-箭竹筍
+    code: SH6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40447
+
+- model: crops.Crop
+  pk: 40454
+  fields:
+    name: 竹筍-桂竹筍
+    code: SH3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40447
+
+- model: crops.Crop
+  pk: 40455
+  fields:
+    name: 竹筍-進口
+    code: SH9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40447
+
+- model: crops.Crop
+  pk: 40456
+  fields:
+    name: 萵苣莖
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40457
+  fields:
+    name: 萵苣莖
+    code: SI1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40456
+
+- model: crops.Crop
+  pk: 40458
+  fields:
+    name: 芋
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40459
+  fields:
+    name: 芋-檳榔心芋
+    code: SJ2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40458
+
+- model: crops.Crop
+  pk: 40460
+  fields:
+    name: 芋-里芋
+    code: SJ3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40458
+
+- model: crops.Crop
+  pk: 40461
+  fields:
+    name: 芋-芋莖
+    code: SJ4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40458
+
+- model: crops.Crop
+  pk: 40462
+  fields:
+    name: 芋-麵芋
+    code: SJ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40458
+
+- model: crops.Crop
+  pk: 40463
+  fields:
+    name: 荸薺
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40464
+  fields:
+    name: 荸薺-加工
+    code: SK2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40463
+
+- model: crops.Crop
+  pk: 40465
+  fields:
+    name: 荸薺
+    code: SK1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40463
+
+- model: crops.Crop
+  pk: 40466
+  fields:
+    name: 豆薯
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40467
+  fields:
+    name: 豆薯
+    code: SL1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40466
+
+- model: crops.Crop
+  pk: 40468
+  fields:
+    name: 菊芋
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40469
+  fields:
+    name: 菊芋-雪蓮薯
+    code: SL2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40468
+
+- model: crops.Crop
+  pk: 40470
+  fields:
+    name: 牛蒡
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40471
+  fields:
+    name: 牛蒡-進口
+    code: SM9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40470
+
+- model: crops.Crop
+  pk: 40472
+  fields:
+    name: 牛蒡
+    code: SM1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40470
+
+- model: crops.Crop
+  pk: 40473
+  fields:
+    name: 蓮藕
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40474
+  fields:
+    name: 蓮藕
+    code: SN1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40473
+
+- model: crops.Crop
+  pk: 40475
+  fields:
+    name: 蓮藕-蓮子
+    code: SN2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40473
+
+- model: crops.Crop
+  pk: 40476
+  fields:
+    name: 蓮藕-進口
+    code: SN9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40473
+
+- model: crops.Crop
+  pk: 40477
+  fields:
+    name: 甘薯
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40478
+  fields:
+    name: 甘薯-改良種
+    code: SO1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40477
+
+- model: crops.Crop
+  pk: 40479
+  fields:
+    name: 甘薯-其他
+    code: SO0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40477
+
+- model: crops.Crop
+  pk: 40480
+  fields:
+    name: 甘薯-芋仔甘藷
+    code: SO2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40477
+
+- model: crops.Crop
+  pk: 40481
+  fields:
+    name: 甘藷-臺農66號
+    code: SO3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40477
+
+- model: crops.Crop
+  pk: 40482
+  fields:
+    name: 薑
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40483
+  fields:
+    name: 薑-老薑
+    code: SP1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40482
+
+- model: crops.Crop
+  pk: 40484
+  fields:
+    name: 薑-嫩薑
+    code: SP2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40482
+
+- model: crops.Crop
+  pk: 40485
+  fields:
+    name: 薑-粉薑
+    code: SP3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40482
+
+- model: crops.Crop
+  pk: 40486
+  fields:
+    name: 薑-其他
+    code: SP0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40482
+
+- model: crops.Crop
+  pk: 40487
+  fields:
+    name: 薑-進口
+    code: SP9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40482
+
+- model: crops.Crop
+  pk: 40488
+  fields:
+    name: 茭白筍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40489
+  fields:
+    name: 茭白筍-帶殼
+    code: SQ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40488
+
+- model: crops.Crop
+  pk: 40490
+  fields:
+    name: 茭白筍-去殼
+    code: SQ3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40488
+
+- model: crops.Crop
+  pk: 40491
+  fields:
+    name: 茭白筍
+    code: SQ2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40488
+
+- model: crops.Crop
+  pk: 40492
+  fields:
+    name: 茭白筍-進口
+    code: SQ9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40488
+
+- model: crops.Crop
+  pk: 40493
+  fields:
+    name: 菱角
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40494
+  fields:
+    name: 菱角-去殼
+    code: SR3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40493
+
+- model: crops.Crop
+  pk: 40495
+  fields:
+    name: 菱角-熟菱角
+    code: SR4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40493
+
+- model: crops.Crop
+  pk: 40496
+  fields:
+    name: 菱角-生菱角
+    code: SR1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40493
+
+- model: crops.Crop
+  pk: 40497
+  fields:
+    name: 大心菜
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40498
+  fields:
+    name: 大心菜-其他
+    code: SS0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40497
+
+- model: crops.Crop
+  pk: 40499
+  fields:
+    name: 大心菜-帶葉
+    code: SS1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40497
+
+- model: crops.Crop
+  pk: 40500
+  fields:
+    name: 蕎頭
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40501
+  fields:
+    name: 蕎頭-露蕎
+    code: ST1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40500
+
+- model: crops.Crop
+  pk: 40502
+  fields:
+    name: 薯蕷
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40503
+  fields:
+    name: 薯蕷-紅薯蕷
+    code: SU1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40502
+
+- model: crops.Crop
+  pk: 40504
+  fields:
+    name: 薯蕷-白薯蕷
+    code: SU2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40502
+
+- model: crops.Crop
+  pk: 40505
+  fields:
+    name: 薯蕷-進口
+    code: SU9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40502
+
+- model: crops.Crop
+  pk: 40506
+  fields:
+    name: 薯蕷-樹薯
+    code: SU3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40502
+
+- model: crops.Crop
+  pk: 40507
+  fields:
+    name: 薯蕷-粉薯
+    code: SU4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40502
+
+- model: crops.Crop
+  pk: 40508
+  fields:
+    name: 薯蕷-其他
+    code: SU0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40502
+
+- model: crops.Crop
+  pk: 40509
+  fields:
+    name: 蘆筍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40510
+  fields:
+    name: 蘆筍-進口
+    code: SV9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40509
+
+- model: crops.Crop
+  pk: 40511
+  fields:
+    name: 蘆筍-白蘆筍
+    code: SV1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40509
+
+- model: crops.Crop
+  pk: 40512
+  fields:
+    name: 蘆筍-綠蘆筍
+    code: SV2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40509
+
+- model: crops.Crop
+  pk: 40513
+  fields:
+    name: 蘆筍-蘆筍花
+    code: SV3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40509
+
+- model: crops.Crop
+  pk: 40514
+  fields:
+    name: 球莖甘藍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40515
+  fields:
+    name: 球莖甘藍
+    code: SW1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40514
+
+- model: crops.Crop
+  pk: 40516
+  fields:
+    name: 芽菜類
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40517
+  fields:
+    name: 芽菜類-綠豆芽
+    code: SX1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40516
+
+- model: crops.Crop
+  pk: 40518
+  fields:
+    name: 芽菜類-黃豆牙
+    code: SX2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40516
+
+- model: crops.Crop
+  pk: 40519
+  fields:
+    name: 芽菜類-豌豆嬰
+    code: SX3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40516
+
+- model: crops.Crop
+  pk: 40520
+  fields:
+    name: 芽菜類-苜宿芽
+    code: SX4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40516
+
+- model: crops.Crop
+  pk: 40521
+  fields:
+    name: 芽菜類-其他
+    code: SX0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40516
+
+- model: crops.Crop
+  pk: 40522
+  fields:
+    name: 芽菜類-蘿蔔嬰
+    code: SX5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40516
+
+- model: crops.Crop
+  pk: 40523
+  fields:
+    name: 慈菇
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40524
+  fields:
+    name: 慈菇
+    code: SY1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40523
+
+- model: crops.Crop
+  pk: 40525
+  fields:
+    name: 半天筍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40526
+  fields:
+    name: 半天筍
+    code: SZ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40525
+
+- model: crops.Crop
+  pk: 40527
+  fields:
+    name: 甘蔗筍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40528
+  fields:
+    name: 甘蔗筍
+    code: SZ2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40527
+
+- model: crops.Crop
+  pk: 40529
+  fields:
+    name: 金針筍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40530
+  fields:
+    name: 金針筍
+    code: SZ3
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40529
+
+- model: crops.Crop
+  pk: 40531
+  fields:
+    name: 百合
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40532
+  fields:
+    name: 百合
+    code: SZ4
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40531
+
+- model: crops.Crop
+  pk: 40533
+  fields:
+    name: 草石蠶
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40534
+  fields:
+    name: 草石蠶-冬蟲夏草
+    code: SZ5
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40533
+
+- model: crops.Crop
+  pk: 40535
+  fields:
+    name: 半天花
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40536
+  fields:
+    name: 半天花
+    code: SZ6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40535
+
+- model: crops.Crop
+  pk: 40537
+  fields:
+    name: 晚香玉筍
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40538
+  fields:
+    name: 晚香玉筍
+    code: SZ7
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40537

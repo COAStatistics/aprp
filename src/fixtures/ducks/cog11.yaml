@@ -1,0 +1,57 @@
+- model: ducks.Duck
+  pk: 100001
+  fields:
+    name: 正番鴨
+    track_item: false
+    config: 11
+    unit: 2
+
+- model: ducks.Duck
+  pk: 100002
+  fields:
+    name: 土番鴨
+    track_item: false
+    config: 11
+    unit: 2
+
+- model: ducks.Duck
+  pk: 100003
+  fields:
+    name: 鴨蛋
+    track_item: false
+    config: 11
+    unit: 2
+
+- model: ducks.Duck
+  pk: 100004
+  fields:
+    name: 正番鴨(公)
+    code: 正番鴨(公)
+    type: 2
+    config: 11
+    unit: 2
+    parent: 100001
+
+- model: ducks.Duck
+  pk: 100005
+  fields:
+    name: 土番鴨(75天)
+    code: 土番鴨(75天)
+    type: 2
+    config: 11
+    unit: 2
+    parent: 100002
+
+- model: ducks.Duck
+  pk: 100006
+  fields:
+    name: 鴨蛋
+    code: 鴨蛋(新蛋)(台南)
+    type: 2
+    config: 11
+    unit: 2
+    parent: 100003
+
+
+
+

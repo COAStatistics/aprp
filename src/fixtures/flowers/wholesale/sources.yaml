@@ -1,0 +1,41 @@
+# Flowers Sources
+- model: configs.Source
+  pk: 30001
+  fields:
+    name: 臺北花市
+    code: 105
+    configs: [4, 7]
+    type: 1
+
+
+- model: configs.Source
+  pk: 30002
+  fields:
+    name: 臺中市場
+    code: 400
+    configs: [4, 7]
+    type: 1
+
+- model: configs.Source
+  pk: 30003
+  fields:
+    name: 彰化市場
+    code: 514
+    configs: [4, 7]
+    type: 1
+
+- model: configs.Source
+  pk: 30004
+  fields:
+    name: 臺南市場
+    code: 700
+    configs: [4, 7]
+    type: 1
+
+- model: configs.Source
+  pk: 30005
+  fields:
+    name: 高雄市場
+    code: 800
+    configs: [4, 7]
+    type: 1

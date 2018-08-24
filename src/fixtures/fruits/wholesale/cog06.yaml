@@ -1,0 +1,2868 @@
+- model: fruits.Fruit
+  pk: 50001
+  fields:
+    name: 椰子
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50002
+  fields:
+    name: 椰子
+    code: 11
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50001
+
+- model: fruits.Fruit
+  pk: 50003
+  fields:
+    name: 椰子
+    code: 11
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50002
+
+- model: fruits.Fruit
+  pk: 50004
+  fields:
+    name: 椰子-進口
+    code: 119
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50002
+
+- model: fruits.Fruit
+  pk: 50005
+  fields:
+    name: 椰子-剝殼
+    code: 12
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50001
+
+- model: fruits.Fruit
+  pk: 50006
+  fields:
+    name: 椰子-剝殼
+    code: 12
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50005
+
+- model: fruits.Fruit
+  pk: 50007
+  fields:
+    name: 椰子-進口剝殼
+    code: 129
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50005
+
+- model: fruits.Fruit
+  pk: 50008
+  fields:
+    name: 棗子
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50009
+  fields:
+    name: 棗子
+    code: 22
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50008
+
+- model: fruits.Fruit
+  pk: 50011
+  fields:
+    name: 棗子-進口
+    code: 229
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50008
+
+- model: fruits.Fruit
+  pk: 50012
+  fields:
+    name: 釋迦
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50013
+  fields:
+    name: 釋迦
+    code: 31
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50012
+
+- model: fruits.Fruit
+  pk: 50014
+  fields:
+    name: 釋迦-鳳梨釋迦
+    code: 32
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50012
+
+- model: fruits.Fruit
+  pk: 50015
+  fields:
+    name: 釋迦-其他
+    code: 30
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50012
+
+- model: fruits.Fruit
+  pk: 50016
+  fields:
+    name: 梅
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50017
+  fields:
+    name: 梅
+    code: 41
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50016
+
+- model: fruits.Fruit
+  pk: 50018
+  fields:
+    name: 楊梅
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50019
+  fields:
+    name: 楊梅
+    code: 42
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50018
+
+- model: fruits.Fruit
+  pk: 50020
+  fields:
+    name: 桑椹
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50021
+  fields:
+    name: 桑椹
+    code: 43
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50020
+
+- model: fruits.Fruit
+  pk: 50022
+  fields:
+    name: 草莓
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50023
+  fields:
+    name: 草莓
+    code: 45
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50022
+
+- model: fruits.Fruit
+  pk: 50024
+  fields:
+    name: 草莓-進口
+    code: 459
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50022
+
+- model: fruits.Fruit
+  pk: 50025
+  fields:
+    name: 藍莓
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50026
+  fields:
+    name: 藍莓
+    code: 46
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50025
+
+- model: fruits.Fruit
+  pk: 50027
+  fields:
+    name: 藍莓-進口藍莓
+    code: 469
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50025
+
+- model: fruits.Fruit
+  pk: 50028
+  fields:
+    name: 百香果
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50029
+  fields:
+    name: 百香果-改良種
+    code: 51
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50028
+
+- model: fruits.Fruit
+  pk: 50030
+  fields:
+    name: 百香果-其他
+    code: 50
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50028
+
+- model: fruits.Fruit
+  pk: 50031
+  fields:
+    name: 甘蔗
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50032
+  fields:
+    name: 甘蔗-帶皮
+    code: 61
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50031
+
+- model: fruits.Fruit
+  pk: 50033
+  fields:
+    name: 小番茄
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50034
+  fields:
+    name: 小番茄-其他
+    code: 70
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50033
+
+- model: fruits.Fruit
+  pk: 50035
+  fields:
+    name: 小番茄-一般
+    code: 71
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50033
+
+- model: fruits.Fruit
+  pk: 50036
+  fields:
+    name: 小番茄-聖女
+    code: 72
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50033
+
+- model: fruits.Fruit
+  pk: 50037
+  fields:
+    name: 小番茄-嬌女
+    code: 73
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50033
+
+- model: fruits.Fruit
+  pk: 50038
+  fields:
+    name: 小番茄-玉女
+    code: 74
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50033
+
+- model: fruits.Fruit
+  pk: 50039
+  fields:
+    name: 火龍果
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50040
+  fields:
+    name: 火龍果-白肉
+    code: 811
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50039
+
+- model: fruits.Fruit
+  pk: 50041
+  fields:
+    name: 火龍果-紅肉
+    code: 812
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50039
+
+- model: fruits.Fruit
+  pk: 50042
+  fields:
+    name: 火龍果-進口
+    code: 819
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50039
+
+- model: fruits.Fruit
+  pk: 50043
+  fields:
+    name: 蜜棗
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50044
+  fields:
+    name: 蜜棗-進口
+    code: 829
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50043
+
+- model: fruits.Fruit
+  pk: 50045
+  fields:
+    name: 櫻桃
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50046
+  fields:
+    name: 櫻桃-進口
+    code: 839
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50045
+
+- model: fruits.Fruit
+  pk: 50047
+  fields:
+    name: 石榴
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50048
+  fields:
+    name: 石榴-石榴
+    code: 84
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50047
+
+- model: fruits.Fruit
+  pk: 50049
+  fields:
+    name: 石榴-進口
+    code: 849
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50047
+
+- model: fruits.Fruit
+  pk: 50050
+  fields:
+    name: 榴槤
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50051
+  fields:
+    name: 榴槤-榴槤
+    code: 85
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50050
+
+- model: fruits.Fruit
+  pk: 50052
+  fields:
+    name: 榴槤-進口
+    code: 859
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50050
+
+- model: fruits.Fruit
+  pk: 50053
+  fields:
+    name: 山竹
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50054
+  fields:
+    name: 山竹-進口
+    code: 869
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50053
+
+- model: fruits.Fruit
+  pk: 50055
+  fields:
+    name: 紅毛丹
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50056
+  fields:
+    name: 紅毛丹-紅毛丹
+    code: 87
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50055
+
+- model: fruits.Fruit
+  pk: 50057
+  fields:
+    name: 紅毛丹-進口
+    code: 879
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50055
+
+- model: fruits.Fruit
+  pk: 50058
+  fields:
+    name: 其他
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50059
+  fields:
+    name: 其他
+    code: 91
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50058
+
+- model: fruits.Fruit
+  pk: 50060
+  fields:
+    name: 其他-進口
+    code: 919
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50058
+
+- model: fruits.Fruit
+  pk: 50061
+  fields:
+    name: 香蕉
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50062
+  fields:
+    name: 香蕉-其他
+    code: A0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50061
+
+- model: fruits.Fruit
+  pk: 50063
+  fields:
+    name: 香蕉
+    code: A1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50061
+
+- model: fruits.Fruit
+  pk: 50064
+  fields:
+    name: 香蕉-芭蕉
+    code: A2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50061
+
+- model: fruits.Fruit
+  pk: 50065
+  fields:
+    name: 香蕉-旦蕉
+    code: A3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50061
+
+- model: fruits.Fruit
+  pk: 50066
+  fields:
+    name: 鳳梨
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50067
+  fields:
+    name: 鳳梨-其他
+    code: B0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50066
+
+- model: fruits.Fruit
+  pk: 50068
+  fields:
+    name: 鳳梨-金鑽鳳梨
+    code: B2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50066
+
+- model: fruits.Fruit
+  pk: 50069
+  fields:
+    name: 鳳梨-進口
+    code: B9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50066
+
+- model: fruits.Fruit
+  pk: 50070
+  fields:
+    name: 鳳梨-鳳梨花
+    code: B4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50066
+
+- model: fruits.Fruit
+  pk: 50071
+  fields:
+    name: 鳳梨-開英
+    code: B1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50066
+
+- model: fruits.Fruit
+  pk: 50072
+  fields:
+    name: 鳳梨-牛奶鳳梨
+    code: B7
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50066
+
+- model: fruits.Fruit
+  pk: 50073
+  fields:
+    name: 鳳梨-甜蜜蜜
+    code: B6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50066
+
+- model: fruits.Fruit
+  pk: 50074
+  fields:
+    name: 鳳梨-蘋果鳳梨
+    code: B5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50066
+
+- model: fruits.Fruit
+  pk: 50075
+  fields:
+    name: 鳳梨-香水鳳梨
+    code: B3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50066
+
+- model: fruits.Fruit
+  pk: 50076
+  fields:
+    name: 椪柑
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50077
+  fields:
+    name: 椪柑(其他)-其他
+    code: C0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50076
+
+- model: fruits.Fruit
+  pk: 50078
+  fields:
+    name: 椪柑
+    code: C1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50076
+
+- model: fruits.Fruit
+  pk: 50079
+  fields:
+    name: 椪柑-進口
+    code: C9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50076
+
+- model: fruits.Fruit
+  pk: 50080
+  fields:
+    name: 茂谷柑
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50081
+  fields:
+    name: 茂谷柑
+    code: C2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50080
+
+- model: fruits.Fruit
+  pk: 50082
+  fields:
+    name: 虎頭柑
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50083
+  fields:
+    name: 虎頭柑
+    code: C3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50082
+
+- model: fruits.Fruit
+  pk: 50084
+  fields:
+    name: 紅柑
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50085
+  fields:
+    name: 紅柑-美女柑
+    code: C4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50084
+
+- model: fruits.Fruit
+  pk: 50086
+  fields:
+    name: 溫州柑
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50087
+  fields:
+    name: 溫州柑-溫州柑
+    code: C5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50086
+
+- model: fruits.Fruit
+  pk: 50088
+  fields:
+    name: 佛利檬
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50089
+  fields:
+    name: 佛利檬-佛利檬
+    code: C6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50088
+
+- model: fruits.Fruit
+  pk: 50090
+  fields:
+    name: 豔陽柑
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50091
+  fields:
+    name: 豔陽柑-豔陽柑
+    code: C7
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50090
+
+- model: fruits.Fruit
+  pk: 50092
+  fields:
+    name: 桶柑
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50093
+  fields:
+    name: 桶柑-桶柑
+    code: D1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50092
+
+- model: fruits.Fruit
+  pk: 50094
+  fields:
+    name: 海梨柑
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50095
+  fields:
+    name: 海梨-海梨
+    code: D2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50094
+
+- model: fruits.Fruit
+  pk: 50096
+  fields:
+    name: 甜橙
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50097
+  fields:
+    name: 甜橙-柳橙
+    code: E1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50096
+
+- model: fruits.Fruit
+  pk: 50098
+  fields:
+    name: 甜橙-紅肉柳橙
+    code: E3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50096
+
+- model: fruits.Fruit
+  pk: 50099
+  fields:
+    name: 甜橙-其他
+    code: E0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50096
+
+- model: fruits.Fruit
+  pk: 50100
+  fields:
+    name: 甜橙-進口
+    code: E9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50096
+
+- model: fruits.Fruit
+  pk: 50101
+  fields:
+    name: 甜橙-晚崙西亞
+    code: E2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50096
+
+- model: fruits.Fruit
+  pk: 50102
+  fields:
+    name: 雜柑
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50103
+  fields:
+    name: 雜柑-檸檬
+    code: F1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50102
+
+- model: fruits.Fruit
+  pk: 50104
+  fields:
+    name: 雜柑-金棗
+    code: F2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50102
+
+- model: fruits.Fruit
+  pk: 50105
+  fields:
+    name: 雜柑-桔子
+    code: F4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50102
+
+- model: fruits.Fruit
+  pk: 50106
+  fields:
+    name: 雜柑-無子檸檬
+    code: F5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50102
+
+- model: fruits.Fruit
+  pk: 50107
+  fields:
+    name: 雜柑-進口
+    code: F9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50102
+
+- model: fruits.Fruit
+  pk: 50108
+  fields:
+    name: 雜柑-其他
+    code: F0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50102
+
+- model: fruits.Fruit
+  pk: 50109
+  fields:
+    name: 蛋黃果
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50110
+  fields:
+    name: 蛋黃果-仙桃
+    code: G1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50109
+
+- model: fruits.Fruit
+  pk: 50111
+  fields:
+    name: 黃金果
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50112
+  fields:
+    name: 黃金果
+    code: G2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50111
+
+- model: fruits.Fruit
+  pk: 50113
+  fields:
+    name: 酪梨
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50114
+  fields:
+    name: 酪梨
+    code: G3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50113
+
+- model: fruits.Fruit
+  pk: 50115
+  fields:
+    name: 酪梨-進口
+    code: G39
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50113
+
+- model: fruits.Fruit
+  pk: 50116
+  fields:
+    name: 奇異果
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50117
+  fields:
+    name: 奇異果-進口
+    code: G49
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50116
+
+- model: fruits.Fruit
+  pk: 50118
+  fields:
+    name: 香瓜梨
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50119
+  fields:
+    name: 香瓜梨
+    code: G5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50118
+
+- model: fruits.Fruit
+  pk: 50120
+  fields:
+    name: 香櫞
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50121
+  fields:
+    name: 香櫞-佛手
+    code: G6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50120
+
+- model: fruits.Fruit
+  pk: 50122
+  fields:
+    name: 橄欖
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50123
+  fields:
+    name: 橄欖
+    code: G7
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50122
+
+- model: fruits.Fruit
+  pk: 50124
+  fields:
+    name: 栗子
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50125
+  fields:
+    name: 栗子
+    code: G8
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50124
+
+- model: fruits.Fruit
+  pk: 50126
+  fields:
+    name: 波蘿蜜
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50127
+  fields:
+    name: 波羅蜜
+    code: G9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50126
+
+- model: fruits.Fruit
+  pk: 50128
+  fields:
+    name: 柚子
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50129
+  fields:
+    name: 柚子-白柚
+    code: H2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50128
+
+- model: fruits.Fruit
+  pk: 50130
+  fields:
+    name: 柚子-紅柚
+    code: H3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50128
+
+- model: fruits.Fruit
+  pk: 50131
+  fields:
+    name: 柚子-其他
+    code: H0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50128
+
+- model: fruits.Fruit
+  pk: 50132
+  fields:
+    name: 文旦柚-文旦柚
+    code: H1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50128
+
+- model: fruits.Fruit
+  pk: 50133
+  fields:
+    name: 柚子-進口
+    code: H9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50128
+
+- model: fruits.Fruit
+  pk: 50134
+  fields:
+    name: 西施柚-西施柚
+    code: H6
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50128
+
+- model: fruits.Fruit
+  pk: 50135
+  fields:
+    name: 西施柚-西施柚
+    code: H6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50134
+
+- model: fruits.Fruit
+  pk: 50136
+  fields:
+    name: 西施柚-進口
+    code: H69
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50134
+
+- model: fruits.Fruit
+  pk: 50137
+  fields:
+    name: 葡萄柚-白肉
+    code: H5
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50128
+
+- model: fruits.Fruit
+  pk: 50138
+  fields:
+    name: 葡萄柚-白肉
+    code: H5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50137
+
+- model: fruits.Fruit
+  pk: 50139
+  fields:
+    name: 葡萄柚-進口白肉
+    code: H59
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50137
+
+- model: fruits.Fruit
+  pk: 50140
+  fields:
+    name: 葡萄柚
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50141
+  fields:
+    name: 葡萄柚-紅肉
+    code: H4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50140
+
+- model: fruits.Fruit
+  pk: 50142
+  fields:
+    name: 葡萄柚-紅寶石
+    code: H41
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50140
+
+- model: fruits.Fruit
+  pk: 50143
+  fields:
+    name: 葡萄柚-進口紅肉
+    code: H49
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50140
+
+- model: fruits.Fruit
+  pk: 50144
+  fields:
+    name: 木瓜
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50145
+  fields:
+    name: 木瓜-網室紅肉
+    code: I1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50144
+
+- model: fruits.Fruit
+  pk: 50146
+  fields:
+    name: 木瓜-日昇種
+    code: I3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50144
+
+- model: fruits.Fruit
+  pk: 50147
+  fields:
+    name: 木瓜-青木瓜
+    code: I4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50144
+
+- model: fruits.Fruit
+  pk: 50148
+  fields:
+    name: 木瓜-一般紅肉
+    code: I2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50144
+
+- model: fruits.Fruit
+  pk: 50149
+  fields:
+    name: 木瓜-其他
+    code: I0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50144
+
+- model: fruits.Fruit
+  pk: 50150
+  fields:
+    name: 荔枝
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50151
+  fields:
+    name: 荔枝-糯米
+    code: J3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50150
+
+- model: fruits.Fruit
+  pk: 50152
+  fields:
+    name: 荔枝-玉荷包
+    code: J1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50150
+
+- model: fruits.Fruit
+  pk: 50153
+  fields:
+    name: 荔枝-其他
+    code: J0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50150
+
+- model: fruits.Fruit
+  pk: 50154
+  fields:
+    name: 荔枝-黑葉
+    code: J2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50150
+
+- model: fruits.Fruit
+  pk: 50155
+  fields:
+    name: 荔枝-竹葉黑
+    code: J4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50150
+
+- model: fruits.Fruit
+  pk: 50156
+  fields:
+    name: 荔枝-桂味
+    code: J5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50150
+
+- model: fruits.Fruit
+  pk: 50157
+  fields:
+    name: 龍眼
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50158
+  fields:
+    name: 龍眼-粉殼
+    code: K3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50157
+
+- model: fruits.Fruit
+  pk: 50159
+  fields:
+    name: 龍眼-十月眼
+    code: K2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50157
+
+- model: fruits.Fruit
+  pk: 50160
+  fields:
+    name: 龍眼-其他
+    code: K0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50157
+
+- model: fruits.Fruit
+  pk: 50161
+  fields:
+    name: 龍眼-進口
+    code: K9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50157
+
+- model: fruits.Fruit
+  pk: 50162
+  fields:
+    name: 龍眼-龍眼乾帶殼
+    code: K4
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50157
+
+- model: fruits.Fruit
+  pk: 50163
+  fields:
+    name: 龍眼-龍眼乾帶殼
+    code: K4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50162
+
+- model: fruits.Fruit
+  pk: 50164
+  fields:
+    name: 龍眼-龍眼肉
+    code: K41
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50162
+
+- model: fruits.Fruit
+  pk: 50165
+  fields:
+    name: 枇杷
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50166
+  fields:
+    name: 枇杷-茂木
+    code: L1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50165
+
+- model: fruits.Fruit
+  pk: 50167
+  fields:
+    name: 枇杷-進口
+    code: L9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50165
+
+- model: fruits.Fruit
+  pk: 50168
+  fields:
+    name: 楊桃
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50169
+  fields:
+    name: 楊桃-馬來亞種
+    code: M3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50168
+
+- model: fruits.Fruit
+  pk: 50170
+  fields:
+    name: 楊桃-紅龍
+    code: M2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50168
+
+- model: fruits.Fruit
+  pk: 50171
+  fields:
+    name: 楊桃-軟枝蜜絲
+    code: M1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50168
+
+- model: fruits.Fruit
+  pk: 50172
+  fields:
+    name: 楊桃-其他水晶
+    code: M0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50168
+
+- model: fruits.Fruit
+  pk: 50173
+  fields:
+    name: 李
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50174
+  fields:
+    name: 李-其他
+    code: N0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50173
+
+- model: fruits.Fruit
+  pk: 50175
+  fields:
+    name: 李-進口
+    code: N9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50173
+
+- model: fruits.Fruit
+  pk: 50176
+  fields:
+    name: 李-桃接李
+    code: N2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50173
+
+- model: fruits.Fruit
+  pk: 50177
+  fields:
+    name: 李-沙蓮李
+    code: N1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50173
+
+- model: fruits.Fruit
+  pk: 50178
+  fields:
+    name: 李-加州李
+    code: N5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50173
+
+- model: fruits.Fruit
+  pk: 50179
+  fields:
+    name: 李-黃肉李
+    code: N4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50173
+
+- model: fruits.Fruit
+  pk: 50180
+  fields:
+    name: 李-紅肉李
+    code: N3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50173
+
+- model: fruits.Fruit
+  pk: 50181
+  fields:
+    name: 李-泰安李
+    code: N6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50173
+
+- model: fruits.Fruit
+  pk: 50182
+  fields:
+    name: 梨
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50183
+  fields:
+    name: 梨-世紀梨
+    code: O3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50184
+  fields:
+    name: 梨-橫山梨
+    code: O1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50185
+  fields:
+    name: 梨-新興梨
+    code: O4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50186
+  fields:
+    name: 梨-豐水梨
+    code: O5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50187
+  fields:
+    name: 梨-鳥梨
+    code: O7
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50188
+  fields:
+    name: 梨-秋水梨
+    code: O2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50189
+  fields:
+    name: 梨-4029梨
+    code: O8
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50190
+  fields:
+    name: 梨-其他
+    code: O0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50191
+  fields:
+    name: 梨-幸水梨
+    code: O6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50192
+  fields:
+    name: 梨-進口
+    code: O9
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50182
+
+- model: fruits.Fruit
+  pk: 50193
+  fields:
+    name: 梨-進口
+    code: O9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50192
+
+- model: fruits.Fruit
+  pk: 50194
+  fields:
+    name: 西洋梨-西洋梨進口
+    code: O99
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50192
+
+- model: fruits.Fruit
+  pk: 50195
+  fields:
+    name: 番石榴
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50196
+  fields:
+    name: 番石榴-其他
+    code: P0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50195
+
+- model: fruits.Fruit
+  pk: 50197
+  fields:
+    name: 番石榴-珍珠芭
+    code: P1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50195
+
+- model: fruits.Fruit
+  pk: 50198
+  fields:
+    name: 番石榴-帝王芭
+    code: P3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50195
+
+- model: fruits.Fruit
+  pk: 50199
+  fields:
+    name: 番石榴-水晶無仔
+    code: P5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50195
+
+- model: fruits.Fruit
+  pk: 50200
+  fields:
+    name: 番石榴-紅心
+    code: P2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50195
+
+- model: fruits.Fruit
+  pk: 50201
+  fields:
+    name: 番石榴-世紀芭
+    code: P4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50195
+
+- model: fruits.Fruit
+  pk: 50202
+  fields:
+    name: 蓮霧
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50203
+  fields:
+    name: 蓮霧-紅蓮霧
+    code: Q1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50202
+
+- model: fruits.Fruit
+  pk: 50204
+  fields:
+    name: 蓮霧-其他
+    code: Q0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50202
+
+- model: fruits.Fruit
+  pk: 50205
+  fields:
+    name: 蓮霧-子彈型
+    code: Q2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50202
+
+- model: fruits.Fruit
+  pk: 50206
+  fields:
+    name: 蓮霧-翠玉
+    code: Q3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50202
+
+- model: fruits.Fruit
+  pk: 50207
+  fields:
+    name: 蓮霧-巴掌蓮霧
+    code: Q4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50202
+
+- model: fruits.Fruit
+  pk: 50208
+  fields:
+    name: 芒果
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50209
+  fields:
+    name: 芒果-其他
+    code: R0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50208
+
+- model: fruits.Fruit
+  pk: 50210
+  fields:
+    name: 芒果-芒果青
+    code: R8
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50208
+
+- model: fruits.Fruit
+  pk: 50211
+  fields:
+    name: 芒果-聖心
+    code: R7
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50208
+
+- model: fruits.Fruit
+  pk: 50212
+  fields:
+    name: 芒果-本島
+    code: R3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50208
+
+- model: fruits.Fruit
+  pk: 50213
+  fields:
+    name: 芒果-金煌
+    code: R6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50208
+
+- model: fruits.Fruit
+  pk: 50214
+  fields:
+    name: 芒果-愛文
+    code: R1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50208
+
+- model: fruits.Fruit
+  pk: 50215
+  fields:
+    name: 芒果-黑香金興
+    code: R5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50208
+
+- model: fruits.Fruit
+  pk: 50216
+  fields:
+    name: 芒果-紅龍玉文
+    code: R2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50208
+
+- model: fruits.Fruit
+  pk: 50217
+  fields:
+    name: 芒果-凱特
+    code: R4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50208
+
+- model: fruits.Fruit
+  pk: 50218
+  fields:
+    name: 葡萄
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50219
+  fields:
+    name: 葡萄-巨峰
+    code: S1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50218
+
+- model: fruits.Fruit
+  pk: 50220
+  fields:
+    name: 葡萄-進口
+    code: S9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50218
+
+- model: fruits.Fruit
+  pk: 50221
+  fields:
+    name: 葡萄-其他
+    code: S0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50218
+
+- model: fruits.Fruit
+  pk: 50222
+  fields:
+    name: 葡萄-意大利
+    code: S2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50218
+
+- model: fruits.Fruit
+  pk: 50223
+  fields:
+    name: 葡萄-蜜紅
+    code: S5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50218
+
+- model: fruits.Fruit
+  pk: 50224
+  fields:
+    name: 葡萄-無子
+    code: S4
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50218
+
+- model: fruits.Fruit
+  pk: 50225
+  fields:
+    name: 葡萄-無子
+    code: S4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50224
+
+- model: fruits.Fruit
+  pk: 50226
+  fields:
+    name: 葡萄-進口無子
+    code: S49
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50224
+
+- model: fruits.Fruit
+  pk: 50227
+  fields:
+    name: 西瓜
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50228
+  fields:
+    name: 西瓜-黃肉
+    code: T5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50227
+
+- model: fruits.Fruit
+  pk: 50229
+  fields:
+    name: 西瓜-大西瓜
+    code: T1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50227
+
+- model: fruits.Fruit
+  pk: 50230
+  fields:
+    name: 西瓜-進口
+    code: T9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50227
+
+- model: fruits.Fruit
+  pk: 50231
+  fields:
+    name: 西瓜-紅肉
+    code: T6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50227
+
+- model: fruits.Fruit
+  pk: 50232
+  fields:
+    name: 西瓜-鳳光、英妙
+    code: T4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50227
+
+- model: fruits.Fruit
+  pk: 50233
+  fields:
+    name: 西瓜-無子西瓜
+    code: T2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50227
+
+- model: fruits.Fruit
+  pk: 50234
+  fields:
+    name: 西瓜-秀鈴
+    code: T7
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50227
+
+- model: fruits.Fruit
+  pk: 50235
+  fields:
+    name: 西瓜-黑美人
+    code: T3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50227
+
+- model: fruits.Fruit
+  pk: 50236
+  fields:
+    name: 西瓜-其他
+    code: T0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50227
+
+- model: fruits.Fruit
+  pk: 50237
+  fields:
+    name: 甜瓜
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50238
+  fields:
+    name: 甜瓜-美濃
+    code: V1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50237
+
+- model: fruits.Fruit
+  pk: 50239
+  fields:
+    name: 甜瓜-其他
+    code: V0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50237
+
+- model: fruits.Fruit
+  pk: 50240
+  fields:
+    name: 甜瓜-溫室吊瓜
+    code: V2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50237
+
+- model: fruits.Fruit
+  pk: 50241
+  fields:
+    name: 洋香瓜
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50242
+  fields:
+    name: 洋香瓜-網狀紅肉
+    code: W1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50241
+
+- model: fruits.Fruit
+  pk: 50243
+  fields:
+    name: 洋香瓜-網狀綠肉
+    code: W2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50241
+
+- model: fruits.Fruit
+  pk: 50244
+  fields:
+    name: 洋香瓜-其他
+    code: W0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50241
+
+- model: fruits.Fruit
+  pk: 50245
+  fields:
+    name: 洋香瓜-光面綠肉
+    code: W6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50241
+
+- model: fruits.Fruit
+  pk: 50246
+  fields:
+    name: 洋香瓜-網狀白肉
+    code: W3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50241
+
+- model: fruits.Fruit
+  pk: 50247
+  fields:
+    name: 洋香瓜-光面白肉
+    code: W7
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50241
+
+- model: fruits.Fruit
+  pk: 50248
+  fields:
+    name: 洋香瓜-新疆
+    code: W4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50241
+
+- model: fruits.Fruit
+  pk: 50249
+  fields:
+    name: 洋香瓜-進口
+    code: W9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50241
+
+- model: fruits.Fruit
+  pk: 50250
+  fields:
+    name: 洋香瓜-光面紅肉
+    code: W5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50241
+
+- model: fruits.Fruit
+  pk: 50251
+  fields:
+    name: 蘋果
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50252
+  fields:
+    name: 蘋果-五爪
+    code: X1
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50251
+
+- model: fruits.Fruit
+  pk: 50253
+  fields:
+    name: 蘋果-五爪
+    code: X1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50252
+
+- model: fruits.Fruit
+  pk: 50254
+  fields:
+    name: 蘋果-五爪(進口)
+    code: X19
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50252
+
+- model: fruits.Fruit
+  pk: 50255
+  fields:
+    name: 蘋果-惠
+    code: X3
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50251
+
+- model: fruits.Fruit
+  pk: 50256
+  fields:
+    name: 蘋果-惠
+    code: X3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50255
+
+- model: fruits.Fruit
+  pk: 50257
+  fields:
+    name: 蘋果-惠(進口)
+    code: X39
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50255
+
+- model: fruits.Fruit
+  pk: 50258
+  fields:
+    name: 蘋果-其他
+    code: X0
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50251
+
+- model: fruits.Fruit
+  pk: 50259
+  fields:
+    name: 蘋果-其他
+    code: X0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50258
+
+- model: fruits.Fruit
+  pk: 50260
+  fields:
+    name: 蘋果-其他(進口)
+    code: X09
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50258
+
+- model: fruits.Fruit
+  pk: 50261
+  fields:
+    name: 蘋果-秋香
+    code: X2
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50251
+
+- model: fruits.Fruit
+  pk: 50262
+  fields:
+    name: 蘋果-秋香
+    code: X2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50261
+
+- model: fruits.Fruit
+  pk: 50263
+  fields:
+    name: 蘋果-秋香(進口)
+    code: X29
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50261
+
+- model: fruits.Fruit
+  pk: 50264
+  fields:
+    name: 蘋果-金冠
+    code: X4
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50251
+
+- model: fruits.Fruit
+  pk: 50265
+  fields:
+    name: 蘋果-金冠
+    code: X4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50264
+
+- model: fruits.Fruit
+  pk: 50266
+  fields:
+    name: 蘋果-金冠(進口)
+    code: X49
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50264
+
+- model: fruits.Fruit
+  pk: 50267
+  fields:
+    name: 蘋果-富士
+    code: X6
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50251
+
+- model: fruits.Fruit
+  pk: 50268
+  fields:
+    name: 蘋果-富士
+    code: X6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50267
+
+- model: fruits.Fruit
+  pk: 50269
+  fields:
+    name: 蘋果-富士(進口)
+    code: X69
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50267
+
+- model: fruits.Fruit
+  pk: 50270
+  fields:
+    name: 蘋果-紅玉
+    code: X5
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50251
+
+- model: fruits.Fruit
+  pk: 50271
+  fields:
+    name: 蘋果-紅玉
+    code: X5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50270
+
+- model: fruits.Fruit
+  pk: 50272
+  fields:
+    name: 蘋果-紅玉(進口)
+    code: X59
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50270
+
+- model: fruits.Fruit
+  pk: 50273
+  fields:
+    name: 蘋果-陸奧
+    code: X7
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50251
+
+- model: fruits.Fruit
+  pk: 50274
+  fields:
+    name: 蘋果-陸奧
+    code: X7
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50273
+
+- model: fruits.Fruit
+  pk: 50275
+  fields:
+    name: 蘋果-陸奧(進口)
+    code: X79
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50273
+
+- model: fruits.Fruit
+  pk: 50276
+  fields:
+    name: 桃子
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50277
+  fields:
+    name: 桃子-進口
+    code: Y9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50276
+
+- model: fruits.Fruit
+  pk: 50278
+  fields:
+    name: 桃子-早桃
+    code: Y4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50276
+
+- model: fruits.Fruit
+  pk: 50279
+  fields:
+    name: 桃子-其他
+    code: Y0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50276
+
+- model: fruits.Fruit
+  pk: 50280
+  fields:
+    name: 桃子-福壽桃
+    code: Y5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50276
+
+- model: fruits.Fruit
+  pk: 50281
+  fields:
+    name: 桃子-鶯歌桃
+    code: Y2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50276
+
+- model: fruits.Fruit
+  pk: 50282
+  fields:
+    name: 桃子-水蜜桃
+    code: Y1
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50276
+
+- model: fruits.Fruit
+  pk: 50283
+  fields:
+    name: 桃子-水蜜桃
+    code: Y1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50282
+
+- model: fruits.Fruit
+  pk: 50284
+  fields:
+    name: 水蜜桃-進口
+    code: Y19
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50282
+
+- model: fruits.Fruit
+  pk: 50285
+  fields:
+    name: 桃子-甜桃
+    code: Y3
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50276
+
+- model: fruits.Fruit
+  pk: 50286
+  fields:
+    name: 桃子-甜桃
+    code: Y3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50285
+
+- model: fruits.Fruit
+  pk: 50287
+  fields:
+    name: 甜桃-甜桃進口
+    code: Y39
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50285
+
+- model: fruits.Fruit
+  pk: 50288
+  fields:
+    name: 柿子
+    config: 6
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 50289
+  fields:
+    name: 柿子-甜柿
+    code: Z4
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50288
+
+- model: fruits.Fruit
+  pk: 50290
+  fields:
+    name: 柿子-筆柿
+    code: Z5
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50288
+
+- model: fruits.Fruit
+  pk: 50291
+  fields:
+    name: 柿子-水柿
+    code: Z2
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50288
+
+- model: fruits.Fruit
+  pk: 50292
+  fields:
+    name: 柿子-進口
+    code: Z9
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50288
+
+- model: fruits.Fruit
+  pk: 50293
+  fields:
+    name: 柿子-秋柿
+    code: Z6
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50288
+
+- model: fruits.Fruit
+  pk: 50294
+  fields:
+    name: 柿子-紅柿
+    code: Z1
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50288
+
+- model: fruits.Fruit
+  pk: 50295
+  fields:
+    name: 柿子-其他
+    code: Z0
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50288
+
+- model: fruits.Fruit
+  pk: 50296
+  fields:
+    name: 柿子-柿餅
+    code: Z3
+    type: 1
+    config: 6
+    unit: 1
+    track_item: false
+    parent: 50288
+
+- model: fruits.Fruit
+  pk: 50297
+  fields:
+    name: 柿子-柿餅
+    code: Z3
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50296
+
+- model: fruits.Fruit
+  pk: 50298
+  fields:
+    name: 柿餅-柿餅進口
+    code: Z39
+    type: 1
+    config: 6
+    unit: 1
+    parent: 50296

@@ -1,0 +1,85 @@
+- model: seafoods.Seafood
+  pk: 120001
+  fields:
+    name: 養殖類
+    config: 13
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120007
+  fields:
+    name: 吳郭魚
+    config: 13
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120009
+  fields:
+    name: 吳郭魚內銷
+    code: 1011
+    type: 2
+    config: 13
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120914
+  fields:
+    name: 0.6-0.8公斤/尾
+    code: priceU
+    type: 2
+    config: 13
+    parent: 120009
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120915
+  fields:
+    name: 0.6公斤/尾
+    code: priceD
+    type: 2
+    config: 13
+    parent: 120009
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120916
+  fields:
+    name: 0.4公斤/尾
+    code: priceM
+    type: 2
+    config: 13
+    parent: 120009
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120011
+  fields:
+    name: 吳郭魚外銷切片
+    code: 1011D
+    type: 2
+    config: 13
+    parent: 120007
+
+- model: seafoods.Seafood
+  pk: 120920
+  fields:
+    name: 1200g以上
+    code: priceU
+    type: 2
+    config: 13
+    parent: 120011
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120921
+  fields:
+    name: 1000-1200g
+    code: priceD
+    type: 2
+    config: 13
+    parent: 120011
+    track_item: false
+
+
+

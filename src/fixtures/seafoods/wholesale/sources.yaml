@@ -1,0 +1,186 @@
+# Seafood Sources
+
+# type 1
+
+- model: configs.Source
+  pk: 80001
+  fields:
+    name: 臺北
+    configs: [13]
+    type: 1
+
+
+- model: configs.Source
+  pk: 80002
+  fields:
+    name: 基隆
+    configs: [13]
+    type: 1
+
+
+- model: configs.Source
+  pk: 80003
+  fields:
+    name: 三重
+    configs: [13]
+    type: 1
+
+
+- model: configs.Source
+  pk: 80004
+  fields:
+    name: 頭城
+    configs: [13]
+    type: 1
+
+
+- model: configs.Source
+  pk: 80005
+  fields:
+    name: 蘇澳
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80006
+  fields:
+    name: 新竹
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80007
+  fields:
+    name: 桃園
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80008
+  fields:
+    name: 苗栗
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80009
+  fields:
+    name: 臺中
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80010
+  fields:
+    name: 彰化
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80011
+  fields:
+    name: 埔心
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80012
+  fields:
+    name: 埔里
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80013
+  fields:
+    name: 嘉義
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80014
+  fields:
+    name: 斗南
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80015
+  fields:
+    name: 臺南
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80016
+  fields:
+    name: 興達港
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80017
+  fields:
+    name: 佳里
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80018
+  fields:
+    name: 新營
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80019
+  fields:
+    name: 高雄
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80020
+  fields:
+    name: 岡山
+    configs: [13]
+    type: 1
+
+
+- model: configs.Source
+  pk: 80021
+  fields:
+    name: 梓官
+    configs: [13]
+    type: 1
+
+
+- model: configs.Source
+  pk: 80022
+  fields:
+    name: 澎湖
+    configs: [13]
+    type: 1
+
+
+- model: configs.Source
+  pk: 80023
+  fields:
+    name: 東港
+    configs: [13]
+    type: 1
+
+
+- model: configs.Source
+  pk: 80024
+  fields:
+    name: 新港
+    configs: [13]
+    type: 1
+
+- model: configs.Source
+  pk: 80025
+  fields:
+    name: 花蓮
+    configs: [13]
+    type: 1

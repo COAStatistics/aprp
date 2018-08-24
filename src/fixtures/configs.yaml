@@ -1,0 +1,281 @@
+# Types
+
+- model: configs.Type
+  pk: 1
+  fields:
+    name: 批發
+
+- model: configs.Type
+  pk: 2
+  fields:
+    name: 產地
+
+- model: configs.Type
+  pk: 3
+  fields:
+    name: 零售
+
+# Units
+
+- model: configs.Unit
+  pk: 1
+  fields:
+    price_unit: 元/公斤
+    volume_unit: 公斤
+
+- model: configs.Unit
+  pk: 2
+  fields:
+    price_unit: 元/公斤
+
+- model: configs.Unit
+  pk: 3
+  fields:
+    price_unit: 元/公斤
+    volume_unit: 頭
+    weight_unit: 公斤
+
+- model: configs.Unit
+  pk: 4
+  fields:
+    price_unit: 元/公斤
+    volume_unit: 隻
+
+- model: configs.Unit
+  pk: 5
+  fields:
+    price_unit: 元/把
+    volume_unit: 把
+
+- model: configs.Unit
+  pk: 6
+  fields:
+    price_unit: 元/隻
+
+
+# Charts
+
+- model: configs.Chart
+  pk: 1
+  fields:
+    name: 近2週每日量價
+    code: CHT01
+    template_name: ajax/chart-1-content.html
+
+- model: configs.Chart
+  pk: 2
+  fields:
+    name: 每日量價趨勢
+    code: CHT02
+    template_name: ajax/chart-2-content.html
+
+- model: configs.Chart
+  pk: 3
+  fields:
+    name: 歷年每日量價走勢
+    code: CHT03
+    template_name: ajax/chart-3-content.html
+
+- model: configs.Chart
+  pk: 4
+  fields:
+    name: 歷年各月量價分布
+    code: CHT04
+    template_name: ajax/chart-4-content.html
+
+- model: configs.Chart
+  pk: 5
+  fields:
+    name: 重要產銷事件簿
+    code: CHT05
+    template_name: ajax/chart-5-content.html
+
+# Configs
+
+- model: configs.Config
+  pk: 1
+  fields:
+    name: 糧價
+    code: COG01
+    type_level: 2
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 2
+  fields:
+    name: 蔬菜-批發合計
+    code: COG02
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 3
+  fields:
+    name: 水果-批發合計
+    code: COG03
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 4
+  fields:
+    name: 花卉-批發合計
+    code: COG04
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 5
+  fields:
+    name: 蔬菜
+    code: COG05
+    type_level: 2
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 6
+  fields:
+    name: 水果
+    code: COG06
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 7
+  fields:
+    name: 花卉
+    code: COG07
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 8
+  fields:
+    name: 毛豬
+    code: COG08
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 9
+  fields:
+    name: 羊
+    code: COG09
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 10
+  fields:
+    name: 雞
+    code: COG10
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 11
+  fields:
+    name: 鴨
+    code: COG11
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 12
+  fields:
+    name: 鵝
+    code: COG12
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 13
+  fields:
+    name: 漁產品
+    code: COG13
+    type_level: 2
+    charts: [1, 2, 3, 4]
+
+- model: configs.Config
+  pk: 14
+  fields:
+    name: 牛
+    code: COG14
+    type_level: 1
+    charts: [1, 2, 3, 4]
+
+
+# Month
+
+- model: configs.Month
+  pk: 1
+  fields:
+    name: 1月
+
+- model: configs.Month
+  pk: 2
+  fields:
+    name: 2月
+
+- model: configs.Month
+  pk: 3
+  fields:
+    name: 3月
+
+- model: configs.Month
+  pk: 4
+  fields:
+    name: 4月
+
+- model: configs.Month
+  pk: 5
+  fields:
+    name: 5月
+
+- model: configs.Month
+  pk: 6
+  fields:
+    name: 6月
+
+- model: configs.Month
+  pk: 7
+  fields:
+    name: 7月
+
+- model: configs.Month
+  pk: 8
+  fields:
+    name: 8月
+
+- model: configs.Month
+  pk: 9
+  fields:
+    name: 9月
+
+- model: configs.Month
+  pk: 10
+  fields:
+    name: 10月
+
+- model: configs.Month
+  pk: 11
+  fields:
+    name: 11月
+
+- model: configs.Month
+  pk: 12
+  fields:
+    name: 12月
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

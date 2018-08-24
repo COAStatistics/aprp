@@ -1,0 +1,37 @@
+- model: rams.Ram
+  pk: 80001
+  fields:
+    name: 努比亞雜交閹公羊
+    track_item: false
+    config: 9
+    unit: 3
+
+- model: rams.Ram
+  pk: 80002
+  fields:
+    name: 努比亞雜交閹公羊
+    code: G41
+    type: 1
+    config: 9
+    unit: 3
+    parent: 80001
+
+- model: rams.Ram
+  pk: 80003
+  fields:
+    name: 女羊
+    track_item: false
+    config: 9
+    unit: 3
+
+- model: rams.Ram
+  pk: 80004
+  fields:
+    name: 女羊
+    code: G21
+    type: 1
+    config: 9
+    unit: 3
+    parent: 80003
+
+

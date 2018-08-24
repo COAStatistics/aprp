@@ -1,0 +1,30 @@
+{% load i18n %}
+{% load staticfiles %}
+
+
+<h1 class="txt-color-red login-header-big">{% trans 'Agriculture Products Price Report Platform' %}</h1>
+<div class="hero">
+
+    <div class="pull-left login-desc-box-l">
+        <h4 class="paragraph-header">{% trans 'The platform combined the price and the trading volume of agricultural products from Council of Agriculture (COA) and the affiliated agencies including Agriculture and Food Agency, Fisheries Agency and Department of Animal Industry in order to provide quick visual research and help the staff in COA and affiliated agencies control the price and the trading volume trend of agricultural products. ' %}</h4>
+    </div>
+
+    <img src="{% static 'img/demo/mockup.png' %}" class="pull-right display-image" alt="" style="width:210px">
+
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <h5 class="about-heading">{% trans 'Monitored items' %}</h5>
+        <p>
+            {% trans 'Currently, there are 63 items consist of 10 overall and categorized items of vegetables, fruits and flowers in Taipei Agricultural Products Wholesale Market and 53 daily-monitored important agricultural products in COA.' %}
+        </p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <h5 class="about-heading">{% trans 'Features' %}</h5>
+        <p>
+            {% trans 'Showing daily price/volume trends, year by year trends and distribution plot with charts.' %}
+        </p>
+    </div>
+</div>
+

@@ -1,0 +1,197 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			{% trans 'Agriculture Products Price Report Platform' %}
+		</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- #CSS Links -->
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/font-awesome.min.css' %}">
+
+		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/smartadmin-production-plugins.min.css' %}">
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/smartadmin-production.min.css' %}">
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/smartadmin-skins.min.css' %}">
+
+		<!-- SmartAdmin RTL Support -->
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'vendor/css/smartadmin-rtl.min.css' %}">
+
+		<!-- Custom StartAdmin Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/smartadmin-shortcut.custom.css' %}">
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/smartadmin.custom.css' %}">
+		<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/index.css' %}">
+
+		<!-- #FAVICONS -->
+		<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+		<link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+
+		<!-- #GOOGLE FONT -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+
+		<!-- DataTable Styles -->
+		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap.min.css">
+
+	</head>
+
+	<!--
+
+	TABLE OF CONTENTS.
+
+	Use search to find needed section.
+
+	===================================================================
+
+	|  01. #CSS Links                |  all CSS links and file paths  |
+	|  02. #FAVICONS                 |  Favicon links and file paths  |
+	|  03. #GOOGLE FONT              |  Google font link              |
+	|  04. #APP SCREEN / ICONS       |  app icons, screen backdrops   |
+	|  05. #BODY                     |  body tag                      |
+	|  06. #HEADER                   |  header tag                    |
+	|  07. #PROJECTS                 |  project lists                 |
+	|  08. #TOGGLE LAYOUT BUTTONS    |  layout buttons and actions    |
+	|  09. #MOBILE                   |  mobile view dropdown          |
+	|  10. #SEARCH                   |  search field                  |
+	|  11. #NAVIGATION               |  left panel & navigation       |
+	|  12. #MAIN PANEL               |  main panel                    |
+	|  13. #MAIN CONTENT             |  content holder                |
+	|  14. #PAGE FOOTER              |  page footer                   |
+	|  15. #SHORTCUT AREA            |  dropdown shortcuts area       |
+
+	===================================================================
+
+	-->
+
+	<!-- #BODY -->
+	<!-- Possible Classes
+
+		* 'smart-style-{SKIN#}'
+		* 'smart-rtl'         - Switch theme mode to RTL
+		* 'menu-on-top'       - Switch to top navigation (no DOM change required)
+		* 'no-menu'			  - Hides the menu completely
+		* 'hidden-menu'       - Hides the main menu but still accessable by hovering over left edge
+		* 'fixed-header'      - Fixes the header
+		* 'fixed-navigation'  - Fixes the main menu
+		* 'fixed-ribbon'      - Fixes breadcrumb
+		* 'fixed-page-footer' - Fixes footer
+		* 'container'         - boxed layout mode (non-responsive: will not work with fixed-navigation & fixed-ribbon)
+	-->
+	<body class="smart-style-2 fixed-header fixed-navigation">
+
+		{% include 'header.html' %}
+		{% include 'navigation.html' %}
+		{% include 'main-panel.html' %}
+		{% include 'footer.html' %}
+		{% include 'shortcut.html' %}
+
+		<!--================================================== -->
+
+		<!-- Parse i18n-->
+    	<script src='{% url "parse_javascript" %}'></script>
+
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)
+		<script src="{% static 'vendor/js/plugin/pace/pace.min.js' %}"></script>-->
+
+
+		<!-- #PLUGINS -->
+		<!-- Link to Google CDN's jQuery + jQueryUI + jQueryCookie; fall back to local -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			if (!window.jQuery) {
+				document.write('<script src="{% static 'vendor/js/libs/jquery-3.2.1.min.js' %}"><\/script>');
+			}
+		</script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script>
+			if (!window.jQuery.ui) {
+				document.write('<script src="{% static 'vendor/js/libs/jquery-ui.min.js' %}"><\/script>');
+			}
+		</script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+		<script>
+			if (!window.jQuery.cookie) {
+				document.write('<script src="{% static 'vendor/js/libs/jquery.cookie.js' %}"><\/script>');
+			}
+		</script>
+
+		<!-- jQuery Cookie -->
+		<script src='{% static "vendor/js/plugin/date.js/date-zh-TW.js" %}'></script>
+
+		<!-- IMPORTANT: APP CONFIG -->
+		<script src="{% static 'vendor/js/app.config.seed.js' %}"></script>
+
+		<!-- BOOTSTRAP JS -->
+		<script src="{% static 'vendor/js/bootstrap/bootstrap.min.js' %}"></script>
+
+		<!-- JARVIS WIDGETS -->
+		<script src="{% static 'vendor/js/smartwidgets/jarvis.widget.js' %}"></script>
+
+		<!-- jQuery UI i18n -->
+		{% get_current_language as LANGUAGE_CODE %}
+		{% if LANGUAGE_CODE == 'zh-hant' %}
+			<script src='{% static "vendor/js/libs/datepicker-zh-TW.js" %}'></script>
+		{% endif %}
+
+		<!--[if IE 8]>
+			<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+		<![endif]-->
+
+		<!-- MAIN APP JS FILE -->
+		<script src="{% static 'vendor/js/app.js' %}"></script>
+
+		<!-- Custom APP JS FILE -->
+		<script src="{% static 'js/app.custom.js' %}"></script>
+
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<script>
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+
+		<!-- Highchart plugins -->
+		<script src="{% static 'vendor/js/plugin/multiselect/bootstrap-multiselect.min.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/highcharts/highstock.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/highcharts/no-data-to-display.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/highcharts/exporting.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/highcharts/highcharts-more.js' %}"></script>
+		<script src="{% static 'js/highcharts/highcharts-settings.js' %}"></script>
+		<script src="{% static 'js/highcharts/sparkline.js' %}"></script>
+		<script src="{% static 'js/highcharts/chart1Helper.js' %}"></script>
+		<script src="{% static 'js/highcharts/chart2Helper.js' %}"></script>
+		<script src="{% static 'js/highcharts/chart3Helper.js' %}"></script>
+		<script src="{% static 'js/highcharts/chart4Helper.js' %}"></script>
+
+		<!-- DataTable Plugins -->
+		<script src="{% static 'vendor/js/plugin/datatables/jquery.dataTables.min.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/datatables/dataTables.colVis.min.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/datatables/dataTables.buttons.min.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/datatables/buttons.bootstrap.min.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/datatables/jszip.min.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/datatables/pdfmake.min.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/datatables/vfs_fonts.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/datatables/buttons.html5.min.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/datatables/buttons.print.min.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/datatables/dataTables.bootstrap.min.js' %}"></script>
+		<script src="{% static 'vendor/js/plugin/datatable-responsive/datatables.responsive.min.js' %}"></script>
+		<script src="{% static 'js/datatables/dataTableHelper.js' %}"></script>
+
+	</body>
+</html>

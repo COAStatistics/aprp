@@ -1,0 +1,35 @@
+- model: fruits.Fruit
+  pk: 20001
+  fields:
+    name: 國產
+    config: 3
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 20002
+  fields:
+    name: 進口
+    config: 3
+    unit: 1
+    track_item: false
+
+- model: fruits.Fruit
+  pk: 20003
+  fields:
+    name: 國產
+    code: O
+    config: 3
+    unit: 1
+    type: 1
+    parent: 20001
+
+- model: fruits.Fruit
+  pk: 20004
+  fields:
+    name: 進口
+    code: I
+    config: 3
+    unit: 1
+    type: 1
+    parent: 20002

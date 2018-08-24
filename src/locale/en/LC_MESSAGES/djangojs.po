@@ -1,0 +1,415 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-17 10:44+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: static/js/app.custom.js:354 static/js/datatables/dataTableHelper.js:111
+#: static/js/highcharts/highcharts-settings.js:113
+msgid "Loading"
+msgstr ""
+
+#: static/js/app.custom.js:393
+msgid "Error requesting"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:73
+msgid "All Result Successfully Loaded"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:104
+msgid "No data available in table"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:105
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:106
+msgid "Showing 0 to 0 of 0 entries"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:107
+msgid "(filtered from _MAX_ total entries)"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:110
+msgid "Show _MENU_ entries"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:112
+msgid "Processing"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:113
+msgid "Search"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:114
+msgid "No matching results found"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:116
+msgid "First"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:117
+msgid "Last"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:118
+msgid "Next"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:119
+msgid "Previous"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:122
+msgid ": activate to sort column ascending"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:123
+msgid ": activate to sort column descending"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:126
+msgid "Copy To Clipboard"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:128
+#, javascript-format
+msgid "Copy %d rows"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:129
+msgid "Copy 1 row"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:135
+msgid "Copy"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:138
+#: static/js/datatables/dataTableHelper.js:141
+#: static/js/datatables/dataTableHelper.js:144
+#: static/js/highcharts/highcharts-settings.js:158
+#: static/js/highcharts/highcharts-settings.js:159
+#: static/js/highcharts/highcharts-settings.js:160
+#: static/js/highcharts/highcharts-settings.js:161
+msgid "Download"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:147
+#: static/js/highcharts/highcharts-settings.js:152
+msgid "Print"
+msgstr ""
+
+#: static/js/datatables/dataTableHelper.js:274
+msgid "Load Historical Data"
+msgstr ""
+
+#: static/js/highcharts/chart1Helper.js:16
+msgid "Daily Price/Volume Trend For Two Weeks"
+msgstr ""
+
+#: static/js/highcharts/chart1Helper.js:54
+#: static/js/highcharts/chart1Helper.js:120
+#: static/js/highcharts/chart2Helper.js:50
+#: static/js/highcharts/chart2Helper.js:131
+#: static/js/highcharts/chart3Helper.js:56
+#: static/js/highcharts/chart4Helper.js:60
+msgid "Average Price"
+msgstr ""
+
+#: static/js/highcharts/chart1Helper.js:76
+#: static/js/highcharts/chart1Helper.js:143
+#: static/js/highcharts/chart2Helper.js:76
+#: static/js/highcharts/chart3Helper.js:59
+#: static/js/highcharts/chart4Helper.js:63
+msgid "Sum Volume"
+msgstr ""
+
+#: static/js/highcharts/chart1Helper.js:96
+#: static/js/highcharts/chart1Helper.js:163
+#: static/js/highcharts/chart2Helper.js:103
+#: static/js/highcharts/chart2Helper.js:172
+#: static/js/highcharts/chart3Helper.js:62
+#: static/js/highcharts/chart4Helper.js:66
+msgid "Average Weight"
+msgstr ""
+
+#: static/js/highcharts/chart2Helper.js:16
+msgid "Daily Price/Volume Trend For All Time"
+msgstr ""
+
+#: static/js/highcharts/chart2Helper.js:153
+msgid "Volume"
+msgstr ""
+
+#: static/js/highcharts/chart2Helper.js:192
+msgid "1m"
+msgstr ""
+
+#: static/js/highcharts/chart2Helper.js:196
+msgid "3m"
+msgstr ""
+
+#: static/js/highcharts/chart2Helper.js:200
+msgid "6m"
+msgstr ""
+
+#: static/js/highcharts/chart2Helper.js:204
+msgid "1y"
+msgstr ""
+
+#: static/js/highcharts/chart2Helper.js:207
+msgid "all"
+msgstr ""
+
+#: static/js/highcharts/chart3Helper.js:17
+msgid "Daily Price/Volume Trend Year By Year"
+msgstr ""
+
+#: static/js/highcharts/chart3Helper.js:243
+msgid "Average Year By Year"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:17
+msgid "Monthly Price/Volume Distribution Trend"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:94
+msgid "Maximum"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:95
+msgid "Upper quartile"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:96
+msgid "Median"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:97
+msgid "Lower quartile"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:98
+msgid "Minimum"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:99
+msgid "Mean"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:127
+#: static/js/highcharts/highcharts-settings.js:139
+msgid "Jan"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:128
+#: static/js/highcharts/highcharts-settings.js:140
+msgid "Feb"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:129
+#: static/js/highcharts/highcharts-settings.js:141
+msgid "Mar"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:130
+#: static/js/highcharts/highcharts-settings.js:142
+msgid "Apr"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:131
+#: static/js/highcharts/highcharts-settings.js:124
+#: static/js/highcharts/highcharts-settings.js:143
+msgid "May"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:132
+#: static/js/highcharts/highcharts-settings.js:144
+msgid "Jun"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:133
+#: static/js/highcharts/highcharts-settings.js:145
+msgid "Jul"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:134
+#: static/js/highcharts/highcharts-settings.js:146
+msgid "Aug"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:135
+#: static/js/highcharts/highcharts-settings.js:147
+msgid "Sep"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:136
+#: static/js/highcharts/highcharts-settings.js:148
+msgid "Oct"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:137
+#: static/js/highcharts/highcharts-settings.js:149
+msgid "Nov"
+msgstr ""
+
+#: static/js/highcharts/chart4Helper.js:138
+#: static/js/highcharts/highcharts-settings.js:150
+msgid "Dec"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:112
+msgid ""
+"No data to display or no product been monitoring under current watchlist"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:114
+msgid "k"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:115
+msgid "M"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:116
+msgid "G"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:117
+msgid "T"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:118
+msgid "P"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:119
+msgid "E"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:120
+msgid "January"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:121
+msgid "February"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:122
+msgid "March"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:123
+msgid "April"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:125
+msgid "June"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:126
+msgid "July"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:127
+msgid "August"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:128
+msgid "September"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:129
+msgid "October"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:130
+msgid "November"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:131
+msgid "December"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:132
+msgid "Sunday"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:133
+msgid "Monday"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:134
+msgid "Tuesday"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:135
+msgid "Wednesday"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:136
+msgid "Thursday"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:137
+msgid "Friday"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:138
+msgid "Saturday"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:151
+msgid "Export"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:153
+msgid "Chart context menu"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:154
+msgid "From"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:155
+msgid "TO"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:156
+msgid "Zoom"
+msgstr ""
+
+#: static/js/highcharts/highcharts-settings.js:157
+msgid "Print chart"
+msgstr ""
+
+#: static/vendor/js/plugin/datatables/pdfmake.min.js:26
+msgid "entries"
+msgstr ""
+
+#: static/vendor/js/plugin/datatables/pdfmake.min.js:26
+msgid "values"
+msgstr ""
+
+#: static/vendor/js/plugin/datatables/pdfmake.min.js:26
+msgid "keys"
+msgstr ""
