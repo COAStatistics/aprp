@@ -21,16 +21,15 @@ class Api(AbstractApi):
     KEY_FILTER = 'tk=%s'
     CODE_FILTER = 'pid=%s'
 
-    # Private Key, Please provide in settings/local.py
-    try:
-        API_KEY = settings.EFISH_API_KEY
-        API_URL = '&'.join((API_URL, KEY_FILTER % API_KEY))
-    except AttributeError:
-        API_KEY = None
-
     def __init__(self, model, config_code, type_id, logger_type_code=None):
         super(Api, self).__init__(model=model, config_code=config_code, type_id=type_id,
                                   logger='aprp', logger_type_code=logger_type_code)
+
+        # Private Key, Please provide in settings/local.py
+        try:
+            self.API_URL = '&'.join((self.API_URL, self.KEY_FILTER % settings.EFISH_API_KEY))
+        except AttributeError:
+            raise NotImplementedError('efish API_KEY not specific in settings')
 
     def hook(self, dic):
 
@@ -104,7 +103,6 @@ class Api(AbstractApi):
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
         }
 
-        print(url)
         return self.get(url, headers=headers, verify=False)
 
     def load(self, response):

@@ -22,7 +22,6 @@ django-require-s3==1.0.0
 django-storages==1.6.5
 django-widget-tweaks==1.4.1
 djangorestframework==3.6.0
-Flask==0.12.2
 idna==2.6
 itsdangerous==0.24
 Jinja2==2.10
