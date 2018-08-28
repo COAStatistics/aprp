@@ -33,9 +33,9 @@ def active_update():
                 is_active = profile.is_active(avg_price)
                 profile.active = is_active
                 profile.save()
-                print('profile %s update to %s, latest price is %s' % (profile, is_active, avg_price))
+                db_logger.info('Profile %s update to %s, latest average price is %s' % (profile, is_active, avg_price))
             else:
-                print('product %s no price' % profile.product)
+                db_logger.info('Product %s has no price' % profile.product)
 
     except Exception as e:
         db_logger.exception(e, extra=logger_extra)

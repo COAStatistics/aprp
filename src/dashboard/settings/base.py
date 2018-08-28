@@ -106,6 +106,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.i18n',
                 'django.contrib.messages.context_processors.messages',
+                'dashboard.context_processors.ga_tracking_id',
+                'dashboard.context_processors.use_ga'
             ],
         },
     },
@@ -301,7 +303,12 @@ CELERY_IMPORTS = (
     'gooses.tasks',
     'seafoods.tasks',
     'cattles.tasks',
+    'watchlists.tasks',
 )
 
 # Session Settings
 SESSION_COOKIE_AGE = 7200
+
+# Google Analytics
+USE_GA = False
+GA_TRACKING_ID = ''

@@ -151,21 +151,6 @@
 		<!-- Custom APP JS FILE -->
 		<script src="{% static 'js/app.custom.js' %}"></script>
 
-		<!-- Your GOOGLE ANALYTICS CODE Below -->
-		<script>
-
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-		  _gaq.push(['_trackPageview']);
-
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-
-		</script>
-
 		<!-- Highchart plugins -->
 		<script src="{% static 'vendor/js/plugin/multiselect/bootstrap-multiselect.min.js' %}"></script>
 		<script src="{% static 'vendor/js/plugin/highcharts/highstock.js' %}"></script>
@@ -192,6 +177,10 @@
 		<script src="{% static 'vendor/js/plugin/datatables/dataTables.bootstrap.min.js' %}"></script>
 		<script src="{% static 'vendor/js/plugin/datatable-responsive/datatables.responsive.min.js' %}"></script>
 		<script src="{% static 'js/datatables/dataTableHelper.js' %}"></script>
+		
+		{% if use_ga %}
+			{% include "snippets/ga.html" with ga_tracking_id=ga_tracking_id %}
+		{% endif %}
 
 	</body>
 </html>

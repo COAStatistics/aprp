@@ -36,8 +36,6 @@ def monitor_profile_filter(obj, watchlist):
 
     monitor_profiles = MonitorProfile.objects.filter(product__id__in=product_ids, watchlist=watchlist, active=True)
 
-    print(product_ids)
-
     return monitor_profiles
 
 

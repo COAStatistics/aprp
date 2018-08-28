@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-17 11:07+0800\n"
+"POT-Creation-Date: 2018-08-28 17:05+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -103,9 +103,9 @@ msgstr ""
 msgid "This account is not exist"
 msgstr ""
 
-#: accounts/models.py:37 configs/models.py:18 configs/models.py:124
-#: configs/models.py:176 configs/models.py:221 configs/models.py:272
-#: configs/models.py:289 logs/models.py:21 watchlists/models.py:37
+#: accounts/models.py:37 configs/models.py:18 configs/models.py:125
+#: configs/models.py:177 configs/models.py:222 configs/models.py:273
+#: configs/models.py:290 logs/models.py:21 watchlists/models.py:37
 msgid "Name"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgid "Email Dns"
 msgstr ""
 
 #: accounts/models.py:40 comments/models.py:57 configs/models.py:23
-#: watchlists/models.py:127
+#: watchlists/models.py:129
 msgid "Parent"
 msgstr ""
 
@@ -450,21 +450,21 @@ msgstr ""
 msgid "Update comment"
 msgstr ""
 
-#: configs/models.py:19 configs/models.py:125 configs/models.py:177
-#: configs/models.py:273 logs/models.py:22
+#: configs/models.py:19 configs/models.py:126 configs/models.py:178
+#: configs/models.py:274 logs/models.py:22
 msgid "Code"
 msgstr ""
 
-#: configs/models.py:20 configs/models.py:131 configs/models.py:178
+#: configs/models.py:20 configs/models.py:132 configs/models.py:179
 msgid "Config"
 msgstr ""
 
-#: configs/models.py:21 configs/models.py:179 configs/models.py:227
-#: watchlists/models.py:146
+#: configs/models.py:21 configs/models.py:180 configs/models.py:228
+#: watchlists/models.py:148
 msgid "Type"
 msgstr ""
 
-#: configs/models.py:22 configs/models.py:254
+#: configs/models.py:22 configs/models.py:255
 #: templates/contents/unit-info.html:7 templates/contents/unit-info.html:9
 #: templates/contents/unit-info.html:11
 msgid "Unit"
@@ -474,11 +474,11 @@ msgstr ""
 msgid "Track Item"
 msgstr ""
 
-#: configs/models.py:25 configs/models.py:128 configs/models.py:180
-#: configs/models.py:222 configs/models.py:251 configs/models.py:275
+#: configs/models.py:25 configs/models.py:129 configs/models.py:181
+#: configs/models.py:223 configs/models.py:252 configs/models.py:276
 #: dailytrans/models.py:56 logs/models.py:23 posts/models.py:37
-#: watchlists/models.py:41 watchlists/models.py:42 watchlists/models.py:128
-#: watchlists/models.py:153
+#: watchlists/models.py:41 watchlists/models.py:42 watchlists/models.py:130
+#: watchlists/models.py:156
 msgid "Updated"
 msgstr ""
 
@@ -490,62 +490,62 @@ msgstr ""
 msgid "Abstract Products"
 msgstr ""
 
-#: configs/models.py:126 configs/models.py:278
+#: configs/models.py:127 configs/models.py:279
 #: templates/ajax/chart-1-content.html:27
 #: templates/ajax/chart-2-content.html:26
 #: templates/contents/index-panel.html:41
 msgid "Chart"
 msgstr ""
 
-#: configs/models.py:127
+#: configs/models.py:128
 msgid "Type Level"
 msgstr ""
 
-#: configs/models.py:132
+#: configs/models.py:133
 msgid "Configs"
 msgstr ""
 
-#: configs/models.py:185 dailytrans/models.py:48 watchlists/models.py:126
+#: configs/models.py:186 dailytrans/models.py:48 watchlists/models.py:128
 msgid "Source"
 msgstr ""
 
-#: configs/models.py:186
+#: configs/models.py:187
 msgid "Sources"
 msgstr ""
 
-#: configs/models.py:228
+#: configs/models.py:229
 msgid "Types"
 msgstr ""
 
-#: configs/models.py:248 templates/contents/unit-info.html.py:15
+#: configs/models.py:249 templates/contents/unit-info.html.py:15
 msgid "Price Unit"
 msgstr ""
 
-#: configs/models.py:249 templates/contents/unit-info.html.py:18
+#: configs/models.py:250 templates/contents/unit-info.html.py:18
 msgid "Volume Unit"
 msgstr ""
 
-#: configs/models.py:250 templates/contents/unit-info.html.py:21
+#: configs/models.py:251 templates/contents/unit-info.html.py:21
 msgid "Weight Unit"
 msgstr ""
 
-#: configs/models.py:255
+#: configs/models.py:256
 msgid "Units"
 msgstr ""
 
-#: configs/models.py:274
+#: configs/models.py:275
 msgid "Template Name"
 msgstr ""
 
-#: configs/models.py:279
+#: configs/models.py:280
 msgid "Charts"
 msgstr ""
 
-#: configs/models.py:292 dailytrans/utils.py:333
+#: configs/models.py:293 dailytrans/utils.py:325
 msgid "Month"
 msgstr ""
 
-#: configs/models.py:293
+#: configs/models.py:294
 msgid "Months"
 msgstr ""
 
@@ -557,8 +557,8 @@ msgstr ""
 msgid "Crops"
 msgstr ""
 
-#: dailytrans/models.py:47 templates/contents/watchlist-profile-table.html.py:8
-#: watchlists/models.py:125 watchlists/models.py:144
+#: dailytrans/models.py:47 templates/contents/watchlist-profile-table.html.py:9
+#: watchlists/models.py:127 watchlists/models.py:146
 msgid "Product"
 msgstr ""
 
@@ -574,13 +574,13 @@ msgstr ""
 msgid "Low Pirce"
 msgstr ""
 
-#: dailytrans/models.py:52 dailytrans/utils.py:121 dailytrans/utils.py:140
-#: dailytrans/utils.py:156 templates/contents/index-panel.html.py:20
+#: dailytrans/models.py:52 dailytrans/utils.py:113 dailytrans/utils.py:132
+#: dailytrans/utils.py:148 templates/contents/index-panel.html.py:20
 #: templates/contents/integration-table.html:12
 msgid "Average Price"
 msgstr ""
 
-#: dailytrans/models.py:53 dailytrans/utils.py:123
+#: dailytrans/models.py:53 dailytrans/utils.py:115
 #: templates/contents/index-panel.html:24
 #: templates/contents/integration-table.html:19
 msgid "Average Weight"
@@ -590,8 +590,8 @@ msgstr ""
 msgid "Volume"
 msgstr ""
 
-#: dailytrans/models.py:55 dailytrans/utils.py:120 dailytrans/utils.py:139
-#: dailytrans/utils.py:155 dailytrans/utils.py:215
+#: dailytrans/models.py:55 dailytrans/utils.py:112 dailytrans/utils.py:131
+#: dailytrans/utils.py:147 dailytrans/utils.py:207
 #: templates/contents/integration-table.html:11
 msgid "Date"
 msgstr ""
@@ -604,47 +604,47 @@ msgstr ""
 msgid "Daily Transitions"
 msgstr ""
 
-#: dailytrans/utils.py:122 dailytrans/utils.py:141
+#: dailytrans/utils.py:114 dailytrans/utils.py:133
 msgid "Sum Volume"
 msgstr ""
 
-#: dailytrans/utils.py:334
+#: dailytrans/utils.py:326
 msgid "Min"
 msgstr ""
 
-#: dailytrans/utils.py:335
+#: dailytrans/utils.py:327
 msgid "25%"
 msgstr ""
 
-#: dailytrans/utils.py:336
+#: dailytrans/utils.py:328
 msgid "50%"
 msgstr ""
 
-#: dailytrans/utils.py:337
+#: dailytrans/utils.py:329
 msgid "75%"
 msgstr ""
 
-#: dailytrans/utils.py:338
+#: dailytrans/utils.py:330
 msgid "Max"
 msgstr ""
 
-#: dailytrans/utils.py:339
+#: dailytrans/utils.py:331
 msgid "Mean"
 msgstr ""
 
-#: dailytrans/utils.py:484
+#: dailytrans/utils.py:476
 msgid "This Term"
 msgstr ""
 
-#: dailytrans/utils.py:492
+#: dailytrans/utils.py:484
 msgid "Last Term"
 msgstr ""
 
-#: dashboard/settings/base.py:212
+#: dashboard/settings/base.py:202
 msgid "Traditional Chinese"
 msgstr ""
 
-#: dashboard/settings/base.py:213
+#: dashboard/settings/base.py:203
 msgid "English"
 msgstr ""
 
@@ -782,11 +782,11 @@ msgstr ""
 msgid "Seafoods"
 msgstr ""
 
-#: templates/ajax/about.html:12 templates/navigation.html.py:56
+#: templates/ajax/about.html:12 templates/navigation.html.py:57
 msgid "Main"
 msgstr ""
 
-#: templates/ajax/about.html:14 templates/navigation.html.py:59
+#: templates/ajax/about.html:14 templates/navigation.html.py:60
 #: templates/shortcut.html:8
 msgid "About"
 msgstr ""
@@ -940,7 +940,7 @@ msgstr ""
 msgid "Average Volume"
 msgstr ""
 
-#: templates/contents/integration-table.html:13 watchlists/models.py:147
+#: templates/contents/integration-table.html:13 watchlists/models.py:149
 msgid "Price"
 msgstr ""
 
@@ -962,15 +962,16 @@ msgstr ""
 msgid "Monitor Price"
 msgstr ""
 
-#: templates/contents/monitor-profile-table.html:8 watchlists/models.py:150
+#: templates/contents/monitor-profile-table.html:8 watchlists/models.py:152
 msgid "Info"
 msgstr ""
 
-#: templates/contents/monitor-profile-table.html:9 watchlists/models.py:152
+#: templates/contents/monitor-profile-table.html:9 watchlists/models.py:154
+#: watchlists/models.py:155
 msgid "Period"
 msgstr ""
 
-#: templates/contents/monitor-profile-table.html:10 watchlists/models.py:151
+#: templates/contents/monitor-profile-table.html:10 watchlists/models.py:153
 msgid "Action"
 msgstr ""
 
@@ -978,8 +979,8 @@ msgstr ""
 msgid "Watchlist Item Profile"
 msgstr ""
 
-#: templates/contents/product-profile.html:93 watchlists/models.py:156
-#: watchlists/models.py:157
+#: templates/contents/product-profile.html:93 watchlists/models.py:159
+#: watchlists/models.py:160
 msgid "Monitor Profile"
 msgstr ""
 
@@ -992,11 +993,11 @@ msgstr ""
 msgid "Year Selected"
 msgstr ""
 
-#: templates/contents/watchlist-profile-table.html:9 watchlists/models.py:133
+#: templates/contents/watchlist-profile-table.html:10 watchlists/models.py:135
 msgid "Watchlist Item"
 msgstr ""
 
-#: templates/contents/watchlist-profile-table.html:10
+#: templates/contents/watchlist-profile-table.html:12
 msgid "Monitor Source"
 msgstr ""
 
@@ -1018,25 +1019,41 @@ msgstr ""
 msgid "Full Screen"
 msgstr ""
 
-#: templates/navigation.html:32 watchlists/models.py:45
-#: watchlists/models.py:145
+#: templates/navigation.html:33 watchlists/models.py:45
+#: watchlists/models.py:147
 msgid "Watchlist"
 msgstr ""
 
-#: templates/navigation.html:65
+#: templates/navigation.html:66
 msgid "Grand Totals"
 msgstr ""
 
-#: templates/navigation.html:81
+#: templates/navigation.html:85
 msgid "Agricultures"
 msgstr ""
 
-#: templates/navigation.html:97
+#: templates/navigation.html:104
 msgid "Livestocks"
 msgstr ""
 
-#: templates/navigation.html:113
+#: templates/navigation.html:124
 msgid "Fisheries"
+msgstr ""
+
+#: watchlists/models.py:21
+msgid "<"
+msgstr ""
+
+#: watchlists/models.py:22
+msgid "<="
+msgstr ""
+
+#: watchlists/models.py:23
+msgid ">"
+msgstr ""
+
+#: watchlists/models.py:24
+msgid ">="
 msgstr ""
 
 #: watchlists/models.py:39
@@ -1051,14 +1068,14 @@ msgstr ""
 msgid "Watchlists"
 msgstr ""
 
-#: watchlists/models.py:134
+#: watchlists/models.py:136
 msgid "Watchlist Items"
 msgstr ""
 
-#: watchlists/models.py:148
-msgid "Comparison"
+#: watchlists/models.py:150
+msgid "Comparator"
 msgstr ""
 
-#: watchlists/models.py:149
+#: watchlists/models.py:151
 msgid "Color"
 msgstr ""

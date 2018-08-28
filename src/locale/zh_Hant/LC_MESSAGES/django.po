@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-23 14:43+0800\n"
+"POT-Creation-Date: 2018-08-28 17:05+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,9 +104,9 @@ msgstr "此信箱尚未註冊，請重新確認"
 msgid "This account is not exist"
 msgstr "此帳號未註冊，請重新確認"
 
-#: accounts/models.py:37 configs/models.py:18 configs/models.py:124
-#: configs/models.py:176 configs/models.py:221 configs/models.py:272
-#: configs/models.py:289 logs/models.py:21 watchlists/models.py:37
+#: accounts/models.py:37 configs/models.py:18 configs/models.py:125
+#: configs/models.py:177 configs/models.py:222 configs/models.py:273
+#: configs/models.py:290 logs/models.py:21 watchlists/models.py:37
 msgid "Name"
 msgstr "名稱"
 
@@ -115,7 +115,7 @@ msgid "Email Dns"
 msgstr "信箱域名"
 
 #: accounts/models.py:40 comments/models.py:57 configs/models.py:23
-#: watchlists/models.py:127
+#: watchlists/models.py:129
 msgid "Parent"
 msgstr "上一層物件"
 
@@ -457,21 +457,21 @@ msgstr "確定要刪除這個回覆嗎"
 msgid "Update comment"
 msgstr "編輯回覆"
 
-#: configs/models.py:19 configs/models.py:125 configs/models.py:177
-#: configs/models.py:273 logs/models.py:22
+#: configs/models.py:19 configs/models.py:126 configs/models.py:178
+#: configs/models.py:274 logs/models.py:22
 msgid "Code"
 msgstr "代碼"
 
-#: configs/models.py:20 configs/models.py:131 configs/models.py:178
+#: configs/models.py:20 configs/models.py:132 configs/models.py:179
 msgid "Config"
 msgstr "品項種類"
 
-#: configs/models.py:21 configs/models.py:179 configs/models.py:227
-#: watchlists/models.py:146
+#: configs/models.py:21 configs/models.py:180 configs/models.py:228
+#: watchlists/models.py:148
 msgid "Type"
 msgstr "供應階段"
 
-#: configs/models.py:22 configs/models.py:254
+#: configs/models.py:22 configs/models.py:255
 #: templates/contents/unit-info.html:7 templates/contents/unit-info.html:9
 #: templates/contents/unit-info.html:11
 msgid "Unit"
@@ -481,11 +481,11 @@ msgstr "單位"
 msgid "Track Item"
 msgstr "是否抓取資料"
 
-#: configs/models.py:25 configs/models.py:128 configs/models.py:180
-#: configs/models.py:222 configs/models.py:251 configs/models.py:275
+#: configs/models.py:25 configs/models.py:129 configs/models.py:181
+#: configs/models.py:223 configs/models.py:252 configs/models.py:276
 #: dailytrans/models.py:56 logs/models.py:23 posts/models.py:37
-#: watchlists/models.py:41 watchlists/models.py:42 watchlists/models.py:128
-#: watchlists/models.py:153
+#: watchlists/models.py:41 watchlists/models.py:42 watchlists/models.py:130
+#: watchlists/models.py:156
 msgid "Updated"
 msgstr "上次更新"
 
@@ -497,62 +497,62 @@ msgstr "抽象品項"
 msgid "Abstract Products"
 msgstr "抽象品項"
 
-#: configs/models.py:126 configs/models.py:278
+#: configs/models.py:127 configs/models.py:279
 #: templates/ajax/chart-1-content.html:27
 #: templates/ajax/chart-2-content.html:26
 #: templates/contents/index-panel.html:41
 msgid "Chart"
 msgstr "圖表"
 
-#: configs/models.py:127
+#: configs/models.py:128
 msgid "Type Level"
 msgstr "供應階段選單層別"
 
-#: configs/models.py:132
+#: configs/models.py:133
 msgid "Configs"
 msgstr "品項分類"
 
-#: configs/models.py:185 dailytrans/models.py:48 watchlists/models.py:126
+#: configs/models.py:186 dailytrans/models.py:48 watchlists/models.py:128
 msgid "Source"
 msgstr "來源"
 
-#: configs/models.py:186
+#: configs/models.py:187
 msgid "Sources"
 msgstr "來源"
 
-#: configs/models.py:228
+#: configs/models.py:229
 msgid "Types"
 msgstr "供應階段"
 
-#: configs/models.py:248 templates/contents/unit-info.html.py:15
+#: configs/models.py:249 templates/contents/unit-info.html.py:15
 msgid "Price Unit"
 msgstr "價格單位"
 
-#: configs/models.py:249 templates/contents/unit-info.html.py:18
+#: configs/models.py:250 templates/contents/unit-info.html.py:18
 msgid "Volume Unit"
 msgstr "交易量單位"
 
-#: configs/models.py:250 templates/contents/unit-info.html.py:21
+#: configs/models.py:251 templates/contents/unit-info.html.py:21
 msgid "Weight Unit"
 msgstr "重量單位"
 
-#: configs/models.py:255
+#: configs/models.py:256
 msgid "Units"
 msgstr "單位"
 
-#: configs/models.py:274
+#: configs/models.py:275
 msgid "Template Name"
 msgstr "模板"
 
-#: configs/models.py:279
+#: configs/models.py:280
 msgid "Charts"
 msgstr "圖表"
 
-#: configs/models.py:292 dailytrans/utils.py:326
+#: configs/models.py:293 dailytrans/utils.py:325
 msgid "Month"
 msgstr "月份"
 
-#: configs/models.py:293
+#: configs/models.py:294
 msgid "Months"
 msgstr "月份"
 
@@ -565,7 +565,7 @@ msgid "Crops"
 msgstr "蔬菜"
 
 #: dailytrans/models.py:47 templates/contents/watchlist-profile-table.html.py:9
-#: watchlists/models.py:125 watchlists/models.py:144
+#: watchlists/models.py:127 watchlists/models.py:146
 msgid "Product"
 msgstr "品項"
 
@@ -581,13 +581,13 @@ msgstr "中價"
 msgid "Low Pirce"
 msgstr "下價"
 
-#: dailytrans/models.py:52 dailytrans/utils.py:114 dailytrans/utils.py:133
-#: dailytrans/utils.py:149 templates/contents/index-panel.html.py:20
+#: dailytrans/models.py:52 dailytrans/utils.py:113 dailytrans/utils.py:132
+#: dailytrans/utils.py:148 templates/contents/index-panel.html.py:20
 #: templates/contents/integration-table.html:12
 msgid "Average Price"
 msgstr "日均價格"
 
-#: dailytrans/models.py:53 dailytrans/utils.py:116
+#: dailytrans/models.py:53 dailytrans/utils.py:115
 #: templates/contents/index-panel.html:24
 #: templates/contents/integration-table.html:19
 msgid "Average Weight"
@@ -597,8 +597,8 @@ msgstr "日均重量"
 msgid "Volume"
 msgstr "交易量"
 
-#: dailytrans/models.py:55 dailytrans/utils.py:113 dailytrans/utils.py:132
-#: dailytrans/utils.py:148 dailytrans/utils.py:208
+#: dailytrans/models.py:55 dailytrans/utils.py:112 dailytrans/utils.py:131
+#: dailytrans/utils.py:147 dailytrans/utils.py:207
 #: templates/contents/integration-table.html:11
 msgid "Date"
 msgstr "日期"
@@ -611,47 +611,47 @@ msgstr "日交易"
 msgid "Daily Transitions"
 msgstr "日交易"
 
-#: dailytrans/utils.py:115 dailytrans/utils.py:134
+#: dailytrans/utils.py:114 dailytrans/utils.py:133
 msgid "Sum Volume"
 msgstr "總交易量"
 
-#: dailytrans/utils.py:327
+#: dailytrans/utils.py:326
 msgid "Min"
 msgstr "最小值"
 
-#: dailytrans/utils.py:328
+#: dailytrans/utils.py:327
 msgid "25%"
 msgstr "第一四分位數"
 
-#: dailytrans/utils.py:329
+#: dailytrans/utils.py:328
 msgid "50%"
 msgstr "中位數"
 
-#: dailytrans/utils.py:330
+#: dailytrans/utils.py:329
 msgid "75%"
 msgstr "第三四分位數"
 
-#: dailytrans/utils.py:331
+#: dailytrans/utils.py:330
 msgid "Max"
 msgstr "最大值"
 
-#: dailytrans/utils.py:332
+#: dailytrans/utils.py:331
 msgid "Mean"
 msgstr "平均值"
 
-#: dailytrans/utils.py:477
+#: dailytrans/utils.py:476
 msgid "This Term"
 msgstr "本期"
 
-#: dailytrans/utils.py:485
+#: dailytrans/utils.py:484
 msgid "Last Term"
 msgstr "上期"
 
-#: dashboard/settings/base.py:212
+#: dashboard/settings/base.py:202
 msgid "Traditional Chinese"
 msgstr "繁體中文"
 
-#: dashboard/settings/base.py:213
+#: dashboard/settings/base.py:203
 msgid "English"
 msgstr ""
 
@@ -789,11 +789,11 @@ msgstr "水產品"
 msgid "Seafoods"
 msgstr "水產品"
 
-#: templates/ajax/about.html:12 templates/navigation.html.py:56
+#: templates/ajax/about.html:12 templates/navigation.html.py:57
 msgid "Main"
 msgstr "主頁"
 
-#: templates/ajax/about.html:14 templates/navigation.html.py:59
+#: templates/ajax/about.html:14 templates/navigation.html.py:60
 #: templates/shortcut.html:8
 msgid "About"
 msgstr "關於"
@@ -977,7 +977,7 @@ msgstr "若有任何問題請與我們聯繫"
 msgid "Average Volume"
 msgstr "日均交易量"
 
-#: templates/contents/integration-table.html:13 watchlists/models.py:147
+#: templates/contents/integration-table.html:13 watchlists/models.py:149
 msgid "Price"
 msgstr "價格"
 
@@ -999,15 +999,16 @@ msgstr "整合資訊"
 msgid "Monitor Price"
 msgstr "監控價格"
 
-#: templates/contents/monitor-profile-table.html:8 watchlists/models.py:150
+#: templates/contents/monitor-profile-table.html:8 watchlists/models.py:152
 msgid "Info"
 msgstr "監控基準價格訂定理由"
 
-#: templates/contents/monitor-profile-table.html:9 watchlists/models.py:152
+#: templates/contents/monitor-profile-table.html:9 watchlists/models.py:154
+#: watchlists/models.py:155
 msgid "Period"
 msgstr "監控期間"
 
-#: templates/contents/monitor-profile-table.html:10 watchlists/models.py:151
+#: templates/contents/monitor-profile-table.html:10 watchlists/models.py:153
 msgid "Action"
 msgstr "因應措施"
 
@@ -1015,8 +1016,8 @@ msgstr "因應措施"
 msgid "Watchlist Item Profile"
 msgstr "監控品項內容及監控地點"
 
-#: templates/contents/product-profile.html:93 watchlists/models.py:156
-#: watchlists/models.py:157
+#: templates/contents/product-profile.html:93 watchlists/models.py:159
+#: watchlists/models.py:160
 msgid "Monitor Profile"
 msgstr "監控價格內容及因應措施"
 
@@ -1029,7 +1030,7 @@ msgstr "原始資料"
 msgid "Year Selected"
 msgstr "選擇年份"
 
-#: templates/contents/watchlist-profile-table.html:10 watchlists/models.py:133
+#: templates/contents/watchlist-profile-table.html:10 watchlists/models.py:135
 msgid "Watchlist Item"
 msgstr "監控品項"
 
@@ -1055,24 +1056,24 @@ msgstr "建議您登出後關閉分頁以提高安全性"
 msgid "Full Screen"
 msgstr "全螢幕"
 
-#: templates/navigation.html:32 watchlists/models.py:45
-#: watchlists/models.py:145
+#: templates/navigation.html:33 watchlists/models.py:45
+#: watchlists/models.py:147
 msgid "Watchlist"
 msgstr "監控清單"
 
-#: templates/navigation.html:65
+#: templates/navigation.html:66
 msgid "Grand Totals"
 msgstr "合計項目"
 
-#: templates/navigation.html:81
+#: templates/navigation.html:85
 msgid "Agricultures"
 msgstr "農產品"
 
-#: templates/navigation.html:97
+#: templates/navigation.html:104
 msgid "Livestocks"
 msgstr "畜禽產品"
 
-#: templates/navigation.html:113
+#: templates/navigation.html:124
 msgid "Fisheries"
 msgstr "漁產品"
 
@@ -1104,15 +1105,14 @@ msgstr "監控全部（唯一）"
 msgid "Watchlists"
 msgstr "監控清單"
 
-#: watchlists/models.py:134
+#: watchlists/models.py:136
 msgid "Watchlist Items"
 msgstr "監控品項"
 
-#: watchlists/models.py:148
-msgid "Comparison"
-msgstr "比較方式"
+#: watchlists/models.py:150
+msgid "Comparator"
+msgstr "比較器"
 
-#: watchlists/models.py:149
+#: watchlists/models.py:151
 msgid "Color"
 msgstr "顯示顏色"
-
