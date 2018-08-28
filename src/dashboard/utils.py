@@ -37,6 +37,7 @@ def jarvismenu_extra_context(instance):
     last_object_id = kwargs.get('loi')
 
     watchlist = Watchlist.objects.get(id=watchlist_id)
+    extra_context['watchlist'] = watchlist
 
     if content_type == 'config':
         config = Config.objects.get(id=object_id)
@@ -96,7 +97,8 @@ def chart_tab_extra_context(instance):
     last_content_type = kwargs.get('lct')
     last_object_id = kwargs.get('loi')
     watchlist_id = kwargs.get('wi')
-    extra_context['watchlist'] = Watchlist.objects.get(id=watchlist_id)
+    watchlist = Watchlist.objects.get(id=watchlist_id)
+    extra_context['watchlist'] = watchlist
 
     if content_type == 'config':
         config = Config.objects.get(id=object_id)
@@ -107,7 +109,7 @@ def chart_tab_extra_context(instance):
         monitor_profiles = MonitorProfile.objects.filter(product__id=object_id, watchlist__id=watchlist_id).order_by('price')
 
         extra_context['product'] = product
-        extra_context['types'] = Type.objects.filter(id__in=monitor_profiles.values_list('type'))
+        extra_context['types'] = product.types(watchlist=watchlist)
         extra_context['monitor_profiles'] = monitor_profiles
 
     elif content_type in ['type', 'source']:

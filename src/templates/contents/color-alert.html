@@ -1,0 +1,14 @@
+{% load watchlist_filter %}
+
+{% with monitor_profiles=item|monitor_profile_filter:watchlist %}
+    {% with danger_profiles=monitor_profiles|profile_color_filter:'danger' %}
+        {% if danger_profiles %}
+            <i class="fa fa-lg fa-warning txt-color-red" data-name="profile-active-alert" data-color="danger"></i>
+        {% endif %}
+    {% endwith %}
+    {% with warning_profiles=monitor_profiles|profile_color_filter:'warning' %}
+        {% if warning_profiles %}
+            <i class="fa fa-lg fa-warning txt-color-yellow" data-name="profile-active-alert" data-color="warning"></i>
+        {% endif %}
+    {% endwith %}
+{% endwith %}

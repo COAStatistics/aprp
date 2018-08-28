@@ -7,7 +7,7 @@
     watchlist: 3
     type: 1
     price: 5.0
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.甘藍主要交易以消費地為主，以消費地批發市場價格監控
@@ -23,7 +23,7 @@
     watchlist: 3
     type: 1
     price: 5.1
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.結球白菜主要交易以消費地為主，以消費地批發市場價格監控
@@ -40,7 +40,7 @@
     watchlist: 3
     type: 2
     price: 32.1
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.落花生交易以產地商販向農民價購為主，以產地價格監控
@@ -58,7 +58,7 @@
     watchlist: 3
     type: 2
     price: 27.3
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.紅豆交易以產地商販向農民價購為主，以產地價格監控
@@ -75,7 +75,7 @@
     watchlist: 3
     type: 2
     price: 4.2
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.甘藷交易以產地商販向農民價購為主，以產地價格監控
@@ -94,7 +94,7 @@
     watchlist: 3
     type: 2
     price: 33.5
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.大蒜交易以產地商販向農民價購為主，以產地價格監控
@@ -111,7 +111,7 @@
     watchlist: 3
     type: 1
     price: 6.3
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.洋蔥主要交易以消費地為主，以消費地批發市場價格監控
@@ -128,7 +128,7 @@
     watchlist: 3
     type: 1
     price: 25.9
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.日蔥主要交易以消費地為主，以消費地批發市場價格監控
@@ -145,7 +145,7 @@
     watchlist: 3
     type: 1
     price: 11.9
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.北蔥主要交易以消費地為主，以消費地批發市場價格監控
@@ -162,7 +162,7 @@
     watchlist: 3
     type: 1
     price: 7.6
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.花椰菜主要交易以消費地為主，以消費地批發市場價格監控
@@ -179,7 +179,7 @@
     watchlist: 3
     type: 1
     price: 3.8
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.蘿蔔主要交易以消費地為主，以消費地批發市場價格監控
@@ -196,7 +196,7 @@
     watchlist: 3
     type: 1
     price: 7.5
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.胡瓜主要交易以消費地為主，以消費地批發市場價格監控
@@ -215,7 +215,7 @@
     watchlist: 3
     type: 1
     price: 11.4
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.花胡瓜主要交易以消費地為主，以消費地批發市場價格監控
@@ -234,7 +234,7 @@
     watchlist: 3
     type: 1
     price: 5.5
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.胡蘿蔔主要交易以消費地為主，以消費地批發市場價格監控
@@ -251,7 +251,7 @@
     watchlist: 3
     type: 1
     price: 32.8
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.豌豆主要交易以消費地為主，以消費地批發市場價格監控
@@ -268,7 +268,7 @@
     watchlist: 3
     type: 1
     price: 17.4
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1. 豇豆主要交易以消費地為主，以消費地批發市場價格監控
@@ -285,7 +285,7 @@
     watchlist: 3
     type: 1
     price: 12.2
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.絲瓜主要交易以消費地為主，以消費地批發市場價格監控
@@ -303,7 +303,7 @@
     watchlist: 3
     type: 1
     price: 11.4
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.茄子主要交易以消費地為主，以消費地批發市場價格監控
@@ -323,7 +323,7 @@
     watchlist: 3
     type: 1
     price: 21.7
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.棗子主要交易以消費地為主，以消費地批發市場價格監控
@@ -341,7 +341,7 @@
     watchlist: 3
     type: 1
     price: 18.0
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.椪柑主要交易以消費地為主，以消費地批發市場價格監控
@@ -359,7 +359,7 @@
     watchlist: 3
     type: 1
     price: 32.5
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.梨優級品以上果品多於產地批發市場交易，良級品大部分送台北市場交易，為反映合理交易價格，以產地批發市場價格監控
@@ -376,7 +376,7 @@
     watchlist: 3
     type: 1
     price: 14.2
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.洋香瓜主要交易以消費地為主，以消費地批發市場價格監控
@@ -393,7 +393,7 @@
     watchlist: 3
     type: 1
     price: 7.3
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.大西瓜主要以台糖及私人農地大面積經營為主，生產成本較低
@@ -410,7 +410,7 @@
     watchlist: 3
     type: 1
     price: 34.2
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.巨峰葡萄主要交易以消費地為主，以消費地批發市場價格監控
@@ -427,7 +427,7 @@
     watchlist: 3
     type: 1
     price: 38.8
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.番荔枝主要交易以消費地為主，以消費地批發市場價格監控
@@ -444,7 +444,7 @@
     watchlist: 3
     type: 2
     price: 13.9
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.桶柑主要交易以產地為主，以產地價格監控
@@ -462,7 +462,7 @@
     watchlist: 3
     type: 2
     price: 12.1
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.文旦柚主要交易以產地為主，以產地價格監控
@@ -480,7 +480,7 @@
     watchlist: 3
     type: 1
     price: 42.6
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.甜柿優級品以上果品多於產地批發市場交易，良級品大部分送台北市場，為反映合理交易價格，以產地批發市場價格監控
@@ -497,7 +497,7 @@
     watchlist: 3
     type: 1
     price: 15.4
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.木瓜主要交易以消費地為主，以消費地批發市場價格監控
@@ -516,7 +516,7 @@
     watchlist: 3
     type: 2
     price: 31.6
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.蓮霧優級品以上之果品多以產地直銷，僅良級品部分送台北市場，以產地價格監控
@@ -533,7 +533,7 @@
     watchlist: 3
     type: 1
     price: 28.9
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.愛文芒果交易以消費地為主，以消費地批發市場價格監控
@@ -551,7 +551,7 @@
     watchlist: 3
     type: 2
     price: 6.4
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.種植香蕉之蕉農大部分屬於兼業經營且加工催熟成本不一，以青香蕉產地價格監控
@@ -573,7 +573,7 @@
     watchlist: 3
     type: 1
     price: 11.7
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.柳橙主要交易以消費地為主，以消費地批發市場價格監控
@@ -590,7 +590,7 @@
     watchlist: 3
     type: 1
     price: 10.4
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.金鑽鳳梨主要交易以消費地為主，以消費地批發市場價格監控
@@ -609,7 +609,7 @@
     watchlist: 3
     type: 2
     price: 8.1
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.優級品以上之果品多以產地直銷，僅良級品部分送台北市場，採取產地價格監控
@@ -626,7 +626,7 @@
     watchlist: 3
     type: 1
     price: 14.1
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.龍眼主要交易以消費地為主，以消費地批發市場價格監控
@@ -645,7 +645,7 @@
     watchlist: 3
     type: 1
     price: 12.6
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.番石榴主要交易以消費地為主，以消費地批發市場價格監控
@@ -662,7 +662,7 @@
     watchlist: 3
     type: 1
     price: 15.2
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.黑葉荔枝主要交易以消費地為主，以消費地批發市場價格監控
@@ -680,7 +680,7 @@
     watchlist: 3
     type: 2
     price: 8.5
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.竿採梅主要交易以產地為主，以產地價格監控
@@ -699,7 +699,7 @@
     watchlist: 3
     type: 1
     price: 20.7
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           紅龍果主要交易以消費地為主，以消費地批發市場價格監控
@@ -721,7 +721,7 @@
     watchlist: 3
     type: 1
     price: 48.9
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           直接生產成本加計飼料價格浮動係數
@@ -740,7 +740,7 @@
     watchlist: 3
     type: 1
     price: 60
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info:
     period: 全年
@@ -757,7 +757,7 @@
     watchlist: 3
     type: 1
     price: 65.0
-    comparison: __lt__
+    comparator: __lt__
     color: warning
     info:
     period: 全年
@@ -774,7 +774,7 @@
     watchlist: 3
     type: 1
     price: 79.0
-    comparison: __gt__
+    comparator: __gt__
     color: warning
     info:
     period: 全年
@@ -791,7 +791,7 @@
     watchlist: 3
     type: 1
     price: 84.0
-    comparison: __gt__
+    comparator: __gt__
     color: danger
     info:
     period: 全年
@@ -810,7 +810,7 @@
     watchlist: 3
     type: 1
     price: 161.0
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           直接生產成本加計飼料價格浮動係數
@@ -831,7 +831,7 @@
     watchlist: 3
     type: 2
     price: 92.0
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           直接生產成本加計飼料價格浮動係數
@@ -852,7 +852,7 @@
     watchlist: 3
     type: 2
     price: 56.0
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           直接生產成本加計飼料價格浮動係數及產業現況調整
@@ -874,7 +874,7 @@
     watchlist: 3
     type: 2
     price: 53.8
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           直接生產成本加計飼料價格浮動係數及產業現況調整
@@ -894,7 +894,7 @@
     watchlist: 3
     type: 2
     price: 41.5
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           直接生產成本加計飼料價格浮動係數及產業現況調整
@@ -914,7 +914,7 @@
     watchlist: 3
     type: 2
     price: 36.1
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           直接生產成本加計飼料價格浮動係數及產業現況調整
@@ -937,7 +937,7 @@
     watchlist: 3
     type: 2
     price: 35.84
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.本案每日通報價臨近監控價格，則啟動先期調節措施
@@ -960,7 +960,7 @@
     watchlist: 3
     type: 2
     price: 46.92
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.本案每日通報價臨近監控價格，則啟動先期調節措施
@@ -983,7 +983,7 @@
     watchlist: 3
     type: 2
     price: 77.96
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.本案每日通報價臨近監控價格，則啟動先期調節措施
@@ -1006,7 +1006,7 @@
     watchlist: 3
     type: 2
     price: 160.51
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.本案每日通報價臨近監控價格，則啟動先期調節措施
@@ -1029,7 +1029,7 @@
     watchlist: 3
     type: 2
     price: 61.66
-    comparison: __lt__
+    comparator: __lt__
     color: danger
     info: |
           1.本案每日通報價臨近監控價格，則啟動先期調節措施

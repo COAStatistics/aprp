@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db.models import (
     Model,
     CASCADE,
+    SET_NULL,
     CharField,
     BooleanField,
     DateTimeField,
@@ -10,14 +11,13 @@ from django.db.models import (
     FloatField,
     QuerySet,
     TextField,
-    SET_NULL,
     Q,
 )
 from django.utils.translation import ugettext_lazy as _
 from configs.models import Config, AbstractProduct
 
 
-COMPARISON_CHOICES = [
+COMPARATOR_CHOICES = [
     ('__lt__', _('<')),
     ('__lte__', _('<=')),
     ('__gt__', _('>')),
@@ -28,7 +28,7 @@ COLOR_CHOICES = [
     ('default', 'Default'),
     ('info', 'Info'),
     ('success', 'Success'),
-    ('alert', 'Alert'),
+    ('warning', 'Warning'),
     ('danger', 'Danger'),
 ]
 
@@ -52,10 +52,11 @@ class Watchlist(Model):
                 watchlist = Watchlist.objects.get(is_default=True)
                 if self != watchlist:
                     watchlist.update(is_default=False)
+                    watchlist.monitorprofile_set.update(active=False)
             except Watchlist.DoesNotExist:
                 pass
 
-        # remove if watch all watchlist exist
+        # remove watch_all=True list before add one
         if self.watch_all:
             try:
                 watchlist = Watchlist.objects.get(watch_all=True)
@@ -76,7 +77,8 @@ class Watchlist(Model):
         return WatchlistItem.objects.filter(parent=self)
 
     def related_configs(self):
-        return Config.objects.filter(id__in=self.children().values_list('product__config__id', flat=True).distinct()).order_by('id')
+        ids = self.children().values_list('product__config__id', flat=True).distinct()
+        return Config.objects.filter(id__in=ids).order_by('id')
 
     @property
     def related_product_ids(self):
@@ -145,11 +147,12 @@ class MonitorProfile(Model):
     watchlist = ForeignKey('watchlists.Watchlist', null=True, blank=True, on_delete=CASCADE, verbose_name=_('Watchlist'))
     type = ForeignKey('configs.Type', null=True, blank=True, on_delete=SET_NULL, verbose_name=_('Type'))
     price = FloatField(verbose_name=_('Price'))
-    comparison = CharField(max_length=6, default='__lt__', choices=COMPARISON_CHOICES, verbose_name=_('Comparison'))
+    comparator = CharField(max_length=6, default='__lt__', choices=COMPARATOR_CHOICES, verbose_name=_('Comparator'))
     color = CharField(max_length=20, default='danger', choices=COLOR_CHOICES, verbose_name=_('Color'))
     info = TextField(null=True, blank=True, verbose_name=_('Info'))
     action = TextField(null=True, blank=True, verbose_name=_('Action'))
     period = TextField(null=True, blank=True, verbose_name=_('Period'))
+    active = BooleanField(default=False, verbose_name=_('Period'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
 
     class Meta:
@@ -157,24 +160,32 @@ class MonitorProfile(Model):
         verbose_name_plural = _('Monitor Profile')
 
     def __str__(self):
-        return str(self.product.name)
+        return str('product: %s, watchlist: %s, price: %s' % (self.product.name, self.watchlist.name, self.price))
 
     def __unicode__(self):
-        return str(self.product.name)
+        return str('product: %s, watchlist: %s, price: %s' % (self.product.name, self.watchlist.name, self.price))
+
+    def sibling(self):
+        return MonitorProfile.objects.exclude(id=self.id).filter(product=self.product, watchlist=self.watchlist)
 
     def watchlist_items(self):
-        return WatchlistItem.filter(product__parent=self.product)
+        return WatchlistItem.objects.filter(product__parent=self.product)
+
+    def is_active(self, price):
+        if self.comparator == '__gt__':
+            return price > self.price
+        if self.comparator == '__gte__':
+            return price >= self.price
+        if self.comparator == '__lt__':
+            return price < self.price
+        if self.comparator == '__lte__':
+            return price <= self.price
 
     @property
     def format_price(self):
-        d = dict(COMPARISON_CHOICES)
-        comparison = d[str(self.comparison)]
-        return '{0}{1:g}{2}'.format(comparison, self.price, self.product.unit.price_unit)
-
-
-
-
-
+        d = dict(COMPARATOR_CHOICES)
+        comparator = d[str(self.comparator)]
+        return '{0}{1:g}{2}'.format(comparator, self.price, self.product.unit.price_unit)
 
 
 

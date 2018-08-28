@@ -97,6 +97,27 @@ button.multiselect {
     cursor: pointer;
 }
 
+nav a>em {
+    font-size: 9px;
+    display: block;
+    padding: 2px;
+    position: absolute;
+    top: -8px;
+    right: -6px;
+    text-decoration: none;
+    font-style: normal;
+    background: #ED1C24;
+    color: #fff;
+    min-width: 13px;
+    border-radius: 50%;
+    max-height: 13px;
+    line-height: 8px;
+    font-weight: 700;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.1);
+}
 
 
 

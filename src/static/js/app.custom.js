@@ -533,6 +533,22 @@ $('#content').on('click', '.js-panel-collapse-show', function(){
 })
 
 
+// CUSTOM LEFT NAV JARVISMENU
+// ADD COLOR ALERT ICON TO ANCHOR
+
+$('nav a[color-alert]').each(function(){
+    $this = $(this);
+
+    $dangers = $this.parent().find('[data-name="profile-active-alert"][data-color="danger"]');
+    $warnings = $this.parent().find('[data-name="profile-active-alert"][data-color="warning"]');
+
+    if($dangers.length > 0){
+        $dangers.first().clone().prependTo($this);
+    }else if($warnings.length > 0){
+        $warnings.first().clone().prependTo($this);
+    }
+})
+
 
 
 

@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load i18n %}
+{% load watchlist_filter %}
 
 <!-- #NAVIGATION -->
 <!-- Left panel : Navigation area -->
@@ -62,7 +63,7 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-yellow"></i> <span class="menu-item-parent">{% trans 'Grand Totals' %}</span></a>
+                <a color-alert href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-yellow"></i> <span class="menu-item-parent">{% trans 'Grand Totals' %}</span></a>
                 <ul>
                     {% for config in totals %}
                     <li>
@@ -70,7 +71,10 @@
                         <a title="{{ config.name }}"
                            href="{% url 'chart_tab' wi=user_watchlist.id ct='config' oi=config.id %}"
                            data-load data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='config' oi=config.id %}">
-                            {{ config.name }}
+
+                            {% include 'contents/color-alert.html' with item=config watchlist=user_watchlist %}
+                            <span class="menu-item-parent">{{ config.name }}</span>
+
                         </a>
                         <!-- dynamically load ul here -->
                     </li>
@@ -78,7 +82,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-green"></i> <span class="menu-item-parent">{% trans 'Agricultures' %}</span></a>
+                <a color-alert href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-green"></i> <span class="menu-item-parent">{% trans 'Agricultures' %}</span></a>
                 <ul>
                     {% for config in agricultures %}
                     <li>
@@ -86,7 +90,10 @@
                         <a title="{{ config.name }}"
                            href="#"
                            data-load data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='config' oi=config.id %}">
-                            {{ config.name }}
+
+                            {% include 'contents/color-alert.html' with item=config watchlist=user_watchlist %}
+                            <span class="menu-item-parent">{{ config.name }}</span>
+
                         </a>
                         <!-- dynamically load ul here -->
                     </li>
@@ -94,7 +101,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-red"></i> <span class="menu-item-parent">{% trans 'Livestocks' %}</span></a>
+                <a color-alert href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-red"></i> <span class="menu-item-parent">{% trans 'Livestocks' %}</span></a>
                 <ul>
                     {% for config in livestocks %}
                     <li>
@@ -102,7 +109,10 @@
                         <a title="{{ config.name }}"
                            href="#"
                            data-load data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='config' oi=config.id %}">
-                            {{ config.name }}
+
+                            {% include 'contents/color-alert.html' with item=config watchlist=user_watchlist %}
+                            <span class="menu-item-parent">{{ config.name }}</span>
+
                         </a>
                         <!-- dynamically load ul here -->
                     </li>
@@ -110,7 +120,9 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">{% trans 'Fisheries' %}</span></a>
+                <a color-alert href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i>
+                    <span class="menu-item-parent">{% trans 'Fisheries' %}</span>
+                </a>
                 <ul>
                     {% for product in fisheries %}
                     <li>
@@ -119,7 +131,10 @@
                            href="{% if product.to_direct %}{% url 'chart_tab' wi=user_watchlist.id ct='product' oi=product.id lct='config' loi=product.config.id %}{% else %}#{% endif %}"
                            data-load
                            data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='product' oi=product.id lct='config' loi=product.config.id %}">
-                            {{ product.name }}
+
+                            {% include 'contents/color-alert.html' with item=product watchlist=user_watchlist %}
+                            <span class="menu-item-parent">{{ product.name }}</span>
+
                         </a>
                         <!-- dynamically load ul here -->
                     </li>

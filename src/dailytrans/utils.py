@@ -1,6 +1,5 @@
 import time
 import operator
-import json
 import datetime
 from django.db.models.expressions import RawSQL
 
@@ -40,22 +39,22 @@ def get_query_set(_type, items, sources=None):
                 (Q(product=item.product)) for item in items)
         )
 
-    return DailyTran.objects.filter(query)
+    return DailyTran.objects.filter(product__type=_type).filter(query)
 
 
-def get_group_by_date_query_set(query_sets, start_date=None, end_date=None, specific_year=True):
+def get_group_by_date_query_set(query_set, start_date=None, end_date=None, specific_year=True):
     """
-    :param query_sets: Query before annotation
+    :param query_set: Query before annotation
     :param start_date: <Date>
     :param end_date: <Date>
-    :param specific_year: To filter query_sets with date__range else filter with manager method to exclude year
+    :param specific_year: To filter query_set with date__range else filter with manager method to exclude year
     :return: Query after annotation
     """
 
     # The count() might be different while queue running and storing new data
-    if query_sets.count():
-        has_volume = query_sets.filter(volume__isnull=False).count() / query_sets.count() > 0.8
-        has_weight = query_sets.filter(avg_weight__isnull=False).count() / query_sets.count() > 0.8
+    if query_set.count():
+        has_volume = query_set.filter(volume__isnull=False).count() / query_set.count() > 0.8
+        has_weight = query_set.filter(avg_weight__isnull=False).count() / query_set.count() > 0.8
     else:
         has_volume = False
         has_weight = False
@@ -63,18 +62,18 @@ def get_group_by_date_query_set(query_sets, start_date=None, end_date=None, spec
     # Date filters
     if isinstance(start_date, datetime.date) and isinstance(end_date, datetime.date):
         if specific_year:
-            query_sets = query_sets.filter(date__range=[start_date, end_date])
+            query_set = query_set.filter(date__range=[start_date, end_date])
         else:
-            query_sets = query_sets.between_month_day_filter(start_date, end_date)
+            query_set = query_set.between_month_day_filter(start_date, end_date)
 
-    query_sets = (query_sets.values('date').annotate(
+    query_set = (query_set.values('date').annotate(
         year=Year('date'),
         month=Month('date'),
         day=Day('date')))
 
     if has_volume and has_weight:
 
-        q = (query_sets.annotate(
+        q = (query_set.annotate(
                 avg_price=Sum(F('avg_price') * F('volume') * F('avg_weight')) / Sum(F('volume') * F('avg_weight')),
                 sum_volume=Sum(F('volume')),
                 avg_avg_weight=Sum(F('avg_weight') * F('volume')) / Sum(F('volume')),
@@ -82,13 +81,13 @@ def get_group_by_date_query_set(query_sets, start_date=None, end_date=None, spec
 
     elif has_volume:
 
-        q = (query_sets.annotate(
+        q = (query_set.annotate(
                 avg_price=Sum(F('avg_price') * F('volume')) / Sum('volume'),
                 sum_volume=Sum('volume')))
 
     else:
 
-        q = (query_sets.annotate(avg_price=Avg('avg_price')).order_by('date'))
+        q = (query_set.annotate(avg_price=Avg('avg_price')).order_by('date'))
 
     # Order by date
     q = q.order_by('date')
@@ -98,9 +97,9 @@ def get_group_by_date_query_set(query_sets, start_date=None, end_date=None, spec
 
 def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date=None):
 
-    query_sets = get_query_set(_type, items, sources)
+    query_set = get_query_set(_type, items, sources)
 
-    q, has_volume, has_weight = get_group_by_date_query_set(query_sets, start_date, end_date)
+    q, has_volume, has_weight = get_group_by_date_query_set(query_set, start_date, end_date)
 
     # Add unix timestamp
     for dic in q:
@@ -169,7 +168,7 @@ def get_daily_price_by_year(_type, items, sources=None):
 
     def get_result(key):
         # Get years
-        years = [date.year for date in query_sets.dates('date', 'year')]
+        years = [date.year for date in query_set.dates('date', 'year')]
 
         # Create date_list
         base = datetime.date(2016, 1, 1)
@@ -220,13 +219,13 @@ def get_daily_price_by_year(_type, items, sources=None):
             'raw': raw_data,
         }
 
-    query_sets = get_query_set(_type, items, sources)
+    query_set = get_query_set(_type, items, sources)
 
-    q, has_volume, has_weight = get_group_by_date_query_set(query_sets)
+    q, has_volume, has_weight = get_group_by_date_query_set(query_set)
 
     response_data = dict()
 
-    response_data['years'] = [date.year for date in query_sets.dates('date', 'year')]
+    response_data['years'] = [date.year for date in query_set.dates('date', 'year')]
 
     response_data['type'] = TypeSerializer(_type).data
 
@@ -344,14 +343,14 @@ def get_monthly_price_distribution(_type, items, sources=None, selected_years=No
             'raw': raw_data,
         }
 
-    query_sets = get_query_set(_type, items, sources)
+    query_set = get_query_set(_type, items, sources)
 
-    years = [date.year for date in query_sets.dates('date', 'year')]
+    years = [date.year for date in query_set.dates('date', 'year')]
 
     if selected_years:
-        query_sets = query_sets.filter(date__year__in=selected_years)
+        query_set = query_set.filter(date__year__in=selected_years)
 
-    q, has_volume, has_weight = get_group_by_date_query_set(query_sets)
+    q, has_volume, has_weight = get_group_by_date_query_set(query_set)
 
     response_data = dict()
     response_data['type'] = TypeSerializer(_type).data
@@ -446,7 +445,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
 
         return result
 
-    query_sets = get_query_set(_type, items, sources)
+    query_set = get_query_set(_type, items, sources)
 
     diff = end_date - start_date + datetime.timedelta(1)
 
@@ -456,18 +455,18 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
     # ** Note: Hog sum volume exception **
     # ** See annotate field "source_count" in get_group_by_date_query_set **
     # ** single_search means single product(on _type) on single source
-    ids = query_sets.values_list('product__id', flat=True).distinct()
+    ids = query_set.values_list('product__id', flat=True).distinct()
     hog_exception_condition = 70007 in ids and 70005 in ids and 70006 in ids and len(ids) == 3
 
     integration = list()
 
     # Return "this term" and "last term" integration data
     if to_init:
-        q, has_volume, has_weight = get_group_by_date_query_set(query_sets,
+        q, has_volume, has_weight = get_group_by_date_query_set(query_set,
                                                                 start_date=start_date,
                                                                 end_date=end_date,
                                                                 specific_year=True)
-        q_last, has_volume_last, has_weight_last = get_group_by_date_query_set(query_sets,
+        q_last, has_volume_last, has_weight_last = get_group_by_date_query_set(query_set,
                                                                                start_date=last_start_date,
                                                                                end_date=last_end_date,
                                                                                specific_year=True)
@@ -491,9 +490,9 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
     # Return each year integration exclude current term
     else:
         this_year = start_date.year
-        query_sets = query_sets.filter(date__year__lt=this_year)
+        query_set = query_set.filter(date__year__lt=this_year)
         # Group by year
-        q, has_volume, has_weight = get_group_by_date_query_set(query_sets,
+        q, has_volume, has_weight = get_group_by_date_query_set(query_set,
                                                                 start_date=start_date,
                                                                 end_date=end_date,
                                                                 specific_year=False)

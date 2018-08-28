@@ -1,13 +1,17 @@
 <ul>
     {% for item in items %}
-    <li>
-        <!-- if don't navigate on this item, set href to # -->
-        <a title="{{ item.name }}"
-           href="{% if item.to_direct %}{% url 'chart_tab' wi=wi ct=ct oi=item.id lct=lct loi=loi %}{% else %}#{% endif %}"
-           data-load data-load-url="{% url 'jarvismenu' wi=wi ct=ct oi=item.id lct=lct loi=loi %}">
-            {{ item.name }}
-        </a>
-        <!-- dynamically load ul here -->
-    </li>
+
+        <li>
+            <!-- if don't navigate on this item, set href to # -->
+            <a title="{{ item.name }}"
+               href="{% if item.to_direct %}{% url 'chart_tab' wi=wi ct=ct oi=item.id lct=lct loi=loi %}{% else %}#{% endif %}"
+               data-load data-load-url="{% url 'jarvismenu' wi=wi ct=ct oi=item.id lct=lct loi=loi %}">
+
+                {% include 'contents/color-alert.html' with item=item %}
+                <span class="menu-item-parent">{{ item.name }}</span>
+
+            </a>
+            <!-- dynamically load ul here -->
+        </li>
     {% endfor %}
 </ul>

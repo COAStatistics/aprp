@@ -21,7 +21,12 @@ app.autodiscover_tasks()
 
 
 app.conf.beat_schedule = {
-    # Today =======================================>
+    # ======================================== Job ========================================
+    'monitor_profile_active_update': {
+        'task': 'DefaultWatchlistMonitorProfileUpdate',
+        'schedule': crontab(minute='*/15'),
+    },
+    # ======================================== Daily Builder ========================================
     'daily-chicken-builder-1d': {
         'task': 'DailyChickenBuilder',
         'schedule': crontab(minute=5, hour='*'),
@@ -77,7 +82,7 @@ app.conf.beat_schedule = {
         'schedule': crontab(minute=10, hour='*'),
         'args': (0,)  # direct today
     },
-    # This Week ===========================================>
+    # ======================================== Weekly Builder ========================================
     'daily-chicken-builder-7d': {
         'task': 'DailyChickenBuilder',
         'schedule': crontab(minute=0, hour='0,11'),

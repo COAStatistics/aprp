@@ -1,46 +1,4 @@
 - model: crops.Crop
-  pk: 10001
-  fields:
-    name: 葉菜類
-    config: 2
-    unit: 1
-    track_item: false
-
-- model: crops.Crop
-  pk: 10002
-  fields:
-    name: 根莖菜類
-    config: 2
-    unit: 1
-    track_item: false
-
-- model: crops.Crop
-  pk: 10003
-  fields:
-    name: 花果菜類
-    config: 2
-    unit: 1
-    track_item: false
-
-- model: crops.Crop
-  pk: 10004
-  fields:
-    name: 姑菌類
-    config: 2
-    unit: 1
-    track_item: false
-
-- model: crops.Crop
-  pk: 10005
-  fields:
-    name: 醃製類
-    config: 2
-    unit: 1
-    track_item: false
-
-# =================
-
-- model: crops.Crop
   pk: 10006
   fields:
     name: 根莖菜類
@@ -48,7 +6,6 @@
     config: 2
     unit: 1
     type: 1
-    parent: 10002
 
 - model: crops.Crop
   pk: 10007
@@ -58,7 +15,6 @@
     config: 2
     unit: 1
     type: 1
-    parent: 10001
 
 - model: crops.Crop
   pk: 10008
@@ -68,7 +24,6 @@
     config: 2
     unit: 1
     type: 1
-    parent: 10003
 
 - model: crops.Crop
   pk: 10009
@@ -78,7 +33,6 @@
     config: 2
     unit: 1
     type: 1
-    parent: 10004
 
 - model: crops.Crop
   pk: 10010
@@ -88,4 +42,3 @@
     config: 2
     unit: 1
     type: 1
-    parent: 10005
