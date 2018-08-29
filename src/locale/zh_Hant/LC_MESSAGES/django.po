@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-28 17:05+0800\n"
+"POT-Creation-Date: 2018-08-29 13:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -485,7 +485,7 @@ msgstr "是否抓取資料"
 #: configs/models.py:223 configs/models.py:252 configs/models.py:276
 #: dailytrans/models.py:56 logs/models.py:23 posts/models.py:37
 #: watchlists/models.py:41 watchlists/models.py:42 watchlists/models.py:130
-#: watchlists/models.py:156
+#: watchlists/models.py:157
 msgid "Updated"
 msgstr "上次更新"
 
@@ -1004,7 +1004,6 @@ msgid "Info"
 msgstr "監控基準價格訂定理由"
 
 #: templates/contents/monitor-profile-table.html:9 watchlists/models.py:154
-#: watchlists/models.py:155
 msgid "Period"
 msgstr "監控期間"
 
@@ -1016,8 +1015,8 @@ msgstr "因應措施"
 msgid "Watchlist Item Profile"
 msgstr "監控品項內容及監控地點"
 
-#: templates/contents/product-profile.html:93 watchlists/models.py:159
-#: watchlists/models.py:160
+#: templates/contents/product-profile.html:93 watchlists/models.py:160
+#: watchlists/models.py:161
 msgid "Monitor Profile"
 msgstr "監控價格內容及因應措施"
 
@@ -1061,19 +1060,23 @@ msgstr "全螢幕"
 msgid "Watchlist"
 msgstr "監控清單"
 
-#: templates/navigation.html:66
+#: templates/navigation.html:64
+msgid "Admin"
+msgstr "後台管理"
+
+#: templates/navigation.html:71
 msgid "Grand Totals"
 msgstr "合計項目"
 
-#: templates/navigation.html:85
+#: templates/navigation.html:90
 msgid "Agricultures"
 msgstr "農產品"
 
-#: templates/navigation.html:104
+#: templates/navigation.html:108
 msgid "Livestocks"
 msgstr "畜禽產品"
 
-#: templates/navigation.html:124
+#: templates/navigation.html:128
 msgid "Fisheries"
 msgstr "漁產品"
 
@@ -1116,3 +1119,11 @@ msgstr "比較器"
 #: watchlists/models.py:151
 msgid "Color"
 msgstr "顯示顏色"
+
+#: watchlists/models.py:155
+msgid "Is Active"
+msgstr "啟用"
+
+#: watchlists/models.py:156
+msgid "Monitor Months"
+msgstr "監控月份"

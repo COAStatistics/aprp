@@ -32,9 +32,9 @@ def monitor_profile_filter(obj, watchlist):
     elif isinstance(obj, Config):
         product_ids = obj.products().values_list('id', flat=True)
     else:
-        raise NotImplementedError('Invalid obj parameter for this filter')
+        return MonitorProfile.objects.none()
 
-    monitor_profiles = MonitorProfile.objects.filter(product__id__in=product_ids, watchlist=watchlist, active=True)
+    monitor_profiles = MonitorProfile.objects.filter(product__id__in=product_ids, watchlist=watchlist, is_active=True)
 
     return monitor_profiles
 

@@ -155,6 +155,11 @@ function loadURL(url, container, data, type) {
                 xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
             }
 
+            // Google Analytics
+            if(window.ga){
+                ga('send', 'pageview', url);
+            }
+
             //IE11 bug fix for googlemaps (delete all google map instances)
             //check if the page is ajax = true, has google map class and the container is #content
             if ($.navAsAjax && $(".google_maps")[0] && (container[0] == $("#content")[0]) ) {
@@ -517,7 +522,7 @@ $('nav').on('click.jarvismenu-load-element', 'a[data-load]', function(e){
 
 })
 
-// DO on hash change
+// Replace url on hash change
 $(window).on('hashchange', function() {
     history.replaceState(null, '', '/');
 });

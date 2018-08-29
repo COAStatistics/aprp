@@ -59,6 +59,11 @@
                     <li class="">
                         <a href="{% url 'about' %}" title="About"><i class="fa fa-lg fa-fw fa-info"></i> <span class="menu-item-parent">{% trans 'About' %}</span></a>
                     </li>
+                    {% if user.is_staff and user.info.is_editor %}
+                    <li>
+                        <a href="{% url 'admin:index' %}" target="_blank" title="Admin"><i class="fa fa-lg fa-fw fa-gear"></i> <span class="menu-item-parent">{% trans 'Admin' %}</span></a>
+                    </li>
+                    {% endif %}
                 </ul>
             </li>
 
@@ -93,7 +98,6 @@
 
                             {% include 'contents/color-alert.html' with item=config watchlist=user_watchlist %}
                             <span class="menu-item-parent">{{ config.name }}</span>
-
                         </a>
                         <!-- dynamically load ul here -->
                     </li>

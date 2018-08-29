@@ -6,7 +6,6 @@ from django.contrib.auth import(
     logout,
     get_user_model
 )
-from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.utils.translation import ugettext_lazy as _
 from .forms import (
