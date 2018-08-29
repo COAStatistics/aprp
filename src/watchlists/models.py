@@ -52,7 +52,7 @@ class Watchlist(Model):
                 watchlist = Watchlist.objects.get(is_default=True)
                 if self != watchlist:
                     watchlist.update(is_default=False)
-                    watchlist.monitorprofile_set.update(active=False)
+                    watchlist.monitorprofile_set.update(is_active=False)
             except Watchlist.DoesNotExist:
                 pass
 
@@ -152,7 +152,8 @@ class MonitorProfile(Model):
     info = TextField(null=True, blank=True, verbose_name=_('Info'))
     action = TextField(null=True, blank=True, verbose_name=_('Action'))
     period = TextField(null=True, blank=True, verbose_name=_('Period'))
-    active = BooleanField(default=False, verbose_name=_('Period'))
+    is_active = BooleanField(default=False, verbose_name=_('Is Active'))
+    months = ManyToManyField('configs.Month', verbose_name=_('Monitor Months'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
 
     class Meta:
@@ -171,7 +172,7 @@ class MonitorProfile(Model):
     def watchlist_items(self):
         return WatchlistItem.objects.filter(product__parent=self.product)
 
-    def is_active(self, price):
+    def active_compare(self, price):
         if self.comparator == '__gt__':
             return price > self.price
         if self.comparator == '__gte__':

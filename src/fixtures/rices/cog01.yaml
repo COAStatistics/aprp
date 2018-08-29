@@ -179,8 +179,8 @@
   pk: 19
   fields:
     name: 硬種(蓬萊)
-    code: pt_1japt
-    type: 1
+    code: pt_4japt
+    type: 2
     config: 1
     unit: 2
     parent: 18
@@ -200,7 +200,7 @@
   fields:
     name: 硬秈(在來)
     code: pt_4tsait
-    type: 1
+    type: 2
     config: 1
     unit: 2
     parent: 20
@@ -221,7 +221,7 @@
   fields:
     name: 軟秈
     code: pt_4sangt
-    type: 1
+    type: 2
     config: 1
     unit: 2
     parent: 22
@@ -241,7 +241,7 @@
   fields:
     name: 圓糯
     code: pt_4glutrt
-    type: 1
+    type: 2
     config: 1
     unit: 2
     parent: 24
@@ -261,7 +261,7 @@
   fields:
     name: 長糯
     code: pt_4glutlt
-    type: 1
+    type: 2
     config: 1
     unit: 2
     parent: 26

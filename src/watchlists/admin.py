@@ -15,7 +15,7 @@ class MonitorProfileModelForm(ModelForm):
 
 class MonitorProfileAdmin(admin.ModelAdmin):
     form = MonitorProfileModelForm
-    list_display = ['id', 'product', 'watchlist', 'active', 'price', 'color', 'info', 'period', 'action']
+    list_display = ['id', 'product', 'watchlist', 'is_active', 'price', 'color', 'info', 'period', 'action']
 
 
 class WatchlistItemModelForm(ModelForm):
