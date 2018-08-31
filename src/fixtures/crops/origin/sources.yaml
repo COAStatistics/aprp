@@ -618,3 +618,10 @@
     name: 新埤辦事處
     configs: [5, 6]
     type: 2
+
+- model: configs.Source
+  pk: 10108
+  fields:
+    name: 冬山鄉農會
+    configs: [5, 6]
+    type: 2
