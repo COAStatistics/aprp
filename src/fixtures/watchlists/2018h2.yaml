@@ -451,7 +451,7 @@
   pk: 1063
   fields:
     product: 59015 # 文旦 產地
-    sources: [10083, 10075, 10084, 10085]
+    sources: [10083, 10075, 10084, 10085, 10108]
     parent: 3
 
 - model: watchlists.WatchlistItem
@@ -486,7 +486,7 @@
   pk: 1068
   fields:
     product: 59004 # 香蕉(內銷) 產地
-    sources: [10044, 10043, 10077, 10056, 10067, 10041, 10070, 10042, 10039]
+    sources: [10044, 10043, 10077, 10056, 10067, 10041, 10070, 10042, 10039, 10045]
     parent: 3
 
 - model: watchlists.WatchlistItem
