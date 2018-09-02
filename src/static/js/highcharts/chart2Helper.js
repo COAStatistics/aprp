@@ -89,6 +89,7 @@ var chart2Helper = {
                         color: Highcharts.getOptions().colors[1],
                         data: chart2Helper.mark(type.id, data['avg_price']),
                         zIndex: 100,
+                        turboThreshold: 0, // check every single data-point more than 1000 points
                         marker: {
                             enabled: true,
                             radius: 1,
@@ -287,11 +288,11 @@ var chart2Helper = {
                             min = min.add(1).days();
                             this.setExtremes(min.getTime());
 
+                            var chart = this.chart;
+
                             /* Redraw To Update Range Select Input Value */
                             setTimeout(function(){
-                                chart2Helper.manager.charts.forEach(function(chart, i){
-                                    chart.redraw();
-                                })
+                                chart.redraw();
                             }, 0);
                         }
                         if(e.trigger == 'rangeSelectorInput'
@@ -353,6 +354,7 @@ var chart2Helper = {
                     }
                 },
             },
+
 
             tooltip: {
                 formatter: function () {
