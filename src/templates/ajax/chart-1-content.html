@@ -1,6 +1,6 @@
-{% load json_filters %}
 {% load i18n %}
 {% load staticfiles %}
+{% load json_filters %}
 
 <section id="chart-{{ chart.id }}-widget-grid" class="padding-10">
     <div class="row padding-10">
@@ -74,7 +74,7 @@
 	    chart1Helper.init('chart-{{ chart.id }}');
 
         var seriesOptions = {{ series_options|stringify|safe }}
-        var unit = {{ unit|stringify|safe }}
+        var unit = {{ unit_json|stringify|safe }}
 
         // init chart
         var chart = chart1Helper.create('chart-{{ chart.id }}-widget-highchart-body', seriesOptions, unit);

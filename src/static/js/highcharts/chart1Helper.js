@@ -14,6 +14,11 @@ var chart1Helper = {
             title: 11,
         },
         title: gettext('Daily Price/Volume Trend For Two Weeks'),
+        monitorProfiles: null,
+        colorLevel: {
+            danger: '#b94a48',
+            warning: '#c09853'
+        },
     },
     init: function(container){
         this.container = $('#' + container);
@@ -31,6 +36,38 @@ var chart1Helper = {
             this.manager.fontSize.title = 18;
         }
 
+        // monitor profiles
+        this.manager.monitorProfiles = this.container[0].monitorProfiles;
+
+    },
+    mark: function(typeId, data){
+        if(!this.manager.monitorProfiles){
+            return data;
+        }
+        profiles = $.grep(this.manager.monitorProfiles, function(profile){
+            return profile.type == typeId;
+        })
+        data.forEach(function(point, i){
+            x = point[0];
+            y = point[1];
+            profiles.forEach(function(profile, j){
+                if((profile.low_price <= y) && (y <= profile.up_price)){
+                    data[i] = {
+                        x: x,
+                        y: y,
+                        marker: {
+                            symbol: 'triangle',
+                            fillColor: '#FFF',
+                            radius: 15,
+                            lineColor: chart1Helper.manager.colorLevel[profile.color],
+                            lineWidth: 10,
+                        },
+                        monitorProfile: profile,
+                    }
+                }
+            })
+        })
+        return data;
     },
     create: function(container, seriesOptions, unit){
 
@@ -54,11 +91,11 @@ var chart1Helper = {
                         name: type.name + gettext('Average Price'),
                         yAxis: 0,
                         color: Highcharts.getOptions().colors[1],
-                        data: data['avg_price'],
                         zIndex: 100,
+                        data: chart1Helper.mark(type.id, data['avg_price']),
                         marker: {
                             enabled: true,
-                            radius: 3
+                            radius: 5,
                         },
                         tooltip: {
                             valueDecimals: 2,
@@ -96,12 +133,12 @@ var chart1Helper = {
                         name: type.name + gettext('Average Weight'),
                         color: Highcharts.getOptions().colors[2],
                         yAxis: 2,
-                        data: data['avg_weight'],
                         zIndex: 10,
                         marker: {
                             enabled: true,
-                            radius: 3,
+                            radius: 5,
                         },
+                        data: data['avg_weight'],
                         tooltip: {
                             valueDecimals: 1,
                             split: true,
@@ -218,10 +255,19 @@ var chart1Helper = {
             yAxis: yAxis,
 
             tooltip: {
-                valueDecimals: 2,
-                split: true,
+                formatter: function () {
+                    var s = '<b>' + Highcharts.dateFormat('%Y/%m/%d, %a', new Date(this.x)) + '</b>';
+
+                    $.each(this.points, function () {
+                        s += '<br/><br/>' + this.series.name + ': ' + Highcharts.numberFormat(this.y, this.series.tooltipOptions.valueDecimals);
+                        if(this.point.monitorProfile){
+                            s += ' (' + this.point.monitorProfile.watchlist + '-' + this.point.monitorProfile.format_price + ')'
+                        }
+                    });
+
+                    return s;
+                },
                 shared: true,
-                xDateFormat: '%Y/%m/%d, %a',
             },
 
             series: series,

@@ -1,6 +1,6 @@
 {% load i18n %}
 {% load staticfiles %}
-
+{% load json_filters %}
 
 
 <!-- row -->
@@ -102,6 +102,11 @@
             loadURL(url, $container);
             $this.attr('data-load', true);
         });
+
+        // STORE MONITOR PROFILES TO EACH CHART CONTAINER
+        $('#chart-functions-content .tab-pane').each(function(){
+            this.monitorProfiles = {{ current_monitor_profiles|stringify|safe }};
+        })
 
         // INITIAL FIRST CHART
         $('#chart-functions-tab a[data-toggle="tab"][data-load]:eq(0)').trigger('click');

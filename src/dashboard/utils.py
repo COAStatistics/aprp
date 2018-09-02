@@ -13,6 +13,7 @@ from configs.models import (
     Config, AbstractProduct, Source, Type, Chart,
 )
 from configs.api.serializers import UnitSerializer
+from watchlists.api.serializers import MonitorProfileSerializer
 
 
 def jarvismenu_extra_context(instance):
@@ -111,6 +112,9 @@ def chart_tab_extra_context(instance):
         extra_context['product'] = product
         extra_context['types'] = product.types(watchlist=watchlist)
         extra_context['monitor_profiles'] = monitor_profiles
+        current_month = datetime.date.today().month
+        current_monitor_profiles = monitor_profiles.filter(months__in=[current_month])
+        extra_context['current_monitor_profiles'] = MonitorProfileSerializer(current_monitor_profiles, many=True).data
 
     elif content_type in ['type', 'source']:
         if last_content_type == 'product':
@@ -159,8 +163,7 @@ def chart_contents_extra_context(instance):
     if content_type == 'type':
         types = types.filter(id=object_id)
 
-    unit = UnitSerializer(items.get_unit()).data
-    extra_context['unit'] = unit
+    extra_context['unit_json'] = UnitSerializer(items.get_unit()).data
 
     # get tran data by chart
     series_options = []
@@ -243,8 +246,7 @@ def integration_extra_context(instance):
         items = watchlist.children().filter_by_product(product__id=last_object_id)
         sources = Source.objects.filter(id=object_id)
 
-    unit = UnitSerializer(items.get_unit()).data
-    extra_context['unit'] = unit
+    extra_context['unit_json'] = UnitSerializer(items.get_unit()).data
 
     if instance.to_init:
 

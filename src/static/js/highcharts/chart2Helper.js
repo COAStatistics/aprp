@@ -14,6 +14,11 @@ var chart2Helper = {
             title: 11,
         },
         title: gettext('Daily Price/Volume Trend For All Time'),
+        monitorProfiles: null,
+        colorLevel: {
+            danger: '#b94a48',
+            warning: '#c09853'
+        },
     },
     init: function(container){
         this.container = $('#' + container);
@@ -28,6 +33,38 @@ var chart2Helper = {
             this.manager.fontSize.title = 18;
         }
 
+        // monitor profiles
+        this.manager.monitorProfiles = this.container[0].monitorProfiles;
+
+    },
+    mark: function(typeId, data){
+        if(!this.manager.monitorProfiles){
+            return data;
+        }
+        profiles = $.grep(this.manager.monitorProfiles, function(profile){
+            return profile.type == typeId;
+        })
+        data.forEach(function(point, i){
+            x = point[0];
+            y = point[1];
+            profiles.forEach(function(profile, j){
+                if((profile.low_price <= y) && (y <= profile.up_price)){
+                    data[i] = {
+                        x: x,
+                        y: y,
+                        marker: {
+                            symbol: 'triangle',
+                            fillColor: '#FFF',
+                            radius: 8,
+                            lineColor: chart2Helper.manager.colorLevel[profile.color],
+                            lineWidth: 5,
+                        },
+                        monitorProfile: profile,
+                    }
+                }
+            })
+        })
+        return data;
     },
     create: function(container, seriesOptions, unit) {
 
@@ -50,13 +87,14 @@ var chart2Helper = {
                         name: type.name + gettext('Average Price'),
                         yAxis: 0,
                         color: Highcharts.getOptions().colors[1],
-                        data: data['avg_price'],
+                        data: chart2Helper.mark(type.id, data['avg_price']),
                         zIndex: 100,
                         marker: {
-                            radius: 0,
+                            enabled: true,
+                            radius: 1,
                             states: {
                                 hover: {
-                                    radius: 2
+                                    radius: 5,
                                 }
                             }
                         },
@@ -106,10 +144,10 @@ var chart2Helper = {
                         data: data['avg_weight'],
                         zIndex: 10,
                         marker: {
-                            radius: 0,
+                            radius: 1,
                             states: {
                                 hover: {
-                                    radius: 2
+                                    radius: 5,
                                 }
                             }
                         },
@@ -227,7 +265,6 @@ var chart2Helper = {
                 }
             },
 
-
             rangeSelector: {
                 inputEnabled: true,
                 buttons: buttons,
@@ -252,7 +289,9 @@ var chart2Helper = {
 
                             /* Redraw To Update Range Select Input Value */
                             setTimeout(function(){
-                                chart2Helper.container.highcharts().redraw();
+                                chart2Helper.manager.charts.forEach(function(chart, i){
+                                    chart.redraw();
+                                })
                             }, 0);
                         }
                         if(e.trigger == 'rangeSelectorInput'
@@ -293,6 +332,13 @@ var chart2Helper = {
 
             series: series,
 
+            legend: {
+                enabled: true,
+                itemStyle: {
+                    fontSize: chart1Helper.manager.fontSize.label,
+                },
+            },
+
             exporting: {
                 enabled: thisDevice == 'desktop',
                 sourceWidth: 1600,
@@ -309,7 +355,19 @@ var chart2Helper = {
             },
 
             tooltip: {
-                xDateFormat: '%Y/%m/%d, %a',
+                formatter: function () {
+                    var s = '<b>' + Highcharts.dateFormat('%Y/%m/%d, %a', new Date(this.x)) + '</b>';
+
+                    $.each(this.points, function () {
+                        s += '<br/><br/>' + this.series.name + ': ' + Highcharts.numberFormat(this.y, this.series.tooltipOptions.valueDecimals);
+                        if(this.point.monitorProfile){
+                            s += ' (' + this.point.monitorProfile.watchlist + '-' + this.point.monitorProfile.format_price +  ')'
+                        }
+                    });
+
+                    return s;
+                },
+                shared: true,
             },
 
             responsive: {
@@ -345,7 +403,6 @@ var chart2Helper = {
 
         }, function (chart) {
 
-
                 var max = new Date(chart.xAxis[0].getExtremes().max);
                 var min = new Date(chart.xAxis[0].getExtremes().min);
 
@@ -362,6 +419,9 @@ var chart2Helper = {
                     $('input.highcharts-range-selector', $(chart.container).parent())
                         .datepicker();
                 }, 0);
+
+                // init integration datatable
+                integrationHelper.loadTable($('#chart-2-widget-integration div[data-load]'), min, max);
 
         });
 

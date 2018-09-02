@@ -71,7 +71,7 @@
 	    dynamic_setup_widgets('chart-{{ chart.id }}-widget-grid');
 
         var seriesOptions = {{ series_options|stringify|safe }}
-        var unit = {{ unit|stringify|safe }}
+        var unit = {{ unit_json|stringify|safe }}
 
         chart2Helper.init('chart-{{ chart.id }}');
 
@@ -82,12 +82,6 @@
             var container = $(this).attr('id');
             dataTableHelper.createRaw(container);
         })
-
-        // init integration datatable
-        var min = chart2Helper.manager.dateRange.min;
-        var max = chart2Helper.manager.dateRange.max;
-        var $container = $('#chart-{{ chart.id }}-widget-integration div[data-load]');
-        integrationHelper.loadTable($container, min, max);
 
 	};
 

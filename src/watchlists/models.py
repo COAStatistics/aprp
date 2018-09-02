@@ -167,7 +167,7 @@ class MonitorProfile(Model):
         return str('product: %s, watchlist: %s, price: %s' % (self.product.name, self.watchlist.name, self.price))
 
     def sibling(self):
-        return MonitorProfile.objects.exclude(id=self.id).filter(product=self.product, watchlist=self.watchlist)
+        return MonitorProfile.objects.exclude(id=self.id).filter(type=self.type, product=self.product, watchlist=self.watchlist)
 
     def watchlist_items(self):
         return WatchlistItem.objects.filter(product__parent=self.product)
@@ -187,6 +187,54 @@ class MonitorProfile(Model):
         d = dict(COMPARATOR_CHOICES)
         comparator = d[str(self.comparator)]
         return '{0}{1:g}{2}'.format(comparator, self.price, self.product.unit.price_unit)
+
+    @property
+    def less(self):
+        return ['__lt__', '__lte__']
+
+    @property
+    def greater(self):
+        return ['__gt__', '__gte__']
+
+    @property
+    def price_range(self):
+
+        low_price = None
+        up_price = None
+
+        if self.comparator in self.less:
+            sibling = self.sibling().filter(comparator__in=self.less).order_by('price')
+            last_obj = sibling.filter(price__lt=self.price).last()
+            if last_obj:
+                low_price = last_obj.price
+            else:
+                low_price = 0
+            up_price = self.price
+
+        if self.comparator in self.greater:
+            sibling = self.sibling().filter(comparator__in=self.greater).order_by('price')
+            next_obj = sibling.filter(price__gt=self.price).first()
+            if next_obj:
+                up_price = next_obj.price
+            else:
+                up_price = 2 ** 50
+            low_price = self.price
+
+        return [low_price, up_price]
+
+    @property
+    def low_price(self):
+        return self.price_range[0]
+
+    @property
+    def up_price(self):
+        return self.price_range[1]
+
+
+
+
+
+
 
 
 

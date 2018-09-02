@@ -92,7 +92,7 @@
 
 	    chart4Helper.init('chart-{{ chart.id }}');
 
-        var unit = {{ unit|stringify|safe }}
+        var unit = {{ unit_json|stringify|safe }}
 
         {% for option in series_options %}
             var type = {{ option.type|stringify|safe }};
