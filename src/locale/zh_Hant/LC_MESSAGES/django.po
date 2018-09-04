@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-29 13:00+0800\n"
+"POT-Creation-Date: 2018-09-04 18:03+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgid "Please Input Chinese Only"
 msgstr "請輸入中文"
 
 #: accounts/forms.py:21 accounts/forms.py:83 accounts/forms.py:110
-#: accounts/forms.py:177 accounts/views.py:114
+#: accounts/forms.py:177 accounts/views.py:113
 msgid "Account"
 msgstr "帳號"
 
@@ -172,7 +172,7 @@ msgstr "帳戶啟用驗證"
 msgid "Activation Profiles"
 msgstr "帳戶啟動驗證"
 
-#: accounts/models.py:149 accounts/views.py:114
+#: accounts/models.py:149 accounts/views.py:113
 msgid "Activate"
 msgstr "啟用"
 
@@ -365,7 +365,7 @@ msgstr "我已閱讀過"
 msgid "Terms and Conditions"
 msgstr "使用條款"
 
-#: accounts/templates/resend-email.html:8 accounts/views.py:89
+#: accounts/templates/resend-email.html:8 accounts/views.py:88
 msgid "Forgot Password"
 msgstr "忘記密碼"
 
@@ -401,7 +401,7 @@ msgid ""
 "used. Please request a new password reset"
 msgstr "您使用的重設密碼連結已經失效，可能已經使用過了。請再重寄一次驗證信"
 
-#: accounts/views.py:128
+#: accounts/views.py:127
 msgid "Your account is already activated"
 msgstr "您的帳號已經啟用過了"
 
