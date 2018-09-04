@@ -141,7 +141,7 @@
 - model: fruits.Fruit
   pk: 59015
   fields:
-    name: 文旦
+    name: 文旦柚
     code: 文旦
     type: 2
     config: 6
