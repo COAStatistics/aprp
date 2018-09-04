@@ -96,7 +96,7 @@ var chart4Helper = {
                                  '<span style="color:#0C5DA5;font-weight:bold">' + gettext('Median') +': {point.median}</span><br/>' +
                                  gettext('Lower quartile') +' : {point.q1}<br/>' +
                                  gettext('Minimum') +' : {point.low}<br/>' +
-                                 '<span style="color:red;font-weight:bold">{0}:'+ gettext('Mean') +' {point.mean}</span><br/>',
+                                 '<span style="color:red;font-weight:bold">{0}'+ gettext('Mean') +': {point.mean}</span><br/>',
                 },
             })
         }
