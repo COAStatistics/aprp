@@ -34,7 +34,7 @@ var integrationHelper = {
         var $spinner = $('<i class="fa fa-refresh fa-spin" style="margin-right: 5px;">');
         $btn = $(node);
 
-        if($btn.attr('data-load') || $btn.attr('data-load-sending')){
+        if($btn.data('load') || $btn.data('load-sending')){
             return;
         }
 
@@ -46,7 +46,7 @@ var integrationHelper = {
             data: data,
             beforeSend: function(xhr, settings){
                 $spinner.prependTo($btn);
-                $btn.attr('data-load-sending', true);
+                $btn.data('load-sending', true);
                 // CSRF token
                 if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
                     xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
@@ -54,11 +54,11 @@ var integrationHelper = {
             },
             complete: function(){
                 $btn.find('.fa-spinner').remove();
-                $btn.attr('data-load-sending', false);
+                $btn.data('load-sending', false);
             },
             error: function(){
                 $btn.find('.fa-spinner').remove();
-                $btn.attr('data-load-sending', false);
+                $btn.data('load-sending', false);
             },
         }).done(function(data){
             var $trs = $(data);
@@ -81,10 +81,14 @@ var integrationHelper = {
             dataTableHelper.compareIntegrationRow($container);
 
             // SET ATTRIBUTE
-            $btn.attr('data-load', true);
+            $btn.data('load', true);
 
         }).fail(function(){
-            root.console.log('Load Historical Data Fail');
+            root.console.log('Load Historical Data Failed');
+
+            $btn.text(gettext('Load Failed') + ', ' + gettext('Retry'));
+            $btn.find('.fa-spinner').remove();
+            $btn.data('load-sending', false);
         })
 
     }
