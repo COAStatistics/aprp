@@ -21,11 +21,11 @@
 
 ## Demo
 
-![image](https://github.com/COAStatistics/aprp/blob/master/img/demo.png?raw=true)
+![image](img/demo.png)
 
 
 ## Hierarchy
 
-![image](https://github.com/COAStatistics/aprp/blob/master/img/aprp.png?raw=true)
+![image](img/aprp.png)
 
 
