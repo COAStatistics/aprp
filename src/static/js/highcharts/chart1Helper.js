@@ -40,34 +40,48 @@ var chart1Helper = {
         this.manager.monitorProfiles = this.container[0].monitorProfiles;
 
     },
-    mark: function(typeId, data){
-        if(!this.manager.monitorProfiles){
-            return data;
-        }
-        profiles = $.grep(this.manager.monitorProfiles, function(profile){
+    markData: function(typeId, data){
+
+        profiles = $.grep(chart1Helper.manager.monitorProfiles, function(profile){
             return profile.type == typeId;
         })
+
         data.forEach(function(point, i){
-            x = point[0];
-            y = point[1];
+
+            x = point[0]
+            y = point[1]
+
             profiles.forEach(function(profile, j){
                 if((profile.low_price <= y) && (y <= profile.up_price)){
                     data[i] = {
                         x: x,
                         y: y,
-                        marker: {
-                            symbol: 'triangle',
-                            fillColor: '#FFF',
-                            radius: 15,
-                            lineColor: chart1Helper.manager.colorLevel[profile.color],
-                            lineWidth: 10,
-                        },
                         monitorProfile: profile,
                     }
                 }
             })
         })
-        return data;
+
+        return function(radius){
+
+            if(!chart1Helper.manager.monitorProfiles || thisDevice != 'desktop'){
+                return data;
+            }
+            radius = radius || 12;
+
+            data.forEach(function(point, i){
+                point.marker = point.monitorProfile ? {
+                    symbol: 'triangle',
+                    fillColor: '#FFF',
+                    radius: radius,
+                    lineWidth: radius * 0.5,
+                    lineColor: chart1Helper.manager.colorLevel[point.monitorProfile.color],
+                } : null;
+            })
+
+            return data;
+        };
+
     },
     create: function(container, seriesOptions, unit){
 
@@ -85,6 +99,7 @@ var chart1Helper = {
 
             if ('avg_price' in data) {
                 if (data['avg_price'].length > 0) {
+                    var markData = chart1Helper.markData(type.id, data['avg_price']);
                     has_avg_price = true;
                     series.push({
                         type: 'line',
@@ -92,10 +107,11 @@ var chart1Helper = {
                         yAxis: 0,
                         color: Highcharts.getOptions().colors[1],
                         zIndex: 100,
-                        data: chart1Helper.mark(type.id, data['avg_price']),
+                        data: markData(), // invoke to get marked data
                         marker: {
                             enabled: true,
                             radius: 5,
+                            markData: markData, // function
                         },
                         tooltip: {
                             valueDecimals: 2,
