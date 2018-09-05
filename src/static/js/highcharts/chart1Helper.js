@@ -48,8 +48,8 @@ var chart1Helper = {
 
         data.forEach(function(point, i){
 
-            x = point[0]
-            y = point[1]
+            x = point[0];
+            y = point[1];
 
             profiles.forEach(function(profile, j){
                 if((profile.low_price <= y) && (y <= profile.up_price)){
@@ -91,7 +91,6 @@ var chart1Helper = {
         var has_sum_volume = false;
         var has_avg_weight = false;
 
-
         seriesOptions.forEach(function(option, i) {
 
             type = option.type;
@@ -121,6 +120,7 @@ var chart1Helper = {
                     });
                 }
             }
+
             if ('sum_volume' in data) {
                 if (data['sum_volume'].length > 0) {
                     has_sum_volume = true;
@@ -139,7 +139,6 @@ var chart1Helper = {
                     });
                 }
             }
-
 
             if ('avg_weight' in data) {
                 if (data['sum_volume'].length > 0) {
@@ -165,7 +164,7 @@ var chart1Helper = {
             }
         })
 
-        // dynamic generate yAxis settings
+        /* Dynamically generate yAxis */
         if (has_avg_price) {
             yAxis.push({
                 lineWidth: 1,
@@ -352,5 +351,3 @@ var chart1Helper = {
 
     },
 }
-
-

@@ -45,8 +45,8 @@ var chart2Helper = {
 
         data.forEach(function(point, i){
 
-            x = point[0]
-            y = point[1]
+            x = point[0];
+            y = point[1];
 
             profiles.forEach(function(profile, j){
                 if((profile.low_price <= y) && (y <= profile.up_price)){
@@ -181,7 +181,7 @@ var chart2Helper = {
             }
         })
 
-        // dynamic generate yAxis settings
+        /* Dynamically generate yAxis */
         if (has_avg_price) {
             yAxis.push({
                 lineWidth: 1,
@@ -204,6 +204,7 @@ var chart2Helper = {
                 opposite: false
             })
         }
+
         if (has_sum_volume) {
             yAxis.push({
                 lineWidth: 1,
@@ -332,7 +333,7 @@ var chart2Helper = {
                                     if(monthLength <= 24){ // fix size if range > 24 month
                                         series.update({
                                             data: series.userOptions.marker.markData(monthLength),
-                                        }, true);
+                                        }, true); // redraw
                                     }
                                 }
                             })
@@ -453,25 +454,25 @@ var chart2Helper = {
 
         }, function (chart) {
 
-                var max = new Date(chart.xAxis[0].getExtremes().max);
-                var min = new Date(chart.xAxis[0].getExtremes().min);
+            var max = new Date(chart.xAxis[0].getExtremes().max);
+            var min = new Date(chart.xAxis[0].getExtremes().min);
 
-                /* Add 1 day to min for custom purpose */
-                min = min.add(1).days();
-                chart.xAxis[0].setExtremes(min.getTime());
+            /* Add 1 day to min for custom purpose */
+            min = min.add(1).days();
+            chart.xAxis[0].setExtremes(min.getTime());
 
-                /* Init chart2Helper dateRange */
-                chart2Helper.manager.dateRange.min = min;
-                chart2Helper.manager.dateRange.max = max;
+            /* Init chart2Helper dateRange */
+            chart2Helper.manager.dateRange.min = min;
+            chart2Helper.manager.dateRange.max = max;
 
-                /* Apply Datepicker */
-                setTimeout(function () {
-                    $('input.highcharts-range-selector', $(chart.container).parent())
-                        .datepicker();
-                }, 0);
+            /* Apply Datepicker */
+            setTimeout(function () {
+                $('input.highcharts-range-selector', $(chart.container).parent())
+                    .datepicker();
+            }, 0);
 
-                // init integration datatable
-                integrationHelper.loadTable($('#chart-2-widget-integration div[data-load]'), min, max);
+            // init integration datatable
+            integrationHelper.loadTable($('#chart-2-widget-integration div[data-load]'), min, max);
 
         });
 
@@ -492,7 +493,3 @@ $.datepicker.setDefaults({
         this.onblur();
     }
 });
-
-
-
-
