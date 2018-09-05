@@ -177,7 +177,11 @@
 		<script src="{% static 'vendor/js/plugin/datatables/dataTables.bootstrap.min.js' %}"></script>
 		<script src="{% static 'vendor/js/plugin/datatable-responsive/datatables.responsive.min.js' %}"></script>
 		<script src="{% static 'js/datatables/dataTableHelper.js' %}"></script>
-		
+
+		<!-- CKEditor Plugins -->
+		<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+		<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
 		{% if use_ga %}
 			{% include "snippets/ga.html" with ga_tracking_id=ga_tracking_id %}
 		{% endif %}

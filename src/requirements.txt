@@ -61,3 +61,5 @@ django-db-logger==0.1.6
 django-admin-rangefilter==0.3.6
 django-tracking2==0.4.0
 htmlmin==0.1.12
+django-ckeditor==5.4.0
+django-suit==0.2.26
