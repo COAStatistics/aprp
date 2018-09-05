@@ -28,9 +28,8 @@ def active_update():
             if month not in profile.months.values_list('id', flat=True):
                 profile.is_active = False
                 profile.save()
-                db_logger.info('Profile %s update to False, low season' % profile)
+                db_logger.info('Profile %s update to False, low season' % profile, extra=logger_extra)
             else:
-
                 items = watchlist_items.filter_by_product(product=profile.product)
                 t = profile.type
                 query_set = get_query_set(_type=t, items=items)
@@ -42,9 +41,9 @@ def active_update():
                     is_active = profile.active_compare(avg_price)
                     profile.is_active = is_active
                     profile.save()
-                    db_logger.info('Profile %s update to %s, latest average price is %s' % (profile, is_active, avg_price))
+                    db_logger.info('Profile %s update to %s, latest average price is %s' % (profile, is_active, avg_price), extra=logger_extra)
                 else:
-                    db_logger.info('Product %s has no price' % profile.product)
+                    db_logger.warning('Product %s has no price' % profile.product, extra=logger_extra)
 
     except Exception as e:
         db_logger.exception(e, extra=logger_extra)
