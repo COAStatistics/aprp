@@ -517,7 +517,7 @@ $('nav').on('click.jarvismenu-load-element', 'a[data-load]', function(e){
                 window.location.href = res.login_url;
             }
         }
-        console.log('load jarvis menu element fail');
+        root.console.log('load jarvis menu element fail');
     })
 
 })
