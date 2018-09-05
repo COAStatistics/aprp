@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django_celery_results',
     'rangefilter',
     'tracking',
+    'ckeditor',
+    'suit',
 
     # All-auth
     'django.contrib.sites',
