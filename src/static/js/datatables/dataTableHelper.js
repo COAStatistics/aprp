@@ -294,8 +294,6 @@ var dataTableHelper = {
         var columnLength = $container.find("tr:first th").length;
         var columnWidth = 100 / columnLength + '%';
 
-        console.log(columnLength, columnWidth)
-
         var columns = [];
         for(var i = 0; i < columnLength; i++){
             columns.push({ width: columnWidth });
