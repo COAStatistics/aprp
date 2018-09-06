@@ -105,8 +105,7 @@ def chart_tab_extra_context(instance):
     last_content_type = kwargs.get('lct')
     last_object_id = kwargs.get('loi')
     watchlist_id = kwargs.get('wi')
-    watchlists = Watchlist.objects.all()
-    watchlist = watchlists.get(id=watchlist_id)
+    watchlist = Watchlist.objects.get(id=watchlist_id)
     extra_context['watchlist'] = watchlist
 
     if content_type == 'config':
@@ -123,7 +122,7 @@ def chart_tab_extra_context(instance):
         extra_context['monitor_profiles'] = monitor_profiles
         extra_context['monitor_profiles_json'] = MonitorProfileSerializer(monitor_profiles, many=True).data
 
-        extra_context['watchlists_json'] = WatchlistSerializer(watchlists, many=True).data
+        extra_context['watchlists_json'] = WatchlistSerializer(Watchlist.objects.filter(watch_all=False), many=True).data
 
     elif content_type in ['type', 'source']:
         if last_content_type == 'product':
