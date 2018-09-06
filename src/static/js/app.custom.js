@@ -155,9 +155,9 @@ function loadURL(url, container, data, type) {
                 xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
             }
 
-            // Google Analytics
+            // Google Analytics click event
             if(window.ga){
-                ga('send', 'pageview', url);
+                ga('send', 'event', 'ajax', 'click', url);
             }
 
             //IE11 bug fix for googlemaps (delete all google map instances)
@@ -387,6 +387,11 @@ function loadURL(url, container, data, type) {
             // clear data var
             data = null;
             container = null;
+
+            // Google Analytics click event
+            if(window.ga){
+                ga('send', 'event', 'ajax', 'success', url);
+            }
         },
         error : function(xhr, status, thrownError, error) {
             if(xhr.status == 403){
@@ -396,6 +401,11 @@ function loadURL(url, container, data, type) {
                 }
             }
             container.html('<h4 class="ajax-loading-error"><i class="fa fa-warning txt-color-orangeDark"></i> '+ gettext('Error requesting') + '<span class="txt-color-red">' + url + '</span>: ' + xhr.status + ' <span style="text-transform: capitalize;">'  + thrownError + '</span></h4>');
+
+            // Google Analytics click event
+            if(window.ga){
+                ga('send', 'event', 'ajax', 'error', url);
+            }
         },
         async : true
     });
