@@ -89,5 +89,9 @@
 		<!-- MAIN APP JS FILE -->
 		<script src="{% static 'vendor/js/app.js' %}"></script>
 
+		{% if use_ga %}
+			{% include "snippets/ga.html" with ga_tracking_id=ga_tracking_id %}
+		{% endif %}
+
 	</body>
 </html>
