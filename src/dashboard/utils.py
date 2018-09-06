@@ -122,12 +122,12 @@ def chart_tab_extra_context(instance):
         extra_context['monitor_profiles'] = monitor_profiles
         extra_context['monitor_profiles_json'] = MonitorProfileSerializer(monitor_profiles, many=True).data
 
-        extra_context['watchlists_json'] = WatchlistSerializer(Watchlist.objects.filter(watch_all=False), many=True).data
-
     elif content_type in ['type', 'source']:
         if last_content_type == 'product':
             product = AbstractProduct.objects.get(id=last_object_id)
             extra_context['charts'] = product.config.charts.all()
+
+    extra_context['watchlists_json'] = WatchlistSerializer(Watchlist.objects.filter(watch_all=False), many=True).data
 
     return extra_context
 
