@@ -54,7 +54,7 @@ class WatchlistModelForm(ModelForm):
 
 class WatchlistAdmin(admin.ModelAdmin):
     form = WatchlistModelForm
-    list_display = ['id', 'name', 'user', 'is_default', 'watch_all', 'update_time']
+    list_display = ['id', 'name', 'user', 'is_default', 'watch_all', 'start_date', 'end_date', 'update_time']
     list_editable = ['name', 'user']
 
 

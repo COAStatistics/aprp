@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.utils import timezone
 from django.db.models import (
     Model,
     CASCADE,
@@ -39,8 +40,8 @@ class Watchlist(Model):
     user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'))
     is_default = BooleanField(default=False, verbose_name=_('Is Default'))
     watch_all = BooleanField(default=False, verbose_name=_('Watch All'))
-    start_date = DateField(auto_now=False, null=True, blank=True, verbose_name=_('Start Date'))
-    end_date = DateField(auto_now=False, null=True, blank=True, verbose_name=_('End Date'))
+    start_date = DateField(auto_now=False, default=timezone.now().today, verbose_name=_('Start Date'))
+    end_date = DateField(auto_now=False, default=timezone.now().today, verbose_name=_('End Date'))
     create_time = DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name=_('Updated'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
 
@@ -146,8 +147,8 @@ class WatchlistItem(Model):
 
 
 class MonitorProfile(Model):
-    product = ForeignKey('configs.AbstractProduct', null=True, blank=True, on_delete=CASCADE, verbose_name=_('Product'))
-    watchlist = ForeignKey('watchlists.Watchlist', null=True, blank=True, on_delete=CASCADE, verbose_name=_('Watchlist'))
+    product = ForeignKey('configs.AbstractProduct', on_delete=CASCADE, verbose_name=_('Product'))
+    watchlist = ForeignKey('watchlists.Watchlist', on_delete=CASCADE, verbose_name=_('Watchlist'))
     type = ForeignKey('configs.Type', null=True, blank=True, on_delete=SET_NULL, verbose_name=_('Type'))
     price = FloatField(verbose_name=_('Price'))
     comparator = CharField(max_length=6, default='__lt__', choices=COMPARATOR_CHOICES, verbose_name=_('Comparator'))
@@ -232,6 +233,8 @@ class MonitorProfile(Model):
     @property
     def up_price(self):
         return self.price_range[1]
+
+
 
 
 
