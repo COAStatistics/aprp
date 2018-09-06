@@ -6,8 +6,8 @@ from watchlists.models import (
     Watchlist,
     WatchlistItem,
     MonitorProfile,
-
 )
+from dailytrans.utils import to_unix
 from configs.api.serializers import SourceSerializer
 
 
@@ -20,11 +20,18 @@ class WatchlistItemSerializer(ModelSerializer):
 
 
 class WatchlistSerializer(ModelSerializer):
-    children = WatchlistItemSerializer(many=True)
+    start_date = SerializerMethodField()
+    end_date = SerializerMethodField()
+
+    def get_start_date(self, obj):
+        return to_unix(obj.start_date)
+
+    def get_end_date(self, obj):
+        return to_unix(obj.end_date)
 
     class Meta:
         model = Watchlist
-        fields = '__all__'
+        fields = ['name', 'start_date', 'end_date']
 
 
 class MonitorProfileSerializer(ModelSerializer):
@@ -32,6 +39,8 @@ class MonitorProfileSerializer(ModelSerializer):
     up_price = SerializerMethodField()
     low_price = SerializerMethodField()
     watchlist = SerializerMethodField()
+    start_date = SerializerMethodField()
+    end_date = SerializerMethodField()
 
     def get_format_price(self, obj):
         return obj.format_price
@@ -45,9 +54,15 @@ class MonitorProfileSerializer(ModelSerializer):
     def get_watchlist(self, obj):
         return obj.watchlist.name
 
+    def get_start_date(self, obj):
+        return to_unix(obj.watchlist.start_date)
+
+    def get_end_date(self, obj):
+        return to_unix(obj.watchlist.end_date)
+
     class Meta:
         model = MonitorProfile
-        fields = ['format_price', 'low_price', 'up_price', 'type', 'color', 'watchlist']
+        fields = ['format_price', 'low_price', 'up_price', 'type', 'color', 'watchlist', 'start_date', 'end_date']
 
 
 
