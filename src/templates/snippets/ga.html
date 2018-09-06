@@ -6,5 +6,17 @@ window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 ga('create', '{{ ga_tracking_id }}', 'auto');
 ga('send', 'pageview');
 
+window.addEventListener('error', function (e) {
+    ga('send', 'exception', {
+        exDescription: 'JavaScript Error ' + e.message + ' ' + e.filename + ': ' + e.lineno
+    });
+});
+
+jQuery(document).ajaxError(function (e, request, settings) {
+    ga('send', 'exception', {
+        exDescription: 'Ajax Error ' + settings.url + ' ' + e.result
+    });
+});
+
 </script>
 
