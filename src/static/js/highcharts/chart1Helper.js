@@ -231,14 +231,16 @@ var chart1Helper = {
                 opposite: true
             })
         }
-        
+
+        watchlistFlagData = [];
         /* Plot watchlist flags */
-        watchlistFlagData = chart1Helper.manager.watchlistProfiles.map(function(watchlist, i){
+        chart1Helper.manager.watchlistProfiles.forEach(function(watchlist, i){
             // do not plot watchlist flat if out of date range
-            if(watchlist.start_date < chart1Helper.manager.dateRange.min) return;
-            return {
-                x: watchlist.start_date,
-                title: watchlist.name,
+            if(watchlist.start_date >= chart1Helper.manager.dateRange.min){
+                watchlistFlagData.push({
+                    x: watchlist.start_date,
+                    title: watchlist.name,
+                })
             }
         })
         if(watchlistFlagData.length > 0){
