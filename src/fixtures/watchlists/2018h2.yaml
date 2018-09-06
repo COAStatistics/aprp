@@ -4,6 +4,8 @@
     name: 107下半年
     user: 1
     is_default: True
+    start_date: 2018-05-21
+    end_date: 2018-11-16
 
 # Crops - COG05
 
