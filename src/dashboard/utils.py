@@ -10,10 +10,17 @@ from dailytrans.utils import (
     get_integration,
 )
 from configs.models import (
-    Config, AbstractProduct, Source, Type, Chart,
+    Config,
+    AbstractProduct,
+    Source,
+    Type,
+    Chart,
 )
 from configs.api.serializers import UnitSerializer
-from watchlists.api.serializers import MonitorProfileSerializer
+from watchlists.api.serializers import (
+    MonitorProfileSerializer,
+    WatchlistSerializer,
+)
 
 
 def jarvismenu_extra_context(instance):
@@ -98,7 +105,8 @@ def chart_tab_extra_context(instance):
     last_content_type = kwargs.get('lct')
     last_object_id = kwargs.get('loi')
     watchlist_id = kwargs.get('wi')
-    watchlist = Watchlist.objects.get(id=watchlist_id)
+    watchlists = Watchlist.objects.all()
+    watchlist = watchlists.get(id=watchlist_id)
     extra_context['watchlist'] = watchlist
 
     if content_type == 'config':
@@ -111,10 +119,11 @@ def chart_tab_extra_context(instance):
 
         extra_context['product'] = product
         extra_context['types'] = product.types(watchlist=watchlist)
+
         extra_context['monitor_profiles'] = monitor_profiles
-        current_month = datetime.date.today().month
-        current_monitor_profiles = monitor_profiles.filter(months__in=[current_month])
-        extra_context['current_monitor_profiles'] = MonitorProfileSerializer(current_monitor_profiles, many=True).data
+        extra_context['monitor_profiles_json'] = MonitorProfileSerializer(monitor_profiles, many=True).data
+
+        extra_context['watchlists_json'] = WatchlistSerializer(watchlists, many=True).data
 
     elif content_type in ['type', 'source']:
         if last_content_type == 'product':

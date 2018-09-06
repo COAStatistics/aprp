@@ -103,9 +103,10 @@
             $this.attr('data-load', true);
         });
 
-        // STORE MONITOR PROFILES TO EACH CHART CONTAINER
+        // STORE WATCHLIST AND MONITOR PROFILES TO EACH CHART CONTAINER
         $('#chart-functions-content .tab-pane').each(function(){
-            this.monitorProfiles = {{ current_monitor_profiles|stringify|safe }};
+            this.monitorProfiles = {{ monitor_profiles_json|stringify|safe }};
+            this.watchlistProfiles = {{ watchlists_json|stringify|safe }};
         })
 
         // INITIAL FIRST CHART
