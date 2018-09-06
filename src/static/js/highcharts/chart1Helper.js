@@ -38,9 +38,9 @@ var chart1Helper = {
         }
 
         // monitor profiles
-        this.manager.monitorProfiles = this.container[0].monitorProfiles;
+        this.manager.monitorProfiles = this.container[0].monitorProfiles || [];
         // watchlist profiles
-        this.manager.watchlistProfiles = this.container[0].watchlistProfiles;
+        this.manager.watchlistProfiles = this.container[0].watchlistProfiles || [];
 
     },
     markData: function(typeId, data){
