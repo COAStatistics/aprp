@@ -1,6 +1,8 @@
 var chart2Helper = {
     container: null,
     manager: {
+        monitorProfiles: null,
+        watchlistProfiles: null,
         getCharts: function(){
             return chart2Helper.manager.charts;
         },
@@ -14,7 +16,6 @@ var chart2Helper = {
             title: 11,
         },
         title: gettext('Daily Price/Volume Trend For All Time'),
-        monitorProfiles: null,
         colorLevel: {
             danger: '#b94a48',
             warning: '#c09853'
@@ -35,6 +36,8 @@ var chart2Helper = {
 
         // monitor profiles
         this.manager.monitorProfiles = this.container[0].monitorProfiles;
+        // watchlist profiles
+        this.manager.watchlistProfiles = this.container[0].watchlistProfiles;
 
     },
     markData: function(typeId, data){
@@ -49,7 +52,9 @@ var chart2Helper = {
             y = point[1];
 
             profiles.forEach(function(profile, j){
-                if((profile.low_price <= y) && (y <= profile.up_price)){
+                var priceInRange = (profile.low_price <= y) && (y <= profile.up_price);
+                var dateInRange = (profile.start_date <= x) && (x <= profile.end_date); // unix
+                if(priceInRange && dateInRange){
                     data[i] = {
                         x: x,
                         y: y,
@@ -153,7 +158,7 @@ var chart2Helper = {
             }
 
             if ('avg_weight' in data) {
-                if (data['sum_volume'].length > 0) {
+                if (data['avg_weight'].length > 0) {
                     has_avg_weight = true
                     series.push({
                         type: 'line',
@@ -180,6 +185,37 @@ var chart2Helper = {
                 }
             }
         })
+
+        /* Plot watchlist flags */
+        watchlistFlagData = chart2Helper.manager.watchlistProfiles.map(function(watchlist, i){
+            return {
+                x: watchlist.start_date,
+                title: watchlist.name,
+            }
+        })
+        if(watchlistFlagData.length > 0){
+            series.push({
+                type: 'flags',
+                name: gettext('Watchlists'),
+                data: watchlistFlagData,
+                shape: 'flag',
+                zIndex: 1000,
+                showInLegend: false,
+                style: {
+                    fontSize: chart2Helper.manager.fontSize.label,
+                    color: 'white',
+                    borderColor: '#000',
+                },
+                fillColor: '#000',
+                states: {
+                    hover: {
+                        fillColor: '#000',
+                        color: 'white',
+                        borderColor: '#000',
+                    }
+                },
+            })
+        }
 
         /* Dynamically generate yAxis */
         if (has_avg_price) {

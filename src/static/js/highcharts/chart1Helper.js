@@ -1,8 +1,10 @@
 var chart1Helper = {
     container: null,
     manager: {
+        monitorProfiles: null,
+        watchlistProfiles: null,
         getCharts: function(){
-            return chart2Helper.manager.charts;
+            return chart1Helper.manager.charts;
         },
         charts: null,
         dateRange: {
@@ -14,7 +16,6 @@ var chart1Helper = {
             title: 11,
         },
         title: gettext('Daily Price/Volume Trend For Two Weeks'),
-        monitorProfiles: null,
         colorLevel: {
             danger: '#b94a48',
             warning: '#c09853'
@@ -38,6 +39,8 @@ var chart1Helper = {
 
         // monitor profiles
         this.manager.monitorProfiles = this.container[0].monitorProfiles;
+        // watchlist profiles
+        this.manager.watchlistProfiles = this.container[0].watchlistProfiles;
 
     },
     markData: function(typeId, data){
@@ -226,6 +229,39 @@ var chart1Helper = {
                     x: 5
                 },
                 opposite: true
+            })
+        }
+        
+        /* Plot watchlist flags */
+        watchlistFlagData = chart1Helper.manager.watchlistProfiles.map(function(watchlist, i){
+            // do not plot watchlist flat if out of date range
+            if(watchlist.start_date < chart1Helper.manager.dateRange.min) return;
+            return {
+                x: watchlist.start_date,
+                title: watchlist.name,
+            }
+        })
+        if(watchlistFlagData.length > 0){
+            series.push({
+                type: 'flags',
+                name: gettext('Watchlists'),
+                data: watchlistFlagData,
+                shape: 'flag',
+                zIndex: 1000,
+                showInLegend: false,
+                style: {
+                    fontSize: chart1Helper.manager.fontSize.label,
+                    color: 'white',
+                    borderColor: '#000',
+                },
+                fillColor: '#000',
+                states: {
+                    hover: {
+                        fillColor: '#000',
+                        color: 'white',
+                        borderColor: '#000',
+                    }
+                },
             })
         }
 
