@@ -11,6 +11,7 @@ from django.db.models import (
     FloatField,
     QuerySet,
     TextField,
+    DateField,
     Q,
 )
 from django.utils.translation import ugettext_lazy as _
@@ -38,6 +39,8 @@ class Watchlist(Model):
     user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'))
     is_default = BooleanField(default=False, verbose_name=_('Is Default'))
     watch_all = BooleanField(default=False, verbose_name=_('Watch All'))
+    start_date = DateField(auto_now=False, null=True, blank=True, verbose_name=_('Start Date'))
+    end_date = DateField(auto_now=False, null=True, blank=True, verbose_name=_('End Date'))
     create_time = DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name=_('Updated'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
 
