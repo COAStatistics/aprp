@@ -1,9 +1,8 @@
 from django.conf.urls import url
 
-from .views import (
-    PostListAPIView,
-)
+from . import views
+
 
 urlpatterns = [
-    url(r'^$', PostListAPIView.as_view(), name='list')
+    url(r'^$', views.PostListAPIView.as_view(), name='api_socialwall')
 ]

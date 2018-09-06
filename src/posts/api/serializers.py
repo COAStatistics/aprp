@@ -1,21 +1,11 @@
-from rest_framework.serializers import (
-    HyperlinkedIdentityField,
-    ModelSerializer,
-    SerializerMethodField
-    )
-
-
+from rest_framework import serializers
 from accounts.api.serializers import UserDetailSerializer
-from posts.models import Post
+
+from posts import models
 
 
-class PostListSerializer(ModelSerializer):
-    user = UserDetailSerializer(read_only=True)
+class PostListSerializer(serializers.ModelSerializer):
+
     class Meta:
-        model = Post
-        fields = [
-            'user',
-            'title',
-            'content',
-            'publish',
-]
+        model = models.Post
+        fields = '__all__'
