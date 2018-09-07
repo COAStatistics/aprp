@@ -288,8 +288,8 @@ def integration_extra_context(instance):
                                  start_date=start_date,
                                  end_date=end_date,
                                  to_init=False)
-        if not option['no_data']:
-            extra_context['option'] = option
+
+        extra_context['option'] = option if not option['no_data'] else None
 
     extra_context['series_options'] = series_options
     return extra_context

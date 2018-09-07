@@ -188,7 +188,6 @@ var chart2Helper = {
 
         /* Plot watchlist flags */
         watchlistFlagData = [];
-        /* Plot watchlist flags */
         chart2Helper.manager.watchlistProfiles.forEach(function(watchlist, i){
             // do not plot watchlist flat if out of date range
             if(watchlist.start_date >= chart2Helper.manager.dateRange.min){
