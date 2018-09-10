@@ -1,0 +1,109 @@
+{% load i18n %}
+{% load staticfiles %}
+ <!-- load socialwall_filter  -->
+
+
+{% for i in post_list %}
+<div class="grid-item">
+  <span id="span-{{ i.id }}" class="timeline-seperator text-center"> <span>{{ i.timestamp }}</span>
+    <div class="btn-group pull-right">
+      <a href="javascript:void(0);" data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle"><span class="caret single"></span></a>
+      <ul class="dropdown-menu text-left">
+        <li>
+          <a data-id="{{ i.id }}" class="post-hide" href="javascript:void(0);">Hide this post</a>
+        </li>
+        <!-- <li>
+          <a href="javascript:void(0);">Hide future posts from this user</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">Mark as spam</a>
+        </li> -->
+      </ul>
+    </div>
+  </span>
+  <div id="div-{{ i.id }}" class="chat-body no-padding profile-message">
+    <ul>
+      <li>
+        <h1 class="socialwall-title">{{ i.title }}</h1>
+      </li>
+      <li class="message socialwall-message">
+        <!-- <img src="img/avatars/sunny.png" class="online"> -->
+        <div class="message-text socialwall-author">
+          <!-- <div class="read-more big-preview"> -->
+            <a href="javascript:void(0);" class="username">
+              {{ i.user.username }}
+              <small class="text-muted ultra-light socialwall-post-time">{{ i.updated }}</small>
+            </a>
+            {{ i.content|safe }}
+            <!-- <p class="prompt">
+              <button class="button btn btn-danger" href="#">Read More</button>
+            </p> -->
+          <!-- </div> -->
+        </div>
+
+        <ul class="list-inline font-xs">
+          <li class="socialwall-btn-reply">
+            <a data-id="{{ i.id }}" href="javascript:void(0);" class="text-info post-reply"><i class="fa fa-reply"></i> Reply</a>
+          </li>
+          <li class="toggle-like">
+            <a data-id="{{ i.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> Like</a>
+          </li>
+          <!-- <li>
+            <a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
+          </li> -->
+          {% if request.user.username == i.user.username %}
+          <li>
+            <a data-id="{{ i.id }}" href="javascript:void(0);" class="text-primary post-edit">Edit</a>
+          </li>
+          <li>
+            <a data-id="{{ i.id }}" href="javascript:void(0);" class="text-danger post-delete">Delete</a>
+          </li>
+          {% endif %}
+          {% if i.file != None %}
+            <li>
+              <a href="/media/{{ i.file }}" class="glyphicon glyphicon-paperclip" target="_blank" title="{{ i.file }}"></a>
+            </li>
+          {% endif %}
+        </ul>
+
+      </li>
+
+      {% for j in i.comments reversed %}
+        <li class="message message-reply socialwall-reply">
+        <!-- <img src="img/avatars/3.png" class="online"> -->
+        <span id="comment-{{ j.id }}" class="message-text"> <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
+          {{ j.content }}
+        </span>
+
+        <ul class="list-inline font-xs">
+          <li>
+            <a href="javascript:void(0);" class="text-info"><i class="fa fa-reply"></i> Reply</a>
+          </li>
+          <li class="toggle-like">
+            <a data-id="{{ j.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> Like</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="text-muted">{{ j.timestamp }} </a>
+          </li>
+          {% if j.user.username == request.user.username %}
+          <li>
+            <a data-id="{{ j.id }}" href="javascript:void(0);" class="text-primary edit-comment">Edit</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="text-danger">Delete</a>
+          </li>
+          {% endif %}
+        </ul>
+
+        </li>
+      {% endfor %}
+      <li id="insert-reply-{{ i.id }}" class="message message-reply socialwall-reply">
+        <input id="reply-{{ i.id }}" class="form-control input-xs socialwall-reply-text" placeholder="Type and enter" type="text">
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+{% endfor %}
