@@ -13,7 +13,11 @@ var socialWallHelper = {
         }
       })
       // Init post masonry
-      // var $grid = $('.grid').masonry();
+      var $grid = $('.grid').masonry({
+        itemSelector: '.grid-item',
+        columWidth: '.grid-sizer',
+        percentPosition: true,
+      });
       this.initNewPostBtn();
 
   },
