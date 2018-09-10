@@ -278,11 +278,18 @@ var chart1Helper = {
             title: {
                 text: chart1Helper.manager.title,
                 style: {
-                    display: 'block',
                     fontSize: chart1Helper.manager.fontSize.title,
+                    display: thisDevice == 'desktop' ? 'block' : 'none',
                 }
             },
 
+            subtitle: {
+                text: getBreadCrumb(' / '),
+                style: {
+                    fontSize: chart1Helper.manager.fontSize.label,
+                    display: thisDevice == 'desktop' ? 'block' : 'none',
+                }
+            },
 
             loading: {
                 hideDuration: 1000,

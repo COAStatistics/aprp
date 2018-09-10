@@ -96,11 +96,18 @@ var chart3Helper = {
             title: {
                 text: chart3Helper.manager.title,
                 style: {
-                    display: 'block',
                     fontSize: chart3Helper.manager.fontSize.title,
+                    display: thisDevice == 'desktop' ? 'block' : 'none',
                 }
             },
 
+            subtitle: {
+                text: getBreadCrumb(' / '),
+                style: {
+                    fontSize: chart3Helper.manager.fontSize.label,
+                    display: thisDevice == 'desktop' ? 'block' : 'none',
+                }
+            },
 
             xAxis: {
                 type: 'datetime',
