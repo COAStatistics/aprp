@@ -74,7 +74,7 @@ app.conf.beat_schedule = {
     },
     'daily-seafood-builder-3d': {
         'task': 'DailySeafoodBuilder',
-        'schedule': crontab(minute=40, hour='11,14'),
+        'schedule': crontab(minute=40, hour='2,5,8,11,14,17,20,23'),
         'args': (-2,)  # direct 3 day
     },
     'daily-cattle-builder-3d': {
