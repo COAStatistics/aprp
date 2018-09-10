@@ -32,6 +32,8 @@ def direct_wholesale_06(start_date=None, end_date=None, *args):
                     response = wholesale_api.request(start_date=delta_start_date, end_date=delta_end_date, code=obj.code)
                     wholesale_api.load(response)
 
+        wholesale_api.clean(start_date=start_date, end_date=end_date)
+
 
 @director
 def direct_origin(start_date=None, end_date=None, *args):
@@ -44,6 +46,8 @@ def direct_origin(start_date=None, end_date=None, *args):
                 for delta_start_date, delta_end_date in date_generator(start_date, end_date, ORIGIN_DELTA_DAYS):
                     response = origin_api.request(start_date=delta_start_date, end_date=delta_end_date, name=obj.code)
                     origin_api.load(response)
+
+        origin_api.clean(start_date=start_date, end_date=end_date)
 
 
 @director
@@ -60,6 +64,7 @@ def direct_wholesale_03(start_date=None, end_date=None, *args):
             response = wholesale_api.request(date=delta_end_date)
             wholesale_api.load(response)
 
+        wholesale_api.clean(start_date=start_date, end_date=end_date)
 
 
 
