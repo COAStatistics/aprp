@@ -13,7 +13,7 @@ var socialWallHelper = {
         }
       })
       // Init post masonry
-      var $grid = $('.grid').masonry({
+      $grid = $('.grid').masonry({
         itemSelector: '.grid-item',
         columWidth: '.grid-sizer',
         percentPosition: true,
@@ -24,27 +24,32 @@ var socialWallHelper = {
   initNewPostBtn: function() {
     // -------------------- create post start --------------------
     $('.row').on('click', '#btn-newpost', function() {
-      var form = $('#form-post')
-      var url = $(this).attr('action')
+      form = $('#form-post-new');
+      url = form.attr('action');
 
       $.ajax({
         type: 'get',
         url: url,
         success: function (data) {
-          console.log(data['form'])
-          $('.modal-body').html(data['form'])
-          $('#btn-post-create').show()
-          $('#btn-post-update').hide()
-          $('#dialog-form-post').modal('show')
+          // console.log(data);
+          $('#modal-body').html(data);
+          $('#btn-post-create').show();
+          $('#btn-post-update').hide();
+          $('#dialog-form-post').modal('show');
+          socialWallHelper.initFormBtn();
         }
       })
     })
 
+    // -------------------- create post end --------------------
+
+  },
+  initFormBtn: function() {
     $('form').submit(function (e) {
 
       e.preventDefault();
 
-      url = $(this).attr('action');
+      url = $(this).attr('api');
 
       data = $(this).formcontrol().data();
       hasFile = false;
@@ -70,7 +75,10 @@ var socialWallHelper = {
           contentType: false,
           processData: false,
           success: function(data) {
-            console.log(data)
+            $item = $(data);
+            $grid.prepend($item).masonry('prepended', $item);
+            $('#dialog-form-post').modal('hide');
+            socialWallHelper.initPost();
           }
         })
       } else {
@@ -80,13 +88,14 @@ var socialWallHelper = {
           url: url,
           data: data,
           success: function(data) {
-            console.log(data)
+            $item = $(data);
+            $grid.prepend($item).masonry('prepended', $item);
+            $('#dialog-form-post').modal('hide');
+            socialWallHelper.initPost();
           }
         })
       }
     })
-    // -------------------- create post end --------------------
-
   },
   initPost: function($posts){
     // -------------------- edit post start --------------------

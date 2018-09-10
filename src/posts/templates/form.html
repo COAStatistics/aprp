@@ -1,0 +1,14 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<form id="form-post-new" action="{% url 'posts:post_new_form' %}" api="{% url 'posts:api_socialwall_c' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.media }}
+  {{ form|crispy }}
+
+  <button id="btn-post-create" type="submit" class="btn btn-primary pull-right">Post</button>
+  <button id="btn-post-update" type="button" class="btn btn-success pull-right">update</button>
+  <button id="btn-post-cancel" type="button" class="btn btn-danger pull-right" name="button">Cancel</button>
+
+</form>
