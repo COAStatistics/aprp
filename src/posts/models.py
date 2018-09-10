@@ -20,6 +20,8 @@ from .utils import get_read_time, upload_location
 from django.utils.translation import ugettext_lazy as _
 from comments.models import Comment
 
+from ckeditor.fields import RichTextField
+
 
 class PostManager(Manager):
     def active(self, *args, **kwargs):
@@ -31,7 +33,7 @@ class Post(Model):
     user = ForeignKey(settings.AUTH_USER_MODEL, default=1, verbose_name=_('User'))
     title = CharField(max_length=120, verbose_name=_('Title'))
     file = FileField(upload_to=upload_location, null=True, blank=True, verbose_name=_('File'))
-    content = TextField(verbose_name=_('Content'))
+    content = RichTextField(verbose_name=_('Content'))
     publish = DateField(auto_now=False, default=timezone.now, verbose_name=_('Publish'))
     read_time = IntegerField(default=0, verbose_name=_('Read Time'))  # TimeField(null=True, blank=True) #assume minutes
     updated = DateTimeField(auto_now=True, verbose_name=_('Updated'))
