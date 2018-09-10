@@ -14,37 +14,37 @@ from configs.models import (
 class ChartSerializer(ModelSerializer):
     class Meta:
         model = Chart
-        fields = ['name', 'code']
+        fields = '__all__'
 
 
 class TypeSerializer(ModelSerializer):
     class Meta:
         model = Type
-        fields = ['name']
+        fields = '__all__'
 
 
 class SourceSerializer(ModelSerializer):
     class Meta:
         model = Source
-        fields = ['name']
+        fields = '__all__'
 
 
 class ConfigSerializer(ModelSerializer):
     class Meta:
         model = Config
-        fields = ['name', 'code']
+        fields = '__all__'
 
 
 class AbstractProductSerializer(ModelSerializer):
     class Meta:
         model = AbstractProduct
-        fields = ['name', 'code']
+        fields = '__all__'
 
 
 class UnitSerializer(ModelSerializer):
     class Meta:
         model = Unit
-        fields = ['price_unit', 'volume_unit', 'weight_unit']
+        fields = '__all__'
 
 
 

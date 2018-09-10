@@ -36,6 +36,7 @@ class DailyTranModelForm(ModelForm):
 class DailyTranAdmin(admin.ModelAdmin):
     form = DailyTranModelForm
     list_display = ('date',
+                    'update_time',
                     'product',
                     'source',
                     'up_price',
@@ -43,9 +44,9 @@ class DailyTranAdmin(admin.ModelAdmin):
                     'low_price',
                     'avg_price',
                     'avg_weight',
-                    'volume',
-                    'update_time')
+                    'volume')
     list_editable = ('up_price', 'mid_price', 'low_price', 'avg_price', 'avg_weight', 'volume')
-    list_filter = (('date', DateRangeFilter), 'product__config__name', 'source',  )
+    list_filter = (('date', DateRangeFilter), 'product__config__name', 'source')
+
 
 admin.site.register(DailyTran, DailyTranAdmin)

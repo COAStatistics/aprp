@@ -625,3 +625,17 @@
     name: 冬山鄉農會
     configs: [5, 6]
     type: 2
+
+- model: configs.Source
+  pk: 10109
+  fields:
+    name: 下營區農會
+    configs: [5, 6]
+    type: 2
+
+- model: configs.Source
+  pk: 10110
+  fields:
+    name: 八里區農會
+    configs: [5, 6]
+    type: 2

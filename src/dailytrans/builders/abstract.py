@@ -2,8 +2,14 @@ import abc
 import logging
 import time
 import requests
+from django.utils import timezone
 from django.conf import settings
-from configs.models import Source, Config, Type
+from configs.models import (
+    Source,
+    Config,
+    Type,
+)
+from dailytrans.models import DailyTran
 
 
 class AbstractApi(object):
@@ -35,14 +41,18 @@ class AbstractApi(object):
 
         self.MODEL = model
 
+        self.INIT_TIME = timezone.now()
+
         if config_code:
             self.CONFIG = Config.objects.filter(code=config_code).first()
             self.SOURCE_QS = Source.objects.filter(configs__exact=self.CONFIG)
             self.PRODUCT_QS = self.MODEL.objects
+            self.DAILYTRAN_QS = DailyTran.objects.filter(product__id__in=self.PRODUCT_QS.values('id'))
 
         if type_id:
             self.SOURCE_QS = self.SOURCE_QS.filter(type__id=type_id)
             self.PRODUCT_QS = self.PRODUCT_QS.filter(type__id=type_id, track_item=True)
+            self.DAILYTRAN_QS = self.DAILYTRAN_QS.filter(product__type__id=type_id)
 
         if logger:
             self.LOGGER = logging.getLogger(logger)
@@ -80,4 +90,10 @@ class AbstractApi(object):
                 time.sleep(10)
                 continue
         return response
+
+    def clean(self, start_date, end_date):
+        qs = self.DAILYTRAN_QS.filter(date__range=[start_date, end_date], update_time__lte=self.INIT_TIME)
+        if qs.count():
+            self.LOGGER.info('Delete Old Data:\n %s' % str([d for d in qs]))
+            qs.all().delete()
 
