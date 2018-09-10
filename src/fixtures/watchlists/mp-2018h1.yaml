@@ -943,7 +943,7 @@
 - model: watchlists.MonitorProfile
   pk: 51
   fields:
-    product: 90014 # 白肉雞
+    product: 90006 # 白肉雞
     watchlist: 2
     type: 2
     price: 41.5
