@@ -114,8 +114,16 @@ var chart4Helper = {
             title: {
                 text: chart4Helper.manager.title,
                 style: {
-                    display: 'block',
                     fontSize: chart4Helper.manager.fontSize.title,
+                    display: thisDevice == 'desktop' ? 'block' : 'none',
+                }
+            },
+
+            subtitle: {
+                text: getBreadCrumb(' / '),
+                style: {
+                    fontSize: chart4Helper.manager.fontSize.label,
+                    display: thisDevice == 'desktop' ? 'block' : 'none',
                 }
             },
 

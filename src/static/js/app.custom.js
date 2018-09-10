@@ -1,11 +1,50 @@
+/*
+ * GET BREADCRUMB
+ */
+function getBreadCrumb(sep) {
+    if(bread_crumb){
+        arr = bread_crumb.find('li').map(function(){
+            return $(this).text();
+        }).toArray();
+        uniqueArr = arr.filter(function(item, pos) {
+            return arr.indexOf(item) == pos;
+        })
+        return uniqueArr.join(sep);
+    }
+}
+/*
+ * CUSTOM UPDATE BREADCRUMB TO REMOVE "HOME/"
+ */
+function drawBreadCrumb(opt_breadCrumbs) {
+    var a = $("nav li.active > a"),
+        b = a.length;
+
+    bread_crumb.empty(),
+    a.each(function() {
+        bread_crumb.append($("<li></li>").html($.trim($(this).clone().children(".badge").remove().end().text()))), --b || (document.title = bread_crumb.find("li:last-child").text())
+    });
+
+    // Push breadcrumb manually -> drawBreadCrumb(["Users", "John Doe"]);
+    // Credits: Philip Whitt | philip.whitt@sbcglobal.net
+    if (opt_breadCrumbs != undefined) {
+        $.each(opt_breadCrumbs, function(index, value) {
+            bread_crumb.append($("<li></li>").html(value));
+            document.title = bread_crumb.find("li:last-child").text();
+        });
+    }
+}
+
+/*
+ * Return true if method need Django csrf token
+ */
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
 }
 
 /*
- * use in pagefunction() to initial and destroy custom widget grid
- * call dynamic_setup_widgets_desktop in pagefunction() if you want to dynamically render content with widget
+ * Use in pagefunction() to initial and destroy custom widget grid
+ * Call dynamic_setup_widgets_desktop in pagefunction() if you want to dynamically render content with widget
  */
 function dynamic_setup_widgets(container){
 
@@ -157,7 +196,7 @@ function loadURL(url, container, data, type) {
 
             // Google Analytics click event
             if(window.ga){
-                ga('send', 'event', 'ajax', 'click', url);
+                ga('send', 'pageview', url);
             }
 
             //IE11 bug fix for googlemaps (delete all google map instances)
