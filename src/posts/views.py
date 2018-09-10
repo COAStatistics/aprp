@@ -19,3 +19,15 @@ def post_socialwall(request):
     form = forms.PostForm()
 
     return render(request, 'socialwall.html', locals())
+
+
+def post_new_form(request):
+
+    form = forms.PostForm()
+    html = render_to_string('form.html', {'form': form}, request=request)
+
+    return JsonResponse(html, safe=False)
+
+
+def post_edit_form(request):
+    pass

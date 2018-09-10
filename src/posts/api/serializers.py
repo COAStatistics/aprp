@@ -28,6 +28,8 @@ class PostCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Post
         fields = [
+            'id',
+            'user',
             'title',
             'content',
             'file',

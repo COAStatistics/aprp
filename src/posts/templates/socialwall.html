@@ -61,7 +61,8 @@ the <section></section> and you can use wells or panels instead
 			</div>
 		</div>
 
-		<!-- include 'form_modal.html'  -->
+		{% include 'form_modal.html' %}
+
 		<div id="modal-comment" class="modal">
 			<div id="modal-edit-comment" class="modal-dialog">
 				<div class="modal-content">
@@ -75,7 +76,7 @@ the <section></section> and you can use wells or panels instead
 <div class="row">
 
 	<div class="grid">
-		<div class="grid-sizer"></div>
+		<div class="grid-sizer col-md-6 col-xs-12"></div>
 		{% include 'post_area.html' %}
 	</div>
 
