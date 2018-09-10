@@ -1,11 +1,34 @@
 from rest_framework import serializers
-from accounts.api.serializers import UserDetailSerializer
+from accounts.api.serializers import UserUsernameSerializer
+from comments.api.serializers import CommentListAllSerializer
 
 from posts import models
 
 
-class PostListSerializer(serializers.ModelSerializer):
+class PostListAllSerializer(serializers.ModelSerializer):
+    user = UserUsernameSerializer()
+    comments = CommentListAllSerializer(many=True)
 
     class Meta:
         model = models.Post
-        fields = '__all__'
+        fields = [
+            'id',
+            'user',
+            'title',
+            'content',
+            'file',
+            'comments',
+            'timestamp',
+            'updated',
+        ]
+
+
+class PostCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Post
+        fields = [
+            'title',
+            'content',
+            'file',
+        ]

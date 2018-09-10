@@ -26,4 +26,10 @@ class UserInformationSerializer(ModelSerializer):
         fields = '__all__'
 
 
+class UserUsernameSerializer(ModelSerializer):
 
+    class Meta:
+        model = User
+        fields = [
+            'username',
+        ]
