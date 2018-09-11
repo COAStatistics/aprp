@@ -4,6 +4,7 @@ from django.test import TestCase
 from crops.builder import direct_origin
 from dailytrans.models import DailyTran
 from crops.models import Crop
+from configs.models import Source
 from django.db.models import Q
 
 
@@ -35,4 +36,20 @@ class BuilderTestCase(TestCase):
                                       date__range=(start_date, end_date))
         self.assertEquals(qs.count(), 42)
 
+    def test_delete(self):
+
+        crop = Crop.objects.filter(code='落花生(帶殼)').first()
+        source = Source.objects.last()
+
+        # this item should be deleted
+        DailyTran.objects.create(product=crop,
+                                 source=source,
+                                 avg_price=120,
+                                 date=self.start_date,
+                                 update_time=datetime.datetime.now())
+
+        direct_origin(start_date=self.start_date, end_date=self.end_date)
+        qs = DailyTran.objects.filter(product=crop,
+                                      date__range=(self.start_date, self.end_date))
+        self.assertEquals(qs.count(), 8)
 
