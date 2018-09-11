@@ -29,14 +29,13 @@ class BuilderTestCase(TestCase):
     def test_direct_multi(self):
         start_date = datetime.date(year=2017, month=1, day=1)
         end_date = datetime.date(year=2017, month=1, day=10)
-        result = direct_origin(start_date='2017/01/01', end_date='2017/01/10', format='%Y/%m/%d')
+        direct_origin(start_date='2017/01/01', end_date='2017/01/10', format='%Y/%m/%d')
         obj = Seafood.objects.filter(code='1011', type__id=2).first()
         obj2 = Seafood.objects.filter(code='1011D', type__id=2).first()
         obj_ids = list(obj.children().values_list('id', flat=True)) + list(obj2.children().values_list('id', flat=True))
         qs = DailyTran.objects.filter(product__id__in=obj_ids,
                                       date__range=(start_date, end_date))
         self.assertEquals(qs.count(), 20)
-        print(result.msg)
 
 
 
