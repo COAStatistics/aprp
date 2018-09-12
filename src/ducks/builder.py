@@ -34,7 +34,7 @@ def direct(start_date=None, end_date=None, *args):
                 response = api.request(start_date=delta_start_date, end_date=delta_end_date)
                 api.load(response)
 
-    qs = DailyTran.objects.filter(product__config__code=config_code,
+    qs = DailyTran.objects.filter(product__config__code=CONFIG_CODE,
                                   product__type__id=2,
                                   date__range=[start_date, end_date],
                                   update_time__lte=direct_time)

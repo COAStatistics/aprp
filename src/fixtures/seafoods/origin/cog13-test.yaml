@@ -82,4 +82,57 @@
     track_item: false
 
 
+- model: seafoods.Seafood
+  pk: 120211
+  fields:
+    name: 青石斑
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 120213
+  fields:
+    name: 石斑
+    code: 1171
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120211
+
+- model: seafoods.Seafood
+  pk: 120930
+  fields:
+    name: 0.9公斤以上/尾
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120213
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120931
+  fields:
+    name: 0.6公斤/尾
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120213
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 120932
+  fields:
+    name: 0.6-0.9公斤/尾
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 120213
+    track_item: false
+
+
 
