@@ -34,3 +34,18 @@ class PostCreateSerializer(serializers.ModelSerializer):
             'content',
             'file',
         ]
+
+
+class PostRetrieveUpdateDestroySerializer(serializers.ModelSerializer):
+    user = UserUsernameSerializer()
+
+    class Meta:
+        model = models.Post
+        fields = [
+            'id',
+            'user',
+            'title',
+            'content',
+            'file',
+            'updated',
+        ]

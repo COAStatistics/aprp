@@ -2,7 +2,9 @@ from rest_framework import generics
 from rest_framework import status
 from rest_framework.response import Response
 from django.template.loader import render_to_string
+from django.http import JsonResponse
 from posts import models
+from posts import forms
 from . import serializers
 from . import paginations
 
@@ -27,3 +29,42 @@ class PostCreateAPIView(generics.CreateAPIView):
         html = render_to_string('post.html', {'post': post}, request=request)
 
         return Response(html, status=status.HTTP_201_CREATED, headers=headers)
+
+
+class PostRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = serializers.PostRetrieveUpdateDestroySerializer
+
+    def get_object(self):
+        instance = models.Post.objects.get(id=self.kwargs.get('pk'))
+        return instance
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return serializer.data
+
+    def get(self, request, *args, **kwargs):
+        data = self.retrieve(request, *args, **kwargs)
+        form = forms.PostForm(data)
+        html = render_to_string('form_edit.html', {'form': form, 'file': data['file'], 'id': data['id']}, request=request)
+        data['html'] = html
+        return JsonResponse(data, safe=False)
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        if getattr(instance, '_prefetched_objects_cache', None):
+            # If 'prefetch_related' has been applied to a queryset, we need to
+            # forcibly invalidate the prefetch cache on the instance.
+            instance._prefetched_objects_cache = {}
+
+        return serializer.data
+
+    def patch(self, request, *args, **kwargs):
+        data = self.partial_update(request, *args, **kwargs)
+        html = render_to_string('post_edit.html', {'data': data}, request=request)
+        return JsonResponse(html, safe=False)

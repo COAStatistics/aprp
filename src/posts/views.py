@@ -11,7 +11,7 @@ import requests
 
 def post_socialwall(request):
 
-    url = 'http://localhost:8000/posts/api/all'
+    url = 'http://localhost:8000/posts/api/'
     res = requests.get(url)
     data = json.loads(res.content)
     post_list = data
