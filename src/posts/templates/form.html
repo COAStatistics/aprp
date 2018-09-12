@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load crispy_forms_tags %}
 
-<form id="form-post-new" action="{% url 'posts:post_new_form' %}" api="{% url 'posts:api_socialwall_c' %}" method="post" enctype="multipart/form-data">
+<form id="form-post" action="{% url 'posts:post_new_form' %}" api="{% url 'posts:api_socialwall_c' %}" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form.media }}
   {{ form|crispy }}

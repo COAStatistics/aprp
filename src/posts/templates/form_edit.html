@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<form id="form-post" action="{% url 'posts:post_new_form' %}" api="{% url 'posts:api_socialwall_all' %}" data-id="{{ id }}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.media }}
+  {{ form|crispy }}
+
+  {% if file != null %}
+  <a href="{{ file }}" target="_blank">{{ file }}</a>
+  {% endif %}
+  <button id="btn-post-create" type="submit" class="btn btn-primary pull-right">Post</button>
+  <button id="btn-post-update" type="submit" class="btn btn-success pull-right">update</button>
+  <button id="btn-post-cancel" type="button" class="btn btn-danger pull-right" name="button">Cancel</button>
+
+</form>

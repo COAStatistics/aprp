@@ -23,10 +23,10 @@
   </span>
   <div id="div-{{ i.id }}" class="chat-body no-padding profile-message">
     <ul>
-      <li>
+      <li class="post-edit-area">
         <h1 class="socialwall-title">{{ i.title }}</h1>
       </li>
-      <li class="message socialwall-message">
+      <li class="message socialwall-message post-edit-area">
         <!-- <img src="img/avatars/sunny.png" class="online"> -->
         <div class="message-text socialwall-author">
           <!-- <div class="read-more big-preview"> -->
@@ -53,7 +53,7 @@
           </li> -->
           {% if request.user.username == i.user.username %}
           <li>
-            <a data-id="{{ i.id }}" href="javascript:void(0);" class="text-primary post-edit">Edit</a>
+            <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ i.id }}" api="{% url 'posts:api_socialwall_all' %}">Edit</a>
           </li>
           <li>
             <a data-id="{{ i.id }}" href="javascript:void(0);" class="text-danger post-delete">Delete</a>
@@ -61,7 +61,7 @@
           {% endif %}
           {% if i.file != None %}
             <li>
-              <a href="/media/{{ i.file }}" class="glyphicon glyphicon-paperclip" target="_blank" title="{{ i.file }}"></a>
+              <a href="{{ i.file }}" class="glyphicon glyphicon-paperclip" target="_blank" title="{{ i.file }}"></a>
             </li>
           {% endif %}
         </ul>
