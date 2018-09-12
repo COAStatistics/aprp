@@ -16,7 +16,7 @@ from .models import Seafood
 MODELS = [Seafood]
 CONFIG_CODE = 'COG13'
 WHOLESALE_DELTA_DAYS = 30
-ORIGIN_DELTA_DAYS = 365
+ORIGIN_DELTA_DAYS = 90
 LOGGER_TYPE_CODE = 'LOT-seafoods'
 
 db_logger = logging.getLogger('aprp')

@@ -14,9 +14,9 @@ from .models import Fruit
 
 
 MODELS = [Fruit]
+LOGGER_TYPE_CODE = 'LOT-fruits'
 WHOLESALE_DELTA_DAYS = 30
 ORIGIN_DELTA_DAYS = 30
-LOGGER_TYPE_CODE = 'LOT-fruits'
 
 db_logger = logging.getLogger('aprp')
 logger_extra = {
@@ -90,8 +90,10 @@ def direct_wholesale_03(start_date=None, end_date=None, *args):
                                        type_id=1,
                                        logger_type_code=LOGGER_TYPE_CODE,
                                        market_type='F')
+
+        # this api only provide one day filter
         for delta_start_date, delta_end_date in date_generator(start_date, end_date, 1):
-            response = wholesale_api.request(date=delta_end_date)
+            response = wholesale_api.request(date=delta_start_date)
             wholesale_api.load(response)
 
     qs = DailyTran.objects.filter(product__config__code=config_code,

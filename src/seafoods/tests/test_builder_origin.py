@@ -37,5 +37,14 @@ class BuilderTestCase(TestCase):
                                       date__range=(start_date, end_date))
         self.assertEquals(qs.count(), 20)
 
+    def test_duplicate_data(self):
+        start_date = datetime.date(year=2015, month=7, day=28)
+        end_date = datetime.date(year=2015, month=7, day=28)
+        direct_origin(start_date=start_date, end_date=end_date)
+        obj = Seafood.objects.filter(code='1171', type__id=2).first()  # 石斑
+        qs = DailyTran.objects.filter(product__id__in=obj.children().values_list('id', flat=True),
+                                      date__range=(start_date, end_date))
+        self.assertEquals(qs.count(), 2)
+
 
 

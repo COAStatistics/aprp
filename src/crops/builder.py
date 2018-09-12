@@ -54,6 +54,7 @@ def direct_wholesale_05(start_date, end_date, *args):
                                   date__range=[start_date, end_date],
                                   update_time__lte=direct_time)
     if qs:
+        print('delete in direct_wholesale_05')
         db_logger.info('Delete old trans item: %s', str([str(d) for d in qs]), extra=logger_extra)
         qs.all().delete()
 
@@ -77,6 +78,7 @@ def direct_origin(start_date, end_date, *args):
                                   date__range=[start_date, end_date],
                                   update_time__lte=direct_time)
     if qs:
+        print('delete in direct_origin')
         db_logger.info('Delete old trans item: %s', str([str(d) for d in qs]), extra=logger_extra)
         qs.all().delete()
 
@@ -93,8 +95,10 @@ def direct_wholesale_02(start_date, end_date, *args):
                                        type_id=1,
                                        logger_type_code=LOGGER_TYPE_CODE,
                                        market_type='V')
+
+        # This api only provide one day filter
         for delta_start_date, delta_end_date in date_generator(start_date, end_date, 1):
-            response = wholesale_api.request(date=delta_end_date)
+            response = wholesale_api.request(date=delta_start_date)
             wholesale_api.load(response)
 
     qs = DailyTran.objects.filter(product__config__code=config_code,

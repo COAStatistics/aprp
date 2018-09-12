@@ -23,7 +23,7 @@ class BuilderTestCase(TestCase):
 
         qs = DailyTran.objects.filter(product=obj,
                                       date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 7)
+        self.assertEquals(qs.count(), 8)
 
     def test_direct_multi(self):
         start_date = datetime.date(year=2017, month=1, day=1)
@@ -49,4 +49,4 @@ class BuilderTestCase(TestCase):
 
         qs = DailyTran.objects.filter(product=obj,
                                       date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 7)
+        self.assertEquals(qs.count(), 8)
