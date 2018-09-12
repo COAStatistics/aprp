@@ -170,6 +170,7 @@ class SourceQuerySet(QuerySet):
         if not isinstance(name, str):
             raise TypeError
         name = name.replace('台', '臺')
+        name = name.replace('桃園縣', '桃園市')
         return self.filter(name=name)
 
 
