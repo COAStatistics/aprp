@@ -4,6 +4,7 @@ from django.db.models import (
     CharField,
     DateTimeField,
     ForeignKey,
+    DurationField,
 )
 from django.utils.translation import ugettext_lazy as _
 from django_db_logger.models import StatusLog
@@ -11,6 +12,8 @@ from django_db_logger.models import StatusLog
 
 class Log(StatusLog):
     type = ForeignKey('logs.LogType', null=True, on_delete=SET_NULL, verbose_name=_('Log Type'))
+    url = CharField(max_length=255, null=True, blank=True, verbose_name=_('Url'))
+    duration = DurationField(null=True, blank=True, verbose_name=_('Duration'))
 
     class Meta:
         verbose_name = _('Log')
