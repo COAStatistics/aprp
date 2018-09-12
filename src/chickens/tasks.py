@@ -4,14 +4,12 @@ from celery.task import task
 from .builder import direct
 
 
-db_logger = logging.getLogger('aprp')
-logger_extra = {
-    'type_code': 'LOT-chickens',
-}
-
-
 @task(name="DailyChickenBuilder")
 def build_chicken(delta):
+    db_logger = logging.getLogger('aprp')
+    logger_extra = {
+        'type_code': 'LOT-chickens',
+    }
     try:
         result = direct(delta=delta)
         if result.success:

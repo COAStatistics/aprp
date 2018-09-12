@@ -3,14 +3,13 @@ import logging
 from celery.task import task
 from .builder import direct
 
-db_logger = logging.getLogger('aprp')
-logger_extra = {
-    'type_code': 'LOT-crops',
-}
-
 
 @task(name="DailyCropBuilder")
 def build_crop(delta):
+    db_logger = logging.getLogger('aprp')
+    logger_extra = {
+        'type_code': 'LOT-crops',
+    }
     try:
         result = direct(delta=delta)
         if result.success:

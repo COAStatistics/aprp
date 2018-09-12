@@ -3,119 +3,119 @@
 - model: configs.Source
   pk: 40001
   fields:
-    name: 新北市
+    name: 臺北市
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40002
   fields:
-    name: 臺中市
+    name: 新北市
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40003
   fields:
-    name: 臺南市
+    name: 臺中市
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40004
   fields:
-    name: 嘉義市
+    name: 臺南市
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40005
   fields:
-    name: 高雄市
+    name: 嘉義市
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40006
   fields:
-    name: 宜蘭縣
+    name: 高雄市
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40007
   fields:
-    name: 桃園市
+    name: 宜蘭縣
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40008
   fields:
-    name: 新竹縣
+    name: 桃園市
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40009
   fields:
-    name: 苗栗縣
+    name: 新竹縣
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40010
   fields:
-    name: 彰化縣
+    name: 苗栗縣
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40011
   fields:
-    name: 南投縣
+    name: 彰化縣
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40012
   fields:
-    name: 雲林縣
+    name: 南投縣
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40013
   fields:
-    name: 嘉義縣
+    name: 雲林縣
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40014
   fields:
-    name: 屏東縣
+    name: 嘉義縣
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40015
   fields:
-    name: 臺東縣
+    name: 屏東縣
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40016
   fields:
-    name: 花蓮縣
+    name: 臺東縣
     configs: [8]
     type: 1
 
 - model: configs.Source
   pk: 40017
   fields:
-    name: 澎湖縣
+    name: 花蓮縣
     configs: [8]
     type: 1
 
@@ -153,3 +153,15 @@
     name: 高雄旗山
     configs: [8]
     type: 1
+
+- model: configs.Source
+  pk: 40050
+  fields:
+    name: 澎湖縣
+    configs: [8]
+    type: 1
+
+
+
+
+

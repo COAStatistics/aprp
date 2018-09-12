@@ -3,14 +3,14 @@ import logging
 from celery.task import task
 from .builder import direct
 
-db_logger = logging.getLogger('aprp')
-logger_extra = {
-    'type_code': 'LOT-fruits',
-}
-
 
 @task(name="DailyFruitBuilder")
 def build_fruit(delta):
+    db_logger = logging.getLogger('aprp')
+    logger_extra = {
+        'type_code': 'LOT-fruits',
+    }
+
     try:
         result = direct(delta=delta)
         if result.success:

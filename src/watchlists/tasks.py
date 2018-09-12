@@ -8,14 +8,13 @@ from dailytrans.utils import (
     get_group_by_date_query_set,
 )
 
-db_logger = logging.getLogger('aprp')
-logger_extra = {
-    'type_code': 'LOT-watchlists',
-}
-
 
 @task(name="DefaultWatchlistMonitorProfileUpdate")
 def active_update():
+    db_logger = logging.getLogger('aprp')
+    logger_extra = {
+        'type_code': 'LOT-watchlists',
+    }
     try:
         month = datetime.now().month
 

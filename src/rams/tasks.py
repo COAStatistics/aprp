@@ -3,14 +3,13 @@ import logging
 from celery.task import task
 from .builder import direct
 
-db_logger = logging.getLogger('aprp')
-logger_extra = {
-    'type_code': 'LOT-rams',
-}
-
 
 @task(name="DailyRamBuilder")
 def build_ram(delta):
+    db_logger = logging.getLogger('aprp')
+    logger_extra = {
+        'type_code': 'LOT-rams',
+    }
     try:
         result = direct(delta=delta)
         if result.success:
