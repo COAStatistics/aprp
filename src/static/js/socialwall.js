@@ -210,60 +210,81 @@ var socialWallHelper = {
     })
     // -------------------- hide post end --------------------
 
-
-
-
-
-
-
-
-    // -------------------- edit comment start --------------------
-    $('.edit-comment').on('click', function () {
-      // alert($(this).attr('id'))
-      var id = $(this).attr('id')
-      $('#modal-comment').modal('toggle')
-      $('#text-edit-comment').val('test')
-      $('#text-edit-comment').focus()
-    })
-    // -------------------- edit comment end --------------------
-
-
-    // -------------------- reply start --------------------
-    $('.post-reply').on('click', function () {
-      var id = $(this).attr('id')
-      // alert(id)
-      $('#reply-' + id).after('')
-    })
-    // -------------------- reply end --------------------
-
-
     // -------------------- reply text start --------------------
-    // $('.socialwall-reply-text').bind('enterKey', function () {
-    // 	alert('test')
-    // })
     $('.socialwall-reply-text').keyup(function (e) {
       if(e.keyCode == 13) {
-        var id = $(this).attr('id').split('-')[1]
-        var text = $(this).val()
-        // alert(id)
+        id = $(this).attr('data-id');
+        url = $(this).attr('api');
+        csrftoken = $(this).attr('data-token');
+        text = $(this).val();
+        $reply = $(this);
         $.ajax({
           type: 'post',
-          url: '/comments/api/',
+          url: url,
           data: {
-            csrfmiddlewaretoken: '{{ csrf_token }}',
+            csrfmiddlewaretoken: csrftoken,
             'object_id': id,
             'content': text,
           },
           success: function(data) {
-            $('#insert-reply-' + id).before(data)
-            $('#reply-' + id).val('')
-            // alert(data['user'] + '   ' + data['content_type'] + '   ' + data['object_id'] + '   ' + data['content'])
-            //
+            $reply.parent().before(data);
+            $reply.val('');
+            $grid.masonry();
           }
-        })
+        });
       }
-    })
+    });
     // -------------------- reply text end --------------------
+
+    // -------------------- reply delete start --------------------
+    $('.reply-delete').on('click', function() {
+      id = $(this).attr('data-id');
+      url = $(this).attr('api');
+      $reply = $(this);
+      $.ajax({
+        type: 'delete',
+        url: url + id,
+        success: function() {
+          $reply.parents('.socialwall-reply').remove();
+          $grid.masonry();
+        }
+      });
+    });
+    // -------------------- reply delete end --------------------
+
+
+
+
+
+
+
+
+
+
+    // // -------------------- edit comment start --------------------
+    // $('.edit-comment').on('click', function () {
+    //   // alert($(this).attr('id'))
+    //   var id = $(this).attr('id')
+    //   $('#modal-comment').modal('toggle')
+    //   $('#text-edit-comment').val('test')
+    //   $('#text-edit-comment').focus()
+    // })
+    // // -------------------- edit comment end --------------------
+    //
+    //
+    // // -------------------- reply start --------------------
+    // $('.post-reply').on('click', function () {
+    //   var id = $(this).attr('id')
+    //   // alert(id)
+    //   $('#reply-' + id).after('')
+    // })
+    // // -------------------- reply end --------------------
+
+
+
+
+
+
 
     // -------------------- Read More Start --------------------
     // $('.read-more').readMore()
