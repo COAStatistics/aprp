@@ -1,16 +1,10 @@
 # Hog Sources
 
 - model: configs.Source
-  pk: 40001
-  fields:
-    name: 臺北市
-    configs: [8]
-    type: 1
-
-- model: configs.Source
   pk: 40002
   fields:
     name: 新北市
+    alias: 臺北縣
     configs: [8]
     type: 1
 
@@ -18,6 +12,7 @@
   pk: 40003
   fields:
     name: 臺中市
+    alias: 臺中縣
     configs: [8]
     type: 1
 
@@ -25,6 +20,7 @@
   pk: 40004
   fields:
     name: 臺南市
+    name: 臺南縣
     configs: [8]
     type: 1
 
@@ -39,6 +35,7 @@
   pk: 40006
   fields:
     name: 高雄市
+    alias: 高雄縣
     configs: [8]
     type: 1
 
@@ -46,6 +43,7 @@
   pk: 40007
   fields:
     name: 宜蘭縣
+    alias: 宜蘭
     configs: [8]
     type: 1
 
@@ -53,6 +51,7 @@
   pk: 40008
   fields:
     name: 桃園市
+    alias: 桃園縣
     configs: [8]
     type: 1
 
@@ -60,6 +59,7 @@
   pk: 40009
   fields:
     name: 新竹縣
+    alias: 新竹
     configs: [8]
     type: 1
 
@@ -67,6 +67,7 @@
   pk: 40010
   fields:
     name: 苗栗縣
+    alias: 苗栗
     configs: [8]
     type: 1
 
@@ -74,6 +75,7 @@
   pk: 40011
   fields:
     name: 彰化縣
+    alias: 彰化
     configs: [8]
     type: 1
 
@@ -81,6 +83,7 @@
   pk: 40012
   fields:
     name: 南投縣
+    alias: 南投
     configs: [8]
     type: 1
 
@@ -88,6 +91,7 @@
   pk: 40013
   fields:
     name: 雲林縣
+    alias: 雲林
     configs: [8]
     type: 1
 
@@ -102,6 +106,7 @@
   pk: 40015
   fields:
     name: 屏東縣
+    alias: 屏東
     configs: [8]
     type: 1
 
@@ -109,6 +114,7 @@
   pk: 40016
   fields:
     name: 臺東縣
+    alias: 臺東
     configs: [8]
     type: 1
 
@@ -116,6 +122,7 @@
   pk: 40017
   fields:
     name: 花蓮縣
+    alias: 花蓮縣
     configs: [8]
     type: 1
 
@@ -123,6 +130,7 @@
   pk: 40018
   fields:
     name: 臺中大安
+    alias: 臺中市大安
     configs: [8]
     type: 1
 
@@ -130,6 +138,7 @@
   pk: 40019
   fields:
     name: 臺南安南
+    alias: 臺南市安南
     configs: [8]
     type: 1
 
@@ -137,6 +146,7 @@
   pk: 40020
   fields:
     name: 高雄岡山
+    alias: 岡山,岡山區
     configs: [8]
     type: 1
 
@@ -144,6 +154,7 @@
   pk: 40021
   fields:
     name: 高雄鳳山
+    alias: 鳳山,鳳山區
     configs: [8]
     type: 1
 
@@ -151,6 +162,15 @@
   pk: 40022
   fields:
     name: 高雄旗山
+    alias: 旗山,旗山區
+    configs: [8]
+    type: 1
+
+- model: configs.Source
+  pk: 40023
+  fields:
+    name: 臺南善化
+    alias: 臺南市善化
     configs: [8]
     type: 1
 
