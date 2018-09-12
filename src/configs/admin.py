@@ -43,7 +43,7 @@ class SourceModelForm(ModelForm):
 
 class SourceAdmin(admin.ModelAdmin):
     form = SourceModelForm
-    list_display = ['id', 'name', 'code', 'update_time']
+    list_display = ['id', 'name', 'alias', 'code', 'update_time']
     list_editable = ['name', 'code']
 
 
