@@ -3,14 +3,13 @@ import logging
 from celery.task import task
 from .builder import direct
 
-db_logger = logging.getLogger('aprp')
-logger_extra = {
-    'type_code': 'LOT-ducks',
-}
-
 
 @task(name="DailyDuckBuilder")
 def build_duck(delta):
+    db_logger = logging.getLogger('aprp')
+    logger_extra = {
+        'type_code': 'LOT-ducks',
+    }
     try:
         result = direct(delta=delta)
         if result.success:
