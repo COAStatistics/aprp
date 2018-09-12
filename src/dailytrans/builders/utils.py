@@ -134,8 +134,11 @@ def director(func):
             start_date, end_date = date_delta(delta)
 
         try:
+            start_time = datetime.datetime.now()
             func(start_date, end_date)
-            return DirectResult(start_date, end_date, success=True)
+            end_time = datetime.datetime.now()
+            duration = end_time - start_time
+            return DirectResult(start_date, end_date, duration, success=True)
         except Exception as e:
             logging.exception('msg')
             db_logger.exception(e)
@@ -145,15 +148,18 @@ def director(func):
 
 
 class DirectResult(object):
-    def __init__(self, start_date, end_date, success=False, msg=None):
+    def __init__(self, start_date, end_date, duration, success=False, msg=None):
         if not isinstance(start_date, datetime.date):
             raise NotImplementedError
         if not isinstance(end_date, datetime.date):
             raise NotImplementedError
         if not isinstance(success, bool):
             raise NotImplementedError
+        if not isinstance(duration, datetime.timedelta):
+            raise NotImplementedError
         self.start_date = start_date
         self.end_date = end_date
         self.success = success
+        self.duration = duration
         self.msg = msg
 
