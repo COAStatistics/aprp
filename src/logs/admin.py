@@ -8,8 +8,8 @@ from .models import Log, LogType
 
 
 class StatusLogAdmin(admin.ModelAdmin):
-    list_display = ('colored_msg', 'traceback', 'create_datetime', 'type')
-    list_display_links = ('colored_msg', )
+    list_display = ('colored_msg', 'create_datetime', 'type', 'url', 'duration', 'traceback')
+    list_display_links = ('colored_msg', 'url')
     list_filter = ('level', 'type__name', )
     list_per_page = 10
 

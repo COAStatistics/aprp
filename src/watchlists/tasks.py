@@ -23,6 +23,10 @@ def active_update():
         watchlist_items = watchlist.children()
         monitor_profiles = watchlist.monitorprofile_set.all()
 
+        activated = []
+        deactivated = []
+        start_time = datetime.now()
+
         for profile in monitor_profiles:
 
             if month not in profile.months.values_list('id', flat=True):
@@ -39,11 +43,24 @@ def active_update():
                 if tran:
                     avg_price = tran['avg_price']
                     is_active = profile.active_compare(avg_price)
+
+                    # for logging
+                    if profile.is_active is not is_active:
+                        if profile.is_active:
+                            deactivated.append(profile)
+                        else:
+                            activated.append(profile)
+
                     profile.is_active = is_active
                     profile.save()
-                    db_logger.info('Profile %s update to %s, latest average price is %s' % (profile, is_active, avg_price), extra=logger_extra)
                 else:
                     db_logger.warning('Product %s has no price' % profile.product, extra=logger_extra)
+
+        end_time = datetime.now()
+        logger_extra['duration'] = end_time - start_time
+
+        db_logger.info('Updated default watchlist profiles successfully, activate: %s, deactivate: %s'
+                       % (str(activated), str(deactivated)), extra=logger_extra)
 
     except Exception as e:
         db_logger.exception(e, extra=logger_extra)
