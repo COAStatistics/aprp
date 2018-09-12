@@ -53,7 +53,6 @@ def direct_wholesale(start_date=None, end_date=None, *args):
         db_logger.info('Trans data not updated: %s', str([str(d) for d in qs]), extra=logger_extra)
 
 
-
 @director
 def direct_origin(start_date=None, end_date=None, *args):
 
