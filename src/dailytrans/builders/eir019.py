@@ -53,7 +53,7 @@ class Api(AbstractApi):
         source_name = dic.get('市場名稱')
         if source_name:
             source_name = source_name.strip()
-        source = self.SOURCE_QS.filter_by_name(source_name).first()
+        source = self.SOURCE_QS.filter_by_name(source_name, config_code=self.CONFIG.code).first()
 
         if source:
             lst = []

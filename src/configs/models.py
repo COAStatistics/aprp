@@ -166,11 +166,24 @@ class Config(Model):
 
 class SourceQuerySet(QuerySet):
     """ for case like Source.objects.filter(config=config).filter_by_name(name) """
-    def filter_by_name(self, name):
+    def filter_by_name(self, name, config_code=None):
         if not isinstance(name, str):
             raise TypeError
         name = name.replace('台', '臺')
-        name = name.replace('桃園縣', '桃園市')
+
+        if config_code == 'COG08':
+            name = name.replace('桃園縣', '桃園市')
+            name = name.replace('臺北縣', '臺北市')
+            name = name.replace('臺中縣', '臺中市')
+            name = name.replace('臺南縣', '臺南市')
+            name = name.replace('旗山區', '高雄旗山')
+            name = name.replace('岡山區', '高雄岡山')
+            name = name.replace('鳳山區', '高雄鳳山')
+
+            if len(name) == 2:
+                name = name.replace('新竹', '新竹縣')
+                name = name.replace('苗栗', '苗栗縣')
+
         return self.filter(name=name)
 
 
