@@ -167,31 +167,22 @@ class Config(Model):
 
 class SourceQuerySet(QuerySet):
     """ for case like Source.objects.filter(config=config).filter_by_name(name) """
-    def filter_by_name(self, name, config_code=None):
+    def filter_by_name(self, name):
         if not isinstance(name, str):
             raise TypeError
         name = name.replace('台', '臺')
-
-        if config_code == 'COG08':
-            name = name.replace('桃園縣', '桃園市')
-            name = name.replace('臺北縣', '臺北市')
-            name = name.replace('臺南縣', '臺南市')
-            name = name.replace('旗山區', '高雄旗山')
-            name = name.replace('岡山區', '高雄岡山')
-            name = name.replace('鳳山區', '高雄鳳山')
-
-            if len(name) == 2:
-                name = name.replace('新竹', '新竹縣')
-                name = name.replace('苗栗', '苗栗縣')
-
-        return self.filter(name=name)
+        qs = self.filter(name=name)
+        if not qs:
+            qs = self.filter(alias__icontains=name)
+        return qs
 
 
 class Source(Model):
     name = CharField(max_length=50, verbose_name=_('Name'))
-    code = CharField(max_length=50, null=True, verbose_name=_('Code'))
+    alias = CharField(max_length=255, null=True, blank=True, verbose_name=_('Alias'))
+    code = CharField(max_length=50, null=True, blank=True, verbose_name=_('Code'))
     configs = ManyToManyField('configs.Config', verbose_name=_('Config'))
-    type = ForeignKey('configs.Type', null=True, on_delete=SET_NULL, verbose_name=_('Type'))
+    type = ForeignKey('configs.Type', null=True, blank=True, on_delete=SET_NULL, verbose_name=_('Type'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
 
     objects = SourceQuerySet.as_manager()
