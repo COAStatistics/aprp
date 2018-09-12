@@ -55,10 +55,11 @@ class Api(AbstractApi):
             lst = []
             for child in children:
                 try:
-                    tran = create_tran(child)
-                    lst.append(tran)
+                    if dic.get(child.code):
+                        tran = create_tran(child)
+                        lst.append(tran)
                 except Exception as e:
-                    self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
+                    self.LOGGER.exception('%s, dic: %s ' % (e, dic), extra=self.LOGGER_EXTRA)
             return lst
         else:
             self.LOGGER.warning('Cannot Match Product: %s' % product_code, extra=self.LOGGER_EXTRA)
