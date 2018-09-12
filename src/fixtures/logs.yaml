@@ -55,7 +55,7 @@
 - model: logs.LogType
   pk: 10
   fields:
-    name: Watchlist App Logs
+    name: Cattles App Logs
     code: LOT-cattles
 
 
