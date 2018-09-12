@@ -77,67 +77,76 @@ app.conf.beat_schedule = {
         'schedule': crontab(minute=40, hour='*'),
         'args': (-2,)  # direct 3 day
     },
-    'daily-seafood-builder-3d': {
-        'task': 'DailySeafoodBuilder',
+    'daily-seafood-wholesale-builder-3d': {
+        'task': 'DailyWholesaleSeafoodBuilder',
         'schedule': crontab(minute=50, hour='*'),
         'args': (-2,)  # direct 3 day
     },
-
-    # ======================================== 2 week Builder ========================================
-    'daily-chicken-builder-14d': {
+    'daily-seafood-origin-builder-3d': {
+        'task': 'DailyOriginSeafoodBuilder',
+        'schedule': crontab(minute=0, hour='3,5,10'),
+        'args': (-2,)  # direct 3 day
+    },
+    # ======================================== 1 month Builder ========================================
+    'daily-chicken-builder-31d': {
         'task': 'DailyChickenBuilder',
-        'schedule': crontab(minute=0, hour='0,11'),
-        'args': (-13,)  # direct 14 days range
+        'schedule': crontab(minute=0, hour='9'),
+        'args': (-30,)  # direct 31 days range
     },
-    'daily-ram-builder-14d': {
-        'task': 'DailyRamBuilder',
-        'schedule': crontab(minute=0, hour='1,12'),
-        'args': (-13,)  # direct 14 days range
-    },
-    'daily-goose-builder-14d': {
-        'task': 'DailyGooseBuilder',
-        'schedule': crontab(minute=0, hour='2,13'),
-        'args': (-13,)  # direct 14 days range
-    },
-    'daily-duck-builder-14d': {
-        'task': 'DailyDuckBuilder',
-        'schedule': crontab(minute=0, hour='3,14'),
-        'args': (-13,)  # direct 14 days range
-    },
-    'daily-hog-builder-14d': {
-        'task': 'DailyHogBuilder',
-        'schedule': crontab(minute=0, hour='4,15'),
-        'args': (-13,)  # direct 14 days range
-    },
-    'daily-rice-builder-14d': {
-        'task': 'DailyRiceBuilder',
-        'schedule': crontab(minute=0, hour='5,16'),
-        'args': (-13,)  # direct 14 days range
-    },
-    'daily-flower-builder-14d': {
-        'task': 'DailyFlowerBuilder',
-        'schedule': crontab(minute=0, hour='6,17'),
-        'args': (-13,)  # direct 14 days range
-    },
-    'daily-crop-builder-14d': {
-        'task': 'DailyCropBuilder',
-        'schedule': crontab(minute=0, hour='7,18'),  # 2 hour
-        'args': (-13,)  # direct 14 days range
-    },
-    'daily-fruit-builder-14d': {
-        'task': 'DailyFruitBuilder',
-        'schedule': crontab(minute=0, hour='9,20'),  # 2 hour
-        'args': (-13,)  # direct 14 days range
-    },
-    'daily-seafood-builder-14d': {
-        'task': 'DailySeafoodBuilder',
-        'schedule': crontab(minute=0, hour='18,22'),  # 2 hour
-        'args': (-13,)  # direct 14 days range
-    },
-    'daily-cattle-builder-14d': {
+    'daily-cattle-builder-31d': {
         'task': 'DailyCattleBuilder',
-        'schedule': crontab(minute=30, hour='0, 11'),
-        'args': (-13,)  # direct 14 days range
+        'schedule': crontab(minute=0, hour='10'),
+        'args': (-30,)  # direct 31 days range
+    },
+    'daily-ram-builder-31d': {
+        'task': 'DailyRamBuilder',
+        'schedule': crontab(minute=0, hour='11'),
+        'args': (-30,)  # direct 31 days range
+    },
+    'daily-goose-builder-31d': {
+        'task': 'DailyGooseBuilder',
+        'schedule': crontab(minute=0, hour='12'),
+        'args': (-30,)  # direct 31 days range
+    },
+    'daily-duck-builder-31d': {
+        'task': 'DailyDuckBuilder',
+        'schedule': crontab(minute=0, hour='13'),
+        'args': (-30,)  # direct 31 days range
+    },
+    'daily-hog-builder-31d': {
+        'task': 'DailyHogBuilder',
+        'schedule': crontab(minute=0, hour='14'),
+        'args': (-30,)  # direct 31 days range
+    },
+    'daily-rice-builder-31d': {
+        'task': 'DailyRiceBuilder',
+        'schedule': crontab(minute=0, hour='15'),
+        'args': (-30,)  # direct 31 days range
+    },
+    'daily-flower-builder-31d': {
+        'task': 'DailyFlowerBuilder',
+        'schedule': crontab(minute=0, hour='16'),
+        'args': (-30,)  # direct 31 days range
+    },
+    'daily-crop-builder-31d': {
+        'task': 'DailyCropBuilder',
+        'schedule': crontab(minute=0, hour='17'),
+        'args': (-30,)  # direct 31 days range
+    },
+    'daily-fruit-builder-31d': {
+        'task': 'DailyFruitBuilder',
+        'schedule': crontab(minute=0, hour='18'),
+        'args': (-30,)  # direct 31 days range
+    },
+    'daily-seafood-wholesale-builder-31d': {
+        'task': 'DailyWholesaleSeafoodBuilder',
+        'schedule': crontab(minute=0, hour='20'),
+        'args': (-30,)  # direct 31 days range
+    },
+    'daily-seafood-origin-builder-31d': {
+        'task': 'DailyOriginSeafoodBuilder',
+        'schedule': crontab(minute=0, hour='19'),
+        'args': (-30,)  # direct 31 days range
     },
     'beat-per-minute': {
         'task': 'Beat',
