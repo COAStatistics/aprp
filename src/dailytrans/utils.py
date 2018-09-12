@@ -454,11 +454,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             drop_source_lte10 = drop_source_lte10.groupby(['year'], as_index=False).mean()
             new_result = drop_source_lte10.T.to_dict().values()
 
-            # Replace result sum_volume with new_result sum_volume
-            for dic in new_result:
-                for dic2 in result:
-                    if dic['year'] == dic2['year']:
-                        dic2['sum_volume'] = dic['sum_volume']
+            result = new_result
 
         return result
 

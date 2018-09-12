@@ -162,11 +162,6 @@ var chart2Helper = {
                         marker: {
                             enabled: true,
                             radius: 3,
-                            states: {
-                                hover: {
-                                    radius: 8,
-                                }
-                            },
                             markData: markData, // function
                         },
                         tooltip: {
@@ -210,12 +205,7 @@ var chart2Helper = {
                         zIndex: 10,
                         marker: {
                             enabled: true,
-                            radius: 3,
-                            states: {
-                                hover: {
-                                    radius: 8,
-                                }
-                            }
+                            radius: 8,
                         },
                         tooltip: {
                             valueDecimals: 1,
@@ -284,8 +274,6 @@ var chart2Helper = {
                     },
                 },
                 opposite: false,
-                gridLineWidth: 0,
-                minorGridLineWidth: 0,
             })
         }
 
@@ -306,8 +294,6 @@ var chart2Helper = {
                     },
                 },
                 opposite: true,
-                gridLineWidth: 0,
-                minorGridLineWidth: 0,
             })
         }
 
@@ -328,8 +314,6 @@ var chart2Helper = {
                     x: 5
                 },
                 opposite: true,
-                gridLineWidth: 0,
-                minorGridLineWidth: 0,
             })
         }
 
@@ -406,10 +390,6 @@ var chart2Helper = {
                             min = min.add(1).days();
                             this.setExtremes(min.getTime());
 
-                            /* Redraw To Update Range Select Input Value */
-                            setTimeout(function(){
-                                chart.redraw();
-                            }, 0);
                         }
 
                         if(e.trigger === 'rangeSelectorInput'
@@ -423,18 +403,22 @@ var chart2Helper = {
                                 var className = series.userOptions.className;
                                 var type = series.userOptions.customType;
 
+                                /* Update series data marker size */
+                                monthLength = Math.abs(e.max - e.min) / (1000 * 3600 * 24 * 31);
+
                                 if((indexType === 'avg_price') && (className !== 'highcharts-navigator-series')){
 
-                                    /* Update series data marker size */
-                                    monthLength = Math.abs(e.max - e.min) / (1000 * 3600 * 24 * 31);
-
-                                    if(monthLength <= 24){ // fix size if range > 24 month
-                                        series.update({
-                                            data: series.userOptions.marker.markData(monthLength),
-                                        }, true); // redraw
-                                    }
+                                    series.update({
+                                        data: series.userOptions.marker.markData(monthLength),
+                                    }, false); // redraw later
 
                                 }
+
+                                series.update({
+                                    marker: {
+                                        radius: monthLength > 3 ? 0 : 3,
+                                    },
+                                }, false); // redraw later
                             })
 
                             chart.plotBandUpdate();
@@ -448,6 +432,11 @@ var chart2Helper = {
                             var max = chart2Helper.manager.dateRange.max;
                             integrationHelper.loadTable($container, min, max);
                         }
+
+                        /* Redraw To Update Range Select Input Value */
+                        setTimeout(function(){
+                            chart.redraw();
+                        }, 0);
                     },
                 },
                 type: 'datetime',
@@ -462,8 +451,6 @@ var chart2Helper = {
                         fontSize: chart2Helper.manager.fontSize.label,
                     }
                 },
-                gridLineWidth: 0,
-                minorGridLineWidth: 0,
             },
 
             loading: {
