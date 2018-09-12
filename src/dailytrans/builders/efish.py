@@ -57,12 +57,11 @@ class Api(AbstractApi):
                 try:
                     tran = create_tran(child)
                     lst.append(tran)
-                except:
-                    pass
+                except Exception as e:
+                    self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
             return lst
         else:
-            self.LOGGER.warning('Cannot Match Product: %s' % (product_name),
-                               extra=self.LOGGER_EXTRA)
+            self.LOGGER.warning('Cannot Match Product: %s' % product_code, extra=self.LOGGER_EXTRA)
             return dic
 
     def request(self, start_date=None, end_date=None, source=None, code=None, name=None):
