@@ -397,21 +397,13 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
     :param to_init: to render table if true; to render rows if false
     :return:
     """
-    def spark_point_maker(qs, nod=10, add_unix=True):
+    def spark_point_maker(qs, add_unix=True):
         """
         :param qs: Query after annotation
-        :param nod: Size to chop
         :param add_unix: To add a key "unix" in each query objects
         :return: List of point object
         """
-        count = qs.count()
-        if count >= nod:
-            gap = count / nod
-            points = [qs[int(gap * i)] for i in range(0, nod - 1)]
-            points.append(qs.last())
-        else:
-            points = [d for d in qs]
-
+        points = list(qs)
         if add_unix:
             for d in points:
                 d['unix'] = to_unix(d['date'])
@@ -487,7 +479,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         if q.count() > 0:
             data_this = pandas_annotate_init(q, hog_exception_condition)
             data_this['name'] = _('This Term')
-            data_this['points'] = spark_point_maker(q, q.count())
+            data_this['points'] = spark_point_maker(q)
             data_this['base'] = True
 
             integration.append(data_this)
@@ -495,7 +487,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         if q_last.count() > 0:
             data_last = pandas_annotate_init(q_last, hog_exception_condition)
             data_last['name'] = _('Last Term')
-            data_last['points'] = spark_point_maker(q_last, q_last.count())
+            data_last['points'] = spark_point_maker(q_last)
             data_last['base'] = False
 
             integration.append(data_last)
@@ -516,7 +508,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                 year = dic['year']
                 q_filter_by_year = q.filter(year=year).order_by('date')
                 dic['name'] = '%0.0f' % year
-                dic['points'] = spark_point_maker(q_filter_by_year, 10)
+                dic['points'] = spark_point_maker(q_filter_by_year)
                 dic['base'] = False
 
             integration = list(data_all)
