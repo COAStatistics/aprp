@@ -185,6 +185,7 @@ var socialWallHelper = {
         }
       });
     });
+    // -------------------- edit post end --------------------
 
     // -------------------- delete post start --------------------
     $('.post-delete').on('click', function () {
@@ -201,16 +202,13 @@ var socialWallHelper = {
     })
     // -------------------- delete post end --------------------
 
-    // // -------------------- hide post start --------------------
-    // $('.post-hide').on('click', function () {
-    //   var id = $(this).attr('id')
-    //   $('#post-area-' + id).remove()
-    //   // $grid.masonry('layout')
-    //   $grid.masonry('destroy')
-    //   $grid.masonry()
-    //   console.log('hide post ok')
-    // })
-    // // -------------------- hide post end --------------------
+    // -------------------- hide post start --------------------
+    $('.post-hide').on('click', function () {
+      id = $(this).attr('data-id');
+      $post = $('#span-' + id).parent();
+      $grid.masonry('remove', $post).masonry('layout');
+    })
+    // -------------------- hide post end --------------------
 
 
 
