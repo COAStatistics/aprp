@@ -4,14 +4,12 @@ from celery.task import task
 from .builder import direct
 
 
-db_logger = logging.getLogger('aprp')
-logger_extra = {
-    'type_code': 'LOT-seafoods',
-}
-
-
 @task(name="DailySeafoodBuilder")
 def build_seafood(delta):
+    db_logger = logging.getLogger('aprp')
+    logger_extra = {
+        'type_code': 'LOT-seafoods',
+    }
     try:
         result = direct(delta=delta)
         if result.success:

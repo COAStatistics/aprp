@@ -29,6 +29,7 @@ class AbstractProduct(Model):
     class Meta:
         verbose_name = _('Abstract Product')
         verbose_name_plural = _('Abstract Products')
+        ordering = ('id',)
 
     def __str__(self):
         return str(self.name)
@@ -174,7 +175,6 @@ class SourceQuerySet(QuerySet):
         if config_code == 'COG08':
             name = name.replace('桃園縣', '桃園市')
             name = name.replace('臺北縣', '臺北市')
-            name = name.replace('臺中縣', '臺中市')
             name = name.replace('臺南縣', '臺南市')
             name = name.replace('旗山區', '高雄旗山')
             name = name.replace('岡山區', '高雄岡山')
@@ -199,6 +199,7 @@ class Source(Model):
     class Meta:
         verbose_name = _('Source')
         verbose_name_plural = _('Sources')
+        ordering = ('id',)
 
     def __str__(self):
         flat = self.configs_flat
