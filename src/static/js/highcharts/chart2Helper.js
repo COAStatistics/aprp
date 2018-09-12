@@ -205,7 +205,7 @@ var chart2Helper = {
                         zIndex: 10,
                         marker: {
                             enabled: true,
-                            radius: 8,
+                            radius: 3,
                         },
                         tooltip: {
                             valueDecimals: 1,
@@ -333,13 +333,10 @@ var chart2Helper = {
             type: 'year',
             count: 1,
             text: gettext('1y'),
-        }, {
-            type: 'all',
-            text: gettext('all'),
         }]
 
         if(thisDevice != 'desktop'){
-            buttons = [buttons[0], buttons[2], buttons[3]];
+            buttons = [buttons[0], buttons[1], buttons[2]];
         }
 
         var chart = Highcharts.stockChart(container, {
