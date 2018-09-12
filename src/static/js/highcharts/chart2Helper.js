@@ -161,10 +161,10 @@ var chart2Helper = {
                         turboThreshold: 0, // check every single data-point more than 1000 points
                         marker: {
                             enabled: true,
-                            radius: 1,
+                            radius: 3,
                             states: {
                                 hover: {
-                                    radius: 5,
+                                    radius: 8,
                                 }
                             },
                             markData: markData, // function
@@ -188,14 +188,6 @@ var chart2Helper = {
                         yAxis: 1,
                         data: data['sum_volume'],
                         zIndex: 1,
-                        marker: {
-                            radius: 0,
-                            states: {
-                                hover: {
-                                    radius: 2
-                                }
-                            }
-                        },
                         tooltip: {
                             valueDecimals: 0,
                             split: true,
@@ -217,10 +209,11 @@ var chart2Helper = {
                         data: data['avg_weight'],
                         zIndex: 10,
                         marker: {
-                            radius: 1,
+                            enabled: true,
+                            radius: 3,
                             states: {
                                 hover: {
-                                    radius: 5,
+                                    radius: 8,
                                 }
                             }
                         },

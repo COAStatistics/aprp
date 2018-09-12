@@ -158,7 +158,7 @@ var chart1Helper = {
                         data: markData(), // invoke to get marked data
                         marker: {
                             enabled: true,
-                            radius: 5,
+                            radius: 8,
                             markData: markData, // function
                         },
                         tooltip: {
@@ -200,7 +200,7 @@ var chart1Helper = {
                         zIndex: 10,
                         marker: {
                             enabled: true,
-                            radius: 5,
+                            radius: 8,
                         },
                         data: data['avg_weight'],
                         tooltip: {
