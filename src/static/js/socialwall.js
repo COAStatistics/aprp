@@ -22,6 +22,8 @@ var socialWallHelper = {
       this.initNewPostBtn();
       this.initPost();
   },
+
+
   initNewPostBtn: function() {
     // -------------------- create post start --------------------
     // $posts.find('#btn-newpost').click(function() {
@@ -46,6 +48,8 @@ var socialWallHelper = {
     // -------------------- create post end --------------------
 
   },
+
+
   initFormNew: function() {
     $('form').submit(function (e) {
 
@@ -97,6 +101,8 @@ var socialWallHelper = {
       }
     });
   },
+
+
   initEditPostBtn: function() {
     $('form').submit(function (e) {
       e.preventDefault();
@@ -159,9 +165,11 @@ var socialWallHelper = {
       }
     });
   },
-  initPost: function(){
-    // -------------------- edit post start --------------------
 
+
+  initPost: function(){
+
+    // -------------------- edit post start --------------------
     $('.post-edit').on('click', function() {
       id = $(this).attr('data-id');
       url = $(this).attr('api') + id;
@@ -178,51 +186,37 @@ var socialWallHelper = {
       });
     });
 
-    // $posts.find('.post-edit').click(function () {
-    //   var id = $(this).attr('id')
-    //   // alert(id)
-    //   $.ajax({
-    //     type: 'get',
-    //     url: '{% url "posts:api_post_UD" 0  %}'.replace('0', id),
-    //     success: function(data) {
-    //       var title = data['title']
-    //       var content = data['content']
-    //       var file = data['file']
-    //       // alert(title)
-    //       // alert(content)
-    //       $('#id_title').val(title)
-    //       CKEDITOR.instances['id_content'].setData(content)
-    //       // $('#id_file')
-    //       // if(file != null) {
-    //       // 	console.log('has file')
-    //       // 	$('#id_file')[0].files[0] = file
-    //       // 	console.log($('#id_file')[0].files[0])
-    //       // }
-    //       $('#id_file').val('')
-    //       $('#btn-post-update').show()
-    //       $('#btn-post-create').hide()
-    //       $('#dialog-form-post').modal('show')
-    //     }
-    //   })
-    // })
-
-    // -------------------- edit post end --------------------
-
-
     // -------------------- delete post start --------------------
-
     $('.post-delete').on('click', function () {
-      var id = $(this).attr('id')
+      id = $(this).attr('data-id');
+      url = $(this).attr('api');
+      $post = $('#span-' + id).parent();
       $.ajax({
         type: 'DELETE',
-        url: '{% url "posts:api_post_C" %}' + id,
+        url: url + id,
         success: function() {
-          $('#span-' + id).slideUp(200)
-          $('#div-' + id).slideUp(200)
+          $grid.masonry('remove', $post).masonry('layout');
         }
       })
     })
     // -------------------- delete post end --------------------
+
+    // // -------------------- hide post start --------------------
+    // $('.post-hide').on('click', function () {
+    //   var id = $(this).attr('id')
+    //   $('#post-area-' + id).remove()
+    //   // $grid.masonry('layout')
+    //   $grid.masonry('destroy')
+    //   $grid.masonry()
+    //   console.log('hide post ok')
+    // })
+    // // -------------------- hide post end --------------------
+
+
+
+
+
+
 
 
     // -------------------- edit comment start --------------------
@@ -304,18 +298,6 @@ var socialWallHelper = {
 //   $(this).addClass('reply-like')
 // })
 // -------------------- like thumb start --------------------
-
-
-// // -------------------- hide post start --------------------
-// $('.post-hide').on('click', function () {
-//   var id = $(this).attr('id')
-//   $('#post-area-' + id).remove()
-//   // $grid.masonry('layout')
-//   $grid.masonry('destroy')
-//   $grid.masonry()
-//   console.log('hide post ok')
-// })
-// // -------------------- hide post end --------------------
 
 
 // ---------- Infinite Scroll Satrt ----------

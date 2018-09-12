@@ -56,7 +56,7 @@
             <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ i.id }}" api="{% url 'posts:api_socialwall_all' %}">Edit</a>
           </li>
           <li>
-            <a data-id="{{ i.id }}" href="javascript:void(0);" class="text-danger post-delete">Delete</a>
+            <a href="javascript:void(0);" class="text-danger post-delete" data-id="{{ i.id }}" api="{% url 'posts:api_socialwall_all' %}">Delete</a>
           </li>
           {% endif %}
           {% if i.file != None %}
