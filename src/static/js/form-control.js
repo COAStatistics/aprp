@@ -3,7 +3,7 @@
 (function ( $ ) {
 
   var originalVal = $.fn.val;
-  $.fn.val = function(value) {
+  $.fn.formcontrolSet = function(value) {
     $this = $(this);
 
     if (typeof value != 'undefined') {

@@ -87,10 +87,10 @@
           </li>
           {% if j.user.username == request.user.username %}
           <li>
-            <a data-id="{{ j.id }}" href="javascript:void(0);" class="text-primary edit-comment">Edit</a>
+            <a href="javascript:void(0);" class="text-primary edit-comment" data-id="{{ j.id }}">Edit</a>
           </li>
           <li>
-            <a href="javascript:void(0);" class="text-danger">Delete</a>
+            <a href="javascript:void(0);" class="text-danger reply-delete" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">Delete</a>
           </li>
           {% endif %}
         </ul>
@@ -98,7 +98,7 @@
         </li>
       {% endfor %}
       <li id="insert-reply-{{ i.id }}" class="message message-reply socialwall-reply">
-        <input id="reply-{{ i.id }}" class="form-control input-xs socialwall-reply-text" placeholder="Type and enter" type="text">
+        <input id="reply-text" class="form-control input-xs socialwall-reply-text" placeholder="Type and enter" type="text" data-id="{{ i.id }}" api="{% url 'comments:api_comments_c' %}" data-token="{{ csrf_token }}">
       </li>
 
     </ul>
