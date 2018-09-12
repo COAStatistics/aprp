@@ -65,7 +65,7 @@ class Api(AbstractApi):
             return lst
         else:
             # log as cannot find source item
-            self.LOGGER.warning('API %s Warning: Cannot Match Source: "%s" In Dictionary %s'
+            self.LOGGER.warning('API Warning: Cannot Match Source: "%s" In Dictionary %s'
                                 % (source_name, dic), extra=self.LOGGER_EXTRA)
             return dic
 
