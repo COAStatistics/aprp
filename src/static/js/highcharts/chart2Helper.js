@@ -18,8 +18,14 @@ var chart2Helper = {
         title: gettext('Daily Price/Volume Trend For All Time'),
         subtitle: getBreadCrumb ? getBreadCrumb(' / ') : null,
         colorLevel: {
-            danger: '#b94a48',
-            warning: '#c09853'
+            marker: {
+                danger: '#b94a48',
+                warning: '#c09853',
+            },
+            plotBand: {
+                danger: 'rgba(185, 74, 72, 0.1)',
+                warning: 'rgba(192, 152, 83, 0.1)',
+            }
         },
     },
     init: function(container){
@@ -78,12 +84,54 @@ var chart2Helper = {
                     fillColor: '#FFF',
                     radius: radius,
                     lineWidth: radius * 0.5,
-                    lineColor: chart2Helper.manager.colorLevel[point.monitorProfile.color],
+                    lineColor: chart2Helper.manager.colorLevel.marker[point.monitorProfile.color],
                 } : null;
             })
 
             return data;
         };
+
+    },
+    plotBandUpdate: function(chart){
+
+        var yAxis = chart.yAxis[0];
+
+        var getPlotBands = function(){
+            var max = new Date(chart.xAxis[0].getExtremes().max);
+            var min = new Date(chart.xAxis[0].getExtremes().min);
+            var profiles = $.grep(chart2Helper.manager.monitorProfiles, function(profile, i){
+                if(profile.start_date <= min && max <= profile.end_date){
+                    return profile;
+                }
+            })
+            var plotBands = profiles.map(function(profile, i){
+                return {
+                    from: profile.low_price,
+                    to: profile.up_price,
+                    color: chart2Helper.manager.colorLevel.plotBand[profile.color],
+                    label: {
+                        text: profile.format_price,
+                        style: {
+                            color: '#606060',
+                            zIndex: 1000,
+                        }
+                    },
+                    zIndex: 1000,
+                }
+            })
+            return plotBands;
+        };
+
+        return function(){
+            var plotBands = getPlotBands();
+
+            yAxis.update({
+                plotBands: plotBands,
+                minorGridLineWidth: plotBands ? 0 : 1,
+                gridLineWidth: plotBands ? 0 : 1,
+                alternateGridColor: plotBands ? null : 'undefined',
+            }, true); // redraw
+        }
 
     },
     create: function(container, seriesOptions, unit) {
@@ -242,7 +290,9 @@ var chart2Helper = {
                         return Math.round(this.value * 10) / 10;
                     },
                 },
-                opposite: false
+                opposite: false,
+                gridLineWidth: 0,
+                minorGridLineWidth: 0,
             })
         }
 
@@ -262,7 +312,9 @@ var chart2Helper = {
                         fontSize: chart2Helper.manager.fontSize.label,
                     },
                 },
-                opposite: true
+                opposite: true,
+                gridLineWidth: 0,
+                minorGridLineWidth: 0,
             })
         }
 
@@ -282,7 +334,9 @@ var chart2Helper = {
                     },
                     x: 5
                 },
-                opposite: true
+                opposite: true,
+                gridLineWidth: 0,
+                minorGridLineWidth: 0,
             })
         }
 
@@ -369,7 +423,8 @@ var chart2Helper = {
                         || e.trigger === 'navigator'
                         || e.trigger === 'rangeSelectorButton'){
 
-                            /* Update series data marker size */
+
+                            /* Update series */
                             chart.series.forEach(function(series, i){
                                 var indexType = series.userOptions.customIndexType;
                                 var className = series.userOptions.className;
@@ -377,6 +432,7 @@ var chart2Helper = {
 
                                 if((indexType === 'avg_price') && (className !== 'highcharts-navigator-series')){
 
+                                    /* Update series data marker size */
                                     monthLength = Math.abs(e.max - e.min) / (1000 * 3600 * 24 * 31);
 
                                     if(monthLength <= 24){ // fix size if range > 24 month
@@ -384,8 +440,11 @@ var chart2Helper = {
                                             data: series.userOptions.marker.markData(monthLength),
                                         }, true); // redraw
                                     }
+
                                 }
                             })
+
+                            chart.plotBandUpdate();
 
                             /* Update date range */
                             chart2Helper.manager.dateRange.min = min;
@@ -409,7 +468,9 @@ var chart2Helper = {
                     style: {
                         fontSize: chart2Helper.manager.fontSize.label,
                     }
-                }
+                },
+                gridLineWidth: 0,
+                minorGridLineWidth: 0,
             },
 
             loading: {
@@ -519,6 +580,11 @@ var chart2Helper = {
                 $('input.highcharts-range-selector', $(chart.container).parent())
                     .datepicker();
             }, 0);
+
+            chart.plotBandUpdate = chart2Helper.plotBandUpdate(chart);
+            if(thisDevice == 'desktop'){
+                chart.plotBandUpdate();
+            }
 
             // init integration datatable
             integrationHelper.loadTable($('#chart-2-widget-integration div[data-load]'), min, max);
