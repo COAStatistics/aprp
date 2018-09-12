@@ -153,7 +153,7 @@ class MonitorProfile(Model):
     price = FloatField(verbose_name=_('Price'))
     comparator = CharField(max_length=6, default='__lt__', choices=COMPARATOR_CHOICES, verbose_name=_('Comparator'))
     color = CharField(max_length=20, default='danger', choices=COLOR_CHOICES, verbose_name=_('Color'))
-    info = TextField(null=True, blank=True, verbose_name=_('Info'))
+    info = TextField(null=True, blank=True, verbose_name=_('Monitor Info'))
     action = TextField(null=True, blank=True, verbose_name=_('Action'))
     period = TextField(null=True, blank=True, verbose_name=_('Period'))
     is_active = BooleanField(default=False, verbose_name=_('Is Active'))

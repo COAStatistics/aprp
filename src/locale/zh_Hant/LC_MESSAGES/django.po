@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-12 14:15+0800\n"
+"POT-Creation-Date: 2018-09-12 14:34+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1007,7 +1007,7 @@ msgstr "整合資訊"
 msgid "Monitor Price"
 msgstr "監控價格"
 
-#: templates/contents/monitor-profile-table.html:8
+#: templates/contents/monitor-profile-table.html:8 watchlists/models.py:156
 msgid "Monitor Info"
 msgstr "監控基準價格訂定理由"
 
@@ -1136,10 +1136,6 @@ msgstr "比較器"
 msgid "Color"
 msgstr "顯示顏色"
 
-#: watchlists/models.py:156
-msgid "Info"
-msgstr "監控基準價格訂定理由"
-
 #: watchlists/models.py:159
 msgid "Is Active"
 msgstr "啟用"
@@ -1147,3 +1143,4 @@ msgstr "啟用"
 #: watchlists/models.py:160
 msgid "Monitor Months"
 msgstr "監控月份"
+
