@@ -54,10 +54,10 @@
 
         <ul>
             <li>
-                <a href="{% url 'about' %}" title="Main"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{% trans 'Main' %}</span></a>
+                <a href="{% url 'about' %}" title="{% trans 'Main' %}"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{% trans 'Main' %}</span></a>
                 <ul>
                     <li class="">
-                        <a href="{% url 'about' %}" title="About"><i class="fa fa-lg fa-fw fa-info"></i> <span class="menu-item-parent">{% trans 'About' %}</span></a>
+                        <a href="{% url 'about' %}" title="{% trans 'About' %}"><i class="fa fa-lg fa-fw fa-info"></i> <span class="menu-item-parent">{% trans 'About' %}</span></a>
                     </li>
                 </ul>
             </li>
@@ -66,28 +66,28 @@
                 <a href="#" title="Admin"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">{% trans 'Admin' %}</span></a>
                 <ul>
                     <li>
-                        <a href="{% url 'admin:logs_log_changelist' %}" target="_blank" title="Log"><span class="menu-item-parent">{% trans 'Log' %}</span></a>
+                        <a href="{% url 'admin:logs_log_changelist' %}" target="_blank" title="{% trans 'Log' %}"><span class="menu-item-parent">{% trans 'Log' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'admin:dailytrans_dailytran_changelist' %}" target="_blank" title="Daily Transition"><span class="menu-item-parent">{% trans 'Daily Transition' %}</span></a>
+                        <a href="{% url 'admin:dailytrans_dailytran_changelist' %}" target="_blank" title="{% trans 'Daily Transition' %}"><span class="menu-item-parent">{% trans 'Daily Transition' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'admin:configs_source_changelist' %}" target="_blank" title="Source"><span class="menu-item-parent">{% trans 'Source' %}</span></a>
+                        <a href="{% url 'admin:configs_source_changelist' %}" target="_blank" title="{% trans 'Source' %}"><span class="menu-item-parent">{% trans 'Source' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'admin:configs_abstractproduct_changelist' %}" target="_blank" title="Product"><span class="menu-item-parent">{% trans 'Product' %}</span></a>
+                        <a href="{% url 'admin:configs_abstractproduct_changelist' %}" target="_blank" title="{% trans 'Product' %}"><span class="menu-item-parent">{% trans 'Product' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'admin:configs_unit_changelist' %}" target="_blank" title="Unit"><span class="menu-item-parent">{% trans 'Unit' %}</span></a>
+                        <a href="{% url 'admin:configs_unit_changelist' %}" target="_blank" title="{% trans 'Unit' %}"><span class="menu-item-parent">{% trans 'Unit' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'admin:watchlists_watchlist_changelist' %}" target="_blank" title="Watchlist"><span class="menu-item-parent">{% trans 'Watchlist' %}</span></a>
+                        <a href="{% url 'admin:watchlists_watchlist_changelist' %}" target="_blank" title="{% trans 'Watchlist' %}"><span class="menu-item-parent">{% trans 'Watchlist' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'admin:watchlists_watchlistitem_changelist' %}" target="_blank" title="Watchlist Item"><span class="menu-item-parent">{% trans 'Watchlist Item' %}</span></a>
+                        <a href="{% url 'admin:watchlists_watchlistitem_changelist' %}" target="_blank" title="{% trans 'Watchlist Item' %}"><span class="menu-item-parent">{% trans 'Watchlist Item' %}</span></a>
                     </li>
                     <li>
-                        <a href="{% url 'admin:watchlists_monitorprofile_changelist' %}" target="_blank" title="Monitor Profile"><span class="menu-item-parent">{% trans 'Monitor Profile' %}</span></a>
+                        <a href="{% url 'admin:watchlists_monitorprofile_changelist' %}" target="_blank" title="{% trans 'Monitor Profile' %}"><span class="menu-item-parent">{% trans 'Monitor Profile' %}</span></a>
                     </li>
                 </ul>
             </li>
