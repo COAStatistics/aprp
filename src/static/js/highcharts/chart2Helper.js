@@ -465,7 +465,8 @@ var chart2Helper = {
                     },
                     dataGrouping: {
                         enabled: false,
-                    }
+                    },
+                    connectNulls: true,
                 }
             },
 
