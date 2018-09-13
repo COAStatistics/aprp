@@ -29,9 +29,13 @@ def active_update():
         for profile in monitor_profiles:
 
             if month not in profile.months.values_list('id', flat=True):
+                # for logging
+                if profile.is_active:
+                    deactivated.append(profile)
+
                 profile.is_active = False
                 profile.save()
-                db_logger.info('Profile %s update to False, low season' % profile, extra=logger_extra)
+
             else:
                 items = watchlist_items.filter_by_product(product=profile.product)
                 t = profile.type
