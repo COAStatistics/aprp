@@ -210,7 +210,7 @@ var socialWallHelper = {
     })
     // -------------------- hide post end --------------------
 
-    // -------------------- reply text start --------------------
+    // -------------------- reply new start --------------------
     $('.socialwall-reply-text').keyup(function (e) {
       if(e.keyCode == 13) {
         id = $(this).attr('data-id');
@@ -234,7 +234,7 @@ var socialWallHelper = {
         });
       }
     });
-    // -------------------- reply text end --------------------
+    // -------------------- reply new end --------------------
 
     // -------------------- reply delete start --------------------
     $('.reply-delete').on('click', function() {
@@ -251,6 +251,48 @@ var socialWallHelper = {
       });
     });
     // -------------------- reply delete end --------------------
+
+    // -------------------- reply edit start --------------------
+    $('.reply-edit').on('click', function() {
+      id = $(this).attr('data-id');
+      url = $(this).attr('api');
+      $reply = $(this).parents('.socialwall-reply');
+      $reply.find('.comment').hide();
+      $reply.find('.comment-edit').show();
+      origin = $reply.find('#reply-origin').text();
+      $edittext = $reply.find('#reply-edit');
+      $edittext.val(origin);
+      $edittext.focus();
+
+      $edittext.keyup(function(e) {
+        if(e.keyCode == 13) {
+          $edittext.focusout();
+        }
+      })
+
+      $edittext.focusout(function() {
+        data = $edittext.val();
+        $.ajax({
+          type: 'patch',
+          url: url + id,
+          data: {
+            'content': data,
+          },
+          success: function(data) {
+            $reply.find('.comment').show();
+            $reply.find('.comment-edit').hide();
+            $edittext.val('');
+            $reply.find('#reply-origin').text(data['content']);
+          }
+        });
+      });
+    });
+    // -------------------- reply edit end --------------------
+
+
+
+
+
 
 
 
