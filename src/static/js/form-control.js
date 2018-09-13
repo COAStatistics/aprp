@@ -3,12 +3,13 @@
 (function ( $ ) {
 
   var originalVal = $.fn.val;
-  $.fn.formcontrolSet = function(value) {
+
+  $.fn.val = function(value) {
     $this = $(this);
 
     if (typeof value != 'undefined') {
       // setter invoked, do processing
-      return originalVal.apply(this, value);
+      return originalVal.apply(this, [value]);
     }
     else{
       // if is ck editor field

@@ -71,8 +71,12 @@
       {% for j in i.comments reversed %}
         <li class="message message-reply socialwall-reply">
         <!-- <img src="img/avatars/3.png" class="online"> -->
-        <span id="comment-{{ j.id }}" class="message-text"> <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
-          {{ j.content }}
+        <span class="message-text comment"> <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
+          <span id="reply-origin">{{ j.content }}</span>
+        </span>
+
+        <span class="message-text comment-edit" style="display: None;"> <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
+          <input id="reply-edit" type="text" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">
         </span>
 
         <ul class="list-inline font-xs">
@@ -87,7 +91,7 @@
           </li>
           {% if j.user.username == request.user.username %}
           <li>
-            <a href="javascript:void(0);" class="text-primary edit-comment" data-id="{{ j.id }}">Edit</a>
+            <a href="javascript:void(0);" class="text-primary reply-edit" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">Edit</a>
           </li>
           <li>
             <a href="javascript:void(0);" class="text-danger reply-delete" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">Delete</a>

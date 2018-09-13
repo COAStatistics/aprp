@@ -1,10 +1,11 @@
- <!-- load socialwall_filter  -->
-
-
 <li class="message message-reply socialwall-reply">
 <!-- <img src="img/avatars/3.png" class="online"> -->
-<span id="comment-{{ data.id }}" class="message-text"> <a href="javascript:void(0);" class="username">{{ data.user.username }}</a>
-  {{ data.content }}
+<span class="message-text comment"> <a href="javascript:void(0);" class="username">{{ data.user.username }}</a>
+  <span id="reply-origin">{{ data.content }}</span>
+</span>
+
+<span class="message-text comment-edit" style="display: None;"> <a href="javascript:void(0);" class="username">{{ data.user.username }}</a>
+  <input id="reply-edit" type="text" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">
 </span>
 
 <ul class="list-inline font-xs">
@@ -19,7 +20,7 @@
   </li>
   {% if data.user.username == request.user.username %}
   <li>
-    <a href="javascript:void(0);" class="text-primary edit-comment" data-id="{{ data.id }}">Edit</a>
+    <a href="javascript:void(0);" class="text-primary reply-edit" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">Edit</a>
   </li>
   <li>
     <a href="javascript:void(0);" class="text-danger reply-delete" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">Delete</a>
