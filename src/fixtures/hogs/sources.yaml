@@ -20,7 +20,7 @@
   pk: 40004
   fields:
     name: 臺南市
-    name: 臺南縣
+    alias: 臺南縣
     configs: [8]
     type: 1
 

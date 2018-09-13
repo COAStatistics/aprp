@@ -563,6 +563,11 @@ var chart2Helper = {
                 chart.plotBandUpdate();
             }
 
+            chart.axisRangeUpdate = chart2Helper.axisRangeUpdate(chart);
+            if(thisDevice == 'desktop'){
+                chart.axisRangeUpdate();
+            }
+
             // init integration datatable
             integrationHelper.loadTable($('#chart-2-widget-integration div[data-load]'), min, max);
 
