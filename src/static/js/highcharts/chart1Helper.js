@@ -322,6 +322,12 @@ var chart1Helper = {
                 selected: 0
             },
 
+            plotOptions: {
+                series: {
+                    connectNulls: true
+                }
+            },
+
             xAxis: {
                 type: 'datetime',
                 dateTimeLabelFormats: {
@@ -415,7 +421,7 @@ var chart1Helper = {
             /* Add extra range to price yAxis */
             var min = chart.yAxis[0].min;
             var max = chart.yAxis[0].max;
-            var extra = (max - min) / 10;
+            var extra = (max - min) / 20;
             chart.yAxis[0].update({
                 min: min - extra,
                 max: max + extra,
