@@ -378,7 +378,32 @@ var chart1Helper = {
                             display: 'block',
                         }
                     }
-                }
+                },
+                buttons: {
+                    plotBands: {
+                        enabled: thisDevice == 'desktop' ? true : false,
+                        text: gettext('PlotBands'),
+                        onclick: function () {
+                            this.yAxis.forEach(function(yAxis, i){
+                                var plotBands = yAxis.plotLinesAndBands;
+                                plotBands.forEach(function(plotBand, i){
+                                    if (plotBand.hidden) {
+                                        plotBand.hidden = false;
+                                        plotBand.svgElem.show();
+                                    } else {
+                                        plotBand.hidden = true;
+                                        plotBand.svgElem.hide();
+                                    }
+                                })
+                            })
+                        },
+                        theme: {
+                            'stroke-width': 1,
+                            stroke: 'silver',
+                            r: 5,
+                        },
+                    },
+                },
             },
 
             responsive: {

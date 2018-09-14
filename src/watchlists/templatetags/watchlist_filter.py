@@ -25,7 +25,12 @@ def source_filter(product, watchlist):
 
 
 @register.filter
-def monitor_profile_filter(obj, watchlist):
+def monitor_profile_filter(qs, watchlist):
+    return qs.filter(watchlist=watchlist)
+
+
+@register.filter
+def get_monitor_profile(obj, watchlist):
     if isinstance(obj, AbstractProduct):
         product_ids = list(obj.children_all().values_list('id', flat=True))
         product_ids.append(obj.id)
