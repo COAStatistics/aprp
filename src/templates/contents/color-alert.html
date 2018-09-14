@@ -1,6 +1,6 @@
 {% load watchlist_filter %}
 
-{% with monitor_profiles=item|monitor_profile_filter:watchlist %}
+{% with monitor_profiles=item|get_monitor_profile:watchlist %}
     {% with danger_profiles=monitor_profiles|profile_color_filter:'danger' %}
         {% if danger_profiles %}
             <i class="fa fa-lg fa-warning text-danger" data-name="profile-active-alert" data-color="danger"></i>
