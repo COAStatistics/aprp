@@ -114,7 +114,7 @@ def chart_tab_extra_context(instance):
     elif content_type == 'product':
         product = AbstractProduct.objects.get(id=object_id)
         extra_context['charts'] = product.config.charts.all()
-        monitor_profiles = MonitorProfile.objects.filter(product__id=object_id, watchlist__id=watchlist_id).order_by('price')
+        monitor_profiles = MonitorProfile.objects.filter(product__id=object_id).order_by('price')
 
         extra_context['product'] = product
         extra_context['types'] = product.types(watchlist=watchlist)
