@@ -390,9 +390,11 @@ var chart1Helper = {
                                     if (plotBand.hidden) {
                                         plotBand.hidden = false;
                                         plotBand.svgElem.show();
+                                        if('label' in plotBand) plotBand.label.show();
                                     } else {
                                         plotBand.hidden = true;
                                         plotBand.svgElem.hide();
+                                        if('label' in plotBand) plotBand.label.hide();
                                     }
                                 })
                             })

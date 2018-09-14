@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-14 09:35+0800\n"
+"POT-Creation-Date: 2018-09-14 17:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -162,11 +162,12 @@ msgid "Average Weight"
 msgstr "日均重量"
 
 #: static/js/highcharts/chart1Helper.js:385
+#: static/js/highcharts/chart2Helper.js:462
 msgid "PlotBands"
 msgstr "價格警示區域"
 
-#: static/js/highcharts/chart1Helper.js:468
-#: static/js/highcharts/chart2Helper.js:578
+#: static/js/highcharts/chart1Helper.js:470
+#: static/js/highcharts/chart2Helper.js:580
 msgid "Watchlists"
 msgstr "監控清單"
 
@@ -193,10 +194,6 @@ msgstr "6個月"
 #: static/js/highcharts/chart2Helper.js:311
 msgid "1y"
 msgstr "1年"
-
-#: static/js/highcharts/chart2Helper.js:462
-msgid "Show/hide plotbands"
-msgstr "價格警示區域"
 
 #: static/js/highcharts/chart3Helper.js:17
 msgid "Daily Price/Volume Trend Year By Year"
@@ -431,3 +428,4 @@ msgstr ""
 #: static/vendor/js/plugin/datatables/pdfmake.min.js:26
 msgid "keys"
 msgstr ""
+
