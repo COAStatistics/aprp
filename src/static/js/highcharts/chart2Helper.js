@@ -459,17 +459,19 @@ var chart2Helper = {
                 buttons: {
                     plotBands: {
                         enabled: thisDevice == 'desktop' ? true : false,
-                        text: gettext('Show/hide plotbands'),
+                        text: gettext('PlotBands'),
                         onclick: function () {
                             this.yAxis.forEach(function(yAxis, i){
                                 var plotBands = yAxis.plotLinesAndBands;
                                 plotBands.forEach(function(plotBand, i){
                                     if (plotBand.hidden) {
                                         plotBand.hidden = false;
-                                        plotBand.svgElem.show();
+                                        if('svgElem' in plotBand) plotBand.svgElem.show();
+                                        if('label' in plotBand) plotBand.label.show();
                                     } else {
                                         plotBand.hidden = true;
-                                        plotBand.svgElem.hide();
+                                        if('svgElem' in plotBand) plotBand.svgElem.hide();
+                                        if('label' in plotBand) plotBand.label.hide();
                                     }
                                 })
                             })
