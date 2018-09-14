@@ -1,4 +1,5 @@
 from django import template
+from django.db.models.query import QuerySet
 from configs.models import(
     AbstractProduct,
     Config,
@@ -26,7 +27,9 @@ def source_filter(product, watchlist):
 
 @register.filter
 def monitor_profile_filter(qs, watchlist):
-    return qs.filter(watchlist=watchlist)
+    if isinstance(qs, QuerySet):
+        return qs.filter(watchlist=watchlist)
+    return None
 
 
 @register.filter
