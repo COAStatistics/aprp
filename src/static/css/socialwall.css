@@ -1,4 +1,50 @@
-/* div.grid-sizer,
-div.grid-item {
-  width: 50%;
-} */
+h1.socialwall-title {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+li.message.socialwall-message.post-edit-area {
+  margin: 0px;
+}
+
+div.message-text.socialwall-author {
+  margin-left: 20px !important;
+}
+
+.text-muted.ultra-light.socialwall-post-time {
+  margin-left: 20px;
+}
+
+div.message-text.socialwall-author > a {
+  margin-top: 5px !important;
+}
+
+li.socialwall-btn-reply {
+  margin-top: 5px !important;
+  margin-left: 15px !important;
+}
+
+li.message.message-reply.socialwall-reply > span.message-text.comment {
+  margin-left: 30px !important;
+}
+
+li.message.message-reply.socialwall-reply > ul.list-inline.font-xs {
+  margin-left: 25px;
+}
+
+li.message.message-reply.socialwall-reply {
+  margin-left: 0px !important;
+  background-image: url('http://localhost:8000/static/vendor/img/mybg.png');
+}
+
+
+div#cke_id_content {
+  width: 100% !important;
+}
+
+form#form-post > button {
+  margin-top: -25px;
+  margin-left: 20px;
+}

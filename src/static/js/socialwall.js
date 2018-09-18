@@ -20,7 +20,7 @@ var socialWallHelper = {
       });
       // $posts = $('#widget-grid')
       this.initNewPostBtn();
-      this.initPost();
+      this.initPost($grid);
   },
 
 
@@ -82,7 +82,7 @@ var socialWallHelper = {
             $item = $(data);
             $grid.prepend($item).masonry('prepended', $item);
             $('#dialog-form-post').modal('hide');
-            socialWallHelper.initPost();
+            socialWallHelper.initPost($item);
           }
         });
       } else {
@@ -95,7 +95,7 @@ var socialWallHelper = {
             $item = $(data);
             $grid.prepend($item).masonry('prepended', $item);
             $('#dialog-form-post').modal('hide');
-            socialWallHelper.initPost();
+            socialWallHelper.initPost($item);
           }
         });
       }
@@ -133,14 +133,11 @@ var socialWallHelper = {
           contentType: false,
           processData: false,
           success: function(data) {
-            // $item = $(data);
-            // $grid.prepend($item).masonry('prepended', $item);
-            // $('#dialog-form-post').modal('hide');
-            console.log(data)
+            $item = $(data);
+            socialWallHelper.initPost($item);
             $div.find('.post-edit-area').remove();
-            $div.find('ul').prepend(data);
+            $div.find('ul').prepend($item);
             $grid.masonry('layout');
-            socialWallHelper.initPost();
             $('#dialog-form-post').modal('hide');
           }
         });
@@ -155,10 +152,11 @@ var socialWallHelper = {
             // $grid.prepend($item).masonry('prepended', $item);
             // $('#dialog-form-post').modal('hide');
             console.log(data)
+            $item = $(data);
+            socialWallHelper.initPost($item);
             $div.find('.post-edit-area').remove();
-            $div.find('ul').prepend(data);
+            $div.find('ul').prepend($item);
             $grid.masonry('layout');
-            socialWallHelper.initPost();
             $('#dialog-form-post').modal('hide');
           }
         });
@@ -167,10 +165,10 @@ var socialWallHelper = {
   },
 
 
-  initPost: function(){
+  initPost: function($item){
 
     // -------------------- edit post start --------------------
-    $('.post-edit').on('click', function() {
+    $item.find('.post-edit').on('click', function() {
       id = $(this).attr('data-id');
       url = $(this).attr('api') + id;
       $.ajax({
@@ -188,7 +186,7 @@ var socialWallHelper = {
     // -------------------- edit post end --------------------
 
     // -------------------- delete post start --------------------
-    $('.post-delete').on('click', function () {
+    $item.find('.post-delete').on('click', function () {
       id = $(this).attr('data-id');
       url = $(this).attr('api');
       $post = $('#span-' + id).parent();
@@ -203,7 +201,7 @@ var socialWallHelper = {
     // -------------------- delete post end --------------------
 
     // -------------------- hide post start --------------------
-    $('.post-hide').on('click', function () {
+    $item.find('.post-hide').on('click', function () {
       id = $(this).attr('data-id');
       $post = $('#span-' + id).parent();
       $grid.masonry('remove', $post).masonry('layout');
@@ -211,7 +209,7 @@ var socialWallHelper = {
     // -------------------- hide post end --------------------
 
     // -------------------- reply new start --------------------
-    $('.socialwall-reply-text').keyup(function (e) {
+    $item.find('.socialwall-reply-text').keyup(function (e) {
       if(e.keyCode == 13) {
         id = $(this).attr('data-id');
         url = $(this).attr('api');
@@ -227,7 +225,9 @@ var socialWallHelper = {
             'content': text,
           },
           success: function(data) {
-            $reply.parent().before(data);
+            $item = $(data);
+            socialWallHelper.initPost($item);
+            $reply.parent().before($item);
             $reply.val('');
             $grid.masonry();
           }
@@ -237,7 +237,7 @@ var socialWallHelper = {
     // -------------------- reply new end --------------------
 
     // -------------------- reply delete start --------------------
-    $('.reply-delete').on('click', function() {
+    $item.find('.reply-delete').on('click', function() {
       id = $(this).attr('data-id');
       url = $(this).attr('api');
       $reply = $(this);
@@ -253,7 +253,7 @@ var socialWallHelper = {
     // -------------------- reply delete end --------------------
 
     // -------------------- reply edit start --------------------
-    $('.reply-edit').on('click', function() {
+    $item.find('.reply-edit').on('click', function() {
       id = $(this).attr('data-id');
       url = $(this).attr('api');
       $reply = $(this).parents('.socialwall-reply');
