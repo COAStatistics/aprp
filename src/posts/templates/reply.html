@@ -1,3 +1,7 @@
+{% load i18n %}
+{% load socialwall_filter %}
+
+
 <li class="message message-reply socialwall-reply">
 <!-- <img src="img/avatars/3.png" class="online"> -->
 <span class="message-text comment"> <a href="javascript:void(0);" class="username">{{ data.user.username }}</a>
@@ -10,20 +14,20 @@
 
 <ul class="list-inline font-xs">
   <li>
-    <a href="javascript:void(0);" class="text-info"><i class="fa fa-reply"></i> Reply</a>
+    <a href="javascript:void(0);" class="text-info"><i class="fa fa-reply"></i> {% trans 'Reply' %}</a>
   </li>
   <li class="toggle-like">
-    <a data-id="{{ data.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> Like</a>
+    <a data-id="{{ data.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> {% trans 'Like' %}</a>
   </li>
   <li>
     <a href="javascript:void(0);" class="text-muted">{{ data.timestamp }} </a>
   </li>
   {% if data.user.username == request.user.username %}
   <li>
-    <a href="javascript:void(0);" class="text-primary reply-edit" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">Edit</a>
+    <a href="javascript:void(0);" class="text-primary reply-edit" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">{% trans 'Edit' %}</a>
   </li>
   <li>
-    <a href="javascript:void(0);" class="text-danger reply-delete" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">Delete</a>
+    <a href="javascript:void(0);" class="text-danger reply-delete" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">{% trans 'Delete' %}</a>
   </li>
   {% endif %}
 </ul>

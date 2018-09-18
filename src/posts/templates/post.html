@@ -1,4 +1,5 @@
-<!-- load socialwall_filter -->
+{% load i18n %}
+{% load socialwall_filter %}
 
 
 <div class="grid-item col-md-6 col-xs-12">
@@ -7,7 +8,7 @@
       <a href="javascript:void(0);" data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle"><span class="caret single"></span></a>
       <ul class="dropdown-menu text-left">
         <li>
-          <a data-id="{{ post.id }}" class="post-hide" href="javascript:void(0);">Hide this post</a>
+          <a data-id="{{ post.id }}" class="post-hide" href="javascript:void(0);">{% trans 'Hide this post' %}</a>
         </li>
         <!-- <li>
           <a href="javascript:void(0);">Hide future posts from this user</a>
@@ -40,20 +41,20 @@
 
         <ul class="list-inline font-xs">
           <li class="socialwall-btn-reply">
-            <a data-id="{{ post.id }}" href="javascript:void(0);" class="text-info post-reply"><i class="fa fa-reply"></i> Reply</a>
+            <a data-id="{{ post.id }}" href="javascript:void(0);" class="text-info post-reply"><i class="fa fa-reply"></i> {% trans 'Reply' %}</a>
           </li>
           <li class="toggle-like">
-            <a data-id="{{ post.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> Like</a>
+            <a data-id="{{ post.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> {% trans 'Like' %}</a>
           </li>
           <!-- <li>
             <a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
           </li> -->
           {% if request.user == post.user %}
           <li>
-            <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ post.id }}" api="{% url 'posts:api_socialwall_all' %}">Edit</a>
+            <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ post.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Edit' %}</a>
           </li>
           <li>
-            <a href="javascript:void(0);" class="text-danger post-delete" data-id="{{ post.id }}" api="{% url 'posts:api_socialwall_all' %}">Delete</a>
+            <a href="javascript:void(0);" class="text-danger post-delete" data-id="{{ post.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Delete' %}</a>
           </li>
           {% endif %}
           {% if post.file != '' %}
