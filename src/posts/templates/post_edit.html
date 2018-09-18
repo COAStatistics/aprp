@@ -1,3 +1,7 @@
+{% load i18n %}
+{% load socialwall_filter %}
+
+
 <li class="post-edit-area">
   <h1 class="socialwall-title">{{ data.title }}</h1>
 </li>
@@ -19,20 +23,20 @@
 
 <ul class="list-inline font-xs">
   <li class="socialwall-btn-reply">
-    <a data-id="{{ data.id }}" href="javascript:void(0);" class="text-info post-reply"><i class="fa fa-reply"></i> Reply</a>
+    <a data-id="{{ data.id }}" href="javascript:void(0);" class="text-info post-reply"><i class="fa fa-reply"></i> {% trans 'Reply' %}</a>
   </li>
   <li class="toggle-like">
-    <a data-id="{{ data.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> Like</a>
+    <a data-id="{{ data.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> {% trans 'Like' %}</a>
   </li>
   <!-- <li>
   <a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
 </li> -->
 {% if request.user.username == data.user.username %}
 <li>
-  <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ data.id }}" api="{% url 'posts:api_socialwall_all' %}">Edit</a>
+  <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ data.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Edit' %}</a>
 </li>
 <li>
-  <a href="javascript:void(0);" class="text-danger post-delete" data-id="{{ data.id }}" api="{% url 'posts:api_socialwall_all' %}">Delete</a>
+  <a href="javascript:void(0);" class="text-danger post-delete" data-id="{{ data.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Delete' %}</a>
 </li>
 {% endif %}
 {% if data.file != None %}
