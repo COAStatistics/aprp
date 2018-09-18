@@ -1,6 +1,8 @@
 var chart2Helper = {
     container: null,
     manager: {
+        monitorProfiles: null,
+        watchlistProfiles: null,
         getCharts: function(){
             return chart2Helper.manager.charts;
         },
@@ -14,10 +16,23 @@ var chart2Helper = {
             title: 11,
         },
         title: gettext('Daily Price/Volume Trend For All Time'),
-        monitorProfiles: null,
+        subtitle: getBreadCrumb ? getBreadCrumb(' / ') : null,
         colorLevel: {
-            danger: '#b94a48',
-            warning: '#c09853'
+            marker: {
+                danger: '#b94a48',
+                warning: '#c09853',
+            },
+            plotBand: {
+                danger: 'rgba(185, 74, 72, 0.15)',
+                warning: 'rgba(221, 223, 0, 0.15)',
+            },
+            plotBandBorder: {
+                danger: 'rgba(185, 74, 72, 0.5)',
+                warning: 'rgba(221, 223, 0, 0.5)',
+            },
+        },
+        radiusSize: {
+            line: 0,
         },
     },
     init: function(container){
@@ -31,10 +46,13 @@ var chart2Helper = {
         if(thisDevice == 'desktop'){
             this.manager.fontSize.label = 14;
             this.manager.fontSize.title = 18;
+            this.manager.radiusSize.line = 3;
         }
 
         // monitor profiles
-        this.manager.monitorProfiles = this.container[0].monitorProfiles;
+        this.manager.monitorProfiles = this.container[0].monitorProfiles || [];
+        // watchlist profiles
+        this.manager.watchlistProfiles = this.container[0].watchlistProfiles || [];
 
     },
     markData: function(typeId, data){
@@ -49,7 +67,9 @@ var chart2Helper = {
             y = point[1];
 
             profiles.forEach(function(profile, j){
-                if((profile.low_price <= y) && (y <= profile.up_price)){
+                var priceInRange = (profile.low_price <= y) && (y <= profile.up_price);
+                var dateInRange = (profile.start_date <= x) && (x <= profile.end_date); // unix
+                if(priceInRange && dateInRange){
                     data[i] = {
                         x: x,
                         y: y,
@@ -65,19 +85,64 @@ var chart2Helper = {
                 return data;
             }
             monthLength = monthLength || 1;
-            var radius = (12 - monthLength + 1) > 4 ? (12 - monthLength + 1) : 4;
+            var radius = (10 - monthLength + 1) > 4 ? (10 - monthLength + 1) : 4;
             data.forEach(function(point, i){
                 point.marker = point.monitorProfile ? {
                     symbol: 'triangle',
                     fillColor: '#FFF',
                     radius: radius,
                     lineWidth: radius * 0.5,
-                    lineColor: chart2Helper.manager.colorLevel[point.monitorProfile.color],
+                    lineColor: chart2Helper.manager.colorLevel.marker[point.monitorProfile.color],
                 } : null;
             })
 
             return data;
         };
+
+    },
+    plotBandUpdate: function(chart){
+
+        var yAxis = chart.yAxis[0];
+
+        var getPlotBands = function(){
+            var max = new Date(chart.xAxis[0].getExtremes().max);
+            var profiles = $.grep(chart2Helper.manager.monitorProfiles, function(profile, i){
+                if(profile.start_date <= max && max <= profile.end_date){
+                    return profile;
+                }
+            })
+            var plotBands = profiles.map(function(profile, i){
+                return {
+                    from: profile.low_price,
+                    to: profile.up_price,
+                    borderColor: chart2Helper.manager.colorLevel.plotBandBorder[profile.color],
+                    borderWidth: 0.5,
+                    color: chart2Helper.manager.colorLevel.plotBand[profile.color],
+                    label: {
+                        text: profile.format_price + '(' + profile.watchlist + ')',
+                        style: {
+                            color: '#606060',
+                            zIndex: 1000,
+                        }
+                    },
+                    zIndex: 1000,
+                }
+            })
+            return plotBands;
+        };
+
+        return function(redraw){
+            if(thisDevice == 'desktop'){
+                redraw = redraw || true;
+                var plotBands = getPlotBands();
+                yAxis.update({
+                    plotBands: plotBands,
+                    minorGridLineWidth: plotBands ? 0 : 1,
+                    gridLineWidth: plotBands ? 0 : 1,
+                    alternateGridColor: plotBands ? null : 'undefined',
+                }, redraw); // redraw
+            }
+        }
 
     },
     create: function(container, seriesOptions, unit) {
@@ -107,12 +172,7 @@ var chart2Helper = {
                         turboThreshold: 0, // check every single data-point more than 1000 points
                         marker: {
                             enabled: true,
-                            radius: 1,
-                            states: {
-                                hover: {
-                                    radius: 5,
-                                }
-                            },
+                            radius: chart2Helper.manager.radiusSize.line,
                             markData: markData, // function
                         },
                         tooltip: {
@@ -134,14 +194,6 @@ var chart2Helper = {
                         yAxis: 1,
                         data: data['sum_volume'],
                         zIndex: 1,
-                        marker: {
-                            radius: 0,
-                            states: {
-                                hover: {
-                                    radius: 2
-                                }
-                            }
-                        },
                         tooltip: {
                             valueDecimals: 0,
                             split: true,
@@ -153,7 +205,7 @@ var chart2Helper = {
             }
 
             if ('avg_weight' in data) {
-                if (data['sum_volume'].length > 0) {
+                if (data['avg_weight'].length > 0) {
                     has_avg_weight = true
                     series.push({
                         type: 'line',
@@ -163,12 +215,8 @@ var chart2Helper = {
                         data: data['avg_weight'],
                         zIndex: 10,
                         marker: {
-                            radius: 1,
-                            states: {
-                                hover: {
-                                    radius: 5,
-                                }
-                            }
+                            enabled: true,
+                            radius: chart2Helper.manager.radiusSize.line,
                         },
                         tooltip: {
                             valueDecimals: 1,
@@ -201,7 +249,7 @@ var chart2Helper = {
                         return Math.round(this.value * 10) / 10;
                     },
                 },
-                opposite: false
+                opposite: false,
             })
         }
 
@@ -221,7 +269,7 @@ var chart2Helper = {
                         fontSize: chart2Helper.manager.fontSize.label,
                     },
                 },
-                opposite: true
+                opposite: true,
             })
         }
 
@@ -241,7 +289,7 @@ var chart2Helper = {
                     },
                     x: 5
                 },
-                opposite: true
+                opposite: true,
             })
         }
 
@@ -261,13 +309,10 @@ var chart2Helper = {
             type: 'year',
             count: 1,
             text: gettext('1y'),
-        }, {
-            type: 'all',
-            text: gettext('all'),
         }]
 
         if(thisDevice != 'desktop'){
-            buttons = [buttons[0], buttons[2], buttons[3]];
+            buttons = [buttons[0], buttons[1], buttons[2]];
         }
 
         var chart = Highcharts.stockChart(container, {
@@ -282,6 +327,14 @@ var chart2Helper = {
                 text: chart2Helper.manager.title,
                 style: {
                     fontSize: chart2Helper.manager.fontSize.title,
+                    display: thisDevice == 'desktop' ? 'block' : 'none',
+                }
+            },
+
+            subtitle: {
+                text: getBreadCrumb(' / '),
+                style: {
+                    fontSize: chart2Helper.manager.fontSize.label,
                     display: thisDevice == 'desktop' ? 'block' : 'none',
                 }
             },
@@ -310,33 +363,39 @@ var chart2Helper = {
                             min = min.add(1).days();
                             this.setExtremes(min.getTime());
 
-                            /* Redraw To Update Range Select Input Value */
-                            setTimeout(function(){
-                                chart.redraw();
-                            }, 0);
                         }
 
                         if(e.trigger === 'rangeSelectorInput'
                         || e.trigger === 'navigator'
                         || e.trigger === 'rangeSelectorButton'){
 
-                            /* Update series data marker size */
+
+                            /* Update series */
                             chart.series.forEach(function(series, i){
                                 var indexType = series.userOptions.customIndexType;
                                 var className = series.userOptions.className;
                                 var type = series.userOptions.customType;
 
+                                /* Update series data marker size */
+                                // alert point marker
+                                monthLength = Math.abs(e.max - e.min) / (1000 * 3600 * 24 * 31);
+
                                 if((indexType === 'avg_price') && (className !== 'highcharts-navigator-series')){
 
-                                    monthLength = Math.abs(e.max - e.min) / (1000 * 3600 * 24 * 31);
+                                    series.update({
+                                        data: series.userOptions.marker.markData(monthLength),
+                                    }, false); // redraw later
 
-                                    if(monthLength <= 24){ // fix size if range > 24 month
-                                        series.update({
-                                            data: series.userOptions.marker.markData(monthLength),
-                                        }, true); // redraw
-                                    }
                                 }
+                                // line point marker
+                                series.update({
+                                    marker: {
+                                        radius: monthLength > 3 ? 0 : chart2Helper.manager.radiusSize.line,
+                                    },
+                                }, false); // redraw later
                             })
+
+                            chart.plotBandUpdate(false); // redraw later
 
                             /* Update date range */
                             chart2Helper.manager.dateRange.min = min;
@@ -347,6 +406,11 @@ var chart2Helper = {
                             var max = chart2Helper.manager.dateRange.max;
                             integrationHelper.loadTable($container, min, max);
                         }
+
+                        /* Redraw To Update Range Select Input Value */
+                        setTimeout(function(){
+                            chart.redraw();
+                        }, 0);
                     },
                 },
                 type: 'datetime',
@@ -360,7 +424,7 @@ var chart2Helper = {
                     style: {
                         fontSize: chart2Helper.manager.fontSize.label,
                     }
-                }
+                },
             },
 
             loading: {
@@ -392,8 +456,34 @@ var chart2Helper = {
                         }
                     }
                 },
+                buttons: {
+                    plotBands: {
+                        enabled: thisDevice == 'desktop' ? true : false,
+                        text: gettext('PlotBands'),
+                        onclick: function () {
+                            this.yAxis.forEach(function(yAxis, i){
+                                var plotBands = yAxis.plotLinesAndBands;
+                                plotBands.forEach(function(plotBand, i){
+                                    if (plotBand.hidden) {
+                                        plotBand.hidden = false;
+                                        if('svgElem' in plotBand) plotBand.svgElem.show();
+                                        if('label' in plotBand) plotBand.label.show();
+                                    } else {
+                                        plotBand.hidden = true;
+                                        if('svgElem' in plotBand) plotBand.svgElem.hide();
+                                        if('label' in plotBand) plotBand.label.hide();
+                                    }
+                                })
+                            })
+                        },
+                        theme: {
+                            'stroke-width': 1,
+                            stroke: 'silver',
+                            r: 5,
+                        },
+                    },
+                },
             },
-
             plotOptions: {
                 series: {
                     tooltip: {
@@ -401,7 +491,8 @@ var chart2Helper = {
                     },
                     dataGrouping: {
                         enabled: false,
-                    }
+                    },
+                    connectNulls: true,
                 }
             },
 
@@ -467,9 +558,44 @@ var chart2Helper = {
 
             /* Apply Datepicker */
             setTimeout(function () {
-                $('input.highcharts-range-selector', $(chart.container).parent())
-                    .datepicker();
+                $('input.highcharts-range-selector', $(chart.container).parent()).datepicker();
             }, 0);
+
+            chart.plotBandUpdate = chart2Helper.plotBandUpdate(chart);
+            chart.plotBandUpdate(false); // redraw later
+            
+            /* Plot watchlist flags */
+            watchlistFlagData = [];
+            chart2Helper.manager.watchlistProfiles.forEach(function(watchlist, i){
+                // add watchlist flag if in series date range
+                if(watchlist.start_date >= chart.xAxis[0].getExtremes().dataMin){
+                    watchlistFlagData.push({
+                        x: watchlist.start_date,
+                        title: watchlist.name,
+                    });
+                };
+            });
+            chart.addSeries({
+                type: 'flags',
+                name: gettext('Watchlists'),
+                data: watchlistFlagData,
+                shape: 'flag',
+                zIndex: 1000,
+                showInLegend: false,
+                style: {
+                    fontSize: chart2Helper.manager.fontSize.label,
+                    color: 'white',
+                    borderColor: '#000',
+                },
+                fillColor: '#000',
+                states: {
+                    hover: {
+                        fillColor: '#000',
+                        color: 'white',
+                        borderColor: '#000',
+                    }
+                },
+            }, true); // redraw
 
             // init integration datatable
             integrationHelper.loadTable($('#chart-2-widget-integration div[data-load]'), min, max);

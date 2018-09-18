@@ -33,17 +33,11 @@ class Api(AbstractApi):
 
     def hook(self, dic):
 
-        def get_float(s):
-            try:
-                return float(s)
-            except ValueError:
-                return 0
-
         def create_tran(obj):
             code = obj.code
             tran = DailyTran(
                 product=obj,
-                avg_price=get_float(dic.get(code)),
+                avg_price=float(dic.get(code)),
                 date=date_transfer(sep=self.SEP, string=dic.get('date'), roc_format=self.ROC_FORMAT)
             )
             return tran
@@ -60,12 +54,15 @@ class Api(AbstractApi):
             children = product.children()
             lst = []
             for child in children:
-                tran = create_tran(child)
-                lst.append(tran)
+                try:
+                    if dic.get(child.code):
+                        tran = create_tran(child)
+                        lst.append(tran)
+                except Exception as e:
+                    self.LOGGER.exception('%s, dic: %s ' % (e, dic), extra=self.LOGGER_EXTRA)
             return lst
         else:
-            self.LOGGER.warning('Cannot Match Product: %s' % (product_name),
-                               extra=self.LOGGER_EXTRA)
+            self.LOGGER.warning('Cannot Match Product: %s' % product_code, extra=self.LOGGER_EXTRA)
             return dic
 
     def request(self, start_date=None, end_date=None, source=None, code=None, name=None):

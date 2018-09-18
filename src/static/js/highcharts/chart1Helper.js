@@ -1,8 +1,10 @@
 var chart1Helper = {
     container: null,
     manager: {
+        monitorProfiles: null,
+        watchlistProfiles: null,
         getCharts: function(){
-            return chart2Helper.manager.charts;
+            return chart1Helper.manager.charts;
         },
         charts: null,
         dateRange: {
@@ -14,10 +16,22 @@ var chart1Helper = {
             title: 11,
         },
         title: gettext('Daily Price/Volume Trend For Two Weeks'),
-        monitorProfiles: null,
         colorLevel: {
-            danger: '#b94a48',
-            warning: '#c09853'
+            marker: {
+                danger: '#b94a48',
+                warning: '#c09853',
+            },
+            plotBand: {
+                danger: 'rgba(185, 74, 72, 0.15)',
+                warning: 'rgba(221, 223, 0, 0.15)',
+            },
+            plotBandBorder: {
+                danger: 'rgba(185, 74, 72, 0.3)',
+                warning: 'rgba(221, 223, 0, 0.3)',
+            },
+        },
+        radiusSize: {
+            line: 2,
         },
     },
     init: function(container){
@@ -34,10 +48,13 @@ var chart1Helper = {
         if(thisDevice == 'desktop'){
             this.manager.fontSize.label = 14;
             this.manager.fontSize.title = 18;
+            this.manager.radiusSize.line = 5;
         }
 
         // monitor profiles
-        this.manager.monitorProfiles = this.container[0].monitorProfiles;
+        this.manager.monitorProfiles = this.container[0].monitorProfiles || [];
+        // watchlist profiles
+        this.manager.watchlistProfiles = this.container[0].watchlistProfiles || [];
 
     },
     markData: function(typeId, data){
@@ -67,7 +84,7 @@ var chart1Helper = {
             if(!chart1Helper.manager.monitorProfiles || thisDevice != 'desktop'){
                 return data;
             }
-            radius = radius || 12;
+            radius = radius || 10;
 
             data.forEach(function(point, i){
                 point.marker = point.monitorProfile ? {
@@ -75,13 +92,56 @@ var chart1Helper = {
                     fillColor: '#FFF',
                     radius: radius,
                     lineWidth: radius * 0.5,
-                    lineColor: chart1Helper.manager.colorLevel[point.monitorProfile.color],
+                    lineColor: chart1Helper.manager.colorLevel.marker[point.monitorProfile.color],
                 } : null;
             })
-
             return data;
         };
+    },
+    plotBandUpdate: function(chart){
 
+        var yAxis = chart.yAxis[0];
+
+        var getPlotBands = function(){
+            var max = new Date(chart.xAxis[0].getExtremes().max);
+            var profiles = $.grep(chart1Helper.manager.monitorProfiles, function(profile, i){
+                if(profile.start_date <= max && max <= profile.end_date){
+                    return profile;
+                }
+            })
+            var plotBands = profiles.map(function(profile, i){
+                return {
+                    from: profile.low_price,
+                    to: profile.up_price,
+                    borderColor: chart1Helper.manager.colorLevel.plotBandBorder[profile.color],
+                    borderWidth: 0.5,
+                    color: chart1Helper.manager.colorLevel.plotBand[profile.color],
+                    label: {
+                        text: profile.format_price + '(' + profile.watchlist + ')',
+                        style: {
+                            color: '#606060',
+                            zIndex: 1000,
+                        },
+                    },
+                    zIndex: 1000,
+                }
+            })
+            return plotBands;
+        };
+
+        return function(redraw){
+            if(thisDevice == 'desktop'){
+                redraw = redraw || true;
+                var plotBands = getPlotBands();
+
+                yAxis.update({
+                    plotBands: plotBands,
+                    minorGridLineWidth: plotBands ? 0 : 1,
+                    gridLineWidth: plotBands ? 0 : 1,
+                    alternateGridColor: plotBands ? null : 'undefined',
+                }, redraw); // redraw
+            }
+        }
     },
     create: function(container, seriesOptions, unit){
 
@@ -109,7 +169,7 @@ var chart1Helper = {
                         data: markData(), // invoke to get marked data
                         marker: {
                             enabled: true,
-                            radius: 5,
+                            radius: chart1Helper.manager.radiusSize.line,
                             markData: markData, // function
                         },
                         tooltip: {
@@ -151,7 +211,7 @@ var chart1Helper = {
                         zIndex: 10,
                         marker: {
                             enabled: true,
-                            radius: 5,
+                            radius: chart1Helper.manager.radiusSize.line,
                         },
                         data: data['avg_weight'],
                         tooltip: {
@@ -240,11 +300,18 @@ var chart1Helper = {
             title: {
                 text: chart1Helper.manager.title,
                 style: {
-                    display: 'block',
                     fontSize: chart1Helper.manager.fontSize.title,
+                    display: thisDevice == 'desktop' ? 'block' : 'none',
                 }
             },
 
+            subtitle: {
+                text: getBreadCrumb(' / '),
+                style: {
+                    fontSize: chart1Helper.manager.fontSize.label,
+                    display: thisDevice == 'desktop' ? 'block' : 'none',
+                }
+            },
 
             loading: {
                 hideDuration: 1000,
@@ -253,6 +320,12 @@ var chart1Helper = {
 
             rangeSelector: {
                 selected: 0
+            },
+
+            plotOptions: {
+                series: {
+                    connectNulls: true
+                }
             },
 
             xAxis: {
@@ -305,7 +378,34 @@ var chart1Helper = {
                             display: 'block',
                         }
                     }
-                }
+                },
+                buttons: {
+                    plotBands: {
+                        enabled: thisDevice == 'desktop' ? true : false,
+                        text: gettext('PlotBands'),
+                        onclick: function () {
+                            this.yAxis.forEach(function(yAxis, i){
+                                var plotBands = yAxis.plotLinesAndBands;
+                                plotBands.forEach(function(plotBand, i){
+                                    if (plotBand.hidden) {
+                                        plotBand.hidden = false;
+                                        plotBand.svgElem.show();
+                                        if('label' in plotBand) plotBand.label.show();
+                                    } else {
+                                        plotBand.hidden = true;
+                                        plotBand.svgElem.hide();
+                                        if('label' in plotBand) plotBand.label.hide();
+                                    }
+                                })
+                            })
+                        },
+                        theme: {
+                            'stroke-width': 1,
+                            stroke: 'silver',
+                            r: 5,
+                        },
+                    },
+                },
             },
 
             responsive: {
@@ -340,6 +440,53 @@ var chart1Helper = {
                     }
                 }]
             },
+        }, function(chart){
+
+            chart.plotBandUpdate = chart1Helper.plotBandUpdate(chart);
+            chart.plotBandUpdate(false); // redraw later
+
+            /* Add extra range to price yAxis */
+            var min = chart.yAxis[0].min;
+            var max = chart.yAxis[0].max;
+            var extra = (max - min) / 20;
+            chart.yAxis[0].update({
+                min: min - extra,
+                max: max + extra,
+            }, false); // redraw later
+
+            /* Plot watchlist flag */
+            watchlistFlagData = [];
+            chart1Helper.manager.watchlistProfiles.forEach(function(watchlist, i){
+                // add watchlist flag if in series date range
+                if(watchlist.start_date >= chart.xAxis[0].getExtremes().dataMin){
+                    watchlistFlagData.push({
+                        x: watchlist.start_date,
+                        title: watchlist.name,
+                    });
+                };
+            });
+            chart.addSeries({
+                type: 'flags',
+                name: gettext('Watchlists'),
+                data: watchlistFlagData,
+                shape: 'flag',
+                zIndex: 1000,
+                showInLegend: false,
+                style: {
+                    fontSize: chart1Helper.manager.fontSize.label,
+                    color: 'white',
+                    borderColor: '#000',
+                },
+                fillColor: '#000',
+                states: {
+                    hover: {
+                        fillColor: '#000',
+                        color: 'white',
+                        borderColor: '#000',
+                    }
+                },
+            }, true); // redraw
+
         });
 
         chart.seriesOptions = seriesOptions;
@@ -351,3 +498,4 @@ var chart1Helper = {
 
     },
 }
+

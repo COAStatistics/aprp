@@ -1,8 +1,10 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load json_filters %}
+{% load watchlist_filter %}
 
 
+{% with monitor_profile_filtered_by_watchlist=monitor_profiles|monitor_profile_filter:watchlist %}
 <!-- row -->
 <div class="row">
 
@@ -16,7 +18,7 @@
         </li>
         {% endfor %}
 
-        {% if monitor_profiles %}
+        {% if monitor_profile_filtered_by_watchlist %}
         <li>
             <a href="#product-profile" class="font-md"
                data-toggle="tab">{% trans 'Product Profile' %}</a>
@@ -31,14 +33,15 @@
         </div>
         {% endfor %}
 
-        {% if monitor_profiles %}
+        {% if monitor_profile_filtered_by_watchlist %}
         <div class="tab-pane fade" id="product-profile">
-            {% include 'contents/product-profile.html' %}
+            {% include 'contents/product-profile.html' with monitor_profiles=monitor_profile_filtered_by_watchlist %}
         </div>
         {% endif %}
     </div>
-
 </div>
+
+{% endwith %}
 
 <!-- end row -->
 
@@ -103,9 +106,10 @@
             $this.attr('data-load', true);
         });
 
-        // STORE MONITOR PROFILES TO EACH CHART CONTAINER
+        // STORE WATCHLIST AND MONITOR PROFILES TO EACH CHART CONTAINER
         $('#chart-functions-content .tab-pane').each(function(){
-            this.monitorProfiles = {{ current_monitor_profiles|stringify|safe }};
+            this.monitorProfiles = {{ monitor_profiles_json|stringify|safe }};
+            this.watchlistProfiles = {{ watchlists_json|stringify|safe }};
         })
 
         // INITIAL FIRST CHART

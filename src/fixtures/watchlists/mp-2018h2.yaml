@@ -899,7 +899,7 @@
 - model: watchlists.MonitorProfile
   pk: 149
   fields:
-    product: 100005 # 土番鴨(75天)
+    product: 100002 # 土番鴨(75天)
     watchlist: 3
     type: 2
     price: 56.0
@@ -943,7 +943,7 @@
 - model: watchlists.MonitorProfile
   pk: 151
   fields:
-    product: 90014 # 白肉雞
+    product: 90006 # 白肉雞
     watchlist: 3
     type: 2
     price: 41.5

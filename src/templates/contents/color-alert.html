@@ -1,14 +1,21 @@
 {% load watchlist_filter %}
 
-{% with monitor_profiles=item|monitor_profile_filter:watchlist %}
+{% with monitor_profiles=item|get_monitor_profile:watchlist %}
     {% with danger_profiles=monitor_profiles|profile_color_filter:'danger' %}
         {% if danger_profiles %}
             <i class="fa fa-lg fa-warning text-danger" data-name="profile-active-alert" data-color="danger"></i>
         {% endif %}
-    {% endwith %}
-    {% with warning_profiles=monitor_profiles|profile_color_filter:'warning' %}
-        {% if warning_profiles %}
-            <i class="fa fa-lg fa-warning text-warning" data-name="profile-active-alert" data-color="warning"></i>
+
+        {% if not danger_profiles %}
+
+            {% with warning_profiles=monitor_profiles|profile_color_filter:'warning' %}
+                {% if warning_profiles %}
+                    <i class="fa fa-lg fa-warning text-warning" data-name="profile-active-alert" data-color="warning"></i>
+                {% endif %}
+            {% endwith %}
+
         {% endif %}
+
     {% endwith %}
+
 {% endwith %}

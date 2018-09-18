@@ -12,6 +12,9 @@ class DatabaseLogHandler(logging.Handler):
             trace = traceback.format_exc()
 
         type_code = record.__dict__.get('type_code')
+        request_url = record.__dict__.get('request_url')
+        duration = record.__dict__.get('duration')
+
         msg = record.getMessage()
         logger_type = LogType.objects.filter(code=type_code).first()
 
@@ -19,8 +22,10 @@ class DatabaseLogHandler(logging.Handler):
             'logger_name': record.name,
             'level': record.levelno,
             'msg': msg,
+            'trace': trace,
             'type': logger_type,
-            'trace': trace
+            'url': request_url,
+            'duration': duration,
         }
         logging.debug(msg)
         Log.objects.create(**kwargs)

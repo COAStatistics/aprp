@@ -23,12 +23,10 @@ class BuilderTestCase(TestCase):
         self.assertTrue(result.success)
 
         obj = Fruit.objects.filter(code='I', track_item=True).first()
-        sources = Source.objects.filter(Q(name__exact='豐原區') | Q(name__exact='嘉義市'))
 
         qs = DailyTran.objects.filter(product=obj,
-                                      source__in=sources,
                                       date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 2)
+        self.assertEquals(qs.count(), 3)
 
     def test_direct_multi(self):
         result = direct_wholesale_03(start_date='2018/02/07', end_date='2018/2/10', format='%Y/%m/%d')
@@ -43,4 +41,20 @@ class BuilderTestCase(TestCase):
                                       source__in=sources,
                                       date__range=(start_date, end_date))
         self.assertEquals(qs.count(), 12)
+
+    def test_delete(self):
+        obj = Fruit.objects.filter(code='I', track_item=True).first()
+        source = Source.objects.last()
+        # this item should be deleted
+        DailyTran.objects.create(product=obj,
+                                 source=source,
+                                 avg_price=120,
+                                 date=self.start_date,
+                                 update_time=datetime.datetime.now())
+
+        direct_wholesale_03(start_date=self.start_date, end_date=self.end_date)
+
+        qs = DailyTran.objects.filter(product=obj,
+                                      date__range=(self.start_date, self.end_date))
+        self.assertEquals(qs.count(), 3)
 

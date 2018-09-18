@@ -13,6 +13,10 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class DailyTranQuerySet(QuerySet):
+    def update(self, *args, **kwargs):
+        kwargs['update_time'] = timezone.now()
+        super(DailyTranQuerySet, self).update(*args, **kwargs)
+
     def between_month_day_filter(self, start_date=None, end_date=None):
         if start_date and end_date:
             start_md = int(start_date.strftime('%m%d'))
@@ -62,10 +66,14 @@ class DailyTran(Model):
         verbose_name_plural = _('Daily Transitions')
 
     def __str__(self):
-        return str(self.product.name)
+        return 'product: %s, source: %s, avg_price: %s, date: %s, updated: %s' % (
+            self.product.name, self.source, self.avg_price, self.date, self.update_time
+        )
 
     def __unicode__(self):
-        return str(self.product.name)
+        return 'product: %s, source: %s, avg_price: %s, date: %s, updated: %s' % (
+            self.product.name, self.source, self.avg_price, self.date, self.update_time
+        )
 
     @property
     def month_day(self):

@@ -3,7 +3,10 @@ import logging
 import time
 import requests
 from django.conf import settings
-from configs.models import Source, Config, Type
+from configs.models import (
+    Source,
+    Config,
+)
 
 
 class AbstractApi(object):
@@ -44,17 +47,11 @@ class AbstractApi(object):
             self.SOURCE_QS = self.SOURCE_QS.filter(type__id=type_id)
             self.PRODUCT_QS = self.PRODUCT_QS.filter(type__id=type_id, track_item=True)
 
-        if logger:
-            self.LOGGER = logging.getLogger(logger)
-        else:
-            self.LOGGER = logging
-
-        if logger_type_code:
-            self.LOGGER_EXTRA = {
-                'type_code': logger_type_code
-            }
-        else:
-            self.LOGGER_EXTRA = {}
+        self.LOGGER = logging.getLogger(logger)
+        self.LOGGER_EXTRA = {
+            'type_code': logger_type_code,
+            'request_url': None,
+        }
 
     @abc.abstractmethod
     def request(self, *args):
@@ -74,10 +71,16 @@ class AbstractApi(object):
         while response.status_code != 200 and retry_count < 5:
             try:
                 response = requests.get(url, *args, **kwargs)
+                self.LOGGER_EXTRA['request_url'] = response.request.url
             except requests.exceptions.ConnectionError:
                 retry_count += 1
-                self.LOGGER.error('Connection Refused On %s, Retry %s Time' % (url, retry_count), extra=self.LOGGER_EXTRA)
+                self.LOGGER_EXTRA['request_url'] = url
+                self.LOGGER.error('Connection Refused, Retry %s Time' % retry_count, extra=self.LOGGER_EXTRA)
                 time.sleep(10)
                 continue
         return response
+
+
+
+
 

@@ -5,6 +5,7 @@ from fruits.builder import direct_origin
 from dailytrans.models import DailyTran
 from fruits.models import Fruit
 from django.db.models import Q
+from configs.models import Source
 
 
 class BuilderTestCase(TestCase):
@@ -23,7 +24,7 @@ class BuilderTestCase(TestCase):
 
         qs = DailyTran.objects.filter(product=obj,
                                       date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 27)
+        self.assertEquals(qs.count(), 9)
 
     def test_direct_multi(self):
         start_date = datetime.date(year=2017, month=4, day=1)
@@ -34,5 +35,21 @@ class BuilderTestCase(TestCase):
         qs = DailyTran.objects.filter(product__id__in=obj_ids,
                                       date__range=(start_date, end_date))
         self.assertEquals(qs.count(), 64)
+
+    def test_delete(self):
+        obj = Fruit.objects.filter(code='文旦').first()
+        source = Source.objects.last()
+        # this item should be deleted
+        DailyTran.objects.create(product=obj,
+                                 source=source,
+                                 avg_price=120,
+                                 date=self.start_date,
+                                 update_time=datetime.datetime.now())
+
+        direct_origin(start_date=self.start_date, end_date=self.end_date)
+
+        qs = DailyTran.objects.filter(product=obj,
+                                      date__range=(self.start_date, self.end_date))
+        self.assertEquals(qs.count(), 9)
 
 

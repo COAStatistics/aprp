@@ -29,6 +29,7 @@ class AbstractProduct(Model):
     class Meta:
         verbose_name = _('Abstract Product')
         verbose_name_plural = _('Abstract Products')
+        ordering = ('id',)
 
     def __str__(self):
         return str(self.name)
@@ -170,14 +171,18 @@ class SourceQuerySet(QuerySet):
         if not isinstance(name, str):
             raise TypeError
         name = name.replace('台', '臺')
-        return self.filter(name=name)
+        qs = self.filter(name=name)
+        if not qs:
+            qs = self.filter(alias__icontains=name)
+        return qs
 
 
 class Source(Model):
     name = CharField(max_length=50, verbose_name=_('Name'))
-    code = CharField(max_length=50, null=True, verbose_name=_('Code'))
+    alias = CharField(max_length=255, null=True, blank=True, verbose_name=_('Alias'))
+    code = CharField(max_length=50, null=True, blank=True, verbose_name=_('Code'))
     configs = ManyToManyField('configs.Config', verbose_name=_('Config'))
-    type = ForeignKey('configs.Type', null=True, on_delete=SET_NULL, verbose_name=_('Type'))
+    type = ForeignKey('configs.Type', null=True, blank=True, on_delete=SET_NULL, verbose_name=_('Type'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
 
     objects = SourceQuerySet.as_manager()
@@ -185,6 +190,7 @@ class Source(Model):
     class Meta:
         verbose_name = _('Source')
         verbose_name_plural = _('Sources')
+        ordering = ('id',)
 
     def __str__(self):
         flat = self.configs_flat

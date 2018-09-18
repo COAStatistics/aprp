@@ -1,5 +1,14 @@
-from rest_framework.serializers import ModelSerializer
-from configs.models import Config, AbstractProduct, Chart, Type, Source, Unit
+from rest_framework.serializers import (
+    ModelSerializer,
+)
+from configs.models import (
+    Config,
+    AbstractProduct,
+    Chart,
+    Type,
+    Source,
+    Unit,
+)
 
 
 class ChartSerializer(ModelSerializer):
@@ -21,8 +30,6 @@ class SourceSerializer(ModelSerializer):
 
 
 class ConfigSerializer(ModelSerializer):
-    charts = ChartSerializer(many=True)
-
     class Meta:
         model = Config
         fields = '__all__'

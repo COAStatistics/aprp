@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-04 18:03+0800\n"
+"POT-Creation-Date: 2018-09-14 17:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/js/app.custom.js:359 static/js/datatables/dataTableHelper.js:115
+#: static/js/app.custom.js:398 static/js/datatables/dataTableHelper.js:115
 #: static/js/highcharts/highcharts-settings.js:113
 msgid "Loading"
 msgstr "載入中，請稍後"
 
-#: static/js/app.custom.js:398
+#: static/js/app.custom.js:442
 msgid "Error requesting"
 msgstr "載入時發生錯誤"
 
@@ -131,69 +131,75 @@ msgstr "列印"
 msgid "Load Historical Data"
 msgstr "載入歷年資料"
 
-#: static/js/highcharts/chart1Helper.js:16
+#: static/js/highcharts/chart1Helper.js:18
 msgid "Daily Price/Volume Trend For Two Weeks"
 msgstr "近2週每日量價趨勢"
 
-#: static/js/highcharts/chart1Helper.js:91
-#: static/js/highcharts/chart1Helper.js:157
-#: static/js/highcharts/chart2Helper.js:87
-#: static/js/highcharts/chart2Helper.js:170
+#: static/js/highcharts/chart1Helper.js:165
+#: static/js/highcharts/chart1Helper.js:232
+#: static/js/highcharts/chart2Helper.js:167
+#: static/js/highcharts/chart2Helper.js:237
 #: static/js/highcharts/chart3Helper.js:56
 #: static/js/highcharts/chart4Helper.js:60
 msgid "Average Price"
 msgstr "日均價格"
 
-#: static/js/highcharts/chart1Helper.js:113
-#: static/js/highcharts/chart1Helper.js:180
-#: static/js/highcharts/chart2Helper.js:115
+#: static/js/highcharts/chart1Helper.js:189
+#: static/js/highcharts/chart1Helper.js:255
+#: static/js/highcharts/chart2Helper.js:192
 #: static/js/highcharts/chart3Helper.js:59
 #: static/js/highcharts/chart4Helper.js:63
 msgid "Sum Volume"
 msgstr "總交易量"
 
-#: static/js/highcharts/chart1Helper.js:133
-#: static/js/highcharts/chart1Helper.js:200
-#: static/js/highcharts/chart2Helper.js:142
-#: static/js/highcharts/chart2Helper.js:211
+#: static/js/highcharts/chart1Helper.js:208
+#: static/js/highcharts/chart1Helper.js:275
+#: static/js/highcharts/chart2Helper.js:212
+#: static/js/highcharts/chart2Helper.js:279
 #: static/js/highcharts/chart3Helper.js:62
 #: static/js/highcharts/chart4Helper.js:66
 msgid "Average Weight"
 msgstr "日均重量"
 
-#: static/js/highcharts/chart2Helper.js:16
+#: static/js/highcharts/chart1Helper.js:385
+#: static/js/highcharts/chart2Helper.js:462
+msgid "PlotBands"
+msgstr "價格警示區域"
+
+#: static/js/highcharts/chart1Helper.js:470
+#: static/js/highcharts/chart2Helper.js:580
+msgid "Watchlists"
+msgstr "監控清單"
+
+#: static/js/highcharts/chart2Helper.js:18
 msgid "Daily Price/Volume Trend For All Time"
 msgstr "每日量價趨勢"
 
-#: static/js/highcharts/chart2Helper.js:192
+#: static/js/highcharts/chart2Helper.js:260
 msgid "Volume"
 msgstr "交易量"
 
-#: static/js/highcharts/chart2Helper.js:231
+#: static/js/highcharts/chart2Helper.js:299
 msgid "1m"
 msgstr "1個月"
 
-#: static/js/highcharts/chart2Helper.js:235
+#: static/js/highcharts/chart2Helper.js:303
 msgid "3m"
 msgstr "3個月"
 
-#: static/js/highcharts/chart2Helper.js:239
+#: static/js/highcharts/chart2Helper.js:307
 msgid "6m"
 msgstr "6個月"
 
-#: static/js/highcharts/chart2Helper.js:243
+#: static/js/highcharts/chart2Helper.js:311
 msgid "1y"
 msgstr "1年"
-
-#: static/js/highcharts/chart2Helper.js:246
-msgid "all"
-msgstr "全部"
 
 #: static/js/highcharts/chart3Helper.js:17
 msgid "Daily Price/Volume Trend Year By Year"
 msgstr "歷年每日量價走勢"
 
-#: static/js/highcharts/chart3Helper.js:243
+#: static/js/highcharts/chart3Helper.js:250
 msgid "Average Year By Year"
 msgstr "歷年平均"
 
@@ -225,63 +231,63 @@ msgstr "最小值"
 msgid "Mean"
 msgstr "平均值"
 
-#: static/js/highcharts/chart4Helper.js:127
+#: static/js/highcharts/chart4Helper.js:135
 #: static/js/highcharts/highcharts-settings.js:139
 msgid "Jan"
 msgstr "1月"
 
-#: static/js/highcharts/chart4Helper.js:128
+#: static/js/highcharts/chart4Helper.js:136
 #: static/js/highcharts/highcharts-settings.js:140
 msgid "Feb"
 msgstr "2月"
 
-#: static/js/highcharts/chart4Helper.js:129
+#: static/js/highcharts/chart4Helper.js:137
 #: static/js/highcharts/highcharts-settings.js:141
 msgid "Mar"
 msgstr "3月"
 
-#: static/js/highcharts/chart4Helper.js:130
+#: static/js/highcharts/chart4Helper.js:138
 #: static/js/highcharts/highcharts-settings.js:142
 msgid "Apr"
 msgstr "4月"
 
-#: static/js/highcharts/chart4Helper.js:131
+#: static/js/highcharts/chart4Helper.js:139
 #: static/js/highcharts/highcharts-settings.js:124
 #: static/js/highcharts/highcharts-settings.js:143
 msgid "May"
 msgstr "5月"
 
-#: static/js/highcharts/chart4Helper.js:132
+#: static/js/highcharts/chart4Helper.js:140
 #: static/js/highcharts/highcharts-settings.js:144
 msgid "Jun"
 msgstr "6月"
 
-#: static/js/highcharts/chart4Helper.js:133
+#: static/js/highcharts/chart4Helper.js:141
 #: static/js/highcharts/highcharts-settings.js:145
 msgid "Jul"
 msgstr "7月"
 
-#: static/js/highcharts/chart4Helper.js:134
+#: static/js/highcharts/chart4Helper.js:142
 #: static/js/highcharts/highcharts-settings.js:146
 msgid "Aug"
 msgstr "8月"
 
-#: static/js/highcharts/chart4Helper.js:135
+#: static/js/highcharts/chart4Helper.js:143
 #: static/js/highcharts/highcharts-settings.js:147
 msgid "Sep"
 msgstr "9月"
 
-#: static/js/highcharts/chart4Helper.js:136
+#: static/js/highcharts/chart4Helper.js:144
 #: static/js/highcharts/highcharts-settings.js:148
 msgid "Oct"
 msgstr "10月"
 
-#: static/js/highcharts/chart4Helper.js:137
+#: static/js/highcharts/chart4Helper.js:145
 #: static/js/highcharts/highcharts-settings.js:149
 msgid "Nov"
 msgstr "11月"
 
-#: static/js/highcharts/chart4Helper.js:138
+#: static/js/highcharts/chart4Helper.js:146
 #: static/js/highcharts/highcharts-settings.js:150
 msgid "Dec"
 msgstr "12月"
@@ -422,3 +428,4 @@ msgstr ""
 #: static/vendor/js/plugin/datatables/pdfmake.min.js:26
 msgid "keys"
 msgstr ""
+

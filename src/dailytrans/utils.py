@@ -101,9 +101,11 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
 
     q, has_volume, has_weight = get_group_by_date_query_set(query_set, start_date, end_date)
 
-    # Add unix timestamp
-    for dic in q:
-        dic['unix'] = to_unix(dic['date'])
+    # create empty date list
+    start_date = start_date or q.first()['date']
+    end_date = end_date or q.last()['date']
+    diff = end_date - start_date
+    date_list = [start_date + datetime.timedelta(days=x) for x in range(0, diff.days + 1)]
 
     if has_volume and has_weight:
 
@@ -118,10 +120,16 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
                      dic in q]
         }
 
+        missing_point_data = OrderedDict((date, [None, None, None]) for date in date_list)
+        for dic in q:
+            missing_point_data[dic['date']][0] = dic['avg_price']
+            missing_point_data[dic['date']][1] = dic['sum_volume']
+            missing_point_data[dic['date']][2] = dic['avg_avg_weight']
+
         highchart_data = {
-            'avg_price': [[dic['unix'], dic['avg_price']] for dic in q],
-            'sum_volume': [[dic['unix'], dic['sum_volume']] for dic in q],
-            'avg_weight': [[dic['unix'], dic['avg_avg_weight']] for dic in q]
+            'avg_price': [[to_unix(date), value[0]] for date, value in missing_point_data.items()],
+            'sum_volume': [[to_unix(date), value[1]] for date, value in missing_point_data.items()],
+            'avg_weight': [[to_unix(date), value[2]] for date, value in missing_point_data.items()],
         }
 
     elif has_volume:
@@ -135,9 +143,14 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
             'rows': [[dic['date'], dic['avg_price'], dic['sum_volume']] for dic in q]
         }
 
+        missing_point_data = OrderedDict((date, [None, None]) for date in date_list)
+        for dic in q:
+            missing_point_data[dic['date']][0] = dic['avg_price']
+            missing_point_data[dic['date']][1] = dic['sum_volume']
+
         highchart_data = {
-            'avg_price': [[dic['unix'], dic['avg_price']] for dic in q],
-            'sum_volume': [[dic['unix'], dic['sum_volume']] for dic in q]
+            'avg_price': [[to_unix(date), value[0]] for date, value in missing_point_data.items()],
+            'sum_volume': [[to_unix(date), value[1]] for date, value in missing_point_data.items()],
         }
 
     else:
@@ -150,8 +163,12 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
             'rows': [[dic['date'], dic['avg_price']] for dic in q]
         }
 
+        missing_point_data = OrderedDict((date, [None]) for date in date_list)
+        for dic in q:
+            missing_point_data[dic['date']][0] = dic['avg_price']
+
         highchart_data = {
-            'avg_price': [[dic['unix'], dic['avg_price']] for dic in q]
+            'avg_price': [[to_unix(date), value[0]] for date, value in missing_point_data.items()],
         }
 
     response_data = {
@@ -380,21 +397,13 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
     :param to_init: to render table if true; to render rows if false
     :return:
     """
-    def spark_point_maker(qs, nod=10, add_unix=True):
+    def spark_point_maker(qs, add_unix=True):
         """
         :param qs: Query after annotation
-        :param nod: Size to chop
         :param add_unix: To add a key "unix" in each query objects
         :return: List of point object
         """
-        count = qs.count()
-        if count >= nod:
-            gap = count / nod
-            points = [qs[int(gap * i)] for i in range(0, nod - 1)]
-            points.append(qs.last())
-        else:
-            points = [d for d in qs]
-
+        points = list(qs)
         if add_unix:
             for d in points:
                 d['unix'] = to_unix(d['date'])
@@ -437,11 +446,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             drop_source_lte10 = drop_source_lte10.groupby(['year'], as_index=False).mean()
             new_result = drop_source_lte10.T.to_dict().values()
 
-            # Replace result sum_volume with new_result sum_volume
-            for dic in new_result:
-                for dic2 in result:
-                    if dic['year'] == dic2['year']:
-                        dic2['sum_volume'] = dic['sum_volume']
+            result = new_result
 
         return result
 
@@ -474,7 +479,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         if q.count() > 0:
             data_this = pandas_annotate_init(q, hog_exception_condition)
             data_this['name'] = _('This Term')
-            data_this['points'] = spark_point_maker(q, q.count())
+            data_this['points'] = spark_point_maker(q)
             data_this['base'] = True
 
             integration.append(data_this)
@@ -482,7 +487,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         if q_last.count() > 0:
             data_last = pandas_annotate_init(q_last, hog_exception_condition)
             data_last['name'] = _('Last Term')
-            data_last['points'] = spark_point_maker(q_last, q_last.count())
+            data_last['points'] = spark_point_maker(q_last)
             data_last['base'] = False
 
             integration.append(data_last)
@@ -503,7 +508,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                 year = dic['year']
                 q_filter_by_year = q.filter(year=year).order_by('date')
                 dic['name'] = '%0.0f' % year
-                dic['points'] = spark_point_maker(q_filter_by_year, 10)
+                dic['points'] = spark_point_maker(q_filter_by_year)
                 dic['base'] = False
 
             integration = list(data_all)

@@ -10,10 +10,17 @@ from dailytrans.utils import (
     get_integration,
 )
 from configs.models import (
-    Config, AbstractProduct, Source, Type, Chart,
+    Config,
+    AbstractProduct,
+    Source,
+    Type,
+    Chart,
 )
 from configs.api.serializers import UnitSerializer
-from watchlists.api.serializers import MonitorProfileSerializer
+from watchlists.api.serializers import (
+    MonitorProfileSerializer,
+    WatchlistSerializer,
+)
 
 
 def jarvismenu_extra_context(instance):
@@ -107,19 +114,20 @@ def chart_tab_extra_context(instance):
     elif content_type == 'product':
         product = AbstractProduct.objects.get(id=object_id)
         extra_context['charts'] = product.config.charts.all()
-        monitor_profiles = MonitorProfile.objects.filter(product__id=object_id, watchlist__id=watchlist_id).order_by('price')
+        monitor_profiles = MonitorProfile.objects.filter(product__id=object_id).order_by('price')
 
         extra_context['product'] = product
         extra_context['types'] = product.types(watchlist=watchlist)
+
         extra_context['monitor_profiles'] = monitor_profiles
-        current_month = datetime.date.today().month
-        current_monitor_profiles = monitor_profiles.filter(months__in=[current_month])
-        extra_context['current_monitor_profiles'] = MonitorProfileSerializer(current_monitor_profiles, many=True).data
+        extra_context['monitor_profiles_json'] = MonitorProfileSerializer(monitor_profiles, many=True).data
 
     elif content_type in ['type', 'source']:
         if last_content_type == 'product':
             product = AbstractProduct.objects.get(id=last_object_id)
             extra_context['charts'] = product.config.charts.all()
+
+    extra_context['watchlists_json'] = WatchlistSerializer(Watchlist.objects.filter(watch_all=False), many=True).data
 
     return extra_context
 
@@ -280,8 +288,8 @@ def integration_extra_context(instance):
                                  start_date=start_date,
                                  end_date=end_date,
                                  to_init=False)
-        if not option['no_data']:
-            extra_context['option'] = option
+
+        extra_context['option'] = option if not option['no_data'] else None
 
     extra_context['series_options'] = series_options
     return extra_context
