@@ -82,9 +82,20 @@
           <span id="reply-origin">{{ j.content }}</span>
         </span>
 
-        <span class="message-text comment-edit" style="display: None;"> <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
-          <input id="reply-edit" type="text" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">
-        </span>
+        <!-- <span class="message-text comment-edit" style="display: None;"> <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
+          <input id="reply-edit" class="reply-edit-text" type="text" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">
+        </span> -->
+        <div class="socialwall-reply-text comment-edit" style="display: None;">
+          <span class="message-text comment-edit" style="display: None;">
+            <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
+          </span>
+          <input id="reply-edit" class="reply-edit-text comment-edit" type="text" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">
+          <span class="input-group-btn">
+            <button class="btn btn-primary comment-edit" id="btn-chat" style="display: None;">
+              <em class="fa fa-reply"></em> Reply
+            </button>
+          </span>
+        </div>
 
         <ul class="list-inline font-xs">
           <li>
@@ -109,7 +120,14 @@
         </li>
       {% endfor %}
       <li id="insert-reply-{{ i.id }}" class="message message-reply socialwall-reply">
-        <input id="reply-text" class="form-control input-xs socialwall-reply-text" placeholder="Type and enter" type="text" data-id="{{ i.id }}" api="{% url 'comments:api_comments_c' %}" data-token="{{ csrf_token }}">
+        <div class="socialwall-reply-text">
+          <input id="reply-text" class="form-control input-xs socialwall-reply-text" placeholder="Type and enter" type="text" data-id="{{ i.id }}" api="{% url 'comments:api_comments_c' %}" data-token="{{ csrf_token }}">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-reply" id="btn-chat">
+              <em class="fa fa-reply"></em> Reply
+            </button>
+          </span>
+        </div>
       </li>
 
     </ul>

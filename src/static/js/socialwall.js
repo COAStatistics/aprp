@@ -155,7 +155,7 @@ var socialWallHelper = {
             $item = $(data);
             socialWallHelper.initPost($item);
             $div.find('.post-edit-area').remove();
-            $div.find('ul').prepend($item);
+            $div.find('.post-update').prepend($item);
             $grid.masonry('layout');
             $('#dialog-form-post').modal('hide');
           }
@@ -209,7 +209,7 @@ var socialWallHelper = {
     // -------------------- hide post end --------------------
 
     // -------------------- reply new start --------------------
-    $item.find('.socialwall-reply-text').keyup(function (e) {
+    $item.find('.form-control.input-xs.socialwall-reply-text').keyup(function (e) {
       if(e.keyCode == 13) {
         id = $(this).attr('data-id');
         url = $(this).attr('api');
@@ -219,6 +219,7 @@ var socialWallHelper = {
         $.ajax({
           type: 'post',
           url: url,
+          async: false,
           data: {
             csrfmiddlewaretoken: csrftoken,
             'object_id': id,
@@ -227,12 +228,37 @@ var socialWallHelper = {
           success: function(data) {
             $item = $(data);
             socialWallHelper.initPost($item);
-            $reply.parent().before($item);
+            $reply.parents(".socialwall-reply").before($item);
             $reply.val('');
             $grid.masonry();
           }
         });
       }
+    });
+
+    $item.find('.btn-reply').on('click', function() {
+      id = $(this).parents('.socialwall-reply-text').find('.socialwall-reply-text').attr('data-id');
+      url = $(this).parents('.socialwall-reply-text').find('.socialwall-reply-text').attr('api');
+      csrftoken = $(this).parents('.socialwall-reply-text').find('.socialwall-reply-text').attr('data-token');
+      text = $(this).parents('.socialwall-reply-text').find('.socialwall-reply-text').val();
+      $reply = $(this).parents('.socialwall-reply-text').find('.socialwall-reply-text');
+      $.ajax({
+        type: 'post',
+        url: url,
+        async: false,
+        data: {
+          csrfmiddlewaretoken: csrftoken,
+          'object_id': id,
+          'content': text,
+        },
+        success: function(data) {
+          $item = $(data);
+          socialWallHelper.initPost($item);
+          $reply.parents(".socialwall-reply").before($item);
+          $reply.val('');
+          $grid.masonry();
+        }
+      });
     });
     // -------------------- reply new end --------------------
 
@@ -244,6 +270,7 @@ var socialWallHelper = {
       $.ajax({
         type: 'delete',
         url: url + id,
+        async: false,
         success: function() {
           $reply.parents('.socialwall-reply').remove();
           $grid.masonry();
@@ -266,66 +293,46 @@ var socialWallHelper = {
 
       $edittext.keyup(function(e) {
         if(e.keyCode == 13) {
-          $edittext.focusout();
+          data = $edittext.val();
+          $.ajax({
+            type: 'patch',
+            url: url + id,
+            async: false,
+            data: {
+              'content': data,
+            },
+            success: function(data) {
+              $reply.find('.comment').show();
+              $reply.find('.comment-edit').hide();
+              $reply.html($reply.html());
+              $reply.find('#reply-origin').text(data['content']);
+              socialWallHelper.initPost($reply);
+              return;
+            }
+          });
         }
       })
 
-      $edittext.focusout(function() {
+      $edittext.focusout(function(e) {
         data = $edittext.val();
         $.ajax({
           type: 'patch',
           url: url + id,
+          async: false,
           data: {
             'content': data,
           },
           success: function(data) {
             $reply.find('.comment').show();
             $reply.find('.comment-edit').hide();
-            $edittext.val('');
+            $reply.html($reply.html());
             $reply.find('#reply-origin').text(data['content']);
+            socialWallHelper.initPost($reply);
           }
         });
       });
     });
     // -------------------- reply edit end --------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // // -------------------- edit comment start --------------------
-    // $('.edit-comment').on('click', function () {
-    //   // alert($(this).attr('id'))
-    //   var id = $(this).attr('id')
-    //   $('#modal-comment').modal('toggle')
-    //   $('#text-edit-comment').val('test')
-    //   $('#text-edit-comment').focus()
-    // })
-    // // -------------------- edit comment end --------------------
-    //
-    //
-    // // -------------------- reply start --------------------
-    // $('.post-reply').on('click', function () {
-    //   var id = $(this).attr('id')
-    //   // alert(id)
-    //   $('#reply-' + id).after('')
-    // })
-    // // -------------------- reply end --------------------
-
-
-
-
-
 
 
     // -------------------- Read More Start --------------------

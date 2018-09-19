@@ -39,6 +39,48 @@ li.message.message-reply.socialwall-reply {
   background-image: url('http://localhost:8000/static/vendor/img/mybg.png');
 }
 
+div.socialwall-reply-text.comment-edit {
+  display: table;
+  margin-left: 45px;
+}
+
+div.socialwall-reply-text.comment-edit > span.message-text.comment-edit {
+  display: table-row;
+  width: 100%;
+}
+
+div.socialwall-reply-text.comment-edit > input.reply-edit-text.comment-edit {
+  display: table-cell;
+  width: 100%;
+}
+
+div.socialwall-reply-text.comment-edit > button.btn.btn-primary.comment-edit {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 5px;
+}
+
+div.socialwall-reply-text {
+  display: table;
+}
+
+input.form-control.input-xs.socialwall-reply-text {
+  display: table-cell;
+  width: 100%;
+}
+
+span.input-group-btn {
+  display: table-cell;
+}
+
+span.input-group-btn > button.btn.btn-primary {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 5px;
+}
+
 
 div#cke_id_content {
   width: 100% !important;
