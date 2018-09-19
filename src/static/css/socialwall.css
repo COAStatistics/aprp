@@ -90,3 +90,9 @@ form#form-post > button {
   margin-top: -25px;
   margin-left: 20px;
 }
+
+
+.grid-item img {
+  width: 100% !important;
+  position: relative !important;
+}
