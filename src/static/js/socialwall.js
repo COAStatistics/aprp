@@ -187,7 +187,7 @@ var socialWallHelper = {
 
     // -------------------- delete post start --------------------
     $item.find('.post-delete').on('click', function () {
-      $item = $(this)
+      $item = $(this);
       $('#dialog_delete_post').data('item', $item).dialog('open');
     });
 
@@ -198,7 +198,7 @@ var socialWallHelper = {
       modal : true,
       // title : "<div class='widget-header'><h4><i class='fa fa-warning'></i> Empty the recycle bin?</h4></div>",
       buttons : [{
-        html : "<i class='fa fa-trash-o'></i>&nbsp; Delete all items",
+        html : "<i class='fa fa-trash-o'></i>&nbsp; " + $('#dialog_delete_post').attr('data-delete'),
         "class" : "btn btn-danger",
         click : function() {
           $item = $('#dialog_delete_post').data('item')
@@ -215,7 +215,7 @@ var socialWallHelper = {
           $(this).dialog("close");
         }
       }, {
-        html : "<i class='fa fa-times'></i>&nbsp; Cancel",
+        html : "<i class='fa fa-times'></i>&nbsp; " + $('#dialog_delete_post').attr('data-cancel'),
         "class" : "btn btn-default",
         click : function() {
           $(this).dialog("close");
@@ -299,7 +299,7 @@ var socialWallHelper = {
       modal : true,
       // title : "<div class='widget-header'><h4><i class='fa fa-warning'></i> Empty the recycle bin?</h4></div>",
       buttons : [{
-        html : "<i class='fa fa-trash-o'></i>&nbsp; Delete all items",
+        html : "<i class='fa fa-trash-o'></i>&nbsp; " + $('#dialog_delete_comment').attr('data-delete'),
         "class" : "btn btn-danger",
         click : function() {
           $item = $('#dialog_delete_comment').data('item')
@@ -319,7 +319,7 @@ var socialWallHelper = {
           $(this).dialog("close");
         }
       }, {
-        html : "<i class='fa fa-times'></i>&nbsp; Cancel",
+        html : "<i class='fa fa-trash-o'></i>&nbsp; " + $('#dialog_delete_comment').attr('data-cancel'),
         "class" : "btn btn-default",
         click : function() {
           $(this).dialog("close");
