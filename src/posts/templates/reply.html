@@ -20,7 +20,7 @@
     <a data-id="{{ data.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> {% trans 'Like' %}</a>
   </li>
   <li>
-    <a href="javascript:void(0);" class="text-muted">{{ data.timestamp }} </a>
+    <a href="javascript:void(0);" class="text-muted">{{ data.timestamp|socialwall_posttime_filter }} </a>
   </li>
   {% if data.user.username == request.user.username %}
   <li>

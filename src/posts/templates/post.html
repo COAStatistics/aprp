@@ -3,7 +3,7 @@
 
 
 <div class="grid-item col-md-6 col-xs-12">
-  <span id="span-{{ post.id }}" class="timeline-seperator text-center"> <span>{{ post.timestamp }}</span>
+  <span id="span-{{ post.id }}" class="timeline-seperator text-center"> <span>{{ post.timestamp|socialwall_posttime_filter }}</span>
     <div class="btn-group pull-right">
       <a href="javascript:void(0);" data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle"><span class="caret single"></span></a>
       <ul class="dropdown-menu text-left">
@@ -20,7 +20,7 @@
     </div>
   </span>
   <div id="div-{{ post.id }}" class="chat-body no-padding profile-message">
-    <ul>
+    <ul class="post-update">
       <li class="post-edit-area">
         <h1 class="socialwall-title">{{ post.title }}</h1>
       </li>
@@ -30,7 +30,7 @@
           <!-- <div class="read-more big-preview"> -->
             <a href="javascript:void(0);" class="username">
               {{ post.user }}
-              <small class="text-muted ultra-light socialwall-post-time">{{ post.updated }}</small>
+              <small class="text-muted ultra-light socialwall-post-time">{{ post.updated|timediff_filter }}</small>
             </a>
             {{ post.content|safe }}
             <!-- <p class="prompt">
