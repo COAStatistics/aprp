@@ -81,7 +81,7 @@ def jarvismenu_extra_context(instance):
         if product.level == product.config.type_level and not user.info.is_editor:
             pass
 
-        elif product.types(watchlist=watchlist).count() > 1:
+        elif product.types(watchlist=watchlist).count() > 1 and product.level == product.config.type_level:
             extra_context['items'] = product.types(watchlist=watchlist)
             extra_context['ct'] = 'type'
 
