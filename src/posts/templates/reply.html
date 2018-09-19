@@ -8,9 +8,17 @@
   <span id="reply-origin">{{ data.content }}</span>
 </span>
 
-<span class="message-text comment-edit" style="display: None;"> <a href="javascript:void(0);" class="username">{{ data.user.username }}</a>
-  <input id="reply-edit" type="text" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">
-</span>
+<div class="socialwall-reply-text comment-edit" style="display: None;">
+  <span class="message-text comment-edit" style="display: None;">
+    <a href="javascript:void(0);" class="username">{{ data.user.username }}</a>
+  </span>
+  <input id="reply-edit" class="reply-edit-text comment-edit" type="text" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">
+  <span class="input-group-btn">
+    <button class="btn btn-primary comment-edit" id="btn-chat" style="display: None;">
+      <em class="fa fa-reply"></em> Reply
+    </button>
+  </span>
+</div>
 
 <ul class="list-inline font-xs">
   <li>
