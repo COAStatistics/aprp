@@ -12,7 +12,7 @@
     <!-- <div class="read-more big-preview"> -->
     <a href="javascript:void(0);" class="username">
       {{ data.user.username }}
-      <small class="text-muted ultra-light socialwall-post-time">{{ data.updated }}</small>
+      <small class="text-muted ultra-light socialwall-post-time">{{ data.updated|editdiff_filter }} {% trans 'edited' %}</small>
     </a>
     {{ data.content|safe }}
     <!-- <p class="prompt">

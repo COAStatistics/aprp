@@ -1,10 +1,11 @@
 {% load i18n %}
 {% load staticfiles %}
+{% load socialwall_filter %}
 
 
 {% for i in post_list %}
 <div class="grid-item col-md-6 col-xs-12">
-  <span id="span-{{ i.id }}" class="timeline-seperator text-center"> <span>{{ i.timestamp }}</span>
+  <span id="span-{{ i.id }}" class="timeline-seperator text-center"> <span>{{ i.timestamp|socialwall_posttime_filter }}</span>
     <div class="btn-group pull-right">
       <a href="javascript:void(0);" data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle"><span class="caret single"></span></a>
       <ul class="dropdown-menu text-left">
@@ -21,7 +22,7 @@
     </div>
   </span>
   <div id="div-{{ i.id }}" class="chat-body no-padding profile-message">
-    <ul>
+    <ul class="post-update">
       <li class="post-edit-area">
         <h1 class="socialwall-title">{{ i.title }}</h1>
       </li>
@@ -31,7 +32,14 @@
           <!-- <div class="read-more big-preview"> -->
             <a href="javascript:void(0);" class="username">
               {{ i.user.username }}
-              <small class="text-muted ultra-light socialwall-post-time">{{ i.updated }}</small>
+              <small class="text-muted ultra-light socialwall-post-time">
+                {{ i.updated|timediff_filter }}
+                {% if i.timestamp == i.updated %}
+
+                {% elif i.timestamp != i.updated %}
+                  {% trans 'edited' %}
+                {% endif %}
+              </small>
             </a>
             {{ i.content|safe }}
             <!-- <p class="prompt">
@@ -86,7 +94,7 @@
             <a data-id="{{ j.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> {% trans 'Like' %}</a>
           </li>
           <li>
-            <a href="javascript:void(0);" class="text-muted">{{ j.timestamp }} </a>
+            <a href="javascript:void(0);" class="text-muted">{{ j.timestamp|socialwall_posttime_filter }} </a>
           </li>
           {% if j.user.username == request.user.username %}
           <li>
