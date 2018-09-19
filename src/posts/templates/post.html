@@ -43,9 +43,9 @@
           <li class="socialwall-btn-reply">
             <a data-id="{{ post.id }}" href="javascript:void(0);" class="text-info post-reply"><i class="fa fa-reply"></i> {% trans 'Reply' %}</a>
           </li>
-          <li class="toggle-like">
+          <!-- <li class="toggle-like">
             <a data-id="{{ post.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> {% trans 'Like' %}</a>
-          </li>
+          </li> -->
           <!-- <li>
             <a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
           </li> -->
@@ -70,7 +70,7 @@
         <div class="socialwall-reply-text">
           <input id="reply-text" class="form-control input-xs socialwall-reply-text" placeholder="Type and enter" type="text" data-id="{{ post.id }}" api="{% url 'comments:api_comments_c' %}" data-token="{{ csrf_token }}">
           <span class="input-group-btn">
-            <button class="btn btn-primary" id="btn-chat">
+            <button class="btn btn-primary btn-reply" id="btn-chat">
               <em class="fa fa-reply"></em> Reply
             </button>
           </span>
