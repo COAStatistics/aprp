@@ -19,15 +19,96 @@ var socialWallHelper = {
         percentPosition: true,
       });
       // $posts = $('#widget-grid')
+      this.initScrollToTop();
+      this.initSearchBar();
       this.initNewPostBtn();
       this.initPost($grid);
+  },
+
+
+  initScrollToTop: function() {
+    if($(window).scrollTop() >= $(window).height()) {
+      $('#btn-scroll-top').parents('.tool-div').fadeIn();
+    } else {
+      $('#btn-scroll-top').parents('.tool-div').fadeOut();
+    }
+
+    $('#btn-scroll-top').on('click', function(e) {
+      e.preventDefault();
+      $('html').animate({scrollTop: 0}, 'slow');
+      // return;
+    });
+  },
+
+
+  initSearchBar: function() {
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+  		e.preventDefault();
+  		var param = $(this).attr("href").replace("#","");
+  		var concept = $(this).text();
+  		$('.search-panel span#search_concept').text(concept);
+  		$('.input-group #search_param').val(param);
+      $('.search-text').attr('placeholder', $('.search-text').attr('data-hint'));
+  	});
+
+    $('.search-btn').on('click', function() {
+      $item = $(this).parents('.search-area');
+      url = $item.find('#search_concept').attr('url');
+      text = $item.find('.search-text').val();
+      if($item.find('#search_concept').attr('data-type') === 'Filter by') {
+        $item.find('#search_concept').attr('data-type', 'search-everything').html($item.find('.search-everything').html());
+      }
+      id = $item.find('#search_concept').html();
+      key = $item.find('#search-' + id).attr('data-type');
+      $.ajax({
+        type: 'get',
+        url: url,
+        data: {
+          'key': key,
+          'q': text,
+        },
+        success: function(data) {
+          $data = $(data);
+          socialWallHelper.initPost($data);
+          $('.grid').html($data);
+          $grid.masonry('reloadItems').masonry();
+        }
+      });
+    });
+
+    $('.search-text').keyup(function(e) {
+      if(e.keyCode == 13) {
+        $item = $(this).parents('.search-area');
+        url = $item.find('#search_concept').attr('url');
+        text = $item.find('.search-text').val();
+        if($item.find('#search_concept').html() === 'Filter by') {
+          $item.find('#search_concept').html('Everything');
+        }
+        key = $item.find('#search_concept').html();
+        $.ajax({
+          type: 'get',
+          url: url,
+          data: {
+            'key': key,
+            'q': text,
+          },
+          success: function(data) {
+            $data = $(data);
+            socialWallHelper.initPost($data);
+            $('.grid').html($data);
+            $grid.masonry('reloadItems').masonry();
+          }
+        });
+      }
+    });
   },
 
 
   initNewPostBtn: function() {
     // -------------------- create post start --------------------
     // $posts.find('#btn-newpost').click(function() {
-    $('.row').on('click', '#btn-newpost', function() {
+    $('.row').on('click', '#btn-newpost', function(e) {
+      e.preventDefault();
       form = $('#form-post');
       url = form.attr('action');
 
@@ -229,8 +310,19 @@ var socialWallHelper = {
       id = $(this).attr('data-id');
       $post = $('#span-' + id).parent();
       $grid.masonry('remove', $post).masonry('layout');
-    })
+    });
     // -------------------- hide post end --------------------
+
+    // -------------------- reply tag name start --------------------
+    $item.find('.socialwall-btn-reply').on('click', function() {
+      $parent = $(this).parents('.message');
+      name = $parent.find('a').html().split('<small')[0].split(' ').join('');
+      $parent = $(this).parents('.grid-item');
+      $parent.find('#reply-text').val(name + '  ');
+      $parent.find('#reply-text').focus();
+      console.log(name);
+    });
+    // -------------------- reply tag name end --------------------
 
     // -------------------- reply new start --------------------
     $item.find('.form-control.input-xs.socialwall-reply-text').keyup(function (e) {
@@ -422,6 +514,12 @@ var pageNum = 1
 var hasNextPage = true
 
 var loadOnScroll = function() {
+  if($(window).scrollTop() >= $(window).height()) {
+    $('#btn-scroll-top').parents('.tool-div').fadeIn(500);
+  } else {
+    $('#btn-scroll-top').parents('.tool-div').fadeOut(500);
+  }
+
   if( (($(document).height() - $(window).scrollTop()) / 2) <  $(window).height()){
     $(window).unbind('scroll', loadOnScroll)
     loadItem()
