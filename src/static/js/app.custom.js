@@ -1,4 +1,21 @@
 /*
+ * Custom load multiple script in order by loadScript()
+ */
+function scriptLoader (scriptArray, callback) {
+    var arr = scriptArray.reverse();
+    var f = function (s, c) {
+        return function (){
+            loadScript(s, c);
+        }
+    }
+    var stack = [];
+    arr.forEach(function(script, i){
+        stack.push(f(script, i === 0 ? callback : stack[i-1]));
+    })
+    stack[stack.length - 1]();
+}
+
+/*
  * GET BREADCRUMB
  */
 function getBreadCrumb(sep) {
