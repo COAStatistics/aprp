@@ -7,6 +7,9 @@ div#content {
 	background-color: #F7F7F7;
 }
 
+div#main {
+	background-color: #F7F7F7;
+}
 </style>
 
 <!-- Bread crumb is created dynamically -->
@@ -55,10 +58,47 @@ the <section></section> and you can use wells or panels instead
 
 		<!-- a blank row to get started -->
 		<div class="col-sm-12 col-lg-12">
-			<div style="margin-bottom:10px;">
+
+			<!-- <div class="socialwall-newpost-btn"> -->
 				 <!-- data-toggle="modal" data-target="#form-post" -->
-				<button type="button" id="btn-newpost" class="btn btn-primary">{% trans 'New Post' %}</button>
+				<!-- <button type="button" id="btn-newpost" class="btn btn-primary">{% trans 'New Post' %}</button>
+			</div> -->
+
+			<div class="input-group input-group-lg search-area">
+				<div class="input-group-btn search-panel">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          	<span id="search_concept" url="{% url 'posts:post_search' %}" data-type="Filter by">{% trans 'Filter by' %}</span>
+						<span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+	          <li><a id="search-{% trans 'Title' %}" href="javascript:void(0)" data-type="Title">{% trans 'Title' %}</a></li>
+            <li><a id="search-{% trans 'Author' %}" href="javascript:void(0)" data-type="Author">{% trans 'Author' %}</a></li>
+            <li><a id="search-{% trans 'Content' %}" href="javascript:void(0)" data-type="Content">{% trans 'Content' %}</a></li>
+            <li><a id="search-{% trans 'Comment' %}" href="javascript:void(0)" data-type="Comment">{% trans 'Comment' %}</a></li>
+            <li class="divider"></li>
+	          <li><a id="search-{% trans 'Everything' %}" class="search-everything" href="#search_everything" data-type="Everything">{% trans 'Everything' %}</a></li>
+          </ul>
+        </div>
+        <input type="hidden" name="search_param" value="all" id="search_param">
+        <input type="text" class="form-control search-text" name="x" data-hint="{% trans 'Search term...' %}" placeholder="{% trans 'Default search everything...' %}">
+        <span class="input-group-btn">
+          <button class="btn btn-default search-btn" type="button">
+						&nbsp;&nbsp;&nbsp;<span class="fa fa-fw fa-search fa-lg"></span>&nbsp;&nbsp;&nbsp;</button>
+        </span>
 			</div>
+
+			<div class="tool-div tool-div-1">
+				<a href="javascript:void(0)">
+					<i id="btn-newpost" class="fa fa-pencil tool-btn"></i>
+				</a>
+			</div>
+
+			<div class="tool-div tool-div-2">
+				<a href="javascript:void(0)">
+					<i id="btn-scroll-top" class="fa fa-chevron-up tool-btn"></i>
+				</a>
+			</div>
+
 		</div>
 
 		{% include 'form_modal.html' %}
@@ -88,7 +128,6 @@ the <section></section> and you can use wells or panels instead
 <div class="row">
 
 	<div class="grid">
-		<div class="grid-sizer col-md-6 col-xs-12"></div>
 		{% include 'post_area.html' %}
 	</div>
 
