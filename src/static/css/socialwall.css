@@ -1,0 +1,119 @@
+h1.socialwall-title {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+li.message.socialwall-message.post-edit-area {
+  margin: 0px;
+}
+
+div.message-text.socialwall-author {
+  margin-left: 20px !important;
+}
+
+.text-muted.ultra-light.socialwall-post-time {
+  margin-left: 20px;
+}
+
+div.message-text.socialwall-author > a {
+  margin-top: 5px !important;
+}
+
+li.socialwall-btn-reply {
+  margin-top: 5px !important;
+  margin-left: 15px !important;
+}
+
+li.message.message-reply.socialwall-reply > span.message-text.comment {
+  margin-left: 30px !important;
+}
+
+li.message.message-reply.socialwall-reply > ul.list-inline.font-xs {
+  margin-left: 25px;
+}
+
+li.message.message-reply.socialwall-reply {
+  margin-left: 0px !important;
+  background-image: url('http://localhost:8000/static/vendor/img/mybg.png');
+}
+
+div.socialwall-reply-text.comment-edit {
+  display: table;
+  margin-left: 45px;
+}
+
+div.socialwall-reply-text.comment-edit > span.message-text.comment-edit {
+  display: table-row;
+  width: 100%;
+}
+
+div.socialwall-reply-text.comment-edit > input.reply-edit-text.comment-edit {
+  display: table-cell;
+  width: 100%;
+}
+
+div.socialwall-reply-text.comment-edit > button.btn.btn-primary.comment-edit {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 5px;
+}
+
+div.socialwall-reply-text {
+  display: table;
+}
+
+input.form-control.input-xs.socialwall-reply-text {
+  display: table-cell;
+  width: 100%;
+}
+
+span.input-group-btn {
+  display: table-cell;
+}
+
+span.input-group-btn > button.btn.btn-primary {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 5px;
+}
+
+
+div#cke_id_content {
+  width: 100% !important;
+}
+
+form#form-post > button {
+  margin-top: -25px;
+  margin-left: 20px;
+}
+
+
+div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable {
+  width: 60% !important;
+  height: auto !important;
+  left: 20% !important;
+}
+
+div#dialog_delete_post p {
+  font-size: 24px !important;
+  margin: 0px !important;
+}
+
+div#dialog_delete_comment p {
+  font-size: 24px !important;
+  margin: 0px !important;
+}
+
+div.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
+  margin-top: 0px !important;
+}
+
+
+.grid-item img {
+  width: 100% !important;
+  position: relative !important;
+}

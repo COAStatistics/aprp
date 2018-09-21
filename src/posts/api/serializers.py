@@ -1,21 +1,51 @@
-from rest_framework.serializers import (
-    HyperlinkedIdentityField,
-    ModelSerializer,
-    SerializerMethodField
-    )
+from rest_framework import serializers
+from accounts.api.serializers import UserUsernameSerializer
+from comments.api.serializers import CommentListAllSerializer
+
+from posts import models
 
 
-from accounts.api.serializers import UserDetailSerializer
-from posts.models import Post
+class PostListAllSerializer(serializers.ModelSerializer):
+    user = UserUsernameSerializer()
+    comments = CommentListAllSerializer(many=True)
 
-
-class PostListSerializer(ModelSerializer):
-    user = UserDetailSerializer(read_only=True)
     class Meta:
-        model = Post
+        model = models.Post
         fields = [
+            'id',
             'user',
             'title',
             'content',
-            'publish',
-]
+            'file',
+            'comments',
+            'timestamp',
+            'updated',
+        ]
+
+
+class PostCreateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Post
+        fields = [
+            'id',
+            'user',
+            'title',
+            'content',
+            'file',
+        ]
+
+
+class PostRetrieveUpdateDestroySerializer(serializers.ModelSerializer):
+    user = UserUsernameSerializer()
+
+    class Meta:
+        model = models.Post
+        fields = [
+            'id',
+            'user',
+            'title',
+            'content',
+            'file',
+            'updated',
+        ]

@@ -41,6 +41,9 @@
 		<!-- DataTable Styles -->
 		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap.min.css">
 
+		<!-- SocialWall Styles -->
+		<link rel="stylesheet" href="{% static 'css/socialwall.css' %}">
+
 	</head>
 
 	<!--
@@ -177,7 +180,18 @@
 		<script src="{% static 'vendor/js/plugin/datatables/dataTables.bootstrap.min.js' %}"></script>
 		<script src="{% static 'vendor/js/plugin/datatable-responsive/datatables.responsive.min.js' %}"></script>
 		<script src="{% static 'js/datatables/dataTableHelper.js' %}"></script>
-		
+
+		<!-- CKEditor Plugins -->
+		<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+		<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/form-control.js' %}"></script>
+
+		<!-- Masonry Plugins -->
+		<script type="text/javascript" src="{% static 'vendor/js/masonry.pkgd.js' %}"></script>
+
+		<!-- SocialWall Plugins -->
+		<script type="text/javascript" src="{% static 'js/socialwall.js' %}"></script>
+
 		{% if use_ga %}
 			{% include "snippets/ga.html" with ga_tracking_id=ga_tracking_id %}
 		{% endif %}
