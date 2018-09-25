@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 15:07+0800\n"
+"POT-Creation-Date: 2018-09-25 14:17+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -238,7 +238,7 @@ msgstr "編輯個人資料"
 #: .\comments\templates\partial_comment_create.html:14
 #: .\comments\templates\partial_comment_delete.html:15
 #: .\comments\templates\partial_comment_update.html:14
-#: .\posts\templates\form.html:12 .\posts\templates\form_edit.html.py:15
+#: .\posts\templates\form_modal.html:18
 msgid "Cancel"
 msgstr "取消"
 
@@ -425,6 +425,7 @@ msgid "File"
 msgstr "檔案"
 
 #: .\comments\models.py:59 .\posts\models.py:36
+#: .\posts\templates\socialwall.html:76
 msgid "Content"
 msgstr "內容"
 
@@ -432,7 +433,7 @@ msgstr "內容"
 msgid "Timestamp"
 msgstr "時間戳"
 
-#: .\comments\models.py:65
+#: .\comments\models.py:65 .\posts\templates\socialwall.html.py:77
 msgid "Comment"
 msgstr "留言"
 
@@ -730,7 +731,7 @@ msgstr "日誌類型"
 msgid "LogTypes"
 msgstr "日誌類型"
 
-#: .\posts\models.py:34
+#: .\posts\models.py:34 .\posts\templates\socialwall.html.py:74
 msgid "Title"
 msgstr "標題"
 
@@ -742,8 +743,7 @@ msgstr "發布時間"
 msgid "Read Time"
 msgstr "點閱次數"
 
-#: .\posts\models.py:43 .\posts\templates\form.html.py:10
-#: .\posts\templates\form_edit.html:13
+#: .\posts\models.py:43
 msgid "Post"
 msgstr "貼文"
 
@@ -751,50 +751,167 @@ msgstr "貼文"
 msgid "Posts"
 msgstr "貼文"
 
-#: .\posts\templates\form.html:11 .\posts\templates\form_edit.html.py:14
-msgid "Update"
-msgstr "更新"
+#: .\posts\templates\form_modal.html:8 .\posts\templates\socialwall.html:64
+msgid "New Post"
+msgstr "新增貼文"
 
-#: .\posts\templates\post.html:11 .\posts\templates\post_area.html.py:12
+#: .\posts\templates\form_modal.html:9
+msgid "Edit Post"
+msgstr "編輯貼文"
+
+#: .\posts\templates\form_modal.html:17
+msgid "Send"
+msgstr "送出"
+
+#: .\posts\templates\post.html:11 .\posts\templates\post_area.html.py:14
 msgid "Hide this post"
 msgstr "隱藏這則貼文"
 
-#: .\posts\templates\post.html:44 .\posts\templates\post_area.html.py:45
-#: .\posts\templates\post_area.html:83 .\posts\templates\post_edit.html:26
-#: .\posts\templates\reply.html.py:17
+#: .\posts\templates\post.html:44 .\posts\templates\post_area.html.py:54
+#: .\posts\templates\post_area.html:103 .\posts\templates\post_edit.html:26
+#: .\posts\templates\reply.html.py:25
 msgid "Reply"
 msgstr "回覆"
 
-#: .\posts\templates\post.html:47 .\posts\templates\post_area.html.py:48
-#: .\posts\templates\post_area.html:86 .\posts\templates\post_edit.html:29
-#: .\posts\templates\reply.html.py:20
+#: .\posts\templates\post.html:47 .\posts\templates\post_area.html.py:57
+#: .\posts\templates\post_area.html:106 .\posts\templates\post_edit.html:29
+#: .\posts\templates\reply.html.py:28
 msgid "Like"
 msgstr "喜歡"
 
-#: .\posts\templates\post.html:54 .\posts\templates\post_area.html.py:55
-#: .\posts\templates\post_area.html:93 .\posts\templates\post_edit.html:36
-#: .\posts\templates\reply.html.py:27
+#: .\posts\templates\post.html:54 .\posts\templates\post_area.html.py:64
+#: .\posts\templates\post_area.html:113 .\posts\templates\post_edit.html:36
+#: .\posts\templates\reply.html.py:35
 msgid "Edit"
 msgstr "編輯"
 
-#: .\posts\templates\post.html:57 .\posts\templates\post_area.html.py:58
-#: .\posts\templates\post_area.html:96 .\posts\templates\post_edit.html:39
-#: .\posts\templates\reply.html.py:30
+#: .\posts\templates\post.html:57 .\posts\templates\post_area.html.py:67
+#: .\posts\templates\post_area.html:116 .\posts\templates\post_edit.html:39
+#: .\posts\templates\reply.html.py:38
 msgid "Delete"
 msgstr "刪除"
 
-#: .\posts\templates\socialwall.html:22 .\templates\ajax\about.html.py:12
+#: .\posts\templates\post.html:71 .\posts\templates\post_area.html.py:125
+msgid "Type and enter"
+msgstr "輸入留言並按Enter送出"
+
+#: .\posts\templates\post_area.html:41 .\posts\templates\post_edit.html:15
+msgid "edited"
+msgstr "已編輯"
+
+#: .\posts\templates\socialwall.html:25 .\templates\ajax\about.html.py:12
 #: .\templates\navigation.html:57
 msgid "Main"
 msgstr "主頁"
 
-#: .\posts\templates\socialwall.html:24 .\templates\navigation.html.py:63
+#: .\posts\templates\socialwall.html:27 .\templates\navigation.html.py:63
 msgid "Social Wall"
 msgstr "留言板"
 
-#: .\posts\templates\socialwall.html:60
-msgid "New Post"
-msgstr "新增貼文"
+#: .\posts\templates\socialwall.html:70
+msgid "Filter by"
+msgstr "關鍵字"
+
+#: .\posts\templates\socialwall.html:75
+msgid "Author"
+msgstr "發文者"
+
+#: .\posts\templates\socialwall.html:79
+msgid "All"
+msgstr "全部"
+
+#: .\posts\templates\socialwall.html:83
+msgid "Search term..."
+msgstr "輸入關鍵字..."
+
+#: .\posts\templates\socialwall.html:83
+msgid "Default search all..."
+msgstr "預設搜尋全部..."
+
+#: .\posts\templates\socialwall.html:116
+msgid "Confirm to delete this post ?"
+msgstr "確認刪除這則貼文嗎？"
+
+#: .\posts\templates\socialwall.html:122
+msgid "Confirm to delete this comment ?"
+msgstr "確認刪除這則留言嗎？"
+
+#: .\posts\templates\socialwall404.html:484 .\templates\ajax\no-data.html:484
+msgid "NO DATA"
+msgstr "尚無資料"
+
+#: .\posts\templates\socialwall404.html:487
+msgid "Your search"
+msgstr "找不到符合搜尋字詞"
+
+#: .\posts\templates\socialwall404.html:487
+msgid "did not match any documents."
+msgstr "的文章。"
+
+#: .\posts\templates\socialwall404.html:492
+msgid "Suggestions:"
+msgstr "建議："
+
+#: .\posts\templates\socialwall404.html:496
+msgid "Make sure that all words are spelled correctly"
+msgstr "請檢查有無錯別字。"
+
+#: .\posts\templates\socialwall404.html:497
+msgid "Try different keywords."
+msgstr "試試以其他關鍵字搜尋。"
+
+#: .\posts\templates\socialwall404.html:498
+msgid "Try more general keywords."
+msgstr "試試以較籠統的關鍵字搜尋。"
+
+#: .\posts\templatetags\socialwall_filter.py:25
+#: .\posts\templatetags\socialwall_filter.py:50
+msgid "years"
+msgstr "年"
+
+#: .\posts\templatetags\socialwall_filter.py:26
+#: .\posts\templatetags\socialwall_filter.py:51
+msgid "months"
+msgstr "月"
+
+#: .\posts\templatetags\socialwall_filter.py:27
+#: .\posts\templatetags\socialwall_filter.py:52
+msgid "weeks"
+msgstr "週"
+
+#: .\posts\templatetags\socialwall_filter.py:28
+#: .\posts\templatetags\socialwall_filter.py:53
+msgid "days"
+msgstr "天"
+
+#: .\posts\templatetags\socialwall_filter.py:29
+#: .\posts\templatetags\socialwall_filter.py:54
+msgid "hours"
+msgstr "小時"
+
+#: .\posts\templatetags\socialwall_filter.py:30
+#: .\posts\templatetags\socialwall_filter.py:55
+msgid "minutes"
+msgstr "分鐘"
+
+#: .\posts\templatetags\socialwall_filter.py:31
+#: .\posts\templatetags\socialwall_filter.py:38
+#: .\posts\templatetags\socialwall_filter.py:56
+#: .\posts\templatetags\socialwall_filter.py:63
+msgid "seconds"
+msgstr "秒"
+
+#: .\posts\templatetags\socialwall_filter.py:35
+#: .\posts\templatetags\socialwall_filter.py:38
+#: .\posts\templatetags\socialwall_filter.py:60
+#: .\posts\templatetags\socialwall_filter.py:63
+msgid "ago"
+msgstr "之前"
+
+#: .\posts\templatetags\socialwall_filter.py:37
+#: .\posts\templatetags\socialwall_filter.py:62
+msgid "now"
+msgstr "剛剛"
 
 #: .\rams\models.py:29
 msgid "Ram"
@@ -986,10 +1103,6 @@ msgstr "監控資訊"
 msgid "Date Range"
 msgstr "日期區間"
 
-#: .\templates\ajax\no-data.html:484
-msgid "NO DATA"
-msgstr "尚無資料"
-
 #: .\templates\ajax\no-data.html:487
 msgid ""
 "No data to display, this product might be low season in current date range"
@@ -1164,3 +1277,9 @@ msgstr "啟用"
 #: .\watchlists\models.py:160
 msgid "Monitor Months"
 msgstr "監控月份"
+
+#~ msgid "Everything"
+#~ msgstr "任何目標"
+
+#~ msgid "Update"
+#~ msgstr "更新"

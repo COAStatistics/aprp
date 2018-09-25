@@ -34,7 +34,7 @@ def post_search(request):
     posts = models.Post.objects.all()
     # search_name = "search_{}".format(key)
 
-    if key == "Everything":
+    if key == "All":
         comments = Comment.objects.all()
         comments = comments.filter(
             Q(content__icontains=q)
