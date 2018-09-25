@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 14:17+0800\n"
+"POT-Creation-Date: 2018-09-25 15:07+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -767,9 +767,10 @@ msgstr "送出"
 msgid "Hide this post"
 msgstr "隱藏這則貼文"
 
-#: .\posts\templates\post.html:44 .\posts\templates\post_area.html.py:54
-#: .\posts\templates\post_area.html:103 .\posts\templates\post_edit.html:26
-#: .\posts\templates\reply.html.py:25
+#: .\posts\templates\post.html:44 .\posts\templates\post.html.py:74
+#: .\posts\templates\post_area.html:54 .\posts\templates\post_area.html:103
+#: .\posts\templates\post_area.html:128 .\posts\templates\post_edit.html:26
+#: .\posts\templates\reply.html.py:18 .\posts\templates\reply.html:25
 msgid "Reply"
 msgstr "回覆"
 

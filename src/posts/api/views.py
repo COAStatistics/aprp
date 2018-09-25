@@ -13,13 +13,13 @@ from . import serializers
 class PostListAllAPIView(generics.ListAPIView):
     serializer_class = serializers.PostListAllSerializer
     queryset = models.Post.objects.all()
-    permission_class = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     # pagination_class = paginations.PostPageNumberPagination
 
 
 class PostCreateAPIView(generics.CreateAPIView):
     serializer_class = serializers.PostCreateSerializer
-    permission_class = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
 
     def create(self, request, *args, **kwargs):
@@ -52,7 +52,7 @@ class PostCreateAPIView(generics.CreateAPIView):
 
 class PostRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.PostRetrieveUpdateDestroySerializer
-    permission_class = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def get_object(self):
         instance = models.Post.objects.get(id=self.kwargs.get('pk'))
