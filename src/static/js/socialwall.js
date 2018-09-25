@@ -2,7 +2,7 @@ var socialWallHelper = {
 
   init: function() {
       $(window).bind('scroll', loadOnScroll);
-      $('#modal-body').on('click', '#btn-post-cancel', function() {
+      $('.modal').on('click', '#btn-post-cancel', function() {
         $('#dialog-form-post').modal('toggle');
       })
       $.ajaxSetup({
@@ -44,10 +44,10 @@ var socialWallHelper = {
   initSearchBar: function() {
     $('.search-panel .dropdown-menu').find('a').click(function(e) {
   		e.preventDefault();
-  		var param = $(this).attr("href").replace("#","");
   		var concept = $(this).text();
+      var data_type = $(this).attr('data-type');
   		$('.search-panel span#search_concept').text(concept);
-  		$('.input-group #search_param').val(param);
+  		$('.input-group #search_param').val(data_type);
       $('.search-text').attr('placeholder', $('.search-text').attr('data-hint'));
   	});
 
@@ -55,11 +55,10 @@ var socialWallHelper = {
       $item = $(this).parents('.search-area');
       url = $item.find('#search_concept').attr('url');
       text = $item.find('.search-text').val();
-      if($item.find('#search_concept').attr('data-type') === 'Filter by') {
-        $item.find('#search_concept').attr('data-type', 'search-everything').html($item.find('.search-everything').html());
+      if($item.find('#search_concept').text() === gettext('Filter by')) {
+        $item.find('#search_concept').text(gettext('All'));
       }
-      id = $item.find('#search_concept').html();
-      key = $item.find('#search-' + id).attr('data-type');
+      key = $('.input-group #search_param').val();
       $.ajax({
         type: 'get',
         url: url,
@@ -67,6 +66,7 @@ var socialWallHelper = {
           'key': key,
           'q': text,
         },
+        async: false,
         success: function(data) {
           $data = $(data);
           socialWallHelper.initPost($data);
@@ -81,10 +81,10 @@ var socialWallHelper = {
         $item = $(this).parents('.search-area');
         url = $item.find('#search_concept').attr('url');
         text = $item.find('.search-text').val();
-        if($item.find('#search_concept').html() === 'Filter by') {
-          $item.find('#search_concept').html('Everything');
+        if($item.find('#search_concept').text() === gettext('Filter by')) {
+          $item.find('#search_concept').text(gettext('All'));
         }
-        key = $item.find('#search_concept').html();
+        key = $('.input-group #search_param').val();
         $.ajax({
           type: 'get',
           url: url,
@@ -92,6 +92,7 @@ var socialWallHelper = {
             'key': key,
             'q': text,
           },
+          async: false,
           success: function(data) {
             $data = $(data);
             socialWallHelper.initPost($data);
@@ -109,6 +110,8 @@ var socialWallHelper = {
     // $posts.find('#btn-newpost').click(function() {
     $('.row').on('click', '#btn-newpost', function(e) {
       e.preventDefault();
+      $('#socialwall-title-new').show();
+      $('#socialwall-title-edit').hide();
       form = $('#form-post');
       url = form.attr('action');
 
@@ -118,8 +121,6 @@ var socialWallHelper = {
         success: function (data) {
           // console.log(data);
           $('#modal-body').html(data);
-          $('#btn-post-create').show();
-          $('#btn-post-update').hide();
           $('#dialog-form-post').modal('show');
           socialWallHelper.initFormNew();
         }
@@ -161,6 +162,9 @@ var socialWallHelper = {
           processData: false,
           success: function(data) {
             $item = $(data);
+            if($grid.children('.socialwall-nodata').length > 0) {
+              $grid.html('');
+            }
             $grid.prepend($item).masonry('prepended', $item);
             $('#dialog-form-post').modal('hide');
             socialWallHelper.initPost($item);
@@ -174,6 +178,9 @@ var socialWallHelper = {
           data: data,
           success: function(data) {
             $item = $(data);
+            if($grid.children('.socialwall-nodata').length > 0) {
+              $grid.html('');
+            }
             $grid.prepend($item).masonry('prepended', $item);
             $('#dialog-form-post').modal('hide');
             socialWallHelper.initPost($item);
@@ -250,6 +257,8 @@ var socialWallHelper = {
 
     // -------------------- edit post start --------------------
     $item.find('.post-edit').on('click', function() {
+      $('#socialwall-title-new').hide();
+      $('#socialwall-title-edit').show();
       id = $(this).attr('data-id');
       url = $(this).attr('api') + id;
       $.ajax({
@@ -257,8 +266,6 @@ var socialWallHelper = {
         url: url,
         success: function(data){
           $('#modal-body').html(data['html']);
-          $('#btn-post-create').hide();
-          $('#btn-post-update').show();
           $('#dialog-form-post').modal('show');
           socialWallHelper.initEditPostBtn();
         }
@@ -279,7 +286,7 @@ var socialWallHelper = {
       modal : true,
       // title : "<div class='widget-header'><h4><i class='fa fa-warning'></i> Empty the recycle bin?</h4></div>",
       buttons : [{
-        html : "<i class='fa fa-trash-o'></i>&nbsp; " + $('#dialog_delete_post').attr('data-delete'),
+        html : "<i class='fa fa-trash-o'></i>&nbsp; " + gettext('Delete'),
         "class" : "btn btn-danger",
         click : function() {
           $item = $('#dialog_delete_post').data('item')
@@ -296,7 +303,7 @@ var socialWallHelper = {
           $(this).dialog("close");
         }
       }, {
-        html : "<i class='fa fa-times'></i>&nbsp; " + $('#dialog_delete_post').attr('data-cancel'),
+        html : "<i class='fa fa-times'></i>&nbsp; " + gettext('Cancel'),
         "class" : "btn btn-default",
         click : function() {
           $(this).dialog("close");
@@ -391,7 +398,7 @@ var socialWallHelper = {
       modal : true,
       // title : "<div class='widget-header'><h4><i class='fa fa-warning'></i> Empty the recycle bin?</h4></div>",
       buttons : [{
-        html : "<i class='fa fa-trash-o'></i>&nbsp; " + $('#dialog_delete_comment').attr('data-delete'),
+        html : "<i class='fa fa-trash-o'></i>&nbsp; " + gettext('Delete'),
         "class" : "btn btn-danger",
         click : function() {
           $item = $('#dialog_delete_comment').data('item')
@@ -411,7 +418,7 @@ var socialWallHelper = {
           $(this).dialog("close");
         }
       }, {
-        html : "<i class='fa fa-trash-o'></i>&nbsp; " + $('#dialog_delete_comment').attr('data-cancel'),
+        html : "<i class='fa fa-trash-o'></i>&nbsp; " + gettext('Cancel'),
         "class" : "btn btn-default",
         click : function() {
           $(this).dialog("close");
@@ -520,10 +527,10 @@ var loadOnScroll = function() {
     $('#btn-scroll-top').parents('.tool-div').fadeOut(500);
   }
 
-  if( (($(document).height() - $(window).scrollTop()) / 2) <  $(window).height()){
-    $(window).unbind('scroll', loadOnScroll)
-    loadItem()
-  }
+  // if( (($(document).height() - $(window).scrollTop()) / 2) <  $(window).height()){
+  //   $(window).unbind('scroll', loadOnScroll)
+  //   loadItem()
+  // }
 }
 
 var loadItem = function() {

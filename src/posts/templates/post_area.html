@@ -67,9 +67,9 @@
             <a href="javascript:void(0);" class="text-danger post-delete" data-id="{{ i.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Delete' %}</a>
           </li>
           {% endif %}
-          {% if i.file != None %}
+          {% if i.file != '' %}
             <li>
-              <a href="{{ i.file }}" class="glyphicon glyphicon-paperclip" target="_blank" title="{{ i.file }}"></a>
+              <a href="/media/{{ i.file }}" class="glyphicon glyphicon-paperclip" target="_blank" title="{{ i.file }}"></a>
             </li>
           {% endif %}
         </ul>

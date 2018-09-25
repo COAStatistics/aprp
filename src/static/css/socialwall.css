@@ -92,9 +92,22 @@ div#cke_id_content {
   width: 100% !important;
 }
 
-form#form-post > button {
-  margin-top: -25px;
-  margin-left: 20px;
+div.modal-header {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+div.modal-body {
+  padding-bottom: 10px !important;
+}
+
+div.modal-footer {
+  padding-top: 10px !important;
+}
+
+div.modal-footer > button {
+  margin-left: 5px;
+  margin-bottom: 0px;
 }
 
 
