@@ -117,16 +117,6 @@ div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-butto
   left: 20% !important;
 }
 
-div#dialog_delete_post p {
-  font-size: 24px !important;
-  margin: 0px !important;
-}
-
-div#dialog_delete_comment p {
-  font-size: 24px !important;
-  margin: 0px !important;
-}
-
 div.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
   margin-top: 0px !important;
 }

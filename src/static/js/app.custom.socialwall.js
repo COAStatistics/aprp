@@ -276,39 +276,27 @@ var socialWallHelper = {
     // -------------------- delete post start --------------------
     $item.find('.post-delete').on('click', function () {
       $item = $(this);
-      $('#dialog_delete_post').data('item', $item).dialog('open');
-    });
-
-    $('#dialog_delete_post').dialog({
-      autoOpen : false,
-      width : 600,
-      resizable : false,
-      modal : true,
-      // title : "<div class='widget-header'><h4><i class='fa fa-warning'></i> Empty the recycle bin?</h4></div>",
-      buttons : [{
-        html : "<i class='fa fa-trash-o'></i>&nbsp; " + gettext('Delete'),
-        "class" : "btn btn-danger",
-        click : function() {
-          $item = $('#dialog_delete_post').data('item')
-          id = $item.attr('data-id');
-          url = $item.attr('api');
-          $post = $('#span-' + id).parent();
-          $.ajax({
-            type: 'DELETE',
-            url: url + id,
-            success: function() {
-              $grid.masonry('remove', $post).masonry('layout');
-            }
-          });
-          $(this).dialog("close");
+      BootstrapDialog.confirm({
+        title: gettext('Delete Post'),
+        message: gettext('Are you sure you want to delete this post?'),
+        type: BootstrapDialog.TYPE_DANGER,
+        btnOKLabel: gettext('Delete'),
+        btnCancelLabel: gettext('Cancel'),
+        callback: function(result){
+          if(result) {
+            id = $item.attr('data-id');
+            url = $item.attr('api');
+            $post = $('#span-' + id).parent();
+            $.ajax({
+              type: 'DELETE',
+              url: url + id,
+              success: function() {
+                $grid.masonry('remove', $post).masonry('layout');
+              }
+            });
+          }
         }
-      }, {
-        html : "<i class='fa fa-times'></i>&nbsp; " + gettext('Cancel'),
-        "class" : "btn btn-default",
-        click : function() {
-          $(this).dialog("close");
-        }
-      }]
+      });
     });
     // -------------------- delete post end --------------------
 
@@ -387,43 +375,29 @@ var socialWallHelper = {
 
     // -------------------- reply delete start --------------------
     $item.find('.reply-delete').on('click', function() {
-      $item = $(this)
-      $('#dialog_delete_comment').data('item', $item).dialog('open');
-    });
-
-    $('#dialog_delete_comment').dialog({
-      autoOpen : false,
-      width : 600,
-      resizable : false,
-      modal : true,
-      // title : "<div class='widget-header'><h4><i class='fa fa-warning'></i> Empty the recycle bin?</h4></div>",
-      buttons : [{
-        html : "<i class='fa fa-trash-o'></i>&nbsp; " + gettext('Delete'),
-        "class" : "btn btn-danger",
-        click : function() {
-          $item = $('#dialog_delete_comment').data('item')
-          id = $item.attr('data-id');
-          url = $item.attr('api');
-          $reply = $item;
-          $post = $('#span-' + id).parent();
-          $.ajax({
-            type: 'delete',
-            url: url + id,
-            async: false,
-            success: function() {
-              $reply.parents('.socialwall-reply').remove();
-              $grid.masonry();
-            }
-          });
-          $(this).dialog("close");
+      $item = $(this);
+      BootstrapDialog.confirm({
+        title: gettext('Delete Comment'),
+        message: gettext('Are you sure you want to delete this comment?'),
+        type: BootstrapDialog.TYPE_DANGER,
+        btnOKLabel: gettext('Delete'),
+        btnCancelLabel: gettext('Cancel'),
+        callback: function(result){
+          if(result) {
+            id = $item.attr('data-id');
+            url = $item.attr('api');
+            $post = $('#span-' + id).parent();
+            $.ajax({
+              type: 'DELETE',
+              url: url + id,
+              success: function() {
+                $item.parents('.socialwall-reply').remove();
+                $grid.masonry();
+              }
+            });
+          }
         }
-      }, {
-        html : "<i class='fa fa-trash-o'></i>&nbsp; " + gettext('Cancel'),
-        "class" : "btn btn-default",
-        click : function() {
-          $(this).dialog("close");
-        }
-      }]
+      });
     });
     // -------------------- reply delete end --------------------
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 15:07+0800\n"
+"POT-Creation-Date: 2018-09-26 14:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -829,14 +829,6 @@ msgstr "輸入關鍵字..."
 msgid "Default search all..."
 msgstr "預設搜尋全部..."
 
-#: .\posts\templates\socialwall.html:116
-msgid "Confirm to delete this post ?"
-msgstr "確認刪除這則貼文嗎？"
-
-#: .\posts\templates\socialwall.html:122
-msgid "Confirm to delete this comment ?"
-msgstr "確認刪除這則留言嗎？"
-
 #: .\posts\templates\socialwall404.html:484 .\templates\ajax\no-data.html:484
 msgid "NO DATA"
 msgstr "尚無資料"
@@ -1278,9 +1270,3 @@ msgstr "啟用"
 #: .\watchlists\models.py:160
 msgid "Monitor Months"
 msgstr "監控月份"
-
-#~ msgid "Everything"
-#~ msgstr "任何目標"
-
-#~ msgid "Update"
-#~ msgstr "更新"
