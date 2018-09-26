@@ -1,25 +1,44 @@
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from posts import models
 from posts import forms
 from . import serializers
-from . import paginations
+#from . import paginations
 
 
 class PostListAllAPIView(generics.ListAPIView):
     serializer_class = serializers.PostListAllSerializer
     queryset = models.Post.objects.all()
+    permission_classes = [IsAuthenticated]
     # pagination_class = paginations.PostPageNumberPagination
 
 
 class PostCreateAPIView(generics.CreateAPIView):
     serializer_class = serializers.PostCreateSerializer
+    permission_classes = [IsAuthenticated]
+
 
     def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
+        user = request.user.id
+        try:
+            data = {
+                'user': user,
+                'title':  request.data['title'],
+                'content': request.data['content'],
+                'file': request.data['file'],
+            }
+        except:
+            data = {
+                'user': user,
+                'title':  request.data['title'],
+                'content': request.data['content'],
+            }
+
+        serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
@@ -33,6 +52,7 @@ class PostCreateAPIView(generics.CreateAPIView):
 
 class PostRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.PostRetrieveUpdateDestroySerializer
+    permission_classes = [IsAuthenticated]
 
     def get_object(self):
         instance = models.Post.objects.get(id=self.kwargs.get('pk'))

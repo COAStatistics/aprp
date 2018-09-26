@@ -1,3 +1,9 @@
+div.socialwall-newpost-btn {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  float: left;
+}
+
 h1.socialwall-title {
   font-weight: bold;
   margin-top: 15px;
@@ -31,7 +37,7 @@ li.message.message-reply.socialwall-reply > span.message-text.comment {
 }
 
 li.message.message-reply.socialwall-reply > ul.list-inline.font-xs {
-  margin-left: 25px;
+  margin-left: 10px;
 }
 
 li.message.message-reply.socialwall-reply {
@@ -86,9 +92,22 @@ div#cke_id_content {
   width: 100% !important;
 }
 
-form#form-post > button {
-  margin-top: -25px;
-  margin-left: 20px;
+div.modal-header {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+div.modal-body {
+  padding-bottom: 10px !important;
+}
+
+div.modal-footer {
+  padding-top: 10px !important;
+}
+
+div.modal-footer > button {
+  margin-left: 5px;
+  margin-bottom: 0px;
 }
 
 
@@ -96,16 +115,6 @@ div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-butto
   width: 60% !important;
   height: auto !important;
   left: 20% !important;
-}
-
-div#dialog_delete_post p {
-  font-size: 24px !important;
-  margin: 0px !important;
-}
-
-div#dialog_delete_comment p {
-  font-size: 24px !important;
-  margin: 0px !important;
 }
 
 div.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
@@ -116,4 +125,48 @@ div.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
 .grid-item img {
   width: 100% !important;
   position: relative !important;
+}
+
+
+div.tool-div {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 50;
+  right: 30px;
+  text-align: center;
+  background-color: rgb(128, 128, 128, 0.5);
+}
+
+div.tool-div-1 {
+  bottom: 30px;
+}
+
+div.tool-div-2 {
+  bottom: 100px;
+}
+
+i.tool-btn {
+  display: block;
+  padding: 11px;
+  font-size: 25px;
+}
+
+
+div.no-data {
+  width: 50%;
+  margin-left: 30%;
+}
+
+div.no-data p {
+  text-align: left;
+}
+
+div.no-data ul {
+  padding-left: 20px;
+}
+
+div.no-data li {
+  text-align: left;
 }

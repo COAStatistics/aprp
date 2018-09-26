@@ -15,13 +15,13 @@
   <input id="reply-edit" class="reply-edit-text comment-edit" type="text" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">
   <span class="input-group-btn">
     <button class="btn btn-primary comment-edit" id="btn-chat" style="display: None;">
-      <em class="fa fa-reply"></em> Reply
+      <em class="fa fa-reply"></em> {% trans 'Reply' %}
     </button>
   </span>
 </div>
 
 <ul class="list-inline font-xs">
-  <li>
+  <li class="socialwall-btn-reply">
     <a href="javascript:void(0);" class="text-info"><i class="fa fa-reply"></i> {% trans 'Reply' %}</a>
   </li>
   <!-- <li class="toggle-like">

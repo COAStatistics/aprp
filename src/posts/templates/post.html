@@ -68,10 +68,10 @@
 
       <li id="insert-reply-{{ post.id }}" class="message message-reply socialwall-reply">
         <div class="socialwall-reply-text">
-          <input id="reply-text" class="form-control input-xs socialwall-reply-text" placeholder="Type and enter" type="text" data-id="{{ post.id }}" api="{% url 'comments:api_comments_c' %}" data-token="{{ csrf_token }}">
+          <input id="reply-text" class="form-control input-xs socialwall-reply-text" placeholder="{% trans 'Type and enter' %}" type="text" data-id="{{ post.id }}" api="{% url 'comments:api_comments_c' %}" data-token="{{ csrf_token }}">
           <span class="input-group-btn">
             <button class="btn btn-primary btn-reply" id="btn-chat">
-              <em class="fa fa-reply"></em> Reply
+              <em class="fa fa-reply"></em> {% trans 'Reply' %}
             </button>
           </span>
         </div>

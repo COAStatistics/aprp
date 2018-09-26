@@ -1,6 +1,7 @@
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from django.http import HttpResponse, JsonResponse
 from django.template.loader import render_to_string
 from comments import models
@@ -10,10 +11,12 @@ from . import serializers
 class CommentListAllAPIView(generics.ListCreateAPIView):
     serializer_class = serializers.CommentListAllSerializer
     queryset = models.Comment.objects.all()
+    permission_classes = [IsAuthenticated]
 
 
 class CommentCreateAPIView(generics.CreateAPIView):
     serializer_class = serializers.CommentCreateSerializer
+    permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
         user = request.user.id
@@ -37,6 +40,7 @@ class CommentCreateAPIView(generics.CreateAPIView):
 
 class CommentRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.CommentRetrieveUpdateDestroySerializer
+    permission_classes = [IsAuthenticated]
 
     def get_object(self):
         instance = models.Comment.objects.get(id=self.kwargs.get('pk'))
