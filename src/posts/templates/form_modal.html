@@ -1,0 +1,22 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<div class="modal fade" id="dialog-form-post" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 id="socialwall-title-new">{% trans 'New Post' %}</h1>
+        <h1 id="socialwall-title-edit" style="display:None;">{% trans 'Edit Post' %}</h1>
+      </div>
+      <div id="modal-body" class="modal-body">
+
+        {% include 'form.html' %}
+
+      </div>
+      <div class="modal-footer">
+        <button id="btn-post-send" type="submit" class="btn btn-success pull-right" form="form-post">{% trans 'Send' %}</button>
+        <button id="btn-post-cancel" type="button" class="btn btn-danger pull-right">{% trans 'Cancel' %}</button>
+      </div>
+    </div>
+  </div>
+</div>

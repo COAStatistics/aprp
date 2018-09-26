@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<form id="form-post" action="{% url 'posts:post_new_form' %}" api="{% url 'posts:api_socialwall_all' %}" data-id="{{ id }}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.media }}
+  {{ form|crispy }}
+
+  {% if file != null %}
+  <a href="{{ file }}" target="_blank">{{ file }}</a>
+  {% endif %}
+</form>

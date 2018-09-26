@@ -84,12 +84,3 @@ class Comment(Model):
     @property
     def is_parent(self):
         return self.parent is None
-
-
-
-
-        
-            
-            
-
-

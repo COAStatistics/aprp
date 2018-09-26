@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<form id="form-post" action="{% url 'posts:post_new_form' %}" api="{% url 'posts:api_socialwall_c' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.media }}
+  {{ form|crispy }}
+</form>

@@ -1,0 +1,139 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load socialwall_filter %}
+
+
+<div class="grid-sizer col-md-6 col-xs-12"></div>
+{% for i in post_list %}
+<div class="grid-item col-md-6 col-xs-12">
+  <span id="span-{{ i.id }}" class="timeline-seperator text-center"> <span>{{ i.timestamp|socialwall_posttime_filter }}</span>
+    <div class="btn-group pull-right">
+      <a href="javascript:void(0);" data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle"><span class="caret single"></span></a>
+      <ul class="dropdown-menu text-left">
+        <li>
+          <a data-id="{{ i.id }}" class="post-hide" href="javascript:void(0);">{% trans 'Hide this post' %}</a>
+        </li>
+        <!-- <li>
+          <a href="javascript:void(0);">Hide future posts from this user</a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">Mark as spam</a>
+        </li> -->
+      </ul>
+    </div>
+  </span>
+  <div id="div-{{ i.id }}" class="chat-body no-padding profile-message">
+    <ul class="post-update">
+      <li class="post-edit-area">
+        <h1 class="socialwall-title">{{ i.title }}</h1>
+      </li>
+      <li class="message socialwall-message post-edit-area">
+        <!-- <img src="img/avatars/sunny.png" class="online"> -->
+        <div class="message-text socialwall-author">
+          <!-- <div class="read-more big-preview"> -->
+            <a href="javascript:void(0);" class="username">
+              {{ i.user.username }}
+              <small class="text-muted ultra-light socialwall-post-time">
+                {{ i.updated|timediff_filter }}
+                {% if i.timestamp == i.updated %}
+
+                {% elif i.timestamp != i.updated %}
+                  {% trans 'edited' %}
+                {% endif %}
+              </small>
+            </a>
+            {{ i.content|safe }}
+            <!-- <p class="prompt">
+              <button class="button btn btn-danger" href="#">Read More</button>
+            </p> -->
+          <!-- </div> -->
+        </div>
+
+        <ul class="list-inline font-xs">
+          <li class="socialwall-btn-reply">
+            <a data-id="{{ i.id }}" href="javascript:void(0);" class="text-info post-reply"><i class="fa fa-reply"></i> {% trans 'Reply' %}</a>
+          </li>
+          <!-- <li class="toggle-like">
+            <a data-id="{{ i.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> {% trans 'Like' %}</a>
+          </li> -->
+          <!-- <li>
+            <a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
+          </li> -->
+          {% if request.user.username == i.user.username %}
+          <li>
+            <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ i.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Edit' %}</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="text-danger post-delete" data-id="{{ i.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Delete' %}</a>
+          </li>
+          {% endif %}
+          {% if i.file != '' %}
+            <li>
+              <a href="/media/{{ i.file }}" class="glyphicon glyphicon-paperclip" target="_blank" title="{{ i.file }}"></a>
+            </li>
+          {% endif %}
+        </ul>
+
+      </li>
+
+      {% for j in i.comments reversed %}
+        <li class="message message-reply socialwall-reply">
+        <!-- <img src="img/avatars/3.png" class="online"> -->
+        <span class="message-text comment"> <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
+          <span id="reply-origin">{{ j.content }}</span>
+        </span>
+
+        <!-- <span class="message-text comment-edit" style="display: None;"> <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
+          <input id="reply-edit" class="reply-edit-text" type="text" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">
+        </span> -->
+        <div class="socialwall-reply-text comment-edit" style="display: None;">
+          <span class="message-text comment-edit" style="display: None;">
+            <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
+          </span>
+          <input id="reply-edit" class="reply-edit-text comment-edit" type="text" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">
+          <span class="input-group-btn">
+            <button class="btn btn-primary comment-edit" id="btn-chat" style="display: None;">
+              <em class="fa fa-reply"></em> Reply
+            </button>
+          </span>
+        </div>
+
+        <ul class="list-inline font-xs">
+          <li class="socialwall-btn-reply">
+            <a href="javascript:void(0);" class="text-info"><i class="fa fa-reply"></i> {% trans 'Reply' %}</a>
+          </li>
+          <!-- <li class="toggle-like">
+            <a data-id="{{ j.id }}" href="javascript:void(0);" class="text-danger reply-like"><i class="fa fa-thumbs-o-up"></i> {% trans 'Like' %}</a>
+          </li> -->
+          <li>
+            <a href="javascript:void(0);" class="text-muted">{{ j.timestamp|socialwall_posttime_filter }} </a>
+          </li>
+          {% if j.user.username == request.user.username %}
+          <li>
+            <a href="javascript:void(0);" class="text-primary reply-edit" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">{% trans 'Edit' %}</a>
+          </li>
+          <li>
+            <a href="javascript:void(0);" class="text-danger reply-delete" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">{% trans 'Delete' %}</a>
+          </li>
+          {% endif %}
+        </ul>
+
+        </li>
+      {% endfor %}
+      <li id="insert-reply-{{ i.id }}" class="message message-reply socialwall-reply">
+        <div class="socialwall-reply-text">
+          <input id="reply-text" class="form-control input-xs socialwall-reply-text" placeholder="{% trans 'Type and enter' %}" type="text" data-id="{{ i.id }}" api="{% url 'comments:api_comments_c' %}" data-token="{{ csrf_token }}">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-reply" id="btn-chat">
+              <em class="fa fa-reply"></em> {% trans 'Reply' %}
+            </button>
+          </span>
+        </div>
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+{% endfor %}

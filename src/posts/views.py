@@ -1,111 +1,86 @@
-from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+from django.http import HttpResponse, JsonResponse
 from django.template.loader import render_to_string
-from django.core.urlresolvers import reverse
-from .forms import PostForm
-from .models import Post
 from django.db.models import Q
-from urllib.parse import urlencode
+
+from comments.models import Comment
+from . import models
+from . import forms
+
+import json
+import requests
 
 
-def post_create(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-    else:
-        form = PostForm()
-    return save_post_form(request, form, 'partial_post_create.html')
+def post_socialwall(request):
+
+    post_list = models.Post.objects.all()
+    form = forms.PostForm()
+
+    return render(request, 'socialwall.html', locals())
 
 
-def post_update(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)
-    else:
-        form = PostForm(instance=post)
-    return save_post_form(request, form, 'partial_post_update.html')
+def post_new_form(request):
+
+    form = forms.PostForm()
+    html = render_to_string('form.html', {'form': form}, request=request)
+
+    return JsonResponse(html, safe=False)
 
 
-def save_post_form(request, form, template_name):
-    data = dict()
-    if request.method == 'POST':
-        if form.is_valid():
+def post_search(request):
 
-            post = form.save(commit=False)
-            post.user = request.user
-            post.save()
+    key = request.GET.get('key')
+    q = request.GET.get('q')
+    posts = models.Post.objects.all()
+    # search_name = "search_{}".format(key)
 
-            data['form_is_valid'] = True
-            data['html_post'] = render_to_string('partial_post.html', {
-                'post': post,
-                'user': request.user
-            })
-        else:
-            data['form_is_valid'] = False
-    context = {'form': form}
-    data['html_form'] = render_to_string(template_name, context, request=request)
-    return JsonResponse(data)
-
-
-def post_delete(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    data = dict()
-    if request.method == 'POST' and post.user == request.user:
-        post.delete()
-        data['form_is_valid'] = True  # This is just to play along with the existing code
-        data['html_post'] = None
-    else:
-        context = {'post': post}
-        data['html_form'] = render_to_string('partial_post_delete.html',
-            context,
-            request=request,
+    if key == "All":
+        comments = Comment.objects.all()
+        comments = comments.filter(
+            Q(content__icontains=q)
         )
-    return JsonResponse(data)
+        post_list = []
+        for i in comments:
+            try:
+                if i.content_object.id not in post_list:
+                    post_list.append(i.content_object.id)
+            except:
+                pass
+        query = posts.filter(
+            Q(title__icontains=q) |
+            Q(content__icontains=q) |
+            Q(user__username__icontains=q) |
+            Q(id__in=post_list)
+        )
+    elif key == "Title":
+        query = posts.filter(
+            Q(title__icontains=q)
+        )
+    elif key == "Author":
+        query = posts.filter(
+            Q(user__username__icontains=q)
+        )
+    elif key == "Content":
+        query = posts.filter(
+            Q(content__icontains=q)
+        )
+    elif key == "Comment":
+        comments = Comment.objects.all()
+        comments = comments.filter(
+            Q(content__icontains=q)
+        )
+        post_list = []
+        for i in comments:
+            try:
+                if i.content_object.id not in post_list:
+                    post_list.append(i.content_object.id)
+            except:
+                pass
+        query = models.Post.objects.filter(id__in=post_list)
 
-
-def post_list(request):
-    data = dict()
-    default_count = 5
-    start = request.GET.get('start')
-    count = request.GET.get('count')
-    query = request.GET.get('q')
-
-    posts = Post.objects.all()
-    if query:
-        posts = posts.filter(
-                    Q(title__icontains=query) |
-                    Q(content__icontains=query) |
-                    Q(user__first_name__icontains=query) |
-                    Q(user__last_name__icontains=query) |
-                    Q(user__username__icontains=query)
-                ).distinct()
-
-    if start:
-        start = int(start)
-        posts = posts[start:]
-
-    if count:
-        count = int(count)
+    if query.count() == 0:
+        html = render_to_string('socialwall404.html', {'q': q})
     else:
-        count = default_count
+        html = render_to_string('post_area.html', {'post_list': query}, request=request)
 
-    context = {'posts': posts[:count]}
-    data['html_posts'] = render_to_string('partial_post_list.html',
-                                          context,
-                                          request=request,)
-
-    data['drained'] = posts.count() <= int(start)+default_count
-    url = reverse('posts:post_list')
-    args = {
-        "count": 5,
-        "start": int(start)+5,
-        "q": query
-    }
-    data['url'] = "{0}?{1}".format(url, urlencode(args))
-
-    return JsonResponse(data)
-
-
-
-
-
-
+    return HttpResponse(html)

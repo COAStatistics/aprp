@@ -1,0 +1,172 @@
+div.socialwall-newpost-btn {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  float: left;
+}
+
+h1.socialwall-title {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+li.message.socialwall-message.post-edit-area {
+  margin: 0px;
+}
+
+div.message-text.socialwall-author {
+  margin-left: 20px !important;
+}
+
+.text-muted.ultra-light.socialwall-post-time {
+  margin-left: 20px;
+}
+
+div.message-text.socialwall-author > a {
+  margin-top: 5px !important;
+}
+
+li.socialwall-btn-reply {
+  margin-top: 5px !important;
+  margin-left: 15px !important;
+}
+
+li.message.message-reply.socialwall-reply > span.message-text.comment {
+  margin-left: 30px !important;
+}
+
+li.message.message-reply.socialwall-reply > ul.list-inline.font-xs {
+  margin-left: 10px;
+}
+
+li.message.message-reply.socialwall-reply {
+  margin-left: 0px !important;
+  background-image: url('http://localhost:8000/static/vendor/img/mybg.png');
+}
+
+div.socialwall-reply-text.comment-edit {
+  display: table;
+  margin-left: 45px;
+}
+
+div.socialwall-reply-text.comment-edit > span.message-text.comment-edit {
+  display: table-row;
+  width: 100%;
+}
+
+div.socialwall-reply-text.comment-edit > input.reply-edit-text.comment-edit {
+  display: table-cell;
+  width: 100%;
+}
+
+div.socialwall-reply-text.comment-edit > button.btn.btn-primary.comment-edit {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 5px;
+}
+
+div.socialwall-reply-text {
+  display: table;
+}
+
+input.form-control.input-xs.socialwall-reply-text {
+  display: table-cell;
+  width: 100%;
+}
+
+span.input-group-btn {
+  display: table-cell;
+}
+
+span.input-group-btn > button.btn.btn-primary {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 5px;
+}
+
+
+div#cke_id_content {
+  width: 100% !important;
+}
+
+div.modal-header {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+div.modal-body {
+  padding-bottom: 10px !important;
+}
+
+div.modal-footer {
+  padding-top: 10px !important;
+}
+
+div.modal-footer > button {
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+
+div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable {
+  width: 60% !important;
+  height: auto !important;
+  left: 20% !important;
+}
+
+div.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
+  margin-top: 0px !important;
+}
+
+
+.grid-item img {
+  width: 100% !important;
+  position: relative !important;
+}
+
+
+div.tool-div {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 50;
+  right: 30px;
+  text-align: center;
+  background-color: rgb(128, 128, 128, 0.5);
+}
+
+div.tool-div-1 {
+  bottom: 30px;
+}
+
+div.tool-div-2 {
+  bottom: 100px;
+}
+
+i.tool-btn {
+  display: block;
+  padding: 11px;
+  font-size: 25px;
+}
+
+
+div.no-data {
+  width: 50%;
+  margin-left: 30%;
+}
+
+div.no-data p {
+  text-align: left;
+}
+
+div.no-data ul {
+  padding-left: 20px;
+}
+
+div.no-data li {
+  text-align: left;
+}
