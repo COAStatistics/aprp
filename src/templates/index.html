@@ -38,8 +38,9 @@
 		<!-- #GOOGLE FONT -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
 
-		<!-- DataTable Styles -->
+		<!-- Plugin Styles -->
 		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
 
 		<!-- SocialWall Styles -->
 		<link rel="stylesheet" href="{% static 'css/smartadmin-socialwall.custom.css' %}">
@@ -99,7 +100,7 @@
 		<!--================================================== -->
 
 		<!-- Parse i18n-->
-    <script src='{% url "parse_javascript" %}'></script>
+    	<script src='{% url "parse_javascript" %}'></script>
 
 		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)
 		<script src="{% static 'vendor/js/plugin/pace/pace.min.js' %}"></script>-->
@@ -154,33 +155,11 @@
 		<!-- Custom APP JS FILE -->
 		<script src="{% static 'js/app.custom.js' %}"></script>
 
-		<!-- Highchart plugins -->
-		<script src="{% static 'vendor/js/plugin/multiselect/bootstrap-multiselect.min.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/highcharts/highstock.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/highcharts/no-data-to-display.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/highcharts/exporting.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/highcharts/highcharts-more.js' %}"></script>
-		<script src="{% static 'js/highcharts/highcharts-settings.js' %}"></script>
-		<script src="{% static 'js/highcharts/sparkline.js' %}"></script>
-		<script src="{% static 'js/highcharts/chart1Helper.js' %}"></script>
-		<script src="{% static 'js/highcharts/chart2Helper.js' %}"></script>
-		<script src="{% static 'js/highcharts/chart3Helper.js' %}"></script>
-		<script src="{% static 'js/highcharts/chart4Helper.js' %}"></script>
+		<!-- JavaScript Plugin -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.4/js/bootstrap-dialog.min.js"></script>
 
-		<!-- DataTable Plugins -->
-		<script src="{% static 'vendor/js/plugin/datatables/jquery.dataTables.min.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/datatables/dataTables.colVis.min.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/datatables/dataTables.buttons.min.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/datatables/buttons.bootstrap.min.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/datatables/jszip.min.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/datatables/pdfmake.min.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/datatables/vfs_fonts.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/datatables/buttons.html5.min.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/datatables/buttons.print.min.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/datatables/dataTables.bootstrap.min.js' %}"></script>
-		<script src="{% static 'vendor/js/plugin/datatable-responsive/datatables.responsive.min.js' %}"></script>
-		<script src="{% static 'js/datatables/dataTableHelper.js' %}"></script>
-
+		<!-- Custom Plugin -->
+		<script src="{% static 'js/basefunction.js' %}"></script>
 
 		{% if use_ga %}
 			{% include "snippets/ga.html" with ga_tracking_id=ga_tracking_id %}
