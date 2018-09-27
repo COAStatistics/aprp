@@ -28,10 +28,13 @@
         <!-- <img src="img/avatars/sunny.png" class="online"> -->
         <div class="message-text socialwall-author">
           <!-- <div class="read-more big-preview"> -->
-            <a href="javascript:void(0);" class="username">
-              {{ post.user }}
-              <small class="text-muted ultra-light socialwall-post-time">{{ post.updated|timediff_filter }}</small>
-            </a>
+            <a href="javascript:void(0);" class="username">{{ post.user }}</a>
+            <span class="timefilter">
+                <small class="text-muted ultra-light socialwall-post-time">
+                    {{ post.updated|timediff_filter }}
+                </small>
+            </span>
+
             {{ post.content|safe }}
             <!-- <p class="prompt">
               <a class="button btn btn-danger" href="#">Read More</a>
