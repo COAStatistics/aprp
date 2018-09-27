@@ -31,17 +31,18 @@
         <!-- <img src="img/avatars/sunny.png" class="online"> -->
         <div class="message-text socialwall-author">
           <!-- <div class="read-more big-preview"> -->
-            <a href="javascript:void(0);" class="username">
-              {{ i.user.username }}
-              <small class="text-muted ultra-light socialwall-post-time">
-                {{ i.updated|timediff_filter }}
-                {% if i.timestamp == i.updated %}
+            <a href="javascript:void(0);" class="username">{{ i.user.username }}</a>
+            <span class="timefilter">
+                <small class="text-muted ultra-light socialwall-post-time">
+                  {{ i.updated|timediff_filter }}
+                  {% if i.timestamp == i.updated %}
 
-                {% elif i.timestamp != i.updated %}
-                  {% trans 'edited' %}
-                {% endif %}
-              </small>
-            </a>
+                  {% elif i.timestamp != i.updated %}
+                    {% trans 'edited' %}
+                  {% endif %}
+                </small>
+            </span>
+
             {{ i.content|safe }}
             <!-- <p class="prompt">
               <button class="button btn btn-danger" href="#">Read More</button>
@@ -80,7 +81,7 @@
         <li class="message message-reply socialwall-reply">
         <!-- <img src="img/avatars/3.png" class="online"> -->
         <span class="message-text comment"> <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>
-          <span id="reply-origin">{{ j.content }}</span>
+          <span id="reply-origin" class="reply-origin">{{ j.content }}</span>
         </span>
 
         <!-- <span class="message-text comment-edit" style="display: None;"> <a href="javascript:void(0);" class="username">{{ j.user.username }}</a>

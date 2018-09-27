@@ -10,10 +10,13 @@
   <!-- <img src="img/avatars/sunny.png" class="online"> -->
   <div class="message-text socialwall-author">
     <!-- <div class="read-more big-preview"> -->
-    <a href="javascript:void(0);" class="username">
-      {{ data.user.username }}
-      <small class="text-muted ultra-light socialwall-post-time">{{ data.updated|editdiff_filter }} {% trans 'edited' %}</small>
-    </a>
+    <a href="javascript:void(0);" class="username">{{ data.user.username }}</a>
+    <span class="timefilter">
+        <small class="text-muted ultra-light socialwall-post-time">
+            {{ data.updated|editdiff_filter }} {% trans 'edited' %}
+        </small>
+    </span>
+
     {{ data.content|safe }}
     <!-- <p class="prompt">
     <button class="button btn btn-danger" href="#">Read More</button>

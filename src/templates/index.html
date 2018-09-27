@@ -161,6 +161,10 @@
 		<!-- Custom Plugin -->
 		<script src="{% static 'js/basefunction.js' %}"></script>
 
+		<!-- CKEditor Plugins -->
+		<script src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+		<script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
 		{% if use_ga %}
 			{% include "snippets/ga.html" with ga_tracking_id=ga_tracking_id %}
 		{% endif %}
