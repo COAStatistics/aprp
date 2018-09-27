@@ -118,8 +118,6 @@ the <section></section> and you can use wells or panels instead
 </section>
 <!-- end widget grid -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
-
 <script type="text/javascript">
 	/* DO NOT REMOVE : GLOBAL FUNCTIONS!
 	 *
@@ -179,16 +177,11 @@ the <section></section> and you can use wells or panels instead
 	// pagefunction
 
 	scripts = [
-		// js i18n
-		'{% url "parse_javascript" %}',
 		// CKEditor Plugins
 		"{% static 'ckeditor/ckeditor-init.js' %}",
 		"{% static 'ckeditor/ckeditor/ckeditor.js' %}",
-		"{% static 'js/form-control.js' %}",
 		// Masonry Plugins
 		"{% static 'vendor/js/masonry.pkgd.js' %}",
-		// Modal Dialog
-		"https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.35.4/js/bootstrap-dialog.min.js",
 		// SocialWall Plugins
 		"{% static 'js/socialwall.js' %}",
 	]
@@ -200,6 +193,7 @@ the <section></section> and you can use wells or panels instead
 	};
 
 	scriptLoader(scripts, pagefunction);
+
 
 	// end pagefunction
 
