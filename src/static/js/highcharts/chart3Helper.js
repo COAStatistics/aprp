@@ -1,15 +1,6 @@
 var chart3Helper = {
     container: null,
     manager: {
-        getCharts: function(){
-            arr = [];
-            charts = chart3Helper.manager.charts;
-            Object.keys(charts).forEach(function(key, i){
-                arr = $.merge(arr, charts[key]);
-            })
-            return arr;
-        },
-        charts: {}, // store by key as type.id, value as highchart instance
         fontSize: {
             label: 11,
             title: 11,
@@ -90,7 +81,7 @@ var chart3Helper = {
             chart: {
                 zoomType: 'x',
                 spacing: [10,0,0,0],
-                height: thisDevice == 'desktop' ? 600 : 400,
+                height: thisDevice == 'desktop' ? 750 : 400,
             },
 
             title: {

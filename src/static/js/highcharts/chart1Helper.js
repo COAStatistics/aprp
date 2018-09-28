@@ -3,10 +3,6 @@ var chart1Helper = {
     manager: {
         monitorProfiles: null,
         watchlistProfiles: null,
-        getCharts: function(){
-            return chart1Helper.manager.charts;
-        },
-        charts: null,
         dateRange: {
             min: null,
             max: null,
@@ -120,10 +116,10 @@ var chart1Helper = {
                         text: profile.format_price + '(' + profile.watchlist + ')',
                         style: {
                             color: '#606060',
-                            zIndex: 1000,
+                            zIndex: 300,
                         },
                     },
-                    zIndex: 1000,
+                    zIndex: 300,
                 }
             })
             return plotBands;
@@ -294,7 +290,7 @@ var chart1Helper = {
             chart: {
                 zoomType: 'x',
                 spacing: [10,0,0,0],
-                height: thisDevice == 'desktop' ? 600 : 400,
+                height: thisDevice == 'desktop' ? 750 : 400,
             },
 
             title: {
@@ -331,7 +327,10 @@ var chart1Helper = {
             xAxis: {
                 type: 'datetime',
                 dateTimeLabelFormats: {
-                    day: '%m/%d'
+                    day: '%m/%e',
+                    week: '%m/%e',
+                    month: '%Y/%m',
+                    year: '%Y/%m',
                 },
                 labels: {
                     style: {
@@ -449,6 +448,7 @@ var chart1Helper = {
             var min = chart.yAxis[0].min;
             var max = chart.yAxis[0].max;
             var extra = (max - min) / 20;
+            extra = extra > 3 ? extra : 3;
             chart.yAxis[0].update({
                 min: min - extra,
                 max: max + extra,
@@ -470,7 +470,7 @@ var chart1Helper = {
                 name: gettext('Watchlists'),
                 data: watchlistFlagData,
                 shape: 'flag',
-                zIndex: 1000,
+                zIndex: 300,
                 showInLegend: false,
                 style: {
                     fontSize: chart1Helper.manager.fontSize.label,
@@ -491,8 +491,6 @@ var chart1Helper = {
 
         chart.seriesOptions = seriesOptions;
         chart.unit = unit;
-
-        this.manager.charts.push(chart);
 
         return chart;
 

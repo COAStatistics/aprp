@@ -33,7 +33,7 @@
     if($.ui){
         var dateInputs = $form.find('.dateinput');
         dateInputs.datepicker({
-            dateFormat: 'yy-mm-dd',
+            dateFormat: 'yy/mm/dd',
         });
     }
 
