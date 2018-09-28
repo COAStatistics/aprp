@@ -49,7 +49,7 @@ class DailyTranQuerySet(QuerySet):
 
 class DailyTran(Model):
     product = ForeignKey('configs.AbstractProduct', on_delete=CASCADE, verbose_name=_('Product'))
-    source = ForeignKey('configs.Source', null=True, on_delete=CASCADE, verbose_name=_('Source'))
+    source = ForeignKey('configs.Source', null=True, blank=True, on_delete=CASCADE, verbose_name=_('Source'))
     up_price = FloatField(null=True, blank=True, verbose_name=_('Up Price'))
     mid_price = FloatField(null=True, blank=True, verbose_name=_('Mid Price'))
     low_price = FloatField(null=True, blank=True, verbose_name=_('Low Pirce'))

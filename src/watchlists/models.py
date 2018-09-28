@@ -37,7 +37,7 @@ COLOR_CHOICES = [
 
 class Watchlist(Model):
     name = CharField(max_length=120, unique=True, verbose_name=_('Name'))
-    user = ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_('User'))
+    user = ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=SET_NULL, verbose_name=_('User'))
     is_default = BooleanField(default=False, verbose_name=_('Is Default'))
     watch_all = BooleanField(default=False, verbose_name=_('Watch All'))
     start_date = DateField(auto_now=False, default=timezone.now().today, verbose_name=_('Start Date'))
