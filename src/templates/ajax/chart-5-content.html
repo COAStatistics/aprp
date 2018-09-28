@@ -1,0 +1,127 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load json_filters %}
+{% load crispy_forms_tags %}
+
+<section id="chart-{{ chart.id }}-widget-grid" class="padding-10">
+    <div class="row padding-10">
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <!-- start chart widget -->
+            <div class="jarviswidget jarviswidget-color-pink" id="chart-{{ chart.id }}-widget-highchart"
+                 data-widget-editbutton="false" data-widget-deletebutton="false">
+                <!-- widget options:
+                    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+                    data-widget-colorbutton="false"
+                    data-widget-editbutton="false"
+                    data-widget-togglebutton="false"
+                    data-widget-deletebutton="false"
+                    data-widget-fullscreenbutton="false"
+                    data-widget-custombutton="false"
+                    data-widget-collapsed="true"
+                    data-widget-sortable="false"
+
+                -->
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-area-chart"></i> </span>
+                    <h2 class="font-md"><strong>{% trans 'Chart' %}</strong></h2>
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body">
+                        <div id="chart-{{ chart.id }}-widget-highchart-body"></div>
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+
+            <!-- start integration widget -->
+            {% include 'contents/event-widget-type-panel-groups.html' %}
+            <!-- end widget -->
+
+
+        </article>
+    </div>
+</section>
+
+<!-- NEW and EDIT Modal -->
+<div class="modal fade" id="eventModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <!-- id, action: for js behavior
+                     data-content-type-id, object-id: creating new event
+                     data-read-url: get list json for DataTable.js
+                     data-url: update, delete single row data
+                -->
+                <form id="event-form" action=""
+                      data-content-type-id="{{ event_content_type_id }}"
+                      data-object-id="{{ event_object_id }}"
+                      data-url="{% url 'events:api:api_event_cr' %}"
+                      method="POST" autocomplete="off">{% csrf_token %}
+                    {% crispy event_form %}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Cancel' %}</button>
+                <button type="submit" class="btn btn-primary" form="event-form">{% trans 'Submit' %}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+	pageSetUp();
+
+	// pagefunction
+
+	var pagefunction = function() {
+
+	    dynamic_setup_widgets('chart-{{ chart.id }}-widget-grid');
+
+        var seriesOptions = {{ series_options|stringify|safe }}
+	    var unit = {{ unit_json|stringify|safe }};
+
+	    chart5Helper.init("{% url 'events:api:api_event_cr' %}", {{ event_content_type_id }}, {{ event_object_id }});
+
+	    var chart = chart5Helper.create('chart-{{ chart.id }}-widget-highchart-body', seriesOptions, unit);
+
+	    // init datatable
+        $('#chart-{{ chart.id }}').find('.datatable-event').each(function(){
+            var $container = $(this).attr('id');
+            table = dataTableHelper.createEvent($container);
+        })
+
+	};
+
+	// end pagefunction
+
+    // PAGE RELATED SCRIPTS
+
+    scripts = [
+        "{% static 'js/highcharts/chart5Helper.js' %}",
+    ]
+
+    scriptLoader(scripts, pagefunction);
+
+</script>

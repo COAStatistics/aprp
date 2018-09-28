@@ -52,7 +52,7 @@ var integrationHelper = {
                     xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
                 }
             },
-            complete: function(){
+            compvare: function(){
                 $btn.find('.fa-spinner').remove();
                 $btn.data('load-sending', false);
             },
@@ -163,7 +163,7 @@ var dataTableHelper = {
         },
     },
     breakpointDefinition : {
-        tablet : 1024,
+        tabvar : 1024,
         phone : 480
     },
     createRaw: function(container){
@@ -360,6 +360,181 @@ var dataTableHelper = {
 
             $this.attr('data-compared', true);
         })
+    },
+    createEvent: function(container){
+        var responsiveHelper = null;
+        this.responsiveHelpers.push(responsiveHelper);
+
+        var $container = $('#'+ container);
+        var $form = $("#eventModal").find('form');
+
+        var table = $container.DataTable({
+			dom: "<'dt-toolbar padding-10 padding-left-0'<'col-xs-12 col-sm-12 hidden-xs'B><'col-xs-12 col-sm-12 hidden-sm hidden-md hidden-lg'f>>"+
+				 "t"+
+				 "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+            buttons: [
+                dataTableHelper.buttons.csv(),
+                dataTableHelper.buttons.excel(),
+                dataTableHelper.buttons.print(),
+                dataTableHelper.buttons.copy(),
+                // addEvent
+                {
+                    text: '<span><i class="fa fa-plus" aria-hidden="true"></i> ' + gettext('New Event') + '</span>',
+                    action: function(e, dt, node) {
+                        $("#eventModal").find('form').attr('data-action', 'new');
+                        $("#eventModal").find('.modal-title').text(gettext('New Event'));
+                        $("#eventModal").find('form').formcontrol().reset();
+                        $("#eventModal").find('form').formcontrol().data({
+                            content_type_id: $form.attr('data-content-type-id'),
+                            object_id: $form.attr('data-object-id'),
+                        });
+                        $("#eventModal").modal();
+                    },
+                },
+            ],
+			autoWidth : true,
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: $form.attr('data-url'),
+                type: "GET",
+                data: {
+                    content_type_id: $form.attr('data-content-type-id'),
+                    object_id: $form.attr('data-object-id'),
+                    datatable: true,
+                },
+            },
+            columns: [
+                {
+                    data: null,
+                    defaultContent: '<button type="button" class="btn btn-success btn-edit"><i class="fa fa-edit" aria-hidden="true"></i></button>',
+                },
+                {
+                    data: null,
+                    defaultContent: '<button type="button" class="btn btn-danger btn-delete"><i class="fa fa-remove" aria-hidden="true"></i></button>',
+                },
+                {data: "date"},
+                {data: "type_name"},
+                {data: "name"},
+                {
+                    data: "context",
+                    render: function(data, type, row){
+                        return data.split("\n").join("<br/>");
+                    },
+                },
+            ],
+			preDrawCallback : function() {
+				// Initialize the responsive datatables helper once.
+				if (!responsiveHelper) {
+					responsiveHelper = new ResponsiveDatatablesHelper($container, dataTableHelper.breakpointDefinition);
+				}
+			},
+			rowCallback : function(nRow) {
+				responsiveHelper.createExpandIcon(nRow);
+			},
+			drawCallback : function(oSettings) {
+				responsiveHelper.respond();
+			},
+            language: dataTableHelper.language,
+            order: [
+                [2, 'desc']
+            ],
+            columnDefs: [
+                {
+                    targets: 5,
+                    createdCell:  function (td, cellData, rowData, row, col) {
+                        $(td).attr('data-hide', 'phone');
+                    }
+                }
+            ],
+        });
+
+        $container.find('tbody').on('click', 'button', function(){
+            var $btn = $(this);
+            var data = table.row($(this).parents('tr')).data();
+
+            $form.formcontrol().data(data);
+
+            if ($btn.hasClass('btn-edit')) {
+                // EDIT button
+                $form.attr('data-action', 'edit');
+                $("#eventModal").find('.modal-title').text(gettext('Edit Event'));
+                $("#eventModal").modal();
+            } else {
+                // DELETE button
+                $form.attr('data-action', 'delete');
+                $("#eventModal").find('.modal-title').text(gettext('Delete Event'));
+                BootstrapDialog.confirm({
+                    title: gettext('Delete Event'),
+                    message: gettext('Are you sure you want to delete this event?'),
+                    type: BootstrapDialog.TYPE_DANGER,
+                    btnOKLabel: gettext('Delete'),
+                    btnCancelLabel: gettext('Cancel'),
+                    callback: function(result){
+                        if(result) sendRequest();
+                    },
+                });
+            }
+        })
+
+        $("#eventModal form").on('submit', function (e) {
+            e.preventDefault();
+            sendRequest();
+        });
+
+        var sendRequest = function() {
+
+            var id = $form.formcontrol().data().id;
+            var action = $form.attr('data-action');
+            var method = null;
+            var data = null;
+            var url = $form.attr('data-url');
+
+            switch(action){
+                case "new":
+                    method = 'POST';
+                    data = $form.serialize();
+                    break;
+                case "edit":
+                    url = url + id + '/';
+                    method = 'PUT';
+                    data = $form.serialize();
+                    break;
+                case "delete":
+                    url = url + id + '/';
+                    method = 'DELETE';
+                    break;
+            }
+
+            $.ajax({
+                url: url,
+                method: method,
+                data: data,
+                beforeSend: function(xhr, settings) {
+                    // CSRF token
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
+                    }
+                },
+            }).done(function (data, textStatus, jqXHR) {
+                // DataTable data reload
+                table.ajax.reload();
+                // Highchart data reload
+                if(window.chart5Helper) chart5Helper.loadEvents();
+
+                if(($("#eventModal").data('bs.modal') || {}).isShown){
+                    $("#eventModal").modal('toggle');
+                }
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if(jqXHR.responseJSON){
+                    $form.formcontrol().validate(jqXHR.responseJSON);
+                }else{
+                    console.log(jqXHR);
+                }
+            });
+
+        }
+        return table;
     },
 }
 

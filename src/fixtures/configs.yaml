@@ -98,28 +98,28 @@
     name: 糧價
     code: COG01
     type_level: 1
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 2
   fields:
     name: 蔬菜-批發合計
     code: COG02
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 3
   fields:
     name: 水果-批發合計
     code: COG03
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 4
   fields:
     name: 花卉-批發合計
     code: COG04
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 5
@@ -127,56 +127,56 @@
     name: 蔬菜
     code: COG05
     type_level: 2
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 6
   fields:
     name: 水果
     code: COG06
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 7
   fields:
     name: 花卉
     code: COG07
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 8
   fields:
     name: 毛豬
     code: COG08
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 9
   fields:
     name: 羊
     code: COG09
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 10
   fields:
     name: 雞
     code: COG10
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 11
   fields:
     name: 鴨
     code: COG11
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 12
   fields:
     name: 鵝
     code: COG12
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 13
@@ -184,7 +184,7 @@
     name: 漁產品
     code: COG13
     type_level: 2
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 - model: configs.Config
   pk: 14
@@ -192,7 +192,7 @@
     name: 牛
     code: COG14
     type_level: 1
-    charts: [1, 2, 3, 4]
+    charts: [1, 2, 3, 4, 5]
 
 
 # Month

@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^watchlists/', include('watchlists.urls', namespace='watchlists')),
     url(r'^posts/', include('posts.urls', namespace='posts')),
     url(r'^comments/', include('comments.urls', namespace='comments')),
+    url(r'^events/', include('events.urls', namespace='events')),
     # i18n
     url(r'^jsi18n/$', javascript_catalog, name='parse_javascript'),
     url(r'^set-user-language/(?P<lang>[-\w]+)/$', Index.as_view(), name='set_user_language'),
@@ -43,6 +44,7 @@ urlpatterns = [
     # watchlist
     url(r'^set-user-watchlist/(?P<wi>\d+)/$', Index.as_view(), name='set_user_watchlist'),
 ]
+
 urlpatterns += i18n_patterns(
     # admin
     url(r'^{}/'.format(settings.ADMIN_HIDE_LOGIN), admin.site.urls),
