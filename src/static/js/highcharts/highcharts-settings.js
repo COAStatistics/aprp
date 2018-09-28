@@ -52,10 +52,25 @@ Highcharts.theme = {
             textTransform: 'uppercase'
         }
     },
-    tooltip: {
-        borderWidth: 0,
-        backgroundColor: 'rgba(219,219,216,0.8)',
-        shadow: false
+    tooltip : {
+        positioner: function (w, h, point) {
+            var position = this.getPosition(w, h, point);
+            if (this.chart.flagTooltip) {
+                position.y -= 40;
+            }
+            return position;
+        },
+        useHTML : true,
+        headerFormat: '<b>{point.key}</b></br></br>',
+        formatter : function (tooltip) {
+            if (this.point && this.point.title && this.point.text) {
+                var text = '<b>' + Highcharts.dateFormat('%Y/%m/%d, %a', this.point.x) + '</b></br></br>' +
+                    '<p style="width: 400px;white-space: normal;">' +
+                    this.point.text + '</p>';
+                return text + '</span>';
+            }
+            return tooltip.defaultFormatter.apply(this, [tooltip]);
+        }
     },
     legend: {
         itemStyle: {
