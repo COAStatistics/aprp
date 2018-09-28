@@ -1,0 +1,26 @@
+- model: events.Event
+  pk: 1
+  fields:
+    user: 1
+    name: 口蹄疫爆發70001
+    type: 3
+    context: |
+             測試本平台整合農委會及所屬機關
+             換行本平台整合農委會及所屬機關
+    content_type: ['configs', 'abstractproduct']
+    object_id: 70001
+    date: 2018-08-16
+
+
+- model: events.Event
+  pk: 2
+  fields:
+    user: 1
+    name: 口蹄疫爆發70005
+    type: 3
+    context: |
+             測試本平台整合農委會及所屬機關
+             換行本平台整合農委會及所屬機關
+    content_type: ['configs', 'abstractproduct']
+    object_id: 70005
+    date: 2018-08-16
