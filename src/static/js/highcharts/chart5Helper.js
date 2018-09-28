@@ -238,7 +238,7 @@ var chart5Helper = {
                     success: function(data) {
 
                         // set event flag series data
-                        if(data.length > 1){
+                        if(data.length > 0){
                             var points = [];
                             data.forEach(function(point, i){
                                 var range = chart.xAxis[0].getExtremes();
