@@ -23,7 +23,7 @@ var socialWallHelper = {
         this.initSearchBar();
         this.initNewPostBtn();
         this.initPost($grid);
-        $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> '))  });
+        $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> '))  });
     },
 
 
@@ -72,7 +72,7 @@ var socialWallHelper = {
                     $data = $(data);
                     socialWallHelper.initPost($data);
                     $('.grid').html($data);
-                    $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> '))  });
+                    $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> '))  });
                     $grid.masonry('reloadItems').masonry();
                 }
             });
@@ -99,7 +99,7 @@ var socialWallHelper = {
                         $data = $(data);
                         socialWallHelper.initPost($data);
                         $('.grid').html($data);
-                        $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> '))  });
+                        $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> '))  });
                         $grid.masonry('reloadItems').masonry();
                     }
                 });
@@ -344,7 +344,7 @@ var socialWallHelper = {
                         socialWallHelper.initPost($item);
                         $reply.parents(".socialwall-reply").before($item);
                         text = $item.find('#reply-origin').html();
-                        text = text.replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> ');
+                        text = text.replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> ');
                         $item.find('#reply-origin').html(text);
                         $reply.val('');
                         $grid.masonry();
@@ -373,7 +373,7 @@ var socialWallHelper = {
                     socialWallHelper.initPost($item);
                     $reply.parents(".socialwall-reply").before($item);
                     text = $item.find('#reply-origin').html();
-                    text = text.replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> ');
+                    text = text.replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> ');
                     $item.find('#reply-origin').html(text);
                     $reply.val('');
                     $grid.masonry();
@@ -418,7 +418,7 @@ var socialWallHelper = {
             $reply.find('.comment').hide();
             $reply.find('.comment-edit').show();
             origin = $reply.find('#reply-origin').html();
-            origin = origin.replace(/<mark class="tagname">(\w+)<\/mark>/g, '@$1 ');
+            origin = origin.replace(/<mark class="label bg-color-blue">(\S+)<\/mark>/g, '@$1 ');
             $edittext = $reply.find('#reply-edit');
             $grid.masonry();
             $edittext.val(origin);
@@ -439,7 +439,7 @@ var socialWallHelper = {
                             $reply.find('.comment-edit').hide();
                             $reply.html($reply.html());
                             text = data['content'];
-                            text = text.replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> ');
+                            text = text.replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> ');
                             $reply.find('#reply-origin').html(text);
                             socialWallHelper.initPost($reply);
                             $grid.masonry();
@@ -463,7 +463,7 @@ var socialWallHelper = {
                         $reply.find('.comment-edit').hide();
                         $reply.html($reply.html());
                         text = data['content'];
-                        text = text.replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> ');
+                        text = text.replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> ');
                         $reply.find('#reply-origin').html(text);
                         socialWallHelper.initPost($reply);
                         $grid.masonry();
@@ -497,7 +497,7 @@ var socialWallHelper = {
                     $data = $(data);
                     socialWallHelper.initPost($data);
                     $('.grid').html($data);
-                    $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> '))  });
+                    $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> '))  });
                     $grid.masonry('reloadItems').masonry();
                     $('html').animate({scrollTop: 0}, 'slow');
                 }
