@@ -1,13 +1,14 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load json_filters %}
+{% load crispy_forms_tags %}
 
 <section id="chart-{{ chart.id }}-widget-grid" class="padding-10">
     <div class="row padding-10">
         <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
             <!-- start chart widget -->
-            <div class="jarviswidget jarviswidget-color-redLight" id="chart-{{ chart.id }}-widget-highchart"
+            <div class="jarviswidget jarviswidget-color-pink" id="chart-{{ chart.id }}-widget-highchart"
                  data-widget-editbutton="false" data-widget-deletebutton="false">
                 <!-- widget options:
                     usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
@@ -50,16 +51,43 @@
             <!-- end widget -->
 
             <!-- start integration widget -->
-            {% include 'contents/integration-widget-type-panel-groups.html' %}
+            {% include 'contents/event-widget-type-panel-groups.html' %}
             <!-- end widget -->
 
-            <!-- start chart widget -->
-            {% include 'contents/raw-widget-type-panel-groups.html' %}
-            <!-- end widget -->
 
         </article>
     </div>
 </section>
+
+<!-- NEW and EDIT Modal -->
+<div class="modal fade" id="eventModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <!-- id, action: for js behavior
+                     data-content-type-id, object-id: creating new event
+                     data-read-url: get list json for DataTable.js
+                     data-url: update, delete single row data
+                -->
+                <form id="event-form" action=""
+                      data-content-type-id="{{ event_content_type_id }}"
+                      data-object-id="{{ event_object_id }}"
+                      data-url="{% url 'events:api:api_event_cr' %}"
+                      method="POST" autocomplete="off">{% csrf_token %}
+                    {% crispy event_form %}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Cancel' %}</button>
+                <button type="submit" class="btn btn-primary" form="event-form">{% trans 'Submit' %}</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
 
@@ -71,35 +99,27 @@
 
 	    dynamic_setup_widgets('chart-{{ chart.id }}-widget-grid');
 
-	    chart1Helper.init('chart-{{ chart.id }}');
-
         var seriesOptions = {{ series_options|stringify|safe }}
-        var unit = {{ unit_json|stringify|safe }}
+	    var unit = {{ unit_json|stringify|safe }};
 
-        // init chart
-        var chart = chart1Helper.create('chart-{{ chart.id }}-widget-highchart-body', seriesOptions, unit);
+	    chart5Helper.init("{% url 'events:api:api_event_cr' %}", {{ event_content_type_id }}, {{ event_object_id }});
 
-        // init raw datatable
-        chart1Helper.container.find('.datatable-raw').each(function(){
-            var container = $(this).attr('id');
-            dataTableHelper.createRaw(container);
+	    var chart = chart5Helper.create('chart-{{ chart.id }}-widget-highchart-body', seriesOptions, unit);
+
+	    // init datatable
+        $('#chart-{{ chart.id }}').find('.datatable-event').each(function(){
+            var $container = $(this).attr('id');
+            table = dataTableHelper.createEvent($container);
         })
 
-        // init integration datatable
-        var min = chart1Helper.manager.dateRange.min;
-        var max = chart1Helper.manager.dateRange.max
-        var $container = $('#chart-{{ chart.id }}-widget-integration div[data-load]');
-        console.log('integrationHelper.loadTable($container, min, max);')
-        integrationHelper.loadTable($container, min, max);
-
-    };
+	};
 
 	// end pagefunction
 
     // PAGE RELATED SCRIPTS
 
     scripts = [
-        "{% static 'js/highcharts/chart1Helper.js' %}",
+        "{% static 'js/highcharts/chart5Helper.js' %}",
     ]
 
     scriptLoader(scripts, pagefunction);

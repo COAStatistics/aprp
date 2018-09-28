@@ -1,4 +1,5 @@
 import datetime
+from django.contrib.contenttypes.models import ContentType
 from watchlists.models import (
     Watchlist,
     MonitorProfile,
@@ -21,6 +22,7 @@ from watchlists.api.serializers import (
     MonitorProfileSerializer,
     WatchlistSerializer,
 )
+from events.forms import EventForm
 
 
 def jarvismenu_extra_context(instance):
@@ -52,17 +54,17 @@ def jarvismenu_extra_context(instance):
         products = config.first_level_products(watchlist=watchlist)
         if products:
             extra_context['items'] = products
-            extra_context['ct'] = 'product'
+            extra_context['ct'] = 'abstractproduct'
             extra_context['lct'] = 'config'
             extra_context['loi'] = object_id
 
     elif content_type == 'type':
-        if last_content_type == 'product':
+        if last_content_type == 'abstractproduct':
             product = AbstractProduct.objects.get(id=last_object_id)
 
             if product.has_child:
                 extra_context['items'] = product.children(watchlist=watchlist).filter(type__id=object_id)
-                extra_context['ct'] = 'product'
+                extra_context['ct'] = 'abstractproduct'
                 extra_context['lct'] = 'type'
                 extra_context['loi'] = object_id
 
@@ -70,12 +72,12 @@ def jarvismenu_extra_context(instance):
 
                 extra_context['items'] = product.sources(watchlist=watchlist)
                 extra_context['ct'] = 'source'
-                extra_context['lct'] = 'product'
+                extra_context['lct'] = 'abstractproduct'
                 extra_context['loi'] = product.id
 
-    elif content_type == 'product':
+    elif content_type == 'abstractproduct':
         product = AbstractProduct.objects.get(id=object_id)
-        extra_context['lct'] = 'product'
+        extra_context['lct'] = 'abstractproduct'
         extra_context['loi'] = product.id
 
         if product.level == product.config.type_level and not user.info.is_editor:
@@ -87,7 +89,7 @@ def jarvismenu_extra_context(instance):
 
         elif product.has_child:
             extra_context['items'] = product.children(watchlist=watchlist)
-            extra_context['ct'] = 'product'
+            extra_context['ct'] = 'abstractproduct'
 
         elif product.has_source:
             extra_context['items'] = product.sources(watchlist=watchlist)
@@ -111,7 +113,7 @@ def chart_tab_extra_context(instance):
     if content_type == 'config':
         config = Config.objects.get(id=object_id)
         extra_context['charts'] = config.charts.all()
-    elif content_type == 'product':
+    elif content_type == 'abstractproduct':
         product = AbstractProduct.objects.get(id=object_id)
         extra_context['charts'] = product.config.charts.all()
         monitor_profiles = MonitorProfile.objects.filter(product__id=object_id).order_by('price')
@@ -123,7 +125,7 @@ def chart_tab_extra_context(instance):
         extra_context['monitor_profiles_json'] = MonitorProfileSerializer(monitor_profiles, many=True).data
 
     elif content_type in ['type', 'source']:
-        if last_content_type == 'product':
+        if last_content_type == 'abstractproduct':
             product = AbstractProduct.objects.get(id=last_object_id)
             extra_context['charts'] = product.config.charts.all()
 
@@ -157,10 +159,10 @@ def chart_contents_extra_context(instance):
         items = watchlist.children().filter(product__config__id=object_id)
 
     elif content_type == 'type':
-        if last_content_type == 'product':
+        if last_content_type == 'abstractproduct':
             items = watchlist.children().filter_by_product(product__id=last_object_id)
 
-    elif content_type == 'product':
+    elif content_type == 'abstractproduct':
         items = watchlist.children().filter_by_product(product__id=object_id)
 
     elif content_type == 'source':
@@ -176,7 +178,7 @@ def chart_contents_extra_context(instance):
     # get tran data by chart
     series_options = []
 
-    if chart_id in ['1', '2']:
+    if chart_id in ['1', '2', '5']:
         for t in types:
             end_date = datetime.date.today() if chart_id == '1' else None
             start_date = end_date + datetime.timedelta(days=-13) if chart_id == '1' else None
@@ -187,6 +189,15 @@ def chart_contents_extra_context(instance):
                                             end_date=end_date)
             if not option['no_data']:
                 series_options.append(option)
+
+        if chart_id == '5':
+            extra_context['event_form'] = EventForm()
+            if content_type in ['config', 'abstractproduct']:
+                extra_context['event_content_type_id'] = ContentType.objects.get(model=content_type).id
+                extra_context['event_object_id'] = object_id
+            elif content_type in ['type', 'source']:
+                extra_context['event_content_type_id'] = ContentType.objects.get(model=last_content_type).id
+                extra_context['event_object_id'] = last_object_id
 
     if chart_id == '3':
         for t in types:
@@ -244,10 +255,10 @@ def integration_extra_context(instance):
         items = watchlist.children().filter(product__config__id=object_id)
 
     elif content_type == 'type':
-        if last_content_type == 'product':
+        if last_content_type == 'abstractproduct':
             items = watchlist.children().filter_by_product(product__id=last_object_id)
 
-    elif content_type == 'product':
+    elif content_type == 'abstractproduct':
         items = watchlist.children().filter_by_product(product__id=object_id)
 
     elif content_type == 'source':

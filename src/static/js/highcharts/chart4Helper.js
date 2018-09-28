@@ -1,15 +1,6 @@
 var chart4Helper = {
     container: null,
     manager: {
-        getCharts: function(){
-            arr = [];
-            charts = chart4Helper.manager.charts;
-            Object.keys(charts).forEach(function(key, i){
-                arr = $.merge(arr, charts[key]);
-            })
-            return arr;
-        },
-        charts: {}, // store by key as type.id, value as highchart instance
         fontSize: {
             label: 11,
             title: 11,

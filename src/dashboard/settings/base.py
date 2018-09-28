@@ -77,6 +77,7 @@ INSTALLED_APPS = [
     'watchlists',
     'posts',
     'comments',
+    'events',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -273,6 +274,7 @@ FIXTURE_DIRS = [
     os.path.join(BASE_DIR, 'fixtures/seafoods/wholesale'),
     os.path.join(BASE_DIR, 'fixtures/cattles'),
     os.path.join(BASE_DIR, 'fixtures/watchlists'),
+    os.path.join(BASE_DIR, 'fixtures/events'),
 ]
 
 # Rest-framework
@@ -282,6 +284,7 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ),
+    "DATE_INPUT_FORMATS": ["%Y/%m/%d"],
 }
 
 # Celery

@@ -3,10 +3,6 @@ var chart2Helper = {
     manager: {
         monitorProfiles: null,
         watchlistProfiles: null,
-        getCharts: function(){
-            return chart2Helper.manager.charts;
-        },
-        charts: null,
         dateRange: {
             min: null,
             max: null,
@@ -122,10 +118,10 @@ var chart2Helper = {
                         text: profile.format_price + '(' + profile.watchlist + ')',
                         style: {
                             color: '#606060',
-                            zIndex: 1000,
+                            zIndex: 300,
                         }
                     },
-                    zIndex: 1000,
+                    zIndex: 300,
                 }
             })
             return plotBands;
@@ -320,7 +316,7 @@ var chart2Helper = {
             chart: {
                 zoomType: 'x',
                 spacing: [10,0,0,0],
-                height: thisDevice == 'desktop' ? 600 : 400,
+                height: thisDevice == 'desktop' ? 750 : 400,
             },
 
             title: {
@@ -558,7 +554,13 @@ var chart2Helper = {
 
             /* Apply Datepicker */
             setTimeout(function () {
-                $('input.highcharts-range-selector', $(chart.container).parent()).datepicker();
+                $('input.highcharts-range-selector', $(chart.container).parent()).datepicker({
+                    dateFormat: 'yy-mm-dd',
+                    onSelect: function () {
+                        this.onchange();
+                        this.onblur();
+                    }
+                });
             }, 0);
 
             chart.plotBandUpdate = chart2Helper.plotBandUpdate(chart);
@@ -580,7 +582,7 @@ var chart2Helper = {
                 name: gettext('Watchlists'),
                 data: watchlistFlagData,
                 shape: 'flag',
-                zIndex: 1000,
+                zIndex: 300,
                 showInLegend: false,
                 style: {
                     fontSize: chart2Helper.manager.fontSize.label,
@@ -610,12 +612,3 @@ var chart2Helper = {
         return chart;
     },
 }
-
-// Set the datepicker's date format
-$.datepicker.setDefaults({
-    dateFormat: 'yy-mm-dd',
-    onSelect: function () {
-        this.onchange();
-        this.onblur();
-    }
-});

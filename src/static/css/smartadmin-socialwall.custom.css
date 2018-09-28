@@ -8,7 +8,19 @@ h1.socialwall-title {
   font-weight: bold;
   margin-top: 15px;
   margin-left: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+
+div.socialwall-author a.username {
+  display: inline-block !important;
+}
+
+span.timefilter {
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 4px;
+  line-height: 14px;
 }
 
 li.message.socialwall-message.post-edit-area {
@@ -17,6 +29,7 @@ li.message.socialwall-message.post-edit-area {
 
 div.message-text.socialwall-author {
   margin-left: 20px !important;
+  word-break: break-all;
 }
 
 .text-muted.ultra-light.socialwall-post-time {
@@ -87,6 +100,16 @@ span.input-group-btn > button.btn.btn-primary {
   padding-right: 5px;
 }
 
+span#reply-origin {
+  word-break: break-all;
+}
+
+span#reply-origin mark.tagname {
+    padding: 0px;
+  color: #3276b1;
+  background-color: rgb(100, 100, 100, 0.3);
+}
+
 
 div#cke_id_content {
   width: 100% !important;
@@ -123,7 +146,9 @@ div.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
 
 
 .grid-item img {
-  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+  border-left: 0px !important;
   position: relative !important;
 }
 

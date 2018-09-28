@@ -23,6 +23,7 @@ var socialWallHelper = {
         this.initSearchBar();
         this.initNewPostBtn();
         this.initPost($grid);
+        $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> '))  });
     },
 
 
@@ -71,6 +72,7 @@ var socialWallHelper = {
                     $data = $(data);
                     socialWallHelper.initPost($data);
                     $('.grid').html($data);
+                    $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> '))  });
                     $grid.masonry('reloadItems').masonry();
                 }
             });
@@ -97,6 +99,7 @@ var socialWallHelper = {
                         $data = $(data);
                         socialWallHelper.initPost($data);
                         $('.grid').html($data);
+                        $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> '))  });
                         $grid.masonry('reloadItems').masonry();
                     }
                 });
@@ -153,7 +156,7 @@ var socialWallHelper = {
             } catch (e) {}
 
             if(hasFile) {
-                console.log('has file')
+                // console.log('has file')
                 $.ajax({
                     type: 'post',
                     url: url,
@@ -171,7 +174,7 @@ var socialWallHelper = {
                     }
                 });
             } else {
-                console.log('no file')
+                // console.log('no file')
                 $.ajax({
                     type: 'post',
                     url: url,
@@ -213,7 +216,7 @@ var socialWallHelper = {
             } catch (e) {}
 
             if(hasFile) {
-                console.log('has file')
+                // console.log('has file')
                 $.ajax({
                     type: 'patch',
                     url: url,
@@ -230,7 +233,7 @@ var socialWallHelper = {
                     }
                 });
             } else {
-                console.log('no file')
+                // console.log('no file')
                 $.ajax({
                     type: 'patch',
                     url: url,
@@ -239,7 +242,7 @@ var socialWallHelper = {
                         // $item = $(data);
                         // $grid.prepend($item).masonry('prepended', $item);
                         // $('#dialog-form-post').modal('hide');
-                        console.log(data)
+                        // console.log(data)
                         $item = $(data);
                         socialWallHelper.initPost($item);
                         $div.find('.post-edit-area').remove();
@@ -313,9 +316,9 @@ var socialWallHelper = {
             $parent = $(this).parents('.message');
             name = $parent.find('a').html().split('<small')[0].split(' ').join('');
             $parent = $(this).parents('.grid-item');
-            $parent.find('#reply-text').val(name + '  ');
+            $parent.find('#reply-text').val('@' + name + '  ');
             $parent.find('#reply-text').focus();
-            console.log(name);
+            // console.log(name);
         });
         // -------------------- reply tag name end --------------------
 
@@ -340,6 +343,9 @@ var socialWallHelper = {
                         $item = $(data);
                         socialWallHelper.initPost($item);
                         $reply.parents(".socialwall-reply").before($item);
+                        text = $item.find('#reply-origin').html();
+                        text = text.replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> ');
+                        $item.find('#reply-origin').html(text);
                         $reply.val('');
                         $grid.masonry();
                     }
@@ -366,6 +372,9 @@ var socialWallHelper = {
                     $item = $(data);
                     socialWallHelper.initPost($item);
                     $reply.parents(".socialwall-reply").before($item);
+                    text = $item.find('#reply-origin').html();
+                    text = text.replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> ');
+                    $item.find('#reply-origin').html(text);
                     $reply.val('');
                     $grid.masonry();
                 }
@@ -408,8 +417,10 @@ var socialWallHelper = {
             $reply = $(this).parents('.socialwall-reply');
             $reply.find('.comment').hide();
             $reply.find('.comment-edit').show();
-            origin = $reply.find('#reply-origin').text();
+            origin = $reply.find('#reply-origin').html();
+            origin = origin.replace(/<mark class="tagname">(\w+)<\/mark>/g, '@$1 ');
             $edittext = $reply.find('#reply-edit');
+            $grid.masonry();
             $edittext.val(origin);
             $edittext.focus();
 
@@ -427,8 +438,11 @@ var socialWallHelper = {
                             $reply.find('.comment').show();
                             $reply.find('.comment-edit').hide();
                             $reply.html($reply.html());
-                            $reply.find('#reply-origin').text(data['content']);
+                            text = data['content'];
+                            text = text.replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> ');
+                            $reply.find('#reply-origin').html(text);
                             socialWallHelper.initPost($reply);
+                            $grid.masonry();
                             return;
                         }
                     });
@@ -448,13 +462,48 @@ var socialWallHelper = {
                         $reply.find('.comment').show();
                         $reply.find('.comment-edit').hide();
                         $reply.html($reply.html());
-                        $reply.find('#reply-origin').text(data['content']);
+                        text = data['content'];
+                        text = text.replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> ');
+                        $reply.find('#reply-origin').html(text);
                         socialWallHelper.initPost($reply);
+                        $grid.masonry();
                     }
                 });
             });
         });
         // -------------------- reply edit end --------------------
+
+        // -------------------- Search author start --------------------
+        $item.find('a.username').on('click', function() {
+            concept = gettext('Author');
+            data_type = "Author";
+            $('.search-panel span#search_concept').text(concept);
+            $('.input-group #search_param').val(data_type);
+            $('.search-text').attr('placeholder', $('.search-text').attr('data-hint'));
+            $searchbar = $('.search-area');
+            text = $(this).text();
+            $searchbar.find('.search-text').val(text);
+            url = $searchbar.find('#search_concept').attr('url');
+            key = $('.input-group #search_param').val();
+            $.ajax({
+                type: 'get',
+                url: url,
+                data: {
+                    'key': key,
+                    'q': text,
+                },
+                async: false,
+                success: function(data) {
+                    $data = $(data);
+                    socialWallHelper.initPost($data);
+                    $('.grid').html($data);
+                    $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\w+)(\s|$)/g, '<mark class="tagname">$1</mark> '))  });
+                    $grid.masonry('reloadItems').masonry();
+                    $('html').animate({scrollTop: 0}, 'slow');
+                }
+            });
+        });
+        // -------------------- Search author end --------------------
 
 
         // -------------------- Read More Start --------------------
@@ -511,9 +560,9 @@ var loadItem = function() {
     if (hasNextPage == false) {
         return false
     }
-    console.log($(window).scrollTop())
-    console.log($(document).height())
-    console.log($(window).height())
+    // console.log($(window).scrollTop())
+    // console.log($(document).height())
+    // console.log($(window).height())
 
     pageNum = pageNum + 1
     $.ajax({

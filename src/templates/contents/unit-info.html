@@ -1,7 +1,7 @@
 {% load i18n %}
 
 <!-- start unit_json into -->
-<p class="alert alert-info no-margin">
+<div class="alert alert-info no-margin">
     {% if index %}
         {% if index == 'price' %}
         <i class="fa fa-circle"></i> {% trans 'Unit' %}: <strong>{{ unit_json.price_unit }}</strong>
@@ -21,5 +21,5 @@
         <i class="fa fa-circle"></i> {% trans 'Weight Unit' %}: <strong>{{ unit_json.weight_unit }}</strong>
         {% endif %}
     {% endif %}
-</p>
+</div>
 <!-- end unit_json info -->

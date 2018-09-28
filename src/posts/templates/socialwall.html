@@ -177,9 +177,6 @@ the <section></section> and you can use wells or panels instead
 	// pagefunction
 
 	scripts = [
-		// CKEditor Plugins
-		"{% static 'ckeditor/ckeditor-init.js' %}",
-		"{% static 'ckeditor/ckeditor/ckeditor.js' %}",
 		// Masonry Plugins
 		"{% static 'vendor/js/masonry.pkgd.js' %}",
 		// SocialWall Plugins
@@ -187,12 +184,14 @@ the <section></section> and you can use wells or panels instead
 	]
 
 	var pagefunction = function() {
-		// clears the variable if left blank
 		socialWallHelper.init();
-
 	};
 
-	scriptLoader(scripts, pagefunction);
+	if(window.socialWallHelper) {
+		pagefunction();
+	} else {
+		scriptLoader(scripts, pagefunction);
+	}
 
 
 	// end pagefunction
@@ -218,6 +217,6 @@ the <section></section> and you can use wells or panels instead
 	// end destroy
 
 	// run pagefunction
-	pagefunction();
+	// pagefunction();
 
 </script>

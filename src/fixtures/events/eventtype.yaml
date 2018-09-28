@@ -1,0 +1,39 @@
+- model: events.EventType
+  pk: 1
+  fields:
+    name: 颱風
+
+- model: events.EventType
+  pk: 2
+  fields:
+    name: 豪雨
+
+- model: events.EventType
+  pk: 3
+  fields:
+    name: 地震
+
+- model: events.EventType
+  pk: 4
+  fields:
+    name: 寒害
+
+- model: events.EventType
+  pk: 5
+  fields:
+    name: 冰雹
+
+- model: events.EventType
+  pk: 6
+  fields:
+    name: 乾旱
+
+- model: events.EventType
+  pk: 7
+  fields:
+    name: 其他
+
+
+
+
+
