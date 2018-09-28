@@ -89,15 +89,19 @@
         var min = chart1Helper.manager.dateRange.min;
         var max = chart1Helper.manager.dateRange.max
         var $container = $('#chart-{{ chart.id }}-widget-integration div[data-load]');
+        console.log('integrationHelper.loadTable($container, min, max);')
         integrationHelper.loadTable($container, min, max);
 
     };
 
 	// end pagefunction
 
-	// run pagefunction on load
+    // PAGE RELATED SCRIPTS
 
-	pagefunction();
+    scripts = [
+        "{% static 'js/highcharts/chart1Helper.js' %}",
+    ]
 
+    scriptLoader(scripts, pagefunction);
 
 </script>

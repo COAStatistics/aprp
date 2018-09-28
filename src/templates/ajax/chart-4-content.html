@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load staticfiles %}
 {% load json_filters %}
 
 <ul id="chart-{{ chart.id }}-tab" class="nav nav-pills nav-pills-info nav-justified" style="{% if series_options|length <= 1 %}display:none;{% endif %}">
@@ -82,8 +83,6 @@
 
 	pageSetUp();
 
-	// PAGE RELATED SCRIPTS
-
 	// pagefunction
 
 	var pagefunction = function() {
@@ -128,9 +127,13 @@
 
 	// end pagefunction
 
-	// run pagefunction on load
+    // PAGE RELATED SCRIPTS
 
-	pagefunction();
+    var scripts = [
+        "{% static 'js/highcharts/chart4Helper.js' %}",
+    ]
+
+    scriptLoader(scripts, pagefunction);
 
 
 </script>

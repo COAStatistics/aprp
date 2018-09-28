@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load staticfiles %}
 {% load json_filters %}
 
 <section id="chart-{{ chart.id }}-widget-grid" class="padding-10">
@@ -89,7 +90,13 @@
 
 	// run pagefunction on load
 
-	pagefunction();
+    // PAGE RELATED SCRIPTS
+
+    var scripts = [
+        "{% static 'js/highcharts/chart2Helper.js' %}",
+    ]
+
+    scriptLoader(scripts, pagefunction);
 
 
 </script>

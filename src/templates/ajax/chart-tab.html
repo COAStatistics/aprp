@@ -79,8 +79,6 @@
 
 	pageSetUp();
 	
-	// PAGE RELATED SCRIPTS
-
 	// pagefunction
 	
 	var pagefunction = function() {
@@ -121,7 +119,36 @@
 	
 	// run pagefunction on load
 
-    pagefunction()
+	// PAGE RELATED SCRIPTS
 
+	var scripts = [
+	    // Bootstrap plugins
+	    "{% static 'vendor/js/plugin/multiselect/bootstrap-multiselect.min.js' %}",
+
+	    // Highcharts plugins
+	    "{% static 'vendor/js/plugin/highcharts/highstock.js' %}",
+	    "{% static 'vendor/js/plugin/highcharts/no-data-to-display.js' %}",
+	    "{% static 'vendor/js/plugin/highcharts/exporting.js' %}",
+	    "{% static 'vendor/js/plugin/highcharts/highcharts-more.js' %}",
+	    "{% static 'js/highcharts/highcharts-settings.js' %}",
+	    "{% static 'js/highcharts/sparkline.js' %}",
+
+	    // DataTable plugins
+	    "{% static 'vendor/js/plugin/datatables/jquery.dataTables.min.js' %}",
+	    "{% static 'vendor/js/plugin/datatables/dataTables.colVis.min.js' %}",
+	    "{% static 'vendor/js/plugin/datatables/dataTables.buttons.min.js' %}",
+	    "{% static 'vendor/js/plugin/datatables/buttons.bootstrap.min.js' %}",
+	    "{% static 'vendor/js/plugin/datatables/jszip.min.js' %}",
+	    "{% static 'vendor/js/plugin/datatables/pdfmake.min.js' %}",
+	    "{% static 'vendor/js/plugin/datatables/vfs_fonts.js' %}",
+	    "{% static 'vendor/js/plugin/datatables/buttons.html5.min.js' %}",
+	    "{% static 'vendor/js/plugin/datatables/buttons.print.min.js' %}",
+	    "{% static 'vendor/js/plugin/datatables/dataTables.bootstrap.min.js' %}",
+	    "{% static 'vendor/js/plugin/datatable-responsive/datatables.responsive.min.js' %}",
+	    "{% static 'js/datatables/dataTableHelper.js' %}",
+	]
+    scriptLoader(scripts, pagefunction);
 
 </script>
+
+
