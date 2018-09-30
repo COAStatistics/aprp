@@ -157,9 +157,9 @@
                     <li>
                         <!-- if don't navigate on this item, set href to # -->
                         <a title="{{ product.name }}"
-                           href="{% if product.to_direct %}{% url 'chart_tab' wi=user_watchlist.id ct='product' oi=product.id lct='config' loi=product.config.id %}{% else %}#{% endif %}"
+                           href="{% if product.to_direct %}{% url 'chart_tab' wi=user_watchlist.id ct='abstractproduct' oi=product.id lct='config' loi=product.config.id %}{% else %}#{% endif %}"
                            data-load
-                           data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='product' oi=product.id lct='config' loi=product.config.id %}">
+                           data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='abstractproduct' oi=product.id lct='config' loi=product.config.id %}">
 
                             {% include 'contents/color-alert.html' with item=product watchlist=user_watchlist %}
                             <span class="menu-item-parent">{{ product.name }}</span>
