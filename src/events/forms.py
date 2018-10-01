@@ -19,8 +19,8 @@ class EventForm(forms.ModelForm):
     id = forms.IntegerField(widget=forms.HiddenInput)
     content_type = forms.IntegerField(widget=forms.HiddenInput)
     object_id = forms.IntegerField(widget=forms.HiddenInput)
-    type = forms.ModelChoiceField(queryset=EventType.objects.all(), empty_label=_("-- Please Select --"))
-    date = forms.DateField(widget=forms.TextInput(attrs={'class': "dateinput"}), initial=yesterday())
+    type = forms.ModelChoiceField(queryset=EventType.objects.all(), empty_label=_("-- Please Select --"), label=_('Event Type'))
+    date = forms.DateField(widget=forms.TextInput(attrs={'class': "dateinput"}), initial=yesterday(), label=_('Date'))
 
     class Meta:
         model = Event
