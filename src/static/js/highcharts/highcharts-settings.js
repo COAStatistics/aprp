@@ -64,9 +64,9 @@ Highcharts.theme = {
         headerFormat: '<b>{point.key}</b></br></br>',
         formatter : function (tooltip) {
             if (this.point && this.point.title && this.point.text) {
+                var textContainer = thisDevice == 'desktop' ? '<p style="width: 300px;white-space: normal;">' : '<p style="width:120px; white-space: normal;">'
                 var text = '<b>' + Highcharts.dateFormat('%Y/%m/%d, %a', this.point.x) + '</b></br></br>' +
-                    '<p style="width: 400px;white-space: normal;">' +
-                    this.point.text + '</p>';
+                    textContainer + this.point.text + '</p>';
                 return text + '</span>';
             }
             return tooltip.defaultFormatter.apply(this, [tooltip]);

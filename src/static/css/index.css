@@ -138,7 +138,8 @@ nav a>em {
   vertical-align: middle;
 }
 
-.table > tbody > tr > td {
+.table > tbody > tr > td,
+.table > tbody > tr > th {
      vertical-align: middle;
 }
 
