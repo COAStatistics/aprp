@@ -106,15 +106,17 @@ class Api(AbstractApi):
                         if daily_tran_qs.count() > 1:
                             # log as duplicate
                             items = str(daily_tran_qs.values_list('id', flat=True))
-                            self.LOGGER.warning('API Warning: Find duplicate DailyTran item: %s' % items, extra=self.LOGGER_EXTRA)
+                            self.LOGGER.warning('Find duplicate DailyTran item: %s' % items, extra=self.LOGGER_EXTRA)
 
                         elif daily_tran_qs.count() == 1:
                             daily_tran_qs.update(avg_price=obj.avg_price,
                                                  volume=obj.volume,
                                                  avg_weight=obj.avg_weight)
                         else:
-                            if obj.volume > 0 and obj.avg_price > 0:
+                            if obj.volume > 0 and obj.avg_price > 0 and obj.avg_weight > 0:
                                 obj.save()
+                            else:
+                                self.LOGGER.warning('Find not valid hog DailyTran item: %s' % str(obj), extra=self.LOGGER_EXTRA)
                 except Exception as e:
                     self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
 
