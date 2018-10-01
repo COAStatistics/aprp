@@ -89,7 +89,6 @@
     name: 重要產銷事件簿
     code: CHT05
     template_name: ajax/chart-5-content.html
-    display_on_config: False
 
 # Configs
 
