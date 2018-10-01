@@ -136,7 +136,7 @@
                     <li>
                         <!-- don't navigate on this item, set href to # -->
                         <a title="{{ config.name }}"
-                           href="#"
+                           href="{% url 'chart_tab' wi=user_watchlist.id ct='config' oi=config.id %}"
                            data-load data-load-url="{% url 'jarvismenu' wi=user_watchlist.id ct='config' oi=config.id %}">
 
                             {% include 'contents/color-alert.html' with item=config watchlist=user_watchlist %}

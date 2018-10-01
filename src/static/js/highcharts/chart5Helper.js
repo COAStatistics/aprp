@@ -54,12 +54,12 @@ var chart5Helper = {
                 if (data['avg_price'].length > 0) {
                     has_avg_price = true;
                     series.push({
-                        type: 'area',
+                        type: 'spline',
                         name: type.name + gettext('Average Price'),
                         yAxis: 0,
                         zIndex: 100,
-                        color: Highcharts.getOptions().colors[1],
-                        fillOpacity: 0.3,
+                        lineWidth: 0.7,
+                        color: Highcharts.getOptions().colors[0],
                         marker: {
                             enabled: false,
                         },
@@ -139,14 +139,14 @@ var chart5Helper = {
                 series: {
                     connectNulls: true,
                 },
-                area: {
-                    lineWidth: 0.3,
-                    threshold: null, // Y axis value to serve as the base for the area
-                    tooltip: {
-                        xDateFormat: '%Y/%m/%d, %a',
-                        valueDecimals: 2,
-                    }
-                },
+//                area: {
+//                    lineWidth: 0.3,
+//                    threshold: null, // Y axis value to serve as the base for the area
+//                    tooltip: {
+//                        xDateFormat: '%Y/%m/%d, %a',
+//                        valueDecimals: 2,
+//                    }
+//                },
                 flags: {
                     tooltip: {
                         xDateFormat: '%Y/%m/%d, %a',
@@ -178,6 +178,7 @@ var chart5Helper = {
                     fontSize: chart5Helper.manager.fontSize.label,
                 },
             },
+
 
             exporting: {
                 enabled: thisDevice == 'desktop',
@@ -247,8 +248,8 @@ var chart5Helper = {
                                 if(range.dataMin < date < range.dataMax){
                                     points.push({
                                         x: date,
-                                        text: '<span class="label label-danger">' + point.type_name + '</span></br></br>' + point.context,
-                                        title: point.name,
+                                        text: '<span class="label label-danger">' + point.type_name + '</span></br></br><b>' + point.name + '</b></br>' + point.context,
+                                        title: ' ',
                                     })
                                 }
                             })
@@ -259,6 +260,7 @@ var chart5Helper = {
                                 else if(series.userOptions.customIndexType === 'avg_price'){
                                     chart.addSeries({
                                         type: 'flags',
+                                        shape: thisDevice === 'desktop' ? 'url(static/img/chart/dot-32.png)' : 'url(static/img/chart/dot-24.png)',
                                         name: 'Events',
                                         color: series.userOptions.color, // same as onSeries
                                         fillColor: series.userOptions.color,
