@@ -112,7 +112,7 @@ def chart_tab_extra_context(instance):
 
     if content_type == 'config':
         config = Config.objects.get(id=object_id)
-        extra_context['charts'] = config.charts.all()
+        extra_context['charts'] = config.charts.filter(display_on_config=True)
     elif content_type == 'abstractproduct':
         product = AbstractProduct.objects.get(id=object_id)
         extra_context['charts'] = product.config.charts.all()
