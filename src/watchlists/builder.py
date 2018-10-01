@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from .models import (
     Watchlist, WatchlistItem
 )
+from django.utils.translation import ugettext_lazy as _
 from configs.models import AbstractProduct
 
 
@@ -9,13 +10,16 @@ def build_all():
     """
     create or update a watchlist with watch_all = True and related to all tracked product, sources
     """
-    name = '全部'
-    user = User.objects.filter(is_superuser=True).first()
+    name = _('All')
 
-    watchlist, created = Watchlist.objects.update_or_create(
-        watch_all=True, name=name, user=user
-    )
+    # user = User.objects.filter(is_superuser=True).first()
+    # watchlist, created = Watchlist.objects.update_or_create(
+    #     watch_all=True, name=name, user=user
+    # )
 
+    watchlist, created = Watchlist.objects.update_or_create(id=1)
+
+    # if first build, remove all children and rebuild
     if not created:
         WatchlistItem.objects.filter(parent=watchlist).all().delete()
 

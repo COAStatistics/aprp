@@ -302,7 +302,7 @@ var chart1Helper = {
             },
 
             subtitle: {
-                text: getBreadCrumb(' / '),
+                text: getBreadCrumb(' / ') !== "" ? getBreadCrumb(' / ') : getShortCutName(),
                 style: {
                     fontSize: chart1Helper.manager.fontSize.label,
                     display: thisDevice == 'desktop' ? 'block' : 'none',

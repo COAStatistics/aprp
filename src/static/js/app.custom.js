@@ -1,4 +1,19 @@
 /*
+ * ShortCut click event
+ */
+$('#shortcut').on('click', 'a', function(){
+    var $a = $(this);
+    var name = $a.find('.shortcut-name').text();
+    $('#shortcut > li > a').removeClass('selected');
+    $a.addClass('selected');
+});
+
+function getShortCutName() {
+    var $a = $('#shortcut a.selected');
+    if($a.length === 1) return $a.find('.shortcut-name').text();
+}
+
+/*
  * Custom load multiple script in order by loadScript()
  */
 function scriptLoader (scriptArray, callback) {
