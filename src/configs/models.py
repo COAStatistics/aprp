@@ -279,7 +279,6 @@ class Chart(Model):
     name = CharField(max_length=120, unique=True, verbose_name=_('Name'))
     code = CharField(max_length=50, unique=True, null=True, verbose_name=_('Code'))
     template_name = CharField(max_length=255, verbose_name=_('Template Name'))
-    display_on_config = BooleanField(default=True, verbose_name=_('Display On Config'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
 
     class Meta:
