@@ -12,7 +12,6 @@ var chart2Helper = {
             title: 11,
         },
         title: gettext('Daily Price/Volume Trend For All Time'),
-        subtitle: getBreadCrumb ? getBreadCrumb(' / ') : null,
         colorLevel: {
             marker: {
                 danger: '#b94a48',
@@ -328,7 +327,7 @@ var chart2Helper = {
             },
 
             subtitle: {
-                text: getBreadCrumb(' / '),
+                text: getBreadCrumb(' / ') !== "" ? getBreadCrumb(' / ') : getShortCutName(),
                 style: {
                     fontSize: chart2Helper.manager.fontSize.label,
                     display: thisDevice == 'desktop' ? 'block' : 'none',

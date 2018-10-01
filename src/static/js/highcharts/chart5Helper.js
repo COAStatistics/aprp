@@ -119,7 +119,7 @@ var chart5Helper = {
             },
 
             subtitle: {
-                text: getBreadCrumb(' / '),
+                text: getBreadCrumb(' / ') !== "" ? getBreadCrumb(' / ') : getShortCutName(),
                 style: {
                     fontSize: chart5Helper.manager.fontSize.label,
                     display: thisDevice == 'desktop' ? 'block' : 'none',

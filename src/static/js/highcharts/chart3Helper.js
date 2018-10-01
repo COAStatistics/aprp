@@ -93,7 +93,7 @@ var chart3Helper = {
             },
 
             subtitle: {
-                text: getBreadCrumb(' / '),
+                text: getBreadCrumb(' / ') !== "" ? getBreadCrumb(' / ') : getShortCutName(),
                 style: {
                     fontSize: chart3Helper.manager.fontSize.label,
                     display: thisDevice == 'desktop' ? 'block' : 'none',
