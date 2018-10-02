@@ -3,6 +3,8 @@
 {% load json_filters %}
 {% load crispy_forms_tags %}
 
+{{ event_form.media.css }}
+
 <section id="chart-{{ chart.id }}-widget-grid" class="padding-10">
     <div class="row padding-10">
         <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -74,11 +76,11 @@
                      data-url: update, delete single row data
                 -->
                 <form id="event-form" action=""
-                      data-content-type-id="{{ event_content_type_id }}"
+                      data-content-type="{{ event_content_type_id }}"
                       data-object-id="{{ event_object_id }}"
                       data-url="{% url 'events:api:api_event_cr' %}"
                       method="POST" autocomplete="off">{% csrf_token %}
-                    {% crispy event_form %}
+                    {{ event_form|crispy }}
                 </form>
             </div>
             <div class="modal-footer">
@@ -121,6 +123,9 @@
     scripts = [
         "{% static 'js/highcharts/chart5Helper.js' %}",
     ]
+
+    // Important: load form js assets here
+    scripts = $.merge(scripts, {{ event_form_js|stringify|safe }});
 
     scriptLoader(scripts, pagefunction);
 

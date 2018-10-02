@@ -191,7 +191,9 @@ def chart_contents_extra_context(instance):
                 series_options.append(option)
 
         if chart_id == '5':
-            extra_context['event_form'] = EventForm()
+            event_form = EventForm()
+            extra_context['event_form'] = event_form
+            extra_context['event_form_js'] = [event_form.media.absolute_path(js) for js in event_form.media._js[1:]]
             if content_type in ['config', 'abstractproduct']:
                 extra_context['event_content_type_id'] = ContentType.objects.get(model=content_type).id
                 extra_context['event_object_id'] = object_id

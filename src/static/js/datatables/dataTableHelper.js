@@ -385,7 +385,7 @@ var dataTableHelper = {
                         $("#eventModal").find('.modal-title').text(gettext('New Event'));
                         $("#eventModal").find('form').formcontrol().reset();
                         $("#eventModal").find('form').formcontrol().data({
-                            content_type_id: $form.attr('data-content-type-id'),
+                            content_type: $form.attr('data-content-type'),
                             object_id: $form.attr('data-object-id'),
                         });
                         $("#eventModal").modal();
@@ -399,7 +399,7 @@ var dataTableHelper = {
                 url: $form.attr('data-url'),
                 type: "GET",
                 data: {
-                    content_type_id: $form.attr('data-content-type-id'),
+                    content_type: $form.attr('data-content-type'),
                     object_id: $form.attr('data-object-id'),
                     datatable: true,
                 },
@@ -414,7 +414,11 @@ var dataTableHelper = {
                     defaultContent: '<button type="button" class="btn btn-danger btn-delete"><i class="fa fa-remove" aria-hidden="true"></i></button>',
                 },
                 {data: "date"},
-                {data: "type_name"},
+                {data: "user"},
+                {
+                    data: "types",
+                    render: "[, ].label",
+                },
                 {data: "name"},
                 {
                     data: "context",
@@ -441,7 +445,7 @@ var dataTableHelper = {
             ],
             columnDefs: [
                 {
-                    targets: [0, 1, 5], // edit, delete, context
+                    targets: [0, 1, 6], // edit, delete, context
                     createdCell:  function (td, cellData, rowData, row, col) {
                         $(td).attr('data-hide', 'phone');
                     }
@@ -452,6 +456,9 @@ var dataTableHelper = {
         $container.find('tbody').on('click', 'button', function(){
             var $btn = $(this);
             var data = table.row($(this).parents('tr')).data();
+            data.types = data.types.reduce(function(p, e){
+                return p === '' ? e.label : p + ',' + e.label;
+            }, '');
 
             $form.formcontrol().data(data);
 

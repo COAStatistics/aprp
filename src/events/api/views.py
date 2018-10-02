@@ -32,13 +32,13 @@ class EventTypeRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     serializer_class = EventTypeSerializer
     queryset = EventType.objects.all()
     permission_classes = [IsAuthenticated]
-    
+
     
 class EventRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     serializer_class = EventSerializer
     queryset = Event.objects.all()
     permission_classes = [IsAuthenticated]
-    
+
 
 class EventListCreateAPIView(ListCreateAPIView):
     serializer_class = EventSerializer
@@ -52,20 +52,20 @@ class EventListCreateAPIView(ListCreateAPIView):
         ('5', 'context'),
     )
 
-    # check if request arguments "content_type_id", "object_id" advised
+    # check if request arguments "content_type", "object_id" advised
     filter_by_product = False
     datatable = False
-    content_type_id = None
+    content_type = None
     object_id = None
 
     def initial(self, request, *args, **kwargs):
         super(EventListCreateAPIView, self).initial(request, *args, **kwargs)
 
         # setting
-        self.content_type_id = request.query_params.get('content_type_id', None)
+        self.content_type = request.query_params.get('content_type', None)
         self.object_id = request.query_params.get('object_id', None)
         self.datatable = request.query_params.get('datatable', None) == 'true'
-        self.filter_by_product = bool(self.content_type_id and self.object_id)
+        self.filter_by_product = bool(self.content_type and self.object_id)
 
     def get_queryset(self):
 
@@ -74,16 +74,19 @@ class EventListCreateAPIView(ListCreateAPIView):
         if not self.filter_by_product:
             return queryset
 
-        content_type = ContentType.objects.get(id=self.content_type_id)
+        content_type = ContentType.objects.get(id=self.content_type)
         instance = content_type.model_class().objects.get(id=self.object_id)
-
         if content_type.model == 'config':
             product_ids = instance.products().values_list('id', flat=True)
-            queryset = queryset.filter(content_type__model='abstractproduct', object_id__in=product_ids)
+            queryset = queryset.filter(Q(content_type__model='abstractproduct', object_id__in=product_ids) |
+                                       Q(content_type__model='config', object_id=self.object_id) |
+                                       Q(share=True))
         elif content_type.model == 'abstractproduct':
-            product_ids = list(instance.children_all().values_list('id', flat=True))
-            product_ids.append(instance.id)
-            queryset = queryset.filter(content_type__model='abstractproduct', object_id__in=product_ids)
+            product_ids = instance.related_product_ids
+            queryset = queryset.filter(Q(content_type__model='abstractproduct', object_id__in=product_ids) |
+                                       Q(content_type__model='config', object_id=instance.config.id) |
+                                       Q(share=True))
+
         else:
             queryset = queryset.none()
 
