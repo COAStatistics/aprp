@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-28 17:27+0800\n"
+"POT-Creation-Date: 2018-10-03 04:57+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,9 +106,8 @@ msgstr "此帳號未註冊，請重新確認"
 
 #: accounts/models.py:37 configs/models.py:18 configs/models.py:126
 #: configs/models.py:181 configs/models.py:228 configs/models.py:279
-#: configs/models.py:296 events/models.py:31 events/models.py:53
-#: logs/models.py:24 templates/contents/event-table.html.py:13
-#: watchlists/models.py:39
+#: configs/models.py:296 events/models.py:57 logs/models.py:24
+#: templates/contents/event-table.html:14 watchlists/models.py:39
 msgid "Name"
 msgstr "名稱"
 
@@ -240,7 +239,7 @@ msgstr "編輯個人資料"
 #: comments/templates/partial_comment_create.html:14
 #: comments/templates/partial_comment_delete.html:15
 #: comments/templates/partial_comment_update.html:14
-#: posts/templates/form_modal.html:18 templates/ajax/chart-5-content.html:85
+#: posts/templates/form_modal.html:18 templates/ajax/chart-5-content.html:87
 msgid "Cancel"
 msgstr "取消"
 
@@ -250,7 +249,7 @@ msgstr "取消"
 #: comments/templates/partial_comment_update.html:15
 #: templates/ajax/chart-3-content.html:60
 #: templates/ajax/chart-4-content.html:52
-#: templates/ajax/chart-5-content.html:86
+#: templates/ajax/chart-5-content.html:88
 msgid "Submit"
 msgstr "確認"
 
@@ -471,7 +470,7 @@ msgstr "供應階段"
 
 #: configs/models.py:22 configs/models.py:261
 #: templates/contents/unit-info.html:7 templates/contents/unit-info.html:9
-#: templates/contents/unit-info.html:11 templates/navigation.html.py:81
+#: templates/contents/unit-info.html:11 templates/navigation.html.py:84
 msgid "Unit"
 msgstr "單位"
 
@@ -481,9 +480,9 @@ msgstr "是否抓取資料"
 
 #: configs/models.py:25 configs/models.py:130 configs/models.py:186
 #: configs/models.py:229 configs/models.py:258 configs/models.py:282
-#: dailytrans/models.py:60 events/models.py:32 events/models.py:56
-#: logs/models.py:26 posts/models.py:39 watchlists/models.py:45
-#: watchlists/models.py:46 watchlists/models.py:134 watchlists/models.py:161
+#: dailytrans/models.py:60 events/models.py:61 logs/models.py:26
+#: posts/models.py:39 watchlists/models.py:45 watchlists/models.py:46
+#: watchlists/models.py:134 watchlists/models.py:161
 msgid "Updated"
 msgstr "上次更新"
 
@@ -498,7 +497,7 @@ msgstr "抽象品項"
 #: configs/models.py:128 configs/models.py:285
 #: templates/ajax/chart-1-content.html:27
 #: templates/ajax/chart-2-content.html:27
-#: templates/ajax/chart-5-content.html:28
+#: templates/ajax/chart-5-content.html:30
 #: templates/contents/index-panel.html:41
 msgid "Chart"
 msgstr "圖表"
@@ -515,7 +514,7 @@ msgstr "品項分類"
 msgid "Alias"
 msgstr "同義名"
 
-#: configs/models.py:191 dailytrans/models.py:52 templates/navigation.html:75
+#: configs/models.py:191 dailytrans/models.py:52 templates/navigation.html:78
 #: watchlists/models.py:132
 msgid "Source"
 msgstr "來源"
@@ -569,7 +568,7 @@ msgid "Crops"
 msgstr "蔬菜"
 
 #: dailytrans/models.py:51 templates/contents/watchlist-profile-table.html.py:9
-#: templates/navigation.html:78 watchlists/models.py:131
+#: templates/navigation.html:81 watchlists/models.py:131
 #: watchlists/models.py:150
 msgid "Product"
 msgstr "品項"
@@ -603,13 +602,13 @@ msgid "Volume"
 msgstr "交易量"
 
 #: dailytrans/models.py:59 dailytrans/utils.py:114 dailytrans/utils.py:139
-#: dailytrans/utils.py:160 dailytrans/utils.py:224 events/models.py:55
-#: templates/contents/event-table.html:11
+#: dailytrans/utils.py:160 dailytrans/utils.py:224 events/forms.py:22
+#: events/models.py:59 templates/contents/event-table.html.py:11
 #: templates/contents/integration-table.html:11
 msgid "Date"
 msgstr "日期"
 
-#: dailytrans/models.py:65 templates/navigation.html.py:72
+#: dailytrans/models.py:65 templates/navigation.html.py:75
 msgid "Daily Transition"
 msgstr "日交易"
 
@@ -653,11 +652,11 @@ msgstr "本期"
 msgid "Last Term"
 msgstr "上期"
 
-#: dashboard/settings/base.py:205
+#: dashboard/settings/base.py:206
 msgid "Traditional Chinese"
 msgstr "繁體中文"
 
-#: dashboard/settings/base.py:206
+#: dashboard/settings/base.py:207
 msgid "English"
 msgstr ""
 
@@ -669,28 +668,36 @@ msgstr "鴨"
 msgid "Ducks"
 msgstr "鴨"
 
-#: events/forms.py:22
-msgid "-- Please Select --"
-msgstr "-- 請選擇 --"
+#: events/forms.py:23
+msgid "Share this event"
+msgstr "共用此事件"
 
-#: events/models.py:35 events/models.py:52
-#: templates/contents/event-table.html:12
+#: events/models.py:38 events/models.py:56
+#: templates/contents/event-table.html:13
 msgid "Event Type"
 msgstr "事件分類"
 
-#: events/models.py:36
+#: events/models.py:39
 msgid "Event Types"
 msgstr "事件分類"
 
-#: events/models.py:54 templates/contents/event-table.html.py:14
+#: events/models.py:56
+msgid "You can create new event type here"
+msgstr "你可以在此新增新的事件分類"
+
+#: events/models.py:58 templates/contents/event-table.html.py:15
 msgid "Context"
 msgstr "內容"
 
-#: events/models.py:59
+#: events/models.py:60
+msgid "Shared Event"
+msgstr "事件共用"
+
+#: events/models.py:64
 msgid "Event"
 msgstr "事件"
 
-#: events/models.py:60
+#: events/models.py:65
 #: templates/contents/event-widget-type-panel-groups.html:26
 msgid "Events"
 msgstr "事件"
@@ -739,7 +746,7 @@ msgstr "網址"
 msgid "Duration"
 msgstr "歷時"
 
-#: logs/models.py:19 templates/navigation.html.py:69
+#: logs/models.py:19 templates/navigation.html.py:72
 msgid "Log"
 msgstr "日誌"
 
@@ -829,7 +836,7 @@ msgstr "已編輯"
 msgid "Main"
 msgstr "主頁"
 
-#: posts/templates/socialwall.html:27
+#: posts/templates/socialwall.html:27 templates/navigation.html.py:63
 msgid "Social Wall"
 msgstr "輿情回應專區"
 
@@ -955,7 +962,6 @@ msgid "Seafoods"
 msgstr "水產品"
 
 #: templates/ajax/about.html:14 templates/navigation.html.py:60
-#: templates/shortcut.html:8
 msgid "About"
 msgstr "關於"
 
@@ -1129,6 +1135,10 @@ msgstr "目前無資料可供顯示，此區間可能非品項之產季"
 msgid "Any further question please contact us"
 msgstr "若有任何問題請與我們聯繫"
 
+#: templates/contents/event-table.html:12
+msgid "Creator"
+msgstr "新增者"
+
 #: templates/contents/event-widget-type-panel-groups.html:43
 msgid "Events you edit here will display in the chart above."
 msgstr "您所新增或編輯的事件將會顯示在上方的圖表"
@@ -1176,7 +1186,7 @@ msgstr "因應措施"
 msgid "Watchlist Item Profile"
 msgstr "監控品項內容及監控地點"
 
-#: templates/contents/product-profile.html:93 templates/navigation.html:90
+#: templates/contents/product-profile.html:93 templates/navigation.html:93
 #: watchlists/models.py:164 watchlists/models.py:165
 msgid "Monitor Profile"
 msgstr "監控價格內容及因應措施"
@@ -1191,7 +1201,7 @@ msgid "Year Selected"
 msgstr "選擇年份"
 
 #: templates/contents/watchlist-profile-table.html:10
-#: templates/navigation.html:87 watchlists/models.py:139
+#: templates/navigation.html:90 watchlists/models.py:139
 msgid "Watchlist Item"
 msgstr "監控品項"
 
@@ -1217,28 +1227,28 @@ msgstr "建議您登出後關閉分頁以提高安全性"
 msgid "Full Screen"
 msgstr "全螢幕"
 
-#: templates/navigation.html:33 templates/navigation.html.py:84
+#: templates/navigation.html:33 templates/navigation.html.py:87
 #: watchlists/models.py:49 watchlists/models.py:151
 msgid "Watchlist"
 msgstr "監控清單"
 
-#: templates/navigation.html:66
+#: templates/navigation.html:69
 msgid "Admin"
 msgstr "後台管理"
 
-#: templates/navigation.html:96
+#: templates/navigation.html:99
 msgid "Grand Totals"
 msgstr "合計項目"
 
-#: templates/navigation.html:115
+#: templates/navigation.html:118
 msgid "Agricultures"
 msgstr "農產品"
 
-#: templates/navigation.html:133
+#: templates/navigation.html:136
 msgid "Livestocks"
 msgstr "畜禽產品"
 
-#: templates/navigation.html:153
+#: templates/navigation.html:156
 msgid "Fisheries"
 msgstr "漁產品"
 
@@ -1297,3 +1307,5 @@ msgstr "啟用"
 #: watchlists/models.py:160
 msgid "Monitor Months"
 msgstr "監控月份"
+
+

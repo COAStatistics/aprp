@@ -12,7 +12,7 @@ var chart5Helper = {
         },
         title: gettext('Important Transition Events'),
         url: null,
-        contentTypeId: null,
+        contentType: null,
         objectId: null,
     },
     loadEvents: function(){
@@ -21,7 +21,7 @@ var chart5Helper = {
             chart.loadEvents();
         });
     },
-    init: function(url, contentTypeId, objectId){
+    init: function(url, contentType, objectId){
 
         this.manager.charts = [];
 
@@ -31,7 +31,7 @@ var chart5Helper = {
         }
 
         this.manager.url = url;
-        this.manager.contentTypeId = contentTypeId;
+        this.manager.contentType = contentType;
         this.manager.objectId = objectId;
 
     },
@@ -232,7 +232,7 @@ var chart5Helper = {
                 $.ajax({
                     url: chart5Helper.manager.url,
                     data: {
-                        content_type_id: chart5Helper.manager.contentTypeId,
+                        content_type: chart5Helper.manager.contentType,
                         object_id: chart5Helper.manager.objectId,
                         datatable: false,
                     },
@@ -246,7 +246,13 @@ var chart5Helper = {
                                 var date = new Date(point.date).getTime();
 
                                 if(range.dataMin < date < range.dataMax){
-                                    var text = '<span class="label label-danger">' + point.type_name + '</span></br></br><b>' + point.name + '</b>';
+
+                                    var typeLabels = '';
+                                    point.types.forEach(function(type, i){
+                                        var labelColor = type.level === 1 ? 'danger' : 'info';
+                                        typeLabels += '<span style="margin-right:3px;" class="label label-' + labelColor +'">' + type.label + '</span>';
+                                    })
+                                    var text = typeLabels + '</br></br><b>' + point.name + '</b>';
                                     if(thisDevice == 'desktop') text = text + '</br>' + point.context;
                                     points.push({
                                         x: date,

@@ -2,38 +2,52 @@
   pk: 1
   fields:
     name: 颱風
+    label: 颱風
+    slug: typhoon
+    path: typhoon
+    protected: True
 
 - model: events.EventType
   pk: 2
   fields:
     name: 豪雨
+    label: 豪雨
+    slug: rain
+    path: rain
+    protected: True
 
 - model: events.EventType
   pk: 3
   fields:
     name: 地震
+    label: 地震
+    slug: earthquake
+    path: earthquake
+    protected: True
 
 - model: events.EventType
   pk: 4
   fields:
     name: 寒害
+    label: 寒害
+    slug: cold
+    path: cold
+    protected: True
 
 - model: events.EventType
   pk: 5
   fields:
     name: 冰雹
+    label: 冰雹
+    slug: hail
+    path: hail
+    protected: True
 
 - model: events.EventType
   pk: 6
   fields:
     name: 乾旱
-
-- model: events.EventType
-  pk: 7
-  fields:
-    name: 其他
-
-
-
-
-
+    label: 乾旱
+    slug: dry
+    path: dry
+    protected: True
