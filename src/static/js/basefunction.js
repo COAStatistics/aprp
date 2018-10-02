@@ -1,91 +1,101 @@
 // https://learn.jquery.com/plugins/basic-plugin-creation/
+(function($) {
 
-(function ( $ ) {
+    var originalVal = $.fn.val;
 
-  var originalVal = $.fn.val;
+    // Plugin support: django-ckeditor
+    $.fn.val = function(value) {
+        $this = $(this);
 
-  $.fn.val = function(value) {
-    $this = $(this);
+        if (typeof value != 'undefined') {
+            // ckeditor field setter
+            if (window.CKEDITOR && $this.hasClass('ckeditorwidget')) {
+                var id = $this.attr('id');
+                return CKEDITOR.instances[id].setData(value);
+            }
+            return originalVal.apply(this, [value]);
+        } else {
+            // ckeditor field getter
+            if (window.CKEDITOR && $this.hasClass('ckeditorwidget')) {
+                var id = $this.attr('id');
+                return CKEDITOR.instances[id].getData();
+            }
+            return originalVal.apply(this);
+        }
+    };
 
-    if (typeof value != 'undefined') {
-      // if is ck editor field
-      if($this.hasClass('ckeditorwidget')) {
-        var id = $this.attr('id');
-        return CKEDITOR.instances[id].setData(value);
-      }
-      return originalVal.apply(this, [value]);
-    }
-    else{
-      // if is ck editor field
-      if($this.hasClass('ckeditorwidget')) {
-        var id = $this.attr('id');
-        return CKEDITOR.instances[id].getData();
-      }
-      return originalVal.apply(this);
-    }
-  };
+    $.fn.formcontrol = function() {
 
-  $.fn.formcontrol = function() {
+        $form = $(this);
 
-    $form = $(this);
+        // Plugin support: django-tagulous
+        function initAfterSetData() {
 
-    // init dateinput
-    if($.ui){
-        var dateInputs = $form.find('.dateinput');
-        dateInputs.datepicker({
-            dateFormat: 'yy/mm/dd',
-        });
-    }
+            // init tagulous
+            var $tagulouses = $form.find('input[data-tagulous]');
+            if (window.Tagulous && $tagulouses.length > 0) {
+                Tagulous.select2($tagulouses, false);
+            }
+        }
 
-    // validation
-    if(!$form.attr('hasvalidate')){
-        $form.find('.form-group').each(function(){
-            $(this).append('<div class="help-block" style="display: none;"></div>');
-        })
-        $form.attr('hasvalidate', 'hasvalidate');
-    }else{
-        // reset
-        $form.find('.help-block').text('').hide();
-        $form.find('.form-group').removeClass('has-error');
-    }
+        // init datepicker
+        if ($.ui) {
+            var dateInputs = $form.find('[data-datepicker]').not('.hasDatepicker');
+            dateInputs.datepicker({
+                dateFormat: 'yy/mm/dd',
+            });
+        }
 
-    this.validate = function(data){
-        data = typeof(data) === 'object' ? data : {};
-        Object.keys(data).forEach(function(key, i){
+        // validation
+        if (!$form.attr('hasvalidate')) {
+            $form.find('.form-group').each(function() {
+                $(this).append('<div class="help-block" style="display: none;"></div>');
+            })
+            $form.attr('hasvalidate', 'hasvalidate');
+        } else {
+            // reset
+            $form.find('.help-block').text('').hide();
+            $form.find('.form-group').removeClass('has-error');
+        }
 
-            $field = $form.find('#div_id_' + key);
+        this.validate = function(data) {
+            data = typeof(data) === 'object' ? data : {};
+            Object.keys(data).forEach(function(key, i) {
 
-            $field.find('.help-block').html(data[key].join('</br>')).show();
+                $field = $form.find('#div_id_' + key);
+                $field.find('.help-block').html(data[key].join('</br>')).show();
+                $field.addClass('has-error');
 
-            $field.addClass('has-error');
+            })
+        }
 
-        })
-    }
+        this.data = function(data, callback) {
 
-    this.data = function(data){
+            data = typeof(data) === 'object' ? data : {};
 
-      data = typeof(data) === 'object' ? data : {};
+            // setter
+            Object.keys(data).forEach(function(key, i) {
+                $form.find('[name="' + key + '"]').val(data[key]);
+            })
 
-      // set data (text only)
-      Object.keys(data).forEach(function(key, i){
-        $form.find('[name="'+ key +'"]').val(data[key]);
-      })
+            initAfterSetData();
+            if(typeof callback === 'function') callback();
 
-      // get data (text only)
-      return $form.serializeArray().reduce(function(obj, item){
-        obj[item.name] = item.value;
-        return obj;
-      }, {});
-    }
+            // getter
+            return $form.serializeArray().reduce(function(obj, item) {
+                obj[item.name] = item.value;
+                return obj;
+            }, {});
+        }
 
-    // reset form
-    this.reset = function(){
-      $form.trigger('reset');
-      // reset hidden and non-readonly fields
-      $form.find('[type="hidden"]').val('');
-    }
+        // reset form
+        this.reset = function() {
+            $form.trigger('reset');
+            // reset hidden fields
+            $form.find('[type="hidden"]').val('');
+        }
 
-    return this;
-  };
+        return this;
+    };
 
-}( jQuery ));
+}(jQuery));

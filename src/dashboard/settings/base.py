@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'tracking',
     'ckeditor',
     'suit',
+    'tagulous',
 
     # All-auth
     'django.contrib.sites',
