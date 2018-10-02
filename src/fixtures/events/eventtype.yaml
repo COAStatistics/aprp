@@ -31,9 +31,14 @@
 - model: events.EventType
   pk: 7
   fields:
-    name: 其他
+    name: 疫情
 
+- model: events.EventType
+  pk: 8
+  fields:
+    name: 政策
 
-
-
-
+- model: events.EventType
+  pk: 9
+  fields:
+    name: 其它
