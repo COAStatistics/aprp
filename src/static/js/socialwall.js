@@ -23,7 +23,24 @@ var socialWallHelper = {
         this.initSearchBar();
         this.initNewPostBtn();
         this.initPost($grid);
+        this.initGridResize($('.grid-item'));
         $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> '))  });
+    },
+
+
+    initGridResize: function($item) {
+
+        $item.on('resize', function() {
+            $this = $(this);
+            var h = $this.outerHeight();
+            if($this.data('h') == null) {
+                $this.data('h', h);
+            }
+            if(h !== $(this).data('h')) {
+                $grid.masonry();
+            }
+            $this.data('h', h);
+        });
     },
 
 
