@@ -119,7 +119,7 @@ var chart5Helper = {
             },
 
             subtitle: {
-                text: getBreadCrumb(' / '),
+                text: getBreadCrumb(' / ') !== "" ? getBreadCrumb(' / ') : getShortCutName(),
                 style: {
                     fontSize: chart5Helper.manager.fontSize.label,
                     display: thisDevice == 'desktop' ? 'block' : 'none',
@@ -246,9 +246,11 @@ var chart5Helper = {
                                 var date = new Date(point.date).getTime();
 
                                 if(range.dataMin < date < range.dataMax){
+                                    var text = '<span class="label label-danger">' + point.type_name + '</span></br></br><b>' + point.name + '</b>';
+                                    if(thisDevice == 'desktop') text = text + '</br>' + point.context;
                                     points.push({
                                         x: date,
-                                        text: '<span class="label label-danger">' + point.type_name + '</span></br></br><b>' + point.name + '</b></br>' + point.context,
+                                        text: text,
                                         title: ' ',
                                     })
                                 }

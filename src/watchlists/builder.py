@@ -10,12 +10,12 @@ def build_all():
     create or update a watchlist with watch_all = True and related to all tracked product, sources
     """
     name = '全部'
+
     user = User.objects.filter(is_superuser=True).first()
 
-    watchlist, created = Watchlist.objects.update_or_create(
-        watch_all=True, name=name, user=user
-    )
+    watchlist, created = Watchlist.objects.update_or_create(id=1, watch_all=True, name=name, user=user)
 
+    # if first build, remove all children and rebuild
     if not created:
         WatchlistItem.objects.filter(parent=watchlist).all().delete()
 
