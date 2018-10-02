@@ -52,6 +52,7 @@ class PostCreateAPIView(generics.CreateAPIView):
 
 class PostRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = serializers.PostRetrieveUpdateDestroySerializer
+    queryset = models.Post.objects.all()
     permission_classes = [IsAuthenticated]
 
     def get_object(self):
