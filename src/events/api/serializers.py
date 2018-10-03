@@ -42,20 +42,19 @@ class EventSerializer(ModelSerializer):
         return EventType.objects.none
 
     def update(self, instance, validated_data):
-        instance = self.instance
+        validated_data.pop('types', None)  # pop types key cause it is nested, not support in update()
+        instance = super(EventSerializer, self).update(instance, validated_data)
 
         event_types = self.parse_event_input()
 
         # delete
         instance.types.all().exclude(id__in=event_types.values_list('id', flat=True)).delete()
-
         # create
         for obj in event_types:
             if obj not in instance.types.all():
                 instance.types.add(obj)
 
         instance.save()
-
         return instance
 
     def create(self, validated_data):

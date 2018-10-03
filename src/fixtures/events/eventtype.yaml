@@ -51,3 +51,12 @@
     slug: dry
     path: dry
     protected: True
+
+- model: events.EventType
+  pk: 7
+  fields:
+    name: 疫情
+    label: 疫情
+    slug: disease
+    path: disease
+    protected: True
