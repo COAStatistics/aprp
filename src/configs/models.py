@@ -183,6 +183,7 @@ class Source(Model):
     code = CharField(max_length=50, null=True, blank=True, verbose_name=_('Code'))
     configs = ManyToManyField('configs.Config', verbose_name=_('Config'))
     type = ForeignKey('configs.Type', null=True, blank=True, on_delete=SET_NULL, verbose_name=_('Type'))
+    enable = BooleanField(default=True, verbose_name=_('Enabled'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
 
     objects = SourceQuerySet.as_manager()

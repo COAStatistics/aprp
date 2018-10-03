@@ -75,7 +75,13 @@
 
             // setter
             Object.keys(data).forEach(function(key, i) {
-                $form.find('[name="' + key + '"]').val(data[key]);
+                $field = $form.find('[name="' + key + '"]');
+                $field.val(data[key]);
+                // checkbox
+                if($field.attr('type') === 'checkbox'){
+                    $field.prop('checked', data[key]);
+                }
+
             })
 
             initAfterSetData();

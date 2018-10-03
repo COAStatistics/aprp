@@ -38,6 +38,8 @@ class EventSerializer(ModelSerializer):
                 if not obj:
                     obj = EventType.objects.create(name='其他/'+name)
                 ids.append(obj.id)
+                # add parents
+                ids = ids + list(obj.parents().values_list('id', flat=True))
             return EventType.objects.filter(id__in=ids)
         return EventType.objects.none
 

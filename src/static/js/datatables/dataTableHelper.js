@@ -456,9 +456,11 @@ var dataTableHelper = {
         $container.find('tbody').on('click', 'button', function(){
             var $btn = $(this);
             var data = table.row($(this).parents('tr')).data();
-            data.types = data.types.reduce(function(p, e){
+
+            // DataTable first initial row data.types is array, then coerce to string
+            data.types = Array.isArray(data.types) ? data.types.reduce(function(p, e){
                 return p === '' ? e.label : p + ',' + e.label;
-            }, '');
+            }, '') : data.types;
 
             $form.formcontrol().data(data);
 

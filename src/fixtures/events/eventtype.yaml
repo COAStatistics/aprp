@@ -1,60 +1,14 @@
 - model: events.EventType
   pk: 1
   fields:
-    name: 颱風
-    label: 颱風
-    slug: typhoon
-    path: typhoon
+    name: 天災
+    label: 天災
+    slug: disaster
+    path: disaster
     protected: True
 
 - model: events.EventType
   pk: 2
-  fields:
-    name: 豪雨
-    label: 豪雨
-    slug: rain
-    path: rain
-    protected: True
-
-- model: events.EventType
-  pk: 3
-  fields:
-    name: 地震
-    label: 地震
-    slug: earthquake
-    path: earthquake
-    protected: True
-
-- model: events.EventType
-  pk: 4
-  fields:
-    name: 寒害
-    label: 寒害
-    slug: cold
-    path: cold
-    protected: True
-
-- model: events.EventType
-  pk: 5
-  fields:
-    name: 冰雹
-    label: 冰雹
-    slug: hail
-    path: hail
-    protected: True
-
-- model: events.EventType
-  pk: 6
-  fields:
-    name: 乾旱
-    label: 乾旱
-    slug: dry
-    path: dry
-    protected: True
-
-
-- model: events.EventType
-  pk: 7
   fields:
     name: 疫情
     label: 疫情
@@ -62,3 +16,175 @@
     path: disease
     protected: True
 
+- model: events.EventType
+  pk: 3
+  fields:
+    name: 政策
+    label: 政策
+    slug: policy
+    path: policy
+    protected: True
+
+- model: events.EventType
+  pk: 4
+  fields:
+    name: 節慶
+    label: 節慶
+    slug: festival
+    path: festival
+    protected: True
+
+- model: events.EventType
+  pk: 5
+  fields:
+    name: 其他
+    label: 其他
+    slug: other
+    path: other
+    protected: True
+
+
+
+- model: events.EventType
+  pk: 100
+  fields:
+    name: 天災/颱風
+    label: 颱風
+    slug: disaster/typhoon
+    path: disaster/typhoon
+    protected: True
+    parent: 1
+    level: 2
+
+- model: events.EventType
+  pk: 101
+  fields:
+    name: 天災/豪雨
+    label: 豪雨
+    slug: disaster/rain
+    path: disaster/rain
+    protected: True
+    parent: 1
+    level: 2
+
+- model: events.EventType
+  pk: 102
+  fields:
+    name: 天災/地震
+    label: 地震
+    slug: disaster/earthquake
+    path: disaster/earthquake
+    protected: True
+    parent: 1
+    level: 2
+
+- model: events.EventType
+  pk: 103
+  fields:
+    name: 天災/寒害
+    label: 寒害
+    slug: disaster/cold
+    path: disaster/cold
+    protected: True
+    parent: 1
+    level: 2
+
+- model: events.EventType
+  pk: 104
+  fields:
+    name: 天災/冰雹
+    label: 冰雹
+    slug: disaster/hail
+    path: disaster/hail
+    protected: True
+    parent: 1
+    level: 2
+
+- model: events.EventType
+  pk: 105
+  fields:
+    name: 天災/乾旱
+    label: 乾旱
+    slug: disaster/dry
+    path: disaster/dry
+    protected: True
+    parent: 1
+    level: 2
+
+
+- model: events.EventType
+  pk: 106
+  fields:
+    name: 天災/高溫
+    label: 高溫
+    slug: disaster/hot
+    path: disaster/hot
+    protected: True
+    parent: 1
+    level: 2
+
+- model: events.EventType
+  pk: 107
+  fields:
+    name: 政策/貿易
+    label: 貿易
+    slug: policy/trading
+    path: policy/trading
+    protected: True
+    parent: 3
+    level: 2
+
+- model: events.EventType
+  pk: 108
+  fields:
+    name: 節慶/春節
+    label: 春節
+    slug: festival/newyear
+    path: festival/newyear
+    protected: True
+    parent: 4
+    level: 2
+
+- model: events.EventType
+  pk: 109
+  fields:
+    name: 節慶/清明節
+    label: 清明節
+    slug: festival/tomb
+    path: festival/tomb
+    protected: True
+    parent: 4
+    level: 2
+
+- model: events.EventType
+  pk: 110
+  fields:
+    name: 節慶/端午節
+    label: 端午節
+    slug: festival/dragonboat
+    path: festival/dragonboat
+    protected: True
+    parent: 4
+    level: 2
+
+- model: events.EventType
+  pk: 111
+  fields:
+    name: 節慶/中元節
+    label: 中元節
+    slug: festival/ghost
+    path: festival/ghost
+    protected: True
+    parent: 4
+    level: 2
+
+- model: events.EventType
+  pk: 112
+  fields:
+    name: 節慶/中秋節
+    label: 中秋節
+    slug: festival/moon
+    path: festival/moon
+    protected: True
+    parent: 4
+    level: 2
