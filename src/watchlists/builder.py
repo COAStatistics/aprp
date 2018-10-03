@@ -48,13 +48,15 @@ def build_all():
 
                 watchlist_item = WatchlistItem.objects.create(product=child, parent=watchlist)
                 for source in child.sources():
-                    watchlist_item.sources.add(source)
+                    if source.enable:
+                        watchlist_item.sources.add(source)
 
         else:
 
             watchlist_item = WatchlistItem.objects.create(product=product, parent=watchlist)
             for source in product.sources():
-                watchlist_item.sources.add(source)
+                if source.enable:
+                    watchlist_item.sources.add(source)
 
 
 

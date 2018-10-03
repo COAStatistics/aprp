@@ -112,6 +112,15 @@
                         <!-- dynamically load ul here -->
                     </li>
                     {% endfor %}
+                    <!-- put hog overall here -->
+                    <li>
+                        <a title="{{ config.name }}"
+                           href="{% url 'chart_tab' wi=1 ct='config' oi=8 %}">
+
+                            <span class="menu-item-parent">{% trans 'Hog Overall' %}</span>
+
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li>
