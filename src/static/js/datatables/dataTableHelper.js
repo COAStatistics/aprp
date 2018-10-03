@@ -445,7 +445,7 @@ var dataTableHelper = {
             ],
             columnDefs: [
                 {
-                    targets: [0, 1, 6], // edit, delete, context
+                    targets: [0, 1, 3, 6], // edit, delete, user, context
                     createdCell:  function (td, cellData, rowData, row, col) {
                         $(td).attr('data-hide', 'phone');
                     }

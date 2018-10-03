@@ -47,18 +47,18 @@
   pk: 6
   fields:
     name: 乾旱
+    label: 乾旱
+    slug: dry
+    path: dry
+    protected: True
+
 
 - model: events.EventType
   pk: 7
   fields:
     name: 疫情
+    label: 疫情
+    slug: disease
+    path: disease
+    protected: True
 
-- model: events.EventType
-  pk: 8
-  fields:
-    name: 政策
-
-- model: events.EventType
-  pk: 9
-  fields:
-    name: 其它
