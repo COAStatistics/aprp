@@ -6,7 +6,7 @@
     product: 40163 # 甘藍
     watchlist: 3
     type: 1
-    price: 4.5
+    price: 5
     comparator: __lt__
     color: danger
     info: |
@@ -24,7 +24,7 @@
     product: 40185 # 包心白菜
     watchlist: 3
     type: 1
-    price: 4.7
+    price: 5.1
     comparator: __lt__
     color: danger
     info: |
@@ -42,7 +42,7 @@
     product: 40160 # 落花生
     watchlist: 3
     type: 2
-    price: 29.4
+    price: 32.1
     comparator: __lt__
     color: danger
     info: |
@@ -61,7 +61,7 @@
     product: 49002 # 紅豆
     watchlist: 3
     type: 2
-    price: 26.4
+    price: 27.3
     comparator: __lt__
     color: danger
     info: |
@@ -79,7 +79,7 @@
     product: 40477 # 甘藷
     watchlist: 3
     type: 2
-    price: 4.1
+    price: 4.2
     comparator: __lt__
     color: danger
     info: |
@@ -99,7 +99,7 @@
     product: 40438 # 大蒜
     watchlist: 3
     type: 2
-    price: 28.6
+    price: 33.5
     comparator: __lt__
     color: danger
     info: |
@@ -117,7 +117,7 @@
     product: 40422 # 洋蔥
     watchlist: 3
     type: 1
-    price: 6.2
+    price: 6.3
     comparator: __lt__
     color: danger
     info: |
@@ -135,7 +135,7 @@
     product: 40426 # 青蔥日蔥
     watchlist: 3
     type: 1
-    price: 23.1
+    price: 25.9
     comparator: __lt__
     color: danger
     info: |
@@ -153,7 +153,7 @@
     product: 40427 # 青蔥北蔥
     watchlist: 3
     type: 1
-    price: 11.1
+    price: 11.9
     comparator: __lt__
     color: danger
     info: |
@@ -171,7 +171,7 @@
     product: 40016 # 花椰菜
     watchlist: 3
     type: 1
-    price: 7.0
+    price: 7.6
     comparator: __lt__
     color: danger
     info: |
@@ -189,7 +189,7 @@
     product: 40387 # 蘿蔔
     watchlist: 3
     type: 1
-    price: 3.2
+    price: 3.8
     comparator: __lt__
     color: danger
     info: |
@@ -207,7 +207,7 @@
     product: 40027 # 胡瓜
     watchlist: 3
     type: 1
-    price: 7.0
+    price: 7.5
     comparator: __lt__
     color: danger
     info: |
@@ -228,7 +228,7 @@
     product: 40030 # 花胡瓜
     watchlist: 3
     type: 1
-    price: 11.1
+    price: 11.4
     comparator: __lt__
     color: danger
     info: |
@@ -249,7 +249,7 @@
     product: 40411 # 胡蘿蔔
     watchlist: 3
     type: 1
-    price: 5.1
+    price: 5.5
     comparator: __lt__
     color: danger
     info: |
@@ -268,7 +268,7 @@
     product: 40075 # 豌豆
     watchlist: 3
     type: 1
-    price: 32.0
+    price: 32.8
     comparator: __lt__
     color: danger
     info: |
@@ -286,7 +286,7 @@
     product: 40083 # 豇豆(菜豆)
     watchlist: 3
     type: 1
-    price: 17.0
+    price: 17.4
     comparator: __lt__
     color: danger
     info: |
@@ -304,7 +304,7 @@
     product: 40040 # 絲瓜
     watchlist: 3
     type: 1
-    price: 11.7
+    price: 12.3
     comparator: __lt__
     color: danger
     info: |
@@ -344,7 +344,7 @@
     product: 50008 # 棗子
     watchlist: 3
     type: 1
-    price: 20.7
+    price: 21.7
     comparator: __lt__
     color: danger
     info: |
@@ -363,7 +363,7 @@
     product: 50076 # 椪柑
     watchlist: 3
     type: 1
-    price: 17.5
+    price: 18
     comparator: __lt__
     color: danger
     info: |
@@ -382,7 +382,7 @@
     product: 50182 # 豐水梨
     watchlist: 3
     type: 1
-    price: 31.7
+    price: 32.5
     comparator: __lt__
     color: danger
     info: |
@@ -400,7 +400,7 @@
     product: 50241 # 洋香瓜
     watchlist: 3
     type: 1
-    price: 13.7
+    price: 14.2
     comparator: __lt__
     color: danger
     info: |
@@ -418,7 +418,7 @@
     product: 50227 # 西瓜
     watchlist: 3
     type: 1
-    price: 6.7
+    price: 7.3
     comparator: __lt__
     color: danger
     info: |
@@ -436,7 +436,7 @@
     product: 50218 # 巨峰葡萄
     watchlist: 3
     type: 1
-    price: 32.3
+    price: 34.2
     comparator: __lt__
     color: danger
     info: |
@@ -454,7 +454,7 @@
     product: 50012 # 番荔枝(釋迦)
     watchlist: 3
     type: 1
-    price: 37.7
+    price: 38.8
     comparator: __lt__
     color: danger
     info: |
@@ -472,7 +472,7 @@
     product: 50092 # 桶柑
     watchlist: 3
     type: 2
-    price: 13.6
+    price: 13.9
     comparator: __lt__
     color: danger
     info: |
@@ -510,7 +510,7 @@
     product: 50288 # 甜柿
     watchlist: 3
     type: 1
-    price: 42.1
+    price: 42.6
     comparator: __lt__
     color: danger
     info: |
@@ -549,7 +549,7 @@
     product: 50202 # 蓮霧
     watchlist: 3
     type: 2
-    price: 29.4
+    price: 31.6
     comparator: __lt__
     color: danger
     info: |
@@ -567,7 +567,7 @@
     product: 50208 # 愛文芒果
     watchlist: 3
     type: 1
-    price: 26.1
+    price: 28.9
     comparator: __lt__
     color: danger
     info: |
@@ -609,7 +609,7 @@
     product: 50096 # 柳橙
     watchlist: 3
     type: 1
-    price: 11.2
+    price: 11.7
     comparator: __lt__
     color: danger
     info: |
@@ -627,7 +627,7 @@
     product: 50066 # 金鑽鳳梨
     watchlist: 3
     type: 1
-    price: 9.6
+    price: 10.4
     comparator: __lt__
     color: danger
     info: |
@@ -647,7 +647,7 @@
     product: 50102 # 檸檬
     watchlist: 3
     type: 2
-    price: 7.6
+    price: 8.1
     comparator: __lt__
     color: danger
     info: |
@@ -665,7 +665,7 @@
     product: 50157 # 龍眼
     watchlist: 3
     type: 1
-    price: 13.6
+    price: 14.1
     comparator: __lt__
     color: danger
     info: |
@@ -685,7 +685,7 @@
     product: 50195 # 番石榴(珍珠芭)
     watchlist: 3
     type: 1
-    price: 11.8
+    price: 12.6
     comparator: __lt__
     color: danger
     info: |
@@ -703,7 +703,7 @@
     product: 50150 # 黑葉荔枝
     watchlist: 3
     type: 1
-    price: 14.7
+    price: 15.2
     comparator: __lt__
     color: danger
     info: |
@@ -722,7 +722,7 @@
     product: 50016 # 竿採梅
     watchlist: 3
     type: 2
-    price: 6.4
+    price: 8.5
     comparator: __lt__
     color: danger
     info: |
@@ -742,7 +742,7 @@
     product: 50039 # 火龍果
     watchlist: 3
     type: 1
-    price: 19.7
+    price: 20.7
     comparator: __lt__
     color: danger
     info: |
@@ -858,7 +858,7 @@
     product: 80001 # 努比亞雜交閹公羊(50-75公斤)
     watchlist: 3
     type: 1
-    price: 161.7
+    price: 161.1
     comparator: __lt__
     color: danger
     info: |
@@ -880,7 +880,7 @@
     product: 130001 # 肥育乳公牛550公斤以上
     watchlist: 3
     type: 2
-    price: 91.8
+    price: 92
     comparator: __lt__
     color: danger
     info: |
@@ -925,7 +925,7 @@
     product: 90004 # 紅羽土雞
     watchlist: 3
     type: 2
-    price: 54.1
+    price: 53.8
     comparator: __lt__
     color: danger
     info: |
@@ -991,7 +991,7 @@
     product: 120007 # 吳郭魚內銷 0.6-0.8公斤/尾
     watchlist: 3
     type: 2
-    price: 35.0
+    price: 35.8
     comparator: __lt__
     color: danger
     info: |
@@ -1015,7 +1015,7 @@
     product: 120198 # 虱目魚晚撈 0.6公斤/尾
     watchlist: 3
     type: 2
-    price: 46.6
+    price: 46.9
     comparator: __lt__
     color: danger
     info: |
@@ -1039,7 +1039,7 @@
     product: 120025 # 七星鱸 0.6-0.8公斤/尾
     watchlist: 3
     type: 2
-    price: 76.1
+    price: 78
     comparator: __lt__
     color: danger
     info: |
@@ -1062,7 +1062,7 @@
     product: 120211 # 石斑 0.6-0.9公斤/尾
     watchlist: 3
     type: 2
-    price: 163.5
+    price: 160.5
     comparator: __lt__
     color: danger
     info: |
@@ -1085,7 +1085,7 @@
     product: 120311 # 文蛤 40-60粒/0.6公斤
     watchlist: 3
     type: 2
-    price: 58.5
+    price: 61.7
     comparator: __lt__
     color: danger
     info: |
