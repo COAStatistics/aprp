@@ -45,10 +45,6 @@ class EventType(TagTreeModel):
     def __unicode__(self):
         return str(self.label)
 
-    def parents(self):
-        names = self.name.split('/')
-        return EventType.objects.filter(label__in=names)
-
 
 class Event(Model):
     user = ForeignKey(settings.AUTH_USER_MODEL, default=1)

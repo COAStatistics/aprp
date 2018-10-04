@@ -368,30 +368,36 @@ var dataTableHelper = {
         var $container = $('#'+ container);
         var $form = $("#eventModal").find('form');
 
+        var editable = $container.attr('data-editable') === 'editable';
+
+        buttons = [
+            dataTableHelper.buttons.csv(),
+            dataTableHelper.buttons.excel(),
+            dataTableHelper.buttons.print(),
+            dataTableHelper.buttons.copy(),
+        ]
+        if(editable){
+            // addEvent
+            buttons.push({
+                text: '<span><i class="fa fa-plus" aria-hidden="true"></i> ' + gettext('New Event') + '</span>',
+                action: function(e, dt, node) {
+                    $("#eventModal").find('form').attr('data-action', 'new');
+                    $("#eventModal").find('.modal-title').text(gettext('New Event'));
+                    $("#eventModal").find('form').formcontrol().reset();
+                    $("#eventModal").find('form').formcontrol().data({
+                        content_type: $form.attr('data-content-type'),
+                        object_id: $form.attr('data-object-id'),
+                    });
+                    $("#eventModal").modal();
+                },
+            })
+        }
+
         var table = $container.DataTable({
 			dom: "<'dt-toolbar padding-10 padding-left-0'<'col-sm-6 hidden-xs'B><'col-xs-12 col-sm-6 hidden-sm'f>r>"+
 				 "t"+
 				 "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
-            buttons: [
-                dataTableHelper.buttons.csv(),
-                dataTableHelper.buttons.excel(),
-                dataTableHelper.buttons.print(),
-                dataTableHelper.buttons.copy(),
-                // addEvent
-                {
-                    text: '<span><i class="fa fa-plus" aria-hidden="true"></i> ' + gettext('New Event') + '</span>',
-                    action: function(e, dt, node) {
-                        $("#eventModal").find('form').attr('data-action', 'new');
-                        $("#eventModal").find('.modal-title').text(gettext('New Event'));
-                        $("#eventModal").find('form').formcontrol().reset();
-                        $("#eventModal").find('form').formcontrol().data({
-                            content_type: $form.attr('data-content-type'),
-                            object_id: $form.attr('data-object-id'),
-                        });
-                        $("#eventModal").modal();
-                    },
-                },
-            ],
+            buttons: buttons,
 			autoWidth : true,
             processing: true,
             serverSide: true,
@@ -407,11 +413,11 @@ var dataTableHelper = {
             columns: [
                 {
                     data: null,
-                    defaultContent: '<button type="button" class="btn btn-success btn-edit"><i class="fa fa-edit" aria-hidden="true"></i></button>',
+                    defaultContent: '<button type="button" class="btn btn-xs btn-success btn-edit"><i class="fa fa-edit" aria-hidden="true"></i></button>',
                 },
                 {
                     data: null,
-                    defaultContent: '<button type="button" class="btn btn-danger btn-delete"><i class="fa fa-remove" aria-hidden="true"></i></button>',
+                    defaultContent: '<button type="button" class="btn btn-xs btn-danger btn-delete"><i class="fa fa-remove" aria-hidden="true"></i></button>',
                 },
                 {data: "date"},
                 {data: "user"},
@@ -448,8 +454,13 @@ var dataTableHelper = {
                     targets: [0, 1, 3, 6], // edit, delete, user, context
                     createdCell:  function (td, cellData, rowData, row, col) {
                         $(td).attr('data-hide', 'phone');
-                    }
-                }
+                    },
+                },
+                {
+                    targets: [0, 1], // edit, delete
+                    orderable: false,
+                    visible: editable,
+                },
             ],
         });
 
