@@ -42,17 +42,22 @@ class EventSerializer(ModelSerializer):
 
             if clean_name != name:
                 is_valid = False
+
             elif clean_name:
+
                 obj = EventType.objects.filter(Q(label=clean_name) | Q(name=clean_name)).first()
                 if obj:
                     self.event_types_ids.append(obj.id)
                     self.event_types_ids += list(obj.get_ancestors().values_list('id', flat=True))
                 # create if not exist
                 else:
-                    count = len(split_tree_name(clean_name))
-                    if count == 1:
-                        clean_name = '其他/' + clean_name  # make '自訂' -> '其他/自訂'
-                    names_to_create.append(clean_name)
+                    parts = split_tree_name(clean_name)
+                    if EventType.objects.filter(label=parts[0], level=1):  # ok -> '天災/颱風/自訂', error -> '颱風/自訂'
+                        if len(parts) == 1:
+                            clean_name = '其他/' + clean_name  # make '自訂' -> '其他/自訂'
+                        names_to_create.append(clean_name)
+                    else:
+                        is_valid = False
 
         if not is_valid:
             raise ValidationError('Invalid token.')
