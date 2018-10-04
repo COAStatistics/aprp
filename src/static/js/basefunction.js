@@ -49,7 +49,9 @@
         // validation
         if (!$form.attr('hasvalidate')) {
             $form.find('.form-group').each(function() {
-                $(this).append('<div class="help-block" style="display: none;"></div>');
+                if($(this).find('.help-block').length === 0){
+                    $(this).append('<div class="help-block" style="display: none;"></div>');
+                }
             })
             $form.attr('hasvalidate', 'hasvalidate');
         } else {

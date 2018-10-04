@@ -19,7 +19,8 @@ class EventForm(forms.ModelForm):
     id = forms.IntegerField(widget=forms.HiddenInput)
     content_type = forms.IntegerField(widget=forms.HiddenInput)
     object_id = forms.IntegerField(widget=forms.HiddenInput)
-    date = forms.DateField(widget=forms.TextInput(attrs={'data-datepicker': "true"}), initial=yesterday(), label=_('Date'))
+    date = forms.DateField(widget=forms.TextInput(attrs={'data-datepicker': "true"}),
+                           initial=yesterday(), label=_('Date'))
     share = forms.BooleanField(label=_('Share this event'))
 
     class Meta:
