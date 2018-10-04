@@ -17,7 +17,7 @@ def product_filter(product, watchlist):
     for product in product_qs:
         if not product.children():
             ids.append(product.id)
-    return product_qs.filter(id__in=ids)
+    return product_qs.filter(id__in=ids) or AbstractProduct.objects.filter(id=product.id)
 
 
 @register.filter

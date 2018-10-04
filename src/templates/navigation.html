@@ -92,6 +92,12 @@
                     <li>
                         <a href="{% url 'admin:watchlists_monitorprofile_changelist' %}" target="_blank" title="{% trans 'Monitor Profile' %}"><span class="menu-item-parent">{% trans 'Monitor Profile' %}</span></a>
                     </li>
+                    <li>
+                        <a href="{% url 'admin:events_event_changelist' %}" target="_blank" title="{% trans 'Event' %}"><span class="menu-item-parent">{% trans 'Event' %}</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'admin:events_eventtype_changelist' %}" target="_blank" title="{% trans 'Event Type' %}"><span class="menu-item-parent">{% trans 'Event Type' %}</span></a>
+                    </li>
                 </ul>
             </li>
             {% endif %}
