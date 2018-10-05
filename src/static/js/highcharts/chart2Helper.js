@@ -565,7 +565,7 @@ var chart2Helper = {
 
             chart.plotBandUpdate = chart2Helper.plotBandUpdate(chart);
             chart.plotBandUpdate(false); // redraw later
-            
+
             /* Plot watchlist flags */
             watchlistFlagData = [];
             chart2Helper.manager.watchlistProfiles.forEach(function(watchlist, i){

@@ -41,20 +41,43 @@ class PostListAllAPIView(generics.ListAPIView):
                         post_list.append(i.content_object.id)
                 except:
                     pass
-            queryset = queryset.filter(
+            temp1 = queryset.filter(
                 Q(title__icontains=self.value) |
                 Q(content__icontains=self.value) |
-                Q(user__username__icontains=self.value) |
                 Q(id__in=post_list)
             )
+            temp2 = queryset.filter(
+                Q(user__username__icontains=self.value) |
+                Q(user__last_name__icontains=self.value) |
+                Q(user__first_name__icontains=self.value)
+            )
+            if temp2.count() == 0:
+                last_name = self.value[0]
+                first_name = self.value[1:]
+                temp2 = queryset.filter(user__last_name__icontains=last_name).filter(user__first_name__icontains=first_name)
+            id_list = []
+            for i in temp1:
+                if i.id not in id_list:
+                    id_list.append(i.id)
+            for i in temp2:
+                if i.id not in id_list:
+                    id_list.append(i.id)
+            queryset = queryset.filter(id__in=id_list)
         elif self.keyword == "Title":
             queryset = queryset.filter(
                 Q(title__icontains=self.value)
             )
         elif self.keyword == "Author":
-            queryset = queryset.filter(
-                Q(user__username__icontains=self.value)
+            temp = queryset.filter(
+                Q(user__username__icontains=self.value) |
+                Q(user__last_name__icontains=self.value) |
+                Q(user__first_name__icontains=self.value)
             )
+            if temp.count() == 0:
+                last_name = self.value[0]
+                first_name = self.value[1:]
+                temp = queryset.filter(user__last_name__icontains=last_name).filter(user__first_name__icontains=first_name)
+            queryset = temp
         elif self.keyword == "Content":
             queryset = queryset.filter(
                 Q(content__icontains=self.value)
