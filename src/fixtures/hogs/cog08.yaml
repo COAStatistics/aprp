@@ -58,8 +58,8 @@
 - model: hogs.Hog
   pk: 70007
   fields:
-    name: 115公斤以上
-    code: 115公斤以上
+    name: 115-135公斤
+    code: 115(含)-135(不含)
     type: 1
     config: 8
     unit: 3
@@ -80,6 +80,28 @@
   fields:
     name: 其他豬
     code: 其他豬
+    type: 1
+    config: 8
+    unit: 3
+    parent: 70002
+
+# 20181005新增
+
+- model: hogs.Hog
+  pk: 70010
+  fields:
+    name: 135-155公斤
+    code: 135(含)-155(不含)
+    type: 1
+    config: 8
+    unit: 3
+    parent: 70001
+
+- model: hogs.Hog
+  pk: 70011
+  fields:
+    name: 155公斤以上
+    code: 155公斤以上
     type: 1
     config: 8
     unit: 3
