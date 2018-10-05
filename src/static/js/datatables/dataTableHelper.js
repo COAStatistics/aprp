@@ -135,20 +135,20 @@ var dataTableHelper = {
         },
     },
     buttons: {
-        copy: function(){
-            return {extend: 'copy', text: gettext('Copy')}
+        copy: function(options){
+            return $.extend(true, {extend: 'copy', text: gettext('Copy')}, options);
         },
-        csv: function(){
-            return {extend: 'csv', charset: 'UTF-16LE', bom: true, text: gettext('Download') + 'CSV'}
+        csv: function(options){
+            return $.extend(true, {extend: 'csv', charset: 'UTF-16LE', bom: true, text: gettext('Download') + 'CSV'}, options);
         },
-        excel: function(){
-            return {extend: 'excel', text: gettext('Download') + 'Excel'}
+        excel: function(options){
+            return $.extend(true, {extend: 'excel', text: gettext('Download') + 'Excel'}, options);
         },
-        pdf: function(){
-            return {extend: 'pdf', text: gettext('Download') + 'Pdf'}
+        pdf: function(options){
+            return $.extend(true, {extend: 'pdf', text: gettext('Download') + 'Pdf'}, options);
         },
-        print: function(){
-            return {extend: 'print', text: gettext('Print')}
+        print: function(options){
+            return $.extend(true, {extend: 'print', text: gettext('Print')}, options);
         },
         UI: '\
             <div class="row">\
@@ -230,11 +230,6 @@ var dataTableHelper = {
         var responsiveHelper = null;
         this.responsiveHelpers.push(responsiveHelper);
 
-        // exporting column options
-        var csv = dataTableHelper.buttons.csv();
-        var excel = dataTableHelper.buttons.excel();
-        var print = dataTableHelper.buttons.print();
-
         var columnLength = $container.find('tbody > tr:first td').length;
         switch(columnLength){
             case 3:
@@ -251,23 +246,20 @@ var dataTableHelper = {
                 break;
         }
 
-        if(columns){
-            exportOptions = {
+        // exporting column options
+        var btnOptions = {
+            exportOptions: {
                 columns: columns,
             }
-            csv['exportOptions'] = exportOptions;
-            excel['exportOptions'] = exportOptions;
-            print['exportOptions'] = exportOptions;
         }
-
         buttons = [
-            csv,
+            dataTableHelper.buttons.csv(btnOptions),
         ]
 
         if(thisDevice == 'desktop'){
-            buttons.push(excel),
-            buttons.push(print),
-            buttons.push(dataTableHelper.buttons.copy())
+            buttons.push(dataTableHelper.buttons.excel(btnOptions)),
+            buttons.push(dataTableHelper.buttons.print(btnOptions)),
+            buttons.push(dataTableHelper.buttons.copy(btnOptions))
         }
 
         var ajaxData = getAjaxDataFromContainer($container);
@@ -369,13 +361,17 @@ var dataTableHelper = {
         var $form = $("#eventModal").find('form');
 
         var editable = $container.attr('data-editable') === 'editable';
-
-        buttons = [
-            dataTableHelper.buttons.csv(),
-            dataTableHelper.buttons.excel(),
-            dataTableHelper.buttons.print(),
-            dataTableHelper.buttons.copy(),
-        ]
+        var btnOptions = {
+            exportOptions: {
+                columns: [2, 3, 4, 5, 6]
+            }
+        }
+        var buttons = [
+            dataTableHelper.buttons.csv(btnOptions),
+            dataTableHelper.buttons.excel(btnOptions),
+            dataTableHelper.buttons.print(btnOptions),
+            dataTableHelper.buttons.copy(btnOptions),
+        ];
         if(editable){
             // addEvent
             buttons.push({
@@ -458,8 +454,11 @@ var dataTableHelper = {
                 },
                 {
                     targets: [0, 1], // edit, delete
-                    orderable: false,
                     visible: editable,
+                },
+                {
+                    targets: [0, 1, 5, 6], // edit, delete, name, context
+                    orderable: false,
                 },
             ],
         });

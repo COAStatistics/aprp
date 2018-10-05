@@ -47,9 +47,8 @@ class EventListCreateAPIView(ListCreateAPIView):
     # for DataTable.js ordering
     ORDER_COLUMN_CHOICES = Choices(
         ('2', 'date'),
-        ('3', 'type__id'),
-        ('4', 'name'),
-        ('5', 'context'),
+        ('3', 'user'),
+        ('4', 'types'),
     )
 
     # check if request arguments "content_type", "object_id" advised
