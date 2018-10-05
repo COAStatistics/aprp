@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-04 14:44+0800\n"
+"POT-Creation-Date: 2018-10-05 14:19+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -555,7 +555,7 @@ msgstr "模板"
 msgid "Charts"
 msgstr "圖表"
 
-#: configs/models.py:300 dailytrans/utils.py:342
+#: configs/models.py:300 dailytrans/utils.py:347
 msgid "Month"
 msgstr "月份"
 
@@ -589,13 +589,13 @@ msgstr "中價"
 msgid "Low Pirce"
 msgstr "下價"
 
-#: dailytrans/models.py:56 dailytrans/utils.py:115 dailytrans/utils.py:140
-#: dailytrans/utils.py:161 templates/contents/index-panel.html.py:20
+#: dailytrans/models.py:56 dailytrans/utils.py:116 dailytrans/utils.py:141
+#: dailytrans/utils.py:162 templates/contents/index-panel.html.py:20
 #: templates/contents/integration-table.html:12
 msgid "Average Price"
 msgstr "日均價格"
 
-#: dailytrans/models.py:57 dailytrans/utils.py:117
+#: dailytrans/models.py:57 dailytrans/utils.py:118
 #: templates/contents/index-panel.html:24
 #: templates/contents/integration-table.html:19
 msgid "Average Weight"
@@ -605,8 +605,8 @@ msgstr "日均重量"
 msgid "Volume"
 msgstr "交易量"
 
-#: dailytrans/models.py:59 dailytrans/utils.py:114 dailytrans/utils.py:139
-#: dailytrans/utils.py:160 dailytrans/utils.py:224 events/forms.py:23
+#: dailytrans/models.py:59 dailytrans/utils.py:115 dailytrans/utils.py:140
+#: dailytrans/utils.py:161 dailytrans/utils.py:229 events/forms.py:23
 #: events/models.py:59 templates/contents/event-table.html.py:12
 #: templates/contents/integration-table.html:11
 msgid "Date"
@@ -620,41 +620,45 @@ msgstr "日交易"
 msgid "Daily Transitions"
 msgstr "日交易"
 
-#: dailytrans/utils.py:116 dailytrans/utils.py:141
+#: dailytrans/utils.py:117 dailytrans/utils.py:142
 msgid "Sum Volume"
 msgstr "總交易量"
 
-#: dailytrans/utils.py:343
+#: dailytrans/utils.py:348
 msgid "Min"
 msgstr "最小值"
 
-#: dailytrans/utils.py:344
+#: dailytrans/utils.py:349
 msgid "25%"
 msgstr "第一四分位數"
 
-#: dailytrans/utils.py:345
+#: dailytrans/utils.py:350
 msgid "50%"
 msgstr "中位數"
 
-#: dailytrans/utils.py:346
+#: dailytrans/utils.py:351
 msgid "75%"
 msgstr "第三四分位數"
 
-#: dailytrans/utils.py:347
+#: dailytrans/utils.py:352
 msgid "Max"
 msgstr "最大值"
 
-#: dailytrans/utils.py:348
+#: dailytrans/utils.py:353
 msgid "Mean"
 msgstr "平均值"
 
-#: dailytrans/utils.py:481
+#: dailytrans/utils.py:494
 msgid "This Term"
 msgstr "本期"
 
-#: dailytrans/utils.py:489
+#: dailytrans/utils.py:501
 msgid "Last Term"
 msgstr "上期"
+
+#: dailytrans/utils.py:510
+msgid "5 Years"
+msgstr "近5年"
 
 #: dashboard/settings/base.py:206
 msgid "Traditional Chinese"
@@ -677,7 +681,7 @@ msgid "Share this event"
 msgstr "共用此事件"
 
 #: events/models.py:38 events/models.py:56
-#: templates/contents/event-table.html:14
+#: templates/contents/event-table.html:14 templates/navigation.html.py:99
 msgid "Event Type"
 msgstr "事件分類"
 
@@ -697,7 +701,7 @@ msgstr "內容"
 msgid "Shared Event"
 msgstr "共用事件"
 
-#: events/models.py:64
+#: events/models.py:64 templates/navigation.html.py:96
 msgid "Event"
 msgstr "事件簿"
 
@@ -1241,23 +1245,23 @@ msgstr "監控清單"
 msgid "Admin"
 msgstr "後台管理"
 
-#: templates/navigation.html:99
+#: templates/navigation.html:105
 msgid "Grand Totals"
 msgstr "合計項目"
 
-#: templates/navigation.html:120
+#: templates/navigation.html:126
 msgid "Hog Overall"
 msgstr "毛豬合計"
 
-#: templates/navigation.html:127
+#: templates/navigation.html:133
 msgid "Agricultures"
 msgstr "農產品"
 
-#: templates/navigation.html:145
+#: templates/navigation.html:151
 msgid "Livestocks"
 msgstr "畜禽產品"
 
-#: templates/navigation.html:164
+#: templates/navigation.html:170
 msgid "Fisheries"
 msgstr "漁產品"
 
