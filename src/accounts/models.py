@@ -89,8 +89,8 @@ class UserInformation(Model):
 
     @property
     def full_name(self):
-        name = str(self.user.first_name) + ' ' + str(self.user.last_name)
-        if name == ' ':
+        name = str(self.user.last_name) + str(self.user.first_name)
+        if name == '':
             name = self.user.username
         return name
 
@@ -206,8 +206,3 @@ def post_save_reset_email_receiver(sender, instance, created, *args, **kwargs):
 
 
 post_save.connect(post_save_reset_email_receiver, sender=ResetEmailProfile)
-
-
-
-
-

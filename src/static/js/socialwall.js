@@ -528,23 +528,14 @@ var socialWallHelper = {
             $searchbar.find('.search-text').val(text);
             url = $searchbar.find('#search_concept').attr('url');
             key = $('.input-group #search_param').val();
-            $.ajax({
-                type: 'get',
-                url: url,
-                data: {
-                    'key': key,
-                    'q': text,
-                },
-                async: false,
-                success: function(data) {
-                    $data = $(data);
-                    socialWallHelper.initPost($data);
-                    $('.grid').html($data);
-                    $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> '))  });
-                    $grid.masonry('reloadItems').masonry();
-                    $('html').animate({scrollTop: 0}, 'slow');
-                }
-            });
+            $('#search-area').data('keyword', key);
+            $('#search-area').data('value', text);
+            $grid.html('<div class="grid-sizer col-md-6 col-xs-12"></div>');
+            $grid.masonry('reloadItems').masonry();
+            $(window).unbind('scroll');
+            $(window).on('scroll', loadOnScroll);
+            socialWallHelper.infinitePost();
+            $('html').animate({scrollTop: 0}, 'slow');
         });
         // -------------------- Search author end --------------------
 
