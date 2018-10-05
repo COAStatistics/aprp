@@ -1,3 +1,8 @@
+// Modify 5: add globalPageDestory in pagedestroy(), unbind scroll if page leave socialwall.
+function globalPageDestory() {
+    $(window).unbind('scroll');
+}
+
 /*
  * ShortCut click event
  */
@@ -202,6 +207,7 @@ function dynamic_setup_widgets_mobile(container) {
  * Modify 2: ajax.error => if return 403, redirect to login page
  * Modify 3: add csrf token for django backend
  * Modify 4: Loading gettext
+ * Modify 5: add globalPageDestory in pagedestroy(), unbind scroll if page leave socialwall.
  */
 function loadURL(url, container, data, type) {
 
@@ -342,6 +348,7 @@ function loadURL(url, container, data, type) {
                 if (typeof pagedestroy == 'function') {
 
                   try {
+                        globalPageDestory();
                         pagedestroy();
 
                         if (debugState){
@@ -634,9 +641,3 @@ $('nav a[color-alert]').each(function(){
         $warnings.first().clone().prependTo($this);
     }
 })
-
-
-
-
-
-
