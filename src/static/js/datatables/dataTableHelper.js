@@ -198,7 +198,7 @@ var dataTableHelper = {
 				responsiveHelper.respond();
 			},
             order: [
-                [0, 'asc']
+                [0, 'desc']
             ],
             language: dataTableHelper.language,
         });
@@ -312,7 +312,7 @@ var dataTableHelper = {
 			},
 			columns: columns,
             order: [
-                [0, 'desc']
+                [0, 'asc']
             ],
             language: dataTableHelper.language,
         });
