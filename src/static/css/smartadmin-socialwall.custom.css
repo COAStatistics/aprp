@@ -53,11 +53,6 @@ li.message.message-reply.socialwall-reply > ul.list-inline.font-xs {
   margin-left: 10px;
 }
 
-li.message.message-reply.socialwall-reply {
-  margin-left: 0px !important;
-  background-image: url('http://aprp.atri.org.tw/static/vendor/img/mybg.png');
-}
-
 div.socialwall-reply-text.comment-edit {
   display: table;
   margin-left: 45px;

@@ -7,13 +7,12 @@ from comments.models import Comment
 from . import models
 from . import forms
 
-import json
 import requests
 
 
 def post_socialwall(request):
 
-    post_list = models.Post.objects.all()
+    post_list = models.Post.objects.all().order_by('-timestamp')[:5]
     form = forms.PostForm()
 
     return render(request, 'socialwall.html', locals())
@@ -81,6 +80,6 @@ def post_search(request):
     if query.count() == 0:
         html = render_to_string('socialwall404.html', {'q': q})
     else:
-        html = render_to_string('post_area.html', {'post_list': query}, request=request)
+        html = render_to_string('post_area.html', {'post_list': query[:5]}, request=request)
 
     return HttpResponse(html)
