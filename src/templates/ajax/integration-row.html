@@ -5,7 +5,7 @@
 
 {% for dic in option.integration %}
 <tr>
-    <td>{{ dic.name }}</td>
+    <td data-order="{{ dic.order }}">{{ dic.name }}</td>
     <td data-base="{{ dic.base|yesno:'true,false' }}" data-value="{{ dic.avg_price }}">{{ dic.avg_price|round_filter:2|intcomma }}</td>
     <td data-hide="phone"
         data-datelist="{{ dic.points|spark_points_flat:'unix' }}"

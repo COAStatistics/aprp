@@ -495,6 +495,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             data_this['name'] = _('This Term')
             data_this['points'] = spark_point_maker(q)
             data_this['base'] = True
+            data_this['order'] = 1
             integration.append(data_this)
 
         if q_last.count() > 0:
@@ -502,6 +503,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             data_last['name'] = _('Last Term')
             data_last['points'] = spark_point_maker(q_last)
             data_last['base'] = False
+            data_last['order'] = 2
             integration.append(data_last)
 
         # if same year do this
@@ -512,6 +514,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                 data_fy['name'] = _('5 Years')
                 data_fy['points'] = spark_point_maker(q_fy)
                 data_fy['base'] = False
+                data_fy['order'] = 3
                 integration.append(data_fy)
 
     # Return each year integration exclude current term
@@ -532,6 +535,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                 dic['name'] = '%0.0f' % year
                 dic['points'] = spark_point_maker(q_filter_by_year)
                 dic['base'] = False
+                dic['order'] = year
 
             integration = list(data_all)
             integration.reverse()
