@@ -10,7 +10,7 @@
   <!-- <img src="img/avatars/sunny.png" class="online"> -->
   <div class="message-text socialwall-author">
     <!-- <div class="read-more big-preview"> -->
-    <a href="javascript:void(0);" class="username">{{ data.user.username }}</a>
+    <a href="javascript:void(0);" class="username">{{ data.user.info.full_name }}</a>
     <span class="timefilter">
         <small class="text-muted ultra-light socialwall-post-time">
             {{ data.updated|editdiff_filter }} {% trans 'edited' %}
@@ -34,7 +34,7 @@
   <!-- <li>
   <a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
 </li> -->
-{% if request.user.username == data.user.username %}
+{% if request.user.username == data.user.info.full_name %}
 <li>
   <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ data.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Edit' %}</a>
 </li>

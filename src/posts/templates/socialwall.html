@@ -10,6 +10,11 @@ div#content {
 div#main {
 	background-color: #F7F7F7;
 }
+
+li.message.message-reply.socialwall-reply {
+  margin-left: 0px !important;
+  background-image: url('{% static "vendor/img/mybg.png" %}');
+}
 </style>
 
 <!-- Bread crumb is created dynamically -->
@@ -64,7 +69,7 @@ the <section></section> and you can use wells or panels instead
 				<!-- <button type="button" id="btn-newpost" class="btn btn-primary">{% trans 'New Post' %}</button>
 			</div> -->
 
-			<div class="input-group input-group-lg search-area">
+			<div id="search-area" class="input-group input-group-lg search-area">
 				<div class="input-group-btn search-panel">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
           	<span id="search_concept" url="{% url 'posts:post_search' %}">{% trans 'Filter by' %}</span>
@@ -107,8 +112,9 @@ the <section></section> and you can use wells or panels instead
 
 <div class="row">
 
-	<div class="grid">
-		{% include 'post_area.html' %}
+	<div class="grid" data-infinite="{% url 'posts:api_socialwall_all' %}">
+		<div class="grid-sizer col-md-6 col-xs-12"></div>
+		
 	</div>
 
 </div>

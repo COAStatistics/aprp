@@ -28,7 +28,7 @@
         <!-- <img src="img/avatars/sunny.png" class="online"> -->
         <div class="message-text socialwall-author">
           <!-- <div class="read-more big-preview"> -->
-            <a href="javascript:void(0);" class="username">{{ post.user }}</a>
+            <a href="javascript:void(0);" class="username">{{ post.user.info.full_name }}</a>
             <span class="timefilter">
                 <small class="text-muted ultra-light socialwall-post-time">
                     {{ post.updated|timediff_filter }}
@@ -41,7 +41,6 @@
             </p> -->
           <!-- </div> -->
         </div>
-
         <ul class="list-inline font-xs">
           <li class="socialwall-btn-reply">
             <a data-id="{{ post.id }}" href="javascript:void(0);" class="text-info post-reply"><i class="fa fa-reply"></i> {% trans 'Reply' %}</a>
@@ -52,7 +51,7 @@
           <!-- <li>
             <a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
           </li> -->
-          {% if request.user == post.user %}
+          {% if request.user.username == post.user.info.full_name %}
           <li>
             <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ post.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Edit' %}</a>
           </li>

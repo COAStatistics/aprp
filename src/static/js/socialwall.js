@@ -1,7 +1,7 @@
 var socialWallHelper = {
 
-    init: function() {
-        $(window).bind('scroll', loadOnScroll);
+    init: function(){
+        $(window).on('scroll', loadOnScroll);
         $('.modal').on('click', '#btn-post-cancel', function() {
             $('#dialog-form-post').modal('toggle');
         })
@@ -18,43 +18,87 @@ var socialWallHelper = {
             columWidth: '.grid-sizer',
             percentPosition: true,
         });
-        // $posts = $('#widget-grid')
+
         this.initScrollToTop();
         this.initSearchBar();
         this.initNewPostBtn();
         this.initPost($grid);
-        this.initGridResize($('.grid-item'));
-        $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> '))  });
+        this.infinitePost();
     },
 
 
-    initGridResize: function($item) {
+    infinitePost: function() {
+        // -------------------- Infinite Scroll Start --------------------
+        var pageNum = 1;
+        var hasNextPage = true;
+        keyword = $('#search-area').data('keyword');
+        value = $('#search-area').data('value');
 
-        $item.on('resize', function() {
-            $this = $(this);
-            var h = $this.outerHeight();
-            if($this.data('h') == null) {
-                $this.data('h', h);
+        while( $(window).height() + $(window).scrollTop() > $('.grid').height()-300 && hasNextPage === true ) {
+            hasNextPage = socialWallHelper.requestPost({
+                page: pageNum,
+                keyword: keyword,
+                value: value,
+            });
+            pageNum = pageNum + 1;
+        }
+
+        $(window).on('scroll', function() {
+            if ( $(window).height() + $(window).scrollTop() > $('.grid').height()-300 && hasNextPage === true) {
+                hasNextPage = socialWallHelper.requestPost({
+                    page: pageNum,
+                    keyword: keyword,
+                    value: value,
+                });
+                pageNum = pageNum + 1;
+            } else {
+                return false;
             }
-            if(h !== $(this).data('h')) {
-                $grid.masonry();
-            }
-            $this.data('h', h);
         });
+        // -------------------- Infinite Scroll Start --------------------
+    },
+
+
+    requestPost: function(data) {
+        var url = $grid.attr('data-infinite');
+        $.ajax({
+            type: 'get',
+            url: url,
+            contentType: 'application/json',
+            async: false,
+            data: data,
+            success: function(data) {
+                if(data['api']['next'] === null) {
+                    hasNextPage = false;
+                } else if(data['api']['count'] <= 5) {
+                    hasNextPage = false;
+                } else {
+                    hasNextPage = true;
+                }
+                $item = $(data['html']);
+                $('.grid').append($item).masonry('appended', $item).masonry('reloadItems').masonry();
+                socialWallHelper.initPost($item);
+                $grid.masonry();
+            },
+            statusCode: {
+                404: function(xhr, statusText, err) {
+                    hasNextPage = false;
+                }
+            }
+        });
+        return hasNextPage;
     },
 
 
     initScrollToTop: function() {
         if($(window).scrollTop() >= $(window).height()) {
-            $('#btn-scroll-top').parents('.tool-div').fadeIn();
+            $('#btn-scroll-top').parents('.tool-div').fadeIn(500);
         } else {
-            $('#btn-scroll-top').parents('.tool-div').fadeOut();
+            $('#btn-scroll-top').parents('.tool-div').fadeOut(500);
         }
-
         $('#btn-scroll-top').on('click', function(e) {
             e.preventDefault();
             $('html').animate({scrollTop: 0}, 'slow');
-            // return;
         });
     },
 
@@ -77,22 +121,13 @@ var socialWallHelper = {
                 $item.find('#search_concept').text(gettext('All'));
             }
             key = $('.input-group #search_param').val();
-            $.ajax({
-                type: 'get',
-                url: url,
-                data: {
-                    'key': key,
-                    'q': text,
-                },
-                async: false,
-                success: function(data) {
-                    $data = $(data);
-                    socialWallHelper.initPost($data);
-                    $('.grid').html($data);
-                    $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> '))  });
-                    $grid.masonry('reloadItems').masonry();
-                }
-            });
+            $('#search-area').data('keyword', key);
+            $('#search-area').data('value', text);
+            $grid.html('<div class="grid-sizer col-md-6 col-xs-12"></div>');
+            $grid.masonry('reloadItems').masonry();
+            $(window).unbind('scroll');
+            $(window).on('scroll', loadOnScroll);
+            socialWallHelper.infinitePost();
         });
 
         $('.search-text').keyup(function(e) {
@@ -104,22 +139,13 @@ var socialWallHelper = {
                     $item.find('#search_concept').text(gettext('All'));
                 }
                 key = $('.input-group #search_param').val();
-                $.ajax({
-                    type: 'get',
-                    url: url,
-                    data: {
-                        'key': key,
-                        'q': text,
-                    },
-                    async: false,
-                    success: function(data) {
-                        $data = $(data);
-                        socialWallHelper.initPost($data);
-                        $('.grid').html($data);
-                        $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> '))  });
-                        $grid.masonry('reloadItems').masonry();
-                    }
-                });
+                $('#search-area').data('keyword', key);
+                $('#search-area').data('value', text);
+                $grid.html('<div class="grid-sizer col-md-6 col-xs-12"></div>');
+                $grid.masonry('reloadItems').masonry();
+                $(window).unbind('scroll');
+                $(window).on('scroll', loadOnScroll);
+                socialWallHelper.infinitePost();
             }
         });
     },
@@ -188,7 +214,6 @@ var socialWallHelper = {
                         $grid.prepend($item).masonry('prepended', $item);
                         $('#dialog-form-post').modal('hide');
                         socialWallHelper.initPost($item);
-                        socialWallHelper.initGridResize($item);
                     }
                 });
             } else {
@@ -205,7 +230,6 @@ var socialWallHelper = {
                         $grid.prepend($item).masonry('prepended', $item);
                         $('#dialog-form-post').modal('hide');
                         socialWallHelper.initPost($item);
-                        socialWallHelper.initGridResize($item);
                     }
                 });
             }
@@ -524,6 +548,12 @@ var socialWallHelper = {
         });
         // -------------------- Search author end --------------------
 
+        // -------------------- Img Resize Start --------------------
+        $item.find('img').on('load', function() {
+            $grid.masonry();
+        });
+        $('.reply-origin').each(function() { $(this).html($(this).html().replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> '))  });
+        // -------------------- Img Resize end --------------------
 
         // -------------------- Read More Start --------------------
         // $('.read-more').readMore()
@@ -534,7 +564,7 @@ var socialWallHelper = {
         // })
         // -------------------- Read More End --------------------
 
-    }
+    },
 }
 
 // var initPost = function($posts) {
@@ -558,53 +588,16 @@ var socialWallHelper = {
 // -------------------- like thumb start --------------------
 
 
-// ---------- Infinite Scroll Satrt ----------
-var pageNum = 1
-var hasNextPage = true
 
 var loadOnScroll = function() {
+// // $(window).bind('scroll', function() {
     if($(window).scrollTop() >= $(window).height()) {
         $('#btn-scroll-top').parents('.tool-div').fadeIn(500);
     } else {
         $('#btn-scroll-top').parents('.tool-div').fadeOut(500);
     }
-
-    // if( (($(document).height() - $(window).scrollTop()) / 2) <  $(window).height()){
-    //   $(window).unbind('scroll', loadOnScroll)
-    //   loadItem()
-    // }
-}
-
-var loadItem = function() {
-    if (hasNextPage == false) {
-        return false
-    }
-    // console.log($(window).scrollTop())
-    // console.log($(document).height())
-    // console.log($(window).height())
-
-    pageNum = pageNum + 1
-    $.ajax({
-        url: '/posts/next/' + pageNum,
-        success: function(data) {
-            hasNextPage = true
-            var $item = $(data)
-
-            $grid.append($item);
-
-            $item.find('.read-more').readMore();
-            $grid.masonry('appended', $item);
-
-        },
-        error: function(data) {
-            hasNextPage = false
-        },
-        complete: function(data) {
-            $(window).bind('scroll', loadOnScroll)
-        }
-    })
-}
-// ---------- Infinite Scroll end ----------
+// // });
+};
 
 
 // solve the problem ckeditor with modal can't focus on ckeditor's modal like insert img
