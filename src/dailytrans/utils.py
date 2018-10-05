@@ -101,82 +101,87 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
 
     q, has_volume, has_weight = get_group_by_date_query_set(query_set, start_date, end_date)
 
-    # create empty date list
-    start_date = start_date or q.first()['date']
-    end_date = end_date or q.last()['date']
-    diff = end_date - start_date
-    date_list = [start_date + datetime.timedelta(days=x) for x in range(0, diff.days + 1)]
+    if q:
+        # create empty date list
+        start_date = start_date or q.first()['date']
+        end_date = end_date or q.last()['date']
+        diff = end_date - start_date
+        date_list = [start_date + datetime.timedelta(days=x) for x in range(0, diff.days + 1)]
 
-    if has_volume and has_weight:
+        if has_volume and has_weight:
 
-        raw_data = {
-            'columns': [
-                {'value': _('Date'), 'format': 'date'},
-                {'value': _('Average Price'), 'format': 'avg_price'},
-                {'value': _('Sum Volume'), 'format': 'sum_volume'},
-                {'value': _('Average Weight'), 'format': 'avg_avg_weight'}
-            ],
-            'rows': [[dic['date'], dic['avg_price'], dic['sum_volume'], dic['avg_avg_weight']] for
-                     dic in q]
+            raw_data = {
+                'columns': [
+                    {'value': _('Date'), 'format': 'date'},
+                    {'value': _('Average Price'), 'format': 'avg_price'},
+                    {'value': _('Sum Volume'), 'format': 'sum_volume'},
+                    {'value': _('Average Weight'), 'format': 'avg_avg_weight'}
+                ],
+                'rows': [[dic['date'], dic['avg_price'], dic['sum_volume'], dic['avg_avg_weight']] for
+                         dic in q]
+            }
+
+            missing_point_data = OrderedDict((date, [None, None, None]) for date in date_list)
+            for dic in q:
+                missing_point_data[dic['date']][0] = dic['avg_price']
+                missing_point_data[dic['date']][1] = dic['sum_volume']
+                missing_point_data[dic['date']][2] = dic['avg_avg_weight']
+
+            highchart_data = {
+                'avg_price': [[to_unix(date), value[0]] for date, value in missing_point_data.items()],
+                'sum_volume': [[to_unix(date), value[1]] for date, value in missing_point_data.items()],
+                'avg_weight': [[to_unix(date), value[2]] for date, value in missing_point_data.items()],
+            }
+
+        elif has_volume:
+
+            raw_data = {
+                'columns': [
+                    {'value': _('Date'), 'format': 'date'},
+                    {'value': _('Average Price'), 'format': 'avg_price'},
+                    {'value': _('Sum Volume'), 'format': 'sum_volume'}
+                ],
+                'rows': [[dic['date'], dic['avg_price'], dic['sum_volume']] for dic in q]
+            }
+
+            missing_point_data = OrderedDict((date, [None, None]) for date in date_list)
+            for dic in q:
+                missing_point_data[dic['date']][0] = dic['avg_price']
+                missing_point_data[dic['date']][1] = dic['sum_volume']
+
+            highchart_data = {
+                'avg_price': [[to_unix(date), value[0]] for date, value in missing_point_data.items()],
+                'sum_volume': [[to_unix(date), value[1]] for date, value in missing_point_data.items()],
+            }
+
+        else:
+
+            raw_data = {
+                'columns': [
+                    {'value': _('Date'), 'format': 'date'},
+                    {'value': _('Average Price'), 'format': 'avg_price'}
+                ],
+                'rows': [[dic['date'], dic['avg_price']] for dic in q]
+            }
+
+            missing_point_data = OrderedDict((date, [None]) for date in date_list)
+            for dic in q:
+                missing_point_data[dic['date']][0] = dic['avg_price']
+
+            highchart_data = {
+                'avg_price': [[to_unix(date), value[0]] for date, value in missing_point_data.items()],
+            }
+
+        response_data = {
+            'type': TypeSerializer(_type).data,
+            'highchart': highchart_data,
+            'raw': raw_data,
+            'no_data': len(highchart_data['avg_price']) == 0,
         }
-
-        missing_point_data = OrderedDict((date, [None, None, None]) for date in date_list)
-        for dic in q:
-            missing_point_data[dic['date']][0] = dic['avg_price']
-            missing_point_data[dic['date']][1] = dic['sum_volume']
-            missing_point_data[dic['date']][2] = dic['avg_avg_weight']
-
-        highchart_data = {
-            'avg_price': [[to_unix(date), value[0]] for date, value in missing_point_data.items()],
-            'sum_volume': [[to_unix(date), value[1]] for date, value in missing_point_data.items()],
-            'avg_weight': [[to_unix(date), value[2]] for date, value in missing_point_data.items()],
-        }
-
-    elif has_volume:
-
-        raw_data = {
-            'columns': [
-                {'value': _('Date'), 'format': 'date'},
-                {'value': _('Average Price'), 'format': 'avg_price'},
-                {'value': _('Sum Volume'), 'format': 'sum_volume'}
-            ],
-            'rows': [[dic['date'], dic['avg_price'], dic['sum_volume']] for dic in q]
-        }
-
-        missing_point_data = OrderedDict((date, [None, None]) for date in date_list)
-        for dic in q:
-            missing_point_data[dic['date']][0] = dic['avg_price']
-            missing_point_data[dic['date']][1] = dic['sum_volume']
-
-        highchart_data = {
-            'avg_price': [[to_unix(date), value[0]] for date, value in missing_point_data.items()],
-            'sum_volume': [[to_unix(date), value[1]] for date, value in missing_point_data.items()],
-        }
-
     else:
-
-        raw_data = {
-            'columns': [
-                {'value': _('Date'), 'format': 'date'},
-                {'value': _('Average Price'), 'format': 'avg_price'}
-            ],
-            'rows': [[dic['date'], dic['avg_price']] for dic in q]
+        response_data = {
+            'no_data': True
         }
-
-        missing_point_data = OrderedDict((date, [None]) for date in date_list)
-        for dic in q:
-            missing_point_data[dic['date']][0] = dic['avg_price']
-
-        highchart_data = {
-            'avg_price': [[to_unix(date), value[0]] for date, value in missing_point_data.items()],
-        }
-
-    response_data = {
-        'type': TypeSerializer(_type).data,
-        'highchart': highchart_data,
-        'raw': raw_data,
-        'no_data': len(highchart_data['avg_price']) == 0,
-    }
 
     return response_data
 

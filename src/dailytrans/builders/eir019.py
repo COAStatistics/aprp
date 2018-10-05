@@ -59,13 +59,15 @@ class Api(AbstractApi):
             lst = []
             for obj in self.PRODUCT_QS.all():
                 if obj.track_item:
-                    tran = create_tran(obj, source)
-                    lst.append(tran)
-
+                    try:
+                        tran = create_tran(obj, source)
+                        lst.append(tran)
+                    except Exception as e:
+                        self.LOGGER.exception("Parsing Error: %s" % dic, extra=self.LOGGER_EXTRA)
             return lst
         else:
             # log as cannot find source item
-            self.LOGGER.warning('API Warning: Cannot Match Source: "%s" In Dictionary %s'
+            self.LOGGER.warning('Cannot Match Source: "%s" In Dictionary %s'
                                 % (source_name, dic), extra=self.LOGGER_EXTRA)
             return dic
 
