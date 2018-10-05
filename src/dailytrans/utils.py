@@ -481,12 +481,20 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                                                                                end_date=last_end_date,
                                                                                specific_year=True)
 
+        # if same year do this
+        if start_date.year == end_date.year:
+            # q_fy: recent five years
+            q_fy = query_set.filter(date__year__gte=end_date.year-5, date__year__lt=end_date.year)
+            q_fy, has_volume_fy, has_weight_fy = get_group_by_date_query_set(q_fy,
+                                                                             start_date=start_date,
+                                                                             end_date=end_date,
+                                                                             specific_year=False)
+
         if q.count() > 0:
             data_this = pandas_annotate_init(q, hog_exception_condition)
             data_this['name'] = _('This Term')
             data_this['points'] = spark_point_maker(q)
             data_this['base'] = True
-
             integration.append(data_this)
 
         if q_last.count() > 0:
@@ -494,8 +502,17 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             data_last['name'] = _('Last Term')
             data_last['points'] = spark_point_maker(q_last)
             data_last['base'] = False
-
             integration.append(data_last)
+
+        # if same year do this
+        if start_date.year == end_date.year:
+            actual_years = set(q_fy.values_list('year', flat=True))
+            if len(actual_years) == 5:
+                data_fy = pandas_annotate_init(q_fy, hog_exception_condition)
+                data_fy['name'] = _('5 Years')
+                data_fy['points'] = spark_point_maker(q_fy)
+                data_fy['base'] = False
+                integration.append(data_fy)
 
     # Return each year integration exclude current term
     else:

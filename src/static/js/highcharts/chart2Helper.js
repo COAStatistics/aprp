@@ -362,6 +362,7 @@ var chart2Helper = {
 
                         if(e.trigger === 'rangeSelectorInput'
                         || e.trigger === 'navigator'
+                        || e.trigger === 'zoom'
                         || e.trigger === 'rangeSelectorButton'){
 
 
