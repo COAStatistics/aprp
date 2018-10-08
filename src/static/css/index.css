@@ -150,3 +150,10 @@ nav a>em {
     border: 0 !important;
 }
 
+.multiselect-container>li>a>label {
+    padding: 3px 0px 3px 0px !important;
+    text-align: center !important;
+}
+.multiselect-container .smart-form .checkbox, .smart-form .radio {
+    padding-left: none;
+}

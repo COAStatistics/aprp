@@ -31,24 +31,24 @@
                         <div class="panel-body padding-10" id="chart-{{ chart.id }}-panel-body-{{ option.type.id }}-toolbar">
                             <div action="" class="smart-form">
                                 <fieldset>
-                                    <section>
+                                    <section class="col col-sm-12 col-md-6">
                                         <label class="label">{% trans 'Display years' %}</label>
                                         <label class="select select-multiple">
                                             <!-- Advise data-name -->
                                             <select class="select-block" multiple='multiple' data-name="display-years">
-                                                {% for year in option.years %}
+                                                {% for year, selected in option.years %}
                                                 <option value='{{ year }}' selected="selected">{{ year }}</option>
                                                 {% endfor %}
                                             </select>
                                         </label>
                                     </section>
-                                    <section>
+                                    <section class="col col-sm-12 col-md-6">
                                         <label class="label">{% trans 'Average years' %}</label>
                                         <label class="select select-multiple">
                                             <!-- Advise data-name -->
                                             <select class="select-block" multiple='multiple' data-name="average-years">
-                                                {% for year in option.years %}
-                                                <option value='{{ year }}' selected="selected">{{ year }}</option>
+                                                {% for year, selected in option.years %}
+                                                <option value='{{ year }}' {% if selected %}selected="selected"{% endif %}>{{ year }}</option>
                                                 {% endfor %}
                                             </select>
                                         </label>
