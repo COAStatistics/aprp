@@ -215,6 +215,12 @@ var socialWallHelper = {
                         $('#dialog-form-post').modal('hide');
                         socialWallHelper.initPost($item);
                     }
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    if(jqXHR.responseJSON){
+                        $('form').formcontrol().validate(jqXHR.responseJSON);
+                    }else{
+                        console.log(jqXHR);
+                    }
                 });
             } else {
                 // console.log('no file')
@@ -230,6 +236,12 @@ var socialWallHelper = {
                         $grid.prepend($item).masonry('prepended', $item);
                         $('#dialog-form-post').modal('hide');
                         socialWallHelper.initPost($item);
+                    }
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    if(jqXHR.responseJSON){
+                        $('form').formcontrol().validate(jqXHR.responseJSON);
+                    }else{
+                        console.log(jqXHR);
                     }
                 });
             }
@@ -274,6 +286,12 @@ var socialWallHelper = {
                         $grid.masonry('layout');
                         $('#dialog-form-post').modal('hide');
                     }
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    if(jqXHR.responseJSON){
+                        $('form').formcontrol().validate(jqXHR.responseJSON);
+                    }else{
+                        console.log(jqXHR);
+                    }
                 });
             } else {
                 // console.log('no file')
@@ -292,6 +310,12 @@ var socialWallHelper = {
                         $div.find('.post-update').prepend($item);
                         $grid.masonry('layout');
                         $('#dialog-form-post').modal('hide');
+                    }
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    if(jqXHR.responseJSON){
+                        $('form').formcontrol().validate(jqXHR.responseJSON);
+                    }else{
+                        console.log(jqXHR);
                     }
                 });
             }
@@ -488,6 +512,9 @@ var socialWallHelper = {
                             $grid.masonry();
                             return;
                         }
+                    }).fail(function() {
+                        $reply.find('.comment').show();
+                        $reply.find('.comment-edit').hide();
                     });
                 }
             })
@@ -511,6 +538,9 @@ var socialWallHelper = {
                         socialWallHelper.initPost($reply);
                         $grid.masonry();
                     }
+                }).fail(function() {
+                    $reply.find('.comment').show();
+                    $reply.find('.comment-edit').hide();
                 });
             });
         });
