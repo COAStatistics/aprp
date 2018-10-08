@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-05 14:19+0800\n"
+"POT-Creation-Date: 2018-10-08 11:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -422,7 +422,7 @@ msgstr "雞"
 msgid "File"
 msgstr "檔案"
 
-#: comments/models.py:59 posts/models.py:36 posts/templates/socialwall.html:76
+#: comments/models.py:59 posts/models.py:36 posts/templates/socialwall.html:81
 msgid "Content"
 msgstr "內容"
 
@@ -430,7 +430,7 @@ msgstr "內容"
 msgid "Timestamp"
 msgstr "時間戳"
 
-#: comments/models.py:65 posts/templates/socialwall.html.py:77
+#: comments/models.py:65 posts/templates/socialwall.html.py:82
 msgid "Comment"
 msgstr "回覆"
 
@@ -555,7 +555,7 @@ msgstr "模板"
 msgid "Charts"
 msgstr "圖表"
 
-#: configs/models.py:300 dailytrans/utils.py:347
+#: configs/models.py:300 dailytrans/utils.py:355
 msgid "Month"
 msgstr "月份"
 
@@ -624,39 +624,39 @@ msgstr "日交易"
 msgid "Sum Volume"
 msgstr "總交易量"
 
-#: dailytrans/utils.py:348
+#: dailytrans/utils.py:356
 msgid "Min"
 msgstr "最小值"
 
-#: dailytrans/utils.py:349
+#: dailytrans/utils.py:357
 msgid "25%"
 msgstr "第一四分位數"
 
-#: dailytrans/utils.py:350
+#: dailytrans/utils.py:358
 msgid "50%"
 msgstr "中位數"
 
-#: dailytrans/utils.py:351
+#: dailytrans/utils.py:359
 msgid "75%"
 msgstr "第三四分位數"
 
-#: dailytrans/utils.py:352
+#: dailytrans/utils.py:360
 msgid "Max"
 msgstr "最大值"
 
-#: dailytrans/utils.py:353
+#: dailytrans/utils.py:361
 msgid "Mean"
 msgstr "平均值"
 
-#: dailytrans/utils.py:494
+#: dailytrans/utils.py:503
 msgid "This Term"
 msgstr "本期"
 
-#: dailytrans/utils.py:501
+#: dailytrans/utils.py:511
 msgid "Last Term"
 msgstr "上期"
 
-#: dailytrans/utils.py:510
+#: dailytrans/utils.py:522
 msgid "5 Years"
 msgstr "近5年"
 
@@ -770,7 +770,7 @@ msgstr "日誌類型"
 msgid "LogTypes"
 msgstr "日誌類型"
 
-#: posts/models.py:34 posts/templates/socialwall.html.py:74
+#: posts/models.py:34 posts/templates/socialwall.html.py:79
 msgid "Title"
 msgstr "標題"
 
@@ -790,7 +790,7 @@ msgstr "貼文"
 msgid "Posts"
 msgstr "貼文"
 
-#: posts/templates/form_modal.html:8 posts/templates/socialwall.html.py:64
+#: posts/templates/form_modal.html:8 posts/templates/socialwall.html.py:69
 msgid "New Post"
 msgstr "新增貼文"
 
@@ -802,69 +802,69 @@ msgstr "編輯貼文"
 msgid "Send"
 msgstr "送出"
 
-#: posts/templates/post.html:11 posts/templates/post_area.html.py:14
+#: posts/templates/post.html:11 posts/templates/post_area.html.py:13
 msgid "Hide this post"
 msgstr "隱藏這則貼文"
 
-#: posts/templates/post.html:47 posts/templates/post.html.py:77
-#: posts/templates/post_area.html:55 posts/templates/post_area.html.py:104
-#: posts/templates/post_area.html:129 posts/templates/post_edit.html.py:29
+#: posts/templates/post.html:46 posts/templates/post.html.py:76
+#: posts/templates/post_area.html:54 posts/templates/post_area.html.py:103
+#: posts/templates/post_area.html:128 posts/templates/post_edit.html.py:29
 #: posts/templates/reply.html:18 posts/templates/reply.html.py:25
 msgid "Reply"
 msgstr "回覆"
 
-#: posts/templates/post.html:50 posts/templates/post_area.html.py:58
-#: posts/templates/post_area.html:107 posts/templates/post_edit.html.py:32
+#: posts/templates/post.html:49 posts/templates/post_area.html.py:57
+#: posts/templates/post_area.html:106 posts/templates/post_edit.html.py:32
 #: posts/templates/reply.html:28
 msgid "Like"
 msgstr "喜歡"
 
-#: posts/templates/post.html:57 posts/templates/post_area.html.py:65
-#: posts/templates/post_area.html:114 posts/templates/post_edit.html.py:39
+#: posts/templates/post.html:56 posts/templates/post_area.html.py:64
+#: posts/templates/post_area.html:113 posts/templates/post_edit.html.py:39
 #: posts/templates/reply.html:35 templates/contents/event-table.html.py:10
 msgid "Edit"
 msgstr "編輯"
 
-#: posts/templates/post.html:60 posts/templates/post_area.html.py:68
-#: posts/templates/post_area.html:117 posts/templates/post_edit.html.py:42
+#: posts/templates/post.html:59 posts/templates/post_area.html.py:67
+#: posts/templates/post_area.html:116 posts/templates/post_edit.html.py:42
 #: posts/templates/reply.html:38 templates/contents/event-table.html.py:11
 msgid "Delete"
 msgstr "刪除"
 
-#: posts/templates/post.html:74 posts/templates/post_area.html.py:126
+#: posts/templates/post.html:73 posts/templates/post_area.html.py:125
 msgid "Type and enter"
 msgstr "輸入回覆並按Enter送出"
 
-#: posts/templates/post_area.html:41 posts/templates/post_edit.html.py:16
+#: posts/templates/post_area.html:40 posts/templates/post_edit.html.py:16
 msgid "edited"
 msgstr "已編輯"
 
-#: posts/templates/socialwall.html:25 templates/ajax/about.html.py:12
+#: posts/templates/socialwall.html:30 templates/ajax/about.html.py:12
 #: templates/navigation.html:57
 msgid "Main"
 msgstr "主頁"
 
-#: posts/templates/socialwall.html:27 templates/navigation.html.py:63
+#: posts/templates/socialwall.html:32 templates/navigation.html.py:63
 msgid "Social Wall"
 msgstr "輿情回應專區"
 
-#: posts/templates/socialwall.html:70
+#: posts/templates/socialwall.html:75
 msgid "Filter by"
 msgstr "關鍵字"
 
-#: posts/templates/socialwall.html:75
+#: posts/templates/socialwall.html:80
 msgid "Author"
 msgstr "發文者"
 
-#: posts/templates/socialwall.html:79
+#: posts/templates/socialwall.html:84
 msgid "All"
 msgstr "全部"
 
-#: posts/templates/socialwall.html:83
+#: posts/templates/socialwall.html:88
 msgid "Search term..."
 msgstr "輸入關鍵字..."
 
-#: posts/templates/socialwall.html:83
+#: posts/templates/socialwall.html:88
 msgid "Default search all..."
 msgstr "預設搜尋全部..."
 
@@ -1209,6 +1209,12 @@ msgstr "原始資料"
 msgid "Year Selected"
 msgstr "選擇年份"
 
+#: templates/contents/selected-year-info.html:18
+msgid ""
+"Average years in this chart is default to recent 5 years, you can change it "
+"in settings"
+msgstr "圖表的歷年平均預設為近五年平均，你可以於設定中更改此選項"
+
 #: templates/contents/watchlist-profile-table.html:10
 #: templates/navigation.html:90 watchlists/models.py:139
 msgid "Watchlist Item"
@@ -1320,3 +1326,4 @@ msgstr "啟用"
 #: watchlists/models.py:160
 msgid "Monitor Months"
 msgstr "監控月份"
+

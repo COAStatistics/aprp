@@ -247,7 +247,15 @@ def get_daily_price_by_year(_type, items, sources=None):
 
     response_data = dict()
 
-    response_data['years'] = [date.year for date in query_set.dates('date', 'year')]
+    years = [date.year for date in query_set.dates('date', 'year')]
+
+    this_year = datetime.date.today().year
+
+    # default select last 5 years
+    def selected_year(y):
+        return this_year in years and this_year > y >= datetime.date.today().year-5
+
+    response_data['years'] = [(year, selected_year(year)) for year in years]
 
     response_data['type'] = TypeSerializer(_type).data
 
@@ -535,7 +543,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                 dic['name'] = '%0.0f' % year
                 dic['points'] = spark_point_maker(q_filter_by_year)
                 dic['base'] = False
-                dic['order'] = year
+                dic['order'] = 4 + this_year - year
 
             integration = list(data_all)
             integration.reverse()
