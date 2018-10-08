@@ -1,7 +1,7 @@
 {% load i18n %}
 
 {% if chart.id == 4 %}
-    <p class="alert alert-success no-margin">
+    <div class="alert alert-success no-margin">
         <i class="fa fa-check"></i> {% trans 'Year Selected' %} :
         <strong>
         {% if method == 'GET' or not selected_years %}
@@ -10,5 +10,14 @@
             {{ selected_years|join:" + " }}
         {% endif %}
         </strong>
-    </p>
+    </div>
+{% endif %}
+
+{% if chart.id == 3 and target == 'chart' %}
+    <div class="alert alert-info no-margin">
+        <i class="fa fa-info-circle"></i> {% trans 'Average years in this chart is default to recent 5 years, you can change it in settings' %}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 {% endif %}

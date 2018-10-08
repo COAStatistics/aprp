@@ -53,7 +53,7 @@
 
                             <!-- widget content -->
                             <div class="widget-body no-padding">
-                                {% include 'contents/selected-year-info.html' %}
+                                {% include 'contents/selected-year-info.html' with target='chart' %}
                                 <div class="padding-10" id="chart-{{ chart.id }}-widget-{{ option.type.id }}-{{ index }}-body"></div>
                             </div>
                             <!-- end widget content -->
