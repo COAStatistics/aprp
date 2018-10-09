@@ -34,7 +34,7 @@
   <!-- <li>
   <a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
 </li> -->
-{% if request.user.username == data.user.info.full_name %}
+{% if request.user.info.full_name == data.user.info.full_name %}
 <li>
   <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ data.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Edit' %}</a>
 </li>
