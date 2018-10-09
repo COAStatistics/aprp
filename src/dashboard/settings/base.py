@@ -240,6 +240,8 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
 
+SERVE_MEDIA_FILES = False  # make whitenoise serving media files
+
 # All-auth
 
 AUTHENTICATION_BACKENDS = (
