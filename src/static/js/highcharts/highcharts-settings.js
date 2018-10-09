@@ -107,7 +107,12 @@ Highcharts.theme = {
     plotOptions: {
         candlestick: {
             lineColor: '#404048'
-        }
+        },
+        series: {
+            animation: {
+                duration: 2000,
+            },
+        },
     },
 
     // General

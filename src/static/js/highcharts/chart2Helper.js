@@ -423,11 +423,6 @@ var chart2Helper = {
                 },
             },
 
-            loading: {
-                hideDuration: 1000,
-                showDuration: 1000
-            },
-
             yAxis: yAxis,
 
             series: series,

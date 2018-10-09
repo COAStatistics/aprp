@@ -309,11 +309,6 @@ var chart1Helper = {
                 }
             },
 
-            loading: {
-                hideDuration: 1000,
-                showDuration: 1000
-            },
-
             rangeSelector: {
                 selected: 0
             },
