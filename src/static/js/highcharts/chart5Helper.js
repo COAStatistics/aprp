@@ -126,11 +126,6 @@ var chart5Helper = {
                 }
             },
 
-            loading: {
-                hideDuration: 1000,
-                showDuration: 1000
-            },
-
             rangeSelector: {
                 selected: 0
             },
