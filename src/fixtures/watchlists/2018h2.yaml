@@ -752,3 +752,33 @@
     product: 70010 # 135公斤-155公斤
     sources: [40002, 40003, 40004, 40005, 40006, 40007, 40008, 40009, 40010, 40011, 40012, 40013, 40014, 40015, 40016, 40017, 40018, 40019, 40020, 40021, 40022]
     parent: 3
+
+# 20181009 新增
+
+- model: watchlists.WatchlistItem
+  pk: 1103
+  fields:
+    product: 120962 # 鰻魚 4尾/公斤
+    sources: []
+    parent: 3
+
+- model: watchlists.WatchlistItem
+  pk: 1104
+  fields:
+    product: 120937 # 白蝦 50尾/0.6公斤
+    sources: []
+    parent: 3
+
+- model: watchlists.WatchlistItem
+  pk: 1105
+  fields:
+    product: 120987 # 午仔魚 300g-375g
+    sources: []
+    parent: 3
+
+- model: watchlists.WatchlistItem
+  pk: 1106
+  fields:
+    product: 120949 # 金目鱸 600-800g
+    sources: []
+    parent: 3
