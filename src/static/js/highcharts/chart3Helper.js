@@ -1,6 +1,12 @@
 var chart3Helper = {
     container: null,
     manager: {
+        chartContainers: [],
+        getCharts: function(){
+            return this.chartContainers.map(function(container, i){
+                return $('#' + container).highcharts();
+            })
+        },
         fontSize: {
             label: 11,
             title: 11,
@@ -14,27 +20,26 @@ var chart3Helper = {
         if(this.container.length == 0)
             root.console.log('Cannot find container #' + container);
 
-        this.manager.charts = {};
-
-        // bind submit function
-        this.container.on('click', '.js-panel-toolbar-submit', function(){
-            $this = $(this);
-            var typeId = $this.attr('data-type-id');
-            var form = $this.closest('.smart-form');
-            var averageYears = form.find('[data-name="average-years"]').val();
-            var displayYears = form.find('[data-name="display-years"]').val();
-
-            chart3Helper.manager.charts[typeId].forEach(function(chart, i){
-                chart3Helper.replaceAvgSeries(chart, averageYears);
-                chart3Helper.displaySeries(chart, displayYears);
-            })
-        })
-
         if(thisDevice == 'desktop'){
             this.manager.fontSize.label = 14;
             this.manager.fontSize.title = 18;
         }
 
+        this.manager.$form = this.container.find('.smart-form');
+
+        // bind submit function
+        this.container.on('click', '.js-panel-toolbar-submit', function(){
+            chart3Helper.updateChartSeries();
+        })
+    },
+    updateChartSeries: function() {
+        var averageYears = this.manager.$form.find('[data-name="average-years"]').val();
+        var displayYears = this.manager.$form.find('[data-name="display-years"]').val();
+        var charts = this.manager.getCharts();
+        charts.forEach(function(chart, i){
+            chart3Helper.replaceAvgSeries(chart, averageYears);
+            chart3Helper.displaySeries(chart, displayYears);
+        })
     },
     create: function(container, seriesOption, unit, type, index) {
 
@@ -71,7 +76,8 @@ var chart3Helper = {
             }
         }
 
-        avgSeries = chart3Helper.createAvgSeries(seriesOption);
+        var averageYears = this.manager.$form.find('[data-name="average-years"]').val();
+        avgSeries = chart3Helper.createAvgSeries(seriesOption, averageYears);
 
         if(avgSeries != null)
             series.push(avgSeries);
@@ -200,12 +206,7 @@ var chart3Helper = {
         chart.seriesOption = seriesOption;
         chart.unit = unit;
 
-        // store instance
-        var charts = chart3Helper.manager.charts;
-        if(!(type.id in charts)){
-            charts[type.id] = [];
-        }
-        charts[type.id].push(chart);
+        this.manager.chartContainers.push(container);
 
         return chart;
     },
