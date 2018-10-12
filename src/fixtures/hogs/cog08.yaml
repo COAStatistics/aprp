@@ -2,8 +2,8 @@
   pk: 70001
   fields:
     name: 規格豬
+    code: 規格豬(75公斤以上)
     type: 1
-    track_item: false
     config: 8
     unit: 3
 
@@ -36,36 +36,6 @@
     parent: 70002
 
 - model: hogs.Hog
-  pk: 70005
-  fields:
-    name: 75-95公斤
-    code: 75(含)-95(不含)
-    type: 1
-    config: 8
-    unit: 3
-    parent: 70001
-
-- model: hogs.Hog
-  pk: 70006
-  fields:
-    name: 95-115公斤
-    code: 95(含)-115(含)
-    type: 1
-    config: 8
-    unit: 3
-    parent: 70001
-
-- model: hogs.Hog
-  pk: 70007
-  fields:
-    name: 115-135公斤
-    code: 115(含)-135(不含)
-    type: 1
-    config: 8
-    unit: 3
-    parent: 70001
-
-- model: hogs.Hog
   pk: 70008
   fields:
     name: 淘汰種豬
@@ -85,25 +55,5 @@
     unit: 3
     parent: 70002
 
-# 20181005新增
 
-- model: hogs.Hog
-  pk: 70010
-  fields:
-    name: 135-155公斤
-    code: 135(含)-155(不含)
-    type: 1
-    config: 8
-    unit: 3
-    parent: 70001
-
-- model: hogs.Hog
-  pk: 70011
-  fields:
-    name: 155公斤以上
-    code: 155公斤以上
-    type: 1
-    config: 8
-    unit: 3
-    parent: 70002
 

@@ -19,7 +19,7 @@ class BuilderTestCase(TestCase):
 
     def test_hog(self):
         # test create
-        obj = Hog.objects.filter(code='75(含)-95(不含)').filter(track_item=True).first()
+        obj = Hog.objects.filter(code='規格豬(75公斤以上)').filter(track_item=True).first()
         source = Source.objects.filter_by_name('台中大安').first()
 
         api = Api(model=Hog, config_code='COG08', type_id=None)
@@ -40,7 +40,7 @@ class BuilderTestCase(TestCase):
 
     def test_multi(self):
         # test create
-        obj = Hog.objects.filter(code='75(含)-95(不含)').filter(track_item=True).first()
+        obj = Hog.objects.filter(code='規格豬(75公斤以上)').filter(track_item=True).first()
 
         api = Api(model=Hog, config_code='COG08', type_id=None)
 
@@ -49,7 +49,7 @@ class BuilderTestCase(TestCase):
 
         count_qs = DailyTran.objects.filter(date=self.date, product=obj)
 
-        self.assertEquals(count_qs.count(), 19)
+        self.assertEquals(count_qs.count(), 22)
 
 
 

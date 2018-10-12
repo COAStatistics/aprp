@@ -1,6 +1,7 @@
 from django.db.models import Q
 import datetime
 import json
+import math
 from .utils import date_transfer
 from .abstract import AbstractApi
 from dailytrans.models import DailyTran
@@ -117,7 +118,7 @@ class Api(AbstractApi):
                         else:
                             if obj.volume > 0 and obj.avg_price > 0 and obj.avg_weight > 0:
                                 obj.save()
-                            else:
+                            elif not math.isclose(obj.volume + obj.avg_price + obj.avg_weight, 0):
                                 self.LOGGER.warning('Find not valid hog DailyTran item: %s' % str(obj), extra=self.LOGGER_EXTRA)
                 except Exception as e:
                     self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
