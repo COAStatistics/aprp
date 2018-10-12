@@ -320,3 +320,19 @@ SESSION_COOKIE_AGE = 7200
 # Google Analytics
 USE_GA = False
 GA_TRACKING_ID = ''
+
+# Password limits
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': {
+            'min_length': 8,
+        }
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+]

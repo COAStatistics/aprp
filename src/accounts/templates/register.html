@@ -108,14 +108,24 @@
 					</div>
 
 					<section>
+						<label for="{{ form.privacy.auto_id }}" class="checkbox">
+							<input id="{{ form.privacy.auto_id }}" name="condition" type="checkbox">
+							<i></i>{%  trans 'I have read and agreed with the' %} <a href="#" data-toggle="modal" data-target="#privacyModal"> {% trans 'Privacy Policy' %} </a>
+						</label>
+						{% for error in form.privacy.errors %}
+							<small class="help-block text-danger" style="">{{ error|escape }}</small>
+						{% endfor %}
+					</section>
+					<section>
 						<label for="{{ form.condition.auto_id }}" class="checkbox">
 							<input id="{{ form.condition.auto_id }}" name="condition" type="checkbox">
-							<i></i>{%  trans 'I have read the' %} <a href="#" data-toggle="modal" data-target="#myModal"> {% trans 'Terms and Conditions' %} </a>
+							<i></i>{%  trans 'I have read and agreed with the' %} <a href="#" data-toggle="modal" data-target="#conditionModal"> {% trans 'Terms and Conditions' %} </a>
 						</label>
 						{% for error in form.condition.errors %}
 							<small class="help-block text-danger" style="">{{ error|escape }}</small>
 						{% endfor %}
 					</section>
+
 
 				</fieldset>
 				<footer>
@@ -132,4 +142,8 @@
 		</div>
 	</div>
 </div>
+
+{% include 'conditions.html' with checkbox_id=form.condition.auto_id %}
+{% include 'privacy.html' with checkbox_id=form.privacy.auto_id %}
+
 {% endblock content %}

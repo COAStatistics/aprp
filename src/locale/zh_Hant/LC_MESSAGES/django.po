@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-08 11:06+0800\n"
+"POT-Creation-Date: 2018-10-12 09:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,16 +22,16 @@ msgstr ""
 msgid "Please Input Chinese Only"
 msgstr "請輸入中文"
 
-#: accounts/forms.py:21 accounts/forms.py:83 accounts/forms.py:110
-#: accounts/forms.py:177 accounts/views.py:113
+#: accounts/forms.py:21 accounts/forms.py:83 accounts/forms.py:113
+#: accounts/forms.py:199
 msgid "Account"
 msgstr "帳號"
 
-#: accounts/forms.py:22 accounts/forms.py:112
+#: accounts/forms.py:22 accounts/forms.py:115
 msgid "First Name"
 msgstr "名字"
 
-#: accounts/forms.py:23 accounts/forms.py:113
+#: accounts/forms.py:23 accounts/forms.py:116
 msgid "Last Name"
 msgstr "姓氏"
 
@@ -48,7 +48,7 @@ msgstr "請選擇"
 msgid "Reset Email"
 msgstr "變更電子信箱"
 
-#: accounts/forms.py:57 accounts/forms.py:152
+#: accounts/forms.py:57 accounts/forms.py:169
 msgid "This email has already been registered"
 msgstr "此電子信箱已經被註冊"
 
@@ -56,51 +56,83 @@ msgstr "此電子信箱已經被註冊"
 msgid "To use this group, please change your email to this unit:"
 msgstr "要變更到此群組，請先變更您的信箱到此單位："
 
-#: accounts/forms.py:84 accounts/forms.py:114 accounts/forms.py:157
+#: accounts/forms.py:83 accounts/forms.py:113 accounts/forms.py:199
+msgid "Please enter your account"
+msgstr "請輸入你的帳號"
+
+#: accounts/forms.py:84 accounts/forms.py:117 accounts/forms.py:174
 msgid "Password"
 msgstr "密碼"
+
+#: accounts/forms.py:84 accounts/forms.py:117 accounts/forms.py:174
+msgid "Please enter your password"
+msgstr "請輸入你的密碼"
 
 #: accounts/forms.py:96
 msgid "Your account or password is incorrect"
 msgstr "您輸入的帳號或密碼不正確，請重試"
 
-#: accounts/forms.py:111 accounts/forms.py:176
+#: accounts/forms.py:102
+msgid "Please activate your account"
+msgstr "請先至您註冊的信箱啟用您的帳號"
+
+#: accounts/forms.py:104
+msgid "Resend Activation Email"
+msgstr "重寄驗證信"
+
+#: accounts/forms.py:114 accounts/forms.py:198
 msgid "Email"
 msgstr "電子信箱"
 
-#: accounts/forms.py:115 accounts/forms.py:158
+#: accounts/forms.py:114 accounts/forms.py:198
+msgid "Please enter your email"
+msgstr "請輸入你的信箱"
+
+#: accounts/forms.py:118 accounts/forms.py:175
 msgid "Confirm Password"
 msgstr "確認密碼"
 
-#: accounts/forms.py:116
-msgid "Condition"
-msgstr "同意條約"
+#: accounts/forms.py:118 accounts/forms.py:175
+msgid "Please confirm your password"
+msgstr "請確認你的密碼"
 
-#: accounts/forms.py:132
-msgid "You must agree out terms and conditions!"
-msgstr "請先同意使用條款！"
+#: accounts/forms.py:119
+msgid "Terms & Conditions"
+msgstr "使用條款"
 
-#: accounts/forms.py:139 accounts/forms.py:171
+#: accounts/forms.py:120 accounts/templates/register.html.py:113
+msgid "Privacy Policy"
+msgstr "隱私權政策"
+
+#: accounts/forms.py:138
+msgid "You must agree our terms and conditions"
+msgstr "請先同意我們的使用條款"
+
+#: accounts/forms.py:144
+msgid "You must agree our privacy policies"
+msgstr "請先同意我們的隱私權政策"
+
+#: accounts/forms.py:156 accounts/forms.py:193
 msgid "Password must match"
 msgstr "密碼與密碼確認不符"
 
-#: accounts/forms.py:148
+#: accounts/forms.py:165
 msgid "Please register with email under domain \"@mail.coa.gov.tw\""
-msgstr "請使用農委會及所屬單位信箱註冊"
+msgstr "請使用農委會所屬單位信箱註冊"
 
-#: accounts/forms.py:191 accounts/templates/resend-email.html.py:38
+#: accounts/forms.py:213 accounts/templates/resend-email.html.py:38
 msgid "Please advise your email or account"
 msgstr "請輸入你的信箱或帳號"
 
-#: accounts/forms.py:196
+#: accounts/forms.py:218
 msgid "Your account or email is incorrect"
 msgstr "您輸入的信箱或帳號不正確，請重試"
 
-#: accounts/forms.py:205
+#: accounts/forms.py:227
 msgid "This email is not exist"
 msgstr "此信箱尚未註冊，請重新確認"
 
-#: accounts/forms.py:213
+#: accounts/forms.py:235
 msgid "This account is not exist"
 msgstr "此帳號未註冊，請重新確認"
 
@@ -173,9 +205,18 @@ msgstr "帳戶啟用驗證"
 msgid "Activation Profiles"
 msgstr "帳戶啟動驗證"
 
-#: accounts/models.py:149 accounts/views.py:113
+#: accounts/models.py:149
 msgid "Activate"
 msgstr "啟用"
+
+#: accounts/models.py:150 accounts/models.py:175 accounts/models.py:201
+#: accounts/templates/account-base.html:8
+#: accounts/templates/account-base.html:45
+#: accounts/templates/introduction.html:5
+#: accounts/templates/mail_content.html:142 templates/footer.html.py:7
+#: templates/header.html:9 templates/index.html.py:9
+msgid "Agriculture Products Price Report Platform"
+msgstr "重要農產品每日價量資訊平台"
 
 #: accounts/models.py:150
 msgid "Account Activation"
@@ -183,11 +224,11 @@ msgstr "啟用帳戶"
 
 #: accounts/models.py:151
 msgid "Please activate your account by clicking the link below"
-msgstr "點擊以下連結來啟用您的帳戶"
+msgstr "請點擊以下連結來啟用您的帳戶"
 
-#: accounts/models.py:152 accounts/templates/register.html.py:128
+#: accounts/models.py:152 accounts/templates/register.html.py:138
 msgid "Thank you for your registration"
-msgstr "感謝註冊"
+msgstr "感謝您的註冊"
 
 #: accounts/models.py:163
 msgid "Reset Password Profile"
@@ -206,7 +247,7 @@ msgstr "重設密碼"
 
 #: accounts/models.py:176
 msgid "Please click the following button to reset your password"
-msgstr "點擊以下連結以重設您的密碼"
+msgstr "請點擊以下連結以重設您的密碼"
 
 #: accounts/models.py:189
 msgid "Reset Email Profile"
@@ -218,14 +259,7 @@ msgstr "重設電子信箱驗證"
 
 #: accounts/models.py:202
 msgid "Please click the following button to reset your email"
-msgstr "點擊以下連結以重設您的信箱"
-
-#: accounts/templates/account-base.html:8
-#: accounts/templates/account-base.html:45
-#: accounts/templates/introduction.html:5 templates/footer.html.py:7
-#: templates/header.html:9 templates/index.html.py:9
-msgid "Agriculture Products Price Report Platform"
-msgstr "重要農產品每日價量資訊平台"
+msgstr "請點擊以下連結以重設您的信箱"
 
 #: accounts/templates/account-base.html:85 templates/lock.html.py:94
 msgid "Your browser is out of date, please update your browser by going to"
@@ -290,7 +324,7 @@ msgstr ""
 "現階段先行開發「近2週每日價量」、「每日價量趨勢」、「歷年每日價格走勢」、「歷"
 "年各月價格分布」等4項功能，主要提供價格及交易量（毛豬另提供重量）整合資訊。"
 
-#: accounts/templates/login.html:8 accounts/templates/mail_content.html:141
+#: accounts/templates/login.html:8 accounts/templates/mail_content.html:143
 #: accounts/templates/register.html:12 accounts/templates/resend-email.html:12
 #: accounts/templates/reset-password.html:12
 msgid "Log in"
@@ -301,7 +335,7 @@ msgid "Need an account"
 msgstr "需要新的帳號嗎"
 
 #: accounts/templates/login.html:14 accounts/templates/register.html.py:8
-#: accounts/templates/register.html:25 accounts/templates/register.html:122
+#: accounts/templates/register.html:25 accounts/templates/register.html:132
 msgid "Register"
 msgstr "註冊"
 
@@ -321,19 +355,19 @@ msgstr "記住我"
 msgid "Login"
 msgstr "登入"
 
-#: accounts/templates/mail_content.html:124
+#: accounts/templates/mail_content.html:107
+msgid "Hi"
+msgstr "您好"
+
+#: accounts/templates/mail_content.html:126
 msgid "Any further questions please contact us"
 msgstr "任何問題歡迎聯繫我們"
 
-#: accounts/templates/mail_content.html:125
-msgid "Good luck! Hope it works"
-msgstr "祝您有愉快的一天"
+#: accounts/templates/mail_content.html:127
+msgid "Good luck! Hope it works!"
+msgstr "祝事事如意"
 
-#: accounts/templates/mail_content.html:140
-msgid "COA Statistics 2018"
-msgstr "農委會統計室 2018"
-
-#: accounts/templates/mail_content.html:141
+#: accounts/templates/mail_content.html:143
 msgid "Want to login right now"
 msgstr "現在登入"
 
@@ -354,11 +388,11 @@ msgstr "請查看您的信箱"
 msgid "Click the link in the email to activate your account"
 msgstr "請點擊信件連結來啟用您的帳號"
 
-#: accounts/templates/register.html:113
-msgid "I have read the"
-msgstr "我已閱讀過"
+#: accounts/templates/register.html:113 accounts/templates/register.html:122
+msgid "I have read and agreed with the"
+msgstr "我已閱讀且同意"
 
-#: accounts/templates/register.html:113
+#: accounts/templates/register.html:122
 msgid "Terms and Conditions"
 msgstr "使用條款"
 
@@ -397,6 +431,10 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset"
 msgstr "您使用的重設密碼連結已經失效，可能已經使用過了。請再重寄一次驗證信"
+
+#: accounts/views.py:113
+msgid "Activate Account"
+msgstr "啟用帳號"
 
 #: accounts/views.py:127
 msgid "Your account is already activated"
@@ -1326,4 +1364,3 @@ msgstr "啟用"
 #: watchlists/models.py:160
 msgid "Monitor Months"
 msgstr "監控月份"
-

@@ -87,7 +87,7 @@ var chart3Helper = {
             chart: {
                 zoomType: 'x',
                 spacing: [10,0,0,0],
-                height: thisDevice == 'desktop' ? 750 : 400,
+                height: thisDevice == 'desktop' ? 625 : 400,
             },
 
             title: {

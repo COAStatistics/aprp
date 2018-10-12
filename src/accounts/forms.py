@@ -8,7 +8,7 @@ from django.utils.translation import ugettext as _
 from django.core.validators import RegexValidator
 from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse
-
+from django.contrib.auth.password_validation import validate_password
 
 User = get_user_model()
 
@@ -80,8 +80,8 @@ class UserEditForm(forms.ModelForm):
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField(label=_('Account'))
-    password = forms.CharField(widget=forms.PasswordInput, label=_('Password'))
+    username = forms.CharField(label=_('Account'), help_text=_('Please enter your account'))
+    password = forms.CharField(widget=forms.PasswordInput, label=_('Password'), help_text=_('Please enter your password'))
     remember = forms.BooleanField(required=False, widget=forms.CheckboxInput())
     # This field just for identity validate inactive error in views.py
     is_active = forms.BooleanField(widget=forms.HiddenInput, required=False, initial=True)
@@ -97,23 +97,27 @@ class UserLoginForm(forms.Form):
             if not user.is_active:
                 self.cleaned_data['is_active'] = False
                 raise forms.ValidationError(
-                    _(mark_safe(
-                        'Please activate your account.<p><br><a href="%s" class="btn btn-sm btn-default">Resend Activation Email</a></p>'
-                        % reverse('accounts:activation_resend')
-                    ))
+                    mark_safe(
+                        '{}<p><br><a href="{}" class="btn btn-sm btn-default">{}</a></p>'.format(
+                            _('Please activate your account'),
+                            reverse('accounts:activation_resend'),
+                            _('Resend Activation Email')
+                        )
+                    )
                 )
 
         return super(UserLoginForm, self).clean(*args, **kwargs)
 
 
 class UserRegisterForm(forms.ModelForm):
-    username = forms.CharField(label=_('Account'))
-    email = forms.EmailField(label=_('Email'))
+    username = forms.CharField(label=_('Account'), help_text=_('Please enter your account'))
+    email = forms.EmailField(label=_('Email'), help_text=_('Please enter your email'))
     first_name = forms.CharField(label=_('First Name'), validators=[chValidator])
     last_name = forms.CharField(label=_('Last Name'), validators=[chValidator])
-    password = forms.CharField(widget=forms.PasswordInput, label=_('Password'))
-    password2 = forms.CharField(widget=forms.PasswordInput, label=_('Confirm Password'))
-    condition = forms.BooleanField(required=False, widget=forms.CheckboxInput(), label=_('Condition'))
+    password = forms.CharField(widget=forms.PasswordInput, label=_('Password'), help_text=_('Please enter your password'))
+    password2 = forms.CharField(widget=forms.PasswordInput, label=_('Confirm Password'), help_text=_('Please confirm your password'))
+    condition = forms.BooleanField(required=False, widget=forms.CheckboxInput(), label=_('Terms & Conditions'))
+    privacy = forms.BooleanField(required=False, widget=forms.CheckboxInput(), label=_('Privacy Policy'))
 
     class Meta:
         model = User
@@ -123,14 +127,27 @@ class UserRegisterForm(forms.ModelForm):
             'last_name',
             'first_name',
             'password',
-            'password2'
+            'password2',
+            'condition',
+            'privacy',
         ]
 
     def clean_condition(self):
         condition = self.cleaned_data.get('condition')
         if not condition:
-            raise forms.ValidationError(_('You must agree out terms and conditions!'))
+            raise forms.ValidationError(_('You must agree our terms and conditions'))
         return condition
+
+    def clean_privacy(self):
+        privacy = self.cleaned_data.get('privacy')
+        if not privacy:
+            raise forms.ValidationError(_('You must agree our privacy policies'))
+        return privacy
+
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        validate_password(password)
+        return password
 
     def clean_password2(self):
         password = self.cleaned_data.get('password')
@@ -154,8 +171,8 @@ class UserRegisterForm(forms.ModelForm):
 
 
 class UserResetPasswordForm(forms.Form):
-    password = forms.CharField(widget=forms.PasswordInput, required=True, label=_('Password'))
-    password2 = forms.CharField(widget=forms.PasswordInput, required=True, label=_('Confirm Password'))
+    password = forms.CharField(widget=forms.PasswordInput, required=True, label=_('Password'), help_text=_('Please enter your password'))
+    password2 = forms.CharField(widget=forms.PasswordInput, required=True, label=_('Confirm Password'), help_text=_('Please confirm your password'))
 
     class Meta:
         model = User
@@ -163,6 +180,11 @@ class UserResetPasswordForm(forms.Form):
             'password',
             'password2'
         ]
+
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        validate_password(password)
+        return password
 
     def clean_password2(self):
         password = self.cleaned_data.get('password')
@@ -173,8 +195,8 @@ class UserResetPasswordForm(forms.Form):
 
 
 class ResendEmailForm(forms.Form):
-    email = forms.EmailField(required=False, label=_('Email'))
-    username = forms.CharField(required=False, label=_('Account'))
+    email = forms.EmailField(required=False, label=_('Email'), help_text=_('Please enter your email'))
+    username = forms.CharField(required=False, label=_('Account'), help_text=_('Please enter your account'))
 
     class Meta:
         model = User

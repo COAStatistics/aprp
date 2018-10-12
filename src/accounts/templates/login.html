@@ -10,8 +10,8 @@
 
 {% block header_link %}
 <span id="extr-page-header-space">
-	<!--<span class="hidden-mobile hidden-xs">{% trans 'Need an account' %}?</span> -->
-	<!--<a href="{% url 'accounts:register' %}" class="btn btn-danger">{% trans 'Register' %}</a> -->
+	<span class="hidden-mobile hidden-xs">{% trans 'Need an account' %}?</span>
+	<a href="{% url 'accounts:register' %}" class="btn btn-danger">{% trans 'Register' %}</a>
 </span>
 {% endblock header_link %}
 
@@ -56,9 +56,9 @@
 						{% for error in form.password.errors %}
 							<small class="help-block text-danger" style="">{{ error|escape }}</small>
 						{% endfor %}
-						<!--<div class="note">-->
-							<!--<a href="{% url 'accounts:forgot_password' %}">{% trans 'Forgot password' %}?</a>-->
-						<!--</div>-->
+						<div class="note">
+							<a href="{% url 'accounts:forgot_password' %}">{% trans 'Forgot password' %}?</a>
+						</div>
 					</section>
 
 					<section>
