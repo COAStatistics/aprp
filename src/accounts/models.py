@@ -147,7 +147,7 @@ def post_save_activation_receiver(sender, instance, created, *args, **kwargs):
     if created:
         content = {
             'btn_text': _('Activate'),
-            'mail_title': _('Account Activation'),
+            'mail_title': '{} - {}'.format(_('Agriculture Products Price Report Platform'), _('Account Activation')),
             'line_1': _('Please activate your account by clicking the link below'),
             'line_2': _('Thank you for your registration')
         }
@@ -172,7 +172,7 @@ def post_save_reset_password_receiver(sender, instance, created, *args, **kwargs
     if created:
         content = {
             'btn_text': _('Reset Password'),
-            'mail_title': _('Reset Password'),
+            'mail_title': '{} - {}'.format(_('Agriculture Products Price Report Platform'), _('Reset Password')),
             'line_1': _('Please click the following button to reset your password')
         }
         reset_url = instance.get_absolute_url()
@@ -198,7 +198,7 @@ def post_save_reset_email_receiver(sender, instance, created, *args, **kwargs):
     if created:
         content = {
             'btn_text': _('Reset Email'),
-            'mail_title': _('Reset Email'),
+            'mail_title': '{} - {}'.format(_('Agriculture Products Price Report Platform'), _('Reset Email')),
             'line_1': _('Please click the following button to reset your email')
         }
         reset_url = instance.get_absolute_url()

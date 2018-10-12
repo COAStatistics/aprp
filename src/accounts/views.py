@@ -110,7 +110,7 @@ def activation_resend_view(request):
     form = ResendEmailForm(request.POST or None)
     content = {
         "form": form,
-        "title": _('Activate') + ' ' + _('Account')
+        "title": _('Activate Account')
     }
     template = 'resend-email.html'
 
