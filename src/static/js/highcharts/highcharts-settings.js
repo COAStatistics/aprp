@@ -110,7 +110,7 @@ Highcharts.theme = {
         },
         series: {
             animation: {
-                duration: 15000,
+                duration: 1000,
             },
         },
     },
