@@ -21,23 +21,23 @@ class BuilderTestCase(TestCase):
     def test_direct_single(self):
         result = direct(start_date=self.start_date, end_date=self.end_date)
         self.assertTrue(result.success)
-        obj = Hog.objects.filter(code='75(含)-95(不含)').first()
+        obj = Hog.objects.filter(code='規格豬(75公斤以上)').first()
         sources = Source.objects.filter(Q(name__exact='臺南市') | Q(name__exact='花蓮縣'))
-        self.assertTrue(sources.count(), 2)
+        self.assertTrue(sources.count(), 4)
         qs = DailyTran.objects.filter(product=obj,
                                       source__in=sources,
                                       date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 2)
+        self.assertEquals(qs.count(), 4)
 
     def test_direct_multi(self):
         direct(start_date='2018/01/03', end_date='2018/01/04', format='%Y/%m/%d')
 
         qs = DailyTran.objects.filter(date__range=(self.start_date, self.end_date))
 
-        self.assertEquals(qs.count(), 176)
+        self.assertEquals(qs.count(), 97)
 
     def test_delete(self):
-        obj = Hog.objects.filter(code='75(含)-95(不含)').first()
+        obj = Hog.objects.filter(code='規格豬(75公斤以上)').first()
         source = Source.objects.last()
 
         # this item should be deleted
@@ -52,4 +52,4 @@ class BuilderTestCase(TestCase):
 
         qs = DailyTran.objects.filter(product=obj,
                                       date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 37)
+        self.assertEquals(qs.count(), 44)
