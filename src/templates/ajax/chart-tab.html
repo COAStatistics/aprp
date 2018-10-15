@@ -113,6 +113,13 @@
         // INITIAL FIRST CHART
         $('#chart-functions-tab a[data-toggle="tab"][data-load]:eq(0)').trigger('click');
 
+        // REFLOW CHARTS ON FULLSCREEN
+        $('#chart-functions-content').on('click', '.jarviswidget-fullscreen-btn', function(){
+            $(this).parents('.jarviswidget').find('[data-highcharts-chart]').each(function(){
+                $(this).highcharts().reflow();
+                root.console.log('reflow highchart ' + $(this).data('highcharts-chart'));
+            })
+        })
 	};
 	
 	// end pagefunction
