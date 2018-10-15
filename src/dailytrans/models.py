@@ -66,13 +66,13 @@ class DailyTran(Model):
         verbose_name_plural = _('Daily Transitions')
 
     def __str__(self):
-        return 'product: %s, source: %s, avg_price: %s, date: %s, updated: %s' % (
-            self.product.name, self.source, self.avg_price, self.date, self.update_time
+        return 'product: %s, source: %s, avg_price: %s, volume: %s, avg_weight: %s, date: %s, updated: %s' % (
+            self.product.name, self.source, self.avg_price, self.volume, self.avg_weight, self.date, self.update_time
         )
 
     def __unicode__(self):
-        return 'product: %s, source: %s, avg_price: %s, date: %s, updated: %s' % (
-            self.product.name, self.source, self.avg_price, self.date, self.update_time
+        return 'product: %s, source: %s, avg_price: %s, volume: %s, avg_weight: %s, date: %s, updated: %s' % (
+            self.product.name, self.source, self.avg_price, self.volume, self.avg_weight, self.date, self.update_time
         )
 
     @property

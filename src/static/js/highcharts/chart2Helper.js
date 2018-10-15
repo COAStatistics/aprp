@@ -140,6 +140,14 @@ var chart2Helper = {
         }
 
     },
+    setMinToZero: function() {
+        var chart = this;
+        // Sets the min value for the chart
+        if (chart.yAxis[0].getExtremes().min < 0) {
+            //set the min and return the values
+            chart.yAxis[0].setExtremes(0, null, true, false); // redraw
+        }
+    },
     create: function(container, seriesOptions, unit) {
 
         var series = [];
@@ -316,6 +324,9 @@ var chart2Helper = {
                 zoomType: 'x',
                 spacing: [10,0,0,0],
                 height: thisDevice == 'desktop' ? 625 : 400,
+                events: {
+                    load: chart2Helper.setMinToZero
+                },
             },
 
             title: {
@@ -592,7 +603,7 @@ var chart2Helper = {
                         borderColor: '#000',
                     }
                 },
-            }, true); // redraw
+            }, true); // redraw later
 
             // init integration datatable
             integrationHelper.loadTable($('#chart-2-widget-integration div[data-load]'), min, max);
