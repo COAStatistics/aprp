@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-12 09:55+0800\n"
+"POT-Creation-Date: 2018-10-15 17:23+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,8 +43,8 @@ msgstr "群組"
 msgid "Choose one of the following..."
 msgstr "請選擇"
 
-#: accounts/forms.py:25 accounts/models.py:186 accounts/models.py:200
-#: accounts/models.py:201
+#: accounts/forms.py:25 accounts/models.py:187 accounts/models.py:201
+#: accounts/models.py:202
 msgid "Reset Email"
 msgstr "變更電子信箱"
 
@@ -197,19 +197,19 @@ msgstr "抽象帳戶驗證"
 msgid "Abstract Profiles"
 msgstr "抽象帳戶驗證"
 
-#: accounts/models.py:138
+#: accounts/models.py:139
 msgid "Activation Profile"
 msgstr "帳戶啟用驗證"
 
-#: accounts/models.py:139
+#: accounts/models.py:140
 msgid "Activation Profiles"
 msgstr "帳戶啟動驗證"
 
-#: accounts/models.py:149
+#: accounts/models.py:150
 msgid "Activate"
 msgstr "啟用"
 
-#: accounts/models.py:150 accounts/models.py:175 accounts/models.py:201
+#: accounts/models.py:151 accounts/models.py:176 accounts/models.py:202
 #: accounts/templates/account-base.html:8
 #: accounts/templates/account-base.html:45
 #: accounts/templates/introduction.html:5
@@ -218,46 +218,46 @@ msgstr "啟用"
 msgid "Agriculture Products Price Report Platform"
 msgstr "重要農產品每日價量資訊平台"
 
-#: accounts/models.py:150
+#: accounts/models.py:151
 msgid "Account Activation"
 msgstr "啟用帳戶"
 
-#: accounts/models.py:151
+#: accounts/models.py:152
 msgid "Please activate your account by clicking the link below"
 msgstr "請點擊以下連結來啟用您的帳戶"
 
-#: accounts/models.py:152 accounts/templates/register.html.py:138
+#: accounts/models.py:153 accounts/templates/register.html.py:138
 msgid "Thank you for your registration"
 msgstr "感謝您的註冊"
 
-#: accounts/models.py:163
+#: accounts/models.py:164
 msgid "Reset Password Profile"
 msgstr "重設密碼驗證"
 
-#: accounts/models.py:164
+#: accounts/models.py:165
 msgid "Reset Password Profiles"
 msgstr "重設密碼驗證"
 
-#: accounts/models.py:174 accounts/models.py:175
+#: accounts/models.py:175 accounts/models.py:176
 #: accounts/templates/reset-password.html:8
 #: accounts/templates/reset-password.html:22
 #: accounts/templates/reset-password.html:53
 msgid "Reset Password"
 msgstr "重設密碼"
 
-#: accounts/models.py:176
+#: accounts/models.py:177
 msgid "Please click the following button to reset your password"
 msgstr "請點擊以下連結以重設您的密碼"
 
-#: accounts/models.py:189
+#: accounts/models.py:190
 msgid "Reset Email Profile"
 msgstr "重設電子信箱驗證"
 
-#: accounts/models.py:190
+#: accounts/models.py:191
 msgid "Reset Email Profiles"
 msgstr "重設電子信箱驗證"
 
-#: accounts/models.py:202
+#: accounts/models.py:203
 msgid "Please click the following button to reset your email"
 msgstr "請點擊以下連結以重設您的信箱"
 
@@ -343,15 +343,15 @@ msgstr "註冊"
 msgid "Sign In"
 msgstr "請登入"
 
-#: accounts/templates/login.html:60
+#: accounts/templates/login.html:65
 msgid "Forgot password"
 msgstr "忘記密碼"
 
-#: accounts/templates/login.html:67
+#: accounts/templates/login.html:72
 msgid "Remember me"
 msgstr "記住我"
 
-#: accounts/templates/login.html:72
+#: accounts/templates/login.html:77
 msgid "Login"
 msgstr "登入"
 
@@ -374,7 +374,7 @@ msgstr "現在登入"
 #: accounts/templates/register.html:12 accounts/templates/resend-email.html:12
 #: accounts/templates/reset-password.html:12
 msgid "Already have an account"
-msgstr "已經有帳號了"
+msgstr "已經有帳號了嗎"
 
 #: accounts/templates/register.html:35 accounts/templates/resend-email.html:30
 msgid "Email has been sent"
@@ -396,7 +396,7 @@ msgstr "我已閱讀且同意"
 msgid "Terms and Conditions"
 msgstr "使用條款"
 
-#: accounts/templates/resend-email.html:8 accounts/views.py:88
+#: accounts/templates/resend-email.html:8 accounts/views.py:90
 msgid "Forgot Password"
 msgstr "忘記密碼"
 
@@ -432,13 +432,30 @@ msgid ""
 "used. Please request a new password reset"
 msgstr "您使用的重設密碼連結已經失效，可能已經使用過了。請再重寄一次驗證信"
 
-#: accounts/views.py:113
+#: accounts/views.py:75
+msgid ""
+"Successfully registered! Please check your email to activate your account"
+msgstr "註冊完成！ 請至您的信箱收取驗證信來啟用您的帳號"
+
+#: accounts/views.py:115
 msgid "Activate Account"
 msgstr "啟用帳號"
 
-#: accounts/views.py:127
+#: accounts/views.py:129
 msgid "Your account is already activated"
 msgstr "您的帳號已經啟用過了"
+
+#: accounts/views.py:160
+msgid "Your password has been reset"
+msgstr "您的密碼已經重新設定了"
+
+#: accounts/views.py:177
+msgid "Your account is activated"
+msgstr "您的帳號已經啟用了"
+
+#: accounts/views.py:179
+msgid "This activation key is already used"
+msgstr "您的帳號已經驗證過了"
 
 #: cattles/models.py:29
 msgid "Cattle"
