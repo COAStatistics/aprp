@@ -116,8 +116,8 @@ class UserRegisterForm(forms.ModelForm):
     last_name = forms.CharField(label=_('Last Name'), validators=[chValidator])
     password = forms.CharField(widget=forms.PasswordInput, label=_('Password'), help_text=_('Please enter your password'))
     password2 = forms.CharField(widget=forms.PasswordInput, label=_('Confirm Password'), help_text=_('Please confirm your password'))
-    condition = forms.BooleanField(required=False, widget=forms.CheckboxInput(), label=_('Terms & Conditions'))
-    privacy = forms.BooleanField(required=False, widget=forms.CheckboxInput(), label=_('Privacy Policy'))
+    condition = forms.BooleanField(required=True, widget=forms.CheckboxInput(), label=_('Terms & Conditions'))
+    privacy = forms.BooleanField(required=True, widget=forms.CheckboxInput(), label=_('Privacy Policy'))
 
     class Meta:
         model = User
