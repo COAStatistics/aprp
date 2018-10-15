@@ -416,7 +416,7 @@ var dataTableHelper = {
                     defaultContent: '<button type="button" class="btn btn-xs btn-danger btn-delete"><i class="fa fa-remove" aria-hidden="true"></i></button>',
                 },
                 {data: "date"},
-                {data: "user"},
+                {data: "full_name"},
                 {
                     data: "types",
                     render: "[, ].label",

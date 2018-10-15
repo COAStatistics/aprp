@@ -22,13 +22,13 @@ class EventTypeSerializer(ModelSerializer):
 
 
 class EventSerializer(ModelSerializer):
-    user = SerializerMethodField()
+    full_name = SerializerMethodField()
     types = EventTypeSerializer(many=True)
     date = DateField(format="%Y/%m/%d")
 
     event_types_ids = []
 
-    def get_user(self, instance):
+    def get_full_name(self, instance):
         return instance.user.info.full_name
 
     def validate_types(self, data):
@@ -69,7 +69,7 @@ class EventSerializer(ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ['id', 'content_type', 'object_id', 'name', 'context', 'types', 'date', 'share', 'user']
+        fields = ['id', 'content_type', 'object_id', 'name', 'context', 'types', 'date', 'share', 'full_name']
 
     def update(self, instance, validated_data):
         validated_data.pop('types', None)  # pop types key cause it is nested, not support in update()
@@ -78,7 +78,6 @@ class EventSerializer(ModelSerializer):
         event_types = EventType.objects.filter(id__in=self.event_types_ids)
 
         # delete
-        print(event_types)
         for obj in instance.types.exclude(id__in=self.event_types_ids).all():
             instance.types.remove(obj)
         # create
@@ -96,5 +95,6 @@ class EventSerializer(ModelSerializer):
         for obj in event_types:
             if obj not in instance.types.all():
                 instance.types.add(obj)
+        instance.user = self.context['request'].user
         instance.save()
         return instance
