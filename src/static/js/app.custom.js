@@ -208,6 +208,7 @@ function dynamic_setup_widgets_mobile(container) {
  * Modify 3: add csrf token for django backend
  * Modify 4: Loading gettext
  * Modify 5: add globalPageDestory in pagedestroy(), unbind scroll if page leave socialwall.
+ * Modify 6: destroy datatable instance in container
  */
 function loadURL(url, container, data, type) {
 
@@ -270,19 +271,21 @@ function loadURL(url, container, data, type) {
 
             } //end fix
 
-            // destroy all datatable instances
-            if ( $.navAsAjax && $('.dataTables_wrapper')[0] && (container[0] == $("#content")[0]) ) {
+            // destroy datatable instances in container
+            if ( $.navAsAjax && $('.dataTables_wrapper')[0] && container[0]) {
 
-                var tables = $.fn.dataTable.fnTables(true);
+                var tables = $.fn.dataTable.fnTables(false);
                 $(tables).each(function () {
+                    // if table in current container
+                    if($(this).parents('#' + container.attr('id')).length){
 
-                    if($(this).find('.details-control').length != 0) {
-                        $(this).find('*').addBack().off().remove();
-                        $(this).dataTable().fnDestroy();
-                    } else {
-                        $(this).dataTable().fnDestroy();
+                        if($(this).find('.details-control').length != 0) {
+                            $(this).find('*').addBack().off().remove();
+                            $(this).dataTable().fnDestroy();
+                        } else {
+                            $(this).dataTable().fnDestroy();
+                        }
                     }
-
                 });
 
                 // debugState
@@ -424,7 +427,6 @@ function loadURL(url, container, data, type) {
                 }
 
                 // end destroy form controls
-
 
             }
             // end cluster destroy

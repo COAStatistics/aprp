@@ -107,7 +107,8 @@ class AbstractProfile(Model):
         verbose_name_plural = _('Abstract Profiles')
 
     def save(self, *args, **kwargs):
-        self.key = code_generator()
+        if not self.key:
+            self.key = code_generator()
         super(AbstractProfile, self).save(*args, **kwargs)
 
     def __str__(self):

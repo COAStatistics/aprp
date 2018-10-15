@@ -7,6 +7,7 @@ from django.contrib.auth import(
     get_user_model
 )
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from .forms import (
     UserLoginForm,
@@ -70,6 +71,8 @@ def register_view(request):
         if group_info:
             for obj in group_info.parents():
                 obj.group.user_set.add(user)
+        messages.add_message(request, messages.INFO,
+                             _('Successfully registered! Please check your email to activate your account'))
         return redirect('accounts:login')
 
     return render(request, template, context)
@@ -140,7 +143,7 @@ def reset_password_view(request, key=None):
     context = {
         "form": form,
     }
-    if q.exists() and q.count() == 1:
+    if q.exists():
         reset = q.first()
         if not reset.expired:
             context['valid_link'] = True
@@ -153,7 +156,8 @@ def reset_password_view(request, key=None):
             user.save()
             reset.expired = True
             reset.save()
-            context['mail_sent'] = True
+            messages.add_message(request, messages.INFO,
+                                 _('Your password has been reset'))
             return redirect('accounts:login')
 
     return render(request, template, context)
@@ -162,7 +166,7 @@ def reset_password_view(request, key=None):
 def user_activate(request, key=None, *args, **kwargs):
     q = ActivationProfile.objects.filter(key=key)
 
-    if q.exists() and q.count() == 1:
+    if q.exists():
         activation = q.first()
         if not activation.expired:
             user = activation.user
@@ -170,6 +174,9 @@ def user_activate(request, key=None, *args, **kwargs):
             user.save()
             activation.expired = True
             activation.save()
+            messages.add_message(request, messages.INFO, _('Your account is activated'))
+        else:
+            messages.add_message(request, messages.INFO, _('This activation key is already used'))
         return redirect('accounts:login')
     else:
         raise Http404
@@ -178,7 +185,7 @@ def user_activate(request, key=None, *args, **kwargs):
 def reset_email_view(request, key=None):
     q = ResetEmailProfile.objects.filter(key=key)
 
-    if q.exists() and q.count() == 1:
+    if q.exists():
         activation = q.first()
         if not activation.expired:
             user = activation.user
