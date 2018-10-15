@@ -123,6 +123,16 @@
             dataTableHelper.createRaw(container);
         })
 
+        // reflow charts
+        $(".collapse").on('shown.bs.collapse', function(e) {
+            if ($(this).is(e.target)) {
+                $(this).find('[data-highcharts-chart]').each(function(){
+                    $(this).highcharts().reflow();
+                    root.console.log('reflow highchart ' + $(this).data('highcharts-chart'));
+                })
+            }
+        })
+
 	};
 
 	// end pagefunction

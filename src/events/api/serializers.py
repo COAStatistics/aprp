@@ -69,7 +69,7 @@ class EventSerializer(ModelSerializer):
 
     class Meta:
         model = Event
-        fields = ['id', 'content_type', 'object_id', 'name', 'context', 'types', 'date', 'share', 'user']
+        fields = ['id', 'content_type', 'object_id', 'name', 'context', 'types', 'date', 'share', 'full_name']
 
     def update(self, instance, validated_data):
         validated_data.pop('types', None)  # pop types key cause it is nested, not support in update()
