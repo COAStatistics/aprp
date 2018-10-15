@@ -109,7 +109,7 @@
 
 					<section>
 						<label for="{{ form.privacy.auto_id }}" class="checkbox">
-							<input id="{{ form.privacy.auto_id }}" name="condition" type="checkbox">
+							<input id="{{ form.privacy.auto_id }}" name="privacy" type="checkbox">
 							<i></i>{%  trans 'I have read and agreed with the' %} <a href="#" data-toggle="modal" data-target="#privacyModal"> {% trans 'Privacy Policy' %} </a>
 						</label>
 						{% for error in form.privacy.errors %}
