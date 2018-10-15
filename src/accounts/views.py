@@ -56,6 +56,9 @@ def login_view(request):
 def register_view(request):
     form = UserRegisterForm(request.POST or None)
     template = 'register.html'
+    context = {
+        "form": form
+    }
     if form.is_valid():
         user = form.save(commit=False)
         password = form.cleaned_data.get('password')
@@ -67,12 +70,8 @@ def register_view(request):
         if group_info:
             for obj in group_info.parents():
                 obj.group.user_set.add(user)
-        request.context['mail_sent'] = True
         return redirect('accounts:login')
 
-    context = {
-        "form": form
-    }
     return render(request, template, context)
 
 
