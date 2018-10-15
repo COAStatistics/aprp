@@ -139,6 +139,14 @@ var chart1Helper = {
             }
         }
     },
+    setMinToZero: function() {
+        var chart = this;
+        // Sets the min value for the chart
+        if (chart.yAxis[0].getExtremes().min < 0) {
+            //set the min and return the values
+            chart.yAxis[0].setExtremes(0, null, true, false); // redraw
+        }
+    },
     create: function(container, seriesOptions, unit){
 
         var series = [];
@@ -264,7 +272,6 @@ var chart1Helper = {
                 opposite: true
             })
         }
-
         if (has_avg_weight) {
             yAxis.push({
                 title: {
@@ -291,6 +298,9 @@ var chart1Helper = {
                 zoomType: 'x',
                 spacing: [10,0,0,0],
                 height: thisDevice == 'desktop' ? 625 : 400,
+                events: {
+                    load: chart1Helper.setMinToZero
+                },
             },
 
             title: {
