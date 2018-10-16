@@ -207,7 +207,7 @@ var socialWallHelper = {
                     contentType: false,
                     processData: false,
                     success: function(data) {
-                        $item = $(data);
+                        $item = $(data['html']);
                         if($grid.children('.socialwall-nodata').length > 0) {
                             $grid.html('');
                         }
@@ -229,7 +229,7 @@ var socialWallHelper = {
                     url: url,
                     data: data,
                     success: function(data) {
-                        $item = $(data);
+                        $item = $(data['html']);
                         if($grid.children('.socialwall-nodata').length > 0) {
                             $grid.html('');
                         }
@@ -279,10 +279,10 @@ var socialWallHelper = {
                     contentType: false,
                     processData: false,
                     success: function(data) {
-                        $item = $(data);
+                        $item = $(data['html']);
                         socialWallHelper.initPost($item);
                         $div.find('.post-edit-area').remove();
-                        $div.find('ul').prepend($item);
+                        $div.find('.post-update').prepend($item);
                         $grid.masonry('layout');
                         $('#dialog-form-post').modal('hide');
                     }
@@ -300,11 +300,7 @@ var socialWallHelper = {
                     url: url,
                     data: data,
                     success: function(data) {
-                        // $item = $(data);
-                        // $grid.prepend($item).masonry('prepended', $item);
-                        // $('#dialog-form-post').modal('hide');
-                        // console.log(data)
-                        $item = $(data);
+                        $item = $(data['html']);
                         socialWallHelper.initPost($item);
                         $div.find('.post-edit-area').remove();
                         $div.find('.post-update').prepend($item);

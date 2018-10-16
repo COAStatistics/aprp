@@ -8,8 +8,10 @@ from django.db.models import Q
 from posts import models
 from posts import forms
 from comments.models import Comment
+from dashboard import settings
 from . import serializers
 from . import paginations
+import os
 
 
 class PostListAllAPIView(generics.ListAPIView):
@@ -149,9 +151,12 @@ class PostCreateAPIView(generics.CreateAPIView):
 
         post = models.Post.objects.get(id=serializer.data['id'])
 
-        html = render_to_string('post.html', {'post': post}, request=request)
+        context = {
+            'api': serializer.data,
+            'html': render_to_string('post.html', {'post': post}, request=request),
+        }
 
-        return Response(html, status=status.HTTP_201_CREATED, headers=headers)
+        return Response(context, status=status.HTTP_201_CREATED, headers=headers)
 
 
 class PostRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
@@ -171,15 +176,24 @@ class PostRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     def get(self, request, *args, **kwargs):
         data = self.retrieve(request, *args, **kwargs)
         form = forms.PostForm(data)
-        html = render_to_string('form_edit.html', {'form': form, 'file': data['file'], 'id': data['id']}, request=request)
-        data['html'] = html
-        return JsonResponse(data, safe=False)
+        context = {
+            'api': data,
+            'html': render_to_string('form_edit.html', {'form': form, 'file': data['file'], 'id': data['id']}, request=request),
+        }
+        return Response(context)
 
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
+
+        try:
+            if request.data['file']:
+                os.remove(instance.file.path)
+        except:
+            pass
+
         self.perform_update(serializer)
 
         if getattr(instance, '_prefetched_objects_cache', None):
@@ -191,5 +205,23 @@ class PostRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 
     def patch(self, request, *args, **kwargs):
         data = self.partial_update(request, *args, **kwargs)
-        html = render_to_string('post_edit.html', {'data': data}, request=request)
-        return JsonResponse(html, safe=False)
+        obj = models.Post.objects.get(id=data['id'])
+        context = {
+            'api': data,
+            'html': render_to_string('post_edit.html', {'data': obj}, request=request),
+        }
+        # return JsonResponse(html, safe=False)
+        return Response(context)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+
+        try:
+            os.remove(instance.file.path)
+            os.rmdir(os.path.join(settings.MEDIA_ROOT, "post/{}".format(instance.id)))
+        except:
+            pass
+            
+        self.perform_destroy(instance)
+
+        return Response(status=status.HTTP_204_NO_CONTENT)

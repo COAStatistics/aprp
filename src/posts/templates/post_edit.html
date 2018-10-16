@@ -13,7 +13,7 @@
     <a href="javascript:void(0);" class="username">{{ data.user.info.full_name }}</a>
     <span class="timefilter">
         <small class="text-muted ultra-light socialwall-post-time">
-            {{ data.updated|editdiff_filter }} {% trans 'edited' %}
+            {{ data.updated|timediff_filter }} {% trans 'edited' %}
         </small>
     </span>
 
@@ -44,7 +44,7 @@
 {% endif %}
 {% if data.file != None %}
 <li>
-  <a href="{{ data.file }}" class="glyphicon glyphicon-paperclip" target="_blank" title="{{ data.file }}"></a>
+  <a href="/media/{{ data.file }}" class="glyphicon glyphicon-paperclip" target="_blank" title="{{ data.file }}"></a>
 </li>
 {% endif %}
 </ul>
