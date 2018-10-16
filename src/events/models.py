@@ -56,7 +56,7 @@ class Event(Model):
                               on_delete=CASCADE)
     object_id = PositiveIntegerField(default=1)
     types = TagField(EventType, verbose_name=_('Event Type'), help_text=_('You can create new event type here'))
-    name = CharField(max_length=120, unique=True, verbose_name=_('Name'))
+    name = CharField(max_length=120, unique=False, verbose_name=_('Name'))
     context = TextField(verbose_name=_('Context'))
     date = DateField(auto_now=False, default=timezone.now().today, verbose_name=_('Date'))
     share = BooleanField(default=False, verbose_name=_('Shared Event'))
