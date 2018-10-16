@@ -14,10 +14,8 @@ var chart4Helper = {
         if(this.container.length == 0)
             root.console.log('Cannot find container #' + container);
 
-        this.manager.charts = {};
-
         // bind submit function
-        this.container.on('click', '.js-panel-toolbar-submit', function(){
+        this.container.find('.js-panel-toolbar-submit').click(function(){
             $this = $(this);
             var typeId = $this.attr('data-type-id');
             var form = $this.closest('.smart-form');
@@ -186,13 +184,6 @@ var chart4Helper = {
 
         chart.seriesOption = seriesOption;
         chart.unit = unit;
-
-        // store instance
-        var charts = chart4Helper.manager.charts;
-        if(!(type.id in charts)){
-            charts[type.id] = [];
-        }
-        charts[type.id].push(chart);
 
         return chart;
     },
