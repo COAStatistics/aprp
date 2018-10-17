@@ -1,6 +1,7 @@
 #local
 src/*.sqlite3
 src/live-static-files
+src/static/doc
 
 #server
 src/web.config
