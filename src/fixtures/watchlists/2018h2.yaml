@@ -756,6 +756,6 @@
 - model: watchlists.WatchlistItem
   pk: 1106
   fields:
-    product: 120949 # 金目鱸 600-800g
+    product: 120950 # 金目鱸 600-800g
     sources: []
     parent: 3
