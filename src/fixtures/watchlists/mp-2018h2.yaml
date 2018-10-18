@@ -1107,7 +1107,7 @@
 - model: watchlists.MonitorProfile
   pk: 158
   fields:
-    product: 120963 # 鰻魚
+    product: 120196 # 鰻魚
     watchlist: 3
     type: 2
     price: 462.65

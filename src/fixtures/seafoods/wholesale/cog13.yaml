@@ -8530,15 +8530,6 @@
     parent: 120001
 
 - model: seafoods.Seafood
-  pk: 120963
-  fields:
-    name: 白鰻
-    config: 13
-    unit: 1
-    track_item: false
-    parent: 120196
-
-- model: seafoods.Seafood
   pk: 120197
   fields:
     name: 白鰻
@@ -8546,15 +8537,6 @@
     type: 1
     config: 13
     unit: 1
-    parent: 120963
-
-- model: seafoods.Seafood
-  pk: 120018
-  fields:
-    name: 其他鰻類
-    config: 13
-    unit: 1
-    track_item: false
     parent: 120196
 
 - model: seafoods.Seafood
@@ -8565,4 +8547,4 @@
     type: 1
     config: 13
     unit: 1
-    parent: 120018
+    parent: 120196
