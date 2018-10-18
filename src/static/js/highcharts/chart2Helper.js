@@ -329,7 +329,7 @@ var chart2Helper = {
                 height: thisDevice == 'desktop' ? 625 : 400,
                 events: {
                     load: chart2Helper.setMinToZero,
-                    render: chart2Helper.setMinToZero,
+                    selection: chart2Helper.setMinToZero,
                 },
             },
 
