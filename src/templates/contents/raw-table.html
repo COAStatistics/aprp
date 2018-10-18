@@ -1,6 +1,7 @@
 {% load humanize %}
 {% load index_filter %}
 {% load round_filter %}
+{% load i18n %}
 
 <!--
     * To use this template, must have these parameters,
@@ -17,7 +18,7 @@
         <tr class="hidden-xs hidden-sm">
             {% for column in raw.columns %}
             <th class="hasinput" style="width:{% widthratio 100 raw.columns|length 1 %}%">
-                <input type="text" class="form-control" placeholder="Filter {{ column.value }}" />
+                <input type="text" class="form-control" placeholder="{% trans 'Search' %} {{ column.value }}" />
             </th>
             {% endfor %}
         </tr>

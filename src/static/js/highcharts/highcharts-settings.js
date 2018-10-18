@@ -64,10 +64,10 @@ Highcharts.theme = {
         headerFormat: '<b>{point.key}</b>',
         formatter : function (tooltip) {
             if (this.point && this.point.title && this.point.text) {
-                var textContainer = thisDevice == 'desktop' ? '<p style="width: 300px;white-space: normal;">' : '<p style="width:120px; white-space: normal;">'
+                var textContainer = thisDevice == 'desktop' ? '<p style="width: 200px;white-space: normal;">' : '<p style="width:120px; white-space: normal;">'
                 var text = '<b>' + Highcharts.dateFormat('%Y/%m/%d, %a', this.point.x) + '</b></br></br>' +
                     textContainer + this.point.text + '</p>';
-                return '</br></br>' + text + '</span>';
+                return text + '</span>';
             }
             return tooltip.defaultFormatter.apply(this, [tooltip]);
         }
@@ -171,6 +171,7 @@ Highcharts.setOptions({
         exportButtonTitle: gettext("Export"),
         printButtonTitle: gettext("Print"),
         contextButtonTitle: gettext("Chart context menu"),
+        resetZoom: gettext("Reset Zoom"),
         rangeSelectorFrom: gettext("From"),
         rangeSelectorTo: gettext("TO"),
         rangeSelectorZoom: gettext("Zoom"),

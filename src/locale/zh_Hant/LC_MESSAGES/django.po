@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-15 17:23+0800\n"
+"POT-Creation-Date: 2018-10-19 00:47+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1254,6 +1254,10 @@ msgstr "監控品項內容及監控地點"
 #: watchlists/models.py:164 watchlists/models.py:165
 msgid "Monitor Profile"
 msgstr "監控價格內容及因應措施"
+
+#: templates/contents/raw-table.html:20
+msgid "Search"
+msgstr "搜尋"
 
 #: templates/contents/raw-widget-single-type-index.html:28
 #: templates/contents/raw-widget-type-panel-groups.html:26
