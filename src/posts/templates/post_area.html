@@ -59,7 +59,7 @@
           <!-- <li>
             <a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
           </li> -->
-          {% if request.user.username == i.user.info.full_name %}
+          {% if request.user.info.full_name == i.user.info.full_name %}
           <li>
             <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ i.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Edit' %}</a>
           </li>
@@ -108,7 +108,7 @@
           <li>
             <a href="javascript:void(0);" class="text-muted">{{ j.timestamp|socialwall_posttime_filter }} </a>
           </li>
-          {% if request.user.username == j.user.info.full_name %}
+          {% if request.user.info.full_name == j.user.info.full_name %}
           <li>
             <a href="javascript:void(0);" class="text-primary reply-edit" data-id="{{ j.id }}" api="{% url 'comments:api_comments_all' %}">{% trans 'Edit' %}</a>
           </li>

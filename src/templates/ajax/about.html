@@ -1,16 +1,17 @@
 {% load i18n %}
+{% load staticfiles %}
 <!-- Bread crumb is created dynamically -->
 <!-- row -->
 <div class="row">
-	
+
 	<!-- col -->
 	<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
 		<h1 class="page-title txt-color-blueDark">
-			
+
 			<!-- PAGE HEADER -->
-			<i class="fa-fw fa fa-home"></i> 
+			<i class="fa-fw fa fa-home"></i>
 				{% trans 'Main' %}
-			<span>>  
+			<span>>
 				{% trans 'About' %}
 			</span>
 
@@ -51,12 +52,10 @@
                 <p>{% trans 'Showing daily price/volume trends, year by year trends and distribution plot with charts, each chart provide raw data, integration data and exporting services.' %}
                 </p>
                 <hr>
+				<p><a href="{% static 'doc/document.pdf' %}" target="_blank" style="text-decoration:underline;">{% trans 'Download document' %}</a></p>
+				<hr>
                 <h6 class="font-lg">{% trans 'Cooperation Units' %}</h2>
                 <p>{% trans '1. The platform was constructed by statistics office in COA and Taiwan Agricultural Research Institute (Agricultural Policy Research Center). All of the technical supports were provided by statistical information integrated team in Agricultural Policy Research Center. 2. The related information of price and the trading volume was provided by Livestock Research Institute, Agriculture and Food Agency and Fishery Agency and they help connect affiliated industrial organization to provide automatic interface service. We will keep providing the information about “comments”, “production and trading events” and “monitored price”. 3. Information Management Center provides interface technique based on open data platform in COA and Research & Development Departments and professional consult to help eliminate obstacle interface.' %}
-                </p>
-                <hr>
-                <h6 class="font-lg">{% trans 'Future prospects' %}</h2>
-                <p>{% trans 'The purpose of the platform was to provide friendly visual interface research of the price and the trading volume of agricultural products and its related information will be extended into step by step. Owning to the constriction of human resources and time, it takes time to cooperate among industrial departments for completing information in the back end; otherwise, the fully functional version cannot be accomplished in a short time. The first stage of the platform expects to be completed in October, 2018. Subsequently, we will integrate the information such as weather information related to production, the prices of important agricultural products in different stages, annually agricultural damage overview of individual products, and domestic or import quantum of products into the platform according to human resources and accessibility of data.' %}
                 </p>
               </div>
             </div>
@@ -67,42 +66,42 @@
 
 
 <script>
-	
+
 
 	pageSetUp();
-	
+
 	/*
 	 * ALL PAGE RELATED SCRIPTS CAN GO BELOW HERE
 	 * eg alert("my home function");
-	 * 
+	 *
 	 * var pagefunction = function() {
 	 *   ...
 	 * }
 	 * loadScript("js/plugin/_PLUGIN_NAME_.js", pagefunction);
-	 * 
+	 *
 	 * TO LOAD A SCRIPT:
-	 * var pagefunction = function (){ 
-	 *  loadScript(".../plugin.js", run_after_loaded);	
+	 * var pagefunction = function (){
+	 *  loadScript(".../plugin.js", run_after_loaded);
 	 * }
-	 * 
+	 *
 	 * OR you can load chain scripts by doing
-	 * 
+	 *
 	 * loadScript(".../plugin.js", function(){
 	 * 	 loadScript("../plugin.js", function(){
 	 * 	   ...
 	 *   })
 	 * });
 	 */
-	
+
 	// pagefunction
-	
+
 	var pagefunction = function() {
 		// clears the variable if left blank
 	};
-	
+
 	// end pagefunction
-	
+
 	// run pagefunction
 	pagefunction();
-	
+
 </script>

@@ -4,13 +4,13 @@
 
 <li class="message message-reply socialwall-reply">
 <!-- <img src="img/avatars/3.png" class="online"> -->
-<span class="message-text comment"> <a href="javascript:void(0);" class="username">{{ data.user.username }}</a>
+<span class="message-text comment"> <a href="javascript:void(0);" class="username">{{ data.user.info.full_name }}</a>
   <span id="reply-origin">{{ data.content }}</span>
 </span>
 
 <div class="socialwall-reply-text comment-edit" style="display: None;">
   <span class="message-text comment-edit" style="display: None;">
-    <a href="javascript:void(0);" class="username">{{ data.user.username }}</a>
+    <a href="javascript:void(0);" class="username">{{ data.user.info.full_name }}</a>
   </span>
   <input id="reply-edit" class="reply-edit-text comment-edit" type="text" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">
   <span class="input-group-btn">
@@ -30,7 +30,7 @@
   <li>
     <a href="javascript:void(0);" class="text-muted">{{ data.timestamp|socialwall_posttime_filter }} </a>
   </li>
-  {% if data.user.username == request.user.username %}
+  {% if data.user.info.full_name == request.user.info.full_name %}
   <li>
     <a href="javascript:void(0);" class="text-primary reply-edit" data-id="{{ data.id }}" api="{% url 'comments:api_comments_all' %}">{% trans 'Edit' %}</a>
   </li>

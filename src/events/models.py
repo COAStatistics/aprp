@@ -26,8 +26,10 @@ EVENT_CONTENT_TYPE_CHOICES = (
     Q(app_label='configs', model='config')
 )
 
-DEFAULT_EVENT_CONTENT_TYPE_ID = ContentType.objects.get(model='abstractproduct').id
-
+try:
+    DEFAULT_EVENT_CONTENT_TYPE_ID = ContentType.objects.get(model='abstractproduct').id
+except:
+    DEFAULT_EVENT_CONTENT_TYPE_ID = 1
 
 class EventType(TagTreeModel):
     class TagMeta:
@@ -69,8 +71,3 @@ class Event(Model):
 
     def __unicode__(self):
         return str(self.name)
-
-
-
-
-

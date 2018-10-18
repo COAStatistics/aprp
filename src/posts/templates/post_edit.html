@@ -13,7 +13,7 @@
     <a href="javascript:void(0);" class="username">{{ data.user.info.full_name }}</a>
     <span class="timefilter">
         <small class="text-muted ultra-light socialwall-post-time">
-            {{ data.updated|editdiff_filter }} {% trans 'edited' %}
+            {{ data.updated|timediff_filter }} {% trans 'edited' %}
         </small>
     </span>
 
@@ -34,7 +34,7 @@
   <!-- <li>
   <a href="javascript:void(0);" class="text-muted">Show All Comments (14)</a>
 </li> -->
-{% if request.user.username == data.user.info.full_name %}
+{% if request.user.info.full_name == data.user.info.full_name %}
 <li>
   <a href="javascript:void(0);" class="text-primary post-edit" data-id="{{ data.id }}" api="{% url 'posts:api_socialwall_all' %}">{% trans 'Edit' %}</a>
 </li>
@@ -44,7 +44,7 @@
 {% endif %}
 {% if data.file != None %}
 <li>
-  <a href="{{ data.file }}" class="glyphicon glyphicon-paperclip" target="_blank" title="{{ data.file }}"></a>
+  <a href="/media/{{ data.file }}" class="glyphicon glyphicon-paperclip" target="_blank" title="{{ data.file }}"></a>
 </li>
 {% endif %}
 </ul>

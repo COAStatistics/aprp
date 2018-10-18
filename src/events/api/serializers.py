@@ -60,7 +60,7 @@ class EventSerializer(ModelSerializer):
                         is_valid = False
 
         if not is_valid:
-            raise ValidationError('Invalid token.')
+            raise ValidationError(_('This value does not match the required pattern'))
 
         for name in names_to_create:
             obj = EventType.objects.create(name=name)
@@ -98,5 +98,3 @@ class EventSerializer(ModelSerializer):
         instance.user = self.context['request'].user
         instance.save()
         return instance
-
-

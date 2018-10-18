@@ -25,6 +25,9 @@ def get_read_time(html_string):
 
 
 def upload_location(instance, filename):
+    if instance.id:
+        return "post/{}/{}".format(instance.id, filename)
+
     model = instance.__class__
     last_obj = model.objects.order_by("id").last()
 
@@ -33,4 +36,4 @@ def upload_location(instance, filename):
     else:
         new_id = 1
 
-    return "post/%s/%s" % (new_id, filename)
+    return "post/{}/{}".format(new_id, filename)
