@@ -20,6 +20,13 @@ class AbstractProductAdmin(admin.ModelAdmin):
     model = AbstractProductModelForm
     list_display = ['id', 'name', 'code', 'config', 'type', 'parent', 'track_item', 'unit']
     list_editable = ['name', 'code', 'track_item']
+    list_filter = ('config', 'type', 'track_item')
+
+    search_fields = (
+        'id',
+        'code',
+        'name',
+    )
 
 
 class ConfigModelForm(ModelForm):
