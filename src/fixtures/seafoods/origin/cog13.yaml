@@ -616,7 +616,7 @@
     type: 2
     config: 13
     unit: 2
-    parent: 120963
+    parent: 120196
 
 - model: seafoods.Seafood
   pk: 120965

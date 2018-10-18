@@ -117,10 +117,9 @@ var chart2Helper = {
                         text: profile.format_price + '(' + profile.watchlist + ')',
                         style: {
                             color: '#606060',
-                            zIndex: 300,
                         }
                     },
-                    zIndex: 300,
+                    zIndex: 3,
                 }
             })
             return plotBands;
@@ -141,11 +140,15 @@ var chart2Helper = {
 
     },
     setMinToZero: function() {
-        var chart = this;
-        // Sets the min value for the chart
-        if (chart.yAxis[0].getExtremes().min < 0) {
-            //set the min and return the values
-            chart.yAxis[0].setExtremes(0, null, true, false); // redraw
+        // only call chart.events
+        if(this.constructor == Highcharts.Chart){
+            var chart = this;
+            // Sets the min value for the chart
+            if (chart.yAxis[0].getExtremes().min < 0) {
+                //set the min and return the values
+                chart.yAxis[0].setExtremes(0, null, true, false); // redraw
+            }
+            console.log('Set yAxis[0] min to zero');
         }
     },
     create: function(container, seriesOptions, unit) {
@@ -171,7 +174,7 @@ var chart2Helper = {
                         yAxis: 0,
                         color: Highcharts.getOptions().colors[1],
                         data: markData(), // invoke to get marked data
-                        zIndex: 100,
+                        zIndex: 2,
                         turboThreshold: 0, // check every single data-point more than 1000 points
                         marker: {
                             enabled: true,
@@ -216,7 +219,7 @@ var chart2Helper = {
                         color: Highcharts.getOptions().colors[2],
                         yAxis: 2,
                         data: data['avg_weight'],
-                        zIndex: 10,
+                        zIndex: 3,
                         marker: {
                             enabled: true,
                             radius: chart2Helper.manager.radiusSize.line,
@@ -325,7 +328,8 @@ var chart2Helper = {
                 spacing: [10,0,0,0],
                 height: thisDevice == 'desktop' ? 625 : 400,
                 events: {
-                    load: chart2Helper.setMinToZero
+                    load: chart2Helper.setMinToZero,
+                    render: chart2Helper.setMinToZero,
                 },
             },
 
@@ -400,6 +404,7 @@ var chart2Helper = {
                                         radius: monthLength > 3 ? 0 : chart2Helper.manager.radiusSize.line,
                                     },
                                 }, false); // redraw later
+
                             })
 
                             chart.plotBandUpdate(false); // redraw later
@@ -441,7 +446,7 @@ var chart2Helper = {
             legend: {
                 enabled: true,
                 itemStyle: {
-                    fontSize: chart1Helper.manager.fontSize.label,
+                    fontSize: chart2Helper.manager.fontSize.label,
                 },
             },
 
@@ -460,7 +465,7 @@ var chart2Helper = {
                 },
                 buttons: {
                     plotBands: {
-                        enabled: thisDevice == 'desktop' ? true : false,
+                        enabled: thisDevice == 'desktop' && chart2Helper.manager.monitorProfiles.length > 0 ? true : false,
                         text: gettext('PlotBands'),
                         onclick: function () {
                             this.yAxis.forEach(function(yAxis, i){
@@ -500,7 +505,7 @@ var chart2Helper = {
 
             tooltip: {
                 formatter: function () {
-                    var s = '<b>' + Highcharts.dateFormat('%Y/%m/%d, %a', new Date(this.x)) + '</b>';
+                    var s = '<b>' + Highcharts.dateFormat('%Y/%m/%d, %a', new Date(this.x)) + '</b><span>';
 
                     $.each(this.points, function () {
                         s += '<br/><br/>' + this.series.name + ': ' + Highcharts.numberFormat(this.y, this.series.tooltipOptions.valueDecimals);
@@ -508,6 +513,8 @@ var chart2Helper = {
                             s += ' (' + this.point.monitorProfile.watchlist + '-' + this.point.monitorProfile.format_price +  ')'
                         }
                     });
+
+                    s += '</span>'
 
                     return s;
                 },
@@ -588,7 +595,7 @@ var chart2Helper = {
                 name: gettext('Watchlists'),
                 data: watchlistFlagData,
                 shape: 'flag',
-                zIndex: 300,
+                zIndex: 5,
                 showInLegend: false,
                 style: {
                     fontSize: chart2Helper.manager.fontSize.label,

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-28 17:27+0800\n"
+"POT-Creation-Date: 2018-10-19 00:47+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: static/js/app.custom.js:415 static/js/datatables/dataTableHelper.js:115
-#: static/js/highcharts/highcharts-settings.js:128
+#: static/js/app.custom.js:439 static/js/datatables/dataTableHelper.js:115
+#: static/js/highcharts/highcharts-settings.js:133
 msgid "Loading"
 msgstr "載入中，請稍後"
 
-#: static/js/app.custom.js:459
+#: static/js/app.custom.js:483
 msgid "Error requesting"
 msgstr "載入時發生錯誤"
 
@@ -115,47 +115,47 @@ msgstr "複製到剪貼簿"
 #: static/js/datatables/dataTableHelper.js:142
 #: static/js/datatables/dataTableHelper.js:145
 #: static/js/datatables/dataTableHelper.js:148
-#: static/js/highcharts/highcharts-settings.js:173
-#: static/js/highcharts/highcharts-settings.js:174
-#: static/js/highcharts/highcharts-settings.js:175
-#: static/js/highcharts/highcharts-settings.js:176
+#: static/js/highcharts/highcharts-settings.js:179
+#: static/js/highcharts/highcharts-settings.js:180
+#: static/js/highcharts/highcharts-settings.js:181
+#: static/js/highcharts/highcharts-settings.js:182
 msgid "Download"
 msgstr "下載"
 
 #: static/js/datatables/dataTableHelper.js:151
-#: static/js/highcharts/highcharts-settings.js:167
+#: static/js/highcharts/highcharts-settings.js:172
 msgid "Print"
 msgstr "列印"
 
-#: static/js/datatables/dataTableHelper.js:278
+#: static/js/datatables/dataTableHelper.js:270
 msgid "Load Historical Data"
 msgstr "載入歷年資料"
 
-#: static/js/datatables/dataTableHelper.js:382
-#: static/js/datatables/dataTableHelper.js:385
+#: static/js/datatables/dataTableHelper.js:378
+#: static/js/datatables/dataTableHelper.js:381
 msgid "New Event"
 msgstr "新增事件"
 
-#: static/js/datatables/dataTableHelper.js:461
+#: static/js/datatables/dataTableHelper.js:480
 msgid "Edit Event"
 msgstr "編輯事件"
 
-#: static/js/datatables/dataTableHelper.js:466
-#: static/js/datatables/dataTableHelper.js:468
+#: static/js/datatables/dataTableHelper.js:485
+#: static/js/datatables/dataTableHelper.js:487
 msgid "Delete Event"
 msgstr "刪除事件"
 
-#: static/js/datatables/dataTableHelper.js:469
+#: static/js/datatables/dataTableHelper.js:488
 msgid "Are you sure you want to delete this event?"
 msgstr "確認刪除這個事件嗎？"
 
-#: static/js/datatables/dataTableHelper.js:471 static/js/socialwall.js:286
-#: static/js/socialwall.js:392
+#: static/js/datatables/dataTableHelper.js:490 static/js/socialwall.js:329
+#: static/js/socialwall.js:435
 msgid "Delete"
 msgstr "刪除"
 
-#: static/js/datatables/dataTableHelper.js:472 static/js/socialwall.js:287
-#: static/js/socialwall.js:393
+#: static/js/datatables/dataTableHelper.js:491 static/js/socialwall.js:330
+#: static/js/socialwall.js:436
 msgid "Cancel"
 msgstr "取消"
 
@@ -163,41 +163,41 @@ msgstr "取消"
 msgid "Daily Price/Volume Trend For Two Weeks"
 msgstr "近2週每日量價趨勢"
 
-#: static/js/highcharts/chart1Helper.js:161
-#: static/js/highcharts/chart1Helper.js:228
-#: static/js/highcharts/chart2Helper.js:163
-#: static/js/highcharts/chart2Helper.js:233
-#: static/js/highcharts/chart3Helper.js:47
-#: static/js/highcharts/chart4Helper.js:51
+#: static/js/highcharts/chart1Helper.js:173
+#: static/js/highcharts/chart1Helper.js:240
+#: static/js/highcharts/chart2Helper.js:174
+#: static/js/highcharts/chart2Helper.js:244
+#: static/js/highcharts/chart3Helper.js:52
+#: static/js/highcharts/chart4Helper.js:49
 #: static/js/highcharts/chart5Helper.js:58
 #: static/js/highcharts/chart5Helper.js:85
 msgid "Average Price"
 msgstr "日均價格"
 
-#: static/js/highcharts/chart1Helper.js:185
-#: static/js/highcharts/chart1Helper.js:251
-#: static/js/highcharts/chart2Helper.js:188
-#: static/js/highcharts/chart3Helper.js:50
-#: static/js/highcharts/chart4Helper.js:54
+#: static/js/highcharts/chart1Helper.js:197
+#: static/js/highcharts/chart1Helper.js:263
+#: static/js/highcharts/chart2Helper.js:199
+#: static/js/highcharts/chart3Helper.js:55
+#: static/js/highcharts/chart4Helper.js:52
 msgid "Sum Volume"
 msgstr "總交易量"
 
-#: static/js/highcharts/chart1Helper.js:204
-#: static/js/highcharts/chart1Helper.js:271
-#: static/js/highcharts/chart2Helper.js:208
-#: static/js/highcharts/chart2Helper.js:275
-#: static/js/highcharts/chart3Helper.js:53
-#: static/js/highcharts/chart4Helper.js:57
+#: static/js/highcharts/chart1Helper.js:216
+#: static/js/highcharts/chart1Helper.js:282
+#: static/js/highcharts/chart2Helper.js:219
+#: static/js/highcharts/chart2Helper.js:286
+#: static/js/highcharts/chart3Helper.js:58
+#: static/js/highcharts/chart4Helper.js:55
 msgid "Average Weight"
 msgstr "日均重量"
 
-#: static/js/highcharts/chart1Helper.js:384
-#: static/js/highcharts/chart2Helper.js:458
+#: static/js/highcharts/chart1Helper.js:393
+#: static/js/highcharts/chart2Helper.js:470
 msgid "PlotBands"
 msgstr "價格警示區域"
 
-#: static/js/highcharts/chart1Helper.js:470
-#: static/js/highcharts/chart2Helper.js:582
+#: static/js/highcharts/chart1Helper.js:479
+#: static/js/highcharts/chart2Helper.js:596
 msgid "Watchlists"
 msgstr "監控清單"
 
@@ -205,31 +205,31 @@ msgstr "監控清單"
 msgid "Daily Price/Volume Trend For All Time"
 msgstr "每日量價趨勢"
 
-#: static/js/highcharts/chart2Helper.js:256
+#: static/js/highcharts/chart2Helper.js:267
 msgid "Volume"
 msgstr "交易量"
 
-#: static/js/highcharts/chart2Helper.js:295
+#: static/js/highcharts/chart2Helper.js:306
 msgid "1m"
 msgstr "1個月"
 
-#: static/js/highcharts/chart2Helper.js:299
+#: static/js/highcharts/chart2Helper.js:310
 msgid "3m"
 msgstr "3個月"
 
-#: static/js/highcharts/chart2Helper.js:303
+#: static/js/highcharts/chart2Helper.js:314
 msgid "6m"
 msgstr "6個月"
 
-#: static/js/highcharts/chart2Helper.js:307
+#: static/js/highcharts/chart2Helper.js:318
 msgid "1y"
 msgstr "1年"
 
-#: static/js/highcharts/chart3Helper.js:8
+#: static/js/highcharts/chart3Helper.js:14
 msgid "Daily Price/Volume Trend Year By Year"
 msgstr "歷年每日量價走勢"
 
-#: static/js/highcharts/chart3Helper.js:241
+#: static/js/highcharts/chart3Helper.js:242
 msgid "Average Year By Year"
 msgstr "歷年平均"
 
@@ -237,88 +237,88 @@ msgstr "歷年平均"
 msgid "Monthly Price/Volume Distribution Trend"
 msgstr "歷年各月量價區間"
 
-#: static/js/highcharts/chart4Helper.js:85
+#: static/js/highcharts/chart4Helper.js:83
 msgid "Maximum"
 msgstr "最大值"
 
-#: static/js/highcharts/chart4Helper.js:86
+#: static/js/highcharts/chart4Helper.js:84
 msgid "Upper quartile"
 msgstr "第三四分位數"
 
-#: static/js/highcharts/chart4Helper.js:87
+#: static/js/highcharts/chart4Helper.js:85
 msgid "Median"
 msgstr "中位數"
 
-#: static/js/highcharts/chart4Helper.js:88
+#: static/js/highcharts/chart4Helper.js:86
 msgid "Lower quartile"
 msgstr "第一四分位數"
 
-#: static/js/highcharts/chart4Helper.js:89
+#: static/js/highcharts/chart4Helper.js:87
 msgid "Minimum"
 msgstr "最小值"
 
-#: static/js/highcharts/chart4Helper.js:90
+#: static/js/highcharts/chart4Helper.js:88
 msgid "Mean"
 msgstr "平均值"
 
-#: static/js/highcharts/chart4Helper.js:126
-#: static/js/highcharts/highcharts-settings.js:154
+#: static/js/highcharts/chart4Helper.js:124
+#: static/js/highcharts/highcharts-settings.js:159
 msgid "Jan"
 msgstr "1月"
 
-#: static/js/highcharts/chart4Helper.js:127
-#: static/js/highcharts/highcharts-settings.js:155
+#: static/js/highcharts/chart4Helper.js:125
+#: static/js/highcharts/highcharts-settings.js:160
 msgid "Feb"
 msgstr "2月"
 
-#: static/js/highcharts/chart4Helper.js:128
-#: static/js/highcharts/highcharts-settings.js:156
+#: static/js/highcharts/chart4Helper.js:126
+#: static/js/highcharts/highcharts-settings.js:161
 msgid "Mar"
 msgstr "3月"
 
-#: static/js/highcharts/chart4Helper.js:129
-#: static/js/highcharts/highcharts-settings.js:157
+#: static/js/highcharts/chart4Helper.js:127
+#: static/js/highcharts/highcharts-settings.js:162
 msgid "Apr"
 msgstr "4月"
 
-#: static/js/highcharts/chart4Helper.js:130
-#: static/js/highcharts/highcharts-settings.js:139
-#: static/js/highcharts/highcharts-settings.js:158
+#: static/js/highcharts/chart4Helper.js:128
+#: static/js/highcharts/highcharts-settings.js:144
+#: static/js/highcharts/highcharts-settings.js:163
 msgid "May"
 msgstr "5月"
 
-#: static/js/highcharts/chart4Helper.js:131
-#: static/js/highcharts/highcharts-settings.js:159
+#: static/js/highcharts/chart4Helper.js:129
+#: static/js/highcharts/highcharts-settings.js:164
 msgid "Jun"
 msgstr "6月"
 
-#: static/js/highcharts/chart4Helper.js:132
-#: static/js/highcharts/highcharts-settings.js:160
+#: static/js/highcharts/chart4Helper.js:130
+#: static/js/highcharts/highcharts-settings.js:165
 msgid "Jul"
 msgstr "7月"
 
-#: static/js/highcharts/chart4Helper.js:133
-#: static/js/highcharts/highcharts-settings.js:161
+#: static/js/highcharts/chart4Helper.js:131
+#: static/js/highcharts/highcharts-settings.js:166
 msgid "Aug"
 msgstr "8月"
 
-#: static/js/highcharts/chart4Helper.js:134
-#: static/js/highcharts/highcharts-settings.js:162
+#: static/js/highcharts/chart4Helper.js:132
+#: static/js/highcharts/highcharts-settings.js:167
 msgid "Sep"
 msgstr "9月"
 
-#: static/js/highcharts/chart4Helper.js:135
-#: static/js/highcharts/highcharts-settings.js:163
+#: static/js/highcharts/chart4Helper.js:133
+#: static/js/highcharts/highcharts-settings.js:168
 msgid "Oct"
 msgstr "10月"
 
-#: static/js/highcharts/chart4Helper.js:136
-#: static/js/highcharts/highcharts-settings.js:164
+#: static/js/highcharts/chart4Helper.js:134
+#: static/js/highcharts/highcharts-settings.js:169
 msgid "Nov"
 msgstr "11月"
 
-#: static/js/highcharts/chart4Helper.js:137
-#: static/js/highcharts/highcharts-settings.js:165
+#: static/js/highcharts/chart4Helper.js:135
+#: static/js/highcharts/highcharts-settings.js:170
 msgid "Dec"
 msgstr "12月"
 
@@ -326,156 +326,160 @@ msgstr "12月"
 msgid "Important Transition Events"
 msgstr "重要產銷事件簿"
 
-#: static/js/highcharts/highcharts-settings.js:127
+#: static/js/highcharts/highcharts-settings.js:132
 msgid ""
 "No data to display or no product been monitoring under current watchlist"
 msgstr "目前無資料可供顯示(非產季)或產品未被監控"
 
-#: static/js/highcharts/highcharts-settings.js:129
+#: static/js/highcharts/highcharts-settings.js:134
 msgid "k"
 msgstr ""
 
-#: static/js/highcharts/highcharts-settings.js:130
+#: static/js/highcharts/highcharts-settings.js:135
 msgid "M"
 msgstr ""
 
-#: static/js/highcharts/highcharts-settings.js:131
+#: static/js/highcharts/highcharts-settings.js:136
 msgid "G"
 msgstr ""
 
-#: static/js/highcharts/highcharts-settings.js:132
+#: static/js/highcharts/highcharts-settings.js:137
 msgid "T"
 msgstr ""
 
-#: static/js/highcharts/highcharts-settings.js:133
+#: static/js/highcharts/highcharts-settings.js:138
 msgid "P"
 msgstr ""
 
-#: static/js/highcharts/highcharts-settings.js:134
+#: static/js/highcharts/highcharts-settings.js:139
 msgid "E"
 msgstr ""
 
-#: static/js/highcharts/highcharts-settings.js:135
+#: static/js/highcharts/highcharts-settings.js:140
 msgid "January"
 msgstr "1月"
 
-#: static/js/highcharts/highcharts-settings.js:136
+#: static/js/highcharts/highcharts-settings.js:141
 msgid "February"
 msgstr "2月"
 
-#: static/js/highcharts/highcharts-settings.js:137
+#: static/js/highcharts/highcharts-settings.js:142
 msgid "March"
 msgstr "3月"
 
-#: static/js/highcharts/highcharts-settings.js:138
+#: static/js/highcharts/highcharts-settings.js:143
 msgid "April"
 msgstr "4月"
 
-#: static/js/highcharts/highcharts-settings.js:140
+#: static/js/highcharts/highcharts-settings.js:145
 msgid "June"
 msgstr "6月"
 
-#: static/js/highcharts/highcharts-settings.js:141
+#: static/js/highcharts/highcharts-settings.js:146
 msgid "July"
 msgstr "7月"
 
-#: static/js/highcharts/highcharts-settings.js:142
+#: static/js/highcharts/highcharts-settings.js:147
 msgid "August"
 msgstr "8月"
 
-#: static/js/highcharts/highcharts-settings.js:143
+#: static/js/highcharts/highcharts-settings.js:148
 msgid "September"
 msgstr "9月"
 
-#: static/js/highcharts/highcharts-settings.js:144
+#: static/js/highcharts/highcharts-settings.js:149
 msgid "October"
 msgstr "10月"
 
-#: static/js/highcharts/highcharts-settings.js:145
+#: static/js/highcharts/highcharts-settings.js:150
 msgid "November"
 msgstr "11月"
 
-#: static/js/highcharts/highcharts-settings.js:146
+#: static/js/highcharts/highcharts-settings.js:151
 msgid "December"
 msgstr "12月"
 
-#: static/js/highcharts/highcharts-settings.js:147
+#: static/js/highcharts/highcharts-settings.js:152
 msgid "Sunday"
 msgstr "週日"
 
-#: static/js/highcharts/highcharts-settings.js:148
+#: static/js/highcharts/highcharts-settings.js:153
 msgid "Monday"
 msgstr "週一"
 
-#: static/js/highcharts/highcharts-settings.js:149
+#: static/js/highcharts/highcharts-settings.js:154
 msgid "Tuesday"
 msgstr "週二"
 
-#: static/js/highcharts/highcharts-settings.js:150
+#: static/js/highcharts/highcharts-settings.js:155
 msgid "Wednesday"
 msgstr "週三"
 
-#: static/js/highcharts/highcharts-settings.js:151
+#: static/js/highcharts/highcharts-settings.js:156
 msgid "Thursday"
 msgstr "週四"
 
-#: static/js/highcharts/highcharts-settings.js:152
+#: static/js/highcharts/highcharts-settings.js:157
 msgid "Friday"
 msgstr "週五"
 
-#: static/js/highcharts/highcharts-settings.js:153
+#: static/js/highcharts/highcharts-settings.js:158
 msgid "Saturday"
 msgstr "週六"
 
-#: static/js/highcharts/highcharts-settings.js:166
+#: static/js/highcharts/highcharts-settings.js:171
 msgid "Export"
 msgstr "匯出"
 
-#: static/js/highcharts/highcharts-settings.js:168
+#: static/js/highcharts/highcharts-settings.js:173
 msgid "Chart context menu"
 msgstr "圖表選單"
 
-#: static/js/highcharts/highcharts-settings.js:169
+#: static/js/highcharts/highcharts-settings.js:174
+msgid "Reset Zoom"
+msgstr "點我重設區間範圍"
+
+#: static/js/highcharts/highcharts-settings.js:175
 msgid "From"
 msgstr "從"
 
-#: static/js/highcharts/highcharts-settings.js:170
+#: static/js/highcharts/highcharts-settings.js:176
 msgid "TO"
 msgstr "至"
 
-#: static/js/highcharts/highcharts-settings.js:171
+#: static/js/highcharts/highcharts-settings.js:177
 msgid "Zoom"
 msgstr "選擇區間"
 
-#: static/js/highcharts/highcharts-settings.js:172
+#: static/js/highcharts/highcharts-settings.js:178
 msgid "Print chart"
 msgstr "列印圖表"
 
-#: static/js/socialwall.js:59 static/js/socialwall.js:86
+#: static/js/socialwall.js:120 static/js/socialwall.js:138
 msgid "Filter by"
 msgstr "關鍵字"
 
-#: static/js/socialwall.js:60 static/js/socialwall.js:87
+#: static/js/socialwall.js:121 static/js/socialwall.js:139
 msgid "All"
 msgstr "全部"
 
-#: static/js/socialwall.js:283
+#: static/js/socialwall.js:326
 msgid "Delete Post"
 msgstr "刪除貼文"
 
-#: static/js/socialwall.js:284
+#: static/js/socialwall.js:327
 msgid "Are you sure you want to delete this post?"
 msgstr "確認刪除這篇貼文嗎？"
 
-#: static/js/socialwall.js:389
+#: static/js/socialwall.js:432
 msgid "Delete Comment"
 msgstr "刪除留言"
 
-#: static/js/socialwall.js:390
+#: static/js/socialwall.js:433
 msgid "Are you sure you want to delete this comment?"
 msgstr "確認刪除這則留言嗎？"
 
-#: static/js/socialwall.js:478
+#: static/js/socialwall.js:521
 msgid "Author"
 msgstr "發文者"
 
