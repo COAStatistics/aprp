@@ -441,7 +441,7 @@
   pk: 120948
   fields:
     name: 金目鱸
-    code: 1073A
+    code: 1071
     type: 2
     config: 13
     unit: 2
@@ -473,7 +473,7 @@
   pk: 120951
   fields:
     name: 七星鱸(條凍)
-    code: 1071
+    code: 1073A
     type: 2
     config: 13
     unit: 2
