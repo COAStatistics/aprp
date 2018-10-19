@@ -126,7 +126,6 @@ var chart1Helper = {
 
         return function(redraw){
             if(thisDevice == 'desktop'){
-                redraw = redraw || true;
                 var plotBands = getPlotBands();
 
                 yAxis.update({
@@ -134,20 +133,8 @@ var chart1Helper = {
                     minorGridLineWidth: plotBands ? 0 : 1,
                     gridLineWidth: plotBands ? 0 : 1,
                     alternateGridColor: plotBands ? null : 'undefined',
-                }, redraw); // redraw
+                }, true); // redraw
             }
-        }
-    },
-    setMinToZero: function() {
-        // only call chart.events
-        if(this.constructor == Highcharts.Chart){
-            var chart = this;
-            // Sets the min value for the chart
-            if (chart.yAxis[0].getExtremes().min < 0) {
-                //set the min and return the values
-                chart.yAxis[0].setExtremes(0, null, true, false); // redraw
-            }
-            console.log('Set yAxis[0] min to zero');
         }
     },
     create: function(container, seriesOptions, unit){
@@ -252,7 +239,12 @@ var chart1Helper = {
                         return Math.round(this.value * 10) / 10;
                     },
                 },
-                opposite: false
+                opposite: false,
+                endOnTick: false,
+                startOnTick: false,
+                maxPadding: 0.5,
+                minPadding: 0.5,
+                floor: 0,
             })
         }
         if (has_sum_volume) {
@@ -301,10 +293,6 @@ var chart1Helper = {
                 zoomType: 'x',
                 spacing: [10,0,0,0],
                 height: thisDevice == 'desktop' ? 625 : 400,
-                events: {
-                    load: chart1Helper.setMinToZero,
-                    render: chart1Helper.setMinToZero,
-                },
             },
 
             title: {
@@ -451,17 +439,7 @@ var chart1Helper = {
         }, function(chart){
 
             chart.plotBandUpdate = chart1Helper.plotBandUpdate(chart);
-            chart.plotBandUpdate(false); // redraw later
-
-            /* Add extra range to price yAxis */
-            var min = chart.yAxis[0].min;
-            var max = chart.yAxis[0].max;
-            var extra = (max - min) / 20;
-            extra = extra > 3 ? extra : 3;
-            chart.yAxis[0].update({
-                min: min - extra,
-                max: max + extra,
-            }, false); // redraw later
+            chart.plotBandUpdate(); // redraw
 
             /* Plot watchlist flag */
             watchlistFlagData = [];
