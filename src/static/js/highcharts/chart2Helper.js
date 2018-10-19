@@ -125,31 +125,18 @@ var chart2Helper = {
             return plotBands;
         };
 
-        return function(redraw){
+        return function(){
             if(thisDevice == 'desktop'){
-                redraw = redraw || true;
                 var plotBands = getPlotBands();
                 yAxis.update({
                     plotBands: plotBands,
                     minorGridLineWidth: plotBands ? 0 : 1,
                     gridLineWidth: plotBands ? 0 : 1,
                     alternateGridColor: plotBands ? null : 'undefined',
-                }, redraw); // redraw
+                }, true); // redraw
             }
         }
 
-    },
-    setMinToZero: function() {
-        // only call chart.events
-        if(this.constructor == Highcharts.Chart){
-            var chart = this;
-            // Sets the min value for the chart
-            if (chart.yAxis[0].getExtremes().min < 0) {
-                //set the min and return the values
-                chart.yAxis[0].setExtremes(0, null, true, false); // redraw
-            }
-            console.log('Set yAxis[0] min to zero');
-        }
     },
     create: function(container, seriesOptions, unit) {
 
@@ -256,6 +243,11 @@ var chart2Helper = {
                     },
                 },
                 opposite: false,
+                endOnTick: false,
+                startOnTick: false,
+                maxPadding: 0.5,
+                minPadding: 0.5,
+                floor: 0,
             })
         }
 
@@ -327,10 +319,6 @@ var chart2Helper = {
                 zoomType: 'x',
                 spacing: [10,0,0,0],
                 height: thisDevice == 'desktop' ? 625 : 400,
-                events: {
-                    load: chart2Helper.setMinToZero,
-                    selection: chart2Helper.setMinToZero,
-                },
             },
 
             title: {
@@ -407,7 +395,7 @@ var chart2Helper = {
 
                             })
 
-                            chart.plotBandUpdate(false); // redraw later
+                            chart.plotBandUpdate(); // redraw
 
                             /* Update date range */
                             chart2Helper.manager.dateRange.min = min;
@@ -505,7 +493,7 @@ var chart2Helper = {
 
             tooltip: {
                 formatter: function () {
-                    var s = '<b>' + Highcharts.dateFormat('%Y/%m/%d, %a', new Date(this.x)) + '</b><span>';
+                    var s = '<b>' + Highcharts.dateFormat('%Y/%m/%d, %a', new Date(this.x)) + '</b>';
 
                     $.each(this.points, function () {
                         s += '<br/><br/>' + this.series.name + ': ' + Highcharts.numberFormat(this.y, this.series.tooltipOptions.valueDecimals);
@@ -513,8 +501,6 @@ var chart2Helper = {
                             s += ' (' + this.point.monitorProfile.watchlist + '-' + this.point.monitorProfile.format_price +  ')'
                         }
                     });
-
-                    s += '</span>'
 
                     return s;
                 },
@@ -554,6 +540,9 @@ var chart2Helper = {
 
         }, function (chart) {
 
+            chart.plotBandUpdate = chart2Helper.plotBandUpdate(chart);
+            chart.plotBandUpdate(); // redraw
+
             var max = new Date(chart.xAxis[0].getExtremes().max);
             var min = new Date(chart.xAxis[0].getExtremes().min);
 
@@ -575,9 +564,6 @@ var chart2Helper = {
                     }
                 });
             }, 0);
-
-            chart.plotBandUpdate = chart2Helper.plotBandUpdate(chart);
-            chart.plotBandUpdate(false); // redraw later
 
             /* Plot watchlist flags */
             watchlistFlagData = [];
@@ -610,7 +596,7 @@ var chart2Helper = {
                         borderColor: '#000',
                     }
                 },
-            }, true); // redraw later
+            }, true); // redraw
 
             // init integration datatable
             integrationHelper.loadTable($('#chart-2-widget-integration div[data-load]'), min, max);

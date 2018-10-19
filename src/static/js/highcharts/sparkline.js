@@ -134,11 +134,6 @@ function doChunk($tds) {
             return [dates[i], values[i]];
         });
 
-        chart = {};
-
-        if (arr[1]) {
-            chart.type = arr[1];
-        }
         $td.highcharts('SparkLine', {
             series: [{
                 data: data,
@@ -148,7 +143,6 @@ function doChunk($tds) {
                 headerFormat: '<span style="font-size: 10px">{point.key:%Y-%m-%d}:</span><br/>',
                 pointFormat: '<b>{point.y}</b>',
             },
-            chart: chart
         });
 
         n += 1;
