@@ -1,8 +1,8 @@
 - model: crops.Crop
   pk: 10006
   fields:
-    name: 根莖菜類
-    code: S
+    name: 葉菜類
+    code: L
     config: 2
     unit: 1
     type: 1
@@ -10,8 +10,8 @@
 - model: crops.Crop
   pk: 10007
   fields:
-    name: 葉菜類
-    code: L
+    name: 根莖菜類
+    code: S
     config: 2
     unit: 1
     type: 1
