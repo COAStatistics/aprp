@@ -56,6 +56,7 @@ class EventListCreateAPIView(ListCreateAPIView):
     datatable = False
     content_type = None
     object_id = None
+    order_by = '-date'
 
     def initial(self, request, *args, **kwargs):
         super(EventListCreateAPIView, self).initial(request, *args, **kwargs)
@@ -64,11 +65,12 @@ class EventListCreateAPIView(ListCreateAPIView):
         self.content_type = request.query_params.get('content_type', None)
         self.object_id = request.query_params.get('object_id', None)
         self.datatable = request.query_params.get('datatable', None) == 'true'
+        self.order_by = request.query_params.get('order_by', '-date')
         self.filter_by_product = bool(self.content_type and self.object_id)
 
     def get_queryset(self):
 
-        queryset = Event.objects.all().order_by('-date')
+        queryset = Event.objects.all().order_by(self.order_by)
 
         if not self.filter_by_product:
             return queryset

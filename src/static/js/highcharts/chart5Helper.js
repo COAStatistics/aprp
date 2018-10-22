@@ -14,12 +14,7 @@ var chart5Helper = {
         url: null,
         contentType: null,
         objectId: null,
-    },
-    loadEvents: function(){
-        var charts = this.manager.getCharts()
-        charts.forEach(function(chart, i){
-            chart.loadEvents();
-        });
+        locationImage: null,
     },
     init: function(url, contentType, objectId){
 
@@ -33,6 +28,9 @@ var chart5Helper = {
         this.manager.url = url;
         this.manager.contentType = contentType;
         this.manager.objectId = objectId;
+
+        image = thisDevice === 'desktop' ? 'dot-32.png' : 'dot-24.png';
+        this.manager.locationImage = 'url('+ window.location.href + 'static/img/chart/' + image + ')';
 
     },
     create: function(container, seriesOptions, unit){
@@ -57,7 +55,7 @@ var chart5Helper = {
                         type: 'spline',
                         name: type.name + gettext('Average Price'),
                         yAxis: 0,
-                        zIndex: 100,
+                        zIndex: 1,
                         lineWidth: 0.7,
                         color: Highcharts.getOptions().colors[0],
                         marker: {
@@ -223,75 +221,73 @@ var chart5Helper = {
                 }]
             },
         }, function(chart){
-            chart.loadEvents = function(){
-                $.ajax({
-                    url: chart5Helper.manager.url,
-                    data: {
-                        content_type: chart5Helper.manager.contentType,
-                        object_id: chart5Helper.manager.objectId,
-                        datatable: false,
-                    },
-                    success: function(data) {
+            $.ajax({
+                url: chart5Helper.manager.url,
+                data: {
+                    content_type: chart5Helper.manager.contentType,
+                    object_id: chart5Helper.manager.objectId,
+                    datatable: false,
+                    order_by: 'date',
+                },
+                async: false,
+                success: function(data) {
+                    // set event flag series data
+                    if(data.length > 0){
+                        var points = [];
+                        var range = chart.xAxis[0].getExtremes();
+                        data.forEach(function(point, i){
+                            var date = new Date(point.date).getTime();
 
-                        // set event flag series data
-                        if(data.length > 0){
-                            var points = [];
-                            data.forEach(function(point, i){
-                                var range = chart.xAxis[0].getExtremes();
-                                var date = new Date(point.date).getTime();
+                            if(range.dataMin < date < range.dataMax){
 
-                                if(range.dataMin < date < range.dataMax){
-
-                                    var typeLabels = '';
-                                    point.types.forEach(function(type, i){
-                                        var labelColor = type.level === 1 ? 'danger' : 'info';
-                                        typeLabels += '<span style="margin-right:3px;" class="label label-' + labelColor +'">' + type.label + '</span>';
-                                    })
-                                    var text = typeLabels + '</br></br><b>' + point.name + '</b>';
-                                    if(thisDevice == 'desktop') text = text + '</br>' + point.context;
-                                    points.push({
-                                        x: date,
-                                        text: text,
-                                        title: ' ',
-                                    })
-                                }
-                            })
-                            chart.series.forEach(function(series, i){
-                                if(series.type === 'flags'){
-                                    series.remove();
-                                }
-                                else if(series.userOptions.customIndexType === 'avg_price'){
-                                    chart.addSeries({
-                                        type: 'flags',
-                                        shape: thisDevice === 'desktop' ? 'url(static/img/chart/dot-32.png)' : 'url(static/img/chart/dot-24.png)',
-                                        name: 'Events',
-                                        color: series.userOptions.color, // same as onSeries
-                                        fillColor: series.userOptions.color,
-                                        data: points,
-                                        onSeries: series.userOptions.id,
-                                        showInLegend: false,
-                                        style: { // text style
-                                            color: 'white',
-                                            fontSize: chart5Helper.manager.fontSize.label,
-                                        },
-                                        zIndex: 300,
-                                        states: {
-                                            hover: {
-                                                color: 'black', // same as onSeries
-                                                fillColor: series.userOptions.color,
-                                            }
-                                        },
-                                    });
-                                }
-                            })
-                        }else{
-                            root.console.log('No related events data.')
-                        }
-                    },
-                    cache: false,
-                });
-            }
-            chart.loadEvents();
+                                var typeLabels = '';
+                                point.types.forEach(function(type, i){
+                                    var labelColor = type.level === 1 ? 'danger' : 'info';
+                                    typeLabels += '<span style="margin-right:3px;" class="label label-' + labelColor +'">' + type.label + '</span>';
+                                })
+                                var text = typeLabels + '</br></br><b>' + point.name + '</b>';
+                                if(thisDevice == 'desktop') text = text + '</br>' + point.context;
+                                points.push({
+                                    x: date,
+                                    text: text,
+                                    title: ' ',
+                                })
+                            }
+                        })
+                        chart.series.forEach(function(series, i){
+                            if(series.type === 'flags'){
+                                series.remove();
+                            }
+                            else if(series.userOptions.customIndexType === 'avg_price'){
+                                chart.addSeries({
+                                    type: 'flags',
+                                    shape: chart5Helper.manager.locationImage,
+                                    name: 'Events',
+                                    color: series.userOptions.color, // same as onSeries
+                                    fillColor: series.userOptions.color,
+                                    data: points,
+                                    onSeries: series.userOptions.id,
+                                    showInLegend: false,
+                                    style: { // text style
+                                        color: 'white',
+                                        fontSize: chart5Helper.manager.fontSize.label,
+                                    },
+                                    zIndex: 5,
+                                    states: {
+                                        hover: {
+                                            color: 'black', // same as onSeries
+                                            fillColor: series.userOptions.color,
+                                        }
+                                    },
+                                }, true);
+                            }
+                        })
+                    }else{
+                        root.console.log('No related events data.')
+                    }
+                },
+                cache: false,
+            });
         });
 
         chart.seriesOptions = seriesOptions;
