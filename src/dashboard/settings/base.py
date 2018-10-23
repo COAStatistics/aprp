@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
 
     # Third-part packages
     'rest_framework',
@@ -47,14 +48,6 @@ INSTALLED_APPS = [
     'ckeditor',
     'suit',
     'tagulous',
-
-    # All-auth
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.google',
 
     # Logger
     'django_db_logger',
@@ -110,8 +103,10 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.i18n',
                 'django.contrib.messages.context_processors.messages',
+                # custom contexts
                 'dashboard.context_processors.ga_tracking_id',
-                'dashboard.context_processors.use_ga'
+                'dashboard.context_processors.use_ga',
+                'dashboard.context_processors.aprp_version'
             ],
         },
     },
@@ -322,6 +317,7 @@ USE_GA = False
 GA_TRACKING_ID = ''
 
 # Password limits
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -336,3 +332,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
 ]
+
+# Aprp Release Version
+APRP_VERSION = '18.10.0'
