@@ -29,69 +29,104 @@ var integrationHelper = {
             url: url,
         }
     },
-    loadRow: function(node, $container, url, data){
+    loadRowFunction: function($container) {
 
-        var $spinner = $('<i class="fa fa-refresh fa-spin" style="margin-right: 5px;">');
-        $btn = $(node);
+        return function(e, dt, node){
+            var typeId = $container.attr('data-type-id');
+            var ajaxData = dataTableHelper.getAjaxDataFromContainer($container);
+            var data = {
+                start_date: ajaxData.min.getTime(),
+                end_date: ajaxData.max.getTime(),
+                to_init: false,
+                type_id: typeId,
+            }
+            var $spinner = $('<i class="fa fa-refresh fa-spin" style="margin-right: 5px;">');
+            $btn = $(node);
 
-        if($btn.data('load') || $btn.data('load-sending')){
-            return;
-        }
-
-        $.ajax({
-            url: url,
-            type: 'POST',
-            dataType: 'html',
-            async: true,
-            data: data,
-            beforeSend: function(xhr, settings){
-                $spinner.prependTo($btn);
-                $btn.data('load-sending', true);
-                // CSRF token
-                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                    xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
-                }
-            },
-            compvare: function(){
-                $btn.find('.fa-spinner').remove();
-                $btn.data('load-sending', false);
-            },
-            error: function(){
-                $btn.find('.fa-spinner').remove();
-                $btn.data('load-sending', false);
-            },
-        }).done(function(data){
-            var $trs = $(data);
-
-            // INSERT ROWS
-            var table = $container.DataTable();
-            $trs.each(function(){
-                $this = $(this);
-                if($this.is('tr')) table.rows.add($this).draw();
-            })
-
-            $btn.text(gettext('All Result Successfully Loaded'));
-            $btn.addClass('disabled');
-
-            $tds = $trs.find('td[data-sparkline]');
-            if($tds.length > 0 && doChunk){
-                doChunk($tds);
+            if($btn.data('load') || $btn.data('load-sending')){
+                return;
             }
 
-            dataTableHelper.compareIntegrationRow($container);
+            $.ajax({
+                url: ajaxData.url,
+                type: 'POST',
+                dataType: 'html',
+                async: true,
+                data: data,
+                beforeSend: function(xhr, settings){
+                    $spinner.prependTo($btn);
+                    $btn.data('load-sending', true);
+                    // CSRF token
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
+                    }
+                },
+                complete: function(){
+                    $btn.find('.fa-spinner').remove();
+                    $btn.data('load-sending', false);
+                },
+                error: function(){
+                    $btn.find('.fa-spinner').remove();
+                    $btn.data('load-sending', false);
+                },
+            }).done(function(data){
+                var $trs = $(data);
 
-            // SET ATTRIBUTE
-            $btn.data('load', true);
+                // INSERT ROWS
+                var table = $container.DataTable();
+                $trs.each(function(){
+                    $this = $(this);
+                    if($this.is('tr')) table.rows.add($this).draw();
+                })
 
-        }).fail(function(){
-            root.console.log('Load Historical Data Failed');
+                $btn.text(gettext('All Result Successfully Loaded'));
+                $btn.addClass('disabled');
 
-            $btn.text(gettext('Load Failed') + ', ' + gettext('Retry'));
-            $btn.find('.fa-spinner').remove();
-            $btn.data('load-sending', false);
+                $tds = $trs.find('td[data-sparkline]');
+                if($tds.length > 0 && doChunk){
+                    doChunk($tds);
+                }
+
+                integrationHelper.compareIntegrationRow($container);
+
+                // SET ATTRIBUTE
+                $btn.data('load', true);
+
+            }).fail(function(){
+                root.console.log('Load Historical Data Failed');
+
+                $btn.text(gettext('Load Failed') + ', ' + gettext('Retry'));
+                $btn.find('.fa-spinner').remove();
+                $btn.data('load-sending', false);
+            })
+        }
+    },
+    compareIntegrationRow: function($container){
+        $container.find('td[data-base="false"]').each(function(){
+            $this = $(this);
+
+            if($this.attr('data-compared')){
+                return;
+            }
+
+            var columnNo = $this.index();
+            $base = $this.closest("table").find("tr td:nth-child(" + (columnNo+1) + ")").filter('[data-base="true"]');
+            if($base.length == 1){
+                var thisValue = parseFloat($this.data('value'));
+                var baseValue = parseFloat($base.data('value'));
+                var diff = ((baseValue - thisValue) / thisValue) * 100;
+                diff = Math.round(diff * 10) / 10;
+                if(diff > 0){
+                    var $ui = $('<span class="label bg-color-redLight pull-right hidden-xs hidden-sm"><i class="fa fa-caret-up"></i> '+ diff +'%</span>');
+                }else{
+                    var $ui = $('<span class="label bg-color-greenLight pull-right hidden-xs hidden-sm"><i class="fa fa-caret-down"></i> '+ diff * -1 +'%</span>');
+                }
+                $ui.appendTo($this);
+            }
+
+            $this.attr('data-compared', true);
         })
-
-    }
+    },
 }
 
 var dataTableHelper = {
@@ -166,6 +201,12 @@ var dataTableHelper = {
         tabvar : 1024,
         phone : 480
     },
+    getAjaxDataFromContainer($container){
+        // Access ajax data from parent div
+        $parent = $container.closest('div[data-load]');
+        var ajaxData = $parent[0].ajaxData;
+        return ajaxData;
+    },
     createRaw: function(container){
         var responsiveHelper = null;
         this.responsiveHelpers.push(responsiveHelper);
@@ -184,6 +225,7 @@ var dataTableHelper = {
                 dataTableHelper.buttons.copy(),
             ],
             number: 3,
+            pageLength: 12,
 			autoWidth : true,
 			preDrawCallback : function() {
 				// Initialize the responsive datatables helper once.
@@ -218,14 +260,7 @@ var dataTableHelper = {
     },
     createIntegration: function(container){
 
-        function getAjaxDataFromContainer($container){
-            // Access ajax data from parent div
-            $parent = $container.closest('div[data-load]');
-            var ajaxData = $parent[0].ajaxData;
-            return ajaxData;
-        }
-
-        $container =$('#' + container);
+        $container = $('#' + container);
 
         var responsiveHelper = null;
         this.responsiveHelpers.push(responsiveHelper);
@@ -262,23 +297,13 @@ var dataTableHelper = {
             buttons.push(dataTableHelper.buttons.copy(btnOptions))
         }
 
-        var ajaxData = getAjaxDataFromContainer($container);
+        var ajaxData = dataTableHelper.getAjaxDataFromContainer($container);
 
         // Add btnLoad if start date and end date in same year
         sameYear = ajaxData.min.getYear() == ajaxData.max.getYear();
         btnLoadRow = sameYear ? {
             text: gettext('Load Historical Data'),
-            action: function(e, dt, node){
-                var typeId = $container.attr('data-type-id');
-                var ajaxData = getAjaxDataFromContainer($container);
-                var data = {
-                    start_date: ajaxData.min.getTime(),
-                    end_date: ajaxData.max.getTime(),
-                    to_init: false,
-                    type_id: typeId,
-                }
-                integrationHelper.loadRow(node, $container, ajaxData.url, data);
-            },
+            action: integrationHelper.loadRowFunction($container),
         } : null
         if(sameYear) buttons.push(btnLoadRow);
 
@@ -323,35 +348,9 @@ var dataTableHelper = {
             doChunk($td);
         }
 
-        dataTableHelper.compareIntegrationRow($container);
+        integrationHelper.compareIntegrationRow($container);
 
         return $table;
-    },
-    compareIntegrationRow: function(){
-        $container.find('td[data-base="false"]').each(function(){
-            $this = $(this);
-
-            if($this.attr('data-compared')){
-                return;
-            }
-
-            var columnNo = $this.index();
-            $base = $this.closest("table").find("tr td:nth-child(" + (columnNo+1) + ")").filter('[data-base="true"]');
-            if($base.length == 1){
-                var thisValue = parseFloat($this.data('value'));
-                var baseValue = parseFloat($base.data('value'));
-                var diff = ((baseValue - thisValue) / thisValue) * 100;
-                diff = Math.round(diff * 10) / 10;
-                if(diff > 0){
-                    var $ui = $('<span class="label bg-color-redLight pull-right hidden-xs hidden-sm"><i class="fa fa-caret-up"></i> '+ diff +'%</span>');
-                }else{
-                    var $ui = $('<span class="label bg-color-greenLight pull-right hidden-xs hidden-sm"><i class="fa fa-caret-down"></i> '+ diff * -1 +'%</span>');
-                }
-                $ui.appendTo($this);
-            }
-
-            $this.attr('data-compared', true);
-        })
     },
     createEvent: function(container){
         var responsiveHelper = null;
@@ -442,6 +441,7 @@ var dataTableHelper = {
 				responsiveHelper.respond();
 			},
             language: dataTableHelper.language,
+            pageLength: 20,
             order: [
                 [2, 'desc']
             ],
