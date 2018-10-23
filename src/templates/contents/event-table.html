@@ -3,7 +3,7 @@
 <div class="table-responsive">
     <!-- advise class table-event to init -->
     <table id="chart-{{ chart.id }}-event-{{ option.type.id }}-table"
-           data-editable="{% if user.info.is_editor %}editable{% endif %}"
+           data-editable="{% if user.info.event_editor %}editable{% endif %}"
            class="table table-striped table-bordered table-hover datatable-event responsive nowrap" cellspacing="0" width="100%">
         <thead>
             <tr>

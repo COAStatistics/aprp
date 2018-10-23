@@ -74,7 +74,9 @@ class UserInformation(Model):
                          on_delete=CASCADE,
                          related_name='info',
                          verbose_name=_('User'))
-    is_editor = BooleanField(default=False, verbose_name=_('Is Editor'))
+    event_editor = BooleanField(default=False, verbose_name=_('Event Editor'))
+    watchlist_viewer = BooleanField(default=False, verbose_name=_('Watchlist Viewer'))
+    menu_viewer = BooleanField(default=False, verbose_name=_('Menu Item Viewer'))
     profile = ImageField(upload_to=upload_location, null=True, blank=True, verbose_name=_('Profile'))
 
     class Meta:

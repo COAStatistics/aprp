@@ -14,3 +14,9 @@ def use_ga(request):
     except AttributeError:
         return {'use_ga', False}
 
+
+def aprp_version(request):
+    try:
+        return {'aprp_version': settings.APRP_VERSION}
+    except AttributeError:
+        return {'aprp_version': None}

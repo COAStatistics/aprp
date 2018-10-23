@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-19 00:47+0800\n"
+"POT-Creation-Date: 2018-10-23 16:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,8 +43,8 @@ msgstr "群組"
 msgid "Choose one of the following..."
 msgstr "請選擇"
 
-#: .\accounts\forms.py:25 .\accounts\models.py:187 .\accounts\models.py:201
-#: .\accounts\models.py:202
+#: accounts/forms.py:25 accounts/models.py:189 accounts/models.py:203
+#: accounts/models.py:204
 msgid "Reset Email"
 msgstr "變更電子信箱"
 
@@ -160,104 +160,112 @@ msgstr "群組資訊"
 msgid "Group Informations"
 msgstr "群組資訊"
 
-#: .\accounts\models.py:76 .\accounts\models.py:99 .\posts\models.py:33
-#: .\watchlists\models.py:40
+#: accounts/models.py:76 accounts/models.py:101 posts/models.py:33
+#: watchlists/models.py:40
 msgid "User"
 msgstr "使用者"
 
-#: .\accounts\models.py:77
-msgid "Is Editor"
-msgstr "可編輯人員"
+#: accounts/models.py:77
+msgid "Event Editor"
+msgstr "可編輯事件"
 
-#: .\accounts\models.py:78
+#: accounts/models.py:78
+msgid "Watchlist Viewer"
+msgstr "可檢視所有清單"
+
+#: accounts/models.py:79
+msgid "Menu Item Viewer"
+msgstr "可檢視所有展開品項"
+
+#: accounts/models.py:80
 msgid "Profile"
 msgstr "大頭貼"
 
-#: .\accounts\models.py:81
+#: accounts/models.py:83
 msgid "User Information"
 msgstr "帳戶資訊"
 
-#: .\accounts\models.py:82
+#: accounts/models.py:84
 msgid "User Informations"
 msgstr "帳戶資訊"
 
-#: .\accounts\models.py:100
+#: accounts/models.py:102
 msgid "Activate Key"
 msgstr "驗證碼"
 
-#: .\accounts\models.py:101
+#: accounts/models.py:103
 msgid "Expired"
 msgstr "是否過期"
 
-#: .\accounts\models.py:106
+#: accounts/models.py:108
 msgid "Abstract Profile"
 msgstr "抽象帳戶驗證"
 
-#: .\accounts\models.py:107
+#: accounts/models.py:109
 msgid "Abstract Profiles"
 msgstr "抽象帳戶驗證"
 
-#: .\accounts\models.py:139
+#: accounts/models.py:141
 msgid "Activation Profile"
 msgstr "帳戶啟用驗證"
 
-#: .\accounts\models.py:140
+#: accounts/models.py:142
 msgid "Activation Profiles"
 msgstr "帳戶啟動驗證"
 
-#: .\accounts\models.py:150
+#: accounts/models.py:152
 msgid "Activate"
 msgstr "啟用"
 
-#: .\accounts\models.py:151 .\accounts\models.py:176 .\accounts\models.py:202
-#: .\accounts\templates\account-base.html:8
-#: .\accounts\templates\account-base.html:45
-#: .\accounts\templates\introduction.html:5
-#: .\accounts\templates\mail_content.html:142 .\templates\footer.html.py:7
-#: .\templates\header.html:9 .\templates\index.html.py:9
+#: accounts/models.py:153 accounts/models.py:178 accounts/models.py:204
+#: accounts/templates/account-base.html:8
+#: accounts/templates/account-base.html:45
+#: accounts/templates/introduction.html:5
+#: accounts/templates/mail_content.html:142 templates/footer.html.py:7
+#: templates/header.html:9 templates/index.html.py:9
 msgid "Agriculture Products Price Report Platform"
 msgstr "重要農產品每日價量資訊平台"
 
-#: .\accounts\models.py:151
+#: accounts/models.py:153
 msgid "Account Activation"
 msgstr "啟用帳戶"
 
-#: .\accounts\models.py:152
+#: accounts/models.py:154
 msgid "Please activate your account by clicking the link below"
 msgstr "請點擊以下連結來啟用您的帳戶"
 
-#: .\accounts\models.py:153 .\accounts\templates\register.html.py:138
+#: accounts/models.py:155 accounts/templates/register.html.py:138
 msgid "Thank you for your registration"
 msgstr "感謝您的註冊"
 
-#: .\accounts\models.py:164
+#: accounts/models.py:166
 msgid "Reset Password Profile"
 msgstr "重設密碼驗證"
 
-#: .\accounts\models.py:165
+#: accounts/models.py:167
 msgid "Reset Password Profiles"
 msgstr "重設密碼驗證"
 
-#: .\accounts\models.py:175 .\accounts\models.py:176
-#: .\accounts\templates\reset-password.html:8
-#: .\accounts\templates\reset-password.html:22
-#: .\accounts\templates\reset-password.html:53
+#: accounts/models.py:177 accounts/models.py:178
+#: accounts/templates/reset-password.html:8
+#: accounts/templates/reset-password.html:22
+#: accounts/templates/reset-password.html:53
 msgid "Reset Password"
 msgstr "重設密碼"
 
-#: .\accounts\models.py:177
+#: accounts/models.py:179
 msgid "Please click the following button to reset your password"
 msgstr "請點擊以下連結以重設您的密碼"
 
-#: .\accounts\models.py:190
+#: accounts/models.py:192
 msgid "Reset Email Profile"
 msgstr "重設電子信箱驗證"
 
-#: .\accounts\models.py:191
+#: accounts/models.py:193
 msgid "Reset Email Profiles"
 msgstr "重設電子信箱驗證"
 
-#: .\accounts\models.py:203
+#: accounts/models.py:205
 msgid "Please click the following button to reset your email"
 msgstr "請點擊以下連結以重設您的信箱"
 
@@ -729,11 +737,11 @@ msgstr "上期"
 msgid "5 Years"
 msgstr "近5年"
 
-#: .\dashboard\settings\base.py:206
+#: dashboard/settings/base.py:201
 msgid "Traditional Chinese"
 msgstr "繁體中文"
 
-#: .\dashboard\settings\base.py:207
+#: dashboard/settings/base.py:202
 msgid "English"
 msgstr ""
 
@@ -1282,7 +1290,11 @@ msgstr "監控品項"
 msgid "Monitor Source"
 msgstr "監控地點"
 
-#: .\templates\header.html:19
+#: templates/footer.html:7
+msgid "Version"
+msgstr "版本"
+
+#: templates/header.html:19
 msgid "Collapse Menu"
 msgstr "選單"
 

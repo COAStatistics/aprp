@@ -63,7 +63,7 @@ class Index(LoginRequiredMixin, TemplateView):
         # watchlist options use for watchlist shortcut render
         watchlists = Watchlist.objects.order_by('create_time').all()
 
-        if not self.request.user.info.is_editor:
+        if not self.request.user.info.watchlist_viewer:
             watchlists = watchlists.filter(is_default=True)
 
         context['watchlists'] = watchlists

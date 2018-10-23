@@ -83,7 +83,7 @@ def jarvismenu_extra_context(instance):
         children_has_monitor_profile = MonitorProfile.objects.filter(watchlist=watchlist,
                                                                      product__id__in=product.children_all().values_list('id', flat=True))
 
-        if product.level >= product.config.type_level and not user.info.is_editor and not children_has_monitor_profile:
+        if product.level >= product.config.type_level and not user.info.menu_viewer and not children_has_monitor_profile:
             pass
 
         elif product.types(watchlist=watchlist).count() > 1 and product.level == product.config.type_level:
