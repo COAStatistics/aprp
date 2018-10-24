@@ -10,50 +10,10 @@
 - model: hogs.Hog
   pk: 70002
   fields:
-    name: 非規格豬
-    type: 1
-    track_item: false
-    config: 8
-    unit: 3
-
-- model: hogs.Hog
-  pk: 70003
-  fields:
-    name: 淘汰種豬
-    type: 1
-    track_item: false
-    config: 8
-    unit: 3
-
-- model: hogs.Hog
-  pk: 70004
-  fields:
-    name: 75公斤以下
-    code: 75公斤以下
+    name: 毛豬-批發合計
+    code: 成交頭數
     type: 1
     config: 8
     unit: 3
-    parent: 70002
-
-- model: hogs.Hog
-  pk: 70008
-  fields:
-    name: 淘汰種豬
-    code: 淘汰種豬
-    type: 1
-    config: 8
-    unit: 3
-    parent: 70003
-
-- model: hogs.Hog
-  pk: 70009
-  fields:
-    name: 其他豬
-    code: 其他豬
-    type: 1
-    config: 8
-    unit: 3
-    parent: 70002
-
 
 

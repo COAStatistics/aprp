@@ -120,10 +120,10 @@
                     {% endfor %}
                     <!-- put hog overall here -->
                     <li>
-                        <a title="{{ config.name }}"
-                           href="{% url 'chart_tab' wi=1 ct='config' oi=8 %}">
+                        <a title="{{ singleton.hog_overall.name }}"
+                           href="{% url 'chart_tab' wi=1 ct='abstractproduct' oi=singleton.hog_overall.id %}">
 
-                            <span class="menu-item-parent">{% trans 'Hog Overall' %}</span>
+                            <span class="menu-item-parent">{{ singleton.hog_overall.name }}</span>
 
                         </a>
                     </li>
