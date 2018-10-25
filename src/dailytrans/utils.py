@@ -9,7 +9,7 @@ from functools import reduce
 
 from django.utils.translation import ugettext as _
 from django.db.models import Q
-from django.db.models import Sum, Avg, F, Count, Func, IntegerField
+from django.db.models import Sum, Avg, F, Count, Func, IntegerField, Case, When
 
 from dailytrans.models import DailyTran
 from configs.api.serializers import TypeSerializer
@@ -73,24 +73,41 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
 
     if has_volume and has_weight:
 
-        q = (query_set.annotate(
-                avg_price=Sum(F('avg_price') * F('volume') * F('avg_weight')) / Sum(F('volume') * F('avg_weight')),
-                sum_volume=Sum(F('volume')),
-                avg_avg_weight=Sum(F('avg_weight') * F('volume')) / Sum(F('volume')),
-                source_count=Count('source', distinct=True)))  # for hog
+        q = query_set.annotate(
+            sum_volume_weight=Sum(F('volume') * F('avg_weight')),
+            sum_volume=Sum(F('volume')),
+            source_count=Count('source', distinct=True),  # for hog
+        )
+        # prevent divide by 0
+        q = q.annotate(
+            avg_price=Case(
+                When(sum_volume_weight=0, then=None),
+                default=Sum(F('avg_price') * F('volume') * F('avg_weight')) / Sum(F('volume') * F('avg_weight')),
+            ),
+            avg_avg_weight=Case(
+                When(sum_volume=0, then=None),
+                default=(F('avg_weight') * F('volume')) / Sum(F('volume'))
+            ),
+        )
 
     elif has_volume:
 
-        q = (query_set.annotate(
-                avg_price=Sum(F('avg_price') * F('volume')) / Sum('volume'),
-                sum_volume=Sum('volume')))
+        q = query_set.annotate(
+                sum_volume=Sum('volume'),
+            )
+        # prevent divide by 0
+        q = q.annotate(
+            avg_price=Case(
+                When(sum_volume=0, then=None),
+                default=Sum(F('avg_price') * F('volume')) / Sum(F('volume')),
+            ),
+        )
 
     else:
-
         q = (query_set.annotate(avg_price=Avg('avg_price')).order_by('date'))
 
     # Order by date
-    q = q.order_by('date')
+    q = q.exclude(avg_price__isnull=True).order_by('date')
 
     return q, has_volume, has_weight
 
