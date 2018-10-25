@@ -15,7 +15,7 @@ from .utils import (
 )
 from watchlists.models import Watchlist
 from configs.models import (
-    AbstractProduct,
+    Config,
     Chart,
 )
 from dailytrans.utils import (
@@ -83,11 +83,6 @@ class Index(LoginRequiredMixin, TemplateView):
         context['livestocks'] = configs.filter(id__in=[8, 9, 10, 11, 12, 14])  # render configs
         if configs.filter(id=13).first():  # render products, config as folder
             context['fisheries'] = configs.get(id=13).first_level_products(watchlist=watchlist)
-
-        # singleton menu item
-        context['singleton'] = {
-            'hog_overall': AbstractProduct.objects.filter(id=70002).first()
-        }
 
         return context
 
