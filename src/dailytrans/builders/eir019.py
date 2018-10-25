@@ -116,7 +116,7 @@ class Api(AbstractApi):
                                                  volume=obj.volume,
                                                  avg_weight=obj.avg_weight)
                         else:
-                            if obj.volume > 0 and obj.avg_price > 0 and obj.avg_weight > 0:
+                            if obj.volume >= 0 and obj.avg_price >= 0 and obj.avg_weight >= 0:
                                 obj.save()
                             elif not math.isclose(obj.volume + obj.avg_price + obj.avg_weight, 0):
                                 self.LOGGER.warning('Find not valid hog DailyTran item: %s' % str(obj), extra=self.LOGGER_EXTRA)
