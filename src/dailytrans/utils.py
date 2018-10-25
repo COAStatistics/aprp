@@ -9,7 +9,7 @@ from functools import reduce
 
 from django.utils.translation import ugettext as _
 from django.db.models import Q
-from django.db.models import Sum, Avg, F, Count, Func, IntegerField
+from django.db.models import Sum, Avg, F, Func, IntegerField
 
 from dailytrans.models import DailyTran
 from configs.api.serializers import TypeSerializer
@@ -71,23 +71,27 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
         month=Month('date'),
         day=Day('date')))
 
+    # prevent division by zero
+    if query_set.filter(Q(avg_price=0) | Q(avg_weight=0)).count() == query_set.count():
+        query_set = query_set.none()
+
     if has_volume and has_weight:
 
-        q = (query_set.annotate(
+        q = query_set.annotate(
                 avg_price=Sum(F('avg_price') * F('volume') * F('avg_weight')) / Sum(F('volume') * F('avg_weight')),
                 sum_volume=Sum(F('volume')),
                 avg_avg_weight=Sum(F('avg_weight') * F('volume')) / Sum(F('volume')),
-                source_count=Count('source', distinct=True)))  # for hog
+        )
 
     elif has_volume:
 
-        q = (query_set.annotate(
+        q = query_set.annotate(
                 avg_price=Sum(F('avg_price') * F('volume')) / Sum('volume'),
-                sum_volume=Sum('volume')))
+                sum_volume=Sum('volume')
+        )
 
     else:
-
-        q = (query_set.annotate(avg_price=Avg('avg_price')).order_by('date'))
+        q = query_set.annotate(avg_price=Avg('avg_price')).order_by('date')
 
     # Order by date
     q = q.order_by('date')
@@ -423,7 +427,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
 
         return points
 
-    def pandas_annotate_init(qs, hog_exception_condition):
+    def pandas_annotate_init(qs):
         df = DataFrame(list(qs))
         series = df.mean()
         series = series.drop(['year', 'month', 'day'], axis=0)
@@ -435,12 +439,9 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         # apply annotated price to result avg_price
         result['avg_price'] = price_dict['value']
 
-        if hog_exception_condition:
-            result['sum_volume'] = df.drop(df[df.source_count <= 10].index).mean().to_dict().get('sum_volume')
-
         return result
 
-    def pandas_annotate_year(qs, hog_exception_condition):
+    def pandas_annotate_year(qs):
         df = DataFrame(list(qs))
         df = df.groupby(['year'], as_index=False).mean()
         df = df.drop(['month', 'day'], axis=1)
@@ -453,14 +454,6 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             if year in price_dict:
                 dic['avg_price'] = price_dict[year]
 
-        if hog_exception_condition:
-            new_df = DataFrame(list(qs))
-            drop_source_lte10 = new_df.drop(new_df[new_df.source_count <= 10].index)
-            drop_source_lte10 = drop_source_lte10.groupby(['year'], as_index=False).mean()
-            new_result = drop_source_lte10.T.to_dict().values()
-
-            result = new_result
-
         return result
 
     query_set = get_query_set(_type, items, sources)
@@ -469,12 +462,6 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
 
     last_start_date = start_date - diff
     last_end_date = end_date - diff
-
-    # ** Note: Hog sum volume exception **
-    # ** See annotate field "source_count" in get_group_by_date_query_set **
-    # ** single_search means single product(on _type) on single source
-    ids = query_set.values_list('product__id', flat=True).distinct()
-    hog_exception_condition = 70007 in ids and 70005 in ids and 70006 in ids and len(ids) == 3
 
     integration = list()
 
@@ -499,7 +486,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                                                                              specific_year=False)
 
         if q.count() > 0:
-            data_this = pandas_annotate_init(q, hog_exception_condition)
+            data_this = pandas_annotate_init(q)
             data_this['name'] = _('This Term')
             data_this['points'] = spark_point_maker(q)
             data_this['base'] = True
@@ -507,7 +494,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             integration.append(data_this)
 
         if q_last.count() > 0:
-            data_last = pandas_annotate_init(q_last, hog_exception_condition)
+            data_last = pandas_annotate_init(q_last)
             data_last['name'] = _('Last Term')
             data_last['points'] = spark_point_maker(q_last)
             data_last['base'] = False
@@ -518,7 +505,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         if start_date.year == end_date.year:
             actual_years = set(q_fy.values_list('year', flat=True))
             if len(actual_years) == 5:
-                data_fy = pandas_annotate_init(q_fy, hog_exception_condition)
+                data_fy = pandas_annotate_init(q_fy)
                 data_fy['name'] = _('5 Years')
                 data_fy['points'] = spark_point_maker(q_fy)
                 data_fy['base'] = False
@@ -536,7 +523,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                                                                 specific_year=False)
 
         if q.count() > 0:
-            data_all = pandas_annotate_year(q, hog_exception_condition)
+            data_all = pandas_annotate_year(q)
             for dic in data_all:
                 year = dic['year']
                 q_filter_by_year = q.filter(year=year).order_by('date')
@@ -597,28 +584,3 @@ def to_unix(date):
 
 def to_date(number):
     return datetime.datetime.fromtimestamp(float(number) / 1000.0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
