@@ -21,7 +21,6 @@ class Api(AbstractApi):
 
     # Column Names
     VOLUME_COLUMN = '頭數'
-    VOLUME_COLUMN2 = '總數'
     AVG_WEIGHT_COLUMN = '平均重量'
     AVG_PRICE_COLUMN = '平均價格'
     COLUMN_SEP = '-'
@@ -35,13 +34,12 @@ class Api(AbstractApi):
         def create_tran(obj, source):
             code = obj.code
             volume_column = self.COLUMN_SEP.join((code, self.VOLUME_COLUMN))
-            volume_column2 = self.COLUMN_SEP.join((code, self.VOLUME_COLUMN2))
             avg_weight_column = self.COLUMN_SEP.join((code, self.AVG_WEIGHT_COLUMN))
             avg_price_column = self.COLUMN_SEP.join((code, self.AVG_PRICE_COLUMN))
             tran = DailyTran(
                 product=obj,
                 source=source,
-                volume=dic.get(volume_column) or dic.get(volume_column2),
+                volume=dic.get(volume_column),
                 avg_weight=dic.get(avg_weight_column),
                 avg_price=round(float(dic.get(avg_price_column)), 1),
                 date=date_transfer(sep=self.SEP, string=dic.get('交易日期'), roc_format=True)
@@ -118,9 +116,9 @@ class Api(AbstractApi):
                                                  volume=obj.volume,
                                                  avg_weight=obj.avg_weight)
                         else:
-                            if obj.volume and obj.volume > 0 and obj.avg_price and obj.avg_price > 0 and obj.avg_weight and obj.avg_weight > 0:
+                            if obj.volume > 0 and obj.avg_price > 0 and obj.avg_weight > 0:
                                 obj.save()
-                            else:
+                            elif not math.isclose(obj.volume + obj.avg_price + obj.avg_weight, 0):
                                 self.LOGGER.warning('Find not valid hog DailyTran item: %s' % str(obj), extra=self.LOGGER_EXTRA)
                 except Exception as e:
                     self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
