@@ -29,6 +29,12 @@
 
 				<fieldset>
 					<section>
+						{% if not messages and not form.non_field_errors %}
+							<div class="alert alert-warning alert-dismissible">
+								<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+								{% trans 'Our officially online date is 1st November, 2018. Please feel free to register new account' %}
+							</div>
+						{% endif %}
 						{% for message in messages %}
 							<div class="alert alert-{{ message.tags }}">
 								<strong>{{ message }}</strong>
