@@ -116,7 +116,10 @@ class Api(AbstractApi):
                                                  volume=obj.volume,
                                                  avg_weight=obj.avg_weight)
                         else:
-                            if obj.volume >= 0 and obj.avg_price >= 0 and obj.avg_weight >= 0:
+                            # 宜蘭縣、新竹縣、苗栗縣、花蓮縣155公斤以上已納入規格豬，這裡不進以排除重複計算
+                            if obj.product.id == 70005 and obj.source.id in [40007, 40009, 40010, 40017]:
+                                pass
+                            elif (obj.volume or 0) + (obj.avg_price or 0) + (obj.avg_weight or 0) > 0:
                                 obj.save()
                             elif not math.isclose(obj.volume + obj.avg_price + obj.avg_weight, 0):
                                 self.LOGGER.warning('Find not valid hog DailyTran item: %s' % str(obj), extra=self.LOGGER_EXTRA)

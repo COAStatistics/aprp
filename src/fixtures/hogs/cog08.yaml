@@ -36,6 +36,16 @@
     parent: 70002
 
 - model: hogs.Hog
+  pk: 70005
+  fields:
+    name: 155公斤以上
+    code: 155公斤以上
+    type: 1
+    config: 8
+    unit: 3
+    parent: 70002
+
+- model: hogs.Hog
   pk: 70008
   fields:
     name: 淘汰種豬
