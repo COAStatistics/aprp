@@ -39,8 +39,11 @@ class Api(AbstractApi):
         lst = []
         for obj in self.PRODUCT_QS.all():
             if obj.track_item and dic.get(obj.code):
-                tran = create_tran(obj)
-                lst.append(tran)
+                try:
+                    tran = create_tran(obj)
+                    lst.append(tran)
+                except Exception as e:
+                    self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
 
         return lst
 
