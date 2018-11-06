@@ -406,9 +406,9 @@ var socialWallHelper = {
                         $item = $(data);
                         socialWallHelper.initPost($item);
                         $reply.parents(".socialwall-reply").before($item);
-                        text = $item.find('#reply-origin').html();
+                        text = $item.find('.reply-origin').html();
                         text = text.replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> ');
-                        $item.find('#reply-origin').html(text);
+                        $item.find('.reply-origin').html(text);
                         $reply.val('');
                         $grid.masonry();
                     }
@@ -435,9 +435,9 @@ var socialWallHelper = {
                     $item = $(data);
                     socialWallHelper.initPost($item);
                     $reply.parents(".socialwall-reply").before($item);
-                    text = $item.find('#reply-origin').html();
+                    text = $item.find('.reply-origin').html();
                     text = text.replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> ');
-                    $item.find('#reply-origin').html(text);
+                    $item.find('.reply-origin').html(text);
                     $reply.val('');
                     $grid.masonry();
                 }
@@ -480,7 +480,7 @@ var socialWallHelper = {
             $reply = $(this).parents('.socialwall-reply');
             $reply.find('.comment').hide();
             $reply.find('.comment-edit').show();
-            origin = $reply.find('#reply-origin').html();
+            origin = $reply.find('.reply-origin').html();
             origin = origin.replace(/<mark class="label bg-color-blue">(\S+)<\/mark>/g, '@$1 ');
             $edittext = $reply.find('#reply-edit');
             $grid.masonry();
@@ -503,7 +503,7 @@ var socialWallHelper = {
                             $reply.html($reply.html());
                             text = data['content'];
                             text = text.replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> ');
-                            $reply.find('#reply-origin').html(text);
+                            $reply.find('.reply-origin').html(text);
                             socialWallHelper.initPost($reply);
                             $grid.masonry();
                             return;
@@ -530,7 +530,7 @@ var socialWallHelper = {
                         $reply.html($reply.html());
                         text = data['content'];
                         text = text.replace(/@(\S+)(\s|$)/g, '<mark class="label bg-color-blue">$1</mark> ');
-                        $reply.find('#reply-origin').html(text);
+                        $reply.find('.reply-origin').html(text);
                         socialWallHelper.initPost($reply);
                         $grid.masonry();
                     }

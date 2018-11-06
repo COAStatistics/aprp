@@ -10,14 +10,14 @@
             <tr>
                 <th>{% trans 'Date' %}</th>
                 <th>{% trans 'Average Price' %}</th>
-                <th data-hide="phone">{% trans 'Price' %} {% trans 'Spark Line' %}</th>
+                <th data-hide="phone,tablet">{% trans 'Price' %} {% trans 'Spark Line' %}</th>
                 {% if option.has_volume %}
                 <th>{% trans 'Average Volume' %}</th>
-                <th data-hide="phone">{% trans 'Volume' %} {% trans 'Spark Line' %}</th>
+                <th data-hide="phone,tablet">{% trans 'Volume' %} {% trans 'Spark Line' %}</th>
                 {% endif %}
                 {% if option.has_weight %}
                 <th>{% trans 'Average Weight' %}</th>
-                <th data-hide="phone">{% trans 'Weight' %} {% trans 'Spark Line' %}</th>
+                <th data-hide="phone,tablet">{% trans 'Weight' %} {% trans 'Spark Line' %}</th>
                 {% endif %}
             </tr>
         </thead>

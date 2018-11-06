@@ -117,9 +117,9 @@ var integrationHelper = {
                 var diff = ((baseValue - thisValue) / thisValue) * 100;
                 diff = Math.round(diff * 10) / 10;
                 if(diff > 0){
-                    var $ui = $('<span class="label bg-color-redLight pull-right hidden-xs hidden-sm"><i class="fa fa-caret-up"></i> '+ diff +'%</span>');
+                    var $ui = $('<span class="label bg-color-redLight pull-right hidden-xs"><i class="fa fa-caret-up"></i> '+ diff +'%</span>');
                 }else{
-                    var $ui = $('<span class="label bg-color-greenLight pull-right hidden-xs hidden-sm"><i class="fa fa-caret-down"></i> '+ diff * -1 +'%</span>');
+                    var $ui = $('<span class="label bg-color-greenLight pull-right hidden-xs"><i class="fa fa-caret-down"></i> '+ diff * -1 +'%</span>');
                 }
                 $ui.appendTo($this);
             }
@@ -198,7 +198,7 @@ var dataTableHelper = {
         },
     },
     breakpointDefinition : {
-        tabvar : 1024,
+        tablet : 1024,
         phone : 480
     },
     getAjaxDataFromContainer($container){

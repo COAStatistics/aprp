@@ -3,17 +3,30 @@
 {% load crispy_forms_tags %}
 
 <style type="text/css">
-div#content {
-	background-color: #F7F7F7;
-}
-
-div#main {
-	background-color: #F7F7F7;
-}
-
 li.message.message-reply.socialwall-reply {
-  margin-left: 0px !important;
-  background-image: url('{% static "vendor/img/mybg.png" %}');
+	margin-left: 0px !important;
+	background-image: url('{% static "vendor/img/mybg.png" %}');
+	border-radius: 10px;
+	margin-left: 20px !important;
+}
+li.message.message-reply.socialwall-reply > span.message-text.comment {
+    margin-left: 10px !important;
+    margin-left: 10px !important;
+}
+li.message.message-reply.socialwall-reply > ul > li.socialwall-btn-reply {
+    margin-left: 0px !important;
+}
+.chat-body li.message .message-text a.username {
+	margin: 5px 0;
+}
+li.message.message-reply.socialwall-reply > ul.list-inline.font-xs {
+    margin-top: 5px;
+}
+span.reply-origin {
+    word-break: break-all;
+}
+.timeline-seperator>:first-child {
+	font-size: 16px;
 }
 </style>
 
