@@ -149,7 +149,7 @@ class ActivationProfile(AbstractProfile):
 def post_save_activation_receiver(sender, instance, created, *args, **kwargs):
     if created:
         content = {
-            'btn_text': _('Activate'),
+            'btn_text': _('Activate My Account'),
             'mail_title': '{} - {}'.format(_('Agriculture Products Price Report Platform'), _('Account Activation')),
             'line_1': _('Please activate your account by clicking the link below'),
             'line_2': _('Thank you for your registration')

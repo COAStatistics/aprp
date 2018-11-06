@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-31 09:24+0800\n"
+"POT-Creation-Date: 2018-11-06 11:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,16 +22,16 @@ msgstr ""
 msgid "Please Input Chinese Only"
 msgstr "請輸入中文"
 
-#: accounts/forms.py:21 accounts/forms.py:83 accounts/forms.py:113
-#: accounts/forms.py:199
+#: accounts/forms.py:21 accounts/forms.py:83 accounts/forms.py:116
+#: accounts/forms.py:201
 msgid "Account"
 msgstr "帳號"
 
-#: accounts/forms.py:22 accounts/forms.py:115
+#: accounts/forms.py:22 accounts/forms.py:118
 msgid "First Name"
 msgstr "名字"
 
-#: accounts/forms.py:23 accounts/forms.py:116
+#: accounts/forms.py:23 accounts/forms.py:119
 msgid "Last Name"
 msgstr "姓氏"
 
@@ -48,7 +48,7 @@ msgstr "請選擇"
 msgid "Reset Email"
 msgstr "變更電子信箱"
 
-#: accounts/forms.py:57 accounts/forms.py:169
+#: accounts/forms.py:57 accounts/forms.py:171
 msgid "This email has already been registered"
 msgstr "此電子信箱已經被註冊"
 
@@ -56,83 +56,89 @@ msgstr "此電子信箱已經被註冊"
 msgid "To use this group, please change your email to this unit:"
 msgstr "要變更到此群組，請先變更您的信箱到此單位："
 
-#: accounts/forms.py:83 accounts/forms.py:113 accounts/forms.py:199
+#: accounts/forms.py:83 accounts/forms.py:116 accounts/forms.py:201
 msgid "Please enter your account"
 msgstr "請輸入你的帳號"
 
-#: accounts/forms.py:84 accounts/forms.py:117 accounts/forms.py:174
+#: accounts/forms.py:84 accounts/forms.py:120 accounts/forms.py:176
 msgid "Password"
 msgstr "密碼"
 
-#: accounts/forms.py:84 accounts/forms.py:117 accounts/forms.py:174
+#: accounts/forms.py:84 accounts/forms.py:120 accounts/forms.py:176
 msgid "Please enter your password"
 msgstr "請輸入你的密碼"
 
-#: accounts/forms.py:96
+#: accounts/forms.py:94 accounts/templates/login.html.py:35
+msgid ""
+"Guest account will no longer accessible. Please feel free to register new "
+"account"
+msgstr "即日起本平台訪客身份將不繼續開放，歡迎您註冊個人帳號以繼續登入使用"
+
+#: accounts/forms.py:99
 msgid "Your account or password is incorrect"
 msgstr "您輸入的帳號或密碼不正確，請重試"
 
-#: accounts/forms.py:102
+#: accounts/forms.py:105
 msgid "Please activate your account"
 msgstr "請先至您註冊的信箱啟用您的帳號"
 
-#: accounts/forms.py:104
+#: accounts/forms.py:107
 msgid "Resend Activation Email"
 msgstr "重寄驗證信"
 
-#: accounts/forms.py:114 accounts/forms.py:198
+#: accounts/forms.py:117 accounts/forms.py:200
 msgid "Email"
 msgstr "電子信箱"
 
-#: accounts/forms.py:114 accounts/forms.py:198
+#: accounts/forms.py:117 accounts/forms.py:200
 msgid "Please enter your email"
 msgstr "請輸入你的信箱"
 
-#: accounts/forms.py:118 accounts/forms.py:175
+#: accounts/forms.py:121 accounts/forms.py:177
 msgid "Confirm Password"
 msgstr "確認密碼"
 
-#: accounts/forms.py:118 accounts/forms.py:175
+#: accounts/forms.py:121 accounts/forms.py:177
 msgid "Please confirm your password"
 msgstr "請確認你的密碼"
 
-#: accounts/forms.py:119
+#: accounts/forms.py:122
 msgid "Terms & Conditions"
-msgstr "使用條款"
+msgstr "會員服務條款"
 
-#: accounts/forms.py:120 accounts/templates/register.html.py:113
+#: accounts/forms.py:123 accounts/templates/register.html.py:113
 msgid "Privacy Policy"
 msgstr "隱私權政策"
 
-#: accounts/forms.py:138
+#: accounts/forms.py:140
 msgid "You must agree our terms and conditions"
-msgstr "請先同意我們的使用條款"
+msgstr "請先同意我們的會員服務條款"
 
-#: accounts/forms.py:144
+#: accounts/forms.py:146
 msgid "You must agree our privacy policies"
 msgstr "請先同意我們的隱私權政策"
 
-#: accounts/forms.py:156 accounts/forms.py:193
+#: accounts/forms.py:158 accounts/forms.py:195
 msgid "Password must match"
 msgstr "密碼與密碼確認不符"
 
-#: accounts/forms.py:165
+#: accounts/forms.py:167
 msgid "Please register with email under domain \"@mail.coa.gov.tw\""
 msgstr "請使用農委會所屬單位信箱註冊"
 
-#: accounts/forms.py:213 accounts/templates/resend-email.html.py:38
+#: accounts/forms.py:215 accounts/templates/resend-email.html.py:38
 msgid "Please advise your email or account"
 msgstr "請輸入你的信箱或帳號"
 
-#: accounts/forms.py:218
+#: accounts/forms.py:220
 msgid "Your account or email is incorrect"
 msgstr "您輸入的信箱或帳號不正確，請重試"
 
-#: accounts/forms.py:227
+#: accounts/forms.py:229
 msgid "This email is not exist"
 msgstr "此信箱尚未註冊，請重新確認"
 
-#: accounts/forms.py:235
+#: accounts/forms.py:237
 msgid "This account is not exist"
 msgstr "此帳號未註冊，請重新確認"
 
@@ -214,8 +220,8 @@ msgid "Activation Profiles"
 msgstr "帳戶啟動驗證"
 
 #: accounts/models.py:152
-msgid "Activate"
-msgstr "啟用"
+msgid "Activate My Account"
+msgstr "啟用我的帳號"
 
 #: accounts/models.py:153 accounts/models.py:178 accounts/models.py:204
 #: accounts/templates/account-base.html:8
@@ -355,12 +361,6 @@ msgstr "註冊"
 msgid "Sign In"
 msgstr "請登入"
 
-#: accounts/templates/login.html:35
-msgid ""
-"Our officially online date is 1st November, 2018. Please feel free to "
-"register new account"
-msgstr "本平台預計於11月1日正式上線後，訪客身份將無法繼續登入使用，歡迎您使用註冊功能以取得新的帳號"
-
 #: accounts/templates/login.html:71
 msgid "Forgot password"
 msgstr "忘記密碼"
@@ -412,7 +412,7 @@ msgstr "我已閱讀且同意"
 
 #: accounts/templates/register.html:122
 msgid "Terms and Conditions"
-msgstr "使用條款"
+msgstr "會員服務條款"
 
 #: accounts/templates/resend-email.html:8 accounts/views.py:90
 msgid "Forgot Password"
@@ -1392,26 +1392,3 @@ msgstr "啟用"
 #: watchlists/models.py:160
 msgid "Monitor Months"
 msgstr "監控月份"
-
-#~ msgid "Future prospects"
-#~ msgstr "未來展望"
-
-#~ msgid ""
-#~ "The purpose of the platform was to provide friendly visual interface "
-#~ "research of the price and the trading volume of agricultural products and "
-#~ "its related information will be extended into step by step. Owning to the "
-#~ "constriction of human resources and time, it takes time to cooperate "
-#~ "among industrial departments for completing information in the back end; "
-#~ "otherwise, the fully functional version cannot be accomplished in a short "
-#~ "time. The first stage of the platform expects to be completed in October, "
-#~ "2018. Subsequently, we will integrate the information such as weather "
-#~ "information related to production, the prices of important agricultural "
-#~ "products in different stages, annually agricultural damage overview of "
-#~ "individual products, and domestic or import quantum of products into the "
-#~ "platform according to human resources and accessibility of data."
-#~ msgstr ""
-#~ "本平台旨在開發友善優質之農產品價量資訊視覺化查詢界面，舉凡與其相關資訊未來"
-#~ "均得逐步規劃納入，惟囿於人力與時間限制，完整功能非一蹴可幾，後臺資料之完備"
-#~ "亦須時間逐步與產業單位合作產出，本平台第一階段工作預計於107年10月底完成，"
-#~ "隨後將視作業人力狀況與資料可及性，持續開發如生產相關氣象資訊、各項產品歷年"
-#~ "農業災損概況、重要農產品各階段價格、產品別國產及進口量等功能。"

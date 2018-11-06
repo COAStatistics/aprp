@@ -6,6 +6,7 @@ from django.contrib.auth import(
     logout,
     get_user_model
 )
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
@@ -54,6 +55,7 @@ def login_view(request):
     return render(request, template, content)
 
 
+@csrf_exempt
 def register_view(request):
     form = UserRegisterForm(request.POST or None)
     template = 'register.html'

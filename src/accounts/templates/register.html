@@ -88,15 +88,6 @@
 				<fieldset>
 					<div class="row">
 						<section class="col col-6">
-							<label for="{{ form.first_name.auto_id }}" class="input">
-								<input id="{{ form.first_name.auto_id }}" type="text" name="first_name" placeholder="{{ form.first_name.label }}"
-							    {% if form.first_name.value != None %} value="{{ form.first_name.value|stringformat:'s' }}"{% endif %}>
-							</label>
-							{% for error in form.first_name.errors %}
-								<small class="help-block text-danger" style="">{{ error|escape }}</small>
-							{% endfor %}
-						</section>
-						<section class="col col-6">
 							<label for="{{ form.last_name.auto_id }}" class="input">
 								<input id="{{ form.last_name.auto_id }}" type="text" name="last_name" placeholder="{{ form.last_name.label }}"
 							    {% if form.last_name.value != None %} value="{{ form.last_name.value|stringformat:'s' }}"{% endif %}>
@@ -105,20 +96,29 @@
 								<small class="help-block text-danger" style="">{{ error|escape }}</small>
 							{% endfor %}
 						</section>
+						<section class="col col-6">
+							<label for="{{ form.first_name.auto_id }}" class="input">
+								<input id="{{ form.first_name.auto_id }}" type="text" name="first_name" placeholder="{{ form.first_name.label }}"
+							    {% if form.first_name.value != None %} value="{{ form.first_name.value|stringformat:'s' }}"{% endif %}>
+							</label>
+							{% for error in form.first_name.errors %}
+								<small class="help-block text-danger" style="">{{ error|escape }}</small>
+							{% endfor %}
+						</section>
 					</div>
 
-					<section>
-						<label for="{{ form.privacy.auto_id }}" class="checkbox">
-							<input id="{{ form.privacy.auto_id }}" name="privacy" type="checkbox">
-							<i></i>{%  trans 'I have read and agreed with the' %} <a href="#" data-toggle="modal" data-target="#privacyModal"> {% trans 'Privacy Policy' %} </a>
-						</label>
-						{% for error in form.privacy.errors %}
-							<small class="help-block text-danger" style="">{{ error|escape }}</small>
-						{% endfor %}
-					</section>
+					<!--<section>-->
+						<!--<label for="{{ form.privacy.auto_id }}" class="checkbox">-->
+							<!--<input id="{{ form.privacy.auto_id }}" name="privacy" type="checkbox">-->
+							<!--<i></i>{%  trans 'I have read and agreed with the' %} <a href="#" data-toggle="modal" data-target="#privacyModal"> {% trans 'Privacy Policy' %} </a>-->
+						<!--</label>-->
+						<!--{% for error in form.privacy.errors %}-->
+							<!--<small class="help-block text-danger" style="">{{ error|escape }}</small>-->
+						<!--{% endfor %}-->
+					<!--</section>-->
 					<section>
 						<label for="{{ form.condition.auto_id }}" class="checkbox">
-							<input id="{{ form.condition.auto_id }}" name="condition" type="checkbox">
+							<input id="{{ form.condition.auto_id }}" name="condition" type="checkbox" {% if form.condition.value %}checked="checked"{% endif %}>
 							<i></i>{%  trans 'I have read and agreed with the' %} <a href="#" data-toggle="modal" data-target="#conditionModal"> {% trans 'Terms and Conditions' %} </a>
 						</label>
 						{% for error in form.condition.errors %}
@@ -144,6 +144,5 @@
 </div>
 
 {% include 'conditions.html' with checkbox_id=form.condition.auto_id %}
-{% include 'privacy.html' with checkbox_id=form.privacy.auto_id %}
 
 {% endblock content %}

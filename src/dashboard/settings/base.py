@@ -310,14 +310,13 @@ CELERY_IMPORTS = (
 )
 
 # Session Settings
-SESSION_COOKIE_AGE = 7200
+SESSION_COOKIE_AGE = 60 * 60 * 2
 
 # Google Analytics
 USE_GA = False
 GA_TRACKING_ID = ''
 
 # Password limits
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -334,4 +333,4 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Aprp Release Version
-APRP_VERSION = '18.10.0'
+APRP_VERSION = '18.11.0'

@@ -90,6 +90,9 @@ class UserLoginForm(forms.Form):
         username = self.cleaned_data.get("username")
         password = self.cleaned_data.get("password")
 
+        if username == 'guest':
+            raise forms.ValidationError(_('Guest account will no longer accessible. Please feel free to register new account'))
+
         if username and password:
             user = authenticate(username=username, password=password)
             if not user:
@@ -117,7 +120,6 @@ class UserRegisterForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput, label=_('Password'), help_text=_('Please enter your password'))
     password2 = forms.CharField(widget=forms.PasswordInput, label=_('Confirm Password'), help_text=_('Please confirm your password'))
     condition = forms.BooleanField(required=True, widget=forms.CheckboxInput(), label=_('Terms & Conditions'))
-    privacy = forms.BooleanField(required=True, widget=forms.CheckboxInput(), label=_('Privacy Policy'))
 
     class Meta:
         model = User
@@ -129,7 +131,6 @@ class UserRegisterForm(forms.ModelForm):
             'password',
             'password2',
             'condition',
-            'privacy',
         ]
 
     def clean_condition(self):
@@ -137,12 +138,6 @@ class UserRegisterForm(forms.ModelForm):
         if not condition:
             raise forms.ValidationError(_('You must agree our terms and conditions'))
         return condition
-
-    def clean_privacy(self):
-        privacy = self.cleaned_data.get('privacy')
-        if not privacy:
-            raise forms.ValidationError(_('You must agree our privacy policies'))
-        return privacy
 
     def clean_password(self):
         password = self.cleaned_data.get('password')
