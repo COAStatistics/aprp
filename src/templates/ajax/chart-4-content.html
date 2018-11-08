@@ -2,10 +2,11 @@
 {% load staticfiles %}
 {% load json_filters %}
 
-<ul id="chart-{{ chart.id }}-tab" class="nav nav-pills nav-pills-info nav-justified" style="{% if series_options|length <= 1 %}display:none;{% endif %}">
+<!-- specify layer attribute for style setting -->
+<ul id="chart-{{ chart.id }}-tab" class="nav nav-pills nav-pills-primary nav-justified" data-layer="2" style="{% if series_options|length <= 1 %}display:none;{% endif %}">
     {% for option in series_options %}
     <li class="{% if forloop.counter0 == 0 %}active{% endif %}">
-        <a href="#chart-{{ chart.id }}-{{ option.type.id }}-content" data-toggle="tab">{{ option.type.id }}</a>
+        <a href="#chart-{{ chart.id }}-{{ option.type.id }}-content" data-toggle="tab">{{ option.type.name }}</a>
     </li>
     {% endfor %}
 </ul>

@@ -8,7 +8,8 @@
 <!-- row -->
 <div class="row">
 
-    <ul id="chart-functions-tab" class="nav nav-pills nav-pills-blueDark nav-justified">
+    <!-- specify layer attribute for style setting -->
+    <ul id="chart-functions-tab" class="nav nav-pills nav-justified" data-layer="1">
         {% for chart in charts %}
         <li>
             <a data-load-url="{% if lct and loi %}{% url 'chart_content' ci=chart.id wi=wi ct=ct oi=oi lct=lct loi=loi %}{% else %}{% url 'chart_content' ci=chart.id wi=wi ct=ct oi=oi %}{% endif %}"

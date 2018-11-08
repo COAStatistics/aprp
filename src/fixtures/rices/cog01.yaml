@@ -21,7 +21,7 @@
   fields:
     name: 硬種(蓬萊)
     code: pt_1japt
-    type: 1
+    type: 3
     config: 1
     unit: 2
     parent: 2
@@ -31,7 +31,7 @@
   fields:
     name: 硬種(蓬萊)
     code: pt_2japt
-    type: 3
+    type: 1
     config: 1
     unit: 2
     parent: 2

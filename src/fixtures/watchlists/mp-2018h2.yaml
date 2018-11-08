@@ -1110,7 +1110,7 @@
     product: 120196 # 鰻魚
     watchlist: 3
     type: 2
-    price: 462.65
+    price: 508.92
     comparator: __lt__
     color: danger
     info: |
@@ -1133,7 +1133,7 @@
     product: 120364 # 白蝦
     watchlist: 3
     type: 2
-    price: 28.12
+    price: 30.93
     comparator: __lt__
     color: danger
     info: |
@@ -1156,7 +1156,7 @@
     product: 120040 # 午仔魚
     watchlist: 3
     type: 2
-    price: 114
+    price: 125.4
     comparator: __lt__
     color: danger
     info: |
@@ -1179,7 +1179,7 @@
     product: 120021 # 金目鱸
     watchlist: 3
     type: 2
-    price: 70.87
+    price: 77.96
     comparator: __lt__
     color: danger
     info: |
