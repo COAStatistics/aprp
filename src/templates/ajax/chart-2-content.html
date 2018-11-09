@@ -1,65 +1,74 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load json_filters %}
+{% load series_options_filter %}
 
+{% with index_length=series_options|index_length %}
 <section id="chart-{{ chart.id }}-widget-grid" class="padding-10">
     <div class="row padding-10">
-    <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable">
+            <!-- start chart widget -->
+            <div class="jarviswidget jarviswidget-color-redLight" id="chart-{{ chart.id }}-widget-highchart"
+                 data-widget-editbutton="false" data-widget-deletebutton="false">
+                <!-- widget options:
+                    usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
 
-        <!-- start chart widget -->
-        <div class="jarviswidget jarviswidget-color-redLight" id="chart-{{ chart.id }}-widget-highchart"
-             data-widget-editbutton="false" data-widget-deletebutton="false">
-            <!-- widget options:
-                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+                    data-widget-colorbutton="false"
+                    data-widget-editbutton="false"
+                    data-widget-togglebutton="false"
+                    data-widget-deletebutton="false"
+                    data-widget-fullscreenbutton="false"
+                    data-widget-custombutton="false"
+                    data-widget-collapsed="true"
+                    data-widget-sortable="false"
 
-                data-widget-colorbutton="false"
-                data-widget-editbutton="false"
-                data-widget-togglebutton="false"
-                data-widget-deletebutton="false"
-                data-widget-fullscreenbutton="false"
-                data-widget-custombutton="false"
-                data-widget-collapsed="true"
-                data-widget-sortable="false"
+                -->
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-area-chart"></i> </span>
+                    <h2 class="font-md"><strong>{% trans 'Chart' %}</strong></h2>
+                </header>
 
-            -->
-            <header>
-                <span class="widget-icon"> <i class="fa fa-area-chart"></i> </span>
-                <h2 class="font-md"><strong>{% trans 'Chart' %}</strong></h2>
-            </header>
+                <!-- widget div-->
+                <div>
 
-            <!-- widget div-->
-            <div>
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
 
-                <!-- widget edit box -->
-                <div class="jarviswidget-editbox">
-                    <!-- This area used as dropdown edit box -->
+                    </div>
+                    <!-- end widget edit box -->
+
+                    <!-- widget content -->
+                    <div class="widget-body">
+                        <div id="chart-{{ chart.id }}-widget-highchart-body"></div>
+                    </div>
+                    <!-- end widget content -->
 
                 </div>
-                <!-- end widget edit box -->
-
-                <!-- widget content -->
-                <div class="widget-body">
-                    <div id="chart-{{ chart.id }}-widget-highchart-body"></div>
-                </div>
-                <!-- end widget content -->
+                <!-- end widget div -->
 
             </div>
-            <!-- end widget div -->
-
-        </div>
-        <!-- end widget -->
-
+            <!-- end widget -->
+        </article>
+        <article class="col-xs-12 col-sm-12 col-md-12 sortable-grid ui-sortable
+                       {% if index_length == 1 and not user.info.reporter %}col-lg-6
+                       {% elif index_length == 2 and not user.info.reporter %}col-lg-7
+                       {% else %}col-lg-12{% endif %}">
             <!-- start integration widget -->
             {% include 'contents/integration-widget-type-panel-groups.html' %}
             <!-- end widget -->
-
+        </article>
+        <article class="col-xs-12 col-sm-12 col-md-12 sortable-grid ui-sortable
+                       {% if index_length == 1 and not user.info.reporter %}col-lg-6
+                       {% elif index_length == 2 and not user.info.reporter %}col-lg-5
+                       {% else %}col-lg-12{% endif %}">
             <!-- start chart widget -->
             {% include 'contents/raw-widget-type-panel-groups.html' %}
             <!-- end widget -->
-
-    </article>
-</div>
+        </article>
+    </div>
 </section>
+{% endwith %}
 
 <script>
 

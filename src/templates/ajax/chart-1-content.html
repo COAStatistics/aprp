@@ -1,11 +1,12 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load json_filters %}
+{% load series_options_filter %}
 
+{% with index_length=series_options|index_length %}
 <section id="chart-{{ chart.id }}-widget-grid" class="padding-10">
     <div class="row padding-10">
-        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable">
             <!-- start chart widget -->
             <div class="jarviswidget jarviswidget-color-redLight" id="chart-{{ chart.id }}-widget-highchart"
                  data-widget-editbutton="false" data-widget-deletebutton="false">
@@ -48,18 +49,26 @@
 
             </div>
             <!-- end widget -->
-
+        </article>
+        <article class="col-xs-12 col-sm-12 col-md-12 sortable-grid ui-sortable
+                       {% if index_length == 1 and not user.info.reporter %}col-lg-6
+                       {% elif index_length == 2 and not user.info.reporter %}col-lg-7
+                       {% else %}col-lg-12{% endif %}">
             <!-- start integration widget -->
             {% include 'contents/integration-widget-type-panel-groups.html' %}
             <!-- end widget -->
-
+        </article>
+        <article class="col-xs-12 col-sm-12 col-md-12 sortable-grid ui-sortable
+                       {% if index_length == 1 and not user.info.reporter %}col-lg-6
+                       {% elif index_length == 2 and not user.info.reporter %}col-lg-5
+                       {% else %}col-lg-12{% endif %}">
             <!-- start chart widget -->
             {% include 'contents/raw-widget-type-panel-groups.html' %}
             <!-- end widget -->
-
         </article>
     </div>
 </section>
+{% endwith %}
 
 <script>
 

@@ -217,7 +217,7 @@ var dataTableHelper = {
         var $table = $container.DataTable({
 			dom: "<'dt-toolbar padding-10 padding-left-0'<'col-xs-12 col-sm-12 hidden-xs'B><'col-xs-12 col-sm-12 hidden-sm hidden-md hidden-lg'f>>"+
 				 "t"+
-				 "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
+				 "<'dt-toolbar-footer'<'col-xs-12 col-sm-6 hidden-xs col-lg-12'i><'col-xs-12 col-sm-6 col-lg-12'p>>",
             buttons: [
                 dataTableHelper.buttons.csv(),
                 dataTableHelper.buttons.excel(),

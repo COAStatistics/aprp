@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 11:00+0800\n"
+"POT-Creation-Date: 2018-11-12 16:21+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgid "Please Input Chinese Only"
 msgstr "請輸入中文"
 
 #: accounts/forms.py:21 accounts/forms.py:83 accounts/forms.py:116
-#: accounts/forms.py:201
+#: accounts/forms.py:194
 msgid "Account"
 msgstr "帳號"
 
@@ -43,12 +43,12 @@ msgstr "群組"
 msgid "Choose one of the following..."
 msgstr "請選擇"
 
-#: accounts/forms.py:25 accounts/models.py:189 accounts/models.py:203
-#: accounts/models.py:204
+#: accounts/forms.py:25 accounts/models.py:190 accounts/models.py:204
+#: accounts/models.py:205
 msgid "Reset Email"
 msgstr "變更電子信箱"
 
-#: accounts/forms.py:57 accounts/forms.py:171
+#: accounts/forms.py:57 accounts/forms.py:164
 msgid "This email has already been registered"
 msgstr "此電子信箱已經被註冊"
 
@@ -56,15 +56,15 @@ msgstr "此電子信箱已經被註冊"
 msgid "To use this group, please change your email to this unit:"
 msgstr "要變更到此群組，請先變更您的信箱到此單位："
 
-#: accounts/forms.py:83 accounts/forms.py:116 accounts/forms.py:201
+#: accounts/forms.py:83 accounts/forms.py:116 accounts/forms.py:194
 msgid "Please enter your account"
 msgstr "請輸入你的帳號"
 
-#: accounts/forms.py:84 accounts/forms.py:120 accounts/forms.py:176
+#: accounts/forms.py:84 accounts/forms.py:120 accounts/forms.py:169
 msgid "Password"
 msgstr "密碼"
 
-#: accounts/forms.py:84 accounts/forms.py:120 accounts/forms.py:176
+#: accounts/forms.py:84 accounts/forms.py:120 accounts/forms.py:169
 msgid "Please enter your password"
 msgstr "請輸入你的密碼"
 
@@ -86,19 +86,19 @@ msgstr "請先至您註冊的信箱啟用您的帳號"
 msgid "Resend Activation Email"
 msgstr "重寄驗證信"
 
-#: accounts/forms.py:117 accounts/forms.py:200
+#: accounts/forms.py:117 accounts/forms.py:193
 msgid "Email"
 msgstr "電子信箱"
 
-#: accounts/forms.py:117 accounts/forms.py:200
+#: accounts/forms.py:117 accounts/forms.py:193
 msgid "Please enter your email"
 msgstr "請輸入你的信箱"
 
-#: accounts/forms.py:121 accounts/forms.py:177
+#: accounts/forms.py:121 accounts/forms.py:170
 msgid "Confirm Password"
 msgstr "確認密碼"
 
-#: accounts/forms.py:121 accounts/forms.py:177
+#: accounts/forms.py:121 accounts/forms.py:170
 msgid "Please confirm your password"
 msgstr "請確認你的密碼"
 
@@ -106,39 +106,31 @@ msgstr "請確認你的密碼"
 msgid "Terms & Conditions"
 msgstr "會員服務條款"
 
-#: accounts/forms.py:123 accounts/templates/register.html.py:113
-msgid "Privacy Policy"
-msgstr "隱私權政策"
-
-#: accounts/forms.py:140
+#: accounts/forms.py:139
 msgid "You must agree our terms and conditions"
 msgstr "請先同意我們的會員服務條款"
 
-#: accounts/forms.py:146
-msgid "You must agree our privacy policies"
-msgstr "請先同意我們的隱私權政策"
-
-#: accounts/forms.py:158 accounts/forms.py:195
+#: accounts/forms.py:151 accounts/forms.py:188
 msgid "Password must match"
 msgstr "密碼與密碼確認不符"
 
-#: accounts/forms.py:167
+#: accounts/forms.py:160
 msgid "Please register with email under domain \"@mail.coa.gov.tw\""
 msgstr "請使用農委會所屬單位信箱註冊"
 
-#: accounts/forms.py:215 accounts/templates/resend-email.html.py:38
+#: accounts/forms.py:208 accounts/templates/resend-email.html.py:38
 msgid "Please advise your email or account"
 msgstr "請輸入你的信箱或帳號"
 
-#: accounts/forms.py:220
+#: accounts/forms.py:213
 msgid "Your account or email is incorrect"
 msgstr "您輸入的信箱或帳號不正確，請重試"
 
-#: accounts/forms.py:229
+#: accounts/forms.py:222
 msgid "This email is not exist"
 msgstr "此信箱尚未註冊，請重新確認"
 
-#: accounts/forms.py:237
+#: accounts/forms.py:230
 msgid "This account is not exist"
 msgstr "此帳號未註冊，請重新確認"
 
@@ -166,7 +158,7 @@ msgstr "群組資訊"
 msgid "Group Informations"
 msgstr "群組資訊"
 
-#: accounts/models.py:76 accounts/models.py:101 posts/models.py:33
+#: accounts/models.py:76 accounts/models.py:102 posts/models.py:33
 #: watchlists/models.py:40
 msgid "User"
 msgstr "使用者"
@@ -184,46 +176,50 @@ msgid "Menu Item Viewer"
 msgstr "可檢視所有展開品項"
 
 #: accounts/models.py:80
+msgid "Reporter"
+msgstr "報告人"
+
+#: accounts/models.py:81
 msgid "Profile"
 msgstr "大頭貼"
 
-#: accounts/models.py:83
+#: accounts/models.py:84
 msgid "User Information"
 msgstr "帳戶資訊"
 
-#: accounts/models.py:84
+#: accounts/models.py:85
 msgid "User Informations"
 msgstr "帳戶資訊"
 
-#: accounts/models.py:102
+#: accounts/models.py:103
 msgid "Activate Key"
 msgstr "驗證碼"
 
-#: accounts/models.py:103
+#: accounts/models.py:104
 msgid "Expired"
 msgstr "是否過期"
 
-#: accounts/models.py:108
+#: accounts/models.py:109
 msgid "Abstract Profile"
 msgstr "抽象帳戶驗證"
 
-#: accounts/models.py:109
+#: accounts/models.py:110
 msgid "Abstract Profiles"
 msgstr "抽象帳戶驗證"
 
-#: accounts/models.py:141
+#: accounts/models.py:142
 msgid "Activation Profile"
 msgstr "帳戶啟用驗證"
 
-#: accounts/models.py:142
+#: accounts/models.py:143
 msgid "Activation Profiles"
 msgstr "帳戶啟動驗證"
 
-#: accounts/models.py:152
+#: accounts/models.py:153
 msgid "Activate My Account"
 msgstr "啟用我的帳號"
 
-#: accounts/models.py:153 accounts/models.py:178 accounts/models.py:204
+#: accounts/models.py:154 accounts/models.py:179 accounts/models.py:205
 #: accounts/templates/account-base.html:8
 #: accounts/templates/account-base.html:45
 #: accounts/templates/introduction.html:5
@@ -232,46 +228,46 @@ msgstr "啟用我的帳號"
 msgid "Agriculture Products Price Report Platform"
 msgstr "重要農產品每日價量資訊平台"
 
-#: accounts/models.py:153
+#: accounts/models.py:154
 msgid "Account Activation"
 msgstr "啟用帳戶"
 
-#: accounts/models.py:154
+#: accounts/models.py:155
 msgid "Please activate your account by clicking the link below"
 msgstr "請點擊以下連結來啟用您的帳戶"
 
-#: accounts/models.py:155 accounts/templates/register.html.py:138
+#: accounts/models.py:156 accounts/templates/register.html.py:138
 msgid "Thank you for your registration"
 msgstr "感謝您的註冊"
 
-#: accounts/models.py:166
+#: accounts/models.py:167
 msgid "Reset Password Profile"
 msgstr "重設密碼驗證"
 
-#: accounts/models.py:167
+#: accounts/models.py:168
 msgid "Reset Password Profiles"
 msgstr "重設密碼驗證"
 
-#: accounts/models.py:177 accounts/models.py:178
+#: accounts/models.py:178 accounts/models.py:179
 #: accounts/templates/reset-password.html:8
 #: accounts/templates/reset-password.html:22
 #: accounts/templates/reset-password.html:53
 msgid "Reset Password"
 msgstr "重設密碼"
 
-#: accounts/models.py:179
+#: accounts/models.py:180
 msgid "Please click the following button to reset your password"
 msgstr "請點擊以下連結以重設您的密碼"
 
-#: accounts/models.py:192
+#: accounts/models.py:193
 msgid "Reset Email Profile"
 msgstr "重設電子信箱驗證"
 
-#: accounts/models.py:193
+#: accounts/models.py:194
 msgid "Reset Email Profiles"
 msgstr "重設電子信箱驗證"
 
-#: accounts/models.py:205
+#: accounts/models.py:206
 msgid "Please click the following button to reset your email"
 msgstr "請點擊以下連結以重設您的信箱"
 
@@ -295,8 +291,8 @@ msgstr "取消"
 #: comments/templates/partial_comment_create.html:15
 #: comments/templates/partial_comment_delete.html:16
 #: comments/templates/partial_comment_update.html:15
-#: templates/ajax/chart-3-content.html:60
-#: templates/ajax/chart-4-content.html:52
+#: templates/ajax/chart-3-content.html:61
+#: templates/ajax/chart-4-content.html:53
 #: templates/ajax/chart-5-content.html:88
 msgid "Submit"
 msgstr "確認"
@@ -410,11 +406,15 @@ msgstr "請點擊信件連結來啟用您的帳號"
 msgid "I have read and agreed with the"
 msgstr "我已閱讀且同意"
 
+#: accounts/templates/register.html:113
+msgid "Privacy Policy"
+msgstr "隱私權政策"
+
 #: accounts/templates/register.html:122
 msgid "Terms and Conditions"
 msgstr "會員服務條款"
 
-#: accounts/templates/resend-email.html:8 accounts/views.py:90
+#: accounts/templates/resend-email.html:8 accounts/views.py:92
 msgid "Forgot Password"
 msgstr "忘記密碼"
 
@@ -450,28 +450,28 @@ msgid ""
 "used. Please request a new password reset"
 msgstr "您使用的重設密碼連結已經失效，可能已經使用過了。請再重寄一次驗證信"
 
-#: accounts/views.py:75
+#: accounts/views.py:77
 msgid ""
 "Successfully registered! Please check your email to activate your account"
 msgstr "註冊完成！ 請至您的信箱收取驗證信來啟用您的帳號"
 
-#: accounts/views.py:115
+#: accounts/views.py:117
 msgid "Activate Account"
 msgstr "啟用帳號"
 
-#: accounts/views.py:129
+#: accounts/views.py:131
 msgid "Your account is already activated"
 msgstr "您的帳號已經啟用過了"
 
-#: accounts/views.py:160
+#: accounts/views.py:162
 msgid "Your password has been reset"
 msgstr "您的密碼已經重新設定了"
 
-#: accounts/views.py:177
+#: accounts/views.py:179
 msgid "Your account is activated"
 msgstr "您的帳號已經啟用了"
 
-#: accounts/views.py:179
+#: accounts/views.py:181
 msgid "This activation key is already used"
 msgstr "您的帳號已經驗證過了"
 
@@ -495,7 +495,7 @@ msgstr "雞"
 msgid "File"
 msgstr "檔案"
 
-#: comments/models.py:59 posts/models.py:36 posts/templates/socialwall.html:81
+#: comments/models.py:59 posts/models.py:36 posts/templates/socialwall.html:94
 msgid "Content"
 msgstr "內容"
 
@@ -503,7 +503,7 @@ msgstr "內容"
 msgid "Timestamp"
 msgstr "時間戳"
 
-#: comments/models.py:65 posts/templates/socialwall.html.py:82
+#: comments/models.py:65 posts/templates/socialwall.html.py:95
 msgid "Comment"
 msgstr "回覆"
 
@@ -553,7 +553,7 @@ msgstr "是否抓取資料"
 
 #: configs/models.py:25 configs/models.py:130 configs/models.py:187
 #: configs/models.py:230 configs/models.py:259 configs/models.py:283
-#: dailytrans/models.py:60 events/models.py:63 logs/models.py:26
+#: dailytrans/models.py:50 events/models.py:63 logs/models.py:26
 #: posts/models.py:39 watchlists/models.py:45 watchlists/models.py:46
 #: watchlists/models.py:134 watchlists/models.py:161
 msgid "Updated"
@@ -568,8 +568,8 @@ msgid "Abstract Products"
 msgstr "抽象品項"
 
 #: configs/models.py:128 configs/models.py:286
-#: templates/ajax/chart-1-content.html:27
-#: templates/ajax/chart-2-content.html:27
+#: templates/ajax/chart-1-content.html:28
+#: templates/ajax/chart-2-content.html:28
 #: templates/ajax/chart-5-content.html:30
 #: templates/contents/index-panel.html:41
 msgid "Chart"
@@ -591,7 +591,7 @@ msgstr "同義名"
 msgid "Enabled"
 msgstr "啟用"
 
-#: configs/models.py:192 dailytrans/models.py:52 templates/navigation.html:78
+#: configs/models.py:192 dailytrans/models.py:42 templates/navigation.html:78
 #: watchlists/models.py:132
 msgid "Source"
 msgstr "來源"
@@ -644,52 +644,56 @@ msgstr "蔬菜"
 msgid "Crops"
 msgstr "蔬菜"
 
-#: dailytrans/models.py:51 templates/contents/watchlist-profile-table.html.py:9
+#: dailytrans/models.py:41 templates/contents/watchlist-profile-table.html.py:9
 #: templates/navigation.html:81 watchlists/models.py:131
 #: watchlists/models.py:150
 msgid "Product"
 msgstr "品項"
 
-#: dailytrans/models.py:53
+#: dailytrans/models.py:43
 msgid "Up Price"
 msgstr "上價"
 
-#: dailytrans/models.py:54
+#: dailytrans/models.py:44
 msgid "Mid Price"
 msgstr "中價"
 
-#: dailytrans/models.py:55
+#: dailytrans/models.py:45
 msgid "Low Pirce"
 msgstr "下價"
 
-#: dailytrans/models.py:56 dailytrans/utils.py:120 dailytrans/utils.py:145
+#: dailytrans/models.py:46 dailytrans/utils.py:120 dailytrans/utils.py:145
 #: dailytrans/utils.py:166 templates/contents/index-panel.html.py:20
 #: templates/contents/integration-table.html:12
 msgid "Average Price"
 msgstr "日均價格"
 
-#: dailytrans/models.py:57 dailytrans/utils.py:122
+#: dailytrans/models.py:47 dailytrans/utils.py:122
 #: templates/contents/index-panel.html:24
 #: templates/contents/integration-table.html:19
 msgid "Average Weight"
 msgstr "日均重量"
 
-#: dailytrans/models.py:58 templates/contents/integration-table.html.py:16
+#: dailytrans/models.py:48 templates/contents/integration-table.html.py:16
 msgid "Volume"
 msgstr "交易量"
 
-#: dailytrans/models.py:59 dailytrans/utils.py:119 dailytrans/utils.py:144
+#: dailytrans/models.py:49 dailytrans/utils.py:119 dailytrans/utils.py:144
 #: dailytrans/utils.py:165 dailytrans/utils.py:233 events/forms.py:23
 #: events/models.py:61 templates/contents/event-table.html.py:12
 #: templates/contents/integration-table.html:11
 msgid "Date"
 msgstr "日期"
 
-#: dailytrans/models.py:65 templates/navigation.html.py:75
+#: dailytrans/models.py:51
+msgid "Not Updated Count"
+msgstr "未更新累計"
+
+#: dailytrans/models.py:56 templates/navigation.html.py:75
 msgid "Daily Transition"
 msgstr "日交易"
 
-#: dailytrans/models.py:66
+#: dailytrans/models.py:57
 msgid "Daily Transitions"
 msgstr "日交易"
 
@@ -847,7 +851,7 @@ msgstr "日誌類型"
 msgid "LogTypes"
 msgstr "日誌類型"
 
-#: posts/models.py:34 posts/templates/socialwall.html.py:79
+#: posts/models.py:34 posts/templates/socialwall.html.py:92
 msgid "Title"
 msgstr "標題"
 
@@ -867,7 +871,7 @@ msgstr "貼文"
 msgid "Posts"
 msgstr "貼文"
 
-#: posts/templates/form_modal.html:8 posts/templates/socialwall.html.py:69
+#: posts/templates/form_modal.html:8 posts/templates/socialwall.html.py:82
 msgid "New Post"
 msgstr "新增貼文"
 
@@ -916,32 +920,32 @@ msgstr "輸入回覆並按Enter送出"
 msgid "edited"
 msgstr "已編輯"
 
-#: posts/templates/socialwall.html:30 templates/ajax/about.html.py:13
+#: posts/templates/socialwall.html:43 templates/ajax/about.html.py:13
 #: templates/navigation.html:57
 msgid "Main"
 msgstr "主頁"
 
-#: posts/templates/socialwall.html:32 templates/navigation.html.py:63
+#: posts/templates/socialwall.html:45 templates/navigation.html.py:63
 msgid "Social Wall"
 msgstr "輿情回應專區"
 
-#: posts/templates/socialwall.html:75
+#: posts/templates/socialwall.html:88
 msgid "Filter by"
 msgstr "關鍵字"
 
-#: posts/templates/socialwall.html:80
+#: posts/templates/socialwall.html:93
 msgid "Author"
 msgstr "發文者"
 
-#: posts/templates/socialwall.html:84
+#: posts/templates/socialwall.html:97
 msgid "All"
 msgstr "全部"
 
-#: posts/templates/socialwall.html:88
+#: posts/templates/socialwall.html:101
 msgid "Search term..."
 msgstr "輸入關鍵字..."
 
-#: posts/templates/socialwall.html:88
+#: posts/templates/socialwall.html:101
 msgid "Default search all..."
 msgstr "預設搜尋全部..."
 
@@ -1166,26 +1170,26 @@ msgstr ""
 "務。<br />3.資訊中心就本會開放資料及各業務單位資料介接技術，提供專業諮詢服務"
 "並協助排除介接障礙。"
 
-#: templates/ajax/chart-3-content.html:26
-#: templates/ajax/chart-4-content.html:25
+#: templates/ajax/chart-3-content.html:27
+#: templates/ajax/chart-4-content.html:26
 msgid "Settings"
 msgstr "設定"
 
-#: templates/ajax/chart-3-content.html:35
+#: templates/ajax/chart-3-content.html:36
 msgid "Display years"
 msgstr "調整顯示年份"
 
-#: templates/ajax/chart-3-content.html:46
-#: templates/ajax/chart-4-content.html:34
+#: templates/ajax/chart-3-content.html:47
+#: templates/ajax/chart-4-content.html:35
 msgid "Average years"
 msgstr "調整平均年份"
 
-#: templates/ajax/chart-3-content.html:61
-#: templates/ajax/chart-4-content.html:53
+#: templates/ajax/chart-3-content.html:62
+#: templates/ajax/chart-4-content.html:54
 msgid "Close"
 msgstr "取消"
 
-#: templates/ajax/chart-tab.html:24
+#: templates/ajax/chart-tab.html:27
 msgid "Product Profile"
 msgstr "監控資訊"
 
@@ -1392,3 +1396,6 @@ msgstr "啟用"
 #: watchlists/models.py:160
 msgid "Monitor Months"
 msgstr "監控月份"
+
+#~ msgid "You must agree our privacy policies"
+#~ msgstr "請先同意我們的隱私權政策"
