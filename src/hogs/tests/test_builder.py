@@ -35,21 +35,3 @@ class BuilderTestCase(TestCase):
         qs = DailyTran.objects.filter(date__range=(self.start_date, self.end_date))
 
         self.assertEquals(qs.count(), 97)
-
-    def test_delete(self):
-        obj = Hog.objects.filter(code='規格豬(75公斤以上)').first()
-        source = Source.objects.last()
-
-        # this item should be deleted
-        DailyTran.objects.create(product=obj,
-                                 source=source,
-                                 avg_price=120,
-                                 date=self.start_date,
-                                 update_time=datetime.datetime.now())
-
-        result = direct(start_date=self.start_date, end_date=self.end_date)
-        self.assertTrue(result.success)
-
-        qs = DailyTran.objects.filter(product=obj,
-                                      date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 44)

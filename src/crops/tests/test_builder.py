@@ -9,6 +9,7 @@ class BuilderTestCase(TestCase):
         # load fixtures
         call_command('loaddata', 'configs.yaml', verbosity=0)
         call_command('loaddata', 'sources.yaml', verbosity=0)
+        call_command('loaddata', 'cog02.yaml', verbosity=0)
         call_command('loaddata', 'cog05-test.yaml', verbosity=0)
 
         self.start_date = datetime.date(year=2017, month=1, day=1)

@@ -48,3 +48,5 @@ class BuilderTestCase(TestCase):
         count_2 = DailyTran.objects.filter(date__range=(start_date, end_date)).count()
 
         self.assertEquals(count_1, count_2)
+
+        direct(start_date=start_date, end_date=end_date)

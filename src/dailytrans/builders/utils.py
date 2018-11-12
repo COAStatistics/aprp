@@ -1,5 +1,7 @@
 import datetime
+from django.utils import timezone
 import logging
+from dailytrans.models import DailyTran
 db_logger = logging.getLogger('aprp')
 
 
@@ -134,11 +136,30 @@ def director(func):
             start_date, end_date = date_delta(delta)
 
         try:
-            start_time = datetime.datetime.now()
-            func(start_date, end_date)
-            end_time = datetime.datetime.now()
+            start_time = timezone.now()
+            kwargs = func(start_date, end_date)
+            end_time = timezone.now()
             duration = end_time - start_time
+
+            if kwargs:
+                # update not_updated count
+                qs = DailyTran.objects.filter(product__config__code=kwargs['config_code'],
+                                              date__range=[start_date, end_date])
+
+                if 'type_id' in kwargs and kwargs['type_id']:
+                    qs = qs.filter(product__type__id=kwargs['type_id'])
+
+                for d in qs.filter(update_time__lte=start_time):
+                    d.not_updated += 1
+                    d.save(update_fields=["not_updated"])
+                    db_logger.warning('Daily tran data not update, counted to field "not_updated": %s', str(d), extra={
+                        'logger_type': kwargs['logger_type_code'],
+                    })
+
+                qs.filter(update_time__gt=start_time).update(not_updated=0)
+
             return DirectResult(start_date, end_date, duration=duration, success=True)
+
         except Exception as e:
             logging.exception('msg')
             db_logger.exception(e)

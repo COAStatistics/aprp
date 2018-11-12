@@ -7,6 +7,7 @@ from django.db.models import (
     ForeignKey,
     FloatField,
     QuerySet,
+    IntegerField,
 )
 from django.utils.translation import ugettext_lazy as _
 # from .utils import RawAnnotation
@@ -21,17 +22,6 @@ class DailyTranQuerySet(QuerySet):
         if start_date and end_date:
             start_md = int(start_date.strftime('%m%d'))
             end_md = int(end_date.strftime('%m%d'))
-
-            # WARNING: TEST PASS FOR POSTGRESQL ONLY
-            # try:
-            #     q = (self.annotate(md=RawAnnotation('''
-            #         cast(
-            #             CONCAT(
-            #                 lpad(cast((EXTRACT(MONTH from "dailytrans_dailytran"."date")) as varchar), 2, '0'),
-            #                 cast((EXTRACT(DAY from "dailytrans_dailytran"."date")) as varchar))
-            #         as int)''', ())))
-            #     q = q.filter(md__gte=start_md, md__lte=end_md)
-            #     return q
 
             ids = []
             for obj in self.all():
@@ -58,6 +48,7 @@ class DailyTran(Model):
     volume = FloatField(null=True, blank=True, verbose_name=_('Volume'))
     date = DateField(auto_now=False, default=timezone.now().today, verbose_name=_('Date'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
+    not_updated = IntegerField(default=0, verbose_name=_('Not Updated Count'))
 
     objects = DailyTranQuerySet.as_manager()
 

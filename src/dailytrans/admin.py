@@ -3,6 +3,7 @@ from django.forms import ModelForm, ValidationError
 from .models import DailyTran
 from rangefilter.filter import DateRangeFilter
 
+
 class DailyTranModelForm(ModelForm):
     class Meta:
         model = DailyTran
@@ -37,6 +38,7 @@ class DailyTranAdmin(admin.ModelAdmin):
     form = DailyTranModelForm
     list_display = ('date',
                     'update_time',
+                    'not_updated',
                     'product',
                     'source',
                     'up_price',

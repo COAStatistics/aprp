@@ -37,20 +37,3 @@ class BuilderTestCase(TestCase):
                                       source__in=sources,
                                       date__range=(start_date, end_date))
         self.assertEquals(qs.count(), 12)
-
-    def test_delete(self):
-        obj = Fruit.objects.filter(code='O9', track_item=True).first()
-        source = Source.objects.last()
-        # this item should be deleted
-        DailyTran.objects.create(product=obj,
-                                 source=source,
-                                 avg_price=120,
-                                 date=self.start_date,
-                                 update_time=datetime.datetime.now())
-
-        direct_wholesale_06(start_date=self.start_date, end_date=self.end_date)
-
-        qs = DailyTran.objects.filter(product=obj,
-                                      date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 2)
-
