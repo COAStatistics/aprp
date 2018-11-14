@@ -15,7 +15,6 @@ from .utils import (
 )
 from watchlists.models import Watchlist
 from configs.models import (
-    Config,
     Chart,
 )
 from dailytrans.utils import (
@@ -64,7 +63,7 @@ class Index(LoginRequiredMixin, TemplateView):
         watchlists = Watchlist.objects.order_by('create_time').all()
 
         if not self.request.user.info.watchlist_viewer:
-            watchlists = watchlists.filter(is_default=True)
+            watchlists = watchlists.exclude(watch_all=True)
 
         context['watchlists'] = watchlists
 
