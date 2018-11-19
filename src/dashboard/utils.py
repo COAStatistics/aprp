@@ -213,6 +213,10 @@ def chart_contents_extra_context(instance):
                 series_options.append(option)
 
     if chart_id == '4':
+        this_year = datetime.datetime.now().year
+        selected_years = selected_years or [y for y in range(this_year-5, this_year)]  # default latest 5 years
+        selected_years = [int(y) for y in selected_years]  # cast to integer
+
         extra_context['method'] = instance.request.method
         extra_context['selected_years'] = selected_years
 

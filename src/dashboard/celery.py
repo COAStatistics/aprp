@@ -26,6 +26,10 @@ app.conf.beat_schedule = {
         'task': 'DefaultWatchlistMonitorProfileUpdate',
         'schedule': crontab(minute='*/15'),
     },
+    'delete_not_updated_trans': {
+        'task': 'DeleteNotUpdatedTrans',
+        'schedule': crontab(minute=0, hour='*'),
+    },
     # ======================================== ShortTerm Builder ========================================
     'daily-chicken-builder-3d': {
         'task': 'DailyChickenBuilder',

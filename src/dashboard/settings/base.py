@@ -307,6 +307,7 @@ CELERY_IMPORTS = (
     'seafoods.tasks',
     'cattles.tasks',
     'watchlists.tasks',
+    'dailytrans.tasks',
 )
 
 # Session Settings

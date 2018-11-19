@@ -37,7 +37,7 @@
                                             <!-- Advise data-name -->
                                             <select class="select-block" multiple='multiple' data-name="average-years">
                                                 {% for year in option.years %}
-                                                    {% if year|stringformat:"i" in selected_years or method == 'GET' or not selected_years %}
+                                                    {% if year in selected_years or not selected_years %}
                                                         <option value='{{ year }}' selected="selected">{{ year }}</option>
                                                     {% else %}
                                                         <option value='{{ year }}'>{{ year }}</option>
