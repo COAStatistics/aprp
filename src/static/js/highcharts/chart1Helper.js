@@ -101,7 +101,7 @@ var chart1Helper = {
         var getPlotBands = function(){
             var max = new Date(chart.xAxis[0].getExtremes().max);
             var profiles = $.grep(chart1Helper.manager.monitorProfiles, function(profile, i){
-                if(profile.start_date <= max && max <= profile.end_date){
+                if(profile.start_date <= max.getTime() && max.getTime() <= profile.end_date){
                     return profile;
                 }
             })
@@ -124,7 +124,7 @@ var chart1Helper = {
             return plotBands;
         };
 
-        return function(redraw){
+        return function(){
             if(thisDevice == 'desktop'){
                 var plotBands = getPlotBands();
 

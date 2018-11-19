@@ -102,7 +102,7 @@ var chart2Helper = {
         var getPlotBands = function(){
             var max = new Date(chart.xAxis[0].getExtremes().max);
             var profiles = $.grep(chart2Helper.manager.monitorProfiles, function(profile, i){
-                if(profile.start_date <= max && max <= profile.end_date){
+                if(profile.start_date <= max.getTime() && max.getTime() <= profile.end_date){
                     return profile;
                 }
             })
