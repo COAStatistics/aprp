@@ -19,6 +19,8 @@ class Api(AbstractApi):
     END_YEAR_FILTER = 'endYear=%s'
     START_MONTH_FILTER = 'startMonth=%s'
     END_MONTH_FILTER = 'endMonth=%s'
+    START_DATE_FILTER = 'startDay=%s'
+    END_DATE_FILTER = 'endDay=%s'
     NAME_FILTER = 'productName=%s'
     
     def __init__(self, model, config_code, type_id, logger_type_code=None):
@@ -57,6 +59,7 @@ class Api(AbstractApi):
             if not isinstance(start_date, datetime.date):
                 raise NotImplementedError
 
+            url = '&'.join((url, self.START_DATE_FILTER % start_date.day))
             url = '&'.join((url, self.START_MONTH_FILTER % start_date.month))
             url = '&'.join((url, self.START_YEAR_FILTER % start_date.year))
 
@@ -64,6 +67,7 @@ class Api(AbstractApi):
             if not isinstance(end_date, datetime.date):
                 raise NotImplementedError
 
+            url = '&'.join((url, self.END_DATE_FILTER % end_date.day))
             url = '&'.join((url, self.END_MONTH_FILTER % end_date.month))
             url = '&'.join((url, self.END_YEAR_FILTER % end_date.year))
 
