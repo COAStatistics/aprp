@@ -1,6 +1,8 @@
 import datetime
-from django.utils import timezone
 import logging
+from functools import wraps
+from collections import namedtuple
+from django.utils import timezone
 from dailytrans.models import DailyTran
 db_logger = logging.getLogger('aprp')
 
@@ -105,8 +107,15 @@ def product_generator(model):
                 db_logger.warning('Abstract %s Item Is Track Item(track_item=True) But Not Specify Type' % obj.name)
 
 
+DirectResult = namedtuple('DirectResult', ('start_date', 'end_date', 'duration', 'success', 'msg'))
+DirectResult.__new__.__defaults__ = (None, False, '',)
+
+DirectData = namedtuple('DirectData', ('config_code', 'type_id', 'logger_type_code'))
+
+
 def director(func):
 
+    @wraps(func)
     def interface(start_date=None, end_date=None, format=None, delta=None):
         if start_date and not end_date:
             raise NotImplementedError
@@ -137,23 +146,23 @@ def director(func):
 
         try:
             start_time = timezone.now()
-            kwargs = func(start_date, end_date)
+            data = func(start_date, end_date)
             end_time = timezone.now()
             duration = end_time - start_time
 
-            if kwargs:
+            if isinstance(data, DirectData):
                 # update not_updated count
-                qs = DailyTran.objects.filter(product__config__code=kwargs['config_code'],
+                qs = DailyTran.objects.filter(product__config__code=data.config_code,
                                               date__range=[start_date, end_date])
 
-                if 'type_id' in kwargs and kwargs['type_id']:
-                    qs = qs.filter(product__type__id=kwargs['type_id'])
+                if data.type_id:
+                    qs = qs.filter(product__type__id=data.type_id)
 
                 for d in qs.filter(update_time__lte=start_time):
                     d.not_updated += 1
                     d.save(update_fields=["not_updated"])
                     db_logger.warning('Daily tran data not update, counted to field "not_updated": %s', str(d), extra={
-                        'logger_type': kwargs['logger_type_code'],
+                        'logger_type': data.logger_type_code,
                     })
 
                 qs.filter(update_time__gt=start_time).update(not_updated=0)
@@ -166,19 +175,3 @@ def director(func):
             return DirectResult(start_date, end_date, success=False, msg=e)
 
     return interface
-
-
-class DirectResult(object):
-    def __init__(self, start_date, end_date, duration=None, success=False, msg=None):
-        if not isinstance(start_date, datetime.date):
-            raise NotImplementedError
-        if not isinstance(end_date, datetime.date):
-            raise NotImplementedError
-        if not isinstance(success, bool):
-            raise NotImplementedError
-        self.start_date = start_date
-        self.end_date = end_date
-        self.success = success
-        self.duration = duration
-        self.msg = msg
-

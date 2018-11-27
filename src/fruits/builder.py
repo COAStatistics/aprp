@@ -5,6 +5,7 @@ from dailytrans.builders.utils import (
     product_generator,
     director,
     date_generator,
+    DirectData,
 )
 from .models import Fruit
 
@@ -16,23 +17,20 @@ ORIGIN_DELTA_DAYS = 30
 
 
 @director
-def direct(*args):
-    direct_wholesale_06(*args)
-    direct_origin(*args)
-    direct_wholesale_03(*args)
+def direct(*args, **kwargs):
+
+    direct_wholesale_06(*args, **kwargs)
+    direct_origin(*args, **kwargs)
+    direct_wholesale_03(*args, **kwargs)
 
 
 @director
-def direct_wholesale_06(start_date=None, end_date=None, *args):
+def direct_wholesale_06(start_date=None, end_date=None, *args, **kwargs):
 
-    kwargs = {
-        'config_code': 'COG06',
-        'type_id': 1,
-        'logger_type_code': LOGGER_TYPE_CODE,
-    }
+    data = DirectData('COG06', 1, LOGGER_TYPE_CODE)
 
     for model in MODELS:
-        wholesale_api = WholeSaleApi06(model=model, **kwargs)
+        wholesale_api = WholeSaleApi06(model=model, **data._asdict())
 
         for obj in product_generator(model):
             if obj.type.id == 1:
@@ -40,45 +38,37 @@ def direct_wholesale_06(start_date=None, end_date=None, *args):
                     response = wholesale_api.request(start_date=delta_start_date, end_date=delta_end_date, code=obj.code)
                     wholesale_api.load(response)
 
-    return kwargs
+    return data
 
 
 @director
-def direct_origin(start_date=None, end_date=None, *args):
+def direct_origin(start_date=None, end_date=None, *args, **kwargs):
 
-    kwargs = {
-        'config_code': 'COG06',
-        'type_id': 2,
-        'logger_type_code': LOGGER_TYPE_CODE,
-    }
+    data = DirectData('COG06', 2, LOGGER_TYPE_CODE)
 
     for model in MODELS:
-        origin_api = OriginApi(model=model, **kwargs)
+        origin_api = OriginApi(model=model, **data._asdict())
         for obj in product_generator(model):
             if obj.type.id == 2:
                 for delta_start_date, delta_end_date in date_generator(start_date, end_date, ORIGIN_DELTA_DAYS):
                     response = origin_api.request(start_date=delta_start_date, end_date=delta_end_date, name=obj.code)
                     origin_api.load(response)
 
-    return kwargs
+    return data
 
 
 @director
-def direct_wholesale_03(start_date=None, end_date=None, *args):
+def direct_wholesale_03(start_date=None, end_date=None, *args, **kwargs):
 
-    kwargs = {
-        'config_code': 'COG03',
-        'type_id': 1,
-        'logger_type_code': LOGGER_TYPE_CODE,
-    }
+    data = DirectData('COG03', 1, LOGGER_TYPE_CODE)
 
     for model in MODELS:
-        wholesale_api = WholeSaleApi03(model=model, market_type='F', **kwargs)
+        wholesale_api = WholeSaleApi03(model=model, market_type='F', **data._asdict())
 
         # this api only provide one day filter
         for delta_start_date, delta_end_date in date_generator(start_date, end_date, 1):
             response = wholesale_api.request(date=delta_start_date)
             wholesale_api.load(response)
 
-    return kwargs
+    return data
 

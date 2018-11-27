@@ -5,6 +5,7 @@ from dailytrans.builders.utils import (
     product_generator,
     director,
     date_generator,
+    DirectData,
 )
 from .models import Crop
 
@@ -23,16 +24,12 @@ def direct(*args, **kwargs):
 
 
 @director
-def direct_wholesale_05(start_date, end_date, *args):
+def direct_wholesale_05(start_date, end_date, *args, **kwargs):
 
-    kwargs = {
-        'config_code': 'COG05',
-        'type_id': 1,
-        'logger_type_code': LOGGER_TYPE_CODE,
-    }
+    data = DirectData('COG05', 1, LOGGER_TYPE_CODE)
 
     for model in MODELS:
-        wholesale_api = WholeSaleApi05(model=model, **kwargs)
+        wholesale_api = WholeSaleApi05(model=model, **data._asdict())
 
         for obj in product_generator(model):
             if obj.type.id == 1:
@@ -40,47 +37,39 @@ def direct_wholesale_05(start_date, end_date, *args):
                     response = wholesale_api.request(start_date=delta_start_date, end_date=delta_end_date, code=obj.code)
                     wholesale_api.load(response)
 
-    return kwargs
+    return data
 
 
 @director
-def direct_origin(start_date, end_date, *args):
+def direct_origin(start_date, end_date, *args, **kwargs):
 
-    kwargs = {
-        'config_code': 'COG05',
-        'type_id': 2,
-        'logger_type_code': LOGGER_TYPE_CODE,
-    }
+    data = DirectData('COG05', 2, LOGGER_TYPE_CODE)
 
     for model in MODELS:
-        origin_api = OriginApi(model=model, **kwargs)
+        origin_api = OriginApi(model=model, **data._asdict())
         for obj in product_generator(model):
             if obj.type.id == 2:
                 for delta_start_date, delta_end_date in date_generator(start_date, end_date, ORIGIN_DELTA_DAYS):
                     response = origin_api.request(start_date=delta_start_date, end_date=delta_end_date, name=obj.code)
                     origin_api.load(response)
 
-    return kwargs
+    return data
 
 
 @director
-def direct_wholesale_02(start_date, end_date, *args):
+def direct_wholesale_02(start_date, end_date, *args, **kwargs):
 
-    kwargs = {
-        'config_code': 'COG02',
-        'type_id': 1,
-        'logger_type_code': LOGGER_TYPE_CODE,
-    }
+    data = DirectData('COG02', 1, LOGGER_TYPE_CODE)
 
     for model in MODELS:
-        wholesale_api = WholeSaleApi02(model=model, market_type='V', **kwargs)
+        wholesale_api = WholeSaleApi02(model=model, market_type='V', **data._asdict())
 
         # This api only provide one day filter
         for delta_start_date, delta_end_date in date_generator(start_date, end_date, 1):
             response = wholesale_api.request(date=delta_start_date)
             wholesale_api.load(response)
 
-    return kwargs
+    return data
 
 
 
