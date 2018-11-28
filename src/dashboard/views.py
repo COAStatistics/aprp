@@ -46,6 +46,11 @@ class LoginRequiredMixin(object):
         return login_required(super().as_view(**kwds))
 
 
+class BrowserNotSupport(TemplateView):
+    redirect_field_name = 'redirect_to'
+    template_name = 'browser-not-support.html'
+
+
 class Index(LoginRequiredMixin, TemplateView):
     redirect_field_name = 'redirect_to'
     template_name = 'index.html'

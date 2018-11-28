@@ -1,7 +1,4 @@
-{% load i18n %}
-{% load staticfiles %}
-
-<!DOCTYPE html>
+{% load i18n %}{% load staticfiles %}<!DOCTYPE html>
 <html lang="en-us">
 	<head>
 		<meta charset="utf-8">
@@ -100,6 +97,9 @@
 
 		<!--================================================== -->
 
+		<!-- Browser check -->
+		<script>if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1)){window.location = '{% url 'browser_not_support' %}';}</script>
+
 		<!-- Parse i18n-->
     	<script src='{% url "parse_javascript" %}'></script>
 
@@ -145,10 +145,6 @@
 		{% if LANGUAGE_CODE == 'zh-hant' %}
 			<script src='{% static "vendor/js/libs/datepicker-zh-TW.js" %}'></script>
 		{% endif %}
-
-		<!--[if IE 8]>
-			<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
-		<![endif]-->
 
 		<!-- MAIN APP JS FILE -->
 		<script src="{% static 'vendor/js/app.js' %}"></script>

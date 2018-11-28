@@ -27,6 +27,7 @@ from .views import (
     ChartTabs,
     ChartContents,
     IntegrationTable,
+    BrowserNotSupport,
 )
 
 urlpatterns = [
@@ -51,6 +52,7 @@ urlpatterns += i18n_patterns(
     # pages
     url(r'^$', Index.as_view(), name='index'),
     url(r'^about/', About.as_view(), name='about'),
+    url(r'^browser-not-support/', BrowserNotSupport.as_view(), name='browser_not_support'),
     # jarvis menu ajax
     url(r'^jarvismenu/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/$', JarvisMenu.as_view(), name='jarvismenu'),
     url(r'^jarvismenu/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/(?P<lct>\w+)/(?P<loi>\d+)/$', JarvisMenu.as_view(), name='jarvismenu'),

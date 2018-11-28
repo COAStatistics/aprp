@@ -1,7 +1,4 @@
-{% load i18n %}
-{% load staticfiles %}
-{% load crispy_forms_tags %}
-
+{% load i18n %}{% load staticfiles %}{% load crispy_forms_tags %}<!DOCTYPE html>
 <html id="extr-page">
 	<head>
 		<meta charset="utf-8">
@@ -64,6 +61,12 @@
 
 		<!--================================================== -->
 
+		<!-- Browser check -->
+		{% for message in messages %}
+			<script>alert('{{ message }}');</script>
+		{% endfor %}
+		<script>if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1)){window.location = '{% url 'browser_not_support' %}';}</script>
+
 	    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
 	    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script> if (!window.jQuery) { document.write('<script src="{% static 'vendor/js/libs/jquery-3.2.1.min.js' %}"><\/script>');} </script>
@@ -79,12 +82,6 @@
 
 		<!-- BOOTSTRAP JS -->
 		<script src="{% static 'vendor/js/bootstrap/bootstrap.min.js' %}"></script>
-
-		<!--[if IE 8]>
-
-			<h1>{% trans 'Your browser is out of date, please update your browser by going to' %} www.microsoft.com/download</h1>
-
-		<![endif]-->
 
 		<!-- MAIN APP JS FILE -->
 		<script src="{% static 'vendor/js/app.js' %}"></script>
