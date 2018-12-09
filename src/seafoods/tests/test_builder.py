@@ -15,8 +15,5 @@ class BuilderTestCase(TestCase):
         self.end_date = datetime.date(year=2017, month=1, day=3)
 
     def test_direct_delta(self):
-        result = direct(delta=-1)
+        result = direct(start_date=self.start_date, end_date=self.end_date)
         self.assertTrue(result.success)
-
-        result2 = direct(start_date=self.start_date, end_date=self.end_date)
-        self.assertTrue(result2.success)

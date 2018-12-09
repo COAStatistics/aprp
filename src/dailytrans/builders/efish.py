@@ -18,18 +18,11 @@ class Api(AbstractApi):
     # Filters
     START_DATE_FILTER = 'ds=%s'
     END_DATE_FILTER = 'de=%s'
-    KEY_FILTER = 'tk=%s'
     CODE_FILTER = 'pid=%s'
 
     def __init__(self, model, config_code, type_id, logger_type_code=None):
         super(Api, self).__init__(model=model, config_code=config_code, type_id=type_id,
                                   logger='aprp', logger_type_code=logger_type_code)
-
-        # Private Key, Please provide in settings/local.py
-        try:
-            self.API_URL = '&'.join((self.API_URL, self.KEY_FILTER % settings.EFISH_API_KEY))
-        except AttributeError:
-            raise NotImplementedError('efish API_KEY not specific in settings')
 
     def hook(self, dic):
 

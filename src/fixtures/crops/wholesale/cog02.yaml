@@ -28,7 +28,7 @@
 - model: crops.Crop
   pk: 10009
   fields:
-    name: 姑菌類
+    name: 菇菌類
     code: M
     config: 2
     unit: 1

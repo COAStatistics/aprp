@@ -335,3 +335,24 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Aprp Release Version
 APRP_VERSION = '18.11.0'
+
+# API urls
+DAILYTRAN_BUILDER_API = {
+    'cattle': 'http://data.coa.gov.tw/Service/OpenData/BeefPriceService.aspx?',
+    'eir019': 'http://data.coa.gov.tw/Service/OpenData/FromM/AnimalTransData.aspx?',
+    'eir030': 'http://data.coa.gov.tw/Service/OpenData/FromM/FarmTransData.aspx?',
+    'eir032': 'http://data.coa.gov.tw/Service/OpenData/FromM/AquaticTransData.aspx?',
+    'eir49': 'http://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransBoiledChickenData.aspx?',
+    'eir049': 'http://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransLocalRedChickenData.aspx?',
+    'eir50': 'http://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransGooseDailyPriceData.aspx?',
+    'eir050': 'http://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransLocalBlackChickenData.aspx?',
+    'eir51': 'http://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransGooseDuckData.aspx?',
+    'eir097': 'http://data.coa.gov.tw/Service/OpenData/FromM/RicepriceData.aspx?',
+    'eir107': 'http://data.coa.gov.tw/Service/OpenData/FromM/SheepTransData.aspx?',
+    'rice_avg': 'http://data.is.com.tw/Service/OpenData/Ricepriceavg.aspx?',
+}
+
+# Hide login
+ADMIN_HIDE_LOGIN = 'admin'
+
+
