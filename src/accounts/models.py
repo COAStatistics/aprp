@@ -85,10 +85,10 @@ class UserInformation(Model):
         verbose_name_plural = _('User Informations')
 
     def __str__(self):
-        return str(self.user.username)
+        return str(self.full_name)
 
     def __unicode__(self):
-        return str(self.user.username)
+        return str(self.full_name)
 
     @property
     def full_name(self):
