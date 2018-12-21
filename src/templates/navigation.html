@@ -69,6 +69,12 @@
                 <a href="#" title="Admin"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">{% trans 'Admin' %}</span></a>
                 <ul>
                     <li>
+                        <a href="{% url 'admin:auth_user_changelist' %}" target="_blank" title="{% trans 'User' %}"><span class="menu-item-parent">{% trans 'User' %}</span></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'admin:accounts_userinformation_changelist' %}" target="_blank" title="{% trans 'User Information' %}"><span class="menu-item-parent">{% trans 'User Information' %}</span></a>
+                    </li>
+                    <li>
                         <a href="{% url 'admin:logs_log_changelist' %}" target="_blank" title="{% trans 'Log' %}"><span class="menu-item-parent">{% trans 'Log' %}</span></a>
                     </li>
                     <li>
