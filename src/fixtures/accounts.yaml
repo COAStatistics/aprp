@@ -92,7 +92,7 @@
   fields:
     name: 漁業署
     group: 4
-    email_dns: mail.fa.gov.tw
+    email_dns: ms1.fa.gov.tw
     parent: 1
 
 - model: accounts.GroupInformation
@@ -145,13 +145,3 @@
     group: 10
     parent: 4
     email_dns: mail.fa.gov.tw
-
-
-
-
-
-
-
-
-
-

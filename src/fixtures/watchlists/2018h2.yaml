@@ -48,7 +48,7 @@
   pk: 1006
   fields:
     product: 49011 # 落花生(帶殼) 產地
-    sources: [10050, 10051, 10049, 10048]
+    sources: [10050, 10051, 10049, 10048, 10090]
     parent: 3
 
 - model: watchlists.WatchlistItem
