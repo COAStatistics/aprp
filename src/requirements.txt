@@ -43,7 +43,7 @@ sh==1.12.14
 six==1.11.0
 static3==0.7.0
 typing==3.6.4
-urllib3==1.22
+urllib3==1.24.1
 vine==1.1.4
 waitress==1.1.0
 wcwidth==0.1.7

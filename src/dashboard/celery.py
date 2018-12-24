@@ -149,7 +149,7 @@ app.conf.beat_schedule = {
     },
     'daily-seafood-origin-builder-31d': {
         'task': 'DailyOriginSeafoodBuilder',
-        'schedule': crontab(minute=0, hour='19'),
+        'schedule': crontab(minute='0,30', hour='18,19'),
         'args': (-30,)  # direct 31 days range
     },
     'beat-per-minute': {
