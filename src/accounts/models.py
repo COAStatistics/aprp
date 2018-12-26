@@ -78,6 +78,8 @@ class UserInformation(Model):
     watchlist_viewer = BooleanField(default=False, verbose_name=_('Watchlist Viewer'))
     menu_viewer = BooleanField(default=False, verbose_name=_('Menu Item Viewer'))
     reporter = BooleanField(default=False, verbose_name=_('Reporter'))
+    alert_viewer = BooleanField(default=True, verbose_name=_('Alert Viewer'))
+    monitor_info_viewer = BooleanField(default=True, verbose_name=_('Monitor Info Viewer'))
     profile = ImageField(upload_to=upload_location, null=True, blank=True, verbose_name=_('Profile'))
 
     class Meta:

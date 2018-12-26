@@ -5,17 +5,12 @@
         {% if danger_profiles %}
             <i class="fa fa-lg fa-warning text-danger" data-name="profile-active-alert" data-color="danger"></i>
         {% endif %}
-
         {% if not danger_profiles %}
-
             {% with warning_profiles=monitor_profiles|profile_color_filter:'warning' %}
                 {% if warning_profiles %}
                     <i class="fa fa-lg fa-warning text-warning" data-name="profile-active-alert" data-color="warning"></i>
                 {% endif %}
             {% endwith %}
-
         {% endif %}
-
     {% endwith %}
-
 {% endwith %}

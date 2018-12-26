@@ -21,7 +21,7 @@
         </li>
         {% endfor %}
 
-        {% if monitor_profile_filtered_by_watchlist %}
+        {% if user.info.monitor_info_viewer and monitor_profile_filtered_by_watchlist %}
         <li>
             <a href="#product-profile" class="font-md"
                data-toggle="tab">{% trans 'Product Profile' %}</a>
