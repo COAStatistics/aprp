@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-28 14:06+0800\n"
+"POT-Creation-Date: 2018-12-26 16:28+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: accounts/admin.py:15 accounts/forms.py:24 accounts/models.py:38
+msgid "Group"
+msgstr "群組"
 
 #: accounts/forms.py:17
 msgid "Please Input Chinese Only"
@@ -35,16 +39,12 @@ msgstr "名字"
 msgid "Last Name"
 msgstr "姓氏"
 
-#: accounts/forms.py:24 accounts/models.py:38
-msgid "Group"
-msgstr "群組"
-
 #: accounts/forms.py:24
 msgid "Choose one of the following..."
 msgstr "請選擇"
 
-#: accounts/forms.py:25 accounts/models.py:190 accounts/models.py:204
-#: accounts/models.py:205
+#: accounts/forms.py:25 accounts/models.py:192 accounts/models.py:206
+#: accounts/models.py:207
 msgid "Reset Email"
 msgstr "變更電子信箱"
 
@@ -158,8 +158,8 @@ msgstr "群組資訊"
 msgid "Group Informations"
 msgstr "群組資訊"
 
-#: accounts/models.py:76 accounts/models.py:102 posts/models.py:33
-#: watchlists/models.py:40
+#: accounts/models.py:76 accounts/models.py:104 posts/models.py:33
+#: templates/navigation.html:72 watchlists/models.py:40
 msgid "User"
 msgstr "使用者"
 
@@ -180,46 +180,55 @@ msgid "Reporter"
 msgstr "報告人"
 
 #: accounts/models.py:81
+msgid "Alert Viewer"
+msgstr "可檢視監控警示"
+
+#: accounts/models.py:82
+
+msgid "Monitor Info Viewer"
+msgstr "可檢視品項監控資訊"
+
+#: accounts/models.py:83
 msgid "Profile"
 msgstr "大頭貼"
 
-#: accounts/models.py:84
+#: accounts/models.py:86 templates/navigation.html.py:75
 msgid "User Information"
 msgstr "帳戶資訊"
 
-#: accounts/models.py:85
+#: accounts/models.py:87
 msgid "User Informations"
 msgstr "帳戶資訊"
 
-#: accounts/models.py:103
+#: accounts/models.py:105
 msgid "Activate Key"
 msgstr "驗證碼"
 
-#: accounts/models.py:104
+#: accounts/models.py:106
 msgid "Expired"
 msgstr "是否過期"
 
-#: accounts/models.py:109
+#: accounts/models.py:111
 msgid "Abstract Profile"
 msgstr "抽象帳戶驗證"
 
-#: accounts/models.py:110
+#: accounts/models.py:112
 msgid "Abstract Profiles"
 msgstr "抽象帳戶驗證"
 
-#: accounts/models.py:142
+#: accounts/models.py:144
 msgid "Activation Profile"
 msgstr "帳戶啟用驗證"
 
-#: accounts/models.py:143
+#: accounts/models.py:145
 msgid "Activation Profiles"
 msgstr "帳戶啟動驗證"
 
-#: accounts/models.py:153
+#: accounts/models.py:155
 msgid "Activate My Account"
 msgstr "啟用我的帳號"
 
-#: accounts/models.py:154 accounts/models.py:179 accounts/models.py:205
+#: accounts/models.py:156 accounts/models.py:181 accounts/models.py:207
 #: accounts/templates/account-base.html:5
 #: accounts/templates/account-base.html:42
 #: accounts/templates/introduction.html:5
@@ -228,56 +237,48 @@ msgstr "啟用我的帳號"
 msgid "Agriculture Products Price Report Platform"
 msgstr "重要農產品每日價量資訊平台"
 
-#: accounts/models.py:154
+#: accounts/models.py:156
 msgid "Account Activation"
 msgstr "啟用帳戶"
 
-#: accounts/models.py:155
+#: accounts/models.py:157
 msgid "Please activate your account by clicking the link below"
 msgstr "請點擊以下連結來啟用您的帳戶"
 
-#: accounts/models.py:156 accounts/templates/register.html.py:138
+#: accounts/models.py:158 accounts/templates/register.html.py:138
 msgid "Thank you for your registration"
 msgstr "感謝您的註冊"
 
-#: accounts/models.py:167
+#: accounts/models.py:169
 msgid "Reset Password Profile"
 msgstr "重設密碼驗證"
 
-#: accounts/models.py:168
+#: accounts/models.py:170
 msgid "Reset Password Profiles"
 msgstr "重設密碼驗證"
 
-#: accounts/models.py:178 accounts/models.py:179
+#: accounts/models.py:180 accounts/models.py:181
 #: accounts/templates/reset-password.html:8
 #: accounts/templates/reset-password.html:22
 #: accounts/templates/reset-password.html:53
 msgid "Reset Password"
 msgstr "重設密碼"
 
-#: accounts/models.py:180
+#: accounts/models.py:182
 msgid "Please click the following button to reset your password"
 msgstr "請點擊以下連結以重設您的密碼"
 
-#: accounts/models.py:193
+#: accounts/models.py:195
 msgid "Reset Email Profile"
 msgstr "重設電子信箱驗證"
 
-#: accounts/models.py:194
+#: accounts/models.py:196
 msgid "Reset Email Profiles"
 msgstr "重設電子信箱驗證"
 
-#: accounts/models.py:206
+#: accounts/models.py:208
 msgid "Please click the following button to reset your email"
 msgstr "請點擊以下連結以重設您的信箱"
-
-#: accounts/templates/account-base.html:65
-#: templates/browser-not-support.html:83
-msgid ""
-"Please use a newer Browser like firefox or Chrome and NOT IE. Microsoft is "
-"ending their support for this browser."
-msgstr ""
-"本網站建議使用Chrome 20.0版以上、Firefox 17.0版以上或Safari 8.0版以上之瀏覽器"
 
 #: accounts/templates/edit_info.html:5
 msgid "Edit your information"
@@ -457,7 +458,9 @@ msgstr "您使用的重設密碼連結已經失效，可能已經使用過了。
 #: accounts/views.py:77
 msgid ""
 "Successfully registered! Please check your email to activate your account"
-msgstr "註冊完成！ 請至您的信箱收取驗證信來啟用您的帳號，驗證信將於5分鐘內寄至您的信箱"
+msgstr ""
+"註冊完成！ 請至您的信箱收取驗證信來啟用您的帳號，驗證信將於5分鐘內寄至您的信"
+"箱"
 
 #: accounts/views.py:117
 msgid "Activate Account"
@@ -547,7 +550,7 @@ msgstr "供應階段"
 
 #: configs/models.py:22 configs/models.py:262
 #: templates/contents/unit-info.html:7 templates/contents/unit-info.html:9
-#: templates/contents/unit-info.html:11 templates/navigation.html.py:84
+#: templates/contents/unit-info.html:11 templates/navigation.html.py:90
 msgid "Unit"
 msgstr "單位"
 
@@ -595,7 +598,7 @@ msgstr "同義名"
 msgid "Enabled"
 msgstr "啟用"
 
-#: configs/models.py:192 dailytrans/models.py:42 templates/navigation.html:78
+#: configs/models.py:192 dailytrans/models.py:42 templates/navigation.html:84
 #: watchlists/models.py:132
 msgid "Source"
 msgstr "來源"
@@ -649,7 +652,7 @@ msgid "Crops"
 msgstr "蔬菜"
 
 #: dailytrans/models.py:41 templates/contents/watchlist-profile-table.html.py:9
-#: templates/navigation.html:81 watchlists/models.py:131
+#: templates/navigation.html:87 watchlists/models.py:131
 #: watchlists/models.py:150
 msgid "Product"
 msgstr "品項"
@@ -693,7 +696,7 @@ msgstr "日期"
 msgid "Not Updated Count"
 msgstr "未更新累計"
 
-#: dailytrans/models.py:56 templates/navigation.html.py:75
+#: dailytrans/models.py:56 templates/navigation.html.py:81
 msgid "Daily Transition"
 msgstr "日交易"
 
@@ -766,7 +769,7 @@ msgid "Share this event"
 msgstr "共用此事件"
 
 #: events/models.py:40 events/models.py:58
-#: templates/contents/event-table.html:14 templates/navigation.html.py:99
+#: templates/contents/event-table.html:14 templates/navigation.html.py:105
 msgid "Event Type"
 msgstr "事件分類"
 
@@ -786,7 +789,7 @@ msgstr "內容"
 msgid "Shared Event"
 msgstr "共用事件"
 
-#: events/models.py:66 templates/navigation.html.py:96
+#: events/models.py:66 templates/navigation.html.py:102
 msgid "Event"
 msgstr "事件簿"
 
@@ -839,7 +842,7 @@ msgstr "網址"
 msgid "Duration"
 msgstr "歷時"
 
-#: logs/models.py:19 templates/navigation.html.py:72
+#: logs/models.py:19 templates/navigation.html.py:78
 msgid "Log"
 msgstr "日誌"
 
@@ -1223,6 +1226,13 @@ msgstr "瀏覽器不支援"
 msgid "Sorry, your browser does not support current web applications."
 msgstr "很抱歉，本網站尚不相容您使用的瀏覽器，可能是您使用的瀏覽器過於老舊"
 
+#: templates/browser-not-support.html:83
+msgid ""
+"Please use a newer Browser like firefox or Chrome and NOT IE. Microsoft is "
+"ending their support for this browser."
+msgstr ""
+"本網站建議使用Chrome 20.0版以上、Firefox 17.0版以上或Safari 8.0版以上之瀏覽器"
+
 #: templates/browser-not-support.html:86
 msgid "Download Chrome"
 msgstr "前往下載Chrome"
@@ -1286,7 +1296,7 @@ msgstr "因應措施"
 msgid "Watchlist Item Profile"
 msgstr "監控品項內容及監控地點"
 
-#: templates/contents/product-profile.html:93 templates/navigation.html:93
+#: templates/contents/product-profile.html:93 templates/navigation.html:99
 #: watchlists/models.py:164 watchlists/models.py:165
 msgid "Monitor Profile"
 msgstr "監控價格內容及因應措施"
@@ -1311,7 +1321,7 @@ msgid ""
 msgstr "圖表的歷年平均預設為近五年平均，你可以於設定中更改此選項"
 
 #: templates/contents/watchlist-profile-table.html:10
-#: templates/navigation.html:90 watchlists/models.py:139
+#: templates/navigation.html:96 watchlists/models.py:139
 msgid "Watchlist Item"
 msgstr "監控品項"
 
@@ -1345,7 +1355,7 @@ msgstr "全螢幕"
 msgid "Your browser is out of date, please update your browser by going to"
 msgstr "您使用的瀏覽器太過老舊；你可以從這裡升級瀏覽器："
 
-#: templates/navigation.html:33 templates/navigation.html.py:87
+#: templates/navigation.html:33 templates/navigation.html.py:93
 #: watchlists/models.py:49 watchlists/models.py:151
 msgid "Watchlist"
 msgstr "監控清單"
@@ -1354,23 +1364,23 @@ msgstr "監控清單"
 msgid "Admin"
 msgstr "後台管理"
 
-#: templates/navigation.html:105
+#: templates/navigation.html:111
 msgid "Grand Totals"
 msgstr "合計項目"
 
-#: templates/navigation.html:126
+#: templates/navigation.html:132
 msgid "Hog Overall"
 msgstr "毛豬合計"
 
-#: templates/navigation.html:133
+#: templates/navigation.html:139
 msgid "Agricultures"
 msgstr "農產品"
 
-#: templates/navigation.html:151
+#: templates/navigation.html:157
 msgid "Livestocks"
 msgstr "畜禽產品"
 
-#: templates/navigation.html:170
+#: templates/navigation.html:176
 msgid "Fisheries"
 msgstr "漁產品"
 
