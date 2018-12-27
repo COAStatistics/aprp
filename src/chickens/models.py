@@ -28,7 +28,7 @@ class Chicken(AbstractProduct):
     class Meta:
         verbose_name = _('Chicken')
         verbose_name_plural = _('Chickens')
-        
+
 
 def instance_post_save(sender, instance, created, **kwargs):
     if kwargs.get('raw'):

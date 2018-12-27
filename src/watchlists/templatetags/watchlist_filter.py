@@ -1,6 +1,6 @@
 from django import template
 from django.db.models.query import QuerySet
-from configs.models import(
+from configs.models import (
     AbstractProduct,
     Config,
 )
@@ -50,10 +50,3 @@ def get_monitor_profile(obj, watchlist):
 @register.filter
 def profile_color_filter(qs, color):
     return qs.filter(color=color)
-
-
-
-
-
-
-

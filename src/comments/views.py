@@ -68,4 +68,3 @@ def comment_delete(request, pk):
             request=request,
         )
     return JsonResponse(data)
-

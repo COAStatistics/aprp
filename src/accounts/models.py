@@ -1,3 +1,4 @@
+import logging
 from django.conf import settings
 from django.db.models.signals import post_save
 from django.core.urlresolvers import reverse
@@ -29,8 +30,8 @@ class GroupInformationQuerySet(QuerySet):
                 if not group.has_child:
                     ids.append(group.id)
             return self.filter(id__in=ids)
-        except:
-            pass
+        except Exception as e:
+            logging.exception(e)
 
 
 class GroupInformation(Model):
@@ -132,8 +133,8 @@ def post_save_user_model_receiver(sender, instance, created, *args, **kwargs):
                 instance.is_active = False
                 instance.save()
                 ActivationProfile.objects.create(user=instance)
-        except:
-            pass
+        except Exception as e:
+            logging.exception(e)
 
 
 post_save.connect(post_save_user_model_receiver, sender=settings.AUTH_USER_MODEL)

@@ -56,11 +56,3 @@ def direct_origin(start_date=None, end_date=None, *args, **kwargs):
                     time.sleep(10)
 
     return data
-
-
-
-
-
-
-
-

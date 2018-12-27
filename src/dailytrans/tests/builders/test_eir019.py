@@ -50,8 +50,3 @@ class BuilderTestCase(TestCase):
         count_qs = DailyTran.objects.filter(date=self.date, product=obj)
 
         self.assertEquals(count_qs.count(), 22)
-
-
-
-
-

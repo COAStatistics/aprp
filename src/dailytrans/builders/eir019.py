@@ -64,7 +64,7 @@ class Api(AbstractApi):
                         tran = create_tran(obj, source)
                         lst.append(tran)
                     except Exception as e:
-                        self.LOGGER.exception("Parsing Error: %s" % dic, extra=self.LOGGER_EXTRA)
+                        self.LOGGER.exception("Parsing Error: %s, %s" % (dic, e), extra=self.LOGGER_EXTRA)
             return lst
         else:
             # log as cannot find source item
@@ -101,8 +101,8 @@ class Api(AbstractApi):
                 try:
                     if isinstance(obj, DailyTran):
                         # update if exists
-                        daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date) &
-                                                                 Q(product=obj.product))
+                        daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date)
+                                                                 & Q(product=obj.product))
                         if obj.source:
                             daily_tran_qs = daily_tran_qs.filter(source=obj.source)
 
@@ -125,18 +125,3 @@ class Api(AbstractApi):
                                 self.LOGGER.warning('Find not valid hog DailyTran item: %s' % str(obj), extra=self.LOGGER_EXTRA)
                 except Exception as e:
                     self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

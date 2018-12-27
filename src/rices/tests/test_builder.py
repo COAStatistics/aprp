@@ -4,8 +4,6 @@ from django.test import TestCase
 from rices.builder import direct
 from dailytrans.models import DailyTran
 from rices.models import Rice
-from configs.models import Source
-from django.db.models import Q
 
 
 class BuilderTestCase(TestCase):

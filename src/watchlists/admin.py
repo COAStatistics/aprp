@@ -61,4 +61,3 @@ class WatchlistAdmin(admin.ModelAdmin):
 admin.site.register(WatchlistItem, WatchlistItemAdmin)
 admin.site.register(Watchlist, WatchlistAdmin)
 admin.site.register(MonitorProfile, MonitorProfileAdmin)
-

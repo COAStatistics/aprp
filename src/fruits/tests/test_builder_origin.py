@@ -5,7 +5,6 @@ from fruits.builder import direct_origin
 from dailytrans.models import DailyTran
 from fruits.models import Fruit
 from django.db.models import Q
-from configs.models import Source
 
 
 class BuilderTestCase(TestCase):
@@ -35,4 +34,3 @@ class BuilderTestCase(TestCase):
         qs = DailyTran.objects.filter(product__id__in=obj_ids,
                                       date__range=(start_date, end_date))
         self.assertEquals(qs.count(), 64)
-

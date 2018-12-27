@@ -39,4 +39,3 @@ def send_email(url, user, input_content):
     mail = EmailMultiAlternatives(input_content["mail_title"], content, settings.EMAIL_HOST_USER, [user.email])
     mail.attach_alternative(html_content, "text/html")
     mail.send(fail_silently=False)
-

@@ -1,9 +1,9 @@
+import logging
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.template.loader import render_to_string
-from django.http import JsonResponse
 from django.db.models import Q
 from posts import models
 from posts import forms
@@ -41,17 +41,17 @@ class PostListAllAPIView(generics.ListAPIView):
                 try:
                     if i.content_object.id not in post_list:
                         post_list.append(i.content_object.id)
-                except:
-                    pass
+                except Exception as e:
+                    logging.exception(e)
             temp1 = queryset.filter(
-                Q(title__icontains=self.value) |
-                Q(content__icontains=self.value) |
-                Q(id__in=post_list)
+                Q(title__icontains=self.value)
+                | Q(content__icontains=self.value)
+                | Q(id__in=post_list)
             )
             temp2 = queryset.filter(
-                Q(user__username__icontains=self.value) |
-                Q(user__last_name__icontains=self.value) |
-                Q(user__first_name__icontains=self.value)
+                Q(user__username__icontains=self.value)
+                | Q(user__last_name__icontains=self.value)
+                | Q(user__first_name__icontains=self.value)
             )
             if temp2.count() == 0:
                 last_name = self.value[0]
@@ -71,9 +71,9 @@ class PostListAllAPIView(generics.ListAPIView):
             )
         elif self.keyword == "Author":
             temp = queryset.filter(
-                Q(user__username__icontains=self.value) |
-                Q(user__last_name__icontains=self.value) |
-                Q(user__first_name__icontains=self.value)
+                Q(user__username__icontains=self.value)
+                | Q(user__last_name__icontains=self.value)
+                | Q(user__first_name__icontains=self.value)
             )
             if temp.count() == 0:
                 last_name = self.value[0]
@@ -94,8 +94,8 @@ class PostListAllAPIView(generics.ListAPIView):
                 try:
                     if i.content_object.id not in post_list:
                         post_list.append(i.content_object.id)
-                except:
-                    pass
+                except Exception as e:
+                    logging.exception(e)
             queryset = queryset.filter(id__in=post_list)
         else:
             queryset = queryset
@@ -137,7 +137,7 @@ class PostCreateAPIView(generics.CreateAPIView):
                 'content': request.data['content'],
                 'file': request.data['file'],
             }
-        except:
+        except KeyError:
             data = {
                 'user': user,
                 'title':  request.data['title'],
@@ -191,8 +191,8 @@ class PostRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
         try:
             if request.data['file']:
                 os.remove(instance.file.path)
-        except:
-            pass
+        except Exception as e:
+            logging.exception(e)
 
         self.perform_update(serializer)
 
@@ -219,9 +219,9 @@ class PostRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
         try:
             os.remove(instance.file.path)
             os.rmdir(os.path.join(settings.MEDIA_ROOT, "post/{}".format(instance.id)))
-        except:
-            pass
-            
+        except Exception as e:
+            logging.exception(e)
+
         self.perform_destroy(instance)
 
         return Response(status=status.HTTP_204_NO_CONTENT)

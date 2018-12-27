@@ -15,8 +15,3 @@ def index_length(series_options):
                 if index in option['highchart']:
                     indexes[index] = True
     return int(indexes['avg_price']) + int(indexes['sum_volume']) + int(indexes['avg_weight'])
-
-
-
-
-

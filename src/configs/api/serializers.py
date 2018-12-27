@@ -45,6 +45,3 @@ class UnitSerializer(ModelSerializer):
     class Meta:
         model = Unit
         fields = '__all__'
-
-
-

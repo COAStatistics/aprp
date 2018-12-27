@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.conf import settings
-from django.contrib.auth import(
+from django.contrib.auth import (
     authenticate,
     login,
     logout,
@@ -199,7 +199,3 @@ def reset_email_view(request, key=None):
         return redirect('accounts:login')
     else:
         raise Http404
-
-
-
-

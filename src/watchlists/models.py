@@ -99,19 +99,19 @@ class WatchlistItemQuerySet(QuerySet):
 
         if product:
             return self.filter(
-                Q(product=product) |
-                Q(product__parent=product) |
-                Q(product__parent__parent=product) |
-                Q(product__parent__parent__parent=product) |
-                Q(product__parent__parent__parent__parent=product)
+                Q(product=product)
+                | Q(product__parent=product)
+                | Q(product__parent__parent=product)
+                | Q(product__parent__parent__parent=product)
+                | Q(product__parent__parent__parent__parent=product)
             )
 
         return self.none()
-    """ 
+    """
     for case like QuerySet.get_unit()
     if QuerySet products has multiple types, search for parent unit by config.type_level
     if single type, return first product unit
-    limit: same type of products(in single product chain) only support same unit 
+    limit: same type of products(in single product chain) only support same unit
     """
     def get_unit(self):
         config = self.first().product.config
@@ -233,19 +233,3 @@ class MonitorProfile(Model):
     @property
     def up_price(self):
         return self.price_range[1]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

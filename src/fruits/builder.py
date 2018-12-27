@@ -71,4 +71,3 @@ def direct_wholesale_03(start_date=None, end_date=None, *args, **kwargs):
             wholesale_api.load(response)
 
     return data
-

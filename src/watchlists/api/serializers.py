@@ -63,6 +63,3 @@ class MonitorProfileSerializer(ModelSerializer):
     class Meta:
         model = MonitorProfile
         fields = ['format_price', 'low_price', 'up_price', 'type', 'color', 'watchlist', 'start_date', 'end_date']
-
-
-

@@ -78,16 +78,16 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
     if has_volume and has_weight:
 
         q = query_set.annotate(
-                avg_price=Sum(F('avg_price') * F('volume') * F('avg_weight')) / Sum(F('volume') * F('avg_weight')),
-                sum_volume=Sum(F('volume')),
-                avg_avg_weight=Sum(F('avg_weight') * F('volume')) / Sum(F('volume')),
+            avg_price=Sum(F('avg_price') * F('volume') * F('avg_weight')) / Sum(F('volume') * F('avg_weight')),
+            sum_volume=Sum(F('volume')),
+            avg_avg_weight=Sum(F('avg_weight') * F('volume')) / Sum(F('volume')),
         )
 
     elif has_volume:
 
         q = query_set.annotate(
-                avg_price=Sum(F('avg_price') * F('volume')) / Sum('volume'),
-                sum_volume=Sum('volume')
+            avg_price=Sum(F('avg_price') * F('volume')) / Sum('volume'),
+            sum_volume=Sum('volume')
         )
 
     else:
@@ -331,18 +331,6 @@ def get_monthly_price_distribution(_type, items, sources=None, selected_years=No
                 s_mean = DataFrame(weight_dict, index=[0]).loc[0]
             else:
                 s_mean = df.groupby('month')[key].mean()
-
-            '''
-            s_quantile.to_dict():
-                {(1, 0.0): 5.95299909173479,
-                 (1, 0.25): 6.986073757018829,
-                 (1, 0.5): 9.42770805812417,
-                 (1, 0.75): 12.4538909161054,
-                 (1, 1.0): 22.6906077008242, ...}
-
-            s_quantile.index.levels[0]: 
-                Int64Index([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], dtype='int64', name='month')
-            '''
 
             highchart_data = {
                 'perc_0': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 0.0],

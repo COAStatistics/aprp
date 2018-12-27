@@ -23,8 +23,7 @@ class BuilderTestCase(TestCase):
         obj = Ram.objects.filter(code='G41').first()
         sources = Source.objects.filter(Q(name__exact='雲林縣') | Q(name__exact='彰化縣'))
 
-        qs = DailyTran.objects.filter(
-                                      product=obj,
+        qs = DailyTran.objects.filter(product=obj,
                                       source__in=sources,
                                       date__range=(self.start_date, self.end_date))
         self.assertEquals(qs.count(), 2)
@@ -32,8 +31,7 @@ class BuilderTestCase(TestCase):
     def test_direct_multi(self):
         direct(start_date='2018/01/01', end_date='2018/01/02', format='%Y/%m/%d')
 
-        qs = DailyTran.objects.filter(
-                                      date__range=(self.start_date, self.end_date))
+        qs = DailyTran.objects.filter(date__range=(self.start_date, self.end_date))
 
         self.assertEquals(qs.count(), 2*2)
 
@@ -43,12 +41,10 @@ class BuilderTestCase(TestCase):
         end_date = datetime.date.today()
         start_date = end_date + datetime.timedelta(-3)
 
-        count_1 = DailyTran.objects.filter(
-                                           date__range=(start_date, end_date)).count()
+        count_1 = DailyTran.objects.filter(date__range=(start_date, end_date)).count()
 
         direct(start_date=start_date, end_date=end_date)
 
-        count_2 = DailyTran.objects.filter(
-                                           date__range=(start_date, end_date)).count()
+        count_2 = DailyTran.objects.filter(date__range=(start_date, end_date)).count()
 
         self.assertEquals(count_1, count_2)

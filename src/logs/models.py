@@ -34,4 +34,3 @@ class LogType(Model):
 
     def __unicode__(self):
         return str(self.name)
-

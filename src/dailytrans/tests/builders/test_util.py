@@ -85,9 +85,3 @@ class UtilTestCase(TestCase):
             result.append((s, e))
 
         self.assertEquals(len(result), 5)
-
-
-
-
-
-

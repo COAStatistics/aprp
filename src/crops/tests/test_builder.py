@@ -21,7 +21,3 @@ class BuilderTestCase(TestCase):
 
         result2 = direct(start_date=self.start_date, end_date=self.end_date)
         self.assertTrue(result2.success)
-
-
-
-

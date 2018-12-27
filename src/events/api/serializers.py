@@ -12,6 +12,7 @@ from tagulous.utils import (
     clean_tree_name,
     split_tree_name
 )
+from django.utils.translation import ugettext_lazy as _
 from rest_framework.exceptions import ValidationError
 
 

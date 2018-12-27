@@ -191,13 +191,3 @@ class IntegrationTable(LoginRequiredMixin, TemplateView):
                 self.no_data = True
 
         return context
-
-
-
-
-
-
-
-
-
-

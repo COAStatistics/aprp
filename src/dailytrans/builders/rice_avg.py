@@ -90,8 +90,8 @@ class Api(AbstractApi):
                 if isinstance(obj, DailyTran):
                     try:
                         # update if exists
-                        daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date) &
-                                                                 Q(product=obj.product))
+                        daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date)
+                                                                 & Q(product=obj.product))
 
                         if daily_tran_qs.count() > 1:
                             # log as duplicate

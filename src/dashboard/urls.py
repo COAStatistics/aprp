@@ -33,7 +33,6 @@ from .views import (
 urlpatterns = [
     # local apps
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
-    url(r'^watchlists/', include('watchlists.urls', namespace='watchlists')),
     url(r'^posts/', include('posts.urls', namespace='posts')),
     url(r'^comments/', include('comments.urls', namespace='comments')),
     url(r'^events/', include('events.urls', namespace='events')),
@@ -72,7 +71,9 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.SERVE_MEDIA_FILES:
-    urlpatterns += patterns('',
+    urlpatterns += patterns(
+        '',
         url(r'^%s(?P<path>.*)$' % settings.MEDIA_URL.lstrip('/'),
             'django.views.static.serve',
-            {'document_root': settings.MEDIA_ROOT}),)
+            {'document_root': settings.MEDIA_ROOT}),
+    )

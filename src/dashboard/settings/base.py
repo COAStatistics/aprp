@@ -19,6 +19,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'secret_key'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -354,5 +357,3 @@ DAILYTRAN_BUILDER_API = {
 
 # Hide login
 ADMIN_HIDE_LOGIN = 'admin'
-
-

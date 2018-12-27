@@ -4,10 +4,7 @@ from datetime import (
 )
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from .models import (
-    Event,
-    EventType,
-)
+from .models import Event
 
 
 def yesterday():

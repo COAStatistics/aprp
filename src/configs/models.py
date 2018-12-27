@@ -46,11 +46,11 @@ class AbstractProduct(Model):
 
     def children_all(self):
         return AbstractProduct.objects.filter(
-            Q(parent=self) |
-            Q(parent__parent=self) |
-            Q(parent__parent__parent=self) |
-            Q(parent__parent__parent__parent=self) |
-            Q(parent__parent__parent__parent__parent=self)
+            Q(parent=self)
+            | Q(parent__parent=self)
+            | Q(parent__parent__parent=self)
+            | Q(parent__parent__parent__parent=self)
+            | Q(parent__parent__parent__parent__parent=self)
         ).select_subclasses().order_by('id')
 
     def types(self, watchlist=None):
@@ -305,10 +305,3 @@ class Month(Model):
 
     def __unicode__(self):
         return str(self.name)
-
-
-
-
-
-
-

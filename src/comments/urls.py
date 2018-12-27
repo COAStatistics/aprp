@@ -1,5 +1,4 @@
 from django.conf.urls import url, include
-from .views import comment_create, comment_update, comment_delete
 
 urlpatterns = [
     # url(r'^create/$', comment_create, name='comment_create'),

@@ -39,5 +39,3 @@ class BuilderTestCase(TestCase):
         # rice dailytran count
         count_qs = DailyTran.objects.filter(date=self.start_date)
         self.assertEquals(count_qs.count(), 15)
-
-

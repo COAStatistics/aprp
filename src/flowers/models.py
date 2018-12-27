@@ -37,4 +37,3 @@ def instance_post_save(sender, instance, created, **kwargs):
 
 
 post_save.connect(instance_post_save, sender=Flower)
-

@@ -4,7 +4,6 @@ import json
 from .utils import date_transfer
 from .abstract import AbstractApi
 from dailytrans.models import DailyTran
-from django.conf import settings
 
 
 class Api(AbstractApi):
@@ -106,8 +105,8 @@ class Api(AbstractApi):
                 try:
                     if isinstance(obj, DailyTran):
                         # update if exists
-                        daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date) &
-                                                                 Q(product=obj.product))
+                        daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date)
+                                                                 & Q(product=obj.product))
                         if obj.source:
                             daily_tran_qs = daily_tran_qs.filter(source=obj.source)
 
@@ -123,20 +122,3 @@ class Api(AbstractApi):
                                 obj.save()
                 except Exception as e:
                     self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

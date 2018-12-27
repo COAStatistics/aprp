@@ -37,4 +37,3 @@ class BuilderTestCase(TestCase):
                                       source__in=sources,
                                       date__range=(self.start_date, self.end_date))
         self.assertEquals(qs.count(), 8)
-

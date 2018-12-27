@@ -313,5 +313,3 @@ def integration_extra_context(instance):
 
     extra_context['series_options'] = series_options
     return extra_context
-
-

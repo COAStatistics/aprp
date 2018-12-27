@@ -1,3 +1,4 @@
+import logging
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.template.loader import render_to_string
@@ -6,8 +7,6 @@ from django.db.models import Q
 from comments.models import Comment
 from . import models
 from . import forms
-
-import requests
 
 
 def post_socialwall(request):
@@ -43,13 +42,13 @@ def post_search(request):
             try:
                 if i.content_object.id not in post_list:
                     post_list.append(i.content_object.id)
-            except:
-                pass
+            except Exception as e:
+                logging.exception(e)
         query = posts.filter(
-            Q(title__icontains=q) |
-            Q(content__icontains=q) |
-            Q(user__username__icontains=q) |
-            Q(id__in=post_list)
+            Q(title__icontains=q)
+            | Q(content__icontains=q)
+            | Q(user__username__icontains=q)
+            | Q(id__in=post_list)
         )
     elif key == "Title":
         query = posts.filter(
@@ -73,8 +72,8 @@ def post_search(request):
             try:
                 if i.content_object.id not in post_list:
                     post_list.append(i.content_object.id)
-            except:
-                pass
+            except Exception as e:
+                logging.exception(e)
         query = models.Post.objects.filter(id__in=post_list)
 
     if query.count() == 0:

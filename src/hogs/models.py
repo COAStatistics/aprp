@@ -21,7 +21,7 @@ command will not call pre_save() and save()
 """
 from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_save
-from configs.models import AbstractProduct, Source
+from configs.models import AbstractProduct
 
 
 class Hog(AbstractProduct):
@@ -37,4 +37,3 @@ def instance_post_save(sender, instance, created, **kwargs):
 
 
 post_save.connect(instance_post_save, sender=Hog)
-

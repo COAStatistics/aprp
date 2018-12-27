@@ -27,8 +27,3 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
                 api.load(response)
 
     return data
-
-
-
-
-

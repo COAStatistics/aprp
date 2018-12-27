@@ -10,7 +10,6 @@ from django.db.models import (
     IntegerField,
 )
 from django.utils.translation import ugettext_lazy as _
-# from .utils import RawAnnotation
 
 
 class DailyTranQuerySet(QuerySet):
@@ -69,4 +68,3 @@ class DailyTran(Model):
     @property
     def month_day(self):
         return int(self.date.strftime('%m%d'))
-

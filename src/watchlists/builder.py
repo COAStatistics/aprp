@@ -57,6 +57,3 @@ def build_all():
             for source in product.sources():
                 if source.enable:
                     watchlist_item.sources.add(source)
-
-
-

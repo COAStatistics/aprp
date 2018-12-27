@@ -21,5 +21,3 @@ class HogAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Hog, HogAdmin)
-
-

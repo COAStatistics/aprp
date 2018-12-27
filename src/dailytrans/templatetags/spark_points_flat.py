@@ -11,4 +11,3 @@ def spark_points_flat(lst, key):
     :return: string flat with ','
     """
     return ','.join(str(dic[key]) for dic in lst)
-

@@ -22,7 +22,7 @@ class Api(AbstractApi):
     START_DATE_FILTER = 'startDay=%s'
     END_DATE_FILTER = 'endDay=%s'
     NAME_FILTER = 'productName=%s'
-    
+
     def __init__(self, model, config_code, type_id, logger_type_code=None):
         super(Api, self).__init__(model=model, config_code=config_code, type_id=type_id,
                                   logger='aprp', logger_type_code=logger_type_code)
@@ -94,8 +94,8 @@ class Api(AbstractApi):
             if isinstance(obj, DailyTran):
                 try:
                     # update if exists
-                    daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date) &
-                                                             Q(product=obj.product))
+                    daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date)
+                                                             & Q(product=obj.product))
                     if obj.source:
                         daily_tran_qs = daily_tran_qs.filter(source=obj.source)
 
@@ -112,21 +112,3 @@ class Api(AbstractApi):
 
                 except Exception as e:
                     self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

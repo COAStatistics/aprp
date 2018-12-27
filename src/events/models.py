@@ -1,5 +1,6 @@
 from django.utils import timezone
 from django.conf import settings
+from django.db.utils import ProgrammingError
 from django.contrib.contenttypes.models import (
     ContentType,
 )
@@ -22,14 +23,15 @@ from tagulous.models import (
 )
 
 EVENT_CONTENT_TYPE_CHOICES = (
-    Q(app_label='configs', model='abstractproduct') |
-    Q(app_label='configs', model='config')
+    Q(app_label='configs', model='abstractproduct')
+    | Q(app_label='configs', model='config')
 )
 
 try:
     DEFAULT_EVENT_CONTENT_TYPE_ID = ContentType.objects.get(model='abstractproduct').id
-except:
+except ProgrammingError:
     DEFAULT_EVENT_CONTENT_TYPE_ID = 1
+
 
 class EventType(TagTreeModel):
     class TagMeta:

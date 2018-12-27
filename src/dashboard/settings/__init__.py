@@ -2,12 +2,11 @@ from .base import *
 
 try:
     from .local import *
-except:
+except ImportError:
     pass
 
 
 try:
     from .production import *
-except:
+except ImportError:
     pass
-

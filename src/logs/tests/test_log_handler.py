@@ -27,4 +27,3 @@ class HandlerTestCase(TestCase):
 
         logs = Log.objects.filter(type__code='LOT-crops')
         self.assertEquals(logs.count(), 1)
-

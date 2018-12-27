@@ -4,9 +4,7 @@ from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveUpdateDestroyAPIView
 )
-from rest_framework import pagination
 from rest_framework import status
-from rest_framework import filters
 from rest_framework.permissions import (
     IsAuthenticated,
 )
@@ -33,7 +31,7 @@ class EventTypeRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     queryset = EventType.objects.all()
     permission_classes = [IsAuthenticated]
 
-    
+
 class EventRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
     serializer_class = EventSerializer
     queryset = Event.objects.all()
@@ -79,14 +77,14 @@ class EventListCreateAPIView(ListCreateAPIView):
         instance = content_type.model_class().objects.get(id=self.object_id)
         if content_type.model == 'config':
             product_ids = instance.products().values_list('id', flat=True)
-            queryset = queryset.filter(Q(content_type__model='abstractproduct', object_id__in=product_ids) |
-                                       Q(content_type__model='config', object_id=self.object_id) |
-                                       Q(share=True))
+            queryset = queryset.filter(Q(content_type__model='abstractproduct', object_id__in=product_ids)
+                                       | Q(content_type__model='config', object_id=self.object_id)
+                                       | Q(share=True))
         elif content_type.model == 'abstractproduct':
             product_ids = instance.related_product_ids
-            queryset = queryset.filter(Q(content_type__model='abstractproduct', object_id__in=product_ids) |
-                                       Q(content_type__model='config', object_id=instance.config.id) |
-                                       Q(share=True))
+            queryset = queryset.filter(Q(content_type__model='abstractproduct', object_id__in=product_ids)
+                                       | Q(content_type__model='config', object_id=instance.config.id)
+                                       | Q(share=True))
 
         else:
             queryset = queryset.none()
@@ -113,10 +111,10 @@ class EventListCreateAPIView(ListCreateAPIView):
         total = queryset.count()
 
         if search_value:
-            queryset = queryset.filter(Q(id__icontains=search_value) |
-                                       Q(name__icontains=search_value) |
-                                       Q(context__icontains=search_value) |
-                                       Q(date__icontains=search_value))
+            queryset = queryset.filter(Q(id__icontains=search_value)
+                                       | Q(name__icontains=search_value)
+                                       | Q(context__icontains=search_value)
+                                       | Q(date__icontains=search_value))
 
         count = queryset.count()
         queryset = queryset.order_by(order_column)[start:start + length]

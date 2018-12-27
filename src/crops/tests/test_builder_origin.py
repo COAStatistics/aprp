@@ -34,4 +34,3 @@ class BuilderTestCase(TestCase):
         qs = DailyTran.objects.filter(product__id__in=crop_ids,
                                       date__range=(start_date, end_date))
         self.assertEquals(qs.count(), 42)
-

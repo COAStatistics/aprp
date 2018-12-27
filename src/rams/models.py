@@ -21,7 +21,7 @@ command will not call pre_save() and save()
 """
 from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_save
-from configs.models import AbstractProduct, Source
+from configs.models import AbstractProduct
 
 
 class Ram(AbstractProduct):

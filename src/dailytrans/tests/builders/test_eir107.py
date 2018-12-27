@@ -37,5 +37,3 @@ class BuilderTestCase(TestCase):
         api.load(response)
 
         self.assertEquals(count_qs.count(), 1)
-
-

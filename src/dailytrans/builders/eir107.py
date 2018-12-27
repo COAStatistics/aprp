@@ -103,16 +103,15 @@ class Api(AbstractApi):
             if isinstance(obj, DailyTran):
                 try:
                     # update if exists
-                    daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date) &
-                                                             Q(product=obj.product))
+                    daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date)
+                                                             & Q(product=obj.product))
                     if obj.source:
                         daily_tran_qs = daily_tran_qs.filter(source=obj.source)
 
                     if daily_tran_qs.count() > 1:
                         # log as duplicate
                         items = str(daily_tran_qs.values_list('id', flat=True))
-                        self.LOGGER.warning('Find duplicate DailyTran item: %s' % items,
-                                           extra=self.LOGGER_EXTRA)
+                        self.LOGGER.warning('Find duplicate DailyTran item: %s' % items, extra=self.LOGGER_EXTRA)
 
                     elif daily_tran_qs.count() == 1:
                         daily_tran_qs.update(avg_weight=obj.avg_weight,
@@ -122,19 +121,3 @@ class Api(AbstractApi):
                         obj.save()
                 except Exception as e:
                     self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

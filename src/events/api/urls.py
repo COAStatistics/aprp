@@ -17,5 +17,3 @@ urlpatterns = [
     # You can also pass in a QuerySet of the tag model
     url(r'^event-autocomplete/$', autocomplete, {'tag_model': EventType.objects.order_by('level')}, name='event_type_autocomplete'),
 ]
-
-

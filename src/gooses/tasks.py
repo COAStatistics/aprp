@@ -18,6 +18,3 @@ def build_goose(delta):
             db_logger.info('Successfully process trans: %s - %s' % (result.start_date, result.end_date), extra=logger_extra)
     except Exception as e:
         db_logger.exception(e, extra=logger_extra)
-
-
-

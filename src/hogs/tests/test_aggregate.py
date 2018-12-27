@@ -3,7 +3,7 @@ from django.core.management import call_command
 from django.test import TestCase
 from hogs.builder import direct
 from dailytrans.models import DailyTran
-from django.db.models import Sum, Avg, F
+from django.db.models import Sum, F
 from pandas import DataFrame
 
 
@@ -21,9 +21,9 @@ class AggregationTestCase(TestCase):
                                       source__enable=True)
 
         q = qs.values('source').annotate(
-                avg_price=Sum(F('avg_price') * F('volume') * F('avg_weight')) / Sum(F('volume') * F('avg_weight')),
-                sum_volume=Sum(F('volume')),
-                avg_avg_weight=Sum(F('avg_weight') * F('volume')) / Sum(F('volume')),
+            avg_price=Sum(F('avg_price') * F('volume') * F('avg_weight')) / Sum(F('volume') * F('avg_weight')),
+            sum_volume=Sum(F('volume')),
+            avg_avg_weight=Sum(F('avg_weight') * F('volume')) / Sum(F('volume')),
         )
 
         q = q.values('source__name', 'avg_price', 'sum_volume', 'avg_avg_weight')

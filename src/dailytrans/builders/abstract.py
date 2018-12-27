@@ -79,8 +79,3 @@ class AbstractApi(object):
                 time.sleep(10)
                 continue
         return response
-
-
-
-
-
