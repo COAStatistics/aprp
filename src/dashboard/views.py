@@ -65,7 +65,7 @@ class Index(LoginRequiredMixin, TemplateView):
         context = super(Index, self).get_context_data(**kwargs)
 
         # watchlist options use for watchlist shortcut render
-        watchlists = Watchlist.objects.order_by('create_time').all()
+        watchlists = Watchlist.objects.order_by('id').all()
 
         if not self.request.user.info.watchlist_viewer:
             watchlists = watchlists.exclude(watch_all=True)
