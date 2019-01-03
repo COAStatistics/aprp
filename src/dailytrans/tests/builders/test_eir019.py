@@ -50,3 +50,22 @@ class BuilderTestCase(TestCase):
         count_qs = DailyTran.objects.filter(date=self.date, product=obj)
 
         self.assertEquals(count_qs.count(), 22)
+
+    def test_zero(self):
+        date = datetime.date(year=2018, month=6, day=8)
+
+        obj = Hog.objects.filter(id=70005).first()
+        source = Source.objects.filter_by_name('臺東縣').first()
+
+        api = Api(model=Hog, config_code='COG08', type_id=None)
+
+        response = api.request(date=date,
+                               source=source.simple_name)
+
+        api.load(response)
+
+        count_qs = DailyTran.objects.filter(date=date,
+                                            source=source,
+                                            product=obj)
+
+        self.assertEquals(count_qs.count(), 0)

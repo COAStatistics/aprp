@@ -88,8 +88,8 @@ app.conf.beat_schedule = {
     },
     'daily-seafood-origin-builder-3d': {
         'task': 'DailyOriginSeafoodBuilder',
-        'schedule': crontab(minute=0, hour='3,6,10'),
-        'args': (-2,)  # direct 3 day
+        'schedule': crontab(minute=0, hour='3,5'),
+        'args': (-4,)  # direct 5 day
     },
     # ======================================== 1 month Builder ========================================
     'daily-chicken-builder-31d': {
@@ -145,11 +145,6 @@ app.conf.beat_schedule = {
     'daily-seafood-wholesale-builder-31d': {
         'task': 'DailyWholesaleSeafoodBuilder',
         'schedule': crontab(minute=0, hour='20'),
-        'args': (-30,)  # direct 31 days range
-    },
-    'daily-seafood-origin-builder-31d': {
-        'task': 'DailyOriginSeafoodBuilder',
-        'schedule': crontab(minute='0,30', hour='18,19'),
         'args': (-30,)  # direct 31 days range
     },
     'beat-per-minute': {
