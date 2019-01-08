@@ -4,21 +4,28 @@
   pk: 1
   fields:
     name: 農委會
-    permissions: [38]
-
-- model: auth.Group
-  pk: 2
-  fields:
-    name: 農糧署
-    permissions: [38, 46, 109]
 
 - model: auth.Group
   pk: 3
   fields:
-    name: 漁業署
-    permissions: [38, 46, 109]
+    name: 農糧署
 
-# GroupInformation
+- model: auth.Group
+  pk: 4
+  fields:
+    name: 漁業署
+
+- model: auth.Group
+  pk: 5
+  fields:
+    name: 農委會統計室
+
+- model: auth.Group
+  pk: 6
+  fields:
+    name: 農委會畜牧處
+
+# GroupInformation First Layer
 
 - model: accounts.GroupInformation
   pk: 1
@@ -27,8 +34,10 @@
     group: 1
     email_dns: mail.coa.gov.tw
 
+# GroupInformation Second Layer
+
 - model: accounts.GroupInformation
-  pk: 2
+  pk: 3
   fields:
     name: 農糧署
     group: 3
@@ -36,7 +45,7 @@
     parent: 1
 
 - model: accounts.GroupInformation
-  pk: 3
+  pk: 4
   fields:
     name: 漁業署
     group: 4
@@ -44,9 +53,17 @@
     parent: 1
 
 - model: accounts.GroupInformation
-  pk: 4
+  pk: 5
   fields:
-    name: 台北辦公室
+    name: 統計室
     group: 5
-    parent: 2
-    email_dns: ms2.food.gov.tw
+    parent: 1
+    email_dns: mail.coa.gov.tw
+
+- model: accounts.GroupInformation
+  pk: 6
+  fields:
+    name: 畜牧處
+    group: 6
+    parent: 1
+    email_dns: mail.coa.gov.tw

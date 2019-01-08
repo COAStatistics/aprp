@@ -69,13 +69,11 @@ class AbstractApi(object):
         response = requests.Response()
         retry_count = 0
         while response.status_code != 200 and retry_count < 5:
-            try:
-                response = requests.get(url, *args, **kwargs)
-                self.LOGGER_EXTRA['request_url'] = response.request.url
-            except requests.exceptions.ConnectionError:
+            response = requests.get(url, *args, **kwargs)
+            self.LOGGER_EXTRA['request_url'] = response.request.url
+            if response.status_code != 200:
                 retry_count += 1
-                self.LOGGER_EXTRA['request_url'] = url
                 self.LOGGER.error('Connection Refused, Retry %s Time' % retry_count, extra=self.LOGGER_EXTRA)
-                time.sleep(10)
+                time.sleep(15)
                 continue
         return response
