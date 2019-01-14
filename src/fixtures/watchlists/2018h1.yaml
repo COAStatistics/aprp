@@ -81,14 +81,14 @@
 - model: watchlists.WatchlistItem
   pk: 11
   fields:
-    product: 40426 # 青蔥-日蔥 SE1
+    product: 40539 # 青蔥-日蔥 SE1
     sources: [10001, 10002]
     parent: 2
 
 - model: watchlists.WatchlistItem
   pk: 12
   fields:
-    product: 40427 # 青蔥-北蔥 SE2
+    product: 40540 # 青蔥-北蔥 SE2
     sources: [10001, 10002]
     parent: 2
 

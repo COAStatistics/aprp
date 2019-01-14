@@ -80,17 +80,26 @@
 - model: watchlists.WatchlistItem
   pk: 2109
   fields:
-    product: 40426 # 青蔥-日蔥 SE1
+    product: 40539 # 青蔥-日蔥 SE1
     sources: [10001, 10002]
     parent: 4
 
 - model: watchlists.WatchlistItem
   pk: 2110
   fields:
-    product: 40427 # 青蔥-北蔥 SE2
+    product: 40542 # 青蔥-北蔥 SE2
     sources: [10001, 10002]
     parent: 4
-    
+
+# 20180115新增
+
+- model: watchlists.WatchlistItem
+  pk: 2137
+  fields:
+    product: 40543 # 青蔥-粉蔥 SE6
+    sources: [10001, 10002]
+    parent: 4
+
 - model: watchlists.WatchlistItem
   pk: 2111
   fields:
@@ -490,7 +499,7 @@
   fields:
     product: 50081 # 茂谷柑 C2
     sources: [20001, 20002]
-    parent: 4  
+    parent: 4
 
 # Hogs
 

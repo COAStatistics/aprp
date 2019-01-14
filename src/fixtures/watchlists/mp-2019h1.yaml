@@ -114,7 +114,7 @@
 - model: watchlists.MonitorProfile
   pk: 207
   fields:
-    product: 40426 # 青蔥日蔥
+    product: 40539 # 青蔥日蔥
     watchlist: 4
     type: 1
     price: 25.9
@@ -132,14 +132,14 @@
 - model: watchlists.MonitorProfile
   pk: 208
   fields:
-    product: 40427 # 青蔥北蔥
+    product: 40541 # 青蔥-粉蔥(含北蔥)
     watchlist: 4
     type: 1
     price: 11.9
     comparator: __lt__
     color: danger
     info: |
-          1.北蔥主要交易以消費地為主，以消費地批發市場價格監控
+          1.粉蔥(含北蔥)主要交易以消費地為主，以消費地批發市場價格監控
           2.參酌農民生產成本、消費地批發市場價格訂定
     period: |
             11月~次年3月
@@ -758,10 +758,81 @@
             (2)積極拓展外銷通路或市場
             3.低於監控價格第7天：協調產業團體開始啟動緊急調節措施(如屠宰凍存或淘汰種母豬及仔豬等)
 
+- model: watchlists.MonitorProfile
+  pk: 241
+  fields:
+    product: 70001
+    watchlist: 4
+    type: 1
+    price: 60
+    comparator: __lt__
+    color: danger
+    info:
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1. 召開會議協商屠宰凍存、淘汰種母豬、淘汰仔豬
+            2. 協調產業團體宣導養豬農民秩序出豬適度減量
+            3. 依據養豬頭數調查結果研判未來豬源過多現象，召開會議協調肉品市場增加拍賣日
+            4. 請台糖配合調節毛豬供應頭數
+
+- model: watchlists.MonitorProfile
+  pk: 242
+  fields:
+    product: 70001
+    watchlist: 4
+    type: 1
+    price: 65.0
+    comparator: __lt__
+    color: warning
+    info:
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1. 召開穩定毛豬價格措施協商會議
+            2. 協調肉品市場調整每日拍賣數量
+            3. 請產業團體發布訊息秩序出豬
+            4. 辦理國產豬肉促銷活動
+
+- model: watchlists.MonitorProfile
+  pk: 243
+  fields:
+    product: 70001
+    watchlist: 4
+    type: 1
+    price: 79.0
+    comparator: __gt__
+    color: warning
+    info:
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1. 召開穩定毛豬價格措施協商會議
+            2. 協調肉品市場調整每日拍賣數量
+            3. 請台糖配合調節毛豬供應頭數
+            4. 請產業團體發布訊息秩序出豬
+
+- model: watchlists.MonitorProfile
+  pk: 244
+  fields:
+    product: 70001
+    watchlist: 4
+    type: 1
+    price: 84.0
+    comparator: __gt__
+    color: danger
+    info:
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1. 辦理專案進口豬肉釋出
+            2. 召開會議協商大肉商及冷凍廠商減少肉品市場採購數量
+            3. 依據養豬頭數調查結果研判未來有缺豬現象，召開會議協調肉品市場增加休市日
+
 # Cattle
 
 - model: watchlists.MonitorProfile
-  pk: 241
+  pk: 245
   fields:
     product: 130001 # 肥育乳公牛550公斤以上
     watchlist: 4
@@ -783,7 +854,7 @@
 # Rams
 
 - model: watchlists.MonitorProfile
-  pk: 242
+  pk: 246
   fields:
     product: 80001 # 努比亞雜交閹公羊(50-75公斤)
     watchlist: 4
@@ -805,7 +876,7 @@
 # Chickens
 
 - model: watchlists.MonitorProfile
-  pk: 243
+  pk: 247
   fields:
     product: 90006 # 白肉雞
     watchlist: 4
@@ -826,7 +897,7 @@
             (3)積極拓展外銷通路或市場
 
 - model: watchlists.MonitorProfile
-  pk: 244
+  pk: 248
   fields:
     product: 90004 # 紅羽土雞
     watchlist: 4
@@ -847,7 +918,7 @@
             (3)積極拓展外銷通路或市場
 
 - model: watchlists.MonitorProfile
-  pk: 245
+  pk: 249
   fields:
     product: 90007 # 雞蛋
     watchlist: 4
@@ -870,7 +941,7 @@
 # Ducks
 
 - model: watchlists.MonitorProfile
-  pk: 249
+  pk: 250
   fields:
     product: 100002 # 土番鴨(75天)
     watchlist: 4
@@ -893,7 +964,7 @@
 # Seafood
 
 - model: watchlists.MonitorProfile
-  pk: 250
+  pk: 251
   fields:
     product: 120007 # 吳郭魚內銷
     watchlist: 4
@@ -917,7 +988,7 @@
             2.緊急調節：鼓勵加工廠收購、凍儲或獎勵外銷
 
 - model: watchlists.MonitorProfile
-  pk: 251
+  pk: 252
   fields:
     product: 120198 # 虱目魚晚撈
     watchlist: 4
@@ -941,7 +1012,7 @@
             2.緊急調節：鼓勵加工廠收購、凍儲或獎勵外銷
 
 - model: watchlists.MonitorProfile
-  pk: 252
+  pk: 253
   fields:
     product: 120211 # 石斑 0.6-0.9公斤/尾
     watchlist: 4
@@ -964,7 +1035,7 @@
             2.緊急調節：鼓勵加工廠收購、凍儲或獎勵外銷
 
 - model: watchlists.MonitorProfile
-  pk: 253
+  pk: 254
   fields:
     product: 120311 # 文蛤 40-60粒/0.6公斤
     watchlist: 4
@@ -987,7 +1058,7 @@
             2.緊急調節：鼓勵加工廠收購、凍儲或獎勵外銷
 
 - model: watchlists.MonitorProfile
-  pk: 254
+  pk: 255
   fields:
     product: 120021 # 金目鱸
     watchlist: 4
@@ -1010,7 +1081,7 @@
             2.緊急調節：鼓勵加工廠收購、凍儲或獎勵外銷
 
 - model: watchlists.MonitorProfile
-  pk: 255
+  pk: 256
   fields:
     product: 120040 # 午仔魚
     watchlist: 4
@@ -1033,7 +1104,7 @@
             2.緊急調節：鼓勵加工廠收購、凍儲或獎勵外銷
 
 - model: watchlists.MonitorProfile
-  pk: 256
+  pk: 257
   fields:
     product: 120364 # 白蝦
     watchlist: 4

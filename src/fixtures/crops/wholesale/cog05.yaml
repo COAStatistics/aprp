@@ -5383,3 +5383,55 @@
     config: 5
     unit: 1
     parent: 40537
+
+# 20190115新增
+
+- model: crops.Crop
+  pk: 40539
+  fields:
+    name: 青蔥-日蔥
+    code: SE1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40540
+  fields:
+    name: 青蔥-北蔥
+    code: SE2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40541
+  fields:
+    name: 青蔥-粉蔥（含北蔥）
+    type: 1
+    config: 5
+    unit: 1
+    track_item: false
+    parent: 40002
+
+- model: crops.Crop
+  pk: 40542
+  fields:
+    name: 青蔥-北蔥
+    code: SE2
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40541
+
+- model: crops.Crop
+  pk: 40543
+  fields:
+    name: 青蔥-粉蔥
+    code: SE6
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40541

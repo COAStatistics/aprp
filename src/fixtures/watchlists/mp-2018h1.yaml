@@ -132,7 +132,7 @@
 - model: watchlists.MonitorProfile
   pk: 8
   fields:
-    product: 40426 # 青蔥日蔥
+    product: 40539 # 青蔥日蔥
     watchlist: 2
     type: 1
     price: 23.1
@@ -150,7 +150,7 @@
 - model: watchlists.MonitorProfile
   pk: 9
   fields:
-    product: 40427 # 青蔥北蔥
+    product: 40540 # 青蔥北蔥
     watchlist: 2
     type: 1
     price: 11.1

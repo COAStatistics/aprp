@@ -166,6 +166,7 @@ def chart_contents_extra_context(instance):
             items = watchlist.children().filter_by_product(product__id=last_object_id)
 
     elif content_type == 'abstractproduct':
+        print(object_id)
         items = watchlist.children().filter_by_product(product__id=object_id)
 
     elif content_type == 'source':

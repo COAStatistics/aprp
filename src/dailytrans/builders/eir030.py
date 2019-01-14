@@ -30,23 +30,25 @@ class Api(AbstractApi):
                 dic[key] = value.strip()
 
         product_code = dic.get('作物代號')
-        product = self.PRODUCT_QS.filter(code=product_code).first()
+        products = self.PRODUCT_QS.filter(code=product_code).all()
         source_name = dic.get('市場名稱')
         source = self.SOURCE_QS.filter_by_name(source_name).first()
-        if product and source:
-            tran = DailyTran(
-                product=product,
-                source=source,
-                up_price=dic.get('上價'),
-                mid_price=dic.get('中價'),
-                low_price=dic.get('下價'),
-                avg_price=dic.get('平均價'),
-                volume=dic.get('交易量'),
-                date=date_transfer(sep=self.SEP, string=dic.get('交易日期'), roc_format=self.ROC_FORMAT)
-            )
-            return tran
+        if products and source:
+            trans = [
+                DailyTran(
+                    product=p,
+                    source=source,
+                    up_price=dic.get('上價'),
+                    mid_price=dic.get('中價'),
+                    low_price=dic.get('下價'),
+                    avg_price=dic.get('平均價'),
+                    volume=dic.get('交易量'),
+                    date=date_transfer(sep=self.SEP, string=dic.get('交易日期'), roc_format=self.ROC_FORMAT)
+                ) for p in products
+            ]
+            return trans
         else:
-            if not product:
+            if not products:
                 self.LOGGER.warning('Cannot Match Product: "%s" In Dictionary %s'
                                     % (product_code, dic), extra=self.LOGGER_EXTRA)
             if not source:
@@ -95,30 +97,32 @@ class Api(AbstractApi):
         if response.text:
             data = json.loads(response.text, object_hook=self.hook)
 
-        # data should look like [D, B, {}, C, {}...] after loads
-        for obj in data:
-            if isinstance(obj, DailyTran):
-                try:
-                    # update if exists
-                    daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date)
-                                                             & Q(product=obj.product))
-                    if obj.source:
-                        daily_tran_qs = daily_tran_qs.filter(source=obj.source)
+        # data should look like [[D, R], [B], {}, [C, A], {}...] after loads
+        data = [obj for obj in data if isinstance(obj, list)]
+        for lst in data:
+            for obj in lst:
+                if isinstance(obj, DailyTran):
+                    try:
+                        # update if exists
+                        daily_tran_qs = DailyTran.objects.filter(Q(date__exact=obj.date)
+                                                                 & Q(product=obj.product))
+                        if obj.source:
+                            daily_tran_qs = daily_tran_qs.filter(source=obj.source)
 
-                    if daily_tran_qs.count() > 1:
-                        # log as duplicate
-                        items = str(daily_tran_qs.values_list('id', flat=True))
-                        self.LOGGER.warning('Find duplicate DailyTran item: %s' % items, extra=self.LOGGER_EXTRA)
+                        if daily_tran_qs.count() > 1:
+                            # log as duplicate
+                            items = str(daily_tran_qs.values_list('id', flat=True))
+                            self.LOGGER.warning('Find duplicate DailyTran item: %s' % items, extra=self.LOGGER_EXTRA)
 
-                    elif daily_tran_qs.count() == 1:
-                        daily_tran_qs.update(up_price=obj.up_price,
-                                             mid_price=obj.mid_price,
-                                             low_price=obj.low_price,
-                                             avg_price=obj.avg_price,
-                                             volume=obj.volume)
-                    else:
-                        if obj.avg_price > 0 and obj.volume > 0:
-                            obj.save()
+                        elif daily_tran_qs.count() == 1:
+                            daily_tran_qs.update(up_price=obj.up_price,
+                                                 mid_price=obj.mid_price,
+                                                 low_price=obj.low_price,
+                                                 avg_price=obj.avg_price,
+                                                 volume=obj.volume)
+                        else:
+                            if obj.avg_price > 0 and obj.volume > 0:
+                                obj.save()
 
-                except Exception as e:
-                    self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
+                    except Exception as e:
+                        self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
