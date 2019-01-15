@@ -33,6 +33,12 @@ var chart5Helper = {
         this.manager.locationImage = 'url('+ window.location.href + 'static/img/chart/' + image + ')';
 
     },
+    loadEvents: function(){
+        var charts = this.manager.getCharts()
+        charts.forEach(function(chart, i){
+            chart.loadEvents();
+        });
+    },
     create: function(container, seriesOptions, unit){
 
         this.manager.chartContainers.push(container);
@@ -132,14 +138,6 @@ var chart5Helper = {
                 series: {
                     connectNulls: true,
                 },
-//                area: {
-//                    lineWidth: 0.3,
-//                    threshold: null, // Y axis value to serve as the base for the area
-//                    tooltip: {
-//                        xDateFormat: '%Y/%m/%d, %a',
-//                        valueDecimals: 2,
-//                    }
-//                },
                 flags: {
                     tooltip: {
                         xDateFormat: '%Y/%m/%d, %a',
@@ -221,73 +219,80 @@ var chart5Helper = {
                 }]
             },
         }, function(chart){
-            $.ajax({
-                url: chart5Helper.manager.url,
-                data: {
-                    content_type: chart5Helper.manager.contentType,
-                    object_id: chart5Helper.manager.objectId,
-                    datatable: false,
-                    order_by: 'date',
-                },
-                async: false,
-                success: function(data) {
-                    // set event flag series data
-                    if(data.length > 0){
-                        var points = [];
-                        var range = chart.xAxis[0].getExtremes();
-                        data.forEach(function(point, i){
-                            var date = new Date(point.date).getTime();
+            chart.loadEvents = function() {
+                chart.showLoading();
+                $.ajax({
+                    url: chart5Helper.manager.url,
+                    data: {
+                        content_type: chart5Helper.manager.contentType,
+                        object_id: chart5Helper.manager.objectId,
+                        datatable: false,
+                        order_by: 'date',
+                    },
+                    async: true,
+                    success: function(data) {
+                        // set event flag series data
+                        if(data.length > 0){
+                            var points = [];
+                            var range = chart.xAxis[0].getExtremes();
+                            data.forEach(function(point, i){
+                                var date = new Date(point.date).getTime();
 
-                            if(range.dataMin < date < range.dataMax){
+                                if(range.dataMin < date < range.dataMax){
 
-                                var typeLabels = '';
-                                point.types.forEach(function(type, i){
-                                    var labelColor = type.level === 1 ? 'danger' : 'info';
-                                    typeLabels += '<span style="margin-right:3px;" class="label label-' + labelColor +'">' + type.label + '</span>';
-                                })
-                                var text = typeLabels + '</br></br><b>' + point.name + '</b>';
-                                if(thisDevice == 'desktop') text = text + '</br>' + point.context;
-                                points.push({
-                                    x: date,
-                                    text: text,
-                                    title: ' ',
-                                })
-                            }
-                        })
-                        chart.series.forEach(function(series, i){
-                            if(series.type === 'flags'){
-                                series.remove();
-                            }
-                            else if(series.userOptions.customIndexType === 'avg_price'){
-                                chart.addSeries({
-                                    type: 'flags',
-                                    shape: chart5Helper.manager.locationImage,
-                                    name: 'Events',
-                                    color: series.userOptions.color, // same as onSeries
-                                    fillColor: series.userOptions.color,
-                                    data: points,
-                                    onSeries: series.userOptions.id,
-                                    showInLegend: false,
-                                    style: { // text style
-                                        color: 'white',
-                                        fontSize: chart5Helper.manager.fontSize.label,
-                                    },
-                                    zIndex: 5,
-                                    states: {
-                                        hover: {
-                                            color: 'black', // same as onSeries
-                                            fillColor: series.userOptions.color,
-                                        }
-                                    },
-                                }, true);
-                            }
-                        })
-                    }else{
-                        root.console.log('No related events data.')
+                                    var typeLabels = '';
+                                    point.types.forEach(function(type, i){
+                                        var labelColor = type.level === 1 ? 'danger' : 'info';
+                                        typeLabels += '<span style="margin-right:3px;" class="label label-' + labelColor +'">' + type.label + '</span>';
+                                    })
+                                    var text = typeLabels + '</br></br><b>' + point.name + '</b>';
+                                    if(thisDevice == 'desktop') text = text + '</br>' + point.context;
+                                    points.push({
+                                        x: date,
+                                        text: text,
+                                        title: ' ',
+                                    })
+                                }
+                            })
+                            chart.series.forEach(function(series, i){
+                                if(series.type === 'flags'){
+                                    series.remove();
+                                }
+                                else if(series.userOptions.customIndexType === 'avg_price'){
+                                    chart.addSeries({
+                                        type: 'flags',
+                                        shape: chart5Helper.manager.locationImage,
+                                        name: 'Events',
+                                        color: series.userOptions.color, // same as onSeries
+                                        fillColor: series.userOptions.color,
+                                        data: points,
+                                        onSeries: series.userOptions.id,
+                                        showInLegend: false,
+                                        style: { // text style
+                                            color: 'white',
+                                            fontSize: chart5Helper.manager.fontSize.label,
+                                        },
+                                        zIndex: 5,
+                                        states: {
+                                            hover: {
+                                                color: 'black', // same as onSeries
+                                                fillColor: series.userOptions.color,
+                                            }
+                                        },
+                                    }, true);
+                                }
+                            })
+                        }else{
+                            root.console.log('No related events data.')
+                        }
+                    },
+                    cache: false,
+                    complete: function() {
+                        chart.hideLoading();
                     }
-                },
-                cache: false,
-            });
+                });
+            }
+            chart.loadEvents();
         });
 
         chart.seriesOptions = seriesOptions;
@@ -298,3 +303,6 @@ var chart5Helper = {
     },
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
