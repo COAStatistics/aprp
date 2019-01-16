@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,32 +50,29 @@ INSTALLED_APPS = [
     'rangefilter',
     'tracking',
     'ckeditor',
-    'suit',
     'tagulous',
-
-    # Logger
     'django_db_logger',
-    'logs',
 
     # Local apps
-    'accounts',
-    'configs',
-    'crops',
-    'rices',
-    'fruits',
-    'flowers',
-    'hogs',
-    'rams',
-    'chickens',
-    'ducks',
-    'gooses',
-    'seafoods',
-    'cattles',
-    'dailytrans',
-    'watchlists',
-    'posts',
-    'comments',
-    'events',
+    'apps.accounts',
+    'apps.configs',
+    'apps.crops',
+    'apps.rices',
+    'apps.fruits',
+    'apps.flowers',
+    'apps.hogs',
+    'apps.rams',
+    'apps.chickens',
+    'apps.ducks',
+    'apps.gooses',
+    'apps.seafoods',
+    'apps.cattles',
+    'apps.dailytrans',
+    'apps.watchlists',
+    'apps.posts',
+    'apps.comments',
+    'apps.events',
+    'apps.logs',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -138,7 +136,7 @@ LOGGING = {
         },
         'aprp_log': {
             'level': 'DEBUG',
-            'class': 'logs.db_log_handler.DatabaseLogHandler'
+            'class': 'apps.logs.db_log_handler.DatabaseLogHandler'
         },
     },
     'loggers': {
@@ -299,18 +297,18 @@ CELERY_TIMEZONE = TIME_ZONE
 
 CELERY_IMPORTS = (
     'dashboard.tasks',
-    'rices.tasks',
-    'crops.tasks',
-    'fruits.tasks',
-    'hogs.tasks',
-    'rams.tasks',
-    'chickens.tasks',
-    'ducks.tasks',
-    'gooses.tasks',
-    'seafoods.tasks',
-    'cattles.tasks',
-    'watchlists.tasks',
-    'dailytrans.tasks',
+    'apps.rices.tasks',
+    'apps.crops.tasks',
+    'apps.fruits.tasks',
+    'apps.hogs.tasks',
+    'apps.rams.tasks',
+    'apps.chickens.tasks',
+    'apps.ducks.tasks',
+    'apps.gooses.tasks',
+    'apps.seafoods.tasks',
+    'apps.cattles.tasks',
+    'apps.watchlists.tasks',
+    'apps.dailytrans.tasks',
 )
 
 # Session Settings

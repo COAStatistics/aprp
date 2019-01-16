@@ -1,0 +1,84 @@
+{% extends 'account-base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+{% trans 'Forgot Password' %}
+{% endblock title %}
+
+{% block header_link %}
+<span id="extr-page-header-space"> <span class="hidden-mobile hidden-xs">{% trans 'Already have an account' %}?</span> <a href="{% url 'accounts:login' %}" class="btn btn-danger">{% trans 'Log in' %}</a> </span>
+{% endblock header_link %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="well no-padding">
+            <form method="POST" action="" id="login-form" class="smart-form client-form">{% csrf_token %}
+                <header>
+                    <strong>{{ title }}</strong> - {% trans 'Resend Email' %}
+                </header>
+                <fieldset>
+					<section>
+                        {% if mail_sent %}
+                            <div class="alert alert-success fade in">
+                                <button class="close" data-dismiss="alert">
+                                    ×
+                                </button>
+                                <h5 class="alert-heading"><i class="fa-fw fa fa-check"></i> {% trans 'Email has been sent' %}</h5>
+                                {% trans 'Please check your mail box' %}
+                            </div>
+                        {% elif not form.errors %}
+                            <div class="alert alert-info fade in">
+                                <button class="close" data-dismiss="alert">
+                                    ×
+                                </button>
+                                <h5 class="alert-heading"><i class="fa-fw fa fa-info"></i> {% trans 'Please advise your email or account' %}</h5>
+                                {% trans 'We will resend an email to your mail box' %}
+                            </div>
+                        {% endif %}
+						{% for error in form.non_field_errors %}
+							<div class="alert alert-danger">
+								<strong>{{ error|escape }}</strong>
+							</div>
+						{% endfor %}
+					</section>
+                    <section>
+                        <label class="label">{% trans 'Enter your' %} {{ form.email.label }}</label>
+                        <label for="{{ form.email.auto_id }}" class="input"> <i class="icon-append fa fa-envelope"></i>
+                            <input id="{{ form.email.auto_id }}" type="email" name="email"
+                            {% if form.email.value != None %} value="{{ form.email.value|stringformat:'s' }}"{% endif %}>
+                            <b class="tooltip tooltip-top-right"><i class="fa fa-envelope txt-color-teal"></i> {{ form.email.help_text }}</b>
+                        </label>
+                        {% for error in form.email.errors %}
+							<small class="help-block text-danger" style="">{{ error|escape }}</small>
+						{% endfor %}
+                    </section>
+                    <section>
+                        <span class="timeline-seperator text-center text-primary"> <span class="font-sm">{% trans  'OR' %}</span>
+                    </section>
+                    <section>
+                        <label class="label">{% trans 'Enter your' %} {{ form.username.label }}</label>
+                        <label for="{{ form.username.auto_id }}" class="input"> <i class="icon-append fa fa-user"></i>
+                            <input id="{{ form.username.auto_id }}" type="text" name="username"
+                            {% if form.username.value != None %} value="{{ form.username.value|stringformat:'s' }}"{% endif %}>
+                            <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i> {{ form.username.help_text }}</b>
+                        </label>
+						{% for error in form.username.errors %}
+							<small class="help-block text-danger" style="">{{ error|escape }}</small>
+						{% endfor %}
+                    </section>
+
+                </fieldset>
+                <footer>
+                    <input type="submit" class="btn btn-primary btn-block" value="{% trans 'Send Email' %}" onclick="this.disabled=true,this.form.submit();">
+                </footer>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+{% endblock content %}

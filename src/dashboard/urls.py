@@ -32,10 +32,10 @@ from .views import (
 
 urlpatterns = [
     # local apps
-    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
-    url(r'^posts/', include('posts.urls', namespace='posts')),
-    url(r'^comments/', include('comments.urls', namespace='comments')),
-    url(r'^events/', include('events.urls', namespace='events')),
+    url(r'^accounts/', include('apps.accounts.urls', namespace='accounts')),
+    url(r'^posts/', include('apps.posts.urls', namespace='posts')),
+    url(r'^comments/', include('apps.comments.urls', namespace='comments')),
+    url(r'^events/', include('apps.events.urls', namespace='events')),
     # i18n
     url(r'^jsi18n/$', javascript_catalog, name='parse_javascript'),
     url(r'^set-user-language/(?P<lang>[-\w]+)/$', Index.as_view(), name='set_user_language'),

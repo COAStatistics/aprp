@@ -1,28 +1,28 @@
 import datetime
 from django.contrib.contenttypes.models import ContentType
-from watchlists.models import (
+from apps.watchlists.models import (
     Watchlist,
     MonitorProfile,
 )
-from dailytrans.utils import (
+from apps.dailytrans.utils import (
     get_daily_price_volume,
     get_daily_price_by_year,
     get_monthly_price_distribution,
     get_integration,
 )
-from configs.models import (
+from apps.configs.models import (
     Config,
     AbstractProduct,
     Source,
     Type,
     Chart,
 )
-from configs.api.serializers import UnitSerializer
-from watchlists.api.serializers import (
+from apps.configs.api.serializers import UnitSerializer
+from apps.watchlists.api.serializers import (
     MonitorProfileSerializer,
     WatchlistSerializer,
 )
-from events.forms import EventForm
+from apps.events.forms import EventForm
 
 
 def jarvismenu_extra_context(instance):

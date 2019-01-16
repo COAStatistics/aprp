@@ -13,11 +13,11 @@ from .utils import (
     chart_contents_extra_context,
     integration_extra_context,
 )
-from watchlists.models import Watchlist
-from configs.models import (
+from apps.watchlists.models import Watchlist
+from apps.configs.models import (
     Chart,
 )
-from dailytrans.utils import (
+from apps.dailytrans.utils import (
     to_date,
 )
 
