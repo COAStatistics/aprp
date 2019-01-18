@@ -65,7 +65,9 @@ var chart1Helper = {
             y = point[1];
 
             profiles.forEach(function(profile, j){
-                if((profile.low_price <= y) && (y <= profile.up_price)){
+                var priceInRange = (profile.low_price <= y) && (y <= profile.up_price);
+                var dateInRange = (profile.start_date <= x) && (x <= profile.end_date); // unix
+                if(priceInRange && dateInRange){
                     data[i] = {
                         x: x,
                         y: y,
