@@ -41,7 +41,7 @@ class Api(AbstractApi):
                 source=source,
                 volume=dic.get(volume_column),
                 avg_weight=dic.get(avg_weight_column),
-                avg_price=round(float(dic.get(avg_price_column)), 1),
+                avg_price=float(dic.get(avg_price_column)),
                 date=date_transfer(sep=self.SEP, string=dic.get('交易日期'), roc_format=True)
             )
 
