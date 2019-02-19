@@ -716,13 +716,13 @@
     months: [7, 8, 9]
     action: |
             冷藏調節、收購次級品加工及輔導農民團體辦理促銷等措施
-            
+
 - model: watchlists.MonitorProfile
   pk: 239
   fields:
     product: 50080 # 茂谷柑
     watchlist: 4
-    type: 2
+    type: 1
     price: 19.3
     comparator: __lt__
     color: danger
