@@ -38,6 +38,7 @@ class DailyTranAdmin(admin.ModelAdmin):
     form = DailyTranModelForm
     list_display = ('date',
                     'update_time',
+                    'create_time',
                     'not_updated',
                     'product',
                     'source',
