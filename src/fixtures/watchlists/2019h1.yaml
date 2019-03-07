@@ -13,7 +13,7 @@
   fields:
     product: 15 # 長糯
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2002
   fields:
@@ -27,7 +27,7 @@
     product: 49011 # 落花生(帶殼) 產地
     sources: [10050, 10051, 10049, 10048, 10090]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2102
   fields:
@@ -46,7 +46,7 @@
   pk: 2104
   fields:
     product: 49005 # 蒜頭(蒜球) 產地
-    sources: [10065, 10051, 10049, 10048, 10101, 10095]
+    sources: [10065, 10051, 10049, 10048, 10101, 10095, 10061]
     parent: 4
 
 - model: watchlists.WatchlistItem
@@ -211,14 +211,14 @@
     product: 40395 # 蘿蔔-矸仔 SA31
     sources: [10001, 10002]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2127
   fields:
     product: 40414 # 胡蘿蔔-未洗 SB1
     sources: [10001, 10002]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2128
   fields:
@@ -290,7 +290,7 @@
     product: 50229 # 西瓜-大西瓜 T1
     sources: [20001, 20002]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2202
   fields:
@@ -339,7 +339,7 @@
     product: 50247 # 洋香瓜-光面白肉 W7
     sources: [20001, 20002]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2209
   fields:
@@ -360,14 +360,14 @@
     product: 50009 # 棗子 22
     sources: [20001, 20002]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2212
   fields:
     product: 50219 # 葡萄-巨峰 S1
     sources: [20001, 20002]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2213
   fields:
@@ -381,40 +381,40 @@
     product: 50289 # 柿子-甜柿 Z4
     sources: [20008]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2215
   fields:
     product: 50145 # 木瓜-網室紅肉 I1
     sources: [20001, 20002]
-    parent: 4    
-    
+    parent: 4
+
 - model: watchlists.WatchlistItem
   pk: 2216
   fields:
     product: 59007 # 蓮霧 產地
     sources: [10054, 10055, 10056]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2217
   fields:
     product: 50214 # 芒果-愛文 R1
     sources: [20001, 20002]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2218
   fields:
     product: 59004 # 香蕉(內銷) 產地
     sources: [10044, 10043, 10077, 10056, 10067, 10041, 10070, 10042, 10039, 10045]
-    parent: 4    
-    
+    parent: 4
+
 - model: watchlists.WatchlistItem
   pk: 2219
   fields:
     product: 59008 # 鳳梨(17號)
-    sources: [10073, 10074, 10066, 10068, 10045, 10067]
+    sources: [10073, 10074, 10066, 10068, 10045, 10067, 10038]
     parent: 4
 
 - model: watchlists.WatchlistItem
@@ -437,7 +437,7 @@
     product: 50154 # 荔枝-黑葉 J2
     sources: [20001, 20002]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2223
   fields:
@@ -493,7 +493,7 @@
     product: 59011 # 檸檬 產地
     sources: [10043, 10077, 10076, 10045]
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2231
   fields:
@@ -508,8 +508,8 @@
   fields:
     product: 70001 # 規格豬
     sources: [40002, 40003, 40004, 40005, 40006, 40007, 40008, 40009, 40010, 40011, 40012, 40013, 40014, 40015, 40016, 40017, 40018, 40019, 40020, 40021, 40022]
-    parent: 4 
-    
+    parent: 4
+
 # Cattle
 
 - model: watchlists.WatchlistItem
@@ -517,7 +517,7 @@
   fields:
     product: 130001 # 肥育乳公牛550公斤以上
     parent: 4
-    
+
 # Rams
 
 - model: watchlists.WatchlistItem
@@ -602,14 +602,14 @@
     product: 120941 # 文蛤 40-60粒/0.6公斤
     sources: []
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2405
   fields:
     product: 120950 # 金目鱸 600-800g
     sources: []
     parent: 4
-    
+
 - model: watchlists.WatchlistItem
   pk: 2406
   fields:
