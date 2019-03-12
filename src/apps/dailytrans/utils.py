@@ -429,9 +429,19 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
 
         return result
 
-    def pandas_annotate_year(qs):
+    def pandas_annotate_year(qs, has_volume, has_weight):
         df = DataFrame(list(qs))
-        df = df.groupby(['year'], as_index=False).mean()
+        if has_volume and has_weight:
+            df['avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight']
+            df['sum_volume_weight'] = df['sum_volume'] * df['avg_avg_weight']
+            df = df.groupby(['year'], as_index=False).mean()
+            df['avg_price'] = df['avg_price'] / df['sum_volume_weight']
+        elif has_volume:
+            df['avg_price'] = df['avg_price'] * df['sum_volume']
+            df = df.groupby(['year'], as_index=False).mean()
+            df['avg_price'] = df['avg_price'] / df['sum_volume']
+        else:
+            df = df.groupby(['year'], as_index=False).mean()
         df = df.drop(['month', 'day'], axis=1)
         result = df.T.to_dict().values()
         # group by year
@@ -511,7 +521,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                                                                 specific_year=False)
 
         if q.count() > 0:
-            data_all = pandas_annotate_year(q)
+            data_all = pandas_annotate_year(q, has_volume, has_weight)
             for dic in data_all:
                 year = dic['year']
                 q_filter_by_year = q.filter(year=year).order_by('date')
