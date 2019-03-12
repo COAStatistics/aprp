@@ -431,7 +431,9 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
 
     def pandas_annotate_year(qs):
         df = DataFrame(list(qs))
+        df['avg_price'] = df['avg_price'] * df['sum_volume']
         df = df.groupby(['year'], as_index=False).mean()
+        df['avg_price'] = df['avg_price'] / df['sum_volume']
         df = df.drop(['month', 'day'], axis=1)
         result = df.T.to_dict().values()
         # group by year
