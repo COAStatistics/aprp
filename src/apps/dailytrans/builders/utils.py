@@ -16,7 +16,7 @@ def date_transfer(sep=None, string=None, date=None, roc_format=False, zfill=None
         if zfill is None or not isinstance(date, datetime.date):
             raise NotImplementedError
     if string:
-        if sep is '':
+        if sep == '':
             if roc_format:
                 if len(string) < 7:
                     raise OverflowError
