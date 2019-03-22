@@ -9,6 +9,7 @@
 
 Setup `src/dashboard/settings/local.py`, with following configurations:
 ```
+from .base import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

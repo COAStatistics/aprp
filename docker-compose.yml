@@ -16,6 +16,9 @@ services:
     restart: on-failure
     environment:
       - DJANGO_SETTINGS_MODULE=dashboard.settings.local
+      - AMIS_URL=$AMIS_URL
+      - APIS_URL=$APIS_URL
+      - EFISH_URL=$EFISH_URL
 
   postgres:
     image: postgres:10-alpine
