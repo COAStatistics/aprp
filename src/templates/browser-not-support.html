@@ -1,4 +1,6 @@
-{% load i18n %}{% load admin_static i18n %}{% load url from suit_compat %}<!DOCTYPE html>
+{% load i18n %}
+
+<!DOCTYPE html>
 <!--[if lt IE 9 ]><html lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
@@ -6,7 +8,7 @@
   <meta charset="utf-8">
   <title>{% block headtitle %}{% endblock %}</title>
 
-  <link rel="stylesheet" type="text/css" href="{% static 'suit/bootstrap/css/bootstrap.min.css' %}" media="all"/>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" media="all"/>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
   <style type="text/css">
@@ -19,7 +21,7 @@
     }
 
     body {
-      background: #ffffff url('{% static 'suit/img/bg_pattern.jpg' %}') top left;
+      background: #ffffff;
       color: #333;
       font: 16px / 21px 'Open Sans', sans-serif;
       -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
