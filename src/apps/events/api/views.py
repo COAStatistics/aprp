@@ -9,6 +9,8 @@ from rest_framework.permissions import (
     IsAuthenticated,
 )
 from rest_framework.response import Response
+from rest_framework.parsers import MultiPartParser
+from rest_framework.views import APIView
 from apps.events.models import (
     EventType,
     Event,
@@ -17,6 +19,7 @@ from .serializers import (
     EventTypeSerializer,
     EventSerializer,
 )
+from .utils import funcBatchEventFile
 from model_utils import Choices
 
 
@@ -143,3 +146,13 @@ class EventListCreateAPIView(ListCreateAPIView):
                 return Response(e, status=status.HTTP_400_BAD_REQUEST, template_name=None, content_type=None)
 
         return super(EventListCreateAPIView, self).list(request, **kwargs)
+
+
+class EventBatchFileAPIView(APIView):
+    parser_classes = (MultiPartParser,)
+
+    def post(self, request, format=None):
+        file_obj = request.data['file']
+        data = funcBatchEventFile(file_obj)
+
+        return Response(data, status=200)

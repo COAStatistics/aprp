@@ -376,6 +376,9 @@ var dataTableHelper = {
             buttons.push({
                 text: '<span><i class="fa fa-plus" aria-hidden="true"></i> ' + gettext('New Event') + '</span>',
                 action: function(e, dt, node) {
+                    console.log(e);
+                    console.log(dt);
+                    console.log(node);
                     $("#eventModal").find('form').attr('data-action', 'new');
                     $("#eventModal").find('.modal-title').text(gettext('New Event'));
                     $("#eventModal").find('form').formcontrol().reset();
@@ -384,6 +387,15 @@ var dataTableHelper = {
                         object_id: $form.attr('data-object-id'),
                     });
                     $("#eventModal").modal();
+                },
+            }),
+            buttons.push({
+                text: '<span><i class="fa fa-plus" aria-hidden="true"></i> ' + '批量匯入' + '</span>',
+                action: function(e, dt, node) {
+                    $("#eventBatchModal").find('#batch-event-modal-title').text(gettext('Batch Add Event'));
+                    $("#eventBatchModal").find('form').formcontrol().reset();
+                    $("#eventBatchModal").find('.ajax-loading-animation').hide();
+                    $("#eventBatchModal").modal();
                 },
             })
         }
@@ -552,7 +564,107 @@ var dataTableHelper = {
                 }
             });
 
-        }
+        };
+
+        $('#eventBatchModal form').on('submit', function (e) {
+            e.preventDefault();
+            // console.log(e);
+            $('#eventBatchModal').find('.ajax-loading-animation').show();
+            if($(e['target']).is($('#event-batch-file-form'))) {
+                sendBatchEventFileRequest();
+            }
+
+        });
+
+        var sendBatchEventFileRequest = function() {
+            var url = $('#eventBatchModal form').attr('data-url');
+            var form = new FormData();
+            window.batch_success = 0;
+            window.batch_error = 0;
+            form.append('file', $('#batch-event-file')[0].files[0]);
+            $.ajax({
+                url: url,
+                method: 'post',
+                data: form,
+                cache: false,
+                processData: false,
+                contentType: false,
+                beforeSend: function(xhr, settings) {
+                    // CSRF token
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
+                    }
+                },
+            }).done(function (res, status, resdata) {
+                res.forEach(function(res, i, data){
+                    sendBatchEventRequest(res);
+                });
+                $("#eventBatchModal").find('.ajax-loading-animation').hide();
+
+                $("#eventBatchModal").modal('hide');
+                var content = '';
+                if(window.batch_success > 0){
+                    content += '新增' + window.batch_success + '筆資料。';
+                }
+                if(window.batch_error > 0){
+                    content += '錯誤' + window.batch_error + '筆資料。';
+                }
+                $.smallBox({
+                    title : "檔案上傳成功",
+                    content : content,
+                    color : "#296191",
+                    // iconSmall : "fa fa-thumbs-up bounce animated",
+                    timeout : 5000
+                });
+            }).fail(function (jqXHR, textStatus, errorThrown) {
+                if(jqXHR.responseJSON){
+                    $form.formcontrol().validate(jqXHR.responseJSON);
+                }else{
+                    $("#eventBatchModal").find('.ajax-loading-animation').hide();
+                    $.smallBox({
+        				title : "檔案上傳失敗",
+        				content : "檔案非excel，或是事件內容未依規定格式編輯。",
+        				color : "#CC0000",
+        				// iconSmall : "fa fa-thumbs-up bounce animated",
+        				timeout : 5000
+        			});
+                }
+            });
+        };
+
+        var sendBatchEventRequest = function(res) {
+            var url = $('#eventModal form').attr('data-url');
+            var content_type = $('#eventModal form').attr('data-content-type');
+            var object_id = $('#eventModal form').attr('data-object-id');
+            res['content_type'] = content_type;
+            res['object_id'] = object_id;
+            res['csrfmiddlewaretoken'] = '';
+            res['date'] = res['date'].split('T')[0];
+            res['date'] = res['date'].replace(/\-/g, '/');
+            data = $.param(res);
+
+            $.ajax({
+                url: url,
+                method: 'POST',
+                data: data,
+                async: false,
+                beforeSend: function(xhr, settings) {
+                    // CSRF token
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
+                    }
+                },
+            }).done(function (){
+                // // DataTable data reload
+                table.ajax.reload();
+                // // Highchart data reload
+                if(window.chart5Helper) chart5Helper.loadEvents();
+                window.batch_success += 1;
+            }).fail(function (){
+                window.batch_error += 1;
+            })
+        };
+
         return table;
     },
 }

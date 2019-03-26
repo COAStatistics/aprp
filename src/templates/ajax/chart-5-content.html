@@ -91,6 +91,123 @@
     </div>
 </div>
 
+<div class="modal fade" id="eventBatchModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="batch-event-modal-title" class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <form id="event-batch-file-form" action=""
+                    enctype="multipart/form-data"
+                    data-url="{% url 'events:api:api_event_batch_file' %}">
+                    {% csrf_token %}
+                    <input type="file" id="batch-event-file" name="image" />
+                </form>
+                <div class="ajax-loading-animation event-batch-loding">
+                    <i class="fa fa-cog fa-spin"></i>
+                    Loding...
+                </div>
+                <div>
+                    <br />
+                    只可上傳excel檔案，並依照下表格式編輯，使用多個事件分類請以半形逗號（,）隔開。
+                </div>
+                <div class="example-table">
+                    <br />
+                    Example
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>日期</td>
+                                <td>事件分類</td>
+                                <td>名稱</td>
+                                <td>內容</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2019/1/1</td>
+                                <td>天災/冰雹,其他,節慶/端午節</td>
+                                <td>測試名稱</td>
+                                <td>測試內容</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="example-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td>事件分類</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>天災</td>
+                                </tr>
+                                <tr>
+                                    <td>天災/冰雹</td>
+                                </tr>
+                                <tr>
+                                    <td>天災/地震</td>
+                                </tr>
+                                <tr>
+                                    <td>天災/高溫</td>
+                                </tr>
+                                <tr>
+                                    <td>天災/乾旱</td>
+                                </tr>
+                                <tr>
+                                    <td>天災/寒害</td>
+                                </tr>
+                                <tr>
+                                    <td>天災/豪雨</td>
+                                </tr>
+                                <tr>
+                                    <td>天災/颱風</td>
+                                </tr>
+                                <tr>
+                                    <td>其他</td>
+                                </tr>
+                                <tr>
+                                    <td>政策</td>
+                                </tr>
+                                <tr>
+                                    <td>政策/貿易</td>
+                                </tr>
+                                <tr>
+                                    <td>疫情</td>
+                                </tr>
+                                <tr>
+                                    <td>節慶</td>
+                                </tr>
+                                <tr>
+                                    <td>節慶/中元節</td>
+                                </tr>
+                                <tr>
+                                    <td>節慶/中秋節</td>
+                                </tr>
+                                <tr>
+                                    <td>節慶/春節</td>
+                                </tr>
+                                <tr>
+                                    <td>節慶/清明節</td>
+                                </tr>
+                                <tr>
+                                    <td>節慶/端午節</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-batch-event-file-cancel" class="btn btn-default" data-dismiss="modal">{% trans 'Cancel' %}</button>
+                <button type="submit" id="btn-batch-event-file-submit" class="btn btn-primary" form="event-batch-file-form">{% trans 'Submit' %}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
 
 	pageSetUp();
@@ -121,6 +238,7 @@
     // PAGE RELATED SCRIPTS
 
     scripts = [
+        "{% static 'vendor/js/notification/SmartNotification.min.js' %}",
         "{% static 'js/highcharts/chart5Helper.js' %}",
     ]
 
