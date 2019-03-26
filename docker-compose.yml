@@ -14,6 +14,8 @@ services:
     command: /app/scripts/start.sh
     entrypoint: /app/scripts/entrypoint.sh
     restart: on-failure
+    ports:
+      - "8000:8000"
     environment:
       - DJANGO_SETTINGS_MODULE=dashboard.settings.local
       - AMIS_URL=$AMIS_URL

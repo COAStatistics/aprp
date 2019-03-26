@@ -5,6 +5,7 @@ from .views import (
     EventTypeRetrieveUpdateDestroyAPIView,
     EventListCreateAPIView,
     EventRetrieveUpdateDestroyAPIView,
+    EventBatchFileAPIView,
 )
 from apps.events.models import EventType
 
@@ -16,4 +17,6 @@ urlpatterns = [
     url(r'^event/$', EventListCreateAPIView.as_view(), name='api_event_cr'),
     # You can also pass in a QuerySet of the tag model
     url(r'^event-autocomplete/$', autocomplete, {'tag_model': EventType.objects.order_by('level')}, name='event_type_autocomplete'),
+    # Batch add event
+    url(r'^eventbatchfile/$', EventBatchFileAPIView.as_view(), name='api_event_batch_file'),
 ]

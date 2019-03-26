@@ -3,7 +3,7 @@
   fields:
     user: 1
     name: 口蹄疫爆發70001
-    type: 3
+    types: 3
     context: |
              測試本平台整合農委會及所屬機關
              換行本平台整合農委會及所屬機關
@@ -17,7 +17,7 @@
   fields:
     user: 1
     name: 口蹄疫爆發70005
-    type: 3
+    types: 3
     context: |
              測試本平台整合農委會及所屬機關
              換行本平台整合農委會及所屬機關
