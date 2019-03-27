@@ -48,7 +48,7 @@ class DailyTran(Model):
     date = DateField(auto_now=False, default=timezone.now().today, verbose_name=_('Date'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
     not_updated = IntegerField(default=0, verbose_name=_('Not Updated Count'))
-    create_time = DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name=_('Created'))
+    create_time = DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name=_('Create Time'))
 
     objects = DailyTranQuerySet.as_manager()
 
