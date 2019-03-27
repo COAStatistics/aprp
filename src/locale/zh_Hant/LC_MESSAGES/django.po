@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-26 16:28+0800\n"
+"POT-Creation-Date: 2019-03-27 11:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,291 +18,299 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: accounts/admin.py:15 accounts/forms.py:24 accounts/models.py:38
+#: apps/accounts/admin.py:15 apps/accounts/forms.py:24
+#: apps/accounts/models.py:39
 msgid "Group"
 msgstr "群組"
 
-#: accounts/forms.py:17
+#: apps/accounts/forms.py:17
 msgid "Please Input Chinese Only"
 msgstr "請輸入中文"
 
-#: accounts/forms.py:21 accounts/forms.py:83 accounts/forms.py:116
-#: accounts/forms.py:194
+#: apps/accounts/forms.py:21 apps/accounts/forms.py:83
+#: apps/accounts/forms.py:116 apps/accounts/forms.py:194
 msgid "Account"
 msgstr "帳號"
 
-#: accounts/forms.py:22 accounts/forms.py:118
+#: apps/accounts/forms.py:22 apps/accounts/forms.py:118
 msgid "First Name"
 msgstr "名字"
 
-#: accounts/forms.py:23 accounts/forms.py:119
+#: apps/accounts/forms.py:23 apps/accounts/forms.py:119
 msgid "Last Name"
 msgstr "姓氏"
 
-#: accounts/forms.py:24
+#: apps/accounts/forms.py:24
 msgid "Choose one of the following..."
 msgstr "請選擇"
 
-#: accounts/forms.py:25 accounts/models.py:192 accounts/models.py:206
-#: accounts/models.py:207
+#: apps/accounts/forms.py:25 apps/accounts/models.py:193
+#: apps/accounts/models.py:207 apps/accounts/models.py:208
 msgid "Reset Email"
 msgstr "變更電子信箱"
 
-#: accounts/forms.py:57 accounts/forms.py:164
+#: apps/accounts/forms.py:57 apps/accounts/forms.py:164
 msgid "This email has already been registered"
 msgstr "此電子信箱已經被註冊"
 
-#: accounts/forms.py:63
+#: apps/accounts/forms.py:63
 msgid "To use this group, please change your email to this unit:"
 msgstr "要變更到此群組，請先變更您的信箱到此單位："
 
-#: accounts/forms.py:83 accounts/forms.py:116 accounts/forms.py:194
+#: apps/accounts/forms.py:83 apps/accounts/forms.py:116
+#: apps/accounts/forms.py:194
 msgid "Please enter your account"
 msgstr "請輸入你的帳號"
 
-#: accounts/forms.py:84 accounts/forms.py:120 accounts/forms.py:169
+#: apps/accounts/forms.py:84 apps/accounts/forms.py:120
+#: apps/accounts/forms.py:169
 msgid "Password"
 msgstr "密碼"
 
-#: accounts/forms.py:84 accounts/forms.py:120 accounts/forms.py:169
+#: apps/accounts/forms.py:84 apps/accounts/forms.py:120
+#: apps/accounts/forms.py:169
 msgid "Please enter your password"
 msgstr "請輸入你的密碼"
 
-#: accounts/forms.py:94 accounts/templates/login.html.py:35
+#: apps/accounts/forms.py:94 apps/accounts/templates/login.html:35
 msgid ""
 "Guest account will no longer accessible. Please feel free to register new "
 "account"
 msgstr "即日起本平台訪客身份將不繼續開放，歡迎您註冊個人帳號以繼續登入使用"
 
-#: accounts/forms.py:99
+#: apps/accounts/forms.py:99
 msgid "Your account or password is incorrect"
 msgstr "您輸入的帳號或密碼不正確，請重試"
 
-#: accounts/forms.py:105
+#: apps/accounts/forms.py:105
 msgid "Please activate your account"
 msgstr "請先至您註冊的信箱啟用您的帳號"
 
-#: accounts/forms.py:107
+#: apps/accounts/forms.py:107
 msgid "Resend Activation Email"
 msgstr "重寄驗證信"
 
-#: accounts/forms.py:117 accounts/forms.py:193
+#: apps/accounts/forms.py:117 apps/accounts/forms.py:193
 msgid "Email"
 msgstr "電子信箱"
 
-#: accounts/forms.py:117 accounts/forms.py:193
+#: apps/accounts/forms.py:117 apps/accounts/forms.py:193
 msgid "Please enter your email"
 msgstr "請輸入你的信箱"
 
-#: accounts/forms.py:121 accounts/forms.py:170
+#: apps/accounts/forms.py:121 apps/accounts/forms.py:170
 msgid "Confirm Password"
 msgstr "確認密碼"
 
-#: accounts/forms.py:121 accounts/forms.py:170
+#: apps/accounts/forms.py:121 apps/accounts/forms.py:170
 msgid "Please confirm your password"
 msgstr "請確認你的密碼"
 
-#: accounts/forms.py:122
+#: apps/accounts/forms.py:122
 msgid "Terms & Conditions"
 msgstr "會員服務條款"
 
-#: accounts/forms.py:139
+#: apps/accounts/forms.py:139
 msgid "You must agree our terms and conditions"
 msgstr "請先同意我們的會員服務條款"
 
-#: accounts/forms.py:151 accounts/forms.py:188
+#: apps/accounts/forms.py:151 apps/accounts/forms.py:188
 msgid "Password must match"
 msgstr "密碼與密碼確認不符"
 
-#: accounts/forms.py:160
+#: apps/accounts/forms.py:160
 msgid "Please register with email under domain \"@mail.coa.gov.tw\""
 msgstr "請使用農委會所屬單位信箱註冊"
 
-#: accounts/forms.py:208 accounts/templates/resend-email.html.py:38
+#: apps/accounts/forms.py:208 apps/accounts/templates/resend-email.html:38
 msgid "Please advise your email or account"
 msgstr "請輸入你的信箱或帳號"
 
-#: accounts/forms.py:213
+#: apps/accounts/forms.py:213
 msgid "Your account or email is incorrect"
 msgstr "您輸入的信箱或帳號不正確，請重試"
 
-#: accounts/forms.py:222
+#: apps/accounts/forms.py:222
 msgid "This email is not exist"
 msgstr "此信箱尚未註冊，請重新確認"
 
-#: accounts/forms.py:230
+#: apps/accounts/forms.py:230
 msgid "This account is not exist"
 msgstr "此帳號未註冊，請重新確認"
 
-#: accounts/models.py:37 configs/models.py:18 configs/models.py:126
-#: configs/models.py:181 configs/models.py:229 configs/models.py:280
-#: configs/models.py:297 events/models.py:59 logs/models.py:24
-#: templates/contents/event-table.html:15 watchlists/models.py:39
+#: apps/accounts/models.py:38 apps/configs/models.py:18
+#: apps/configs/models.py:126 apps/configs/models.py:181
+#: apps/configs/models.py:229 apps/configs/models.py:280
+#: apps/configs/models.py:297 apps/events/models.py:61 apps/logs/models.py:24
+#: apps/watchlists/models.py:39 templates/contents/event-table.html:15
 msgid "Name"
 msgstr "名稱"
 
-#: accounts/models.py:39
+#: apps/accounts/models.py:40
 msgid "Email Dns"
 msgstr "信箱域名"
 
-#: accounts/models.py:40 comments/models.py:57 configs/models.py:23
-#: watchlists/models.py:133
+#: apps/accounts/models.py:41 apps/comments/models.py:57
+#: apps/configs/models.py:23 apps/watchlists/models.py:133
 msgid "Parent"
 msgstr "上一層物件"
 
-#: accounts/models.py:45
+#: apps/accounts/models.py:46
 msgid "Group Information"
 msgstr "群組資訊"
 
-#: accounts/models.py:46
+#: apps/accounts/models.py:47
 msgid "Group Informations"
 msgstr "群組資訊"
 
-#: accounts/models.py:76 accounts/models.py:104 posts/models.py:33
-#: templates/navigation.html:72 watchlists/models.py:40
+#: apps/accounts/models.py:77 apps/accounts/models.py:105
+#: apps/posts/models.py:32 apps/watchlists/models.py:40
+#: templates/navigation.html:72
 msgid "User"
 msgstr "使用者"
 
-#: accounts/models.py:77
+#: apps/accounts/models.py:78
 msgid "Event Editor"
 msgstr "可編輯事件"
 
-#: accounts/models.py:78
+#: apps/accounts/models.py:79
 msgid "Watchlist Viewer"
 msgstr "可檢視所有清單"
 
-#: accounts/models.py:79
+#: apps/accounts/models.py:80
 msgid "Menu Item Viewer"
 msgstr "可檢視所有展開品項"
 
-#: accounts/models.py:80
+#: apps/accounts/models.py:81
 msgid "Reporter"
 msgstr "報告人"
 
-#: accounts/models.py:81
+#: apps/accounts/models.py:82
 msgid "Alert Viewer"
 msgstr "可檢視監控警示"
 
-#: accounts/models.py:82
-
+#: apps/accounts/models.py:83
 msgid "Monitor Info Viewer"
 msgstr "可檢視品項監控資訊"
 
-#: accounts/models.py:83
+#: apps/accounts/models.py:84
 msgid "Profile"
 msgstr "大頭貼"
 
-#: accounts/models.py:86 templates/navigation.html.py:75
+#: apps/accounts/models.py:87 templates/navigation.html:75
 msgid "User Information"
 msgstr "帳戶資訊"
 
-#: accounts/models.py:87
+#: apps/accounts/models.py:88
 msgid "User Informations"
 msgstr "帳戶資訊"
 
-#: accounts/models.py:105
+#: apps/accounts/models.py:106
 msgid "Activate Key"
 msgstr "驗證碼"
 
-#: accounts/models.py:106
+#: apps/accounts/models.py:107
 msgid "Expired"
 msgstr "是否過期"
 
-#: accounts/models.py:111
+#: apps/accounts/models.py:112
 msgid "Abstract Profile"
 msgstr "抽象帳戶驗證"
 
-#: accounts/models.py:112
+#: apps/accounts/models.py:113
 msgid "Abstract Profiles"
 msgstr "抽象帳戶驗證"
 
-#: accounts/models.py:144
+#: apps/accounts/models.py:145
 msgid "Activation Profile"
 msgstr "帳戶啟用驗證"
 
-#: accounts/models.py:145
+#: apps/accounts/models.py:146
 msgid "Activation Profiles"
 msgstr "帳戶啟動驗證"
 
-#: accounts/models.py:155
+#: apps/accounts/models.py:156
 msgid "Activate My Account"
 msgstr "啟用我的帳號"
 
-#: accounts/models.py:156 accounts/models.py:181 accounts/models.py:207
-#: accounts/templates/account-base.html:5
-#: accounts/templates/account-base.html:42
-#: accounts/templates/introduction.html:5
-#: accounts/templates/mail_content.html:142 templates/footer.html.py:7
-#: templates/header.html:9 templates/index.html.py:6
+#: apps/accounts/models.py:157 apps/accounts/models.py:182
+#: apps/accounts/models.py:208 apps/accounts/templates/account-base.html:5
+#: apps/accounts/templates/account-base.html:42
+#: apps/accounts/templates/introduction.html:5
+#: apps/accounts/templates/mail_content.html:142 templates/footer.html:7
+#: templates/header.html:9 templates/index.html:6
 msgid "Agriculture Products Price Report Platform"
 msgstr "重要農產品每日價量資訊平台"
 
-#: accounts/models.py:156
+#: apps/accounts/models.py:157
 msgid "Account Activation"
 msgstr "啟用帳戶"
 
-#: accounts/models.py:157
+#: apps/accounts/models.py:158
 msgid "Please activate your account by clicking the link below"
 msgstr "請點擊以下連結來啟用您的帳戶"
 
-#: accounts/models.py:158 accounts/templates/register.html.py:138
+#: apps/accounts/models.py:159 apps/accounts/templates/register.html:138
 msgid "Thank you for your registration"
 msgstr "感謝您的註冊"
 
-#: accounts/models.py:169
+#: apps/accounts/models.py:170
 msgid "Reset Password Profile"
 msgstr "重設密碼驗證"
 
-#: accounts/models.py:170
+#: apps/accounts/models.py:171
 msgid "Reset Password Profiles"
 msgstr "重設密碼驗證"
 
-#: accounts/models.py:180 accounts/models.py:181
-#: accounts/templates/reset-password.html:8
-#: accounts/templates/reset-password.html:22
-#: accounts/templates/reset-password.html:53
+#: apps/accounts/models.py:181 apps/accounts/models.py:182
+#: apps/accounts/templates/reset-password.html:8
+#: apps/accounts/templates/reset-password.html:22
+#: apps/accounts/templates/reset-password.html:53
 msgid "Reset Password"
 msgstr "重設密碼"
 
-#: accounts/models.py:182
+#: apps/accounts/models.py:183
 msgid "Please click the following button to reset your password"
 msgstr "請點擊以下連結以重設您的密碼"
 
-#: accounts/models.py:195
+#: apps/accounts/models.py:196
 msgid "Reset Email Profile"
 msgstr "重設電子信箱驗證"
 
-#: accounts/models.py:196
+#: apps/accounts/models.py:197
 msgid "Reset Email Profiles"
 msgstr "重設電子信箱驗證"
 
-#: accounts/models.py:208
+#: apps/accounts/models.py:209
 msgid "Please click the following button to reset your email"
 msgstr "請點擊以下連結以重設您的信箱"
 
-#: accounts/templates/edit_info.html:5
+#: apps/accounts/templates/edit_info.html:5
 msgid "Edit your information"
 msgstr "編輯個人資料"
 
-#: accounts/templates/edit_info.html:23
-#: comments/templates/partial_comment_create.html:14
-#: comments/templates/partial_comment_delete.html:15
-#: comments/templates/partial_comment_update.html:14
-#: posts/templates/form_modal.html:18 templates/ajax/chart-5-content.html:87
+#: apps/accounts/templates/edit_info.html:23
+#: apps/comments/templates/partial_comment_create.html:14
+#: apps/comments/templates/partial_comment_delete.html:15
+#: apps/comments/templates/partial_comment_update.html:14
+#: apps/posts/templates/form_modal.html:18
+#: templates/ajax/chart-5-content.html:87
+#: templates/ajax/chart-5-content.html:204
 msgid "Cancel"
 msgstr "取消"
 
-#: accounts/templates/edit_info.html:24
-#: comments/templates/partial_comment_create.html:15
-#: comments/templates/partial_comment_delete.html:16
-#: comments/templates/partial_comment_update.html:15
+#: apps/accounts/templates/edit_info.html:24
+#: apps/comments/templates/partial_comment_create.html:15
+#: apps/comments/templates/partial_comment_delete.html:16
+#: apps/comments/templates/partial_comment_update.html:15
 #: templates/ajax/chart-3-content.html:61
 #: templates/ajax/chart-4-content.html:53
 #: templates/ajax/chart-5-content.html:88
+#: templates/ajax/chart-5-content.html:205
 msgid "Submit"
 msgstr "確認"
 
-#: accounts/templates/introduction.html:9
+#: apps/accounts/templates/introduction.html:9
 msgid ""
 "The platform combined the price and the trading volume of agricultural "
 "products from Council of Agriculture (COA) and the affiliated agencies "
@@ -314,11 +322,11 @@ msgstr ""
 "本平台整合農委會及所屬機關（構）公布之農、漁、畜產品之價格及交易量資訊，提供"
 "便捷之視覺化查詢功能，期協助本會暨所屬機關（構）同仁即時掌握農產品價量動向。"
 
-#: accounts/templates/introduction.html:18 templates/ajax/about.html.py:43
+#: apps/accounts/templates/introduction.html:18 templates/ajax/about.html:43
 msgid "Monitored items"
 msgstr "監控品項"
 
-#: accounts/templates/introduction.html:20
+#: apps/accounts/templates/introduction.html:20
 msgid ""
 "Currently, there are 70 items consist of 10 overall and categorized items of "
 "vegetables, fruits and flowers in Taipei Agricultural Products Wholesale "
@@ -327,11 +335,11 @@ msgstr ""
 "目前主要涵括台北一、二果菜市場10個蔬菜、水果、花卉之整體及分類項目，以及59個"
 "本會每日監控之重要農產品共計70項"
 
-#: accounts/templates/introduction.html:24 templates/ajax/about.html.py:51
+#: apps/accounts/templates/introduction.html:24 templates/ajax/about.html:51
 msgid "Features"
 msgstr "功能說明"
 
-#: accounts/templates/introduction.html:26
+#: apps/accounts/templates/introduction.html:26
 msgid ""
 "Showing daily price/volume trends, year by year trends and distribution plot "
 "with charts."
@@ -343,238 +351,250 @@ msgstr ""
 "者新增、刪除、編輯事件功能；監控資訊提供監控品項、期間、地點、價格及因應措施"
 "等資訊；輿情回應專區提供輿情發布及回應園地。"
 
-#: accounts/templates/login.html:8 accounts/templates/mail_content.html:143
-#: accounts/templates/register.html:12 accounts/templates/resend-email.html:12
-#: accounts/templates/reset-password.html:12
+#: apps/accounts/templates/login.html:8
+#: apps/accounts/templates/mail_content.html:143
+#: apps/accounts/templates/register.html:12
+#: apps/accounts/templates/resend-email.html:12
+#: apps/accounts/templates/reset-password.html:12
 msgid "Log in"
 msgstr "登入"
 
-#: accounts/templates/login.html:13
+#: apps/accounts/templates/login.html:13
 msgid "Need an account"
 msgstr "需要新的帳號嗎"
 
-#: accounts/templates/login.html:14 accounts/templates/register.html.py:8
-#: accounts/templates/register.html:25 accounts/templates/register.html:132
+#: apps/accounts/templates/login.html:14
+#: apps/accounts/templates/register.html:8
+#: apps/accounts/templates/register.html:25
+#: apps/accounts/templates/register.html:132
 msgid "Register"
 msgstr "註冊"
 
-#: accounts/templates/login.html:27
+#: apps/accounts/templates/login.html:27
 msgid "Sign In"
 msgstr "請登入"
 
-#: accounts/templates/login.html:71
+#: apps/accounts/templates/login.html:71
 msgid "Forgot password"
 msgstr "忘記密碼"
 
-#: accounts/templates/login.html:78
+#: apps/accounts/templates/login.html:78
 msgid "Remember me"
 msgstr "記住我"
 
-#: accounts/templates/login.html:83
+#: apps/accounts/templates/login.html:83
 msgid "Login"
 msgstr "登入"
 
-#: accounts/templates/mail_content.html:107
+#: apps/accounts/templates/mail_content.html:107
 msgid "Hi"
 msgstr "您好"
 
-#: accounts/templates/mail_content.html:126
+#: apps/accounts/templates/mail_content.html:126
 msgid "Any further questions please contact us"
 msgstr "任何問題歡迎聯繫我們"
 
-#: accounts/templates/mail_content.html:127
+#: apps/accounts/templates/mail_content.html:127
 msgid "Good luck! Hope it works!"
 msgstr "祝事事如意"
 
-#: accounts/templates/mail_content.html:143
+#: apps/accounts/templates/mail_content.html:143
 msgid "Want to login right now"
 msgstr "現在登入"
 
-#: accounts/templates/register.html:12 accounts/templates/resend-email.html:12
-#: accounts/templates/reset-password.html:12
+#: apps/accounts/templates/register.html:12
+#: apps/accounts/templates/resend-email.html:12
+#: apps/accounts/templates/reset-password.html:12
 msgid "Already have an account"
 msgstr "已經有帳號了嗎"
 
-#: accounts/templates/register.html:35 accounts/templates/resend-email.html:30
+#: apps/accounts/templates/register.html:35
+#: apps/accounts/templates/resend-email.html:30
 msgid "Email has been sent"
 msgstr "信件已經寄出"
 
-#: accounts/templates/register.html:36 accounts/templates/resend-email.html:31
+#: apps/accounts/templates/register.html:36
+#: apps/accounts/templates/resend-email.html:31
 msgid "Please check your mail box"
 msgstr "請查看您的信箱"
 
-#: accounts/templates/register.html:36
+#: apps/accounts/templates/register.html:36
 msgid "Click the link in the email to activate your account"
 msgstr "請點擊信件連結來啟用您的帳號"
 
-#: accounts/templates/register.html:113 accounts/templates/register.html:122
+#: apps/accounts/templates/register.html:113
+#: apps/accounts/templates/register.html:122
 msgid "I have read and agreed with the"
 msgstr "我已閱讀且同意"
 
-#: accounts/templates/register.html:113
+#: apps/accounts/templates/register.html:113
 msgid "Privacy Policy"
 msgstr "隱私權政策"
 
-#: accounts/templates/register.html:122
+#: apps/accounts/templates/register.html:122
 msgid "Terms and Conditions"
 msgstr "會員服務條款"
 
-#: accounts/templates/resend-email.html:8 accounts/views.py:92
+#: apps/accounts/templates/resend-email.html:8 apps/accounts/views.py:90
 msgid "Forgot Password"
 msgstr "忘記密碼"
 
-#: accounts/templates/resend-email.html:21
-#: accounts/templates/reset-password.html:62
+#: apps/accounts/templates/resend-email.html:21
+#: apps/accounts/templates/reset-password.html:62
 msgid "Resend Email"
 msgstr "重寄驗證信"
 
-#: accounts/templates/resend-email.html:39
+#: apps/accounts/templates/resend-email.html:39
 msgid "We will resend an email to your mail box"
 msgstr "系統將寄送新的驗證信給您"
 
-#: accounts/templates/resend-email.html:49
-#: accounts/templates/resend-email.html:63
+#: apps/accounts/templates/resend-email.html:49
+#: apps/accounts/templates/resend-email.html:63
 msgid "Enter your"
 msgstr "請輸入您的"
 
-#: accounts/templates/resend-email.html:60
+#: apps/accounts/templates/resend-email.html:60
 msgid "OR"
 msgstr "或"
 
-#: accounts/templates/resend-email.html:76
+#: apps/accounts/templates/resend-email.html:76
 msgid "Send Email"
 msgstr "寄送驗證信"
 
-#: accounts/templates/reset-password.html:58
+#: apps/accounts/templates/reset-password.html:58
 msgid "Link Invalid"
 msgstr "連結已失效"
 
-#: accounts/templates/reset-password.html:59
+#: apps/accounts/templates/reset-password.html:59
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset"
 msgstr "您使用的重設密碼連結已經失效，可能已經使用過了。請再重寄一次驗證信"
 
-#: accounts/views.py:77
+#: apps/accounts/views.py:75
 msgid ""
 "Successfully registered! Please check your email to activate your account"
 msgstr ""
 "註冊完成！ 請至您的信箱收取驗證信來啟用您的帳號，驗證信將於5分鐘內寄至您的信"
 "箱"
 
-#: accounts/views.py:117
+#: apps/accounts/views.py:115
 msgid "Activate Account"
 msgstr "啟用帳號"
 
-#: accounts/views.py:131
+#: apps/accounts/views.py:129
 msgid "Your account is already activated"
 msgstr "您的帳號已經啟用過了"
 
-#: accounts/views.py:162
+#: apps/accounts/views.py:160
 msgid "Your password has been reset"
 msgstr "恭喜！您的密碼已經重新設定了"
 
-#: accounts/views.py:179
+#: apps/accounts/views.py:177
 msgid "Your account is activated"
 msgstr "恭喜！您的帳號已經順利啟用了"
 
-#: accounts/views.py:181
+#: apps/accounts/views.py:179
 msgid "This activation key is already used"
 msgstr "您的帳號已經驗證過了"
 
-#: cattles/models.py:29
+#: apps/cattles/models.py:29
 msgid "Cattle"
 msgstr "牛"
 
-#: cattles/models.py:30
+#: apps/cattles/models.py:30
 msgid "Cattles"
 msgstr "牛"
 
-#: chickens/models.py:29
+#: apps/chickens/models.py:29
 msgid "Chicken"
 msgstr "雞"
 
-#: chickens/models.py:30
+#: apps/chickens/models.py:30
 msgid "Chickens"
 msgstr "雞"
 
-#: comments/models.py:58 posts/models.py:35
+#: apps/comments/models.py:58 apps/posts/models.py:34
 msgid "File"
 msgstr "檔案"
 
-#: comments/models.py:59 posts/models.py:36 posts/templates/socialwall.html:94
+#: apps/comments/models.py:59 apps/posts/models.py:35
+#: apps/posts/templates/socialwall.html:94
 msgid "Content"
 msgstr "內容"
 
-#: comments/models.py:60 posts/models.py:40
+#: apps/comments/models.py:60 apps/posts/models.py:39
 msgid "Timestamp"
 msgstr "時間戳"
 
-#: comments/models.py:65 posts/templates/socialwall.html.py:95
+#: apps/comments/models.py:65 apps/posts/templates/socialwall.html:95
 msgid "Comment"
 msgstr "回覆"
 
-#: comments/models.py:66
+#: apps/comments/models.py:66
 msgid "Comments"
 msgstr "回覆"
 
-#: comments/templates/partial_comment_create.html:5
+#: apps/comments/templates/partial_comment_create.html:5
 msgid "Create a new comment"
 msgstr "發布一篇新的回覆"
 
-#: comments/templates/partial_comment_delete.html:6
+#: apps/comments/templates/partial_comment_delete.html:6
 msgid "Confirm comment deletion"
 msgstr "刪除確認"
 
-#: comments/templates/partial_comment_delete.html:12
+#: apps/comments/templates/partial_comment_delete.html:12
 msgid "Are you sure you want to delete the comment"
 msgstr "確定要刪除這個回覆嗎"
 
-#: comments/templates/partial_comment_update.html:5
+#: apps/comments/templates/partial_comment_update.html:5
 msgid "Update comment"
 msgstr "編輯回覆"
 
-#: configs/models.py:19 configs/models.py:127 configs/models.py:183
-#: configs/models.py:281 logs/models.py:25
+#: apps/configs/models.py:19 apps/configs/models.py:127
+#: apps/configs/models.py:183 apps/configs/models.py:281 apps/logs/models.py:25
 msgid "Code"
 msgstr "代碼"
 
-#: configs/models.py:20 configs/models.py:133 configs/models.py:184
+#: apps/configs/models.py:20 apps/configs/models.py:133
+#: apps/configs/models.py:184
 msgid "Config"
 msgstr "品項種類"
 
-#: configs/models.py:21 configs/models.py:185 configs/models.py:235
-#: watchlists/models.py:152
+#: apps/configs/models.py:21 apps/configs/models.py:185
+#: apps/configs/models.py:235 apps/watchlists/models.py:152
 msgid "Type"
 msgstr "供應階段"
 
-#: configs/models.py:22 configs/models.py:262
+#: apps/configs/models.py:22 apps/configs/models.py:262
 #: templates/contents/unit-info.html:7 templates/contents/unit-info.html:9
-#: templates/contents/unit-info.html:11 templates/navigation.html.py:90
+#: templates/contents/unit-info.html:11 templates/navigation.html:90
 msgid "Unit"
 msgstr "單位"
 
-#: configs/models.py:24
+#: apps/configs/models.py:24
 msgid "Track Item"
 msgstr "是否抓取資料"
 
-#: configs/models.py:25 configs/models.py:130 configs/models.py:187
-#: configs/models.py:230 configs/models.py:259 configs/models.py:283
-#: dailytrans/models.py:50 events/models.py:63 logs/models.py:26
-#: posts/models.py:39 watchlists/models.py:45 watchlists/models.py:46
-#: watchlists/models.py:134 watchlists/models.py:161
+#: apps/configs/models.py:25 apps/configs/models.py:130
+#: apps/configs/models.py:187 apps/configs/models.py:230
+#: apps/configs/models.py:259 apps/configs/models.py:283
+#: apps/dailytrans/models.py:49 apps/events/models.py:65 apps/logs/models.py:26
+#: apps/posts/models.py:38 apps/watchlists/models.py:45
+#: apps/watchlists/models.py:46 apps/watchlists/models.py:134
+#: apps/watchlists/models.py:161
 msgid "Updated"
 msgstr "上次更新"
 
-#: configs/models.py:30
+#: apps/configs/models.py:30
 msgid "Abstract Product"
 msgstr "抽象品項"
 
-#: configs/models.py:31
+#: apps/configs/models.py:31
 msgid "Abstract Products"
 msgstr "抽象品項"
 
-#: configs/models.py:128 configs/models.py:286
+#: apps/configs/models.py:128 apps/configs/models.py:286
 #: templates/ajax/chart-1-content.html:28
 #: templates/ajax/chart-2-content.html:28
 #: templates/ajax/chart-5-content.html:30
@@ -582,167 +602,576 @@ msgstr "抽象品項"
 msgid "Chart"
 msgstr "圖表"
 
-#: configs/models.py:129
+#: apps/configs/models.py:129
 msgid "Type Level"
 msgstr "供應階段選單層別"
 
-#: configs/models.py:134
+#: apps/configs/models.py:134
 msgid "Configs"
 msgstr "品項分類"
 
-#: configs/models.py:182
+#: apps/configs/models.py:182
 msgid "Alias"
 msgstr "同義名"
 
-#: configs/models.py:186
+#: apps/configs/models.py:186
 msgid "Enabled"
 msgstr "啟用"
 
-#: configs/models.py:192 dailytrans/models.py:42 templates/navigation.html:84
-#: watchlists/models.py:132
+#: apps/configs/models.py:192 apps/dailytrans/models.py:41
+#: apps/watchlists/models.py:132 templates/navigation.html:84
 msgid "Source"
 msgstr "來源"
 
-#: configs/models.py:193
+#: apps/configs/models.py:193
 msgid "Sources"
 msgstr "來源"
 
-#: configs/models.py:236
+#: apps/configs/models.py:236
 msgid "Types"
 msgstr "供應階段"
 
-#: configs/models.py:256 templates/contents/unit-info.html.py:15
+#: apps/configs/models.py:256 templates/contents/unit-info.html:15
 msgid "Price Unit"
 msgstr "價格單位"
 
-#: configs/models.py:257 templates/contents/unit-info.html.py:18
+#: apps/configs/models.py:257 templates/contents/unit-info.html:18
 msgid "Volume Unit"
 msgstr "交易量單位"
 
-#: configs/models.py:258 templates/contents/unit-info.html.py:21
+#: apps/configs/models.py:258 templates/contents/unit-info.html:21
 msgid "Weight Unit"
 msgstr "重量單位"
 
-#: configs/models.py:263
+#: apps/configs/models.py:263
 msgid "Units"
 msgstr "單位"
 
-#: configs/models.py:282
+#: apps/configs/models.py:282
 msgid "Template Name"
 msgstr "模板"
 
-#: configs/models.py:287
+#: apps/configs/models.py:287
 msgid "Charts"
 msgstr "圖表"
 
-#: configs/models.py:300 dailytrans/utils.py:359
+#: apps/configs/models.py:300 apps/dailytrans/utils.py:347
 msgid "Month"
 msgstr "月份"
 
-#: configs/models.py:301
+#: apps/configs/models.py:301
 msgid "Months"
 msgstr "月份"
 
-#: crops/models.py:29
+#: apps/crops/models.py:29
 msgid "Crop"
 msgstr "蔬菜"
 
-#: crops/models.py:30
+#: apps/crops/models.py:30
 msgid "Crops"
 msgstr "蔬菜"
 
-#: dailytrans/models.py:41 templates/contents/watchlist-profile-table.html.py:9
-#: templates/navigation.html:87 watchlists/models.py:131
-#: watchlists/models.py:150
+#: apps/dailytrans/models.py:40 apps/watchlists/models.py:131
+#: apps/watchlists/models.py:150
+#: templates/contents/watchlist-profile-table.html:9
+#: templates/navigation.html:87
 msgid "Product"
 msgstr "品項"
 
-#: dailytrans/models.py:43
+#: apps/dailytrans/models.py:42
 msgid "Up Price"
 msgstr "上價"
 
-#: dailytrans/models.py:44
+#: apps/dailytrans/models.py:43
 msgid "Mid Price"
 msgstr "中價"
 
-#: dailytrans/models.py:45
+#: apps/dailytrans/models.py:44
 msgid "Low Pirce"
 msgstr "下價"
 
-#: dailytrans/models.py:46 dailytrans/utils.py:120 dailytrans/utils.py:145
-#: dailytrans/utils.py:166 templates/contents/index-panel.html.py:20
+#: apps/dailytrans/models.py:45 apps/dailytrans/utils.py:120
+#: apps/dailytrans/utils.py:145 apps/dailytrans/utils.py:166
+#: templates/contents/index-panel.html:20
 #: templates/contents/integration-table.html:12
 msgid "Average Price"
 msgstr "日均價格"
 
-#: dailytrans/models.py:47 dailytrans/utils.py:122
+#: apps/dailytrans/models.py:46 apps/dailytrans/utils.py:122
 #: templates/contents/index-panel.html:24
 #: templates/contents/integration-table.html:19
 msgid "Average Weight"
 msgstr "日均重量"
 
-#: dailytrans/models.py:48 templates/contents/integration-table.html.py:16
+#: apps/dailytrans/models.py:47 templates/contents/integration-table.html:16
 msgid "Volume"
 msgstr "交易量"
 
-#: dailytrans/models.py:49 dailytrans/utils.py:119 dailytrans/utils.py:144
-#: dailytrans/utils.py:165 dailytrans/utils.py:233 events/forms.py:23
-#: events/models.py:61 templates/contents/event-table.html.py:12
+#: apps/dailytrans/models.py:48 apps/dailytrans/utils.py:119
+#: apps/dailytrans/utils.py:144 apps/dailytrans/utils.py:165
+#: apps/dailytrans/utils.py:233 apps/events/forms.py:20
+#: apps/events/models.py:63 templates/contents/event-table.html:12
 #: templates/contents/integration-table.html:11
 msgid "Date"
 msgstr "日期"
 
-#: dailytrans/models.py:51
+#: apps/dailytrans/models.py:50
 msgid "Not Updated Count"
 msgstr "未更新累計"
 
-#: dailytrans/models.py:56 templates/navigation.html.py:81
+#: apps/dailytrans/models.py:51
+msgid "Create Time"
+msgstr "建立時間"
+
+#: apps/dailytrans/models.py:56 templates/navigation.html:81
 msgid "Daily Transition"
 msgstr "日交易"
 
-#: dailytrans/models.py:57
+#: apps/dailytrans/models.py:57
 msgid "Daily Transitions"
 msgstr "日交易"
 
-#: dailytrans/utils.py:121 dailytrans/utils.py:146
+#: apps/dailytrans/utils.py:121 apps/dailytrans/utils.py:146
 msgid "Sum Volume"
 msgstr "總交易量"
 
-#: dailytrans/utils.py:360
+#: apps/dailytrans/utils.py:348
 msgid "Min"
 msgstr "最小值"
 
-#: dailytrans/utils.py:361
+#: apps/dailytrans/utils.py:349
 msgid "25%"
 msgstr "第一四分位數"
 
-#: dailytrans/utils.py:362
+#: apps/dailytrans/utils.py:350
 msgid "50%"
 msgstr "中位數"
 
-#: dailytrans/utils.py:363
+#: apps/dailytrans/utils.py:351
 msgid "75%"
 msgstr "第三四分位數"
 
-#: dailytrans/utils.py:364
+#: apps/dailytrans/utils.py:352
 msgid "Max"
 msgstr "最大值"
 
-#: dailytrans/utils.py:365
+#: apps/dailytrans/utils.py:353
 msgid "Mean"
 msgstr "平均值"
 
-#: dailytrans/utils.py:490
+#: apps/dailytrans/utils.py:488
 msgid "This Term"
 msgstr "本期"
 
-#: dailytrans/utils.py:498
+#: apps/dailytrans/utils.py:496
 msgid "Last Term"
 msgstr "上期"
 
-#: dailytrans/utils.py:509
+#: apps/dailytrans/utils.py:507
 msgid "5 Years"
 msgstr "近5年"
+
+#: apps/ducks/models.py:29
+msgid "Duck"
+msgstr "鴨"
+
+#: apps/ducks/models.py:30
+msgid "Ducks"
+msgstr "鴨"
+
+#: apps/events/api/serializers.py:64
+msgid "This value does not match the required pattern"
+msgstr ""
+
+#: apps/events/forms.py:21
+msgid "Share this event"
+msgstr "共用此事件"
+
+#: apps/events/models.py:42 apps/events/models.py:60
+#: templates/contents/event-table.html:14 templates/navigation.html:105
+msgid "Event Type"
+msgstr "事件分類"
+
+#: apps/events/models.py:43
+msgid "Event Types"
+msgstr "事件分類"
+
+#: apps/events/models.py:60
+msgid "You can create new event type here"
+msgstr "你可以在此新增新的事件分類，如：「超種」、「節慶/中元節」"
+
+#: apps/events/models.py:62 templates/contents/event-table.html:16
+msgid "Context"
+msgstr "內容"
+
+#: apps/events/models.py:64
+msgid "Shared Event"
+msgstr "共用事件"
+
+#: apps/events/models.py:68 templates/navigation.html:102
+msgid "Event"
+msgstr "事件簿"
+
+#: apps/events/models.py:69
+#: templates/contents/event-widget-type-panel-groups.html:26
+msgid "Events"
+msgstr "事件簿"
+
+#: apps/flowers/models.py:29
+msgid "Flower"
+msgstr "花卉"
+
+#: apps/flowers/models.py:30
+msgid "Flowers"
+msgstr "花卉"
+
+#: apps/fruits/models.py:29
+msgid "Fruit"
+msgstr "水果"
+
+#: apps/fruits/models.py:30
+msgid "Fruits"
+msgstr "水果"
+
+#: apps/gooses/models.py:29
+msgid "Goose"
+msgstr "鵝"
+
+#: apps/gooses/models.py:30
+msgid "Gooses"
+msgstr "鵝"
+
+#: apps/hogs/models.py:29
+msgid "Hog"
+msgstr "毛豬"
+
+#: apps/hogs/models.py:30
+msgid "Hogs"
+msgstr "毛豬"
+
+#: apps/logs/models.py:14
+msgid "Log Type"
+msgstr "日誌類型"
+
+#: apps/logs/models.py:15
+msgid "Url"
+msgstr "網址"
+
+#: apps/logs/models.py:16
+msgid "Duration"
+msgstr "歷時"
+
+#: apps/logs/models.py:19 templates/navigation.html:78
+msgid "Log"
+msgstr "日誌"
+
+#: apps/logs/models.py:20
+msgid "Logs"
+msgstr "日誌"
+
+#: apps/logs/models.py:29
+msgid "LogType"
+msgstr "日誌類型"
+
+#: apps/logs/models.py:30
+msgid "LogTypes"
+msgstr "日誌類型"
+
+#: apps/posts/models.py:33 apps/posts/templates/socialwall.html:92
+msgid "Title"
+msgstr "標題"
+
+#: apps/posts/models.py:36
+msgid "Publish"
+msgstr "發布時間"
+
+#: apps/posts/models.py:37
+msgid "Read Time"
+msgstr "點閱次數"
+
+#: apps/posts/models.py:42
+msgid "Post"
+msgstr "貼文"
+
+#: apps/posts/models.py:43
+msgid "Posts"
+msgstr "貼文"
+
+#: apps/posts/templates/form_modal.html:8
+#: apps/posts/templates/socialwall.html:82
+msgid "New Post"
+msgstr "新增貼文"
+
+#: apps/posts/templates/form_modal.html:9
+msgid "Edit Post"
+msgstr "編輯貼文"
+
+#: apps/posts/templates/form_modal.html:17
+msgid "Send"
+msgstr "送出"
+
+#: apps/posts/templates/post.html:11 apps/posts/templates/post_area.html:13
+msgid "Hide this post"
+msgstr "隱藏這則貼文"
+
+#: apps/posts/templates/post.html:46 apps/posts/templates/post.html:76
+#: apps/posts/templates/post_area.html:54
+#: apps/posts/templates/post_area.html:103
+#: apps/posts/templates/post_area.html:128
+#: apps/posts/templates/post_edit.html:29 apps/posts/templates/reply.html:18
+#: apps/posts/templates/reply.html:25
+msgid "Reply"
+msgstr "回覆"
+
+#: apps/posts/templates/post.html:49 apps/posts/templates/post_area.html:57
+#: apps/posts/templates/post_area.html:106
+#: apps/posts/templates/post_edit.html:32 apps/posts/templates/reply.html:28
+msgid "Like"
+msgstr "喜歡"
+
+#: apps/posts/templates/post.html:56 apps/posts/templates/post_area.html:64
+#: apps/posts/templates/post_area.html:113
+#: apps/posts/templates/post_edit.html:39 apps/posts/templates/reply.html:35
+#: templates/contents/event-table.html:10
+msgid "Edit"
+msgstr "編輯"
+
+#: apps/posts/templates/post.html:59 apps/posts/templates/post_area.html:67
+#: apps/posts/templates/post_area.html:116
+#: apps/posts/templates/post_edit.html:42 apps/posts/templates/reply.html:38
+#: templates/contents/event-table.html:11
+msgid "Delete"
+msgstr "刪除"
+
+#: apps/posts/templates/post.html:73 apps/posts/templates/post_area.html:125
+msgid "Type and enter"
+msgstr "輸入回覆並按Enter送出"
+
+#: apps/posts/templates/post_area.html:40
+#: apps/posts/templates/post_edit.html:16
+msgid "edited"
+msgstr "已編輯"
+
+#: apps/posts/templates/socialwall.html:43 templates/ajax/about.html:13
+#: templates/navigation.html:57
+msgid "Main"
+msgstr "主頁"
+
+#: apps/posts/templates/socialwall.html:45 templates/navigation.html:63
+msgid "Social Wall"
+msgstr "輿情回應專區"
+
+#: apps/posts/templates/socialwall.html:88
+msgid "Filter by"
+msgstr "關鍵字"
+
+#: apps/posts/templates/socialwall.html:93
+msgid "Author"
+msgstr "發文者"
+
+#: apps/posts/templates/socialwall.html:97
+msgid "All"
+msgstr "全部"
+
+#: apps/posts/templates/socialwall.html:101
+msgid "Search term..."
+msgstr "輸入關鍵字..."
+
+#: apps/posts/templates/socialwall.html:101
+msgid "Default search all..."
+msgstr "預設搜尋全部..."
+
+#: apps/posts/templates/socialwall404.html:484 templates/ajax/no-data.html:484
+msgid "NO DATA"
+msgstr "尚無資料"
+
+#: apps/posts/templates/socialwall404.html:487
+msgid "Your search"
+msgstr "找不到符合搜尋字詞"
+
+#: apps/posts/templates/socialwall404.html:487
+msgid "did not match any documents."
+msgstr "的文章。"
+
+#: apps/posts/templates/socialwall404.html:492
+msgid "Suggestions:"
+msgstr "建議："
+
+#: apps/posts/templates/socialwall404.html:496
+msgid "Make sure that all words are spelled correctly"
+msgstr "請檢查有無錯別字。"
+
+#: apps/posts/templates/socialwall404.html:497
+msgid "Try different keywords."
+msgstr "試試以其他關鍵字搜尋。"
+
+#: apps/posts/templates/socialwall404.html:498
+msgid "Try more general keywords."
+msgstr "試試以較籠統的關鍵字搜尋。"
+
+#: apps/posts/templatetags/socialwall_filter.py:25
+#: apps/posts/templatetags/socialwall_filter.py:50
+msgid "years"
+msgstr "年"
+
+#: apps/posts/templatetags/socialwall_filter.py:26
+#: apps/posts/templatetags/socialwall_filter.py:51
+msgid "months"
+msgstr "月"
+
+#: apps/posts/templatetags/socialwall_filter.py:27
+#: apps/posts/templatetags/socialwall_filter.py:52
+msgid "weeks"
+msgstr "週"
+
+#: apps/posts/templatetags/socialwall_filter.py:28
+#: apps/posts/templatetags/socialwall_filter.py:53
+msgid "days"
+msgstr "天"
+
+#: apps/posts/templatetags/socialwall_filter.py:29
+#: apps/posts/templatetags/socialwall_filter.py:54
+msgid "hours"
+msgstr "小時"
+
+#: apps/posts/templatetags/socialwall_filter.py:30
+#: apps/posts/templatetags/socialwall_filter.py:55
+msgid "minutes"
+msgstr "分鐘"
+
+#: apps/posts/templatetags/socialwall_filter.py:31
+#: apps/posts/templatetags/socialwall_filter.py:38
+#: apps/posts/templatetags/socialwall_filter.py:56
+#: apps/posts/templatetags/socialwall_filter.py:63
+msgid "seconds"
+msgstr "秒"
+
+#: apps/posts/templatetags/socialwall_filter.py:35
+#: apps/posts/templatetags/socialwall_filter.py:38
+#: apps/posts/templatetags/socialwall_filter.py:60
+#: apps/posts/templatetags/socialwall_filter.py:63
+msgid "ago"
+msgstr "之前"
+
+#: apps/posts/templatetags/socialwall_filter.py:37
+#: apps/posts/templatetags/socialwall_filter.py:62
+msgid "now"
+msgstr "剛剛"
+
+#: apps/rams/models.py:29
+msgid "Ram"
+msgstr "羊"
+
+#: apps/rams/models.py:30
+msgid "Rams"
+msgstr "羊"
+
+#: apps/rices/models.py:29
+msgid "Rice"
+msgstr "稻米"
+
+#: apps/rices/models.py:30
+msgid "Rices"
+msgstr "稻米"
+
+#: apps/seafoods/models.py:29
+msgid "Seafood"
+msgstr "水產品"
+
+#: apps/seafoods/models.py:30
+msgid "Seafoods"
+msgstr "水產品"
+
+#: apps/watchlists/models.py:23
+msgid "<"
+msgstr "低於"
+
+#: apps/watchlists/models.py:24
+msgid "<="
+msgstr "低於（含）"
+
+#: apps/watchlists/models.py:25
+msgid ">"
+msgstr "高於"
+
+#: apps/watchlists/models.py:26
+msgid ">="
+msgstr "高於（含）"
+
+#: apps/watchlists/models.py:41
+msgid "Is Default"
+msgstr "預設（唯一）"
+
+#: apps/watchlists/models.py:42
+msgid "Watch All"
+msgstr "監控全部（唯一）"
+
+#: apps/watchlists/models.py:43
+msgid "Start Date"
+msgstr "起始日期"
+
+#: apps/watchlists/models.py:44
+msgid "End Date"
+msgstr "結束日期"
+
+#: apps/watchlists/models.py:49 apps/watchlists/models.py:151
+#: templates/navigation.html:33 templates/navigation.html:93
+msgid "Watchlist"
+msgstr "監控清單"
+
+#: apps/watchlists/models.py:50
+msgid "Watchlists"
+msgstr "監控清單"
+
+#: apps/watchlists/models.py:139
+#: templates/contents/watchlist-profile-table.html:10
+#: templates/navigation.html:96
+msgid "Watchlist Item"
+msgstr "監控品項"
+
+#: apps/watchlists/models.py:140
+msgid "Watchlist Items"
+msgstr "監控品項"
+
+#: apps/watchlists/models.py:153 templates/contents/integration-table.html:13
+msgid "Price"
+msgstr "價格"
+
+#: apps/watchlists/models.py:154
+msgid "Comparator"
+msgstr "比較器"
+
+#: apps/watchlists/models.py:155
+msgid "Color"
+msgstr "顯示顏色"
+
+#: apps/watchlists/models.py:156
+#: templates/contents/monitor-profile-table.html:8
+msgid "Monitor Info"
+msgstr "監控基準價格訂定理由"
+
+#: apps/watchlists/models.py:157
+#: templates/contents/monitor-profile-table.html:10
+msgid "Action"
+msgstr "因應措施"
+
+#: apps/watchlists/models.py:158
+#: templates/contents/monitor-profile-table.html:9
+msgid "Period"
+msgstr "監控期間"
+
+#: apps/watchlists/models.py:159
+msgid "Is Active"
+msgstr "啟用"
+
+#: apps/watchlists/models.py:160
+msgid "Monitor Months"
+msgstr "監控月份"
+
+#: apps/watchlists/models.py:164 apps/watchlists/models.py:165
+#: templates/contents/product-profile.html:93 templates/navigation.html:99
+msgid "Monitor Profile"
+msgstr "監控價格內容及因應措施"
 
 #: dashboard/settings/base.py:201
 msgid "Traditional Chinese"
@@ -752,312 +1181,7 @@ msgstr "繁體中文"
 msgid "English"
 msgstr ""
 
-#: ducks/models.py:29
-msgid "Duck"
-msgstr "鴨"
-
-#: ducks/models.py:30
-msgid "Ducks"
-msgstr "鴨"
-
-#: events/api/serializers.py:63
-msgid "This value does not match the required pattern"
-msgstr ""
-
-#: events/forms.py:24
-msgid "Share this event"
-msgstr "共用此事件"
-
-#: events/models.py:40 events/models.py:58
-#: templates/contents/event-table.html:14 templates/navigation.html.py:105
-msgid "Event Type"
-msgstr "事件分類"
-
-#: events/models.py:41
-msgid "Event Types"
-msgstr "事件分類"
-
-#: events/models.py:58
-msgid "You can create new event type here"
-msgstr "你可以在此新增新的事件分類，如：「超種」、「節慶/中元節」"
-
-#: events/models.py:60 templates/contents/event-table.html.py:16
-msgid "Context"
-msgstr "內容"
-
-#: events/models.py:62
-msgid "Shared Event"
-msgstr "共用事件"
-
-#: events/models.py:66 templates/navigation.html.py:102
-msgid "Event"
-msgstr "事件簿"
-
-#: events/models.py:67
-#: templates/contents/event-widget-type-panel-groups.html:26
-msgid "Events"
-msgstr "事件簿"
-
-#: flowers/models.py:29
-msgid "Flower"
-msgstr "花卉"
-
-#: flowers/models.py:30
-msgid "Flowers"
-msgstr "花卉"
-
-#: fruits/models.py:29
-msgid "Fruit"
-msgstr "水果"
-
-#: fruits/models.py:30
-msgid "Fruits"
-msgstr "水果"
-
-#: gooses/models.py:29
-msgid "Goose"
-msgstr "鵝"
-
-#: gooses/models.py:30
-msgid "Gooses"
-msgstr "鵝"
-
-#: hogs/models.py:29
-msgid "Hog"
-msgstr "毛豬"
-
-#: hogs/models.py:30
-msgid "Hogs"
-msgstr "毛豬"
-
-#: logs/models.py:14
-msgid "Log Type"
-msgstr "日誌類型"
-
-#: logs/models.py:15
-msgid "Url"
-msgstr "網址"
-
-#: logs/models.py:16
-msgid "Duration"
-msgstr "歷時"
-
-#: logs/models.py:19 templates/navigation.html.py:78
-msgid "Log"
-msgstr "日誌"
-
-#: logs/models.py:20
-msgid "Logs"
-msgstr "日誌"
-
-#: logs/models.py:29
-msgid "LogType"
-msgstr "日誌類型"
-
-#: logs/models.py:30
-msgid "LogTypes"
-msgstr "日誌類型"
-
-#: posts/models.py:34 posts/templates/socialwall.html.py:92
-msgid "Title"
-msgstr "標題"
-
-#: posts/models.py:37
-msgid "Publish"
-msgstr "發布時間"
-
-#: posts/models.py:38
-msgid "Read Time"
-msgstr "點閱次數"
-
-#: posts/models.py:43
-msgid "Post"
-msgstr "貼文"
-
-#: posts/models.py:44
-msgid "Posts"
-msgstr "貼文"
-
-#: posts/templates/form_modal.html:8 posts/templates/socialwall.html.py:82
-msgid "New Post"
-msgstr "新增貼文"
-
-#: posts/templates/form_modal.html:9
-msgid "Edit Post"
-msgstr "編輯貼文"
-
-#: posts/templates/form_modal.html:17
-msgid "Send"
-msgstr "送出"
-
-#: posts/templates/post.html:11 posts/templates/post_area.html.py:13
-msgid "Hide this post"
-msgstr "隱藏這則貼文"
-
-#: posts/templates/post.html:46 posts/templates/post.html.py:76
-#: posts/templates/post_area.html:54 posts/templates/post_area.html.py:103
-#: posts/templates/post_area.html:128 posts/templates/post_edit.html.py:29
-#: posts/templates/reply.html:18 posts/templates/reply.html.py:25
-msgid "Reply"
-msgstr "回覆"
-
-#: posts/templates/post.html:49 posts/templates/post_area.html.py:57
-#: posts/templates/post_area.html:106 posts/templates/post_edit.html.py:32
-#: posts/templates/reply.html:28
-msgid "Like"
-msgstr "喜歡"
-
-#: posts/templates/post.html:56 posts/templates/post_area.html.py:64
-#: posts/templates/post_area.html:113 posts/templates/post_edit.html.py:39
-#: posts/templates/reply.html:35 templates/contents/event-table.html.py:10
-msgid "Edit"
-msgstr "編輯"
-
-#: posts/templates/post.html:59 posts/templates/post_area.html.py:67
-#: posts/templates/post_area.html:116 posts/templates/post_edit.html.py:42
-#: posts/templates/reply.html:38 templates/contents/event-table.html.py:11
-msgid "Delete"
-msgstr "刪除"
-
-#: posts/templates/post.html:73 posts/templates/post_area.html.py:125
-msgid "Type and enter"
-msgstr "輸入回覆並按Enter送出"
-
-#: posts/templates/post_area.html:40 posts/templates/post_edit.html.py:16
-msgid "edited"
-msgstr "已編輯"
-
-#: posts/templates/socialwall.html:43 templates/ajax/about.html.py:13
-#: templates/navigation.html:57
-msgid "Main"
-msgstr "主頁"
-
-#: posts/templates/socialwall.html:45 templates/navigation.html.py:63
-msgid "Social Wall"
-msgstr "輿情回應專區"
-
-#: posts/templates/socialwall.html:88
-msgid "Filter by"
-msgstr "關鍵字"
-
-#: posts/templates/socialwall.html:93
-msgid "Author"
-msgstr "發文者"
-
-#: posts/templates/socialwall.html:97
-msgid "All"
-msgstr "全部"
-
-#: posts/templates/socialwall.html:101
-msgid "Search term..."
-msgstr "輸入關鍵字..."
-
-#: posts/templates/socialwall.html:101
-msgid "Default search all..."
-msgstr "預設搜尋全部..."
-
-#: posts/templates/socialwall404.html:484 templates/ajax/no-data.html.py:484
-msgid "NO DATA"
-msgstr "尚無資料"
-
-#: posts/templates/socialwall404.html:487
-msgid "Your search"
-msgstr "找不到符合搜尋字詞"
-
-#: posts/templates/socialwall404.html:487
-msgid "did not match any documents."
-msgstr "的文章。"
-
-#: posts/templates/socialwall404.html:492
-msgid "Suggestions:"
-msgstr "建議："
-
-#: posts/templates/socialwall404.html:496
-msgid "Make sure that all words are spelled correctly"
-msgstr "請檢查有無錯別字。"
-
-#: posts/templates/socialwall404.html:497
-msgid "Try different keywords."
-msgstr "試試以其他關鍵字搜尋。"
-
-#: posts/templates/socialwall404.html:498
-msgid "Try more general keywords."
-msgstr "試試以較籠統的關鍵字搜尋。"
-
-#: posts/templatetags/socialwall_filter.py:25
-#: posts/templatetags/socialwall_filter.py:50
-msgid "years"
-msgstr "年"
-
-#: posts/templatetags/socialwall_filter.py:26
-#: posts/templatetags/socialwall_filter.py:51
-msgid "months"
-msgstr "月"
-
-#: posts/templatetags/socialwall_filter.py:27
-#: posts/templatetags/socialwall_filter.py:52
-msgid "weeks"
-msgstr "週"
-
-#: posts/templatetags/socialwall_filter.py:28
-#: posts/templatetags/socialwall_filter.py:53
-msgid "days"
-msgstr "天"
-
-#: posts/templatetags/socialwall_filter.py:29
-#: posts/templatetags/socialwall_filter.py:54
-msgid "hours"
-msgstr "小時"
-
-#: posts/templatetags/socialwall_filter.py:30
-#: posts/templatetags/socialwall_filter.py:55
-msgid "minutes"
-msgstr "分鐘"
-
-#: posts/templatetags/socialwall_filter.py:31
-#: posts/templatetags/socialwall_filter.py:38
-#: posts/templatetags/socialwall_filter.py:56
-#: posts/templatetags/socialwall_filter.py:63
-msgid "seconds"
-msgstr "秒"
-
-#: posts/templatetags/socialwall_filter.py:35
-#: posts/templatetags/socialwall_filter.py:38
-#: posts/templatetags/socialwall_filter.py:60
-#: posts/templatetags/socialwall_filter.py:63
-msgid "ago"
-msgstr "之前"
-
-#: posts/templatetags/socialwall_filter.py:37
-#: posts/templatetags/socialwall_filter.py:62
-msgid "now"
-msgstr "剛剛"
-
-#: rams/models.py:29
-msgid "Ram"
-msgstr "羊"
-
-#: rams/models.py:30
-msgid "Rams"
-msgstr "羊"
-
-#: rices/models.py:29
-msgid "Rice"
-msgstr "稻米"
-
-#: rices/models.py:30
-msgid "Rices"
-msgstr "稻米"
-
-#: seafoods/models.py:29
-msgid "Seafood"
-msgstr "水產品"
-
-#: seafoods/models.py:30
-msgid "Seafoods"
-msgstr "水產品"
-
-#: templates/ajax/about.html:15 templates/navigation.html.py:60
+#: templates/ajax/about.html:15 templates/navigation.html:60
 #: templates/shortcut.html:9
 msgid "About"
 msgstr "關於"
@@ -1214,34 +1338,34 @@ msgstr "目前無資料可供顯示，此區間可能非品項之產季"
 msgid "Any further question please contact us"
 msgstr "若有任何問題請與我們聯繫"
 
-#: templates/browser-not-support.html:76
+#: templates/browser-not-support.html:78
 msgid "Internet Explore"
 msgstr ""
 
-#: templates/browser-not-support.html:79
+#: templates/browser-not-support.html:81
 msgid "BROWSER TOO OLD"
 msgstr "瀏覽器不支援"
 
-#: templates/browser-not-support.html:82
+#: templates/browser-not-support.html:84
 msgid "Sorry, your browser does not support current web applications."
 msgstr "很抱歉，本網站尚不相容您使用的瀏覽器，可能是您使用的瀏覽器過於老舊"
 
-#: templates/browser-not-support.html:83
+#: templates/browser-not-support.html:85
 msgid ""
 "Please use a newer Browser like firefox or Chrome and NOT IE. Microsoft is "
 "ending their support for this browser."
 msgstr ""
 "本網站建議使用Chrome 20.0版以上、Firefox 17.0版以上或Safari 8.0版以上之瀏覽器"
 
-#: templates/browser-not-support.html:86
+#: templates/browser-not-support.html:88
 msgid "Download Chrome"
 msgstr "前往下載Chrome"
 
-#: templates/browser-not-support.html:87
+#: templates/browser-not-support.html:89
 msgid "Download Firefox"
 msgstr "前往下載Firefox"
 
-#: templates/browser-not-support.html:88
+#: templates/browser-not-support.html:90
 msgid "Download Safari"
 msgstr "前往下載Safari"
 
@@ -1257,10 +1381,6 @@ msgstr "您所新增或編輯的事件將會顯示在上方的圖表"
 #: templates/contents/integration-table.html:15
 msgid "Average Volume"
 msgstr "日均交易量"
-
-#: templates/contents/integration-table.html:13 watchlists/models.py:153
-msgid "Price"
-msgstr "價格"
 
 #: templates/contents/integration-table.html:13
 #: templates/contents/integration-table.html:16
@@ -1280,26 +1400,9 @@ msgstr "整合資訊"
 msgid "Monitor Price"
 msgstr "監控價格"
 
-#: templates/contents/monitor-profile-table.html:8 watchlists/models.py:156
-msgid "Monitor Info"
-msgstr "監控基準價格訂定理由"
-
-#: templates/contents/monitor-profile-table.html:9 watchlists/models.py:158
-msgid "Period"
-msgstr "監控期間"
-
-#: templates/contents/monitor-profile-table.html:10 watchlists/models.py:157
-msgid "Action"
-msgstr "因應措施"
-
 #: templates/contents/product-profile.html:26
 msgid "Watchlist Item Profile"
 msgstr "監控品項內容及監控地點"
-
-#: templates/contents/product-profile.html:93 templates/navigation.html:99
-#: watchlists/models.py:164 watchlists/models.py:165
-msgid "Monitor Profile"
-msgstr "監控價格內容及因應措施"
 
 #: templates/contents/raw-table.html:21
 msgid "Search"
@@ -1319,11 +1422,6 @@ msgid ""
 "Average years in this chart is default to recent 5 years, you can change it "
 "in settings"
 msgstr "圖表的歷年平均預設為近五年平均，你可以於設定中更改此選項"
-
-#: templates/contents/watchlist-profile-table.html:10
-#: templates/navigation.html:96 watchlists/models.py:139
-msgid "Watchlist Item"
-msgstr "監控品項"
 
 #: templates/contents/watchlist-profile-table.html:12
 msgid "Monitor Source"
@@ -1355,11 +1453,6 @@ msgstr "全螢幕"
 msgid "Your browser is out of date, please update your browser by going to"
 msgstr "您使用的瀏覽器太過老舊；你可以從這裡升級瀏覽器："
 
-#: templates/navigation.html:33 templates/navigation.html.py:93
-#: watchlists/models.py:49 watchlists/models.py:151
-msgid "Watchlist"
-msgstr "監控清單"
-
 #: templates/navigation.html:69
 msgid "Admin"
 msgstr "後台管理"
@@ -1383,59 +1476,3 @@ msgstr "畜禽產品"
 #: templates/navigation.html:176
 msgid "Fisheries"
 msgstr "漁產品"
-
-#: watchlists/models.py:23
-msgid "<"
-msgstr "低於"
-
-#: watchlists/models.py:24
-msgid "<="
-msgstr "低於（含）"
-
-#: watchlists/models.py:25
-msgid ">"
-msgstr "高於"
-
-#: watchlists/models.py:26
-msgid ">="
-msgstr "高於（含）"
-
-#: watchlists/models.py:41
-msgid "Is Default"
-msgstr "預設（唯一）"
-
-#: watchlists/models.py:42
-msgid "Watch All"
-msgstr "監控全部（唯一）"
-
-#: watchlists/models.py:43
-msgid "Start Date"
-msgstr "起始日期"
-
-#: watchlists/models.py:44
-msgid "End Date"
-msgstr "結束日期"
-
-#: watchlists/models.py:50
-msgid "Watchlists"
-msgstr "監控清單"
-
-#: watchlists/models.py:140
-msgid "Watchlist Items"
-msgstr "監控品項"
-
-#: watchlists/models.py:154
-msgid "Comparator"
-msgstr "比較器"
-
-#: watchlists/models.py:155
-msgid "Color"
-msgstr "顯示顏色"
-
-#: watchlists/models.py:159
-msgid "Is Active"
-msgstr "啟用"
-
-#: watchlists/models.py:160
-msgid "Monitor Months"
-msgstr "監控月份"
