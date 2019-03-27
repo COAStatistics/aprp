@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-28 17:05+0800\n"
+"POT-Creation-Date: 2019-03-27 11:01+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,245 +17,299 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: accounts/forms.py:17
-msgid "Please Input Chinese Only"
-msgstr ""
-
-#: accounts/forms.py:21 accounts/forms.py:83 accounts/forms.py:110
-#: accounts/forms.py:177 accounts/views.py:114
-msgid "Account"
-msgstr ""
-
-#: accounts/forms.py:22 accounts/forms.py:112
-msgid "First Name"
-msgstr ""
-
-#: accounts/forms.py:23 accounts/forms.py:113
-msgid "Last Name"
-msgstr ""
-
-#: accounts/forms.py:24 accounts/models.py:38
+#: apps/accounts/admin.py:15 apps/accounts/forms.py:24
+#: apps/accounts/models.py:39
 msgid "Group"
 msgstr ""
 
-#: accounts/forms.py:24
+#: apps/accounts/forms.py:17
+msgid "Please Input Chinese Only"
+msgstr ""
+
+#: apps/accounts/forms.py:21 apps/accounts/forms.py:83
+#: apps/accounts/forms.py:116 apps/accounts/forms.py:194
+msgid "Account"
+msgstr ""
+
+#: apps/accounts/forms.py:22 apps/accounts/forms.py:118
+msgid "First Name"
+msgstr ""
+
+#: apps/accounts/forms.py:23 apps/accounts/forms.py:119
+msgid "Last Name"
+msgstr ""
+
+#: apps/accounts/forms.py:24
 msgid "Choose one of the following..."
 msgstr ""
 
-#: accounts/forms.py:25 accounts/models.py:186 accounts/models.py:200
-#: accounts/models.py:201
+#: apps/accounts/forms.py:25 apps/accounts/models.py:193
+#: apps/accounts/models.py:207 apps/accounts/models.py:208
 msgid "Reset Email"
 msgstr ""
 
-#: accounts/forms.py:57 accounts/forms.py:152
+#: apps/accounts/forms.py:57 apps/accounts/forms.py:164
 msgid "This email has already been registered"
 msgstr ""
 
-#: accounts/forms.py:63
+#: apps/accounts/forms.py:63
 msgid "To use this group, please change your email to this unit:"
 msgstr ""
 
-#: accounts/forms.py:84 accounts/forms.py:114 accounts/forms.py:157
+#: apps/accounts/forms.py:83 apps/accounts/forms.py:116
+#: apps/accounts/forms.py:194
+msgid "Please enter your account"
+msgstr ""
+
+#: apps/accounts/forms.py:84 apps/accounts/forms.py:120
+#: apps/accounts/forms.py:169
 msgid "Password"
 msgstr ""
 
-#: accounts/forms.py:96
+#: apps/accounts/forms.py:84 apps/accounts/forms.py:120
+#: apps/accounts/forms.py:169
+msgid "Please enter your password"
+msgstr ""
+
+#: apps/accounts/forms.py:94 apps/accounts/templates/login.html:35
+msgid ""
+"Guest account will no longer accessible. Please feel free to register new "
+"account"
+msgstr ""
+
+#: apps/accounts/forms.py:99
 msgid "Your account or password is incorrect"
 msgstr ""
 
-#: accounts/forms.py:111 accounts/forms.py:176
+#: apps/accounts/forms.py:105
+msgid "Please activate your account"
+msgstr ""
+
+#: apps/accounts/forms.py:107
+msgid "Resend Activation Email"
+msgstr ""
+
+#: apps/accounts/forms.py:117 apps/accounts/forms.py:193
 msgid "Email"
 msgstr ""
 
-#: accounts/forms.py:115 accounts/forms.py:158
+#: apps/accounts/forms.py:117 apps/accounts/forms.py:193
+msgid "Please enter your email"
+msgstr ""
+
+#: apps/accounts/forms.py:121 apps/accounts/forms.py:170
 msgid "Confirm Password"
 msgstr ""
 
-#: accounts/forms.py:116
-msgid "Condition"
+#: apps/accounts/forms.py:121 apps/accounts/forms.py:170
+msgid "Please confirm your password"
 msgstr ""
 
-#: accounts/forms.py:132
-msgid "You must agree out terms and conditions!"
+#: apps/accounts/forms.py:122
+msgid "Terms & Conditions"
 msgstr ""
 
-#: accounts/forms.py:139 accounts/forms.py:171
+#: apps/accounts/forms.py:139
+msgid "You must agree our terms and conditions"
+msgstr ""
+
+#: apps/accounts/forms.py:151 apps/accounts/forms.py:188
 msgid "Password must match"
 msgstr ""
 
-#: accounts/forms.py:148
+#: apps/accounts/forms.py:160
 msgid "Please register with email under domain \"@mail.coa.gov.tw\""
 msgstr ""
 
-#: accounts/forms.py:191 accounts/templates/resend-email.html.py:38
+#: apps/accounts/forms.py:208 apps/accounts/templates/resend-email.html:38
 msgid "Please advise your email or account"
 msgstr ""
 
-#: accounts/forms.py:196
+#: apps/accounts/forms.py:213
 msgid "Your account or email is incorrect"
 msgstr ""
 
-#: accounts/forms.py:205
+#: apps/accounts/forms.py:222
 msgid "This email is not exist"
 msgstr ""
 
-#: accounts/forms.py:213
+#: apps/accounts/forms.py:230
 msgid "This account is not exist"
 msgstr ""
 
-#: accounts/models.py:37 configs/models.py:18 configs/models.py:125
-#: configs/models.py:177 configs/models.py:222 configs/models.py:273
-#: configs/models.py:290 logs/models.py:21 watchlists/models.py:37
+#: apps/accounts/models.py:38 apps/configs/models.py:18
+#: apps/configs/models.py:126 apps/configs/models.py:181
+#: apps/configs/models.py:229 apps/configs/models.py:280
+#: apps/configs/models.py:297 apps/events/models.py:61 apps/logs/models.py:24
+#: apps/watchlists/models.py:39 templates/contents/event-table.html:15
 msgid "Name"
 msgstr ""
 
-#: accounts/models.py:39
+#: apps/accounts/models.py:40
 msgid "Email Dns"
 msgstr ""
 
-#: accounts/models.py:40 comments/models.py:57 configs/models.py:23
-#: watchlists/models.py:129
+#: apps/accounts/models.py:41 apps/comments/models.py:57
+#: apps/configs/models.py:23 apps/watchlists/models.py:133
 msgid "Parent"
 msgstr ""
 
-#: accounts/models.py:45
+#: apps/accounts/models.py:46
 msgid "Group Information"
 msgstr ""
 
-#: accounts/models.py:46
+#: apps/accounts/models.py:47
 msgid "Group Informations"
 msgstr ""
 
-#: accounts/models.py:76 accounts/models.py:99 posts/models.py:31
-#: watchlists/models.py:38
+#: apps/accounts/models.py:77 apps/accounts/models.py:105
+#: apps/posts/models.py:32 apps/watchlists/models.py:40
+#: templates/navigation.html:72
 msgid "User"
 msgstr ""
 
-#: accounts/models.py:77
-msgid "Is Editor"
+#: apps/accounts/models.py:78
+msgid "Event Editor"
 msgstr ""
 
-#: accounts/models.py:78
+#: apps/accounts/models.py:79
+msgid "Watchlist Viewer"
+msgstr ""
+
+#: apps/accounts/models.py:80
+msgid "Menu Item Viewer"
+msgstr ""
+
+#: apps/accounts/models.py:81
+msgid "Reporter"
+msgstr ""
+
+#: apps/accounts/models.py:82
+msgid "Alert Viewer"
+msgstr ""
+
+#: apps/accounts/models.py:83
+msgid "Monitor Info Viewer"
+msgstr ""
+
+#: apps/accounts/models.py:84
 msgid "Profile"
 msgstr ""
 
-#: accounts/models.py:81
+#: apps/accounts/models.py:87 templates/navigation.html:75
 msgid "User Information"
 msgstr ""
 
-#: accounts/models.py:82
+#: apps/accounts/models.py:88
 msgid "User Informations"
 msgstr ""
 
-#: accounts/models.py:100
+#: apps/accounts/models.py:106
 msgid "Activate Key"
 msgstr ""
 
-#: accounts/models.py:101
+#: apps/accounts/models.py:107
 msgid "Expired"
 msgstr ""
 
-#: accounts/models.py:106
+#: apps/accounts/models.py:112
 msgid "Abstract Profile"
 msgstr ""
 
-#: accounts/models.py:107
+#: apps/accounts/models.py:113
 msgid "Abstract Profiles"
 msgstr ""
 
-#: accounts/models.py:138
+#: apps/accounts/models.py:145
 msgid "Activation Profile"
 msgstr ""
 
-#: accounts/models.py:139
+#: apps/accounts/models.py:146
 msgid "Activation Profiles"
 msgstr ""
 
-#: accounts/models.py:149 accounts/views.py:114
-msgid "Activate"
+#: apps/accounts/models.py:156
+msgid "Activate My Account"
 msgstr ""
 
-#: accounts/models.py:150
-msgid "Account Activation"
-msgstr ""
-
-#: accounts/models.py:151
-msgid "Please activate your account by clicking the link below"
-msgstr ""
-
-#: accounts/models.py:152 accounts/templates/register.html.py:128
-msgid "Thank you for your registration"
-msgstr ""
-
-#: accounts/models.py:163
-msgid "Reset Password Profile"
-msgstr ""
-
-#: accounts/models.py:164
-msgid "Reset Password Profiles"
-msgstr ""
-
-#: accounts/models.py:174 accounts/models.py:175
-#: accounts/templates/reset-password.html:8
-#: accounts/templates/reset-password.html:22
-#: accounts/templates/reset-password.html:53
-msgid "Reset Password"
-msgstr ""
-
-#: accounts/models.py:176
-msgid "Please click the following button to reset your password"
-msgstr ""
-
-#: accounts/models.py:189
-msgid "Reset Email Profile"
-msgstr ""
-
-#: accounts/models.py:190
-msgid "Reset Email Profiles"
-msgstr ""
-
-#: accounts/models.py:202
-msgid "Please click the following button to reset your email"
-msgstr ""
-
-#: accounts/templates/account-base.html:8
-#: accounts/templates/account-base.html:45
-#: accounts/templates/introduction.html:5 templates/footer.html.py:7
-#: templates/header.html:9 templates/index.html.py:9
+#: apps/accounts/models.py:157 apps/accounts/models.py:182
+#: apps/accounts/models.py:208 apps/accounts/templates/account-base.html:5
+#: apps/accounts/templates/account-base.html:42
+#: apps/accounts/templates/introduction.html:5
+#: apps/accounts/templates/mail_content.html:142 templates/footer.html:7
+#: templates/header.html:9 templates/index.html:6
 msgid "Agriculture Products Price Report Platform"
 msgstr ""
 
-#: accounts/templates/account-base.html:85 templates/lock.html.py:94
-msgid "Your browser is out of date, please update your browser by going to"
+#: apps/accounts/models.py:157
+msgid "Account Activation"
 msgstr ""
 
-#: accounts/templates/edit_info.html:5
+#: apps/accounts/models.py:158
+msgid "Please activate your account by clicking the link below"
+msgstr ""
+
+#: apps/accounts/models.py:159 apps/accounts/templates/register.html:138
+msgid "Thank you for your registration"
+msgstr ""
+
+#: apps/accounts/models.py:170
+msgid "Reset Password Profile"
+msgstr ""
+
+#: apps/accounts/models.py:171
+msgid "Reset Password Profiles"
+msgstr ""
+
+#: apps/accounts/models.py:181 apps/accounts/models.py:182
+#: apps/accounts/templates/reset-password.html:8
+#: apps/accounts/templates/reset-password.html:22
+#: apps/accounts/templates/reset-password.html:53
+msgid "Reset Password"
+msgstr ""
+
+#: apps/accounts/models.py:183
+msgid "Please click the following button to reset your password"
+msgstr ""
+
+#: apps/accounts/models.py:196
+msgid "Reset Email Profile"
+msgstr ""
+
+#: apps/accounts/models.py:197
+msgid "Reset Email Profiles"
+msgstr ""
+
+#: apps/accounts/models.py:209
+msgid "Please click the following button to reset your email"
+msgstr ""
+
+#: apps/accounts/templates/edit_info.html:5
 msgid "Edit your information"
 msgstr ""
 
-#: accounts/templates/edit_info.html:23
-#: comments/templates/partial_comment_create.html:14
-#: comments/templates/partial_comment_delete.html:15
-#: comments/templates/partial_comment_update.html:14
-#: posts/templates/partial_post_create.html:14
-#: posts/templates/partial_post_delete.html:15
-#: posts/templates/partial_post_update.html:14
+#: apps/accounts/templates/edit_info.html:23
+#: apps/comments/templates/partial_comment_create.html:14
+#: apps/comments/templates/partial_comment_delete.html:15
+#: apps/comments/templates/partial_comment_update.html:14
+#: apps/posts/templates/form_modal.html:18
+#: templates/ajax/chart-5-content.html:87
+#: templates/ajax/chart-5-content.html:204
 msgid "Cancel"
 msgstr ""
 
-#: accounts/templates/edit_info.html:24
-#: comments/templates/partial_comment_create.html:15
-#: comments/templates/partial_comment_delete.html:16
-#: comments/templates/partial_comment_update.html:15
-#: posts/templates/partial_post_create.html:15
-#: posts/templates/partial_post_delete.html:16
-#: posts/templates/partial_post_update.html:15
-#: templates/ajax/chart-3-content.html:59
-#: templates/ajax/chart-4-content.html:51
+#: apps/accounts/templates/edit_info.html:24
+#: apps/comments/templates/partial_comment_create.html:15
+#: apps/comments/templates/partial_comment_delete.html:16
+#: apps/comments/templates/partial_comment_update.html:15
+#: templates/ajax/chart-3-content.html:61
+#: templates/ajax/chart-4-content.html:53
+#: templates/ajax/chart-5-content.html:88
+#: templates/ajax/chart-5-content.html:205
 msgid "Submit"
 msgstr ""
 
-#: accounts/templates/introduction.html:9
+#: apps/accounts/templates/introduction.html:9
 msgid ""
 "The platform combined the price and the trading volume of agricultural "
 "products from Council of Agriculture (COA) and the affiliated agencies "
@@ -265,543 +319,871 @@ msgid ""
 "trend of agricultural products. "
 msgstr ""
 
-#: accounts/templates/introduction.html:18 templates/ajax/about.html.py:42
+#: apps/accounts/templates/introduction.html:18 templates/ajax/about.html:43
 msgid "Monitored items"
 msgstr ""
 
-#: accounts/templates/introduction.html:20
+#: apps/accounts/templates/introduction.html:20
 msgid ""
-"Currently, there are 63 items consist of 10 overall and categorized items of "
+"Currently, there are 70 items consist of 10 overall and categorized items of "
 "vegetables, fruits and flowers in Taipei Agricultural Products Wholesale "
-"Market and 53 daily-monitored important agricultural products in COA."
+"Market and 59 daily-monitored important agricultural products in COA."
 msgstr ""
 
-#: accounts/templates/introduction.html:24 templates/ajax/about.html.py:50
+#: apps/accounts/templates/introduction.html:24 templates/ajax/about.html:51
 msgid "Features"
 msgstr ""
 
-#: accounts/templates/introduction.html:26
+#: apps/accounts/templates/introduction.html:26
 msgid ""
 "Showing daily price/volume trends, year by year trends and distribution plot "
 "with charts."
 msgstr ""
 
-#: accounts/templates/login.html:8 accounts/templates/mail_content.html:141
-#: accounts/templates/register.html:12 accounts/templates/resend-email.html:12
-#: accounts/templates/reset-password.html:12
+#: apps/accounts/templates/login.html:8
+#: apps/accounts/templates/mail_content.html:143
+#: apps/accounts/templates/register.html:12
+#: apps/accounts/templates/resend-email.html:12
+#: apps/accounts/templates/reset-password.html:12
 msgid "Log in"
 msgstr ""
 
-#: accounts/templates/login.html:13
+#: apps/accounts/templates/login.html:13
 msgid "Need an account"
 msgstr ""
 
-#: accounts/templates/login.html:14 accounts/templates/register.html.py:8
-#: accounts/templates/register.html:25 accounts/templates/register.html:122
+#: apps/accounts/templates/login.html:14
+#: apps/accounts/templates/register.html:8
+#: apps/accounts/templates/register.html:25
+#: apps/accounts/templates/register.html:132
 msgid "Register"
 msgstr ""
 
-#: accounts/templates/login.html:27
+#: apps/accounts/templates/login.html:27
 msgid "Sign In"
 msgstr ""
 
-#: accounts/templates/login.html:60
+#: apps/accounts/templates/login.html:71
 msgid "Forgot password"
 msgstr ""
 
-#: accounts/templates/login.html:67
+#: apps/accounts/templates/login.html:78
 msgid "Remember me"
 msgstr ""
 
-#: accounts/templates/login.html:72
+#: apps/accounts/templates/login.html:83
 msgid "Login"
 msgstr ""
 
-#: accounts/templates/mail_content.html:124
+#: apps/accounts/templates/mail_content.html:107
+msgid "Hi"
+msgstr ""
+
+#: apps/accounts/templates/mail_content.html:126
 msgid "Any further questions please contact us"
 msgstr ""
 
-#: accounts/templates/mail_content.html:125
-msgid "Good luck! Hope it works"
+#: apps/accounts/templates/mail_content.html:127
+msgid "Good luck! Hope it works!"
 msgstr ""
 
-#: accounts/templates/mail_content.html:140
-msgid "COA Statistics 2018"
-msgstr ""
-
-#: accounts/templates/mail_content.html:141
+#: apps/accounts/templates/mail_content.html:143
 msgid "Want to login right now"
 msgstr ""
 
-#: accounts/templates/register.html:12 accounts/templates/resend-email.html:12
-#: accounts/templates/reset-password.html:12
+#: apps/accounts/templates/register.html:12
+#: apps/accounts/templates/resend-email.html:12
+#: apps/accounts/templates/reset-password.html:12
 msgid "Already have an account"
 msgstr ""
 
-#: accounts/templates/register.html:35 accounts/templates/resend-email.html:30
+#: apps/accounts/templates/register.html:35
+#: apps/accounts/templates/resend-email.html:30
 msgid "Email has been sent"
 msgstr ""
 
-#: accounts/templates/register.html:36 accounts/templates/resend-email.html:31
+#: apps/accounts/templates/register.html:36
+#: apps/accounts/templates/resend-email.html:31
 msgid "Please check your mail box"
 msgstr ""
 
-#: accounts/templates/register.html:36
+#: apps/accounts/templates/register.html:36
 msgid "Click the link in the email to activate your account"
 msgstr ""
 
-#: accounts/templates/register.html:113
-msgid "I have read the"
+#: apps/accounts/templates/register.html:113
+#: apps/accounts/templates/register.html:122
+msgid "I have read and agreed with the"
 msgstr ""
 
-#: accounts/templates/register.html:113
+#: apps/accounts/templates/register.html:113
+msgid "Privacy Policy"
+msgstr ""
+
+#: apps/accounts/templates/register.html:122
 msgid "Terms and Conditions"
 msgstr ""
 
-#: accounts/templates/resend-email.html:8 accounts/views.py:89
+#: apps/accounts/templates/resend-email.html:8 apps/accounts/views.py:90
 msgid "Forgot Password"
 msgstr ""
 
-#: accounts/templates/resend-email.html:21
-#: accounts/templates/reset-password.html:62
+#: apps/accounts/templates/resend-email.html:21
+#: apps/accounts/templates/reset-password.html:62
 msgid "Resend Email"
 msgstr ""
 
-#: accounts/templates/resend-email.html:39
+#: apps/accounts/templates/resend-email.html:39
 msgid "We will resend an email to your mail box"
 msgstr ""
 
-#: accounts/templates/resend-email.html:49
-#: accounts/templates/resend-email.html:63
+#: apps/accounts/templates/resend-email.html:49
+#: apps/accounts/templates/resend-email.html:63
 msgid "Enter your"
 msgstr ""
 
-#: accounts/templates/resend-email.html:60
+#: apps/accounts/templates/resend-email.html:60
 msgid "OR"
 msgstr ""
 
-#: accounts/templates/resend-email.html:76
+#: apps/accounts/templates/resend-email.html:76
 msgid "Send Email"
 msgstr ""
 
-#: accounts/templates/reset-password.html:58
+#: apps/accounts/templates/reset-password.html:58
 msgid "Link Invalid"
 msgstr ""
 
-#: accounts/templates/reset-password.html:59
+#: apps/accounts/templates/reset-password.html:59
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset"
 msgstr ""
 
-#: accounts/views.py:128
+#: apps/accounts/views.py:75
+msgid ""
+"Successfully registered! Please check your email to activate your account"
+msgstr ""
+
+#: apps/accounts/views.py:115
+msgid "Activate Account"
+msgstr ""
+
+#: apps/accounts/views.py:129
 msgid "Your account is already activated"
 msgstr ""
 
-#: cattles/models.py:29
+#: apps/accounts/views.py:160
+msgid "Your password has been reset"
+msgstr ""
+
+#: apps/accounts/views.py:177
+msgid "Your account is activated"
+msgstr ""
+
+#: apps/accounts/views.py:179
+msgid "This activation key is already used"
+msgstr ""
+
+#: apps/cattles/models.py:29
 msgid "Cattle"
 msgstr ""
 
-#: cattles/models.py:30
+#: apps/cattles/models.py:30
 msgid "Cattles"
 msgstr ""
 
-#: chickens/models.py:29
+#: apps/chickens/models.py:29
 msgid "Chicken"
 msgstr ""
 
-#: chickens/models.py:30
+#: apps/chickens/models.py:30
 msgid "Chickens"
 msgstr ""
 
-#: comments/models.py:58 posts/models.py:33
+#: apps/comments/models.py:58 apps/posts/models.py:34
 msgid "File"
 msgstr ""
 
-#: comments/models.py:59 posts/models.py:34
+#: apps/comments/models.py:59 apps/posts/models.py:35
+#: apps/posts/templates/socialwall.html:94
 msgid "Content"
 msgstr ""
 
-#: comments/models.py:60 posts/models.py:38
+#: apps/comments/models.py:60 apps/posts/models.py:39
 msgid "Timestamp"
 msgstr ""
 
-#: comments/models.py:65 posts/templates/partial_post.html.py:18
+#: apps/comments/models.py:65 apps/posts/templates/socialwall.html:95
 msgid "Comment"
 msgstr ""
 
-#: comments/models.py:66
+#: apps/comments/models.py:66
 msgid "Comments"
 msgstr ""
 
-#: comments/templates/partial_comment_create.html:5
+#: apps/comments/templates/partial_comment_create.html:5
 msgid "Create a new comment"
 msgstr ""
 
-#: comments/templates/partial_comment_delete.html:6
+#: apps/comments/templates/partial_comment_delete.html:6
 msgid "Confirm comment deletion"
 msgstr ""
 
-#: comments/templates/partial_comment_delete.html:12
+#: apps/comments/templates/partial_comment_delete.html:12
 msgid "Are you sure you want to delete the comment"
 msgstr ""
 
-#: comments/templates/partial_comment_update.html:5
+#: apps/comments/templates/partial_comment_update.html:5
 msgid "Update comment"
 msgstr ""
 
-#: configs/models.py:19 configs/models.py:126 configs/models.py:178
-#: configs/models.py:274 logs/models.py:22
+#: apps/configs/models.py:19 apps/configs/models.py:127
+#: apps/configs/models.py:183 apps/configs/models.py:281 apps/logs/models.py:25
 msgid "Code"
 msgstr ""
 
-#: configs/models.py:20 configs/models.py:132 configs/models.py:179
+#: apps/configs/models.py:20 apps/configs/models.py:133
+#: apps/configs/models.py:184
 msgid "Config"
 msgstr ""
 
-#: configs/models.py:21 configs/models.py:180 configs/models.py:228
-#: watchlists/models.py:148
+#: apps/configs/models.py:21 apps/configs/models.py:185
+#: apps/configs/models.py:235 apps/watchlists/models.py:152
 msgid "Type"
 msgstr ""
 
-#: configs/models.py:22 configs/models.py:255
+#: apps/configs/models.py:22 apps/configs/models.py:262
 #: templates/contents/unit-info.html:7 templates/contents/unit-info.html:9
-#: templates/contents/unit-info.html:11
+#: templates/contents/unit-info.html:11 templates/navigation.html:90
 msgid "Unit"
 msgstr ""
 
-#: configs/models.py:24
+#: apps/configs/models.py:24
 msgid "Track Item"
 msgstr ""
 
-#: configs/models.py:25 configs/models.py:129 configs/models.py:181
-#: configs/models.py:223 configs/models.py:252 configs/models.py:276
-#: dailytrans/models.py:56 logs/models.py:23 posts/models.py:37
-#: watchlists/models.py:41 watchlists/models.py:42 watchlists/models.py:130
-#: watchlists/models.py:156
+#: apps/configs/models.py:25 apps/configs/models.py:130
+#: apps/configs/models.py:187 apps/configs/models.py:230
+#: apps/configs/models.py:259 apps/configs/models.py:283
+#: apps/dailytrans/models.py:49 apps/events/models.py:65 apps/logs/models.py:26
+#: apps/posts/models.py:38 apps/watchlists/models.py:45
+#: apps/watchlists/models.py:46 apps/watchlists/models.py:134
+#: apps/watchlists/models.py:161
 msgid "Updated"
 msgstr ""
 
-#: configs/models.py:30
+#: apps/configs/models.py:30
 msgid "Abstract Product"
 msgstr ""
 
-#: configs/models.py:31
+#: apps/configs/models.py:31
 msgid "Abstract Products"
 msgstr ""
 
-#: configs/models.py:127 configs/models.py:279
-#: templates/ajax/chart-1-content.html:27
-#: templates/ajax/chart-2-content.html:26
+#: apps/configs/models.py:128 apps/configs/models.py:286
+#: templates/ajax/chart-1-content.html:28
+#: templates/ajax/chart-2-content.html:28
+#: templates/ajax/chart-5-content.html:30
 #: templates/contents/index-panel.html:41
 msgid "Chart"
 msgstr ""
 
-#: configs/models.py:128
+#: apps/configs/models.py:129
 msgid "Type Level"
 msgstr ""
 
-#: configs/models.py:133
+#: apps/configs/models.py:134
 msgid "Configs"
 msgstr ""
 
-#: configs/models.py:186 dailytrans/models.py:48 watchlists/models.py:128
+#: apps/configs/models.py:182
+msgid "Alias"
+msgstr ""
+
+#: apps/configs/models.py:186
+msgid "Enabled"
+msgstr ""
+
+#: apps/configs/models.py:192 apps/dailytrans/models.py:41
+#: apps/watchlists/models.py:132 templates/navigation.html:84
 msgid "Source"
 msgstr ""
 
-#: configs/models.py:187
+#: apps/configs/models.py:193
 msgid "Sources"
 msgstr ""
 
-#: configs/models.py:229
+#: apps/configs/models.py:236
 msgid "Types"
 msgstr ""
 
-#: configs/models.py:249 templates/contents/unit-info.html.py:15
+#: apps/configs/models.py:256 templates/contents/unit-info.html:15
 msgid "Price Unit"
 msgstr ""
 
-#: configs/models.py:250 templates/contents/unit-info.html.py:18
+#: apps/configs/models.py:257 templates/contents/unit-info.html:18
 msgid "Volume Unit"
 msgstr ""
 
-#: configs/models.py:251 templates/contents/unit-info.html.py:21
+#: apps/configs/models.py:258 templates/contents/unit-info.html:21
 msgid "Weight Unit"
 msgstr ""
 
-#: configs/models.py:256
+#: apps/configs/models.py:263
 msgid "Units"
 msgstr ""
 
-#: configs/models.py:275
+#: apps/configs/models.py:282
 msgid "Template Name"
 msgstr ""
 
-#: configs/models.py:280
+#: apps/configs/models.py:287
 msgid "Charts"
 msgstr ""
 
-#: configs/models.py:293 dailytrans/utils.py:325
+#: apps/configs/models.py:300 apps/dailytrans/utils.py:347
 msgid "Month"
 msgstr ""
 
-#: configs/models.py:294
+#: apps/configs/models.py:301
 msgid "Months"
 msgstr ""
 
-#: crops/models.py:29
+#: apps/crops/models.py:29
 msgid "Crop"
 msgstr ""
 
-#: crops/models.py:30
+#: apps/crops/models.py:30
 msgid "Crops"
 msgstr ""
 
-#: dailytrans/models.py:47 templates/contents/watchlist-profile-table.html.py:9
-#: watchlists/models.py:127 watchlists/models.py:146
+#: apps/dailytrans/models.py:40 apps/watchlists/models.py:131
+#: apps/watchlists/models.py:150
+#: templates/contents/watchlist-profile-table.html:9
+#: templates/navigation.html:87
 msgid "Product"
 msgstr ""
 
-#: dailytrans/models.py:49
+#: apps/dailytrans/models.py:42
 msgid "Up Price"
 msgstr ""
 
-#: dailytrans/models.py:50
+#: apps/dailytrans/models.py:43
 msgid "Mid Price"
 msgstr ""
 
-#: dailytrans/models.py:51
+#: apps/dailytrans/models.py:44
 msgid "Low Pirce"
 msgstr ""
 
-#: dailytrans/models.py:52 dailytrans/utils.py:113 dailytrans/utils.py:132
-#: dailytrans/utils.py:148 templates/contents/index-panel.html.py:20
+#: apps/dailytrans/models.py:45 apps/dailytrans/utils.py:120
+#: apps/dailytrans/utils.py:145 apps/dailytrans/utils.py:166
+#: templates/contents/index-panel.html:20
 #: templates/contents/integration-table.html:12
 msgid "Average Price"
 msgstr ""
 
-#: dailytrans/models.py:53 dailytrans/utils.py:115
+#: apps/dailytrans/models.py:46 apps/dailytrans/utils.py:122
 #: templates/contents/index-panel.html:24
 #: templates/contents/integration-table.html:19
 msgid "Average Weight"
 msgstr ""
 
-#: dailytrans/models.py:54 templates/contents/integration-table.html.py:16
+#: apps/dailytrans/models.py:47 templates/contents/integration-table.html:16
 msgid "Volume"
 msgstr ""
 
-#: dailytrans/models.py:55 dailytrans/utils.py:112 dailytrans/utils.py:131
-#: dailytrans/utils.py:147 dailytrans/utils.py:207
+#: apps/dailytrans/models.py:48 apps/dailytrans/utils.py:119
+#: apps/dailytrans/utils.py:144 apps/dailytrans/utils.py:165
+#: apps/dailytrans/utils.py:233 apps/events/forms.py:20
+#: apps/events/models.py:63 templates/contents/event-table.html:12
 #: templates/contents/integration-table.html:11
 msgid "Date"
 msgstr ""
 
-#: dailytrans/models.py:61
+#: apps/dailytrans/models.py:50
+msgid "Not Updated Count"
+msgstr ""
+
+#: apps/dailytrans/models.py:51
+msgid "Create Time"
+msgstr ""
+
+#: apps/dailytrans/models.py:56 templates/navigation.html:81
 msgid "Daily Transition"
 msgstr ""
 
-#: dailytrans/models.py:62
+#: apps/dailytrans/models.py:57
 msgid "Daily Transitions"
 msgstr ""
 
-#: dailytrans/utils.py:114 dailytrans/utils.py:133
+#: apps/dailytrans/utils.py:121 apps/dailytrans/utils.py:146
 msgid "Sum Volume"
 msgstr ""
 
-#: dailytrans/utils.py:326
+#: apps/dailytrans/utils.py:348
 msgid "Min"
 msgstr ""
 
-#: dailytrans/utils.py:327
+#: apps/dailytrans/utils.py:349
 msgid "25%"
 msgstr ""
 
-#: dailytrans/utils.py:328
+#: apps/dailytrans/utils.py:350
 msgid "50%"
 msgstr ""
 
-#: dailytrans/utils.py:329
+#: apps/dailytrans/utils.py:351
 msgid "75%"
 msgstr ""
 
-#: dailytrans/utils.py:330
+#: apps/dailytrans/utils.py:352
 msgid "Max"
 msgstr ""
 
-#: dailytrans/utils.py:331
+#: apps/dailytrans/utils.py:353
 msgid "Mean"
 msgstr ""
 
-#: dailytrans/utils.py:476
+#: apps/dailytrans/utils.py:488
 msgid "This Term"
 msgstr ""
 
-#: dailytrans/utils.py:484
+#: apps/dailytrans/utils.py:496
 msgid "Last Term"
 msgstr ""
 
-#: dashboard/settings/base.py:202
-msgid "Traditional Chinese"
+#: apps/dailytrans/utils.py:507
+msgid "5 Years"
 msgstr ""
 
-#: dashboard/settings/base.py:203
-msgid "English"
-msgstr ""
-
-#: ducks/models.py:29
+#: apps/ducks/models.py:29
 msgid "Duck"
 msgstr ""
 
-#: ducks/models.py:30
+#: apps/ducks/models.py:30
 msgid "Ducks"
 msgstr ""
 
-#: flowers/models.py:29
+#: apps/events/api/serializers.py:64
+msgid "This value does not match the required pattern"
+msgstr ""
+
+#: apps/events/forms.py:21
+msgid "Share this event"
+msgstr ""
+
+#: apps/events/models.py:42 apps/events/models.py:60
+#: templates/contents/event-table.html:14 templates/navigation.html:105
+msgid "Event Type"
+msgstr ""
+
+#: apps/events/models.py:43
+msgid "Event Types"
+msgstr ""
+
+#: apps/events/models.py:60
+msgid "You can create new event type here"
+msgstr ""
+
+#: apps/events/models.py:62 templates/contents/event-table.html:16
+msgid "Context"
+msgstr ""
+
+#: apps/events/models.py:64
+msgid "Shared Event"
+msgstr ""
+
+#: apps/events/models.py:68 templates/navigation.html:102
+msgid "Event"
+msgstr ""
+
+#: apps/events/models.py:69
+#: templates/contents/event-widget-type-panel-groups.html:26
+msgid "Events"
+msgstr ""
+
+#: apps/flowers/models.py:29
 msgid "Flower"
 msgstr ""
 
-#: flowers/models.py:30
+#: apps/flowers/models.py:30
 msgid "Flowers"
 msgstr ""
 
-#: fruits/models.py:29
+#: apps/fruits/models.py:29
 msgid "Fruit"
 msgstr ""
 
-#: fruits/models.py:30
+#: apps/fruits/models.py:30
 msgid "Fruits"
 msgstr ""
 
-#: gooses/models.py:29
+#: apps/gooses/models.py:29
 msgid "Goose"
 msgstr ""
 
-#: gooses/models.py:30
+#: apps/gooses/models.py:30
 msgid "Gooses"
 msgstr ""
 
-#: hogs/models.py:29
+#: apps/hogs/models.py:29
 msgid "Hog"
 msgstr ""
 
-#: hogs/models.py:30
+#: apps/hogs/models.py:30
 msgid "Hogs"
 msgstr ""
 
-#: logs/models.py:13
+#: apps/logs/models.py:14
 msgid "Log Type"
 msgstr ""
 
-#: logs/models.py:16
+#: apps/logs/models.py:15
+msgid "Url"
+msgstr ""
+
+#: apps/logs/models.py:16
+msgid "Duration"
+msgstr ""
+
+#: apps/logs/models.py:19 templates/navigation.html:78
 msgid "Log"
 msgstr ""
 
-#: logs/models.py:17
+#: apps/logs/models.py:20
 msgid "Logs"
 msgstr ""
 
-#: logs/models.py:26
+#: apps/logs/models.py:29
 msgid "LogType"
 msgstr ""
 
-#: logs/models.py:27
+#: apps/logs/models.py:30
 msgid "LogTypes"
 msgstr ""
 
-#: posts/models.py:32
+#: apps/posts/models.py:33 apps/posts/templates/socialwall.html:92
 msgid "Title"
 msgstr ""
 
-#: posts/models.py:35
+#: apps/posts/models.py:36
 msgid "Publish"
 msgstr ""
 
-#: posts/models.py:36
+#: apps/posts/models.py:37
 msgid "Read Time"
 msgstr ""
 
-#: posts/models.py:41
+#: apps/posts/models.py:42
 msgid "Post"
 msgstr ""
 
-#: posts/models.py:42
+#: apps/posts/models.py:43
 msgid "Posts"
 msgstr ""
 
-#: posts/templates/partial_post.html:21 posts/templates/partial_post.html:40
-#: posts/templates/partial_post.html:66 posts/templates/partial_post.html:88
-msgid "Edit"
+#: apps/posts/templates/form_modal.html:8
+#: apps/posts/templates/socialwall.html:82
+msgid "New Post"
 msgstr ""
 
-#: posts/templates/partial_post.html:23 posts/templates/partial_post.html:44
-#: posts/templates/partial_post.html:70 posts/templates/partial_post.html:92
-msgid "Delete"
+#: apps/posts/templates/form_modal.html:9
+msgid "Edit Post"
 msgstr ""
 
-#: posts/templates/partial_post.html:35 posts/templates/partial_post.html:61
+#: apps/posts/templates/form_modal.html:17
+msgid "Send"
+msgstr ""
+
+#: apps/posts/templates/post.html:11 apps/posts/templates/post_area.html:13
+msgid "Hide this post"
+msgstr ""
+
+#: apps/posts/templates/post.html:46 apps/posts/templates/post.html:76
+#: apps/posts/templates/post_area.html:54
+#: apps/posts/templates/post_area.html:103
+#: apps/posts/templates/post_area.html:128
+#: apps/posts/templates/post_edit.html:29 apps/posts/templates/reply.html:18
+#: apps/posts/templates/reply.html:25
 msgid "Reply"
 msgstr ""
 
-#: posts/templates/partial_post_create.html:5
-msgid "Create a new post"
+#: apps/posts/templates/post.html:49 apps/posts/templates/post_area.html:57
+#: apps/posts/templates/post_area.html:106
+#: apps/posts/templates/post_edit.html:32 apps/posts/templates/reply.html:28
+msgid "Like"
 msgstr ""
 
-#: posts/templates/partial_post_delete.html:6
-msgid "Confirm post deletion"
+#: apps/posts/templates/post.html:56 apps/posts/templates/post_area.html:64
+#: apps/posts/templates/post_area.html:113
+#: apps/posts/templates/post_edit.html:39 apps/posts/templates/reply.html:35
+#: templates/contents/event-table.html:10
+msgid "Edit"
 msgstr ""
 
-#: posts/templates/partial_post_delete.html:12
-msgid "Are you sure you want to delete the post"
+#: apps/posts/templates/post.html:59 apps/posts/templates/post_area.html:67
+#: apps/posts/templates/post_area.html:116
+#: apps/posts/templates/post_edit.html:42 apps/posts/templates/reply.html:38
+#: templates/contents/event-table.html:11
+msgid "Delete"
 msgstr ""
 
-#: posts/templates/partial_post_update.html:5
-msgid "Update post"
+#: apps/posts/templates/post.html:73 apps/posts/templates/post_area.html:125
+msgid "Type and enter"
 msgstr ""
 
-#: rams/models.py:29
-msgid "Ram"
+#: apps/posts/templates/post_area.html:40
+#: apps/posts/templates/post_edit.html:16
+msgid "edited"
 msgstr ""
 
-#: rams/models.py:30
-msgid "Rams"
-msgstr ""
-
-#: rices/models.py:29
-msgid "Rice"
-msgstr ""
-
-#: rices/models.py:30
-msgid "Rices"
-msgstr ""
-
-#: seafoods/models.py:29
-msgid "Seafood"
-msgstr ""
-
-#: seafoods/models.py:30
-msgid "Seafoods"
-msgstr ""
-
-#: templates/ajax/about.html:12 templates/navigation.html.py:57
+#: apps/posts/templates/socialwall.html:43 templates/ajax/about.html:13
+#: templates/navigation.html:57
 msgid "Main"
 msgstr ""
 
-#: templates/ajax/about.html:14 templates/navigation.html.py:60
-#: templates/shortcut.html:8
+#: apps/posts/templates/socialwall.html:45 templates/navigation.html:63
+msgid "Social Wall"
+msgstr ""
+
+#: apps/posts/templates/socialwall.html:88
+msgid "Filter by"
+msgstr ""
+
+#: apps/posts/templates/socialwall.html:93
+msgid "Author"
+msgstr ""
+
+#: apps/posts/templates/socialwall.html:97
+msgid "All"
+msgstr ""
+
+#: apps/posts/templates/socialwall.html:101
+msgid "Search term..."
+msgstr ""
+
+#: apps/posts/templates/socialwall.html:101
+msgid "Default search all..."
+msgstr ""
+
+#: apps/posts/templates/socialwall404.html:484 templates/ajax/no-data.html:484
+msgid "NO DATA"
+msgstr ""
+
+#: apps/posts/templates/socialwall404.html:487
+msgid "Your search"
+msgstr ""
+
+#: apps/posts/templates/socialwall404.html:487
+msgid "did not match any documents."
+msgstr ""
+
+#: apps/posts/templates/socialwall404.html:492
+msgid "Suggestions:"
+msgstr ""
+
+#: apps/posts/templates/socialwall404.html:496
+msgid "Make sure that all words are spelled correctly"
+msgstr ""
+
+#: apps/posts/templates/socialwall404.html:497
+msgid "Try different keywords."
+msgstr ""
+
+#: apps/posts/templates/socialwall404.html:498
+msgid "Try more general keywords."
+msgstr ""
+
+#: apps/posts/templatetags/socialwall_filter.py:25
+#: apps/posts/templatetags/socialwall_filter.py:50
+msgid "years"
+msgstr ""
+
+#: apps/posts/templatetags/socialwall_filter.py:26
+#: apps/posts/templatetags/socialwall_filter.py:51
+msgid "months"
+msgstr ""
+
+#: apps/posts/templatetags/socialwall_filter.py:27
+#: apps/posts/templatetags/socialwall_filter.py:52
+msgid "weeks"
+msgstr ""
+
+#: apps/posts/templatetags/socialwall_filter.py:28
+#: apps/posts/templatetags/socialwall_filter.py:53
+msgid "days"
+msgstr ""
+
+#: apps/posts/templatetags/socialwall_filter.py:29
+#: apps/posts/templatetags/socialwall_filter.py:54
+msgid "hours"
+msgstr ""
+
+#: apps/posts/templatetags/socialwall_filter.py:30
+#: apps/posts/templatetags/socialwall_filter.py:55
+msgid "minutes"
+msgstr ""
+
+#: apps/posts/templatetags/socialwall_filter.py:31
+#: apps/posts/templatetags/socialwall_filter.py:38
+#: apps/posts/templatetags/socialwall_filter.py:56
+#: apps/posts/templatetags/socialwall_filter.py:63
+msgid "seconds"
+msgstr ""
+
+#: apps/posts/templatetags/socialwall_filter.py:35
+#: apps/posts/templatetags/socialwall_filter.py:38
+#: apps/posts/templatetags/socialwall_filter.py:60
+#: apps/posts/templatetags/socialwall_filter.py:63
+msgid "ago"
+msgstr ""
+
+#: apps/posts/templatetags/socialwall_filter.py:37
+#: apps/posts/templatetags/socialwall_filter.py:62
+msgid "now"
+msgstr ""
+
+#: apps/rams/models.py:29
+msgid "Ram"
+msgstr ""
+
+#: apps/rams/models.py:30
+msgid "Rams"
+msgstr ""
+
+#: apps/rices/models.py:29
+msgid "Rice"
+msgstr ""
+
+#: apps/rices/models.py:30
+msgid "Rices"
+msgstr ""
+
+#: apps/seafoods/models.py:29
+msgid "Seafood"
+msgstr ""
+
+#: apps/seafoods/models.py:30
+msgid "Seafoods"
+msgstr ""
+
+#: apps/watchlists/models.py:23
+msgid "<"
+msgstr ""
+
+#: apps/watchlists/models.py:24
+msgid "<="
+msgstr ""
+
+#: apps/watchlists/models.py:25
+msgid ">"
+msgstr ""
+
+#: apps/watchlists/models.py:26
+msgid ">="
+msgstr ""
+
+#: apps/watchlists/models.py:41
+msgid "Is Default"
+msgstr ""
+
+#: apps/watchlists/models.py:42
+msgid "Watch All"
+msgstr ""
+
+#: apps/watchlists/models.py:43
+msgid "Start Date"
+msgstr ""
+
+#: apps/watchlists/models.py:44
+msgid "End Date"
+msgstr ""
+
+#: apps/watchlists/models.py:49 apps/watchlists/models.py:151
+#: templates/navigation.html:33 templates/navigation.html:93
+msgid "Watchlist"
+msgstr ""
+
+#: apps/watchlists/models.py:50
+msgid "Watchlists"
+msgstr ""
+
+#: apps/watchlists/models.py:139
+#: templates/contents/watchlist-profile-table.html:10
+#: templates/navigation.html:96
+msgid "Watchlist Item"
+msgstr ""
+
+#: apps/watchlists/models.py:140
+msgid "Watchlist Items"
+msgstr ""
+
+#: apps/watchlists/models.py:153 templates/contents/integration-table.html:13
+msgid "Price"
+msgstr ""
+
+#: apps/watchlists/models.py:154
+msgid "Comparator"
+msgstr ""
+
+#: apps/watchlists/models.py:155
+msgid "Color"
+msgstr ""
+
+#: apps/watchlists/models.py:156
+#: templates/contents/monitor-profile-table.html:8
+msgid "Monitor Info"
+msgstr ""
+
+#: apps/watchlists/models.py:157
+#: templates/contents/monitor-profile-table.html:10
+msgid "Action"
+msgstr ""
+
+#: apps/watchlists/models.py:158
+#: templates/contents/monitor-profile-table.html:9
+msgid "Period"
+msgstr ""
+
+#: apps/watchlists/models.py:159
+msgid "Is Active"
+msgstr ""
+
+#: apps/watchlists/models.py:160
+msgid "Monitor Months"
+msgstr ""
+
+#: apps/watchlists/models.py:164 apps/watchlists/models.py:165
+#: templates/contents/product-profile.html:93 templates/navigation.html:99
+msgid "Monitor Profile"
+msgstr ""
+
+#: dashboard/settings/base.py:201
+msgid "Traditional Chinese"
+msgstr ""
+
+#: dashboard/settings/base.py:202
+msgid "English"
+msgstr ""
+
+#: templates/ajax/about.html:15 templates/navigation.html:60
+#: templates/shortcut.html:9
 msgid "About"
 msgstr ""
 
-#: templates/ajax/about.html:31
+#: templates/ajax/about.html:32
 msgid ""
 "This website is used for Council of Agriculture and affiliated institution "
 "only"
 msgstr ""
 
-#: templates/ajax/about.html:37
+#: templates/ajax/about.html:38
 msgid "The purpose of construction"
 msgstr ""
 
-#: templates/ajax/about.html:39
+#: templates/ajax/about.html:40
 msgid ""
 "The platform combined the price and the trading volume of agricultural "
 "products from Council of Agriculture (COA) and the affiliated agencies "
@@ -818,7 +1200,7 @@ msgid ""
 "agricultural products."
 msgstr ""
 
-#: templates/ajax/about.html:43
+#: templates/ajax/about.html:44
 msgid ""
 "Currently, there are 63 items consist of 10 overall and categorized items of "
 "vegetables, fruits and flowers in Taipei Agricultural Products Wholesale "
@@ -832,11 +1214,11 @@ msgid ""
 "local Markets as acquired."
 msgstr ""
 
-#: templates/ajax/about.html:46
+#: templates/ajax/about.html:47
 msgid "Source of information"
 msgstr ""
 
-#: templates/ajax/about.html:47
+#: templates/ajax/about.html:48
 msgid ""
 "The information was provided by National Animal Industry Foundation "
 "(wholesale market price), Agriculture and Food Agency (local price), "
@@ -848,18 +1230,22 @@ msgid ""
 "(M2M) or open data platform in COA."
 msgstr ""
 
-#: templates/ajax/about.html:51
+#: templates/ajax/about.html:52
 msgid ""
 "Showing daily price/volume trends, year by year trends and distribution plot "
 "with charts, each chart provide raw data, integration data and exporting "
 "services."
 msgstr ""
 
-#: templates/ajax/about.html:54
+#: templates/ajax/about.html:55
+msgid "Download document"
+msgstr ""
+
+#: templates/ajax/about.html:57
 msgid "Cooperation Units"
 msgstr ""
 
-#: templates/ajax/about.html:55
+#: templates/ajax/about.html:58
 msgid ""
 "1. The platform was constructed by statistics office in COA and Taiwan "
 "Agricultural Research Institute (Agricultural Policy Research Center). All "
@@ -875,55 +1261,31 @@ msgid ""
 "help eliminate obstacle interface."
 msgstr ""
 
-#: templates/ajax/about.html:58
-msgid "Future prospects"
-msgstr ""
-
-#: templates/ajax/about.html:59
-msgid ""
-"The purpose of the platform was to provide friendly visual interface "
-"research of the price and the trading volume of agricultural products and "
-"its related information will be extended into step by step. Owning to the "
-"constriction of human resources and time, it takes time to cooperate among "
-"industrial departments for completing information in the back end; "
-"otherwise, the fully functional version cannot be accomplished in a short "
-"time. The first stage of the platform expects to be completed in October, "
-"2018. Subsequently, we will integrate the information such as weather "
-"information related to production, the prices of important agricultural "
-"products in different stages, annually agricultural damage overview of "
-"individual products, and domestic or import quantum of products into the "
-"platform according to human resources and accessibility of data."
-msgstr ""
-
-#: templates/ajax/chart-3-content.html:25
-#: templates/ajax/chart-4-content.html:24
+#: templates/ajax/chart-3-content.html:27
+#: templates/ajax/chart-4-content.html:26
 msgid "Settings"
 msgstr ""
 
-#: templates/ajax/chart-3-content.html:34
+#: templates/ajax/chart-3-content.html:36
 msgid "Display years"
 msgstr ""
 
-#: templates/ajax/chart-3-content.html:45
-#: templates/ajax/chart-4-content.html:33
+#: templates/ajax/chart-3-content.html:47
+#: templates/ajax/chart-4-content.html:35
 msgid "Average years"
 msgstr ""
 
-#: templates/ajax/chart-3-content.html:60
-#: templates/ajax/chart-4-content.html:52
+#: templates/ajax/chart-3-content.html:62
+#: templates/ajax/chart-4-content.html:54
 msgid "Close"
 msgstr ""
 
-#: templates/ajax/chart-tab.html:22
+#: templates/ajax/chart-tab.html:27
 msgid "Product Profile"
 msgstr ""
 
 #: templates/ajax/integration-panel.html:5
 msgid "Date Range"
-msgstr ""
-
-#: templates/ajax/no-data.html:484
-msgid "NO DATA"
 msgstr ""
 
 #: templates/ajax/no-data.html:487
@@ -935,13 +1297,47 @@ msgstr ""
 msgid "Any further question please contact us"
 msgstr ""
 
+#: templates/browser-not-support.html:78
+msgid "Internet Explore"
+msgstr ""
+
+#: templates/browser-not-support.html:81
+msgid "BROWSER TOO OLD"
+msgstr ""
+
+#: templates/browser-not-support.html:84
+msgid "Sorry, your browser does not support current web applications."
+msgstr ""
+
+#: templates/browser-not-support.html:85
+msgid ""
+"Please use a newer Browser like firefox or Chrome and NOT IE. Microsoft is "
+"ending their support for this browser."
+msgstr ""
+
+#: templates/browser-not-support.html:88
+msgid "Download Chrome"
+msgstr ""
+
+#: templates/browser-not-support.html:89
+msgid "Download Firefox"
+msgstr ""
+
+#: templates/browser-not-support.html:90
+msgid "Download Safari"
+msgstr ""
+
+#: templates/contents/event-table.html:13
+msgid "Creator"
+msgstr ""
+
+#: templates/contents/event-widget-type-panel-groups.html:43
+msgid "Events you edit here will display in the chart above."
+msgstr ""
+
 #: templates/contents/index-panel.html:22
 #: templates/contents/integration-table.html:15
 msgid "Average Volume"
-msgstr ""
-
-#: templates/contents/integration-table.html:13 watchlists/models.py:149
-msgid "Price"
 msgstr ""
 
 #: templates/contents/integration-table.html:13
@@ -962,26 +1358,12 @@ msgstr ""
 msgid "Monitor Price"
 msgstr ""
 
-#: templates/contents/monitor-profile-table.html:8 watchlists/models.py:152
-msgid "Info"
-msgstr ""
-
-#: templates/contents/monitor-profile-table.html:9 watchlists/models.py:154
-#: watchlists/models.py:155
-msgid "Period"
-msgstr ""
-
-#: templates/contents/monitor-profile-table.html:10 watchlists/models.py:153
-msgid "Action"
-msgstr ""
-
 #: templates/contents/product-profile.html:26
 msgid "Watchlist Item Profile"
 msgstr ""
 
-#: templates/contents/product-profile.html:93 watchlists/models.py:159
-#: watchlists/models.py:160
-msgid "Monitor Profile"
+#: templates/contents/raw-table.html:21
+msgid "Search"
 msgstr ""
 
 #: templates/contents/raw-widget-single-type-index.html:28
@@ -993,12 +1375,18 @@ msgstr ""
 msgid "Year Selected"
 msgstr ""
 
-#: templates/contents/watchlist-profile-table.html:10 watchlists/models.py:135
-msgid "Watchlist Item"
+#: templates/contents/selected-year-info.html:18
+msgid ""
+"Average years in this chart is default to recent 5 years, you can change it "
+"in settings"
 msgstr ""
 
 #: templates/contents/watchlist-profile-table.html:12
 msgid "Monitor Source"
+msgstr ""
+
+#: templates/footer.html:7
+msgid "Version"
 msgstr ""
 
 #: templates/header.html:19
@@ -1019,63 +1407,30 @@ msgstr ""
 msgid "Full Screen"
 msgstr ""
 
-#: templates/navigation.html:33 watchlists/models.py:45
-#: watchlists/models.py:147
-msgid "Watchlist"
+#: templates/lock.html:94
+msgid "Your browser is out of date, please update your browser by going to"
 msgstr ""
 
-#: templates/navigation.html:66
+#: templates/navigation.html:69
+msgid "Admin"
+msgstr ""
+
+#: templates/navigation.html:111
 msgid "Grand Totals"
 msgstr ""
 
-#: templates/navigation.html:85
+#: templates/navigation.html:132
+msgid "Hog Overall"
+msgstr ""
+
+#: templates/navigation.html:139
 msgid "Agricultures"
 msgstr ""
 
-#: templates/navigation.html:104
+#: templates/navigation.html:157
 msgid "Livestocks"
 msgstr ""
 
-#: templates/navigation.html:124
+#: templates/navigation.html:176
 msgid "Fisheries"
-msgstr ""
-
-#: watchlists/models.py:21
-msgid "<"
-msgstr ""
-
-#: watchlists/models.py:22
-msgid "<="
-msgstr ""
-
-#: watchlists/models.py:23
-msgid ">"
-msgstr ""
-
-#: watchlists/models.py:24
-msgid ">="
-msgstr ""
-
-#: watchlists/models.py:39
-msgid "Is Default"
-msgstr ""
-
-#: watchlists/models.py:40
-msgid "Watch All"
-msgstr ""
-
-#: watchlists/models.py:46
-msgid "Watchlists"
-msgstr ""
-
-#: watchlists/models.py:136
-msgid "Watchlist Items"
-msgstr ""
-
-#: watchlists/models.py:150
-msgid "Comparator"
-msgstr ""
-
-#: watchlists/models.py:151
-msgid "Color"
 msgstr ""
