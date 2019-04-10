@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-27 11:01+0800\n"
+"POT-Creation-Date: 2019-04-10 10:45+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1272,15 +1272,34 @@ msgstr ""
 "等資訊；輿情回應專區提供輿情發布及回應園地。相關詳細使用說明，如下列使用手"
 "冊。"
 
-#: templates/ajax/about.html:55
+#: templates/ajax/about.html:56
 msgid "Download document"
 msgstr "使用手冊下載"
 
-#: templates/ajax/about.html:57
+#: templates/ajax/about.html:59
+msgid "Precautions"
+msgstr "注意事項"
+
+#: templates/ajax/about.html:60
+msgid ""
+"1. Due to the different number of data records, the average price of the "
+"platform and the source system query results have a tail difference. 2. Some "
+"source systems may be subject to annual revisions and historical data may "
+"vary slightly. 3. The platform operates automatically by means of hourly "
+"automatic data. The wholesale price may be caused by incomplete "
+"transactions, incomplete data confirmation, or abnormal transmission of data "
+"from the source system."
+msgstr ""
+"1.本平台因資料採計位數不同，均價與來源系統查詢結果容有尾差。<br />2.部分來"
+"源端系統可能進行年度修正，歷史資料亦可能略有不同。<br />3.本平台採每小時自動"
+"介接資料方式運作，批發價格部分可能因未完全交易、資料未完全確認或來源系統傳輸異"
+"常使資料報送中斷等問題，致與來源系統對外公布資料不合。"
+
+#: templates/ajax/about.html:63
 msgid "Cooperation Units"
 msgstr "合作單位"
 
-#: templates/ajax/about.html:58
+#: templates/ajax/about.html:64
 msgid ""
 "1. The platform was constructed by statistics office in COA and Taiwan "
 "Agricultural Research Institute (Agricultural Policy Research Center). All "
