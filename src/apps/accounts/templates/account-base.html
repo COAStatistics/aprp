@@ -57,19 +57,30 @@
 
 			</div>
 
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+						<div class="modal-content">
+								<div class="modal-body">本網站將於6月21日(星期五)下午6時起，至6月24日(星期一)上午9時止，進行維護。<br>維護期間網站將停止服務，敬請見諒。</div>
+								<div class="modal-footer">
+										<button id='myBtn' type="button" class="btn btn-primary">確認</button>
+								</div>
+						</div><!-- /.modal-content -->
+				</div><!-- /.modal -->
+			</div>
+
 		</div>
 
 		<!--================================================== -->
+
+		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script> if (!window.jQuery) { document.write('<script src="{% static 'vendor/js/libs/jquery-3.2.1.min.js' %}"><\/script>');} </script>
 
 		<!-- Browser check -->
 		{% for message in messages %}
 			<script>alert('{{ message }}');</script>
 		{% endfor %}
 		<script>if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1)){window.location = '{% url 'browser_not_support' %}';}</script>
-
-	    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
-	    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script> if (!window.jQuery) { document.write('<script src="{% static 'vendor/js/libs/jquery-3.2.1.min.js' %}"><\/script>');} </script>
 
 	    <!--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script> if (!window.jQuery.ui) { document.write('<script src="{% static 'vendor/js/libs/jquery-ui.min.js' %}"><\/script>');} </script>-->
@@ -89,6 +100,16 @@
 		{% if use_ga %}
 			{% include "snippets/ga.html" with ga_tracking_id=ga_tracking_id %}
 		{% endif %}
+
+		<script>
+				$(document).ready(function() {
+						$('#myModal').modal('toggle');
+				});
+
+				$('#myBtn').click(function() {
+						$('#myModal').modal('toggle');
+				});
+		</script>
 
 	</body>
 </html>
