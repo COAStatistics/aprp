@@ -70,6 +70,17 @@
 	</div>
 	<!-- end row -->
 
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+				<div class="modal-content">
+						<div class="modal-body">本網站將於6月21日(星期五)下午6時起，至6月24日(星期一)上午9時止，進行維護。<br>維護期間網站將停止服務，敬請見諒。</div>
+						<div class="modal-footer">
+								<button id='myBtn' type="button" class="btn btn-primary">確認</button>
+						</div>
+				</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+
 
 <script>
 
@@ -109,5 +120,13 @@
 
 	// run pagefunction
 	pagefunction();
+
+	$(document).ready(function() {
+			$('#myModal').modal('toggle');
+	});
+
+	$('#myBtn').click(function() {
+			$('#myModal').modal('toggle');
+	});
 
 </script>
