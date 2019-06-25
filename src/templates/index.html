@@ -97,9 +97,6 @@
 
 		<!--================================================== -->
 
-		<!-- Browser check -->
-		<script>if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1)){window.location = '{% url 'browser_not_support' %}';}</script>
-
 		<!-- Parse i18n-->
     	<script src='{% url "parse_javascript" %}'></script>
 
@@ -127,6 +124,9 @@
 				document.write('<script src="{% static 'vendor/js/libs/jquery.cookie.js' %}"><\/script>');
 			}
 		</script>
+
+		<!-- Browser check -->
+		<script>if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1)){window.location = '{% url 'browser_not_support' %}';}</script>
 
 		<!-- jQuery Cookie -->
 		<script src='{% static "vendor/js/plugin/date.js/date-zh-TW.js" %}'></script>
