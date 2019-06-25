@@ -29,7 +29,7 @@ class Api(AbstractApi):
             code = obj.code
             tran = DailyTran(
                 product=obj,
-                avg_price=float(dic.get(code)),
+                avg_price=float(dic.get(code).replace(',', '')),
                 date=date_transfer(sep=self.SEP, string=dic.get('date'), roc_format=self.ROC_FORMAT)
             )
             return tran
