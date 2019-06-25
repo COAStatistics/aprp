@@ -639,3 +639,17 @@
     name: 八里區農會
     configs: [5, 6]
     type: 2
+
+- model: configs.Source
+  pk: 10111
+  fields:
+    name: 集集鎮農會
+    configs: [5, 6]
+    type: 2
+
+- model: configs.Source
+  pk: 10112
+  fields:
+    name: 滿州鄉農會
+    configs: [5, 6]
+    type: 2
