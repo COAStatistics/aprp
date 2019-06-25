@@ -605,12 +605,14 @@
     configs: [5, 6]
     type: 2
 
+
 - model: configs.Source
   pk: 10106
   fields:
     name: 鹽埔辦事處
     configs: [5, 6]
     type: 2
+
 
 - model: configs.Source
   pk: 10107
@@ -619,12 +621,14 @@
     configs: [5, 6]
     type: 2
 
+
 - model: configs.Source
   pk: 10108
   fields:
     name: 冬山鄉農會
     configs: [5, 6]
     type: 2
+
 
 - model: configs.Source
   pk: 10109
@@ -633,12 +637,14 @@
     configs: [5, 6]
     type: 2
 
+
 - model: configs.Source
   pk: 10110
   fields:
     name: 八里區農會
     configs: [5, 6]
     type: 2
+
 
 - model: configs.Source
   pk: 10111
@@ -647,9 +653,18 @@
     configs: [5, 6]
     type: 2
 
+
 - model: configs.Source
   pk: 10112
   fields:
     name: 滿州鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10113
+  fields:
+    name: 溪州鄉農會
     configs: [5, 6]
     type: 2
