@@ -668,3 +668,11 @@
     name: 溪州鄉農會
     configs: [5, 6]
     type: 2
+
+
+- model: configs.Source
+  pk: 10114
+  fields:
+    name: 二水鄉農會
+    configs: [5, 6]
+    type: 2
