@@ -4,7 +4,7 @@
     name: 108上半年
     user: 1
     start_date: 2019-01-01
-    end_date: 2019-06-29
+    end_date: 2019-06-30
 
 # Rices
 - model: watchlists.WatchlistItem

@@ -676,3 +676,11 @@
     name: 二水鄉農會
     configs: [5, 6]
     type: 2
+
+
+- model: configs.Source
+  pk: 10115
+  fields:
+    name: 關西鎮農會
+    configs: [5, 6]
+    type: 2
