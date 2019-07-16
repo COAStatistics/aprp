@@ -13,8 +13,8 @@ class BuilderTestCase(TestCase):
         call_command('loaddata', 'sources.yaml', verbosity=0)
         call_command('loaddata', 'cog01.yaml', verbosity=0)
 
-        self.start_date = datetime.date(year=2018, month=1, day=2)
-        self.end_date = datetime.date(year=2018, month=1, day=3)
+        self.start_date = datetime.date(year=2019, month=1, day=2)
+        self.end_date = datetime.date(year=2019, month=1, day=3)
 
     def test_direct_single(self):
         direct(start_date=self.start_date, end_date=self.end_date)
@@ -25,8 +25,8 @@ class BuilderTestCase(TestCase):
         self.assertEquals(qs.count(), 2)
 
     def test_direct_multi(self):
-        start_date = datetime.date(year=2017, month=1, day=1)
-        end_date = datetime.date(year=2017, month=4, day=1)
+        start_date = datetime.date(year=2019, month=1, day=1)
+        end_date = datetime.date(year=2019, month=4, day=1)
         direct(start_date=start_date, end_date=end_date)
 
         qs = DailyTran.objects.filter(date__range=[start_date, end_date])

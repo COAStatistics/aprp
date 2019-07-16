@@ -31,11 +31,11 @@ def direct_wholesale(start_date=None, end_date=None, *args, **kwargs):
 
     for model in MODELS:
         wholesale_api = WholeSaleApi(model=model, **data._asdict())
-        for obj in product_generator(model):
-            if obj.type.id == 1:
-                for delta_start_date, delta_end_date in date_generator(start_date, end_date, WHOLESALE_DELTA_DAYS):
-                    response = wholesale_api.request(start_date=delta_start_date, end_date=delta_end_date, name=obj.name)
-                    wholesale_api.load(response)
+
+        for obj in product_generator(model, type=1, **kwargs):
+            for delta_start_date, delta_end_date in date_generator(start_date, end_date, WHOLESALE_DELTA_DAYS):
+                response = wholesale_api.request(start_date=delta_start_date, end_date=delta_end_date, name=obj.name)
+                wholesale_api.load(response)
 
     return data
 
@@ -47,12 +47,12 @@ def direct_origin(start_date=None, end_date=None, *args, **kwargs):
 
     for model in MODELS:
         origin_api = OriginApi(model=model, **data._asdict())
-        for obj in product_generator(model):
-            if obj.type.id == 2:
-                for delta_start_date, delta_end_date in date_generator(start_date, end_date, ORIGIN_DELTA_DAYS):
-                    response = origin_api.request(start_date=delta_start_date, end_date=delta_end_date, code=obj.code)
-                    origin_api.load(response)
-                    # sleep for that poor api service...
-                    time.sleep(10)
+
+        for obj in product_generator(model, type=2, **kwargs):
+            for delta_start_date, delta_end_date in date_generator(start_date, end_date, ORIGIN_DELTA_DAYS):
+                response = origin_api.request(start_date=delta_start_date, end_date=delta_end_date, code=obj.code)
+                origin_api.load(response)
+                # sleep for that poor api service...
+                time.sleep(10)
 
     return data

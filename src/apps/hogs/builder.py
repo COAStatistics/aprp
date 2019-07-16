@@ -14,7 +14,7 @@ DELTA_DAYS = 1
 
 
 @director
-def direct(start_date=None, end_date=None, *args):
+def direct(start_date=None, end_date=None, *args, **kwargs):
 
     data = DirectData(CONFIG_CODE, 1, LOGGER_TYPE_CODE)
 

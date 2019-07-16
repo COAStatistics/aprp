@@ -13,8 +13,8 @@ class BuilderTestCase(TestCase):
         call_command('loaddata', 'configs.yaml', verbosity=0)
         call_command('loaddata', 'cog01.yaml', verbosity=0)
 
-        self.start_date = datetime.date(year=2017, month=1, day=1)
-        self.end_date = datetime.date(year=2017, month=1, day=1)
+        self.start_date = datetime.date(year=2019, month=1, day=1)
+        self.end_date = datetime.date(year=2019, month=1, day=1)
 
     def test_rice(self):
         # test create
