@@ -349,7 +349,7 @@ DAILYTRAN_BUILDER_API = {
     'eir51': 'http://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransGooseDuckData.aspx?',
     'eir097': 'http://data.coa.gov.tw/Service/OpenData/FromM/RicepriceData.aspx?',
     'eir107': 'http://data.coa.gov.tw/Service/OpenData/FromM/SheepTransData.aspx?',
-    'rice_avg': 'http://data.is.com.tw/Service/OpenData/Ricepriceavg.aspx?',
+    'rice_avg': 'http://data.coa.gov.tw/Service/OpenData/Ricepriceavg.aspx?',
 }
 
 # Hide login

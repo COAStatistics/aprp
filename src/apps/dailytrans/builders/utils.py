@@ -98,8 +98,15 @@ def date_generator(start_date, end_date, date_range=None):
         delta_start_date = delta_start_date + datetime.timedelta(date_range)
 
 
-def product_generator(model):
-    for obj in model.objects.all():
+def product_generator(model, type=None, code=None, name=None, **kwargs):
+    qs = model.objects.all()
+    if type:
+        qs = qs.filter(type__id=type)
+    if code:
+        qs = qs.filter(code=code)
+    if name:
+        qs = qs.filter(name=name)
+    for obj in qs:
         if obj.track_item:
             if obj.type is not None:
                 yield obj
@@ -116,7 +123,11 @@ DirectData = namedtuple('DirectData', ('config_code', 'type_id', 'logger_type_co
 def director(func):
 
     @wraps(func)
-    def interface(start_date=None, end_date=None, format=None, delta=None):
+    def interface(start_date=None, end_date=None, format=None, delta=None, **kwargs):
+
+        code = kwargs.get('code')
+        name = kwargs.get('name')
+
         if start_date and not end_date:
             raise NotImplementedError
         if end_date and not start_date:
@@ -146,7 +157,7 @@ def director(func):
 
         try:
             start_time = timezone.now()
-            data = func(start_date, end_date)
+            data = func(start_date, end_date, **kwargs)
             end_time = timezone.now()
             duration = end_time - start_time
 
@@ -155,15 +166,27 @@ def director(func):
                 qs = DailyTran.objects.filter(product__config__code=data.config_code,
                                               date__range=[start_date, end_date])
 
+                if code:
+                    qs = qs.filter(product__code=code)
+
+                if name:
+                    qs = qs.filter(product__name=name)
+
                 if data.type_id:
                     qs = qs.filter(product__type__id=data.type_id)
 
                 for d in qs.filter(update_time__lte=start_time):
-                    d.not_updated += 1
-                    d.save(update_fields=["not_updated"])
-                    db_logger.warning('Daily tran data not update, counted to field "not_updated": %s', str(d), extra={
-                        'logger_type': data.logger_type_code,
-                    })
+                    if name is None and code is None and kwargs.get('history') is None:
+                        d.not_updated += 1
+                        d.save(update_fields=["not_updated"])
+                        db_logger.warning('Daily tran data not update, counted to field "not_updated": %s', str(d), extra={
+                            'logger_type': data.logger_type_code,
+                        })
+                    else:
+                        d.delete()
+                        db_logger.warning('Daily tran data has been deleted: {}'.format(str(d)), extra={
+                            'logger_type': data.logger_type_code,
+                        })
 
                 qs.filter(update_time__gt=start_time).update(not_updated=0)
 
