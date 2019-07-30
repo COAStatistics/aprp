@@ -463,7 +463,7 @@
   pk: 3230
   fields:
     product: 59011 # 檸檬 產地
-    sources: [10043, 10077, 10076, 10045]
+    sources: [10043, 10077, 10076, 10045, 10106]
     parent: 5
 
 - model: watchlists.WatchlistItem
