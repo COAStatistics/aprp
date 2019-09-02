@@ -544,29 +544,29 @@
     parent: 120007
 
 - model: seafoods.Seafood
-  pk: 120957
+  pk: 120958
   fields:
     name: 2尾/斤
     code: priceU
     type: 2
     config: 13
     unit: 2
-    parent: 120956
+    parent: 120957
     track_item: false
 
 - model: seafoods.Seafood
-  pk: 120958
+  pk: 120959
   fields:
     name: 3尾/斤
     code: priceM
     type: 2
     config: 13
     unit: 2
-    parent: 120956
+    parent: 120957
     track_item: false
 
 - model: seafoods.Seafood
-  pk: 120959
+  pk: 120960
   fields:
     name: 鰻魚
     code: 1031
@@ -576,43 +576,43 @@
     parent: 120196
 
 - model: seafoods.Seafood
-  pk: 120960
+  pk: 120961
   fields:
     name: 3尾/公斤
     code: priceU
     type: 2
     config: 13
     unit: 2
-    parent: 120959
+    parent: 120960
     track_item: false
 
 - model: seafoods.Seafood
-  pk: 120961
+  pk: 120962
   fields:
     name: 5尾/公斤
     code: priceD
     type: 2
     config: 13
     unit: 2
-    parent: 120959
+    parent: 120960
     track_item: false
 
 - model: seafoods.Seafood
-  pk: 120962
+  pk: 120963
   fields:
     name: 4尾/公斤
     code: priceM
     type: 2
     config: 13
     unit: 2
-    parent: 120959
+    parent: 120960
     track_item: false
 
 - model: seafoods.Seafood
   pk: 120964
   fields:
     name: 鰻魚A
-    code: 1031
+    code: 1031A
     type: 2
     config: 13
     unit: 2
@@ -825,7 +825,7 @@
   pk: 120984
   fields:
     name: 900g以上
-    code: priceU
+    code: priceM
     type: 2
     config: 13
     unit: 2
@@ -947,7 +947,7 @@
     type: 2
     config: 13
     unit: 2
-    parent: 120985
+    parent: 120993
     track_item: false
 
 - model: seafoods.Seafood
@@ -1406,4 +1406,68 @@
     config: 13
     unit: 2
     parent: 121037
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121043
+  fields:
+    name: 龍虎斑A
+    code: 1174A
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121041
+
+- model: seafoods.Seafood
+  pk: 121044
+  fields:
+    name: 0.6-0.9公斤/尾
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121043
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121045
+  fields:
+    name: 龍虎斑
+    code: 1174
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121041
+
+- model: seafoods.Seafood
+  pk: 121046
+  fields:
+    name: 0.9公斤以上/尾
+    code: priceU
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121045
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121047
+  fields:
+    name: 0.6-0.9公斤/尾
+    code: priceM
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121045
+    track_item: false
+
+- model: seafoods.Seafood
+  pk: 121048
+  fields:
+    name: 0.6公斤/尾
+    code: priceD
+    type: 2
+    config: 13
+    unit: 2
+    parent: 121045
     track_item: false
