@@ -564,7 +564,7 @@
 - model: watchlists.WatchlistItem
   pk: 3403
   fields:
-    product: 120932 # 石斑 0.6-0.9公斤/尾
+    product: 120932 # 青石斑 0.6-0.9公斤/尾
     sources: []
     parent: 5
 
@@ -593,6 +593,13 @@
   pk: 3407
   fields:
     product: 120937 # 白蝦 50尾/0.6公斤
+    sources: []
+    parent: 5
+
+- model: watchlists.WatchlistItem
+  pk: 3408
+  fields:
+    product: 121044 # 龍虎斑 0.6-0.9公斤/尾
     sources: []
     parent: 5
 

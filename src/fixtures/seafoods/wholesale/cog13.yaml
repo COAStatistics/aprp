@@ -8548,3 +8548,22 @@
     config: 13
     unit: 1
     parent: 120196
+
+- model: seafoods.Seafood
+  pk: 121041
+  fields:
+    name: 龍虎斑
+    config: 13
+    unit: 1
+    track_item: false
+    parent: 120001
+
+- model: seafoods.Seafood
+  pk: 121042
+  fields:
+    name: 龍虎斑
+    code: 1174
+    type: 1
+    config: 13
+    unit: 1
+    parent: 121041

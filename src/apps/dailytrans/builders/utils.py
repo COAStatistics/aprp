@@ -167,10 +167,10 @@ def director(func):
                                               date__range=[start_date, end_date])
 
                 if code:
-                    qs = qs.filter(product__code=code)
+                    qs = qs.filter(product__parent__code=code)
 
                 if name:
-                    qs = qs.filter(product__name=name)
+                    qs = qs.filter(product__parent__name=name)
 
                 if data.type_id:
                     qs = qs.filter(product__type__id=data.type_id)
