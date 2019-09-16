@@ -18,7 +18,7 @@ class BuilderTestCase(TestCase):
 
     def test_fruit(self):
         # test create
-        obj = Fruit.objects.filter(name='香蕉(內銷)').filter(track_item=True).first()
+        obj = Fruit.objects.filter(name='青香蕉(內銷)').filter(track_item=True).first()
 
         api = Api(model=Fruit, config_code='COG06', type_id=2)
         response = api.request(start_date=self.date,
