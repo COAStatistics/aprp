@@ -31,8 +31,8 @@
 - model: fruits.Fruit
   pk: 59004
   fields:
-    name: 香蕉(內銷)
-    code: 香蕉(內銷)
+    name: 青香蕉(內銷)
+    code: 青香蕉(內銷)
     type: 2
     config: 6
     unit: 2
