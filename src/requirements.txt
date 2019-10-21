@@ -47,7 +47,7 @@ urllib3==1.24.1
 vine==1.1.4
 waitress==1.1.0
 wcwidth==0.1.7
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 wfastcgi==3.0.0
 whitenoise==3.3.1
 pyyaml>=4.2b1
