@@ -1,4 +1,4 @@
-FROM python:3.5
+FROM python:3.6
 
 # python envs
 ENV PYTHONFAULTHANDLER=1 \
@@ -13,6 +13,8 @@ RUN apt-get update \
 
 WORKDIR /app
 
-ADD src .
+COPY src/requirements.txt .
 
 RUN pip install -r requirements.txt
+
+ADD src .
