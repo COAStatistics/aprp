@@ -22,6 +22,11 @@ DATABASES = {
 }
 ```
 
+Create your own `.env` file at root, e.g. using `.env.example`:
+```
+$ cp .env.example .env
+```
+
 Use `--build` to rebuild image, `-d` to run containers in the background :
 ```
 $ docker-compose up
