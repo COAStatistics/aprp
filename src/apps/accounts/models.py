@@ -30,8 +30,9 @@ class GroupInformationQuerySet(QuerySet):
                 if not group.has_child:
                     ids.append(group.id)
             return self.filter(id__in=ids)
-        except Exception as e:
-            logging.exception(e)
+        except Exception:
+            # Happens at first migration
+            pass
 
 
 class GroupInformation(Model):
