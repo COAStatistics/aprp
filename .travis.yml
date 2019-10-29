@@ -1,6 +1,8 @@
 services: docker
 
 before_install:
+  # Prepare environs file
+  - sudo cp .env.example .env
   - docker -v
   # Stop the postgres instance travis sets up automatically
   - sudo /etc/init.d/postgresql stop
