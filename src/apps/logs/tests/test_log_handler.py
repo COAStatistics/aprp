@@ -6,15 +6,17 @@ from apps.logs.models import LogType, Log
 
 
 class HandlerTestCase(TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
         # load fixtures
         call_command('loaddata', 'logs.yaml', verbosity=0)
 
-        self.logger = logging.getLogger('aprp')
+        cls.logger = logging.getLogger('aprp')
 
     def test_fixture(self):
         logger_types = LogType.objects.filter(code='LOT-crops')
-        self.assertEquals(logger_types.count(), 1)
+        self.assertEqual(logger_types.count(), 1)
 
     def test_logger(self):
         try:
@@ -26,4 +28,4 @@ class HandlerTestCase(TestCase):
             self.logger.error(e, extra=extra)
 
         logs = Log.objects.filter(type__code='LOT-crops')
-        self.assertEquals(logs.count(), 1)
+        self.assertEqual(logs.count(), 1)

@@ -1,8 +1,6 @@
 services: docker
 
 before_install:
-  # Prepare setting module for docker-compose
-  - sudo cp src/dashboard/settings/travis.py src/dashboard/settings/local.py
   - docker -v
   # Stop the postgres instance travis sets up automatically
   - sudo /etc/init.d/postgresql stop
@@ -13,10 +11,8 @@ install:
   - sleep 10
 script:
   # Code styles
-  - docker-compose exec web sh -c "flake8 --exclude=migrations --ignore=E123,E133,E226,E241,E242,E402,E501,F401,F403,F405,W503 ./"
+  - docker-compose exec web flake8 --exclude=migrations --ignore=E123,E133,E226,E241,E242,E402,E501,F401,F403,F405,W503 ./
   # Run tests
-  - docker-compose exec web sh -c "python manage.py test apps.dailytrans"
-  - docker-compose exec web sh -c "python manage.py test apps.chickens apps.cattles apps.ducks apps.gooses apps.rams apps.hogs apps.rices"
-  - docker-compose exec web sh -c "python manage.py test apps.crops.tests.test_builder apps.fruits.tests.test_builder apps.flowers.tests.test_builder"
+  - docker-compose exec web pytest -m "not secret"
   # Show logs
   - docker-compose logs --tail=30 web

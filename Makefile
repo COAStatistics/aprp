@@ -8,3 +8,6 @@ attach:
 
 shell:
 	docker exec -it ${DJANGO_CONTAINER_NAME} python manage.py shell
+
+test:
+	docker exec ${DJANGO_CONTAINER_NAME} pytest -m "not secret"

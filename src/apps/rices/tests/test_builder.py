@@ -1,20 +1,24 @@
 import datetime
+import pytest
 from django.core.management import call_command
-from django.test import TestCase
+from dashboard.testing import BuilderTestCase
 from apps.rices.builder import direct
 from apps.dailytrans.models import DailyTran
 from apps.rices.models import Rice
 
 
-class BuilderTestCase(TestCase):
-    def setUp(self):
+@pytest.mark.secret
+class BuilderTestCase(BuilderTestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
         # load fixtures
         call_command('loaddata', 'configs.yaml', verbosity=0)
         call_command('loaddata', 'sources.yaml', verbosity=0)
         call_command('loaddata', 'cog01.yaml', verbosity=0)
 
-        self.start_date = datetime.date(year=2019, month=1, day=2)
-        self.end_date = datetime.date(year=2019, month=1, day=3)
+        cls.start_date = datetime.date(year=2019, month=1, day=2)
+        cls.end_date = datetime.date(year=2019, month=1, day=3)
 
     def test_direct_single(self):
         direct(start_date=self.start_date, end_date=self.end_date)
@@ -22,7 +26,7 @@ class BuilderTestCase(TestCase):
 
         qs = DailyTran.objects.filter(product=obj,
                                       date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 2)
+        self.assertEqual(qs.count(), 2)
 
     def test_direct_multi(self):
         start_date = datetime.date(year=2019, month=1, day=1)
@@ -31,7 +35,7 @@ class BuilderTestCase(TestCase):
 
         qs = DailyTran.objects.filter(date__range=[start_date, end_date])
 
-        self.assertEquals(qs.count(), 1365)
+        self.assertEqual(qs.count(), 1365)
 
     def test_direct_delta(self):
         direct(delta=-3)
@@ -45,6 +49,6 @@ class BuilderTestCase(TestCase):
 
         count_2 = DailyTran.objects.filter(date__range=(start_date, end_date)).count()
 
-        self.assertEquals(count_1, count_2)
+        self.assertEqual(count_1, count_2)
 
         direct(start_date=start_date, end_date=end_date)

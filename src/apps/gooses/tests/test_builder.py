@@ -1,21 +1,23 @@
 import datetime
 from django.core.management import call_command
-from django.test import TestCase
+from dashboard.testing import BuilderTestCase
 from apps.gooses.builder import direct
 from apps.dailytrans.models import DailyTran
 from apps.gooses.models import Goose
 from django.db.models import Q
 
 
-class BuilderTestCase(TestCase):
-    def setUp(self):
+class BuilderTestCase(BuilderTestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
         # load fixtures
         call_command('loaddata', 'configs.yaml', verbosity=0)
         call_command('loaddata', 'sources.yaml', verbosity=0)
         call_command('loaddata', 'cog12.yaml', verbosity=0)
 
-        self.start_date = datetime.date(year=2017, month=1, day=1)
-        self.end_date = datetime.date(year=2017, month=1, day=3)
+        cls.start_date = datetime.date(year=2017, month=1, day=1)
+        cls.end_date = datetime.date(year=2017, month=1, day=3)
 
     def test_direct_single(self):
         direct(start_date=self.start_date, end_date=self.end_date)
@@ -23,7 +25,7 @@ class BuilderTestCase(TestCase):
 
         qs = DailyTran.objects.filter(product=obj,
                                       date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 3)
+        self.assertEqual(qs.count(), 3)
 
     def test_direct_multi(self):
         start_date = datetime.date(year=2017, month=1, day=1)
@@ -33,7 +35,7 @@ class BuilderTestCase(TestCase):
 
         qs = DailyTran.objects.filter(product__id__in=obj_ids,
                                       date__range=(start_date, end_date))
-        self.assertEquals(qs.count(), 2*10)
+        self.assertEqual(qs.count(), 2*10)
 
     def test_direct_all(self):
         start_date = datetime.date(year=2017, month=1, day=1)
@@ -41,7 +43,7 @@ class BuilderTestCase(TestCase):
         direct(start_date='2017/01/01', end_date='2017/01/5', format='%Y/%m/%d')
 
         qs = DailyTran.objects.filter(date__range=(start_date, end_date))
-        self.assertEquals(qs.count(), 4*5)
+        self.assertEqual(qs.count(), 4*5)
 
     def test_direct_format(self):
         direct(start_date=self.start_date, end_date=self.end_date)
@@ -49,4 +51,4 @@ class BuilderTestCase(TestCase):
 
         qs = DailyTran.objects.filter(product=obj,
                                       date__range=(self.start_date, self.end_date))
-        self.assertEquals(qs.count(), 3)
+        self.assertEqual(qs.count(), 3)
