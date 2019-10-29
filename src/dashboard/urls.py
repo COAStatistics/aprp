@@ -47,7 +47,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     # admin
-    url(r'^{}/'.format(settings.ADMIN_HIDE_LOGIN), admin.site.urls),
+    url(r'^{}/'.format(settings.DJANGO_ADMIN_PATH), admin.site.urls),
     # pages
     url(r'^$', Index.as_view(), name='index'),
     url(r'^about/', About.as_view(), name='about'),
