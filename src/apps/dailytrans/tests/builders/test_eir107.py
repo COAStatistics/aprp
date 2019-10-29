@@ -1,5 +1,5 @@
 import datetime
-from django.test import TestCase
+from dashboard.testing import BuilderBackendTestCase
 from django.core.management import call_command
 from apps.dailytrans.models import DailyTran
 from apps.rams.models import Ram
@@ -7,15 +7,16 @@ from apps.configs.models import Source
 from apps.dailytrans.builders.eir107 import Api
 
 
-class BuilderTestCase(TestCase):
-
-    def setUp(self):
+class BuilderTestCase(BuilderBackendTestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
         # load fixtures
         call_command('loaddata', 'configs.yaml', verbosity=0)
         call_command('loaddata', 'sources.yaml', verbosity=0)
         call_command('loaddata', 'cog09.yaml', verbosity=0)
 
-        self.date = datetime.date(year=2018, month=1, day=1)
+        cls.date = datetime.date(year=2018, month=1, day=1)
 
     def test_ram(self):
         # test create
@@ -30,10 +31,10 @@ class BuilderTestCase(TestCase):
         api.load(response)
         count_qs = DailyTran.objects.filter(date=self.date,
                                             product=obj)
-        self.assertEquals(count_qs.count(), 1)
+        self.assertEqual(count_qs.count(), 1)
 
         # test update by load again
 
         api.load(response)
 
-        self.assertEquals(count_qs.count(), 1)
+        self.assertEqual(count_qs.count(), 1)

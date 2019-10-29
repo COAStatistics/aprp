@@ -8,7 +8,9 @@ from pandas import DataFrame
 
 
 class AggregationTestCase(TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
         # load fixtures
         call_command('loaddata', 'configs.yaml', verbosity=0)
         call_command('loaddata', 'sources.yaml', verbosity=0)

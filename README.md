@@ -43,3 +43,12 @@ Use `-v` to clean volume while stop containers:
 ```
 $ docker-compose down -v
 ```
+
+Testing
+---------------
+Once services are up, use the command to run tests, will ignore
+the tests that involve secrets:
+
+```bash
+make test
+```
