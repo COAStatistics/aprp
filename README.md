@@ -1,4 +1,4 @@
-![image](https://travis-ci.org/travishen/aprp.svg?branch=master)
+![image](https://travis-ci.org/COAStatistics/aprp.svg?branch=master)
 
 Template used
 ---------------
