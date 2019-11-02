@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django_db_logger',
 
     # Local apps
+    'dashboard',
     'apps.accounts',
     'apps.configs',
     'apps.crops',
@@ -229,7 +230,6 @@ SERVE_MEDIA_FILES = False  # make whitenoise serving media files
 
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
 )
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'

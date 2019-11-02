@@ -9,8 +9,4 @@ python manage.py migrate
 python manage.py compilemessages
 python manage.py collectstatic --noinput --verbosity 0
 
-python manage.py loaddata logs accounts configs sources
-python manage.py loaddata cog01 cog02 cog03 cog04 cog05 cog06 cog07 cog08 cog09 cog10 cog11 cog12 cog13 cog14
-python manage.py loaddata eventtype
-
 python manage.py runserver 0.0.0.0:8000
