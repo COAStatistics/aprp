@@ -74,5 +74,5 @@ class DailyTran(Model):
 
 class DailyReport(Model):
     date = DateField(auto_now=False, default=timezone.now().today, verbose_name=_('Date'))
-    file_id = CharField(max_length=30, unique=True, verbose_name=_('File ID'))
+    file_id = CharField(max_length=120, unique=True, verbose_name=_('File ID'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
