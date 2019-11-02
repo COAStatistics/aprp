@@ -1,5 +1,8 @@
 DJANGO_CONTAINER_NAME = web
 
+init:
+	docker exec -it ${DJANGO_CONTAINER_NAME} ./scripts/init_data.sh
+
 ps:
 	docker ps --format 'table {{.Names}}\t{{.Image}}\t{{.Ports}}\t{{.Status}}'
 

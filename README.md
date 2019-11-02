@@ -37,6 +37,11 @@ db                  postgres:10-alpine   5432/tcp                 Up 39 seconds
 redis               redis:4.0            6379/tcp                 Up 40 seconds
 ```
 
+Initial fixtures:
+```bash
+make init
+```
+
 Attach django shell using ```make shell```
 
 Use `-v` to clean volume while stop containers:
