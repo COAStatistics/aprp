@@ -23,6 +23,7 @@ from django.views.i18n import javascript_catalog
 from .views import (
     Index,
     About,
+    DailyReport,
     JarvisMenu,
     ChartTabs,
     ChartContents,
@@ -36,6 +37,7 @@ urlpatterns = [
     url(r'^posts/', include('apps.posts.urls', namespace='posts')),
     url(r'^comments/', include('apps.comments.urls', namespace='comments')),
     url(r'^events/', include('apps.events.urls', namespace='events')),
+    url(r'^dailytrans/', include('apps.dailytrans.urls', namespace='dailytrans')),
     # i18n
     url(r'^jsi18n/$', javascript_catalog, name='parse_javascript'),
     url(r'^set-user-language/(?P<lang>[-\w]+)/$', Index.as_view(), name='set_user_language'),
@@ -64,6 +66,8 @@ urlpatterns += i18n_patterns(
     # chart content ajax
     url(r'^integration-table/(?P<ci>\d+)/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/$', IntegrationTable.as_view(), name='integration_table'),
     url(r'^integration-table/(?P<ci>\d+)/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/(?P<lct>\w+)/(?P<loi>\d+)/$', IntegrationTable.as_view(), name='integration_table'),
+    # daily report ajax
+    url(r'^daily-report/', DailyReport.as_view(), name='daily_report'),
 )
 
 if settings.DEBUG:

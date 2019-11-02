@@ -1,0 +1,80 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!-- Bread crumb is created dynamically -->
+<!-- row -->
+<div class="row">
+	<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+		<h1 class="page-title txt-color-blueDark">
+
+			<!-- PAGE HEADER -->
+			<i class="fa-fw fa fa-home"></i>
+				{% trans 'Main' %}
+			<span>>
+				{% trans 'Daily Report' %}
+			</span>
+
+		</h1>
+	</div>
+</div>
+<!-- end row -->
+
+<div class="row">
+	<div class="col-sm-12 col-md-6 col-lg-4">
+		<div id="search-area" class="input-group input-group-lg search-area">
+			<span class="input-group-addon">{% trans 'Select a report date' %}</span>
+			<input type="text" class="form-control search-text" name="date" id="daily-report-date">
+			<span class="input-group-btn">
+				<button class="btn btn-default search-btn" type="button" id="daily-report-date-submit">
+					<span class="fa fa-fw fa-search fa-lg"></span>
+			  </button>
+			</span>
+		</div>
+	</div>
+</div>
+
+
+<div id="daily-report-container" data-load data-load-url="{% url 'dailytrans:render_daily_report' %}"></div>
+
+<script>
+
+	pageSetUp();
+
+	pagefunction = function(){
+	    // Default to yesterday
+        var d = new Date();
+        var yesterday = d.addDays(-1);
+
+        yesterday = $.datepicker.formatDate('yy/mm/dd', yesterday);
+
+        $input = $('#daily-report-date')
+
+        $input.datepicker({
+            dateFormat : 'yy/mm/dd',
+            defaultDate: -1,
+        }).datepicker( "setDate", yesterday );
+
+        $('#daily-report-date-submit').on('click', function(e){
+            var $container = $('#daily-report-container');
+            var url = $container.attr('data-load-url');
+
+            var date = $input.datepicker('getDate');
+
+            data = {
+                'day': date.getDate(),
+                'month': date.getMonth(),
+                'year': date.getFullYear(),
+            }
+
+            loadURL(url, $container, data, "POST");
+        })
+	}
+
+    // PAGE RELATED SCRIPTS
+
+    pagefunction();
+
+</script>
+
+
+
