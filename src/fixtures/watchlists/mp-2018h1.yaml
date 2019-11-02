@@ -7,6 +7,7 @@
     watchlist: 2
     type: 1
     price: 4.5
+    row: 19
     comparator: __lt__
     color: danger
     info: |
@@ -25,6 +26,7 @@
     watchlist: 2
     type: 1
     price: 4.7
+    row: 20
     comparator: __lt__
     color: danger
     info: |
@@ -43,6 +45,7 @@
     watchlist: 2
     type: 2
     price: 29.4
+    row: 14
     comparator: __lt__
     color: danger
     info: |
@@ -62,6 +65,7 @@
     watchlist: 2
     type: 2
     price: 26.4
+    row: 15
     comparator: __lt__
     color: danger
     info: |
@@ -80,6 +84,7 @@
     watchlist: 2
     type: 2
     price: 4.1
+    row: 33
     comparator: __lt__
     color: danger
     info: |
@@ -100,6 +105,7 @@
     watchlist: 2
     type: 2
     price: 28.6
+    row: 16
     comparator: __lt__
     color: danger
     info: |
@@ -118,6 +124,7 @@
     watchlist: 2
     type: 1
     price: 6.2
+    row: 17
     comparator: __lt__
     color: danger
     info: |
@@ -136,6 +143,7 @@
     watchlist: 2
     type: 1
     price: 23.1
+    row: 21
     comparator: __lt__
     color: danger
     info: |
@@ -154,6 +162,7 @@
     watchlist: 2
     type: 1
     price: 11.1
+    row: 22
     comparator: __lt__
     color: danger
     info: |
@@ -172,6 +181,7 @@
     watchlist: 2
     type: 1
     price: 7.0
+    row: 24
     comparator: __lt__
     color: danger
     info: |
@@ -190,6 +200,7 @@
     watchlist: 2
     type: 1
     price: 3.2
+    row: 28
     comparator: __lt__
     color: danger
     info: |
@@ -208,6 +219,7 @@
     watchlist: 2
     type: 1
     price: 7.0
+    row: 26
     comparator: __lt__
     color: danger
     info: |
@@ -229,6 +241,7 @@
     watchlist: 2
     type: 1
     price: 11.1
+    row: 27
     comparator: __lt__
     color: danger
     info: |
@@ -250,6 +263,7 @@
     watchlist: 2
     type: 1
     price: 5.1
+    row: 34
     comparator: __lt__
     color: danger
     info: |
@@ -269,6 +283,7 @@
     watchlist: 2
     type: 1
     price: 32.0
+    row: 35
     comparator: __lt__
     color: danger
     info: |
@@ -287,6 +302,7 @@
     watchlist: 2
     type: 1
     price: 17.0
+    row: 36
     comparator: __lt__
     color: danger
     info: |
@@ -305,6 +321,7 @@
     watchlist: 2
     type: 1
     price: 11.7
+    row: 31
     comparator: __lt__
     color: danger
     info: |
@@ -324,6 +341,7 @@
     watchlist: 2
     type: 1
     price: 11.4
+    row: 32
     comparator: __lt__
     color: danger
     info: |
@@ -345,6 +363,7 @@
     watchlist: 2
     type: 1
     price: 20.7
+    row: 59
     comparator: __lt__
     color: danger
     info: |
@@ -364,6 +383,7 @@
     watchlist: 2
     type: 1
     price: 17.5
+    row: 60
     comparator: __lt__
     color: danger
     info: |
@@ -383,6 +403,7 @@
     watchlist: 2
     type: 1
     price: 31.7
+    row: 58
     comparator: __lt__
     color: danger
     info: |
@@ -401,6 +422,7 @@
     watchlist: 2
     type: 1
     price: 13.7
+    row: 40
     comparator: __lt__
     color: danger
     info: |
@@ -419,6 +441,7 @@
     watchlist: 2
     type: 1
     price: 6.7
+    row: 39
     comparator: __lt__
     color: danger
     info: |
@@ -437,6 +460,7 @@
     watchlist: 2
     type: 1
     price: 32.3
+    row: 61
     comparator: __lt__
     color: danger
     info: |
@@ -455,6 +479,7 @@
     watchlist: 2
     type: 1
     price: 37.7
+    row: 63
     comparator: __lt__
     color: danger
     info: |
@@ -473,6 +498,7 @@
     watchlist: 2
     type: 2
     price: 13.6
+    row: 65
     comparator: __lt__
     color: danger
     info: |
@@ -492,6 +518,7 @@
     watchlist: 2
     type: 2
     price: 12.1
+    row: 66
     comparator: __lt__
     color: danger
     info: |
@@ -511,6 +538,7 @@
     watchlist: 2
     type: 1
     price: 42.1
+    row: 67
     comparator: __lt__
     color: danger
     info: |
@@ -529,6 +557,7 @@
     watchlist: 2
     type: 1
     price: 15.4
+    row: 68
     comparator: __lt__
     color: danger
     info: |
@@ -550,6 +579,7 @@
     watchlist: 2
     type: 2
     price: 29.4
+    row: 69
     comparator: __lt__
     color: danger
     info: |
@@ -568,6 +598,7 @@
     watchlist: 2
     type: 1
     price: 26.1
+    row: 70
     comparator: __lt__
     color: danger
     info: |
@@ -587,6 +618,7 @@
     watchlist: 2
     type: 2
     price: 6.4
+    row: 71
     comparator: __lt__
     color: danger
     info: |
@@ -610,6 +642,7 @@
     watchlist: 2
     type: 1
     price: 11.2
+    row: 74
     comparator: __lt__
     color: danger
     info: |
@@ -628,6 +661,7 @@
     watchlist: 2
     type: 1
     price: 9.6
+    row: 75
     comparator: __lt__
     color: danger
     info: |
@@ -648,6 +682,7 @@
     watchlist: 2
     type: 2
     price: 7.6
+    row: 76
     comparator: __lt__
     color: danger
     info: |
@@ -666,6 +701,7 @@
     watchlist: 2
     type: 1
     price: 13.6
+    row: 79
     comparator: __lt__
     color: danger
     info: |
@@ -686,6 +722,7 @@
     watchlist: 2
     type: 1
     price: 11.8
+    row: 80
     comparator: __lt__
     color: danger
     info: |
@@ -704,6 +741,7 @@
     watchlist: 2
     type: 1
     price: 14.7
+    row: 81
     comparator: __lt__
     color: danger
     info: |
@@ -723,6 +761,7 @@
     watchlist: 2
     type: 2
     price: 6.4
+    row: 82
     comparator: __lt__
     color: danger
     info: |
@@ -743,6 +782,7 @@
     watchlist: 2
     type: 1
     price: 19.7
+    row: 88
     comparator: __lt__
     color: danger
     info: |
@@ -766,6 +806,7 @@
     watchlist: 2
     type: 1
     price: 48.9
+    row: 115
     comparator: __lt__
     color: danger
     info: |
@@ -859,6 +900,7 @@
     watchlist: 2
     type: 1
     price: 161.7
+    row: 117
     comparator: __lt__
     color: danger
     info: |
@@ -881,6 +923,7 @@
     watchlist: 2
     type: 2
     price: 91.8
+    row: 116
     comparator: __lt__
     color: danger
     info: |
@@ -903,6 +946,7 @@
     watchlist: 2
     type: 2
     price: 56.0
+    row: 118
     comparator: __lt__
     color: danger
     info: |
@@ -926,6 +970,7 @@
     watchlist: 2
     type: 2
     price: 54.1
+    row: 119
     comparator: __lt__
     color: danger
     info: |
@@ -947,6 +992,7 @@
     watchlist: 2
     type: 2
     price: 41.5
+    row: 120
     comparator: __lt__
     color: danger
     info: |
@@ -968,6 +1014,7 @@
     watchlist: 2
     type: 2
     price: 36.1
+    row: 121
     comparator: __lt__
     color: danger
     info: |
@@ -992,6 +1039,7 @@
     watchlist: 2
     type: 2
     price: 35.0
+    row: 123
     comparator: __lt__
     color: danger
     info: |
@@ -1016,6 +1064,7 @@
     watchlist: 2
     type: 2
     price: 46.6
+    row: 122
     comparator: __lt__
     color: danger
     info: |
@@ -1040,6 +1089,7 @@
     watchlist: 2
     type: 2
     price: 76.1
+    row: 125
     comparator: __lt__
     color: danger
     info: |
@@ -1063,6 +1113,7 @@
     watchlist: 2
     type: 2
     price: 163.5
+    row: 126
     comparator: __lt__
     color: danger
     info: |
@@ -1086,6 +1137,7 @@
     watchlist: 2
     type: 2
     price: 58.5
+    row: 128
     comparator: __lt__
     color: danger
     info: |
@@ -1101,6 +1153,3 @@
             (2)協調通路、產業團體辦理行促銷活動，拉抬消費買氣
             (3)啟動公司部門企業團購
             2.緊急調節：鼓勵加工廠收購、凍儲或獎勵外銷
-
-
-

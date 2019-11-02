@@ -13,6 +13,7 @@ from django.db.models import (
     QuerySet,
     TextField,
     DateField,
+    PositiveIntegerField,
     Q,
 )
 from django.utils.translation import ugettext_lazy as _
@@ -158,6 +159,7 @@ class MonitorProfile(Model):
     period = TextField(null=True, blank=True, verbose_name=_('Period'))
     is_active = BooleanField(default=False, verbose_name=_('Is Active'))
     months = ManyToManyField('configs.Month', verbose_name=_('Monitor Months'))
+    row = PositiveIntegerField(null=True, blank=True, verbose_name=_('Row'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
 
     class Meta:
@@ -175,6 +177,21 @@ class MonitorProfile(Model):
 
     def watchlist_items(self):
         return WatchlistItem.objects.filter(product__parent=self.product)
+
+    def product_list(self):
+        items = WatchlistItem.objects.filter_by_product(product=self.product).filter(parent=self.watchlist)
+        # items = self.watchlist_items().filter(parent=self.watchlist)
+        if not items:
+            return [self.product]
+        else:
+            return [item.product for item in items]
+
+    def sources(self):
+        sources = list()
+        items = WatchlistItem.objects.filter_by_product(product=self.product).filter(parent=self.watchlist)
+        for i in items:
+            sources += i.sources.all()
+        return list(set(sources))
 
     def active_compare(self, price):
         if self.comparator == '__gt__':
