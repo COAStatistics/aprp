@@ -103,6 +103,11 @@ class About(LoginRequiredMixin, TemplateView):
     template_name = 'ajax/about.html'
 
 
+class DailyReport(LoginRequiredMixin, TemplateView):
+    redirect_field_name = 'redirect_to'
+    template_name = 'ajax/daily-report.html'
+
+
 class JarvisMenu(LoginRequiredMixin, TemplateView):
     redirect_field_name = 'redirect_to'
     template_name = 'ajax/jarvismenu.html'

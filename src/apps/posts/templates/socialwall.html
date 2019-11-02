@@ -28,111 +28,97 @@ span.reply-origin {
 .timeline-seperator>:first-child {
 	font-size: 16px;
 }
+
 </style>
 
 <!-- Bread crumb is created dynamically -->
 <!-- row -->
 <div class="row">
 
-	<!-- col -->
-	<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
-		<h1 class="page-title txt-color-blueDark">
+    <!-- col -->
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+        <h1 class="page-title txt-color-blueDark">
 
-			<!-- PAGE HEADER -->
-			<i class="fa-fw fa fa-home"></i>
-				{% trans 'Main' %}
-			<span>>
+            <!-- PAGE HEADER -->
+            <i class="fa-fw fa fa-home"></i>
+            {% trans 'Main' %}
+            <span>>
 				{% trans 'Social Wall' %}
 			</span>
 
-		</h1>
-	</div>
-	<!-- end col -->
+        </h1>
+    </div>
+    <!-- end col -->
 
 </div>
 <!-- end row -->
 
-<!--
-The ID "widget-grid" will start to initialize all widgets below
-You do not need to use widgets if you dont want to. Simply remove
-the <section></section> and you can use wells or panels instead
--->
-
-
-<!-- include libraries(jQuery, bootstrap) -->
-<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> -->
-
-<!-- include summernote css/js -->
-<!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script> -->
-
 <!-- widget grid -->
 <section id="widget-grid" class="">
 
-	<!-- row -->
-<div class="row">
+    <!-- row -->
+    <div class="row">
 
-		<!-- a blank row to get started -->
-		<div class="col-sm-12 col-lg-12">
+        <!-- a blank row to get started -->
+        <div class="col-sm-12 col-md-6 col-lg-4">
 
-			<!-- <div class="socialwall-newpost-btn"> -->
-				 <!-- data-toggle="modal" data-target="#form-post" -->
-				<!-- <button type="button" id="btn-newpost" class="btn btn-primary">{% trans 'New Post' %}</button>
-			</div> -->
+            <!-- <div class="socialwall-newpost-btn"> -->
+            <!-- data-toggle="modal" data-target="#form-post" -->
+            <!-- <button type="button" id="btn-newpost" class="btn btn-primary">{% trans 'New Post' %}</button>
+        </div> -->
 
-			<div id="search-area" class="input-group input-group-lg search-area">
-				<div class="input-group-btn search-panel">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-          	<span id="search_concept" url="{% url 'posts:post_search' %}">{% trans 'Filter by' %}</span>
-						<span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-	          <li><a href="javascript:void(0)" data-type="Title">{% trans 'Title' %}</a></li>
-            <li><a href="javascript:void(0)" data-type="Author">{% trans 'Author' %}</a></li>
-            <li><a href="javascript:void(0)" data-type="Content">{% trans 'Content' %}</a></li>
-            <li><a href="javascript:void(0)" data-type="Comment">{% trans 'Comment' %}</a></li>
-            <li class="divider"></li>
-	          <li><a class="search-everything" href="javascript:void(0)" data-type="All">{% trans 'All' %}</a></li>
-          </ul>
-        </div>
-        <input type="hidden" name="search_param" value="All" id="search_param">
-        <input type="text" class="form-control search-text" name="x" data-hint="{% trans 'Search term...' %}" placeholder="{% trans 'Default search all...' %}">
-        <span class="input-group-btn">
+            <div id="search-area" class="input-group input-group-lg search-area">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span id="search_concept" url="{% url 'posts:post_search' %}">{% trans 'Filter by' %}</span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="javascript:void(0)" data-type="Title">{% trans 'Title' %}</a></li>
+                        <li><a href="javascript:void(0)" data-type="Author">{% trans 'Author' %}</a></li>
+                        <li><a href="javascript:void(0)" data-type="Content">{% trans 'Content' %}</a></li>
+                        <li><a href="javascript:void(0)" data-type="Comment">{% trans 'Comment' %}</a></li>
+                        <li class="divider"></li>
+                        <li><a class="search-everything" href="javascript:void(0)" data-type="All">{% trans 'All' %}</a>
+                        </li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="All" id="search_param">
+                <input type="text" class="form-control search-text" name="x" data-hint="{% trans 'Search term...' %}"
+                       placeholder="{% trans 'Default search all...' %}">
+                <span class="input-group-btn">
           <button class="btn btn-default search-btn" type="button">
 						&nbsp;&nbsp;&nbsp;<span class="fa fa-fw fa-search fa-lg"></span>&nbsp;&nbsp;&nbsp;</button>
         </span>
-			</div>
+            </div>
 
-			<div class="tool-div tool-div-1">
-				<a href="javascript:void(0)">
-					<i id="btn-newpost" class="fa fa-pencil tool-btn"></i>
-				</a>
-			</div>
+            <div class="tool-div tool-div-1">
+                <a href="javascript:void(0)">
+                    <i id="btn-newpost" class="fa fa-pencil tool-btn"></i>
+                </a>
+            </div>
 
-			<div class="tool-div tool-div-2">
-				<a href="javascript:void(0)">
-					<i id="btn-scroll-top" class="fa fa-chevron-up tool-btn"></i>
-				</a>
-			</div>
+            <div class="tool-div tool-div-2">
+                <a href="javascript:void(0)">
+                    <i id="btn-scroll-top" class="fa fa-chevron-up tool-btn"></i>
+                </a>
+            </div>
 
-		</div>
+        </div>
 
-		{% include 'form_modal.html' %}
+        {% include 'form_modal.html' %}
 
-</div>
+    </div>
 
-<div class="row">
+    <div class="row">
 
-	<div class="grid" data-infinite="{% url 'posts:api_socialwall_all' %}">
-		<div class="grid-sizer col-md-6 col-xs-12"></div>
-		
-	</div>
+        <div class="grid" data-infinite="{% url 'posts:api_socialwall_all' %}">
+            <div class="grid-sizer col-md-6 col-xs-12"></div>
+        </div>
 
-</div>
+    </div>
 
-	<!-- end row -->
+    <!-- end row -->
 
 </section>
 <!-- end widget grid -->
@@ -237,5 +223,6 @@ the <section></section> and you can use wells or panels instead
 
 	// run pagefunction
 	// pagefunction();
+
 
 </script>

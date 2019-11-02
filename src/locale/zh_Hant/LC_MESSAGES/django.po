@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-10 10:45+0800\n"
+"POT-Creation-Date: 2019-11-02 21:44+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: apps/accounts/admin.py:15 apps/accounts/forms.py:24
-#: apps/accounts/models.py:39
+#: apps/accounts/models.py:40
 msgid "Group"
 msgstr "群組"
 
@@ -44,8 +44,8 @@ msgstr "姓氏"
 msgid "Choose one of the following..."
 msgstr "請選擇"
 
-#: apps/accounts/forms.py:25 apps/accounts/models.py:193
-#: apps/accounts/models.py:207 apps/accounts/models.py:208
+#: apps/accounts/forms.py:25 apps/accounts/models.py:194
+#: apps/accounts/models.py:208 apps/accounts/models.py:209
 msgid "Reset Email"
 msgstr "變更電子信箱"
 
@@ -138,7 +138,7 @@ msgstr "此信箱尚未註冊，請重新確認"
 msgid "This account is not exist"
 msgstr "此帳號未註冊，請重新確認"
 
-#: apps/accounts/models.py:38 apps/configs/models.py:18
+#: apps/accounts/models.py:39 apps/configs/models.py:18
 #: apps/configs/models.py:126 apps/configs/models.py:181
 #: apps/configs/models.py:229 apps/configs/models.py:280
 #: apps/configs/models.py:297 apps/events/models.py:61 apps/logs/models.py:24
@@ -146,95 +146,95 @@ msgstr "此帳號未註冊，請重新確認"
 msgid "Name"
 msgstr "名稱"
 
-#: apps/accounts/models.py:40
+#: apps/accounts/models.py:41
 msgid "Email Dns"
 msgstr "信箱域名"
 
-#: apps/accounts/models.py:41 apps/comments/models.py:57
+#: apps/accounts/models.py:42 apps/comments/models.py:57
 #: apps/configs/models.py:23 apps/watchlists/models.py:133
 msgid "Parent"
 msgstr "上一層物件"
 
-#: apps/accounts/models.py:46
+#: apps/accounts/models.py:47
 msgid "Group Information"
 msgstr "群組資訊"
 
-#: apps/accounts/models.py:47
+#: apps/accounts/models.py:48
 msgid "Group Informations"
 msgstr "群組資訊"
 
-#: apps/accounts/models.py:77 apps/accounts/models.py:105
+#: apps/accounts/models.py:78 apps/accounts/models.py:106
 #: apps/posts/models.py:32 apps/watchlists/models.py:40
-#: templates/navigation.html:72
+#: templates/navigation.html:75
 msgid "User"
 msgstr "使用者"
 
-#: apps/accounts/models.py:78
+#: apps/accounts/models.py:79
 msgid "Event Editor"
 msgstr "可編輯事件"
 
-#: apps/accounts/models.py:79
+#: apps/accounts/models.py:80
 msgid "Watchlist Viewer"
 msgstr "可檢視所有清單"
 
-#: apps/accounts/models.py:80
+#: apps/accounts/models.py:81
 msgid "Menu Item Viewer"
 msgstr "可檢視所有展開品項"
 
-#: apps/accounts/models.py:81
+#: apps/accounts/models.py:82
 msgid "Reporter"
 msgstr "報告人"
 
-#: apps/accounts/models.py:82
+#: apps/accounts/models.py:83
 msgid "Alert Viewer"
 msgstr "可檢視監控警示"
 
-#: apps/accounts/models.py:83
+#: apps/accounts/models.py:84
 msgid "Monitor Info Viewer"
 msgstr "可檢視品項監控資訊"
 
-#: apps/accounts/models.py:84
+#: apps/accounts/models.py:85
 msgid "Profile"
 msgstr "大頭貼"
 
-#: apps/accounts/models.py:87 templates/navigation.html:75
+#: apps/accounts/models.py:88 templates/navigation.html:78
 msgid "User Information"
 msgstr "帳戶資訊"
 
-#: apps/accounts/models.py:88
+#: apps/accounts/models.py:89
 msgid "User Informations"
 msgstr "帳戶資訊"
 
-#: apps/accounts/models.py:106
+#: apps/accounts/models.py:107
 msgid "Activate Key"
 msgstr "驗證碼"
 
-#: apps/accounts/models.py:107
+#: apps/accounts/models.py:108
 msgid "Expired"
 msgstr "是否過期"
 
-#: apps/accounts/models.py:112
+#: apps/accounts/models.py:113
 msgid "Abstract Profile"
 msgstr "抽象帳戶驗證"
 
-#: apps/accounts/models.py:113
+#: apps/accounts/models.py:114
 msgid "Abstract Profiles"
 msgstr "抽象帳戶驗證"
 
-#: apps/accounts/models.py:145
+#: apps/accounts/models.py:146
 msgid "Activation Profile"
 msgstr "帳戶啟用驗證"
 
-#: apps/accounts/models.py:146
+#: apps/accounts/models.py:147
 msgid "Activation Profiles"
 msgstr "帳戶啟動驗證"
 
-#: apps/accounts/models.py:156
+#: apps/accounts/models.py:157
 msgid "Activate My Account"
 msgstr "啟用我的帳號"
 
-#: apps/accounts/models.py:157 apps/accounts/models.py:182
-#: apps/accounts/models.py:208 apps/accounts/templates/account-base.html:5
+#: apps/accounts/models.py:158 apps/accounts/models.py:183
+#: apps/accounts/models.py:209 apps/accounts/templates/account-base.html:5
 #: apps/accounts/templates/account-base.html:42
 #: apps/accounts/templates/introduction.html:5
 #: apps/accounts/templates/mail_content.html:142 templates/footer.html:7
@@ -242,46 +242,46 @@ msgstr "啟用我的帳號"
 msgid "Agriculture Products Price Report Platform"
 msgstr "重要農產品每日價量資訊平台"
 
-#: apps/accounts/models.py:157
+#: apps/accounts/models.py:158
 msgid "Account Activation"
 msgstr "啟用帳戶"
 
-#: apps/accounts/models.py:158
+#: apps/accounts/models.py:159
 msgid "Please activate your account by clicking the link below"
 msgstr "請點擊以下連結來啟用您的帳戶"
 
-#: apps/accounts/models.py:159 apps/accounts/templates/register.html:138
+#: apps/accounts/models.py:160 apps/accounts/templates/register.html:138
 msgid "Thank you for your registration"
 msgstr "感謝您的註冊"
 
-#: apps/accounts/models.py:170
+#: apps/accounts/models.py:171
 msgid "Reset Password Profile"
 msgstr "重設密碼驗證"
 
-#: apps/accounts/models.py:171
+#: apps/accounts/models.py:172
 msgid "Reset Password Profiles"
 msgstr "重設密碼驗證"
 
-#: apps/accounts/models.py:181 apps/accounts/models.py:182
+#: apps/accounts/models.py:182 apps/accounts/models.py:183
 #: apps/accounts/templates/reset-password.html:8
 #: apps/accounts/templates/reset-password.html:22
 #: apps/accounts/templates/reset-password.html:53
 msgid "Reset Password"
 msgstr "重設密碼"
 
-#: apps/accounts/models.py:183
+#: apps/accounts/models.py:184
 msgid "Please click the following button to reset your password"
 msgstr "請點擊以下連結以重設您的密碼"
 
-#: apps/accounts/models.py:196
+#: apps/accounts/models.py:197
 msgid "Reset Email Profile"
 msgstr "重設電子信箱驗證"
 
-#: apps/accounts/models.py:197
+#: apps/accounts/models.py:198
 msgid "Reset Email Profiles"
 msgstr "重設電子信箱驗證"
 
-#: apps/accounts/models.py:209
+#: apps/accounts/models.py:210
 msgid "Please click the following button to reset your email"
 msgstr "請點擊以下連結以重設您的信箱"
 
@@ -306,7 +306,7 @@ msgstr "取消"
 #: templates/ajax/chart-3-content.html:61
 #: templates/ajax/chart-4-content.html:53
 #: templates/ajax/chart-5-content.html:88
-#: templates/ajax/chart-5-content.html:205
+#: templates/ajax/chart-5-content.html:205 templates/ajax/daily-report.html:31
 msgid "Submit"
 msgstr "確認"
 
@@ -568,7 +568,7 @@ msgstr "供應階段"
 
 #: apps/configs/models.py:22 apps/configs/models.py:262
 #: templates/contents/unit-info.html:7 templates/contents/unit-info.html:9
-#: templates/contents/unit-info.html:11 templates/navigation.html:90
+#: templates/contents/unit-info.html:11 templates/navigation.html:93
 msgid "Unit"
 msgstr "單位"
 
@@ -619,7 +619,7 @@ msgid "Enabled"
 msgstr "啟用"
 
 #: apps/configs/models.py:192 apps/dailytrans/models.py:41
-#: apps/watchlists/models.py:132 templates/navigation.html:84
+#: apps/watchlists/models.py:132 templates/navigation.html:87
 msgid "Source"
 msgstr "來源"
 
@@ -674,7 +674,7 @@ msgstr "蔬菜"
 #: apps/dailytrans/models.py:40 apps/watchlists/models.py:131
 #: apps/watchlists/models.py:150
 #: templates/contents/watchlist-profile-table.html:9
-#: templates/navigation.html:87
+#: templates/navigation.html:90
 msgid "Product"
 msgstr "品項"
 
@@ -723,7 +723,7 @@ msgstr "未更新累計"
 msgid "Create Time"
 msgstr "建立時間"
 
-#: apps/dailytrans/models.py:56 templates/navigation.html:81
+#: apps/dailytrans/models.py:56 templates/navigation.html:84
 msgid "Daily Transition"
 msgstr "日交易"
 
@@ -788,7 +788,7 @@ msgid "Share this event"
 msgstr "共用此事件"
 
 #: apps/events/models.py:42 apps/events/models.py:60
-#: templates/contents/event-table.html:14 templates/navigation.html:105
+#: templates/contents/event-table.html:14 templates/navigation.html:108
 msgid "Event Type"
 msgstr "事件分類"
 
@@ -808,7 +808,7 @@ msgstr "內容"
 msgid "Shared Event"
 msgstr "共用事件"
 
-#: apps/events/models.py:68 templates/navigation.html:102
+#: apps/events/models.py:68 templates/navigation.html:105
 msgid "Event"
 msgstr "事件簿"
 
@@ -861,7 +861,7 @@ msgstr "網址"
 msgid "Duration"
 msgstr "歷時"
 
-#: apps/logs/models.py:19 templates/navigation.html:78
+#: apps/logs/models.py:19 templates/navigation.html:81
 msgid "Log"
 msgstr "日誌"
 
@@ -953,11 +953,11 @@ msgid "edited"
 msgstr "已編輯"
 
 #: apps/posts/templates/socialwall.html:43 templates/ajax/about.html:13
-#: templates/navigation.html:57
+#: templates/ajax/daily-report.html:14 templates/navigation.html:57
 msgid "Main"
 msgstr "主頁"
 
-#: apps/posts/templates/socialwall.html:45 templates/navigation.html:63
+#: apps/posts/templates/socialwall.html:45 templates/navigation.html:66
 msgid "Social Wall"
 msgstr "輿情回應專區"
 
@@ -1115,7 +1115,7 @@ msgid "End Date"
 msgstr "結束日期"
 
 #: apps/watchlists/models.py:49 apps/watchlists/models.py:151
-#: templates/navigation.html:33 templates/navigation.html:93
+#: templates/navigation.html:33 templates/navigation.html:96
 msgid "Watchlist"
 msgstr "監控清單"
 
@@ -1125,7 +1125,7 @@ msgstr "監控清單"
 
 #: apps/watchlists/models.py:139
 #: templates/contents/watchlist-profile-table.html:10
-#: templates/navigation.html:96
+#: templates/navigation.html:99
 msgid "Watchlist Item"
 msgstr "監控品項"
 
@@ -1169,15 +1169,15 @@ msgid "Monitor Months"
 msgstr "監控月份"
 
 #: apps/watchlists/models.py:164 apps/watchlists/models.py:165
-#: templates/contents/product-profile.html:93 templates/navigation.html:99
+#: templates/contents/product-profile.html:93 templates/navigation.html:102
 msgid "Monitor Profile"
 msgstr "監控價格內容及因應措施"
 
-#: dashboard/settings/base.py:201
+#: dashboard/settings.py:190
 msgid "Traditional Chinese"
 msgstr "繁體中文"
 
-#: dashboard/settings/base.py:202
+#: dashboard/settings.py:191
 msgid "English"
 msgstr ""
 
@@ -1290,9 +1290,9 @@ msgid ""
 "transactions, incomplete data confirmation, or abnormal transmission of data "
 "from the source system."
 msgstr ""
-"1.本平台因資料採計位數不同，均價與來源系統查詢結果容有尾差。<br />2.部分來"
-"源端系統可能進行年度修正，歷史資料亦可能略有不同。<br />3.本平台採每小時自動"
-"介接資料方式運作，批發價格部分可能因未完全交易、資料未完全確認或來源系統傳輸異"
+"1.本平台因資料採計位數不同，均價與來源系統查詢結果容有尾差。<br />2.部分來源"
+"端系統可能進行年度修正，歷史資料亦可能略有不同。<br />3.本平台採每小時自動介"
+"接資料方式運作，批發價格部分可能因未完全交易、資料未完全確認或來源系統傳輸異"
 "常使資料報送中斷等問題，致與來源系統對外公布資料不合。"
 
 #: templates/ajax/about.html:63
@@ -1343,6 +1343,14 @@ msgstr "取消"
 #: templates/ajax/chart-tab.html:27
 msgid "Product Profile"
 msgstr "監控資訊"
+
+#: templates/ajax/daily-report.html:16 templates/navigation.html:63
+msgid "Daily Report"
+msgstr "價格日報表"
+
+#: templates/ajax/daily-report.html:26
+msgid "Select a report date"
+msgstr "選擇報表日期"
 
 #: templates/ajax/integration-panel.html:5
 msgid "Date Range"
@@ -1472,26 +1480,26 @@ msgstr "全螢幕"
 msgid "Your browser is out of date, please update your browser by going to"
 msgstr "您使用的瀏覽器太過老舊；你可以從這裡升級瀏覽器："
 
-#: templates/navigation.html:69
+#: templates/navigation.html:72
 msgid "Admin"
 msgstr "後台管理"
 
-#: templates/navigation.html:111
+#: templates/navigation.html:114
 msgid "Grand Totals"
 msgstr "合計項目"
 
-#: templates/navigation.html:132
+#: templates/navigation.html:135
 msgid "Hog Overall"
 msgstr "毛豬合計"
 
-#: templates/navigation.html:139
+#: templates/navigation.html:142
 msgid "Agricultures"
 msgstr "農產品"
 
-#: templates/navigation.html:157
+#: templates/navigation.html:160
 msgid "Livestocks"
 msgstr "畜禽產品"
 
-#: templates/navigation.html:176
+#: templates/navigation.html:179
 msgid "Fisheries"
 msgstr "漁產品"
