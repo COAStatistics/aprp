@@ -15,12 +15,14 @@ class Command(BaseCommand):
         parser.add_argument('username', type=str, help='User Name')
         parser.add_argument('email', type=str, help='User Email')
         parser.add_argument('password', type=str, help='User Password')
+        parser.add_argument('--is-staff', action='store_true', help='Is Staff.')
         parser.add_argument('--is-superuser', action='store_true', help='Is Super User.')
 
     def handle(self, username, email, password, **kwargs):
+        is_staff = kwargs['is_staff']
         is_superuser = kwargs['is_superuser']
         if not User.objects.filter(username=username).exists():
-            user = User.objects.create(username=username, email=email, is_superuser=is_superuser)
+            user = User.objects.create(username=username, email=email, is_staff=is_staff, is_superuser=is_superuser)
             user.set_password(password)
             user.save()
             logger.info(f"""
