@@ -8,6 +8,7 @@ from django.db.models import (
     FloatField,
     QuerySet,
     IntegerField,
+    CharField,
 )
 from django.utils.translation import ugettext_lazy as _
 
@@ -69,3 +70,9 @@ class DailyTran(Model):
     @property
     def month_day(self):
         return int(self.date.strftime('%m%d'))
+
+
+class DailyReport(Model):
+    date = DateField(auto_now=False, default=timezone.now().today, verbose_name=_('Date'))
+    file_id = CharField(max_length=30, unique=True, verbose_name=_('File ID'))
+    update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
