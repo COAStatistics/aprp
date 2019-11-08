@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^posts/', include('apps.posts.urls', namespace='posts')),
     url(r'^comments/', include('apps.comments.urls', namespace='comments')),
     url(r'^events/', include('apps.events.urls', namespace='events')),
+    url(r'^dailytrans/', include('apps.dailytrans.urls', namespace='dailytrans')),
     # i18n
     url(r'^jsi18n/$', javascript_catalog, name='parse_javascript'),
     url(r'^set-user-language/(?P<lang>[-\w]+)/$', Index.as_view(), name='set_user_language'),
