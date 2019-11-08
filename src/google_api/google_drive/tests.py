@@ -1,5 +1,6 @@
 import pytest
 from django.test import SimpleTestCase
+from django.conf import settings
 
 from .client import GoogleDriveClient
 
@@ -20,7 +21,7 @@ class GoogleDriveClientTestCase(SimpleTestCase):
     def test_file_upload_publish(self):
         response = self.google_drive_client.media_upload(
             name='test',
-            file_path='/app/google_api/google_drive/test.xlsx',
+            file_path=str(settings.BASE_DIR('google_api/google_drive/file1.xlsx')),
             from_mimetype=self.google_drive_client.XLSX_MIME_TYPE,
             parents=[self.test_folder_id],
         )
@@ -28,12 +29,10 @@ class GoogleDriveClientTestCase(SimpleTestCase):
         file_id = response.get('id')
         self.assertIsNotNone(file_id)
 
-        print(file_id)
-
         # make public read permission
         self.google_drive_client.set_public_permission(file_id)
 
         # update with different file
         self.google_drive_client.media_update(file_id=file_id,
-                                              file_path='/app/google_api/google_drive/test2.csv',
+                                              file_path=str(settings.BASE_DIR('google_api/google_drive/file2.csv')),
                                               from_mimetype='text/csv')
