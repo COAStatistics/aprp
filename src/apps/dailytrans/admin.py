@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.forms import ModelForm, ValidationError
-from .models import DailyTran
+from .models import DailyTran, DailyReport
 from rangefilter.filter import DateRangeFilter
 
 
@@ -53,3 +53,4 @@ class DailyTranAdmin(admin.ModelAdmin):
 
 
 admin.site.register(DailyTran, DailyTranAdmin)
+admin.site.register(DailyReport)
