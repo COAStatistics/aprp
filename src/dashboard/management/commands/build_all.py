@@ -28,7 +28,7 @@ class Command(BaseCommand):
 
     def handle(self, **kwargs):
         days = kwargs.get('days')
-        
+
         end = datetime.today()
         start = end - timedelta(days)
 

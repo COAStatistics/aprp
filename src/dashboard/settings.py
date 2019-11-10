@@ -362,3 +362,8 @@ DAILYTRAN_BUILDER_API = {
 
 # Hide login
 DJANGO_ADMIN_PATH = env.str('DJANGO_ADMIN_PATH', default='admin')
+
+# Google Drive Folders
+
+DAILY_REPORT_FOLDER_ID = env.str('DAILY_REPORT_FOLDER_ID', default='')
+TEST_DAILY_REPORT_FOLDER_ID = env.str('TEST_DAILY_REPORT_FOLDER_ID', default='')

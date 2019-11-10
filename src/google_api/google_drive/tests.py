@@ -5,12 +5,13 @@ from django.conf import settings
 from .client import GoogleDriveClient
 
 
+@pytest.mark.secret
 @pytest.mark.google_api
 class GoogleDriveClientTestCase(SimpleTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.test_folder_id = '1wNR1hdJ2g8J018mB6rXnR6Ur4t78DqUh'
+        cls.test_folder_id = settings.TEST_DAILY_REPORT_FOLDER_ID
         cls.google_drive_client = GoogleDriveClient.load_from_env(env_prefix='GOOGLE_DRIVE_')
 
     def test_retrieve_folder_id(self):
