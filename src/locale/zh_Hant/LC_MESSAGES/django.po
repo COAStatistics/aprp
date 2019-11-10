@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-02 21:44+0800\n"
+"POT-Creation-Date: 2019-11-10 16:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -142,7 +142,7 @@ msgstr "此帳號未註冊，請重新確認"
 #: apps/configs/models.py:126 apps/configs/models.py:181
 #: apps/configs/models.py:229 apps/configs/models.py:280
 #: apps/configs/models.py:297 apps/events/models.py:61 apps/logs/models.py:24
-#: apps/watchlists/models.py:39 templates/contents/event-table.html:15
+#: apps/watchlists/models.py:40 templates/contents/event-table.html:15
 msgid "Name"
 msgstr "名稱"
 
@@ -151,7 +151,7 @@ msgid "Email Dns"
 msgstr "信箱域名"
 
 #: apps/accounts/models.py:42 apps/comments/models.py:57
-#: apps/configs/models.py:23 apps/watchlists/models.py:133
+#: apps/configs/models.py:23 apps/watchlists/models.py:134
 msgid "Parent"
 msgstr "上一層物件"
 
@@ -164,7 +164,7 @@ msgid "Group Informations"
 msgstr "群組資訊"
 
 #: apps/accounts/models.py:78 apps/accounts/models.py:106
-#: apps/posts/models.py:32 apps/watchlists/models.py:40
+#: apps/posts/models.py:32 apps/watchlists/models.py:41
 #: templates/navigation.html:75
 msgid "User"
 msgstr "使用者"
@@ -296,6 +296,8 @@ msgstr "編輯個人資料"
 #: apps/posts/templates/form_modal.html:18
 #: templates/ajax/chart-5-content.html:87
 #: templates/ajax/chart-5-content.html:204
+#: templates/ajax/chart-6-content.html:87
+#: templates/ajax/chart-6-content.html:204
 msgid "Cancel"
 msgstr "取消"
 
@@ -306,7 +308,9 @@ msgstr "取消"
 #: templates/ajax/chart-3-content.html:61
 #: templates/ajax/chart-4-content.html:53
 #: templates/ajax/chart-5-content.html:88
-#: templates/ajax/chart-5-content.html:205 templates/ajax/daily-report.html:31
+#: templates/ajax/chart-5-content.html:205
+#: templates/ajax/chart-6-content.html:88
+#: templates/ajax/chart-6-content.html:205
 msgid "Submit"
 msgstr "確認"
 
@@ -519,7 +523,7 @@ msgid "File"
 msgstr "檔案"
 
 #: apps/comments/models.py:59 apps/posts/models.py:35
-#: apps/posts/templates/socialwall.html:94
+#: apps/posts/templates/socialwall.html:79
 msgid "Content"
 msgstr "內容"
 
@@ -527,7 +531,7 @@ msgstr "內容"
 msgid "Timestamp"
 msgstr "時間戳"
 
-#: apps/comments/models.py:65 apps/posts/templates/socialwall.html:95
+#: apps/comments/models.py:65 apps/posts/templates/socialwall.html:80
 msgid "Comment"
 msgstr "回覆"
 
@@ -562,7 +566,7 @@ msgid "Config"
 msgstr "品項種類"
 
 #: apps/configs/models.py:21 apps/configs/models.py:185
-#: apps/configs/models.py:235 apps/watchlists/models.py:152
+#: apps/configs/models.py:235 apps/watchlists/models.py:153
 msgid "Type"
 msgstr "供應階段"
 
@@ -579,10 +583,10 @@ msgstr "是否抓取資料"
 #: apps/configs/models.py:25 apps/configs/models.py:130
 #: apps/configs/models.py:187 apps/configs/models.py:230
 #: apps/configs/models.py:259 apps/configs/models.py:283
-#: apps/dailytrans/models.py:49 apps/events/models.py:65 apps/logs/models.py:26
-#: apps/posts/models.py:38 apps/watchlists/models.py:45
-#: apps/watchlists/models.py:46 apps/watchlists/models.py:134
-#: apps/watchlists/models.py:161
+#: apps/dailytrans/models.py:50 apps/dailytrans/models.py:78
+#: apps/events/models.py:65 apps/logs/models.py:26 apps/posts/models.py:38
+#: apps/watchlists/models.py:46 apps/watchlists/models.py:47
+#: apps/watchlists/models.py:135 apps/watchlists/models.py:163
 msgid "Updated"
 msgstr "上次更新"
 
@@ -598,6 +602,7 @@ msgstr "抽象品項"
 #: templates/ajax/chart-1-content.html:28
 #: templates/ajax/chart-2-content.html:28
 #: templates/ajax/chart-5-content.html:30
+#: templates/ajax/chart-6-content.html:30
 #: templates/contents/index-panel.html:41
 msgid "Chart"
 msgstr "圖表"
@@ -618,8 +623,8 @@ msgstr "同義名"
 msgid "Enabled"
 msgstr "啟用"
 
-#: apps/configs/models.py:192 apps/dailytrans/models.py:41
-#: apps/watchlists/models.py:132 templates/navigation.html:87
+#: apps/configs/models.py:192 apps/dailytrans/models.py:42
+#: apps/watchlists/models.py:133 templates/navigation.html:87
 msgid "Source"
 msgstr "來源"
 
@@ -671,65 +676,84 @@ msgstr "蔬菜"
 msgid "Crops"
 msgstr "蔬菜"
 
-#: apps/dailytrans/models.py:40 apps/watchlists/models.py:131
-#: apps/watchlists/models.py:150
+#: apps/dailytrans/models.py:41 apps/watchlists/models.py:132
+#: apps/watchlists/models.py:151
 #: templates/contents/watchlist-profile-table.html:9
 #: templates/navigation.html:90
 msgid "Product"
 msgstr "品項"
 
-#: apps/dailytrans/models.py:42
+#: apps/dailytrans/models.py:43
 msgid "Up Price"
 msgstr "上價"
 
-#: apps/dailytrans/models.py:43
+#: apps/dailytrans/models.py:44
 msgid "Mid Price"
 msgstr "中價"
 
-#: apps/dailytrans/models.py:44
+#: apps/dailytrans/models.py:45
 msgid "Low Pirce"
 msgstr "下價"
 
-#: apps/dailytrans/models.py:45 apps/dailytrans/utils.py:120
+#: apps/dailytrans/models.py:46 apps/dailytrans/utils.py:120
 #: apps/dailytrans/utils.py:145 apps/dailytrans/utils.py:166
 #: templates/contents/index-panel.html:20
 #: templates/contents/integration-table.html:12
 msgid "Average Price"
 msgstr "日均價格"
 
-#: apps/dailytrans/models.py:46 apps/dailytrans/utils.py:122
+#: apps/dailytrans/models.py:47 apps/dailytrans/utils.py:122
 #: templates/contents/index-panel.html:24
 #: templates/contents/integration-table.html:19
 msgid "Average Weight"
 msgstr "日均重量"
 
-#: apps/dailytrans/models.py:47 templates/contents/integration-table.html:16
+#: apps/dailytrans/models.py:48 templates/contents/integration-table.html:16
 msgid "Volume"
 msgstr "交易量"
 
-#: apps/dailytrans/models.py:48 apps/dailytrans/utils.py:119
-#: apps/dailytrans/utils.py:144 apps/dailytrans/utils.py:165
-#: apps/dailytrans/utils.py:233 apps/events/forms.py:20
-#: apps/events/models.py:63 templates/contents/event-table.html:12
+#: apps/dailytrans/models.py:49 apps/dailytrans/models.py:76
+#: apps/dailytrans/utils.py:119 apps/dailytrans/utils.py:144
+#: apps/dailytrans/utils.py:165 apps/dailytrans/utils.py:233
+#: apps/events/forms.py:20 apps/events/models.py:63
+#: templates/contents/event-table.html:12
 #: templates/contents/integration-table.html:11
 msgid "Date"
 msgstr "日期"
 
-#: apps/dailytrans/models.py:50
+#: apps/dailytrans/models.py:51
 msgid "Not Updated Count"
 msgstr "未更新累計"
 
-#: apps/dailytrans/models.py:51
+#: apps/dailytrans/models.py:52
 msgid "Create Time"
 msgstr "建立時間"
 
-#: apps/dailytrans/models.py:56 templates/navigation.html:84
+#: apps/dailytrans/models.py:57 templates/navigation.html:84
 msgid "Daily Transition"
 msgstr "日交易"
 
-#: apps/dailytrans/models.py:57
+#: apps/dailytrans/models.py:58
 msgid "Daily Transitions"
 msgstr "日交易"
+
+#: apps/dailytrans/models.py:77
+msgid "File ID"
+msgstr "檔案識別碼"
+
+#: apps/dailytrans/models.py:81 templates/ajax/daily-report.html:14
+#: templates/navigation.html:63
+msgid "Daily Report"
+msgstr "價格日報表"
+
+#: apps/dailytrans/models.py:82
+msgid "Daily Reports"
+msgstr "價格日報表"
+
+#: apps/dailytrans/models.py:85 apps/posts/templatetags/socialwall_filter.py:27
+#: apps/posts/templatetags/socialwall_filter.py:52
+msgid "weeks"
+msgstr "週"
 
 #: apps/dailytrans/utils.py:121 apps/dailytrans/utils.py:146
 msgid "Sum Volume"
@@ -877,7 +901,7 @@ msgstr "日誌類型"
 msgid "LogTypes"
 msgstr "日誌類型"
 
-#: apps/posts/models.py:33 apps/posts/templates/socialwall.html:92
+#: apps/posts/models.py:33 apps/posts/templates/socialwall.html:77
 msgid "Title"
 msgstr "標題"
 
@@ -898,7 +922,7 @@ msgid "Posts"
 msgstr "貼文"
 
 #: apps/posts/templates/form_modal.html:8
-#: apps/posts/templates/socialwall.html:82
+#: apps/posts/templates/socialwall.html:67
 msgid "New Post"
 msgstr "新增貼文"
 
@@ -952,32 +976,32 @@ msgstr "輸入回覆並按Enter送出"
 msgid "edited"
 msgstr "已編輯"
 
-#: apps/posts/templates/socialwall.html:43 templates/ajax/about.html:13
-#: templates/ajax/daily-report.html:14 templates/navigation.html:57
+#: apps/posts/templates/socialwall.html:44 templates/ajax/about.html:13
+#: templates/ajax/daily-report.html:12 templates/navigation.html:57
 msgid "Main"
 msgstr "主頁"
 
-#: apps/posts/templates/socialwall.html:45 templates/navigation.html:66
+#: apps/posts/templates/socialwall.html:46 templates/navigation.html:66
 msgid "Social Wall"
 msgstr "輿情回應專區"
 
-#: apps/posts/templates/socialwall.html:88
+#: apps/posts/templates/socialwall.html:73
 msgid "Filter by"
 msgstr "關鍵字"
 
-#: apps/posts/templates/socialwall.html:93
+#: apps/posts/templates/socialwall.html:78
 msgid "Author"
 msgstr "發文者"
 
-#: apps/posts/templates/socialwall.html:97
+#: apps/posts/templates/socialwall.html:82
 msgid "All"
 msgstr "全部"
 
-#: apps/posts/templates/socialwall.html:101
+#: apps/posts/templates/socialwall.html:87
 msgid "Search term..."
 msgstr "輸入關鍵字..."
 
-#: apps/posts/templates/socialwall.html:101
+#: apps/posts/templates/socialwall.html:88
 msgid "Default search all..."
 msgstr "預設搜尋全部..."
 
@@ -1018,11 +1042,6 @@ msgstr "年"
 #: apps/posts/templatetags/socialwall_filter.py:51
 msgid "months"
 msgstr "月"
-
-#: apps/posts/templatetags/socialwall_filter.py:27
-#: apps/posts/templatetags/socialwall_filter.py:52
-msgid "weeks"
-msgstr "週"
 
 #: apps/posts/templatetags/socialwall_filter.py:28
 #: apps/posts/templatetags/socialwall_filter.py:53
@@ -1082,93 +1101,97 @@ msgstr "水產品"
 msgid "Seafoods"
 msgstr "水產品"
 
-#: apps/watchlists/models.py:23
+#: apps/watchlists/models.py:24
 msgid "<"
 msgstr "低於"
 
-#: apps/watchlists/models.py:24
+#: apps/watchlists/models.py:25
 msgid "<="
 msgstr "低於（含）"
 
-#: apps/watchlists/models.py:25
+#: apps/watchlists/models.py:26
 msgid ">"
 msgstr "高於"
 
-#: apps/watchlists/models.py:26
+#: apps/watchlists/models.py:27
 msgid ">="
 msgstr "高於（含）"
 
-#: apps/watchlists/models.py:41
+#: apps/watchlists/models.py:42
 msgid "Is Default"
 msgstr "預設（唯一）"
 
-#: apps/watchlists/models.py:42
+#: apps/watchlists/models.py:43
 msgid "Watch All"
 msgstr "監控全部（唯一）"
 
-#: apps/watchlists/models.py:43
+#: apps/watchlists/models.py:44
 msgid "Start Date"
 msgstr "起始日期"
 
-#: apps/watchlists/models.py:44
+#: apps/watchlists/models.py:45
 msgid "End Date"
 msgstr "結束日期"
 
-#: apps/watchlists/models.py:49 apps/watchlists/models.py:151
+#: apps/watchlists/models.py:50 apps/watchlists/models.py:152
 #: templates/navigation.html:33 templates/navigation.html:96
 msgid "Watchlist"
 msgstr "監控清單"
 
-#: apps/watchlists/models.py:50
+#: apps/watchlists/models.py:51
 msgid "Watchlists"
 msgstr "監控清單"
 
-#: apps/watchlists/models.py:139
+#: apps/watchlists/models.py:140
 #: templates/contents/watchlist-profile-table.html:10
 #: templates/navigation.html:99
 msgid "Watchlist Item"
 msgstr "監控品項"
 
-#: apps/watchlists/models.py:140
+#: apps/watchlists/models.py:141
 msgid "Watchlist Items"
 msgstr "監控品項"
 
-#: apps/watchlists/models.py:153 templates/contents/integration-table.html:13
+#: apps/watchlists/models.py:154 templates/contents/integration-table.html:13
 msgid "Price"
 msgstr "價格"
 
-#: apps/watchlists/models.py:154
+#: apps/watchlists/models.py:155
 msgid "Comparator"
 msgstr "比較器"
 
-#: apps/watchlists/models.py:155
+#: apps/watchlists/models.py:156
 msgid "Color"
 msgstr "顯示顏色"
 
-#: apps/watchlists/models.py:156
+#: apps/watchlists/models.py:157
 #: templates/contents/monitor-profile-table.html:8
 msgid "Monitor Info"
 msgstr "監控基準價格訂定理由"
 
-#: apps/watchlists/models.py:157
+#: apps/watchlists/models.py:158
 #: templates/contents/monitor-profile-table.html:10
 msgid "Action"
 msgstr "因應措施"
 
-#: apps/watchlists/models.py:158
+#: apps/watchlists/models.py:159
 #: templates/contents/monitor-profile-table.html:9
 msgid "Period"
 msgstr "監控期間"
 
-#: apps/watchlists/models.py:159
+#: apps/watchlists/models.py:160
 msgid "Is Active"
 msgstr "啟用"
 
-#: apps/watchlists/models.py:160
+#: apps/watchlists/models.py:161
 msgid "Monitor Months"
 msgstr "監控月份"
 
-#: apps/watchlists/models.py:164 apps/watchlists/models.py:165
+#: apps/watchlists/models.py:162
+msgid "Row"
+msgstr "橫列編號"
+
+#: apps/watchlists/models.py:166 apps/watchlists/models.py:167
 #: templates/contents/product-profile.html:93 templates/navigation.html:102
 msgid "Monitor Profile"
 msgstr "監控價格內容及因應措施"
@@ -1344,11 +1367,7 @@ msgstr "取消"
 msgid "Product Profile"
 msgstr "監控資訊"
 
-#: templates/ajax/daily-report.html:16 templates/navigation.html:63
-msgid "Daily Report"
-msgstr "價格日報表"
-
-#: templates/ajax/daily-report.html:26
+#: templates/ajax/daily-report.html:25
 msgid "Select a report date"
 msgstr "選擇報表日期"
 

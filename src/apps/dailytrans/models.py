@@ -76,3 +76,10 @@ class DailyReport(Model):
     date = DateField(auto_now=False, default=timezone.now().today, verbose_name=_('Date'))
     file_id = CharField(max_length=120, unique=True, verbose_name=_('File ID'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
+
+    class Meta:
+        verbose_name = _('Daily Report')
+        verbose_name_plural = _('Daily Reports')
+
+    def __str__(self):
+        return '{}, {}{}'.format(self.date, _('weeks'), self.date.weekday() + 1)
