@@ -1,14 +1,16 @@
 import datetime
 import calendar
-from pathlib import Path
 import openpyxl
 
 from openpyxl.styles import PatternFill
+from pathlib import Path
 from django.conf import settings
 
 from apps.watchlists.models import Watchlist, WatchlistItem, MonitorProfile
 from apps.dailytrans.models import DailyTran
 from apps.dailytrans.utils import get_group_by_date_query_set
+from apps.fruits.models import Fruit
+from apps.configs.models import Source
 
 
 TEMPLATE = str(settings.BASE_DIR('apps/dailytrans/reports/template.xlsx'))
@@ -215,13 +217,20 @@ class DailyReportFactory(object):
             if qs:
                 qs = qs.first()
                 last_week_price.append(qs.avg_price)
-        last_week_avg_price = sum(last_week_price) / len(last_week_price)
-        this_week_avg_price = sum(this_week_price) / len(this_week_price)
-        self.result[item.product.name].update({
-            'H{}'.format(row): this_week_avg_price,
-            'L{}'.format(row): ((this_week_avg_price - last_week_avg_price) / last_week_avg_price * 100),
-            'W{}'.format(row): last_week_avg_price,
-        })
+        if len(last_week_price):
+            last_week_avg_price = sum(last_week_price) / len(last_week_price)
+            self.result[item.product.name].update({
+                'W{}'.format(row): last_week_avg_price,
+            })
+        if len(this_week_price):
+            this_week_avg_price = sum(this_week_price) / len(this_week_price)
+            self.result[item.product.name].update({
+                'H{}'.format(row): this_week_avg_price,
+            })
+        if len(last_week_price) and len(this_week_price):
+            self.result[item.product.name].update({
+                'L{}'.format(row): ((this_week_avg_price - last_week_avg_price) / last_week_avg_price * 100),
+            })
 
     def report(self):
         watchlist = Watchlist.objects.filter(
@@ -267,6 +276,15 @@ class DailyReportFactory(object):
             if watchlist_item.sources.all():
                 query_set = query_set.filter(source__in=watchlist_item.sources.all())
             self.update_data(query_set, product.name, item[1])
+
+        # 香蕉台北一二批發
+        self.row_visible.append(73)
+        product = Fruit.objects.get(id=50063)
+        sources = Source.objects.filter(id__in=[20001, 20002])
+        query_set = DailyTran.objects.filter(product=product, source__in=sources)
+        self.get_data(query_set, '{}{}'.format(product.name, product.type), 73, None)
+        query_set = DailyTran.objects.filter(product=product, date__year=self.specify_day.year-1, date__month=self.specify_day.month)
+        self.update_data(query_set, '{}{}'.format(product.name, product.type), 73)
 
     @staticmethod
     def get_sheet_format(key):
