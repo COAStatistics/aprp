@@ -97,7 +97,7 @@ class DailyReportFactory(object):
                                                      self.specify_day.month,
                                                      calendar.monthrange(self.specify_day.year - 1,
                                                                          self.specify_day.month)[1])
-        
+
         self.row_visible = list()
         self.row_marked = list()
         self.result = dict()

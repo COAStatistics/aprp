@@ -30,6 +30,11 @@ app.conf.beat_schedule = {
         'task': 'DeleteNotUpdatedTrans',
         'schedule': crontab(minute=0, hour='*'),
     },
+    'update_daily_report': {
+        'task': 'UpdateDailyReport',
+        'schedule': crontab(minute='30', hour='*', day_of_week=[1, 2, 3, 4, 5]),
+        'args': (-1,)  # Update yesterday's report
+    },
     # ======================================== ShortTerm Builder ========================================
     'daily-chicken-builder-3d': {
         'task': 'DailyChickenBuilder',
