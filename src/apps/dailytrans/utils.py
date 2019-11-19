@@ -13,12 +13,14 @@ from django.db.models import Sum, Avg, F, Func, IntegerField
 
 from apps.dailytrans.models import DailyTran
 from apps.configs.api.serializers import TypeSerializer
+from apps.watchlists.models import WatchlistItem
+from apps.configs.models import AbstractProduct
 
 
 def get_query_set(_type, items, sources=None):
     """
     :param _type: Type object
-    :param items: WatchlistItem objects
+    :param items: WatchlistItem objects or AbstractProduct objects
     :param sources: Source objects  # optional
     :return: <QuerySet>
     """
@@ -26,18 +28,44 @@ def get_query_set(_type, items, sources=None):
     if not items:
         return DailyTran.objects.none()
 
-    if sources:
-        query = reduce(
-            operator.or_,
-            ((Q(product=item.product) & Q(source__in=sources)) for item in items)
-        )
+    first = items.first()
+    is_watchlist_item = isinstance(first, WatchlistItem)
+    is_product = isinstance(first, AbstractProduct)
+
+    if is_watchlist_item:
+
+        if sources:
+            query = reduce(
+                operator.or_,
+                (
+                    (Q(product=item.product) & Q(source__in=sources)) for item in items)
+            )
+        else:
+            query = reduce(
+                operator.or_,
+                (
+                    (Q(product=item.product) & Q(source__in=item.sources.all())) if item.sources.all() else
+                    (Q(product=item.product)) for item in items)
+            )
+
+    elif is_product:
+
+        if sources:
+            query = reduce(
+                operator.or_,
+                (
+                    (Q(product=item) & Q(source__in=sources)) for item in items)
+            )
+        else:
+            query = reduce(
+                operator.or_,
+                (
+                    (Q(product=item) & Q(source__in=item.sources())) if item.sources() else
+                    (Q(product=item)) for item in items)
+            )
+
     else:
-        query = reduce(
-            operator.or_,
-            (
-                (Q(product=item.product) & Q(source__in=item.sources.all())) if item.sources.all() else
-                (Q(product=item.product)) for item in items)
-        )
+        raise AttributeError(f"Found not support type {type(first)}")
 
     return DailyTran.objects.filter(product__type=_type).filter(query)
 

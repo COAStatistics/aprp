@@ -1,0 +1,70 @@
+{% load i18n %}
+
+{% if step == 1 %}
+
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
+                <select name="config" class="form-control input-lg selectpicker">
+                    {% for config in configs %}
+                    <option value="{{ config.id }}" {% if forloop.counter0 == 0 %}selected="selected"{% endif %}>{{ config.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+{% elif step == 2 %}
+
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
+                <select name="type" class="form-control input-lg selectpicker">
+                    {% for type in types %}
+                    <option value="{{ type.id }}" {% if forloop.counter0 == 0 %}selected="selected"{% endif %}>{{ type.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+{% elif step == 3 %}
+
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
+                <select name="product" class="form-control input-lg selectpicker" multiple title="Choose on of the following...">
+                    {% for product in products %}
+                    <option value="{{ product.id }}">{{ product.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+    {% if sources %}
+    <div class="col-sm-12">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
+                <select name="source" class="form-control input-lg selectpicker" multiple>
+                    {% for source in sources %}
+                    <option value="{{ source.id }}" selected="selected">{{ source.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+{% endif %}
+
+<script>
+$(document).ready(function() {
+    pageSetUp();
+    // INIT BOOTSTRAP SELECT
+    $('.selectpicker').selectpicker({style: 'btn-default btn-lg'});
+})
+</script>

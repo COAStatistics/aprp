@@ -3,50 +3,76 @@
 {% load json_filters %}
 {% load watchlist_filter %}
 
+{% if view.watchlist_base %}
+    {% with monitor_profile_filtered_by_watchlist=monitor_profiles|monitor_profile_filter:watchlist %}
+    <!-- row -->
+    <div class="row">
 
-{% with monitor_profile_filtered_by_watchlist=monitor_profiles|monitor_profile_filter:watchlist %}
-<!-- row -->
-<div class="row">
+        <!-- specify layer attribute for style setting -->
+        <ul id="chart-functions-tab" class="nav nav-pills nav-justified" data-layer="1">
+            {% for chart in charts %}
+            <li>
+                <a data-load-url="{% if lct and loi %}{% url 'chart_content' ci=chart.id wi=wi ct=ct oi=oi lct=lct loi=loi %}{% else %}{% url 'chart_content' ci=chart.id wi=wi ct=ct oi=oi %}{% endif %}"
+                   data-load
+                   href="#chart-{{ chart.id }}" class="font-md"
+                   data-toggle="tab">
+                    <span>{{ chart.name }}</span>
+                </a>
+            </li>
+            {% endfor %}
 
-    <!-- specify layer attribute for style setting -->
-    <ul id="chart-functions-tab" class="nav nav-pills nav-justified" data-layer="1">
-        {% for chart in charts %}
-        <li>
-            <a data-load-url="{% if lct and loi %}{% url 'chart_content' ci=chart.id wi=wi ct=ct oi=oi lct=lct loi=loi %}{% else %}{% url 'chart_content' ci=chart.id wi=wi ct=ct oi=oi %}{% endif %}"
-               data-load
-               href="#chart-{{ chart.id }}" class="font-md"
-               data-toggle="tab">
-                <span>{{ chart.name }}</span>
-            </a>
-        </li>
-        {% endfor %}
+            {% if user.info.monitor_info_viewer and monitor_profile_filtered_by_watchlist %}
+            <li>
+                <a href="#product-profile" class="font-md"
+                   data-toggle="tab">{% trans 'Product Profile' %}</a>
+            </li>
+            {% endif %}
+        </ul>
 
-        {% if user.info.monitor_info_viewer and monitor_profile_filtered_by_watchlist %}
-        <li>
-            <a href="#product-profile" class="font-md"
-               data-toggle="tab">{% trans 'Product Profile' %}</a>
-        </li>
-        {% endif %}
-    </ul>
+        <div id="chart-functions-content" class="tab-content" style="opacity: 1;">
+            {% for chart in charts %}
+            <div class="tab-pane fade" id="chart-{{ chart.id }}">
+                <!-- dynamically load content here -->
+            </div>
+            {% endfor %}
 
-    <div id="chart-functions-content" class="tab-content" style="opacity: 1;">
-        {% for chart in charts %}
-        <div class="tab-pane fade" id="chart-{{ chart.id }}">
-            <!-- dynamically load content here -->
+            {% if monitor_profile_filtered_by_watchlist %}
+            <div class="tab-pane fade" id="product-profile">
+                {% include 'contents/product-profile.html' with monitor_profiles=monitor_profile_filtered_by_watchlist %}
+            </div>
+            {% endif %}
         </div>
-        {% endfor %}
-
-        {% if monitor_profile_filtered_by_watchlist %}
-        <div class="tab-pane fade" id="product-profile">
-            {% include 'contents/product-profile.html' with monitor_profiles=monitor_profile_filtered_by_watchlist %}
-        </div>
-        {% endif %}
     </div>
-</div>
+    {% endwith %}
 
-{% endwith %}
+{% else %}
 
-<!-- end row -->
+    <div class="row">
+
+        <!-- specify layer attribute for style setting -->
+        <ul id="chart-functions-tab" class="nav nav-pills nav-justified" data-layer="1">
+            {% for chart in charts %}
+            <li>
+                <a data-load-url="{% url 'chart_content' ci=chart.id type=type products=products sources=sources %}"
+                   data-load
+                   href="#chart-{{ chart.id }}" class="font-md"
+                   data-toggle="tab">
+                    <span>{{ chart.name }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div id="chart-functions-content" class="tab-content" style="opacity: 1;">
+            {% for chart in charts %}
+            <div class="tab-pane fade" id="chart-{{ chart.id }}">
+                <!-- dynamically load content here -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endif %}
 
 <script>
 	

@@ -38,7 +38,7 @@ var integrationHelper = {
                 start_date: ajaxData.min.getTime(),
                 end_date: ajaxData.max.getTime(),
                 to_init: false,
-                type_id: typeId,
+                type: typeId,
             }
             var $spinner = $('<i class="fa fa-refresh fa-spin" style="margin-right: 5px;">');
             $btn = $(node);
