@@ -38,10 +38,17 @@
 
         <!-- widget content -->
         <div class="widget-body no-padding no-min-height">
+            {% if view.watchlist_base %}
             <div data-load-url="{% if lct and loi %}{% url 'integration_table' ci=ci wi=wi ct=ct oi=oi lct=lct loi=loi %}{% else %}{% url 'integration_table' ci=ci wi=wi ct=ct oi=oi %}{% endif %}"
                  data-load>
                 <!-- dynamically load integration panels here -->
             </div>
+            {% else %}
+            <div data-load-url="{% url 'integration_table' ci=ci type=type products=products sources=sources %}"
+                 data-load>
+                <!-- dynamically load integration panels here -->
+            </div>
+            {% endif %}
         </div>
         <!-- end widget content -->
 
@@ -50,4 +57,3 @@
 
 </div>
 <!-- end widget -->
-

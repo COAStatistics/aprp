@@ -1,0 +1,254 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!-- widget grid -->
+<section id="widget-grid" class="">
+
+    <!-- row -->
+    <div class="row">
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+            <!-- Widget ID (each widget will need unique ID)-->
+            <div class="jarviswidget jarviswidget-color-darken" id="product-selector-widget" data-widget-editbutton="false" data-widget-colorbutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-search-plus"></i> </span>
+                    <h2 class="font-md">{% trans 'Product Selector' %}</i></h2>
+
+                </header>
+
+                <!-- widget div-->
+                <div>
+
+                    <!-- widget edit box -->
+                    <div class="jarviswidget-editbox">
+                        <!-- This area used as dropdown edit box -->
+
+                    </div>
+                    <!-- end widget edit box -->
+                    <!-- widget content -->
+                    <div class="widget-body">
+
+                        <div class="row">
+                            <form id="wizard-1" novalidate="novalidate">
+                                <div id="bootstrap-wizard-1" class="col-sm-12">
+                                    <div class="form-bootstrapWizard">
+                                        <ul class="bootstrapWizard form-wizard">
+                                            <li class="active" data-target="#step1" style="width: 33%;">
+                                                <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">{% trans 'Select product category' %}</span> </a>
+                                            </li>
+                                            <li data-target="#step2" style="width: 33%;">
+                                                <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">{% trans 'Select product type' %}</span> </a>
+                                            </li>
+                                            <li data-target="#step3" style="width: 33%;">
+                                                <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">{% trans 'Select main product' %}</span> </a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab1">
+                                            <br>
+                                            <h3><strong>{% trans 'Step 1' %} </strong> - {% trans 'Select product category' %}</h3>
+                                            <div class="row" data-load data-load-url="{% url 'product_selector_ui' step=1 %}">
+<!-- render step 1 UI here -->
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab2">
+                                            <br>
+                                            <h3><strong>{% trans 'Step 2' %}</strong> - {% trans 'Select product type' %}</h3>
+                                            <div class="row" data-load data-load-url="{% url 'product_selector_ui' step=2 %}">
+<!-- render step 2 UI here -->
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab3">
+                                            <br>
+                                            <h3><strong>{% trans 'Step 3' %}</strong> - {% trans 'Select main product' %}</h3>
+                                            <div class="row" data-load data-load-url="{% url 'product_selector_ui' step=3 %}">
+<!-- render step 3 UI here -->
+                                            </div>
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <ul class="pager wizard no-margin">
+                                                        <!--<li class="previous first disabled">
+                                                        <a href="javascript:void(0);" class="btn btn-lg btn-default"> First </a>
+                                                        </li>-->
+                                                        <li class="previous disabled">
+                                                            <a href="javascript:void(0);" class="btn btn-lg btn-default"> {% trans 'Previous' %} </a>
+                                                        </li>
+                                                        <!--<li class="next last">
+                                                        <a href="javascript:void(0);" class="btn btn-lg btn-primary"> Last </a>
+                                                        </li>-->
+                                                        <li class="next">
+                                                            <a href="javascript:void(0);" class="btn btn-lg txt-color-darken"> {% trans 'Next' %} </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <!-- end widget content -->
+
+                </div>
+                <!-- end widget div -->
+
+            </div>
+            <!-- end widget -->
+
+        </article>
+        <!-- WIDGET END -->
+    </div>
+    <!-- end row -->
+
+</section>
+<!-- end widget grid -->
+
+<div id="sub-content" data-load data-load-url="{% url 'chart_tab' %}"></div>
+
+<!-- PAGE RELATED PLUGIN(S) -->
+<script src='{% static "vendor/js/plugin/jquery-validate/jquery.validate.min.js" %}'></script>
+<script src='{% static "vendor/js/plugin/bootstrap-wizard/jquery.bootstrap.wizard.min.js" %}'></script>
+<script src='{% static "vendor/js/plugin/fuelux/wizard/wizard.min.js" %}'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.11/js/bootstrap-select.min.js"></script>
+
+<script>
+
+// DO NOT REMOVE : GLOBAL FUNCTIONS!
+
+$(document).ready(function() {
+
+    pageSetUp();
+
+    // INIT STEP 1
+    $container0 = $("#tab1 > div[data-load]");
+    var url = $container0.attr('data-load-url');
+    loadURL(url, $container0, {}, "POST");
+
+    //Bootstrap Wizard Validations
+
+      var $validator = $("#wizard-1").validate({
+
+        rules: {
+          config: {
+            required: true,
+          },
+          type: {
+            required: true
+          },
+          product: {
+            required: true
+          },
+          source: {
+            required: true
+          },
+        },
+
+        highlight: function (element) {
+          $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        unhighlight: function (element) {
+          $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function (error, element) {}
+      });
+
+      $('#bootstrap-wizard-1').bootstrapWizard({
+        'tabClass': 'form-wizard',
+        'onNext': function (tab, navigation, index) {
+          var $valid = $("#wizard-1").valid();
+          if (!$valid) {
+            $validator.focusInvalid();
+            return false;
+          } else {
+            $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index - 1).addClass(
+              'complete');
+            $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index - 1).find('.step').html('<i class="fa fa-check"></i>');
+
+            if (index == 1) {
+              $container1 = $("#tab2 > div[data-load]");
+              var url = $container1.attr('data-load-url');
+              data = {
+                config_id: $("#tab1").find("select").val()
+              }
+              loadURL(url, $container1, data, "POST");
+            }
+
+            if (index == 2) {
+              $container2 = $("#tab3 > div[data-load]");
+              var url = $container2.attr('data-load-url');
+              data = {
+                config_id: $("#tab1").find("select").val(),
+                type_id: $("#tab2").find("select").val()
+              }
+              loadURL(url, $container2, data, "POST");
+            }
+
+            if (index == 3) {
+                // Get selected text
+                var configName = $("#tab1").find("select > option:selected").text();
+                var typeName = $("#tab2").find("select > option:selected").text();
+                var productNames = $("#tab3").find("select[name='product'] > option:selected").map(function(){
+                    return this.text;
+                }).get().join();
+                var sourceNames = $("#tab3").find("select[name='source'] > option:selected").map(function(){
+                    return this.text;
+                }).get().join();
+                // Update crumbs
+                newCrumbs = [configName, typeName, productNames];
+                if (sourceNames) {
+                    newCrumbs.push(sourceNames);
+                }
+                drawBreadCrumb(newCrumbs);
+
+                // compose query params
+                $container = $("#sub-content");
+                var url = $container.attr('data-load-url');
+                url += '?config=' + $("#tab1").find("select").val();
+                url += '&type=' + $("#tab2").find("select").val();
+                url += '&products=' + $("#tab3").find('select[name="product"]').val().toString();
+                $sourceSelect = $("#tab3").find('select[name="source"]');
+                if ($sourceSelect.length) {
+                    url += '&sources=' + $sourceSelect.val().toString();
+                }
+                // collapse setting widget
+                $('#product-selector-widget').addClass('jarviswidget-collapsed').children('div').slideUp('fast');
+                $('#product-selector-widget .jarviswidget-toggle-btn > i').addClass('fa-plus').removeClass('fa-minus');
+                // load page
+                loadURL(url, $container);
+            }
+          }
+        }
+      });
+
+
+    // fuelux wizard
+      var wizard = $('.wizard').wizard();
+
+      wizard.on('finished', function (e, data) {
+        //$("#fuelux-wizard").submit();
+        //console.log("submitted!");
+        $.smallBox({
+          title: "Congratulations! Your form was submitted",
+          content: "<i class='fa fa-clock-o'></i> <i>1 seconds ago...</i>",
+          color: "#5F895F",
+          iconSmall: "fa fa-check bounce animated",
+          timeout: 4000
+        });
+
+      });
+
+
+})
+
+</script>

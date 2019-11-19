@@ -1,4 +1,8 @@
 import datetime
+import operator
+import json
+from functools import reduce
+from django.http.request import QueryDict
 from django.contrib.contenttypes.models import ContentType
 from apps.watchlists.models import (
     Watchlist,
@@ -23,9 +27,10 @@ from apps.watchlists.api.serializers import (
     WatchlistSerializer,
 )
 from apps.events.forms import EventForm
+from apps.dailytrans.utils import to_date
 
 
-def jarvismenu_extra_context(instance):
+def jarvismenu_extra_context(view):
     """
     A function return extra context work for JarvisMenu CBV and other view with arguments wi, ct, oi, lct, loi
 
@@ -35,8 +40,8 @@ def jarvismenu_extra_context(instance):
     lct(last content type) allows: 'config', 'type', 'product', 'source'
     loi(last object id) allows: integer
     """
-    kwargs = instance.kwargs
-    user = instance.request.user
+    kwargs = view.kwargs
+    user = view.request.user
 
     extra_context = dict()
 
@@ -101,16 +106,68 @@ def jarvismenu_extra_context(instance):
     return extra_context
 
 
-def chart_tab_extra_context(instance):
-    kwargs = instance.kwargs
+def product_selector_ui_extra_context(view):
     extra_context = dict()
 
+    # Captured values
+    kwargs = view.kwargs
+    step = int(kwargs.get('step'))
+
+    # Post data
+    data = kwargs.get('POST') or QueryDict()
+    config_id = data.get('config_id')
+    type_id = data.get('type_id')
+
+    extra_context['step'] = step
+    if step == 1:
+        extra_context['configs'] = Config.objects.order_by('id').all()
+    elif step == 2:
+        extra_context['types'] = Config.objects.get(id=config_id).types()
+    elif step == 3:
+        config = Config.objects.get(id=config_id)
+        products = config.products().filter(track_item=True, type__id=type_id)
+
+        # Handling special cases, if there is parent product e.g. FB1, replaces with sub products
+        if config_id == '5':
+            fb_related_products = AbstractProduct.objects.filter(track_item=False, code__icontains='FB')
+            products = products.exclude(name__icontains='FB') | fb_related_products
+
+        extra_context['products'] = products
+        extra_context['sources'] = config.source_set.all().filter(type__id=type_id)
+
+    return extra_context
+
+
+def chart_tab_extra_context(view):
+    extra_context = dict()
+
+    # Query params
+    params = view.request.GET
+    config_id = params.get('config')
+    type_id = params.get('type')
+    product_ids = params.get('products')  # string with separator
+    source_ids = params.get('sources')  # string with separator
+
+    extra_context['charts'] = Config.objects.get(id=config_id).charts.filter(id__in=[1, 2, 3, 4])
+    extra_context['type'] = type_id
+    extra_context['products'] = '_'.join(product_ids.split(',')) if product_ids else '_'
+    extra_context['sources'] = '_'.join(source_ids.split(',')) if source_ids else '_'
+
+    return extra_context
+
+
+def watchlist_base_chart_tab_extra_context(view):
+    extra_context = dict()
+
+    # Captured values
+    kwargs = view.kwargs
     content_type = kwargs.get('ct')
     object_id = kwargs.get('oi')
     last_content_type = kwargs.get('lct')
     last_object_id = kwargs.get('loi')
     watchlist_id = kwargs.get('wi')
     watchlist = Watchlist.objects.get(id=watchlist_id)
+
     extra_context['watchlist'] = watchlist
 
     if content_type == 'config':
@@ -137,11 +194,89 @@ def chart_tab_extra_context(instance):
     return extra_context
 
 
-def chart_contents_extra_context(instance):
-    kwargs = instance.kwargs
+def product_selector_base_extra_context(view):
+    extra_context = dict()
+
+    # Captured values
+    kwargs = view.kwargs
+    chart_id = kwargs.get('ci')
+    type_id = kwargs.get('type')
+    product_ids = kwargs.get('products').split('_') if kwargs.get('products') != '_' else []
+    source_ids = kwargs.get('sources').split('_') if kwargs.get('sources') != '_' else []
+
+    # Post data
+    data = kwargs.get('POST') or QueryDict()
+    selected_years = data.getlist('average_years[]')
+
+    _type = Type.objects.get(id=type_id)
+
+    product_qs = AbstractProduct.objects.filter(id__in=product_ids)
+    products = product_qs.exclude(track_item=False)
+    # Handling special cases, if there is parent product e.g. FB1, replaces with sub products
+    if product_qs.filter(track_item=False):
+        sub_products = reduce(
+            operator.or_,
+            (product.children().filter(track_item=True) for product in product_qs.filter(track_item=False))
+        )
+        products = products | sub_products
+
+    if source_ids:
+        sources = Source.objects.filter(id__in=source_ids)
+    else:
+        sources = []
+
+    extra_context['unit_json'] = UnitSerializer(products.first().unit).data
+
+    # get tran data by chart
+    series_options = []
+
+    if chart_id in ['1', '2']:
+
+        end_date = datetime.date.today() if chart_id == '1' else None
+        start_date = end_date + datetime.timedelta(days=-13) if chart_id == '1' else None
+        option = get_daily_price_volume(_type=_type,
+                                        items=products,
+                                        sources=sources,
+                                        start_date=start_date,
+                                        end_date=end_date)
+        if not option['no_data']:
+            series_options.append(option)
+
+    if chart_id == '3':
+
+        option = get_daily_price_by_year(_type=_type,
+                                         items=products,
+                                         sources=sources)
+        if not option['no_data']:
+            series_options.append(option)
+
+    if chart_id == '4':
+        this_year = datetime.datetime.now().year
+        selected_years = selected_years or [y for y in range(this_year-5, this_year)]  # default latest 5 years
+        selected_years = [int(y) for y in selected_years]  # cast to integer
+
+        extra_context['method'] = view.request.method
+        extra_context['selected_years'] = selected_years
+
+        option = get_monthly_price_distribution(_type=_type,
+                                                items=products,
+                                                sources=sources,
+                                                selected_years=selected_years)
+        if not option['no_data']:
+            series_options.append(option)
+
+    extra_context['series_options'] = series_options
+    extra_context['chart'] = Chart.objects.get(id=chart_id)
+
+    return extra_context
+
+
+def watchlist_base_chart_contents_extra_context(view):
 
     extra_context = dict()
 
+    # Captured values
+    kwargs = view.kwargs
     chart_id = kwargs.get('ci')
     watchlist_id = kwargs.get('wi')
     content_type = kwargs.get('ct')
@@ -149,8 +284,9 @@ def chart_contents_extra_context(instance):
     last_content_type = kwargs.get('lct')
     last_object_id = kwargs.get('loi')
 
-    # post data
-    selected_years = kwargs.get('selected_years')
+    # Post data
+    data = kwargs.get('POST') or QueryDict()
+    selected_years = data.getlist('average_years[]')
 
     watchlist = Watchlist.objects.get(id=watchlist_id)
 
@@ -218,7 +354,7 @@ def chart_contents_extra_context(instance):
         selected_years = selected_years or [y for y in range(this_year-5, this_year)]  # default latest 5 years
         selected_years = [int(y) for y in selected_years]  # cast to integer
 
-        extra_context['method'] = instance.request.method
+        extra_context['method'] = view.request.method
         extra_context['selected_years'] = selected_years
 
         for t in types:
@@ -235,11 +371,86 @@ def chart_contents_extra_context(instance):
     return extra_context
 
 
-def integration_extra_context(instance):
-    kwargs = instance.kwargs
+def product_selector_base_integration_extra_context(view):
+    extra_context = dict()
+
+    # Captured values
+
+    kwargs = view.kwargs
+    chart_id = kwargs.get('ci')
+    type_id = kwargs.get('type')
+    product_ids = kwargs.get('products').split('_') if kwargs.get('products') != '_' else []
+    source_ids = kwargs.get('sources').split('_') if kwargs.get('sources') != '_' else []
+
+    # Post data
+    data = kwargs.get('POST') or QueryDict
+    # type_id = data.get('type')
+    start_date = to_date(data.get('start_date'))
+    end_date = to_date(data.get('end_date'))
+    view.to_init = json.loads(data.get('to_init', 'false'))
+
+    _type = Type.objects.get(id=type_id)
+
+    product_qs = AbstractProduct.objects.filter(id__in=product_ids)
+    products = product_qs.exclude(track_item=False)
+    # Handling special cases, if there is parent product e.g. FB1, replaces with sub products
+    if product_qs.filter(track_item=False):
+        sub_products = reduce(
+            operator.or_,
+            (product.children().filter(track_item=True) for product in product_qs.filter(track_item=False))
+        )
+        products = products | sub_products
+
+    if source_ids:
+        sources = Source.objects.filter(id__in=source_ids)
+    else:
+        sources = []
+
+    extra_context['unit_json'] = UnitSerializer(products.first().unit).data
+
+    # get tran data by chart
+    series_options = []
+
+    if view.to_init:
+
+        option = get_integration(_type=_type,
+                                 items=products,
+                                 sources=sources,
+                                 start_date=start_date,
+                                 end_date=end_date,
+                                 to_init=True)
+        if not option['no_data']:
+            series_options.append(option)
+
+        # datetime format
+        formatter = '%m/%d' if start_date.year == end_date.year else '%Y/%m/%d'
+
+        extra_context['start_date_format'] = start_date.strftime(formatter)
+        extra_context['end_date_format'] = end_date.strftime(formatter)
+        extra_context['chart'] = Chart.objects.get(id=chart_id)
+
+    else:
+
+        option = get_integration(_type=_type,
+                                 items=products,
+                                 sources=sources,
+                                 start_date=start_date,
+                                 end_date=end_date,
+                                 to_init=False)
+
+        extra_context['option'] = option if not option['no_data'] else None
+
+    extra_context['series_options'] = series_options
+
+    return extra_context
+
+
+def watchlist_base_integration_extra_context(view):
+    kwargs = view.kwargs
 
     extra_context = dict()
 
+    # Captured values
     chart_id = kwargs.get('ci')
     watchlist_id = kwargs.get('wi')
     content_type = kwargs.get('ct')
@@ -247,10 +458,12 @@ def integration_extra_context(instance):
     last_content_type = kwargs.get('lct')
     last_object_id = kwargs.get('loi')
 
-    # post data
-    start_date = kwargs.get('start_date')
-    end_date = kwargs.get('end_date')
-    type_id = kwargs.get('type_id')
+    # Post data
+    data = kwargs['POST'] or QueryDict()
+    start_date = to_date(data.get('start_date'))
+    end_date = to_date(data.get('end_date'))
+    type_id = data.get('type')  # required if to_init is True
+    view.to_init = json.loads(data.get('to_init', 'false'))
 
     # get tran data by chart
     series_options = []
@@ -277,7 +490,7 @@ def integration_extra_context(instance):
 
     extra_context['unit_json'] = UnitSerializer(items.get_unit()).data
 
-    if instance.to_init:
+    if view.to_init:
 
         types = Type.objects.filter_by_watchlist_items(watchlist_items=items)
         if content_type == 'type':

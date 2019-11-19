@@ -63,6 +63,9 @@
                         <a href="{% url 'daily_report' %}" title="{% trans 'Daily Report' %}"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">{% trans 'Daily Report' %}</span></a>
                     </li>
                     <li class="">
+                        <a href="{% url 'product_selector' %}" title="{% trans 'Product Selector' %}"><i class="fa fa-lg fa-fw fa-search-plus"></i> <span class="menu-item-parent">{% trans 'Product Selector' %}</span></a>
+                    </li>
+                    <li class="">
                         <a href="{% url 'posts:post_socialwall' %}" title="{% trans 'Social Wall' %}"><i class="fa fa-lg fa-fw fa-comments"></i> <span class="menu-item-parent">{% trans 'Social Wall' %}</span></a>
                     </li>
                 </ul>
@@ -131,9 +134,7 @@
                     <li>
                         <a title="{{ config.name }}"
                            href="{% url 'chart_tab' wi=1 ct='config' oi=8 %}">
-
                             <span class="menu-item-parent">{% trans 'Hog Overall' %}</span>
-
                         </a>
                     </li>
                 </ul>

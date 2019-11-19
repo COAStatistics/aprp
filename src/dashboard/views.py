@@ -1,4 +1,3 @@
-import json
 from django.views.generic.base import TemplateView
 from django.http import JsonResponse
 from django.conf import settings
@@ -9,16 +8,19 @@ from django.shortcuts import (
 from functools import wraps
 from .utils import (
     jarvismenu_extra_context,
+    product_selector_ui_extra_context,
+    watchlist_base_chart_tab_extra_context,
     chart_tab_extra_context,
-    chart_contents_extra_context,
-    integration_extra_context,
+    watchlist_base_chart_contents_extra_context,
+    product_selector_base_extra_context,
+    watchlist_base_integration_extra_context,
+    product_selector_base_integration_extra_context,
 )
 from apps.watchlists.models import Watchlist
 from apps.configs.models import (
+    Config,
     Chart,
-)
-from apps.dailytrans.utils import (
-    to_date,
+    Type,
 )
 
 
@@ -108,6 +110,32 @@ class DailyReport(LoginRequiredMixin, TemplateView):
     template_name = 'ajax/daily-report.html'
 
 
+class ProductSelector(LoginRequiredMixin, TemplateView):
+    redirect_field_name = 'redirect_to'
+    template_name = 'ajax/product-selector.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductSelector, self).get_context_data(**kwargs)
+        context['configs'] = Config.objects.order_by('id')
+        context['types'] = Type.objects.order_by('id')
+        return context
+
+
+class ProductSelectorUI(LoginRequiredMixin, TemplateView):
+    redirect_field_name = 'redirect_to'
+    template_name = 'ajax/product-selector-ui.html'
+
+    def post(self, request, **kwargs):
+        self.kwargs['POST'] = request.POST
+        return self.render_to_response(self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductSelectorUI, self).get_context_data(**kwargs)
+        extra_context = product_selector_ui_extra_context(self)
+        context.update(extra_context)
+        return context
+
+
 class JarvisMenu(LoginRequiredMixin, TemplateView):
     redirect_field_name = 'redirect_to'
     template_name = 'ajax/jarvismenu.html'
@@ -122,10 +150,14 @@ class JarvisMenu(LoginRequiredMixin, TemplateView):
 class ChartTabs(LoginRequiredMixin, TemplateView):
     redirect_field_name = 'redirect_to'
     template_name = 'ajax/chart-tab.html'
+    watchlist_base = False
 
     def get_context_data(self, **kwargs):
         context = super(ChartTabs, self).get_context_data(**kwargs)
-        extra_context = chart_tab_extra_context(self)
+        if self.watchlist_base:
+            extra_context = watchlist_base_chart_tab_extra_context(self)
+        else:
+            extra_context = chart_tab_extra_context(self)
         context.update(extra_context)
         return context
 
@@ -133,6 +165,8 @@ class ChartTabs(LoginRequiredMixin, TemplateView):
 class ChartContents(LoginRequiredMixin, TemplateView):
     redirect_field_name = 'redirect_to'
     no_data = False  # custom
+    watchlist_base = False
+    product_selector_base = False
 
     def get_template_names(self):
         if self.no_data:
@@ -143,13 +177,17 @@ class ChartContents(LoginRequiredMixin, TemplateView):
             return chart.template_name
 
     def post(self, request, **kwargs):
-        self.kwargs['selected_years'] = request.POST.getlist('average_years[]')
+        self.kwargs['POST'] = request.POST
         return self.render_to_response(self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super(ChartContents, self).get_context_data(**kwargs)
-        extra_context = chart_contents_extra_context(self)
-        context.update(extra_context)
+        if self.watchlist_base:
+            extra_context = watchlist_base_chart_contents_extra_context(self)
+            context.update(extra_context)
+        elif self.product_selector_base:
+            extra_context = product_selector_base_extra_context(self)
+            context.update(extra_context)
 
         # no data checking, if series_options is empty, render no-data template
         if not context['series_options']:
@@ -162,6 +200,8 @@ class IntegrationTable(LoginRequiredMixin, TemplateView):
     redirect_field_name = 'redirect_to'
     no_data = False  # custom
     to_init = True  # custom  # default is True
+    watchlist_base = False
+    product_selector_base = False
 
     def get_template_names(self):
         # set template_name if no assign yet
@@ -175,17 +215,17 @@ class IntegrationTable(LoginRequiredMixin, TemplateView):
             return 'ajax/integration-row.html'
 
     def post(self, request, **kwargs):
-        self.kwargs['start_date'] = to_date(request.POST.get('start_date'))
-        self.kwargs['end_date'] = to_date(request.POST.get('end_date'))
-        self.kwargs['type_id'] = request.POST.get('type_id')  # required if to_init is True
-        self.to_init = json.loads(request.POST.get('to_init', 'false'))
-
+        self.kwargs['POST'] = request.POST
         return self.render_to_response(self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super(IntegrationTable, self).get_context_data(**kwargs)
-        extra_context = integration_extra_context(self)
-        context.update(extra_context)
+        if self.watchlist_base:
+            extra_context = watchlist_base_integration_extra_context(self)
+            context.update(extra_context)
+        elif self.product_selector_base:
+            extra_context = product_selector_base_integration_extra_context(self)
+            context.update(extra_context)
 
         # no data checking, if series_options or option is empty, render no-data template
         if self.to_init:

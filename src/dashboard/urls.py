@@ -24,6 +24,8 @@ from .views import (
     Index,
     About,
     DailyReport,
+    ProductSelector,
+    ProductSelectorUI,
     JarvisMenu,
     ChartTabs,
     ChartContents,
@@ -58,16 +60,30 @@ urlpatterns += i18n_patterns(
     url(r'^jarvismenu/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/$', JarvisMenu.as_view(), name='jarvismenu'),
     url(r'^jarvismenu/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/(?P<lct>\w+)/(?P<loi>\d+)/$', JarvisMenu.as_view(), name='jarvismenu'),
     # chart tab ajax
-    url(r'^chart-tab/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/$', ChartTabs.as_view(), name='chart_tab'),
-    url(r'^chart-tab/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/(?P<lct>\w+)/(?P<loi>\d+)/$', ChartTabs.as_view(), name='chart_tab'),
+    url(r'^chart-tab/chart/$', ChartTabs.as_view(), name='chart_tab'),
+    url(r'^chart-tab/watchlist/(?P<wi>\d+)/resource/(?P<ct>\w+)-(?P<oi>\d+)/$',
+        ChartTabs.as_view(watchlist_base=True), name='chart_tab'),
+    url(r'^chart-tab/watchlist/(?P<wi>\d+)/resource/(?P<ct>\w+)-(?P<oi>\d+)/sub-resource/(?P<lct>\w+)-(?P<loi>\d+)/$',
+        ChartTabs.as_view(watchlist_base=True), name='chart_tab'),
     # chart content ajax
-    url(r'^chart-content/(?P<ci>\d+)/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/$', ChartContents.as_view(), name='chart_content'),
-    url(r'^chart-content/(?P<ci>\d+)/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/(?P<lct>\w+)/(?P<loi>\d+)/$', ChartContents.as_view(), name='chart_content'),
+    url(r'^chart-content/chart/(?P<ci>\d+)/type/(?P<type>\d+)/products/(?P<products>\w+)/sources/(?P<sources>\w+)/$',
+        ChartContents.as_view(product_selector_base=True), name='chart_content'),
+    url(r'^chart-content/chart/(?P<ci>\d+)/watchlist/(?P<wi>\d+)/resource/(?P<ct>\w+)/(?P<oi>\d+)/$',
+        ChartContents.as_view(watchlist_base=True), name='chart_content'),
+    url(r'^chart-content/chart/(?P<ci>\d+)/watchlist/(?P<wi>\d+)/resource/(?P<ct>\w+)-(?P<oi>\d+)/sub-resource/(?P<lct>\w+)-(?P<loi>\d+)/$',
+        ChartContents.as_view(watchlist_base=True), name='chart_content'),
     # chart content ajax
-    url(r'^integration-table/(?P<ci>\d+)/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/$', IntegrationTable.as_view(), name='integration_table'),
-    url(r'^integration-table/(?P<ci>\d+)/(?P<wi>\d+)/(?P<ct>\w+)/(?P<oi>\d+)/(?P<lct>\w+)/(?P<loi>\d+)/$', IntegrationTable.as_view(), name='integration_table'),
+    url(r'^integration-table/chart/(?P<ci>\d+)/type/(?P<type>\d+)/products/(?P<products>\w+)/sources/(?P<sources>\w+)/$',
+        IntegrationTable.as_view(product_selector_base=True), name='integration_table'),
+    url(r'^integration-table/chart/(?P<ci>\d+)/watchlist/(?P<wi>\d+)/resource/(?P<ct>\w+)-(?P<oi>\d+)/$',
+        IntegrationTable.as_view(watchlist_base=True), name='integration_table'),
+    url(r'^integration-table/chart/(?P<ci>\d+)/watchlist/(?P<wi>\d+)/resource/(?P<ct>\w+)-(?P<oi>\d+)/sub-resource/(?P<lct>\w+)-(?P<loi>\d+)/$',
+        IntegrationTable.as_view(watchlist_base=True), name='integration_table'),
     # daily report ajax
     url(r'^daily-report/', DailyReport.as_view(), name='daily_report'),
+    # product selector
+    url(r'^product-selector/$', ProductSelector.as_view(), name='product_selector'),
+    url(r'^product-selector-ui/step/(?P<step>\d+)/$', ProductSelectorUI.as_view(), name='product_selector_ui'),
 )
 
 if settings.DEBUG:
