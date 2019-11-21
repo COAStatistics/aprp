@@ -338,12 +338,12 @@ class DailyReportFactory(object):
 
     def __call__(self, output_dir=settings.BASE_DIR):
         date = self.specify_day + datetime.timedelta(1)
-        file_name = '{}-{}價格{}'.format(
+        file_name = '{}-{}價格{}.xlsx'.format(
             self.roc_date_format(self.this_week_start),
             self.roc_date_format(self.this_week_end),
             WEEKDAY.get(date.weekday()))
 
-        file_path = Path(output_dir, file_name).with_suffix('.xlsx')
+        file_path = Path(output_dir, file_name)
 
         self.report()
         sheet = self.get_sheet()
