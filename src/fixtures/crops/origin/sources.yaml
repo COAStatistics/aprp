@@ -684,3 +684,11 @@
     name: 關西鎮農會
     configs: [5, 6]
     type: 2
+
+
+- model: configs.Source
+  pk: 10116
+  fields:
+    name: 六腳鄉農會
+    configs: [5, 6]
+    type: 2
