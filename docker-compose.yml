@@ -45,5 +45,5 @@ services:
     depends_on:
       - web
     ports: []
-    command: ["celery", "worker", "--app=dashboard", "--loglevel=info"]
+    command: ["celery", "beat", "--app=dashboard", "--loglevel=info", "--pidfile=/opt/celeryd.pid"]
     entrypoint: ./scripts/entrypoint.sh

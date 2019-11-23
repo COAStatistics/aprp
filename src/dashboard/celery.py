@@ -32,7 +32,7 @@ app.conf.beat_schedule = {
     },
     'update_daily_report': {
         'task': 'UpdateDailyReport',
-        'schedule': crontab(minute='30', hour='*', day_of_week=[1, 2, 3, 4, 5]),
+        'schedule': crontab(minute='0,30', hour='0-11', day_of_week='1-5'),
         'args': (-1,)  # Update yesterday's report
     },
     # ======================================== ShortTerm Builder ========================================
