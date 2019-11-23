@@ -195,14 +195,8 @@ $(document).ready(function() {
                 var productNames = $("#tab3").find("select[name='product'] > option:selected").map(function(){
                     return this.text;
                 }).get().join();
-                var sourceNames = $("#tab3").find("select[name='source'] > option:selected").map(function(){
-                    return this.text;
-                }).get().join();
                 // Update crumbs
                 newCrumbs = [configName, typeName, productNames];
-                if (sourceNames) {
-                    newCrumbs.push(sourceNames);
-                }
                 drawBreadCrumb(newCrumbs);
 
                 // compose query params
