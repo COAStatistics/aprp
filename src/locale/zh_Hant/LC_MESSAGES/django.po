@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-10 16:14+0800\n"
+"POT-Creation-Date: 2019-11-23 16:16+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -741,19 +741,18 @@ msgstr "日交易"
 msgid "File ID"
 msgstr "檔案識別碼"
 
-#: apps/dailytrans/models.py:81 templates/ajax/daily-report.html:14
+#: apps/dailytrans/models.py:79
+msgid "Created"
+msgstr "建立時間"
+
+#: apps/dailytrans/models.py:82 templates/ajax/daily-report.html:14
 #: templates/navigation.html:63
 msgid "Daily Report"
 msgstr "價格日報表"
 
-#: apps/dailytrans/models.py:82
+#: apps/dailytrans/models.py:83
 msgid "Daily Reports"
 msgstr "價格日報表"
-
-#: apps/dailytrans/models.py:85 apps/posts/templatetags/socialwall_filter.py:27
-#: apps/posts/templatetags/socialwall_filter.py:52
-msgid "weeks"
-msgstr "週"
 
 #: apps/dailytrans/utils.py:121 apps/dailytrans/utils.py:146
 msgid "Sum Volume"
@@ -1043,6 +1042,11 @@ msgstr "年"
 msgid "months"
 msgstr "月"
 
+#: apps/posts/templatetags/socialwall_filter.py:27
+#: apps/posts/templatetags/socialwall_filter.py:52
+msgid "weeks"
+msgstr "週"
+
 #: apps/posts/templatetags/socialwall_filter.py:28
 #: apps/posts/templatetags/socialwall_filter.py:53
 msgid "days"
@@ -1196,11 +1200,11 @@ msgstr "橫列編號"
 msgid "Monitor Profile"
 msgstr "監控價格內容及因應措施"
 
-#: dashboard/settings.py:190
+#: dashboard/settings.py:204
 msgid "Traditional Chinese"
 msgstr "繁體中文"
 
-#: dashboard/settings.py:191
+#: dashboard/settings.py:205
 msgid "English"
 msgstr ""
 
