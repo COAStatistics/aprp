@@ -52,5 +52,13 @@ class DailyTranAdmin(admin.ModelAdmin):
     list_filter = (('date', DateRangeFilter), 'product__config__name', 'source')
 
 
+class DailyReportAdmin(admin.ModelAdmin):
+    list_display = (
+        'date',
+        'update_time',
+        'create_time',
+    )
+
+
 admin.site.register(DailyTran, DailyTranAdmin)
-admin.site.register(DailyReport)
+admin.site.register(DailyReport, DailyReportAdmin)
