@@ -57,16 +57,16 @@
                 <a href="{% url 'about' %}" title="{% trans 'Main' %}"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{% trans 'Main' %}</span></a>
                 <ul>
                     <li class="">
-                        <a href="{% url 'about' %}" title="{% trans 'About' %}"><i class="fa fa-lg fa-fw fa-info"></i> <span class="menu-item-parent">{% trans 'About' %}</span></a>
+                        <a href="{% url 'about' %}" name="about" title="{% trans 'About' %}"><i class="fa fa-lg fa-fw fa-info"></i> <span class="menu-item-parent">{% trans 'About' %}</span></a>
                     </li>
                     <li class="">
-                        <a href="{% url 'daily_report' %}" title="{% trans 'Daily Report' %}"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">{% trans 'Daily Report' %}</span></a>
+                        <a href="{% url 'daily_report' %}" name="daily-report" title="{% trans 'Daily Report' %}"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">{% trans 'Daily Report' %}</span></a>
                     </li>
                     <li class="">
-                        <a href="{% url 'product_selector' %}" title="{% trans 'Product Selector' %}"><i class="fa fa-lg fa-fw fa-search-plus"></i> <span class="menu-item-parent">{% trans 'Product Selector' %}</span></a>
+                        <a href="{% url 'product_selector' %}" name="product-selector" title="{% trans 'Product Selector' %}"><i class="fa fa-lg fa-fw fa-search-plus"></i> <span class="menu-item-parent">{% trans 'Product Selector' %}</span></a>
                     </li>
                     <li class="">
-                        <a href="{% url 'posts:post_socialwall' %}" title="{% trans 'Social Wall' %}"><i class="fa fa-lg fa-fw fa-comments"></i> <span class="menu-item-parent">{% trans 'Social Wall' %}</span></a>
+                        <a href="{% url 'posts:post_socialwall' %}" name="social-wall" title="{% trans 'Social Wall' %}"><i class="fa fa-lg fa-fw fa-comments"></i> <span class="menu-item-parent">{% trans 'Social Wall' %}</span></a>
                     </li>
                 </ul>
             </li>
