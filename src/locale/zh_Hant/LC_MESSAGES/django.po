@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-23 16:16+0800\n"
+"POT-Creation-Date: 2019-11-23 17:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr "名字"
 msgid "Last Name"
 msgstr "姓氏"
 
-#: apps/accounts/forms.py:24
+#: apps/accounts/forms.py:24 templates/ajax/product-selector-ui.html:39
 msgid "Choose one of the following..."
 msgstr "請選擇"
 
@@ -165,7 +165,7 @@ msgstr "群組資訊"
 
 #: apps/accounts/models.py:78 apps/accounts/models.py:106
 #: apps/posts/models.py:32 apps/watchlists/models.py:41
-#: templates/navigation.html:75
+#: templates/navigation.html:78
 msgid "User"
 msgstr "使用者"
 
@@ -197,7 +197,7 @@ msgstr "可檢視品項監控資訊"
 msgid "Profile"
 msgstr "大頭貼"
 
-#: apps/accounts/models.py:88 templates/navigation.html:78
+#: apps/accounts/models.py:88 templates/navigation.html:81
 msgid "User Information"
 msgstr "帳戶資訊"
 
@@ -296,8 +296,6 @@ msgstr "編輯個人資料"
 #: apps/posts/templates/form_modal.html:18
 #: templates/ajax/chart-5-content.html:87
 #: templates/ajax/chart-5-content.html:204
-#: templates/ajax/chart-6-content.html:87
-#: templates/ajax/chart-6-content.html:204
 msgid "Cancel"
 msgstr "取消"
 
@@ -309,8 +307,6 @@ msgstr "取消"
 #: templates/ajax/chart-4-content.html:53
 #: templates/ajax/chart-5-content.html:88
 #: templates/ajax/chart-5-content.html:205
-#: templates/ajax/chart-6-content.html:88
-#: templates/ajax/chart-6-content.html:205
 msgid "Submit"
 msgstr "確認"
 
@@ -572,7 +568,7 @@ msgstr "供應階段"
 
 #: apps/configs/models.py:22 apps/configs/models.py:262
 #: templates/contents/unit-info.html:7 templates/contents/unit-info.html:9
-#: templates/contents/unit-info.html:11 templates/navigation.html:93
+#: templates/contents/unit-info.html:11 templates/navigation.html:96
 msgid "Unit"
 msgstr "單位"
 
@@ -602,7 +598,6 @@ msgstr "抽象品項"
 #: templates/ajax/chart-1-content.html:28
 #: templates/ajax/chart-2-content.html:28
 #: templates/ajax/chart-5-content.html:30
-#: templates/ajax/chart-6-content.html:30
 #: templates/contents/index-panel.html:41
 msgid "Chart"
 msgstr "圖表"
@@ -624,7 +619,7 @@ msgid "Enabled"
 msgstr "啟用"
 
 #: apps/configs/models.py:192 apps/dailytrans/models.py:42
-#: apps/watchlists/models.py:133 templates/navigation.html:87
+#: apps/watchlists/models.py:133 templates/navigation.html:90
 msgid "Source"
 msgstr "來源"
 
@@ -660,7 +655,7 @@ msgstr "模板"
 msgid "Charts"
 msgstr "圖表"
 
-#: apps/configs/models.py:300 apps/dailytrans/utils.py:347
+#: apps/configs/models.py:300 apps/dailytrans/utils.py:375
 msgid "Month"
 msgstr "月份"
 
@@ -679,7 +674,7 @@ msgstr "蔬菜"
 #: apps/dailytrans/models.py:41 apps/watchlists/models.py:132
 #: apps/watchlists/models.py:151
 #: templates/contents/watchlist-profile-table.html:9
-#: templates/navigation.html:90
+#: templates/navigation.html:93
 msgid "Product"
 msgstr "品項"
 
@@ -695,14 +690,14 @@ msgstr "中價"
 msgid "Low Pirce"
 msgstr "下價"
 
-#: apps/dailytrans/models.py:46 apps/dailytrans/utils.py:120
-#: apps/dailytrans/utils.py:145 apps/dailytrans/utils.py:166
+#: apps/dailytrans/models.py:46 apps/dailytrans/utils.py:148
+#: apps/dailytrans/utils.py:173 apps/dailytrans/utils.py:194
 #: templates/contents/index-panel.html:20
 #: templates/contents/integration-table.html:12
 msgid "Average Price"
 msgstr "日均價格"
 
-#: apps/dailytrans/models.py:47 apps/dailytrans/utils.py:122
+#: apps/dailytrans/models.py:47 apps/dailytrans/utils.py:150
 #: templates/contents/index-panel.html:24
 #: templates/contents/integration-table.html:19
 msgid "Average Weight"
@@ -713,8 +708,8 @@ msgid "Volume"
 msgstr "交易量"
 
 #: apps/dailytrans/models.py:49 apps/dailytrans/models.py:76
-#: apps/dailytrans/utils.py:119 apps/dailytrans/utils.py:144
-#: apps/dailytrans/utils.py:165 apps/dailytrans/utils.py:233
+#: apps/dailytrans/utils.py:147 apps/dailytrans/utils.py:172
+#: apps/dailytrans/utils.py:193 apps/dailytrans/utils.py:261
 #: apps/events/forms.py:20 apps/events/models.py:63
 #: templates/contents/event-table.html:12
 #: templates/contents/integration-table.html:11
@@ -729,7 +724,7 @@ msgstr "未更新累計"
 msgid "Create Time"
 msgstr "建立時間"
 
-#: apps/dailytrans/models.py:57 templates/navigation.html:84
+#: apps/dailytrans/models.py:57 templates/navigation.html:87
 msgid "Daily Transition"
 msgstr "日交易"
 
@@ -754,43 +749,43 @@ msgstr "價格日報表"
 msgid "Daily Reports"
 msgstr "價格日報表"
 
-#: apps/dailytrans/utils.py:121 apps/dailytrans/utils.py:146
+#: apps/dailytrans/utils.py:149 apps/dailytrans/utils.py:174
 msgid "Sum Volume"
 msgstr "總交易量"
 
-#: apps/dailytrans/utils.py:348
+#: apps/dailytrans/utils.py:376
 msgid "Min"
 msgstr "最小值"
 
-#: apps/dailytrans/utils.py:349
+#: apps/dailytrans/utils.py:377
 msgid "25%"
 msgstr "第一四分位數"
 
-#: apps/dailytrans/utils.py:350
+#: apps/dailytrans/utils.py:378
 msgid "50%"
 msgstr "中位數"
 
-#: apps/dailytrans/utils.py:351
+#: apps/dailytrans/utils.py:379
 msgid "75%"
 msgstr "第三四分位數"
 
-#: apps/dailytrans/utils.py:352
+#: apps/dailytrans/utils.py:380
 msgid "Max"
 msgstr "最大值"
 
-#: apps/dailytrans/utils.py:353
+#: apps/dailytrans/utils.py:381
 msgid "Mean"
 msgstr "平均值"
 
-#: apps/dailytrans/utils.py:488
+#: apps/dailytrans/utils.py:516
 msgid "This Term"
 msgstr "本期"
 
-#: apps/dailytrans/utils.py:496
+#: apps/dailytrans/utils.py:524
 msgid "Last Term"
 msgstr "上期"
 
-#: apps/dailytrans/utils.py:507
+#: apps/dailytrans/utils.py:535
 msgid "5 Years"
 msgstr "近5年"
 
@@ -811,7 +806,7 @@ msgid "Share this event"
 msgstr "共用此事件"
 
 #: apps/events/models.py:42 apps/events/models.py:60
-#: templates/contents/event-table.html:14 templates/navigation.html:108
+#: templates/contents/event-table.html:14 templates/navigation.html:111
 msgid "Event Type"
 msgstr "事件分類"
 
@@ -831,7 +826,7 @@ msgstr "內容"
 msgid "Shared Event"
 msgstr "共用事件"
 
-#: apps/events/models.py:68 templates/navigation.html:105
+#: apps/events/models.py:68 templates/navigation.html:108
 msgid "Event"
 msgstr "事件簿"
 
@@ -884,7 +879,7 @@ msgstr "網址"
 msgid "Duration"
 msgstr "歷時"
 
-#: apps/logs/models.py:19 templates/navigation.html:81
+#: apps/logs/models.py:19 templates/navigation.html:84
 msgid "Log"
 msgstr "日誌"
 
@@ -980,7 +975,7 @@ msgstr "已編輯"
 msgid "Main"
 msgstr "主頁"
 
-#: apps/posts/templates/socialwall.html:46 templates/navigation.html:66
+#: apps/posts/templates/socialwall.html:46 templates/navigation.html:69
 msgid "Social Wall"
 msgstr "輿情回應專區"
 
@@ -1138,7 +1133,7 @@ msgid "End Date"
 msgstr "結束日期"
 
 #: apps/watchlists/models.py:50 apps/watchlists/models.py:152
-#: templates/navigation.html:33 templates/navigation.html:96
+#: templates/navigation.html:33 templates/navigation.html:99
 msgid "Watchlist"
 msgstr "監控清單"
 
@@ -1148,7 +1143,7 @@ msgstr "監控清單"
 
 #: apps/watchlists/models.py:140
 #: templates/contents/watchlist-profile-table.html:10
-#: templates/navigation.html:99
+#: templates/navigation.html:102
 msgid "Watchlist Item"
 msgstr "監控品項"
 
@@ -1196,15 +1191,15 @@ msgid "Row"
 msgstr "橫列編號"
 
 #: apps/watchlists/models.py:166 apps/watchlists/models.py:167
-#: templates/contents/product-profile.html:93 templates/navigation.html:102
+#: templates/contents/product-profile.html:93 templates/navigation.html:105
 msgid "Monitor Profile"
 msgstr "監控價格內容及因應措施"
 
-#: dashboard/settings.py:204
+#: dashboard/settings.py:193
 msgid "Traditional Chinese"
 msgstr "繁體中文"
 
-#: dashboard/settings.py:205
+#: dashboard/settings.py:194
 msgid "English"
 msgstr ""
 
@@ -1388,6 +1383,45 @@ msgstr "目前無資料可供顯示，此區間可能非品項之產季"
 msgid "Any further question please contact us"
 msgstr "若有任何問題請與我們聯繫"
 
+#: templates/ajax/product-selector.html:16 templates/navigation.html:66
+msgid "Product Selector"
+msgstr "全品項查詢"
+
+#: templates/ajax/product-selector.html:38
+#: templates/ajax/product-selector.html:52
+msgid "Select product category"
+msgstr "選擇產品類別"
+
+#: templates/ajax/product-selector.html:41
+#: templates/ajax/product-selector.html:59
+msgid "Select product type"
+msgstr "選擇產品供應階段"
+
+#: templates/ajax/product-selector.html:44
+#: templates/ajax/product-selector.html:66
+msgid "Select products and sources"
+msgstr "選擇產品及市場"
+
+#: templates/ajax/product-selector.html:52
+msgid "Step 1"
+msgstr "第一步"
+
+#: templates/ajax/product-selector.html:59
+msgid "Step 2"
+msgstr "第二步"
+
+#: templates/ajax/product-selector.html:66
+msgid "Step 3"
+msgstr "第三步"
+
+#: templates/ajax/product-selector.html:77
+msgid "Previous"
+msgstr "上一步"
+
+#: templates/ajax/product-selector.html:80
+msgid "Next"
+msgstr "下一步"
+
 #: templates/browser-not-support.html:78
 msgid "Internet Explore"
 msgstr ""
@@ -1503,26 +1537,26 @@ msgstr "全螢幕"
 msgid "Your browser is out of date, please update your browser by going to"
 msgstr "您使用的瀏覽器太過老舊；你可以從這裡升級瀏覽器："
 
-#: templates/navigation.html:72
+#: templates/navigation.html:75
 msgid "Admin"
 msgstr "後台管理"
 
-#: templates/navigation.html:114
+#: templates/navigation.html:117
 msgid "Grand Totals"
 msgstr "合計項目"
 
-#: templates/navigation.html:135
+#: templates/navigation.html:137
 msgid "Hog Overall"
 msgstr "毛豬合計"
 
-#: templates/navigation.html:142
+#: templates/navigation.html:143
 msgid "Agricultures"
 msgstr "農產品"
 
-#: templates/navigation.html:160
+#: templates/navigation.html:161
 msgid "Livestocks"
 msgstr "畜禽產品"
 
-#: templates/navigation.html:179
+#: templates/navigation.html:180
 msgid "Fisheries"
 msgstr "漁產品"

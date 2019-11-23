@@ -13,7 +13,7 @@
 
                 <header>
                     <span class="widget-icon"> <i class="fa fa-search-plus"></i> </span>
-                    <h2 class="font-md">{% trans 'Product Selector' %}</i></h2>
+                    <h2 class="font-md">{% trans 'Product Selector' %}</h2>
 
                 </header>
 
@@ -41,7 +41,7 @@
                                                 <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">{% trans 'Select product type' %}</span> </a>
                                             </li>
                                             <li data-target="#step3" style="width: 33%;">
-                                                <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">{% trans 'Select main product' %}</span> </a>
+                                                <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">{% trans 'Select products and sources' %}</span> </a>
                                             </li>
                                         </ul>
                                         <div class="clearfix"></div>
@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="tab-pane" id="tab3">
                                             <br>
-                                            <h3><strong>{% trans 'Step 3' %}</strong> - {% trans 'Select main product' %}</h3>
+                                            <h3><strong>{% trans 'Step 3' %}</strong> - {% trans 'Select products and sources' %}</h3>
                                             <div class="row" data-load data-load-url="{% url 'product_selector_ui' step=3 %}">
 <!-- render step 3 UI here -->
                                             </div>
@@ -73,15 +73,9 @@
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <ul class="pager wizard no-margin">
-                                                        <!--<li class="previous first disabled">
-                                                        <a href="javascript:void(0);" class="btn btn-lg btn-default"> First </a>
-                                                        </li>-->
                                                         <li class="previous disabled">
                                                             <a href="javascript:void(0);" class="btn btn-lg btn-default"> {% trans 'Previous' %} </a>
                                                         </li>
-                                                        <!--<li class="next last">
-                                                        <a href="javascript:void(0);" class="btn btn-lg btn-primary"> Last </a>
-                                                        </li>-->
                                                         <li class="next">
                                                             <a href="javascript:void(0);" class="btn btn-lg txt-color-darken"> {% trans 'Next' %} </a>
                                                         </li>
