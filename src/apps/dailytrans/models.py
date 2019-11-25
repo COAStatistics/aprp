@@ -83,4 +83,4 @@ class DailyReport(Model):
         verbose_name_plural = _('Daily Reports')
 
     def __str__(self):
-        return self.date
+        return '{}, {}'.format(self.date, self.file_id)

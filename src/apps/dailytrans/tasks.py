@@ -51,8 +51,11 @@ def update_daily_report(delta_days=-1):
         # write result to database
         DailyReport.objects.create(date=date, file_id=file_id)
     else:
-        google_drive_client.media_update(file_id=daily_report.file_id,
-                                         file_path=file_path)
+        google_drive_client.media_update(
+            file_id=daily_report.file_id,
+            file_path=file_path,
+            from_mimetype=google_drive_client.XLSX_MIME_TYPE
+        )
         daily_report.update_time = datetime.now()
         daily_report.save()
 
