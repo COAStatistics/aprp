@@ -63,7 +63,7 @@
 
 		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script> if (!window.jQuery) { document.write('<script src="{% static 'vendor/js/libs/jquery-3.2.1.min.js' %}"><\/script>');} </script>
+		<script> if (!window.jQuery) { document.write('<script src="{% static 'vendor/js/libs/jquery-3.2.1.min.js' %}"><\/script>');} </script>
 
 		<!-- Browser check -->
 		{% for message in messages %}
@@ -71,14 +71,8 @@
 		{% endfor %}
 		<script>if (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== "undefined" && $.browser.msie == 1)){window.location = '{% url 'browser_not_support' %}';}</script>
 
-	    <!--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-		<script> if (!window.jQuery.ui) { document.write('<script src="{% static 'vendor/js/libs/jquery-ui.min.js' %}"><\/script>');} </script>-->
-
 		<!-- IMPORTANT: APP CONFIG -->
 		<script src="{% static 'vendor/js/app.config.seed.js' %}"></script>
-
-		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events
-		<script src="vendor/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
 
 		<!-- BOOTSTRAP JS -->
 		<script src="{% static 'vendor/js/bootstrap/bootstrap.min.js' %}"></script>

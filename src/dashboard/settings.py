@@ -1,13 +1,15 @@
+import os
 import environ
 from django.utils.translation import ugettext_lazy as _
+
+BASE_DIR = environ.Path(__file__) - 2
 
 # Load operating system environment variables and then prepare to use them
 env = environ.Env()
 
-BASE_DIR = environ.Path(__file__) - 2
-
-# Read an extra env file if needed
-environ.Env.read_env(BASE_DIR('.env.custom'))
+# Read a optional env file if not configure from environment variables
+if os.path.exists(BASE_DIR('.env')):
+    environ.Env.read_env(BASE_DIR('.env'))
 
 SECRET_KEY = env.str('SECRET_KEY')
 
