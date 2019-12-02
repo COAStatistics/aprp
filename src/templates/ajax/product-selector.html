@@ -216,6 +216,20 @@ $(document).ready(function() {
                 loadURL(url, $container);
             }
           }
+        },
+        'onPrevious': function (tab, navigation, index) {
+            $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index).removeClass('complete');
+            $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index).find('.step').html(index + 1);
+            $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index + 1).removeClass('complete');
+            $('#bootstrap-wizard-1').find('.form-wizard').children('li').eq(index + 1).find('.step').html(index + 2);
+        },
+        'onTabShow': function(tab, navigation, index) {
+            if (index == 2) {
+                $('li.next').removeClass('disabled');
+            }
+        },
+        'onTabClick': function(tab, navigation, index) {
+            return false;
         }
       });
 
