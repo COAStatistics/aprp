@@ -6,7 +6,7 @@ from django.conf import settings
 
 from apps.dailytrans.models import DailyTran, DailyReport
 from apps.dailytrans.reports.dailyreport import DailyReportFactory
-from google_api.google_drive.client import GoogleDriveClient
+from google_api.backends import DefaultGoogleDriveClient
 
 
 @task(name="DeleteNotUpdatedTrans")
@@ -29,7 +29,7 @@ def delete_not_updated_trans(not_updated_times=15):
 @task(name='UpdateDailyReport')
 def update_daily_report(delta_days=-1):
     folder_id = settings.DAILY_REPORT_FOLDER_ID
-    google_drive_client = GoogleDriveClient.load_from_env(env_prefix='GOOGLE_DRIVE_')
+    google_drive_client = DefaultGoogleDriveClient()
 
     date = datetime.today() + timedelta(days=delta_days)
 

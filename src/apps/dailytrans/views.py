@@ -3,14 +3,14 @@ from datetime import datetime, timedelta
 from django.shortcuts import render
 from django.conf import settings
 
-from google_api.google_drive.client import GoogleDriveClient
+from google_api.backends import DefaultGoogleDriveClient
 from apps.dailytrans.models import DailyReport
 from apps.dailytrans.reports.dailyreport import DailyReportFactory
 
 
 def render_daily_report(request):
     folder_id = settings.DAILY_REPORT_FOLDER_ID
-    google_drive_client = GoogleDriveClient.load_from_env(env_prefix='GOOGLE_DRIVE_')
+    google_drive_client = DefaultGoogleDriveClient()
 
     data = request.GET or request.POST
 

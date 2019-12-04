@@ -2,7 +2,7 @@ import pytest
 from django.test import SimpleTestCase
 from django.conf import settings
 
-from .client import GoogleDriveClient
+from google_api.backends import DefaultGoogleDriveClient
 
 
 @pytest.mark.secret
@@ -12,7 +12,7 @@ class GoogleDriveClientTestCase(SimpleTestCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.test_folder_id = settings.TEST_DAILY_REPORT_FOLDER_ID
-        cls.google_drive_client = GoogleDriveClient.load_from_env(env_prefix='GOOGLE_DRIVE_')
+        cls.google_drive_client = DefaultGoogleDriveClient()
 
     def test_retrieve_folder_id(self):
         folder_name = 'test-coa-aprp-dailyreport'
