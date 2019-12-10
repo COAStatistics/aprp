@@ -36,7 +36,7 @@
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
-                <select name="product" class="form-control input-lg selectpicker" multiple title="{% trans 'Choose one of the following...' %}">
+                <select name="product" class="form-control input-lg selectpicker" data-live-search="true" multiple title="{% trans 'Choose one of the following...' %}">
                     {% for product in products %}
                     <option value="{{ product.id }}">{{ product.name }}</option>
                     {% endfor %}
@@ -49,7 +49,7 @@
         <div class="form-group">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
-                <select name="source" class="form-control input-lg selectpicker" multiple>
+                <select name="source" class="form-control input-lg selectpicker" data-live-search="true" multiple>
                     {% for source in sources %}
                     <option value="{{ source.id }}" selected="selected">{{ source.name }}</option>
                     {% endfor %}

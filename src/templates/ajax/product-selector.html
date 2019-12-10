@@ -35,13 +35,13 @@
                                     <div class="form-bootstrapWizard">
                                         <ul class="bootstrapWizard form-wizard">
                                             <li class="active" data-target="#step1" style="width: 33%;">
-                                                <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">{% trans 'Select product category' %}</span> </a>
+                                                <a class="cursor" href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">{% trans 'Select product category' %}</span> </a>
                                             </li>
                                             <li data-target="#step2" style="width: 33%;">
-                                                <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">{% trans 'Select product type' %}</span> </a>
+                                                <a class="cursor" href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">{% trans 'Select product type' %}</span> </a>
                                             </li>
                                             <li data-target="#step3" style="width: 33%;">
-                                                <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">{% trans 'Select products and sources' %}</span> </a>
+                                                <a class="cursor" href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">{% trans 'Select products and sources' %}</span> </a>
                                             </li>
                                         </ul>
                                         <div class="clearfix"></div>
@@ -228,6 +228,9 @@ $(document).ready(function() {
         'onTabShow': function(tab, navigation, index) {
             if (index == 2) {
                 $('li.next').removeClass('disabled');
+                $('li.next > a').text("{% trans 'Search' %}");
+            } else {
+                $('li.next > a').text("{% trans 'Next' %}");
             }
         },
         'onTabClick': function(tab, navigation, index) {
