@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-23 17:06+0800\n"
+"POT-Creation-Date: 2019-12-09 16:37+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -296,6 +296,8 @@ msgstr "編輯個人資料"
 #: apps/posts/templates/form_modal.html:18
 #: templates/ajax/chart-5-content.html:87
 #: templates/ajax/chart-5-content.html:204
+#: templates/ajax/chart-6-content.html:87
+#: templates/ajax/chart-6-content.html:204
 msgid "Cancel"
 msgstr "取消"
 
@@ -307,6 +309,8 @@ msgstr "取消"
 #: templates/ajax/chart-4-content.html:53
 #: templates/ajax/chart-5-content.html:88
 #: templates/ajax/chart-5-content.html:205
+#: templates/ajax/chart-6-content.html:88
+#: templates/ajax/chart-6-content.html:205
 msgid "Submit"
 msgstr "確認"
 
@@ -322,7 +326,7 @@ msgstr ""
 "本平台整合農委會及所屬機關（構）公布之農、漁、畜產品之價格及交易量資訊，提供"
 "便捷之視覺化查詢功能，期協助本會暨所屬機關（構）同仁即時掌握農產品價量動向。"
 
-#: apps/accounts/templates/introduction.html:18 templates/ajax/about.html:43
+#: apps/accounts/templates/introduction.html:18 templates/ajax/about.html:50
 msgid "Monitored items"
 msgstr "監控品項"
 
@@ -335,7 +339,7 @@ msgstr ""
 "目前主要涵括台北一、二果菜市場10個蔬菜、水果、花卉之整體及分類項目，以及59個"
 "本會每日監控之重要農產品共計70項"
 
-#: apps/accounts/templates/introduction.html:24 templates/ajax/about.html:51
+#: apps/accounts/templates/introduction.html:24 templates/ajax/about.html:58
 msgid "Features"
 msgstr "功能說明"
 
@@ -598,6 +602,7 @@ msgstr "抽象品項"
 #: templates/ajax/chart-1-content.html:28
 #: templates/ajax/chart-2-content.html:28
 #: templates/ajax/chart-5-content.html:30
+#: templates/ajax/chart-6-content.html:30
 #: templates/contents/index-panel.html:41
 msgid "Chart"
 msgstr "圖表"
@@ -740,8 +745,8 @@ msgstr "檔案識別碼"
 msgid "Created"
 msgstr "建立時間"
 
-#: apps/dailytrans/models.py:82 templates/ajax/daily-report.html:14
-#: templates/navigation.html:63
+#: apps/dailytrans/models.py:82 templates/ajax/about.html:32
+#: templates/ajax/daily-report.html:14 templates/navigation.html:63
 msgid "Daily Report"
 msgstr "價格日報表"
 
@@ -1195,12 +1200,41 @@ msgstr "橫列編號"
 msgid "Monitor Profile"
 msgstr "監控價格內容及因應措施"
 
-#: dashboard/settings.py:193
+#: dashboard/settings.py:195
 msgid "Traditional Chinese"
 msgstr "繁體中文"
 
-#: dashboard/settings.py:194
+#: dashboard/settings.py:196
 msgid "English"
+msgstr ""
+
+#: google_api/google_drive/httplib2/__init__.py:463
+#, python-format
+msgid "Content purported to be compressed with %s but failed to decompress."
+msgstr ""
+
+#: google_api/google_drive/httplib2/__init__.py:649
+#, python-format
+msgid "Unsupported value for qop: %s."
+msgstr ""
+
+#: google_api/google_drive/httplib2/__init__.py:654
+#: google_api/google_drive/httplib2/__init__.py:748
+#, python-format
+msgid "Unsupported value for algorithm: %s."
+msgstr ""
+
+#: google_api/google_drive/httplib2/__init__.py:743
+msgid "The challenge doesn't contain a server nonce, or this one is empty."
+msgstr ""
+
+#: google_api/google_drive/httplib2/__init__.py:754
+#, python-format
+msgid "Unsupported value for pw-algorithm: %s."
+msgstr ""
+
+#: google_api/google_drive/httplib2/__init__.py:1676
+msgid "Redirected but the response is missing a Location: header."
 msgstr ""
 
 #: templates/ajax/about.html:15 templates/navigation.html:60
@@ -1208,17 +1242,22 @@ msgstr ""
 msgid "About"
 msgstr "關於"
 
-#: templates/ajax/about.html:32
+#: templates/ajax/about.html:32 templates/ajax/product-selector.html:16
+#: templates/navigation.html:66
+msgid "Product Selector"
+msgstr "全品項查詢"
+
+#: templates/ajax/about.html:39
 msgid ""
 "This website is used for Council of Agriculture and affiliated institution "
 "only"
 msgstr "本平台僅供本會暨所屬機關(構)人員使用，網頁連結及帳號密碼請勿對外提供"
 
-#: templates/ajax/about.html:38
+#: templates/ajax/about.html:45
 msgid "The purpose of construction"
 msgstr "建置目的"
 
-#: templates/ajax/about.html:40
+#: templates/ajax/about.html:47
 msgid ""
 "The platform combined the price and the trading volume of agricultural "
 "products from Council of Agriculture (COA) and the affiliated agencies "
@@ -1240,7 +1279,7 @@ msgstr ""
 "時掌握農產品價量動向、輿情回應及歷年特殊價量變化原因，提供平台使用者農產品價"
 "量相關資訊之一站式服務（One-Stop Service）。"
 
-#: templates/ajax/about.html:44
+#: templates/ajax/about.html:51
 msgid ""
 "Currently, there are 63 items consist of 10 overall and categorized items of "
 "vegetables, fruits and flowers in Taipei Agricultural Products Wholesale "
@@ -1259,11 +1298,11 @@ msgstr ""
 "控者則僅涵蓋產地交易價格。本平台保留增加其他農產品資訊之彈性，未來得視需要即"
 "時擴增現行批發市場已涵蓋或產地已進行查價之項目。"
 
-#: templates/ajax/about.html:47
+#: templates/ajax/about.html:54
 msgid "Source of information"
 msgstr "資料來源"
 
-#: templates/ajax/about.html:48
+#: templates/ajax/about.html:55
 msgid ""
 "The information was provided by National Animal Industry Foundation "
 "(wholesale market price), Agriculture and Food Agency (local price), "
@@ -1280,7 +1319,7 @@ msgstr ""
 "API），本平台再依特定排程以自動化作業模式（Machine To Machine, M2M）介接，或"
 "逕至本會開放資料平台接取相關資訊。"
 
-#: templates/ajax/about.html:52
+#: templates/ajax/about.html:59
 msgid ""
 "Showing daily price/volume trends, year by year trends and distribution plot "
 "with charts, each chart provide raw data, integration data and exporting "
@@ -1294,15 +1333,15 @@ msgstr ""
 "等資訊；輿情回應專區提供輿情發布及回應園地。相關詳細使用說明，如下列使用手"
 "冊。"
 
-#: templates/ajax/about.html:56
+#: templates/ajax/about.html:63
 msgid "Download document"
 msgstr "使用手冊下載"
 
-#: templates/ajax/about.html:59
+#: templates/ajax/about.html:66
 msgid "Precautions"
 msgstr "注意事項"
 
-#: templates/ajax/about.html:60
+#: templates/ajax/about.html:67
 msgid ""
 "1. Due to the different number of data records, the average price of the "
 "platform and the source system query results have a tail difference. 2. Some "
@@ -1317,11 +1356,11 @@ msgstr ""
 "接資料方式運作，批發價格部分可能因未完全交易、資料未完全確認或來源系統傳輸異"
 "常使資料報送中斷等問題，致與來源系統對外公布資料不合。"
 
-#: templates/ajax/about.html:63
+#: templates/ajax/about.html:70
 msgid "Cooperation Units"
 msgstr "合作單位"
 
-#: templates/ajax/about.html:64
+#: templates/ajax/about.html:71
 msgid ""
 "1. The platform was constructed by statistics office in COA and Taiwan "
 "Agricultural Research Institute (Agricultural Policy Research Center). All "
@@ -1383,10 +1422,6 @@ msgstr "目前無資料可供顯示，此區間可能非品項之產季"
 msgid "Any further question please contact us"
 msgstr "若有任何問題請與我們聯繫"
 
-#: templates/ajax/product-selector.html:16 templates/navigation.html:66
-msgid "Product Selector"
-msgstr "全品項查詢"
-
 #: templates/ajax/product-selector.html:38
 #: templates/ajax/product-selector.html:52
 msgid "Select product category"
@@ -1419,8 +1454,14 @@ msgid "Previous"
 msgstr "上一步"
 
 #: templates/ajax/product-selector.html:80
+#: templates/ajax/product-selector.html:233
 msgid "Next"
 msgstr "下一步"
+
+#: templates/ajax/product-selector.html:231
+#: templates/contents/raw-table.html:21
+msgid "Search"
+msgstr "搜尋"
 
 #: templates/browser-not-support.html:78
 msgid "Internet Explore"
@@ -1487,10 +1528,6 @@ msgstr "監控價格"
 #: templates/contents/product-profile.html:26
 msgid "Watchlist Item Profile"
 msgstr "監控品項內容及監控地點"
-
-#: templates/contents/raw-table.html:21
-msgid "Search"
-msgstr "搜尋"
 
 #: templates/contents/raw-widget-single-type-index.html:28
 #: templates/contents/raw-widget-type-panel-groups.html:26
