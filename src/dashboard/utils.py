@@ -198,11 +198,14 @@ def product_selector_base_extra_context(view):
     extra_context = dict()
 
     # Captured values
+    params = view.request.GET
+    source_ids = params.get('sources').split('_') if params.get('sources') != '_' else []
+    extra_context['sources'] = params.get('sources')
+
     kwargs = view.kwargs
     chart_id = kwargs.get('ci')
     type_id = kwargs.get('type')
     product_ids = kwargs.get('products').split('_') if kwargs.get('products') != '_' else []
-    source_ids = kwargs.get('sources').split('_') if kwargs.get('sources') != '_' else []
 
     # Post data
     data = kwargs.get('POST') or QueryDict()
@@ -302,7 +305,6 @@ def watchlist_base_chart_contents_extra_context(view):
             items = watchlist.children().filter_by_product(product__id=last_object_id)
 
     elif content_type == 'abstractproduct':
-        print(object_id)
         items = watchlist.children().filter_by_product(product__id=object_id)
 
     elif content_type == 'source':
@@ -375,12 +377,13 @@ def product_selector_base_integration_extra_context(view):
     extra_context = dict()
 
     # Captured values
+    params = view.request.GET
+    source_ids = params.get('sources').split('_') if params.get('sources') != '_' else []
 
     kwargs = view.kwargs
     chart_id = kwargs.get('ci')
     type_id = kwargs.get('type')
     product_ids = kwargs.get('products').split('_') if kwargs.get('products') != '_' else []
-    source_ids = kwargs.get('sources').split('_') if kwargs.get('sources') != '_' else []
 
     # Post data
     data = kwargs.get('POST') or QueryDict
