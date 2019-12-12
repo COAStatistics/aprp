@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-09 16:37+0800\n"
+"POT-Creation-Date: 2019-12-12 10:03+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -332,12 +332,12 @@ msgstr "監控品項"
 
 #: apps/accounts/templates/introduction.html:20
 msgid ""
-"Currently, there are 70 items consist of 10 overall and categorized items of "
+"Currently, there are 64 items consist of 11 overall and categorized items of "
 "vegetables, fruits and flowers in Taipei Agricultural Products Wholesale "
-"Market and 59 daily-monitored important agricultural products in COA."
+"Market and 53 daily-monitored important agricultural products in COA."
 msgstr ""
-"目前主要涵括台北一、二果菜市場10個蔬菜、水果、花卉之整體及分類項目，以及59個"
-"本會每日監控之重要農產品共計70項"
+"目前主要涵括台北一、二果菜市場11個蔬菜、水果、花卉之整體及分類項目，以及53個"
+"本會每日監控之重要農產品共計64項"
 
 #: apps/accounts/templates/introduction.html:24 templates/ajax/about.html:58
 msgid "Features"
@@ -1281,7 +1281,7 @@ msgstr ""
 
 #: templates/ajax/about.html:51
 msgid ""
-"Currently, there are 63 items consist of 10 overall and categorized items of "
+"Currently, there are 64 items consist of 11 overall and categorized items of "
 "vegetables, fruits and flowers in Taipei Agricultural Products Wholesale "
 "Market and 53 daily-monitored important agricultural products in COA. The "
 "wholesale prices of monitored items in including price and trading volume "
@@ -1293,7 +1293,7 @@ msgid ""
 "local Markets as acquired."
 msgstr ""
 "目前主要涵括台北一、二果菜市場10個蔬菜、水果、花卉，肉品市場1個毛豬之整體及分"
-"類項目，以及59個本會每日監控之重要農產品共計70項，其中以批發價格監控品項同時"
+"類項目，以及53個本會每日監控之重要農產品共計64項，其中以批發價格監控品項同時"
 "包含價格及交易量資訊（蔬果花卉部分僅含台北一、二果菜市場資訊），以產地價格監"
 "控者則僅涵蓋產地交易價格。本平台保留增加其他農產品資訊之彈性，未來得視需要即"
 "時擴增現行批發市場已涵蓋或產地已進行查價之項目。"
@@ -1459,9 +1459,8 @@ msgid "Next"
 msgstr "下一步"
 
 #: templates/ajax/product-selector.html:231
-#: templates/contents/raw-table.html:21
-msgid "Search"
-msgstr "搜尋"
+msgid "Enquiry"
+msgstr "查詢"
 
 #: templates/browser-not-support.html:78
 msgid "Internet Explore"
@@ -1528,6 +1527,10 @@ msgstr "監控價格"
 #: templates/contents/product-profile.html:26
 msgid "Watchlist Item Profile"
 msgstr "監控品項內容及監控地點"
+
+#: templates/contents/raw-table.html:21
+msgid "Search"
+msgstr "搜尋"
 
 #: templates/contents/raw-widget-single-type-index.html:28
 #: templates/contents/raw-widget-type-panel-groups.html:26
