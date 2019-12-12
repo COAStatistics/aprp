@@ -53,7 +53,7 @@
         <ul id="chart-functions-tab" class="nav nav-pills nav-justified" data-layer="1">
             {% for chart in charts %}
             <li>
-                <a data-load-url="{% url 'chart_content' ci=chart.id type=type products=products sources=sources %}"
+                <a data-load-url="{% url 'chart_content' ci=chart.id type=type products=products %}?sources={{ sources }}"
                    data-load
                    href="#chart-{{ chart.id }}" class="font-md"
                    data-toggle="tab">
@@ -75,7 +75,7 @@
 {% endif %}
 
 <script>
-	
+
 	/* DO NOT REMOVE : GLOBAL FUNCTIONS!
 	 *
 	 * pageSetUp(); WILL CALL THE FOLLOWING FUNCTIONS
@@ -107,9 +107,9 @@
 	 */
 
 	pageSetUp();
-	
+
 	// pagefunction
-	
+
 	var pagefunction = function() {
 
 	    dynamic_setup_widgets('product-profile-widget-grid');
@@ -150,9 +150,9 @@
             })
         })
 	};
-	
+
 	// end pagefunction
-	
+
 	// run pagefunction on load
 
 	// PAGE RELATED SCRIPTS
@@ -186,5 +186,3 @@
     scriptLoader(scripts, pagefunction);
 
 </script>
-
-

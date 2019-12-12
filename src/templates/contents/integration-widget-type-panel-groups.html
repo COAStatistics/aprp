@@ -44,7 +44,7 @@
                 <!-- dynamically load integration panels here -->
             </div>
             {% else %}
-            <div data-load-url="{% url 'integration_table' ci=ci type=type products=products sources=sources %}"
+            <div data-load-url="{% url 'integration_table' ci=ci type=type products=products %}?sources={{ sources }}"
                  data-load>
                 <!-- dynamically load integration panels here -->
             </div>

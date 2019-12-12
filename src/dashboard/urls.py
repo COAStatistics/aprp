@@ -66,14 +66,14 @@ urlpatterns += i18n_patterns(
     url(r'^chart-tab/watchlist/(?P<wi>\d+)/resource/(?P<ct>\w+)-(?P<oi>\d+)/sub-resource/(?P<lct>\w+)-(?P<loi>\d+)/$',
         ChartTabs.as_view(watchlist_base=True), name='chart_tab'),
     # chart content ajax
-    url(r'^chart-content/chart/(?P<ci>\d+)/type/(?P<type>\d+)/products/(?P<products>\w+)/sources/(?P<sources>\w+)/$',
+    url(r'^chart-content/chart/(?P<ci>\d+)/type/(?P<type>\d+)/products/(?P<products>\w+)/$',
         ChartContents.as_view(product_selector_base=True), name='chart_content'),
     url(r'^chart-content/chart/(?P<ci>\d+)/watchlist/(?P<wi>\d+)/resource/(?P<ct>\w+)/(?P<oi>\d+)/$',
         ChartContents.as_view(watchlist_base=True), name='chart_content'),
     url(r'^chart-content/chart/(?P<ci>\d+)/watchlist/(?P<wi>\d+)/resource/(?P<ct>\w+)-(?P<oi>\d+)/sub-resource/(?P<lct>\w+)-(?P<loi>\d+)/$',
         ChartContents.as_view(watchlist_base=True), name='chart_content'),
     # chart content ajax
-    url(r'^integration-table/chart/(?P<ci>\d+)/type/(?P<type>\d+)/products/(?P<products>\w+)/sources/(?P<sources>\w+)/$',
+    url(r'^integration-table/chart/(?P<ci>\d+)/type/(?P<type>\d+)/products/(?P<products>\w+)/$',
         IntegrationTable.as_view(product_selector_base=True), name='integration_table'),
     url(r'^integration-table/chart/(?P<ci>\d+)/watchlist/(?P<wi>\d+)/resource/(?P<ct>\w+)-(?P<oi>\d+)/$',
         IntegrationTable.as_view(watchlist_base=True), name='integration_table'),
