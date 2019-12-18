@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-12 10:03+0800\n"
+"POT-Creation-Date: 2019-12-18 15:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1208,35 +1208,6 @@ msgstr "繁體中文"
 msgid "English"
 msgstr ""
 
-#: google_api/google_drive/httplib2/__init__.py:463
-#, python-format
-msgid "Content purported to be compressed with %s but failed to decompress."
-msgstr ""
-
-#: google_api/google_drive/httplib2/__init__.py:649
-#, python-format
-msgid "Unsupported value for qop: %s."
-msgstr ""
-
-#: google_api/google_drive/httplib2/__init__.py:654
-#: google_api/google_drive/httplib2/__init__.py:748
-#, python-format
-msgid "Unsupported value for algorithm: %s."
-msgstr ""
-
-#: google_api/google_drive/httplib2/__init__.py:743
-msgid "The challenge doesn't contain a server nonce, or this one is empty."
-msgstr ""
-
-#: google_api/google_drive/httplib2/__init__.py:754
-#, python-format
-msgid "Unsupported value for pw-algorithm: %s."
-msgstr ""
-
-#: google_api/google_drive/httplib2/__init__.py:1676
-msgid "Redirected but the response is missing a Location: header."
-msgstr ""
-
 #: templates/ajax/about.html:15 templates/navigation.html:60
 #: templates/shortcut.html:9
 msgid "About"
@@ -1421,6 +1392,14 @@ msgstr "目前無資料可供顯示，此區間可能非品項之產季"
 #: templates/ajax/no-data.html:490
 msgid "Any further question please contact us"
 msgstr "若有任何問題請與我們聯繫"
+
+#: templates/ajax/product-selector-ui.html:71
+msgid "Select All"
+msgstr "全選"
+
+#: templates/ajax/product-selector-ui.html:72
+msgid "Deselect All"
+msgstr "取消全選"
 
 #: templates/ajax/product-selector.html:38
 #: templates/ajax/product-selector.html:52
