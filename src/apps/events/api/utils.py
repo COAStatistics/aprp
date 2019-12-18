@@ -1,12 +1,19 @@
 import pandas as pd
 
 
+def convert_date(date):
+    date = date.split('/')
+    year = int(date[0])
+    month = date[1]
+    day = date[-1]
+    if year < 1911:
+        year += 1911
+    return '{}/{}/{}'.format(year, month, day)
+
+
 def funcBatchEventFile(file):
-    data = pd.read_excel(file)
-    res = pd.DataFrame()
-    res['date'] = data['日期']
-    res['types'] = data['事件分類']
-    res['name'] = data['名稱']
-    res['context'] = data['內容']
+    res = pd.read_excel(file)
+    res.columns = ['date', 'types', 'name', 'context']
+    res['date'] = res['date'].apply(convert_date)
 
     return res.to_dict(orient='records')
