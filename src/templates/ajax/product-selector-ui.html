@@ -65,6 +65,11 @@
 $(document).ready(function() {
     pageSetUp();
     // INIT BOOTSTRAP SELECT
-    $('.selectpicker').selectpicker({style: 'btn-default btn-lg'});
+    $('.selectpicker').selectpicker({
+        style: 'btn-default btn-lg',
+        actionsBox: 'true',
+        selectAllText: '{% trans 'Select All' %}',
+        deselectAllText: '{% trans 'Deselect All' %}'
+    });
 })
 </script>
