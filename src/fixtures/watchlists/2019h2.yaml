@@ -87,7 +87,7 @@
 - model: watchlists.WatchlistItem
   pk: 3110
   fields:
-    product: 40542 # 青蔥-北蔥 SE2
+    product: 40540 # 青蔥-北蔥 SE2
     sources: [10001, 10002]
     parent: 5
 
@@ -96,7 +96,7 @@
 - model: watchlists.WatchlistItem
   pk: 3137
   fields:
-    product: 40543 # 青蔥-粉蔥 SE6
+    product: 40541 # 青蔥-粉蔥(含北蔥) SE2 SE6
     sources: [10001, 10002]
     parent: 5
 

@@ -132,6 +132,19 @@ def product_selector_ui_extra_context(view):
             fb_related_products = AbstractProduct.objects.filter(track_item=False, code__icontains='FB')
             products = products.exclude(name__icontains='FB') | fb_related_products
 
+        # Handling special cases, replace origin seafoods parent with sub product
+        if config_id == '13' and type_id == '2':
+            products = config.products().filter(track_item=False, type__id=type_id)
+
+        # Show products parent name and products name or code in select list
+        if config_id in ['8', '10', '11', '12'] or config_id == '13' and type_id == '2':
+            extra_context['show_parent'] = True
+
+        # Show products parent name and code in select list
+        if config_id in ['5', '6', '7', '13'] and type_id == '1':
+            extra_context['show_code'] = True
+
+        extra_context['config_id'] = int(config_id)
         extra_context['products'] = products
         extra_context['sources'] = config.source_set.all().filter(type__id=type_id)
 
@@ -222,6 +235,9 @@ def product_selector_base_extra_context(view):
             (product.children().filter(track_item=True) for product in product_qs.filter(track_item=False))
         )
         products = products | sub_products
+
+    if product_qs.first().track_item is False and product_qs.first().config.id == 13:
+        products = product_qs
 
     if source_ids:
         sources = Source.objects.filter(id__in=source_ids)
@@ -403,6 +419,9 @@ def product_selector_base_integration_extra_context(view):
             (product.children().filter(track_item=True) for product in product_qs.filter(track_item=False))
         )
         products = products | sub_products
+
+    if product_qs.first().track_item is False and product_qs.first().config.id == 13:
+        products = product_qs
 
     if source_ids:
         sources = Source.objects.filter(id__in=source_ids)
