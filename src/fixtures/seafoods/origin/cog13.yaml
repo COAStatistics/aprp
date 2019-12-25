@@ -690,7 +690,7 @@
     type: 2
     config: 13
     unit: 2
-    parent: 120966
+    parent: 120970
     track_item: false
 
 - model: seafoods.Seafood
@@ -701,7 +701,7 @@
     type: 2
     config: 13
     unit: 2
-    parent: 120966
+    parent: 120970
     track_item: false
 
 - model: seafoods.Seafood
@@ -754,7 +754,7 @@
     type: 2
     config: 13
     unit: 2
-    parent: 120973
+    parent: 120976
     track_item: false
 
 - model: seafoods.Seafood
@@ -765,7 +765,7 @@
     type: 2
     config: 13
     unit: 2
-    parent: 120973
+    parent: 120976
     track_item: false
 
 - model: seafoods.Seafood

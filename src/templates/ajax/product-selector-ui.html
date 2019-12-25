@@ -38,7 +38,19 @@
                 <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
                 <select name="product" class="form-control input-lg selectpicker" data-live-search="true" title="{% trans 'Choose one of the following...' %}">
                     {% for product in products %}
+                    {% if show_parent %}
+                        {% if product.parent == None %}
+                        <option value="{{ product.id }}">{{ product.name }} - {{ product.code }}</option>
+                        {% elif config_id == 13 %}
+                        <option value="{{ product.id }}">{{ product.parent.name }} - {{ product.name }}</option>
+                        {% else %}
+                        <option value="{{ product.id }}">{{ product.parent.name }} - {{ product.code }}</option>
+                        {% endif %}
+                    {% elif show_code %}
+                    <option value="{{ product.id }}">{{ product.name }} - {{ product.code }}</option>
+                    {% else %}
                     <option value="{{ product.id }}">{{ product.name }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
             </div>
