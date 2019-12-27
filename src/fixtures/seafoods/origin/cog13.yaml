@@ -343,7 +343,7 @@
 - model: seafoods.Seafood
   pk: 120939
   fields:
-    name: 35-40粒/0.6公斤
+    name: 30-40粒/0.6公斤
     code: priceU
     type: 2
     config: 13
@@ -461,7 +461,7 @@
 - model: seafoods.Seafood
   pk: 120950
   fields:
-    name: 600g
+    name: 600g-800g
     code: priceM
     type: 2
     config: 13
