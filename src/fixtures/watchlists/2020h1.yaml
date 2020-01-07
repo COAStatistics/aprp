@@ -84,19 +84,33 @@
     sources: [10001, 10002]
     parent: 6
 
-- model: watchlists.WatchlistItem
-  pk: 4110
-  fields:
-    product: 40540 # 青蔥-北蔥 SE2
-    sources: [10001, 10002]
-    parent: 6
+# - model: watchlists.WatchlistItem
+#   pk: 4110
+#   fields:
+#     product: 40540 # 青蔥-北蔥 SE2
+#     sources: [10001, 10002]
+#     parent: 6
 
 # 20180115新增
 
+# - model: watchlists.WatchlistItem
+#   pk: 4137
+#   fields:
+#     product: 40541 # 青蔥-粉蔥(含北蔥) SE2 SE6
+#     sources: [10001, 10002]
+#     parent: 6
+
 - model: watchlists.WatchlistItem
-  pk: 4137
+  pk: 4138
   fields:
-    product: 40541 # 青蔥-粉蔥(含北蔥) SE2 SE6
+    product: 40542 # 青蔥-粉蔥(含北蔥) 北蔥 SE2
+    sources: [10001, 10002]
+    parent: 6
+
+- model: watchlists.WatchlistItem
+  pk: 4139
+  fields:
+    product: 40543 # 青蔥-粉蔥(含北蔥) 粉蔥 SE6
     sources: [10001, 10002]
     parent: 6
 
