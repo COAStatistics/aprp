@@ -286,6 +286,15 @@ class DailyReportFactory(object):
         query_set = DailyTran.objects.filter(product=product, date__year=self.specify_day.year-1, date__month=self.specify_day.month)
         self.update_data(query_set, '{}{}'.format(product.name, product.type), 73)
 
+        # 青香蕉下品()內銷)
+        self.row_visible.append(72)
+        product = Fruit.objects.get(id=59019)
+        sources = Source.objects.filter(id__gte=10030, id__lte=20000)
+        query_set = DailyTran.objects.filter(product=product, source__in=sources)
+        self.get_data(query_set, '{}{}'.format(product.name, product.type), 72, None)
+        query_set = DailyTran.objects.filter(product=product, date__year=self.specify_day.year-1, date__month=self.specify_day.month)
+        self.update_data(query_set, '{}{}'.format(product.name, product.type), 72)
+
     @staticmethod
     def get_sheet_format(key):
         chr1 = key[0]
