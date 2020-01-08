@@ -25,6 +25,8 @@ class Api(AbstractApi):
     def hook(self, dic):
 
         def create_tran(obj):
+            if dic.get(obj.code) == '-':
+                return None
             tran = DailyTran(
                 product=obj,
                 avg_price=float(dic.get(obj.code)) / 0.6,
