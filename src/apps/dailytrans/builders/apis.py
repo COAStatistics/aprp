@@ -82,7 +82,7 @@ class Api(AbstractApi):
 
     def load(self, response):
         data = []
-        if response.text:
+        if response.text and '"DATASET":\n' not in response.text:
             try:
                 data_set = json.loads(response.text, object_hook=self.hook)
                 data = data_set['DATASET']
