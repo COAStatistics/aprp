@@ -48,7 +48,7 @@ class Api(AbstractApi):
             )
             return tran
         else:
-            if not product:
+            if not product and dic.get('魚貨名稱') != "休市":
                 self.LOGGER.warning('Cannot Match Product: "%s" In Dictionary %s'
                                     % (product_code, dic), extra=self.LOGGER_EXTRA)
             if not source:
