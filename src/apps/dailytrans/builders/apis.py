@@ -53,6 +53,32 @@ class Api(AbstractApi):
                                     extra=self.LOGGER_EXTRA)
             return dic
 
+    def hook2(self, dic):
+        for key, value in dic.items():
+            if isinstance(value, str):
+                dic[key] = value.strip()
+
+        product_name = "青香蕉下品(內銷)"
+        source_name = dic.get('ORGNAME')
+        product = self.PRODUCT_QS.filter(code=product_name).first()
+        source = self.SOURCE_QS.filter(name=source_name).first()
+        if product and source:
+            tran = DailyTran(
+                product=product,
+                source=source,
+                avg_price=float(dic.get('AVGPRICE')),
+                date=date_transfer(sep=self.SEP, string=dic.get('PERIOD'), roc_format=self.ROC_FORMAT)
+            )
+            return tran
+        else:
+            if product_name and not product:
+                self.LOGGER.warning('Cannot Match Product: %s' % (product_name),
+                                    extra=self.LOGGER_EXTRA)
+            if source_name and source_name != '當日平均價' and not source:
+                self.LOGGER.warning('Cannot Match Source: %s' % (source_name),
+                                    extra=self.LOGGER_EXTRA)
+            return dic
+
     def request(self, start_date=None, end_date=None, source=None, code=None, name=None):
         url = self.API_URL
         if start_date:
@@ -78,13 +104,19 @@ class Api(AbstractApi):
         if name:
             url = '&'.join((url, self.NAME_FILTER % name))
 
+        if "青香蕉下品" in name:
+            url = url.replace("status=4", "status=6").replace("青香蕉下品", "青香蕉")
+
         return self.get(url, verify=False)
 
     def load(self, response):
         data = []
         if response.text and '"DATASET":\n' not in response.text:
             try:
-                data_set = json.loads(response.text, object_hook=self.hook)
+                if "status=6" in response.url:
+                    data_set = json.loads(response.text, object_hook=self.hook2)
+                else:
+                    data_set = json.loads(response.text, object_hook=self.hook)
                 data = data_set['DATASET']
             except Exception as e:
                 self.LOGGER.exception('%s \n%s' % (response.request.url, e), extra=self.LOGGER_EXTRA)

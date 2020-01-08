@@ -38,6 +38,17 @@
     unit: 2
     parent: 50061
 
+# 2020/01/08 新增 青下蕉
+- model: fruits.Fruit
+  pk: 59019
+  fields:
+    name: 青香蕉下品(內銷)
+    code: 青香蕉下品(內銷)
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50061
+
 - model: fruits.Fruit
   pk: 59005
   fields:
