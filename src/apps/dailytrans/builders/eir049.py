@@ -25,8 +25,6 @@ class Api(AbstractApi):
     def hook(self, dic):
 
         def create_tran(obj):
-            if dic.get(obj.code) == '-':
-                return None
             tran = DailyTran(
                 product=obj,
                 avg_price=float(dic.get(obj.code)) / 0.6,
@@ -45,8 +43,10 @@ class Api(AbstractApi):
                     tran = create_tran(obj)
                     lst.append(tran)
                 except Exception as e:
-                    self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
-
+                    if '休市' in str(e) or '-' in str(e):
+                        continue
+                    else:
+                        self.LOGGER.exception(e, extra=self.LOGGER_EXTRA)
         return lst
 
     def request(self, start_date=None, end_date=None):
