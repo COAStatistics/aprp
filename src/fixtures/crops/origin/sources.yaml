@@ -692,3 +692,11 @@
     name: 六腳鄉農會
     configs: [5, 6]
     type: 2
+
+
+- model: configs.Source
+  pk: 10117
+  fields:
+    name: 寶山鄉農會
+    configs: [5, 6]
+    type: 2
