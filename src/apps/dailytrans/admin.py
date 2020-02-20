@@ -50,6 +50,7 @@ class DailyTranAdmin(admin.ModelAdmin):
                     'volume')
     list_editable = ('up_price', 'mid_price', 'low_price', 'avg_price', 'avg_weight', 'volume')
     list_filter = (('date', DateRangeFilter), 'product__config__name', 'source')
+    search_fields = ['product__name']
 
 
 class DailyReportAdmin(admin.ModelAdmin):
