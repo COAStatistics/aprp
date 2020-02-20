@@ -407,7 +407,7 @@
   pk: 4227
   fields:
     product: 59001 # 桶柑 產地
-    sources: [10031, 10030, 10032]
+    sources: [10031, 10030, 10032, 10117]
     parent: 6
 
 - model: watchlists.WatchlistItem
