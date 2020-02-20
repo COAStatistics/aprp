@@ -12,6 +12,7 @@ class StatusLogAdmin(admin.ModelAdmin):
     list_display_links = ('colored_msg', 'url')
     list_filter = ('level', 'type__name', )
     list_per_page = 10
+    search_fields = ['msg']
 
     def colored_msg(self, instance):
         if instance.level in [logging.NOTSET, logging.INFO]:
