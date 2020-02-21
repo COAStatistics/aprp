@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.forms import ModelForm, ValidationError
+from django.utils.translation import ugettext_lazy as _
 from .models import DailyTran, DailyReport
 from rangefilter.filter import DateRangeFilter
 
@@ -40,7 +41,7 @@ class DailyTranAdmin(admin.ModelAdmin):
                     'update_time',
                     'create_time',
                     'not_updated',
-                    'product',
+                    'productname',
                     'source',
                     'up_price',
                     'mid_price',
@@ -49,8 +50,33 @@ class DailyTranAdmin(admin.ModelAdmin):
                     'avg_weight',
                     'volume')
     list_editable = ('up_price', 'mid_price', 'low_price', 'avg_price', 'avg_weight', 'volume')
-    list_filter = (('date', DateRangeFilter), 'product__config__name', 'source')
-    search_fields = ['product__name']
+    list_filter = (('date', DateRangeFilter), 'product__type__name', 'product__config__name', 'source')
+    search_fields = ['product__name', 'product__parent__name', 'product__code']
+
+    def productname(self, obj):
+        # For crop wholesale type 1
+        if obj.product.config.id == 5 and obj.product.type.id == 1:
+            if obj.product.name == obj.product.code:
+                return f"{obj.product.parent.name}({obj.product.name})"
+            else:
+                return f"{obj.product.name}({obj.product.code})"
+        # For hog
+        elif obj.product.config.id == 8:
+            if obj.product.id == 70001:
+                return obj.product.code
+            elif obj.product.id == 70004 or obj.product.id == 70005:
+                return f"{obj.product.parent.name}({obj.product.name})"
+            else:
+                return obj.product.name
+        # For chicken and gooses
+        elif obj.product.config.id == 10 or obj.product.config.id == 12:
+            return f"{obj.product.code}"
+        # For origin seafood
+        elif obj.product.config.id == 13 and obj.product.type.id == 2:
+            return f"{obj.product.parent.name}({obj.product.name})"
+        else:
+            return obj.product.name
+    productname.short_description = _('Product')
 
 
 class DailyReportAdmin(admin.ModelAdmin):

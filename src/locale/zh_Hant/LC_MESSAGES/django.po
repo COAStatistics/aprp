@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-18 15:18+0800\n"
+"POT-Creation-Date: 2020-02-21 16:55+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -296,8 +296,6 @@ msgstr "編輯個人資料"
 #: apps/posts/templates/form_modal.html:18
 #: templates/ajax/chart-5-content.html:87
 #: templates/ajax/chart-5-content.html:204
-#: templates/ajax/chart-6-content.html:87
-#: templates/ajax/chart-6-content.html:204
 msgid "Cancel"
 msgstr "取消"
 
@@ -309,8 +307,6 @@ msgstr "取消"
 #: templates/ajax/chart-4-content.html:53
 #: templates/ajax/chart-5-content.html:88
 #: templates/ajax/chart-5-content.html:205
-#: templates/ajax/chart-6-content.html:88
-#: templates/ajax/chart-6-content.html:205
 msgid "Submit"
 msgstr "確認"
 
@@ -602,7 +598,6 @@ msgstr "抽象品項"
 #: templates/ajax/chart-1-content.html:28
 #: templates/ajax/chart-2-content.html:28
 #: templates/ajax/chart-5-content.html:30
-#: templates/ajax/chart-6-content.html:30
 #: templates/contents/index-panel.html:41
 msgid "Chart"
 msgstr "圖表"
@@ -676,8 +671,8 @@ msgstr "蔬菜"
 msgid "Crops"
 msgstr "蔬菜"
 
-#: apps/dailytrans/models.py:41 apps/watchlists/models.py:132
-#: apps/watchlists/models.py:151
+#: apps/dailytrans/admin.py:79 apps/dailytrans/models.py:41
+#: apps/watchlists/models.py:132 apps/watchlists/models.py:151
 #: templates/contents/watchlist-profile-table.html:9
 #: templates/navigation.html:93
 msgid "Product"
@@ -1393,11 +1388,11 @@ msgstr "目前無資料可供顯示，此區間可能非品項之產季"
 msgid "Any further question please contact us"
 msgstr "若有任何問題請與我們聯繫"
 
-#: templates/ajax/product-selector-ui.html:71
+#: templates/ajax/product-selector-ui.html:83
 msgid "Select All"
 msgstr "全選"
 
-#: templates/ajax/product-selector-ui.html:72
+#: templates/ajax/product-selector-ui.html:84
 msgid "Deselect All"
 msgstr "取消全選"
 
