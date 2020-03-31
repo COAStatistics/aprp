@@ -4184,6 +4184,17 @@
     unit: 1
     parent: 40416
 
+# 2020/03/31 新增 胡蘿蔔-其他 SB0
+- model: crops.Crop
+  pk: 40544
+  fields:
+    name: 胡蘿蔔-其他
+    code: SB0
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40411
+
 - model: crops.Crop
   pk: 40419
   fields:
@@ -4619,6 +4630,17 @@
   fields:
     name: 芋-麵芋
     code: SJ1
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40458
+
+# 2020/03/31 新增 芋-進口 SJ9
+- model: crops.Crop
+  pk: 40545
+  fields:
+    name: 芋-進口
+    code: SJ9
     type: 1
     config: 5
     unit: 1
