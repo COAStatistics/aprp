@@ -445,6 +445,17 @@
     unit: 1
     parent: 40040
 
+# 2020/03/31 新增 絲瓜-進口 FF9
+- model: crops.Crop
+  pk: 40546
+  fields:
+    name: 絲瓜-進口
+    code: FF9
+    type: 1
+    config: 5
+    unit: 1
+    parent: 40040
+
 - model: crops.Crop
   pk: 40046
   fields:
