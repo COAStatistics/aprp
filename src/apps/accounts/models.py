@@ -82,6 +82,7 @@ class UserInformation(Model):
     reporter = BooleanField(default=False, verbose_name=_('Reporter'))
     alert_viewer = BooleanField(default=True, verbose_name=_('Alert Viewer'))
     monitor_info_viewer = BooleanField(default=True, verbose_name=_('Monitor Info Viewer'))
+    amislist_viewer = BooleanField(default=False, verbose_name=_('Amis List Viewer'))
     profile = ImageField(upload_to=upload_location, null=True, blank=True, verbose_name=_('Profile'))
 
     class Meta:
