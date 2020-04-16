@@ -45,6 +45,7 @@ class UserInformationAdmin(admin.ModelAdmin):
     model = UserInformation
     list_filter = (
         GroupListFilter,
+        'amislist_viewer'
     )
     search_fields = (
         'id',

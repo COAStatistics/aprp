@@ -2,7 +2,7 @@ import datetime
 import calendar
 import openpyxl
 
-from openpyxl.styles import PatternFill
+from openpyxl.styles import PatternFill, Font
 from pathlib import Path
 from django.conf import settings
 
@@ -11,6 +11,7 @@ from apps.dailytrans.models import DailyTran
 from apps.dailytrans.utils import get_group_by_date_query_set
 from apps.fruits.models import Fruit
 from apps.configs.models import Source
+from apps.flowers.models import Flower
 
 
 TEMPLATE = str(settings.BASE_DIR('apps/dailytrans/reports/template.xlsx'))
@@ -54,6 +55,32 @@ SHEET_FORMAT = {
     'AC': '_-* #,##0.0_-;\\-* #,##0.0_-;_-* "-"?_-;_-@_-',
     'AD': '_-* #,##0.0_-;\\-* #,##0.0_-;_-* "-"?_-;_-@_-',
 }
+
+# 日報下方資料來源對應品項及其來源說明
+desc_1 = [
+    ('落花生', '落花生產地價格(芳苑、虎尾、土庫、北港及元長等農會查報價格之簡單平均)'),
+    ('紅豆', '紅豆產地價格(屏東縣萬丹鄉、新園鄉等產地農會查報價格之簡單平均)'),
+    ('大蒜', '乾蒜頭產地價格(虎尾、土庫、元長及四湖等農會查報價格之簡單平均)'),
+    ('甘薯', '甘藷產地價格(大城及水林等農會查報價格之簡單平均)'),
+    ('桶柑', '桶柑產地價格(峨眉及和平等農會查報價格之簡單平均)'),
+    ('柚子', '文旦柚產地價格(八里、冬山、西湖、斗六、麻豆、下營及瑞穗等農會查報價格之簡單平均)'),
+    ('蓮霧', '蓮霧產地價格(六龜、枋寮及南州等農會查報價格之簡單平均)'),
+    ('香蕉', '香蕉產地價格(上品-中寮、中埔、旗山、美濃及高樹等農會查報上品價格之簡單平均)、(下品-中寮及中埔農會查報下品價格之簡單平均)'),
+    ('鳳梨', '金鑽鳳梨產地價格(名間、古坑、民雄、關廟、大樹、高樹和內埔等農會查報價格之簡單平均)'),
+    ('雜柑', '檸檬產地價格(旗山、九如、里港、鹽埔及高樹等農會查報價格之簡單平均)'),
+    ('梅', '竿採梅產地價格(國姓、六龜和甲仙等農會查報價格之簡單平均)')
+]
+
+desc_2 = ['新興梨', '豐水梨', '柿子']
+
+desc_3 = [
+    '花卉交易(全部花卉市場) 交易量：火鶴花以單枝，文心蘭10枝─農產品行情報導，本會農糧署。',
+    '75KG以上規格毛豬拍賣價格及土番鴨、白肉雞、雞蛋產地價格—中央畜產會。',
+    '550KG以上肉牛產地價格—本會畜產試驗所恆春分所及中央畜產會。',
+    '努比亞雜交閹公羊拍賣價格—彰化縣肉品拍賣市場。',
+    '紅羽土雞產地價格(北區、中區價格簡單平均)—中華民國養雞協會。',
+    '水產品產地價格─本會漁業署。'
+]
 
 
 def get_avg_price(qs, has_volume, week_start=None, week_end=None):
@@ -105,6 +132,7 @@ class DailyReportFactory(object):
         self.result = dict()
         self.col_dict = dict()
         self.generate_list_dict()
+        self.item_desc = list()
 
     def generate_list_dict(self):
         for i in range(0, 7):
@@ -116,8 +144,16 @@ class DailyReportFactory(object):
                 self.col_dict['{}_volume'.format(date)] = 'A{}'.format(chr(65 + i - 3))
 
     def check_months(self, item):
-        if not item.months.filter(name__icontains=self.specify_day.month):
-            self.row_marked.append(item.row)
+        # 不在監控品項月份變更底色改為在顯示月份內的品項顯示
+        if item.months.filter(name__icontains=self.specify_day.month) or item.always_display:
+            self.row_visible.append(item.row)
+            if item.product.name is '梨':
+                if self.specify_day.month in [5, 6]:
+                    self.item_desc.append('豐水梨')
+                elif self.specify_day.month in [7, 8]:
+                    self.item_desc.append('新興梨')
+            else:
+                self.item_desc.append(item.product.name)
 
     def input_sheet_date(self, sheet, index):
         month = (self.this_week_start + datetime.timedelta(index)).month
@@ -241,7 +277,7 @@ class DailyReportFactory(object):
         monitor = MonitorProfile.objects.filter(watchlist=watchlist, row__isnull=False)
 
         for item in monitor:
-            self.row_visible.append(item.row)
+            # self.row_visible.append(item.row)
             query_set = DailyTran.objects.filter(product__in=item.product_list())
             if item.sources():
                 query_set = query_set.filter(source__in=item.sources())
@@ -295,6 +331,15 @@ class DailyReportFactory(object):
         query_set = DailyTran.objects.filter(product=product, date__year=self.specify_day.year-1, date__month=self.specify_day.month)
         self.update_data(query_set, '{}{}'.format(product.name, product.type), 72)
 
+        # 2020/4/16 主管會報陳副主委要求花卉品項,農糧署建議新增香水百合 FS
+        self.row_visible.append(107)
+        product = Flower.objects.get(id=60068)
+        sources = Source.objects.filter(id__in=[30001, 30002, 30003, 30004, 30005])
+        query_set = DailyTran.objects.filter(product=product, source__in=sources)
+        self.get_data(query_set, '{}{}'.format(product.name, product.type), 107, None)
+        query_set = DailyTran.objects.filter(product=product, date__year=self.specify_day.year-1, date__month=self.specify_day.month)
+        self.update_data(query_set, '{}{}'.format(product.name, product.type), 107)
+
     @staticmethod
     def get_sheet_format(key):
         chr1 = key[0]
@@ -340,8 +385,61 @@ class DailyReportFactory(object):
             if i not in self.row_visible:
                 sheet.row_dimensions[i].hidden = True
 
-        for i in self.row_marked:
-            sheet['B{}'.format(i)].fill = SHEET_FILL
+            # 第二階段隱藏品項欄位
+            # td = sheet.cell(row=i, column=2)
+            # A.品項欄位去除底色
+            # td.fill = PatternFill(
+            #     fill_type='solid',
+            #     start_color='FFFFFF',
+            #     end_color='FFFFFF'
+            # )
+
+        # 第二階段隱藏品項欄位後日報下方說明欄,依品項顯示月份對應調整資料來源文字說明處理
+        for rows in sheet['A133:U148']:
+            for cell in rows:
+                # 資料來源字型統一為標楷體
+                cell.font = Font(name='標楷體', size=13)
+                row_no = cell.row
+                if row_no > 134:
+                    cell.value = None
+
+        now_row = 135
+        # 一般農產品的資料來源說明欄位處理
+        for i in desc_1:
+            item_name = i[0]
+            desc_1_text = i[1]
+
+            # append_desc
+            if item_name in self.item_desc:
+                td = sheet.cell(row=now_row, column=1)
+                tmp = (now_row == 135 and '3.') or '   '
+                td.value = f"{tmp}{desc_1_text}；"
+                now_row += 1
+        td = sheet.cell(row=now_row-1, column=1)
+        td.value = td.value.replace('；', '—農產品價格查報，本會農糧署。')
+        desc_2_tmp = list()
+        pn = 4
+        for item_name in desc_2:
+            if item_name in self.item_desc:
+                if item_name is '柿子':
+                    desc_2_tmp.append('甜柿')
+                else:
+                    desc_2_tmp.append(item_name)
+        if desc_2_tmp:
+            td = sheet.cell(row=now_row, column=1)
+            desc_2_text = '4.'+'、'.join(desc_2_tmp) + \
+                '交易量價(東勢果菜市場價格)－農產品行情報導，本會農糧署。'
+            td.value = desc_2_text
+            now_row += 1
+            pn += 1
+        # 其餘花卉,畜禽,水產類的資料來源說明欄位處理
+        for p in desc_3:
+            td = sheet.cell(row=now_row, column=1)
+            td.value = f"{str(pn)}.{p}"
+            pn += 1
+            now_row += 1
+
+        # 依袁麗惠要求,日報取消品項底色識別
 
         return wb
 
