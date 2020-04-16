@@ -159,6 +159,7 @@ class MonitorProfile(Model):
     period = TextField(null=True, blank=True, verbose_name=_('Period'))
     is_active = BooleanField(default=False, verbose_name=_('Is Active'))
     months = ManyToManyField('configs.Month', verbose_name=_('Monitor Months'))
+    always_display = BooleanField(default=False, verbose_name=_('Always Display'))
     row = PositiveIntegerField(null=True, blank=True, verbose_name=_('Row'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
 

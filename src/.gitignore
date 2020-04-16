@@ -118,3 +118,6 @@ ENV/
 *.bak
 *.dat
 *.dir
+
+#VSCode extension : rest client
+.http

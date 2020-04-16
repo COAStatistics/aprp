@@ -114,6 +114,7 @@
     period: |
             11月~次年4月
     months: [1, 2, 3, 4, 11, 12]
+    always_display: True
     action: |
             輔導購貯冷藏、滾動式倉儲、醃漬或截切加工及外銷等措施
 
@@ -133,6 +134,7 @@
     period: |
             11月~次年3月
     months: [1, 2, 3, 11, 12]
+    always_display: True
     action: |
             採行促銷及加工措施
 
@@ -152,6 +154,7 @@
     period: |
             11月~次年3月
     months: [1, 2, 3, 11, 12]
+    always_display: True
     action: |
             採行促銷及加工措施
 
@@ -171,6 +174,7 @@
     period: |
             11月~次年3月
     months: [1, 2, 3, 11, 12]
+    always_display: True
     action: |
             輔導購貯冷藏、滾動式倉儲、醃漬或截切加工等措施
 
@@ -190,6 +194,7 @@
     period: |
             11月~次年3月
     months: [1, 2, 3, 11, 12]
+    always_display: True
     action: |
             採行加工調節措施
 
@@ -229,6 +234,7 @@
             4月~6月
             10月~次年1月
     months: [1, 4, 5, 6, 10, 11, 12]
+    always_display: True
     action: |
             1.輔導農民團體辦理促銷
             2.輔導農民團體收購次級品辦理加工
@@ -250,6 +256,7 @@
             4月~6月
             10月~次年1月
     months: [1, 4, 5, 6, 10, 11, 12]
+    always_display: True
     action: |
             1.輔導農民團體辦理促銷
             2.輔導農民團體收購次級品辦理加工
@@ -270,6 +277,7 @@
     period: |
             5月~8月
     months: [5, 6, 7, 8]
+    always_display: True
     action: |
             1.輔導辦理促銷
             2.輔導田間疏果，調整上市期間
@@ -290,6 +298,7 @@
     period: |
             11月~次年5月
     months: [1, 2, 3, 4, 5, 11, 12]
+    always_display: True
     action: |
             1.輔導辦理促銷
             2.輔導田間疏果，調整上市期間
@@ -448,6 +457,7 @@
     period: |
             3月~11月
     months: [3, 4, 5, 6, 7, 8, 9, 10, 11]
+    always_display: True
     action: |
             1.收購次級品加工
             2.加強外銷供果
@@ -509,6 +519,7 @@
             3月~9月(春夏蕉)
             10月~12月(秋冬蕉)
     months: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    always_display: True
     action: |
             1.加工處理，產製香蕉乾（粉）等多元化產品，並活絡產地催熟設備，促進在地消費
             2.強化外銷
@@ -574,6 +585,7 @@
     period: |
             全年
     months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    always_display: True
     action: |
             辦理國軍、監所團膳及農會超市促銷與啟動國產水果優惠訂購平台等措施，收購次級品加工
 
