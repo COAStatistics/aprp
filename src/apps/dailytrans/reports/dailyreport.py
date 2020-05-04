@@ -147,7 +147,7 @@ class DailyReportFactory(object):
         # 不在監控品項月份變更底色改為在顯示月份內的品項顯示
         if item.months.filter(name__icontains=self.specify_day.month) or item.always_display:
             self.row_visible.append(item.row)
-            if item.product.name is '梨':
+            if item.product.name == '梨':
                 if self.specify_day.month in [5, 6]:
                     self.item_desc.append('豐水梨')
                 elif self.specify_day.month in [7, 8]:
@@ -279,6 +279,16 @@ class DailyReportFactory(object):
         for item in monitor:
             # self.row_visible.append(item.row)
             query_set = DailyTran.objects.filter(product__in=item.product_list())
+
+            # 因應措施是梨
+            if item.product.id == 50182:
+                if self.specify_day.month in [5, 6]:
+                    # 56只抓豐水梨 50186
+                    query_set = query_set.filter(product=50186)
+                elif self.specify_day.month in [7, 8]:
+                    # 78只抓新興梨 50185
+                    query_set = query_set.filter(product=50185)
+
             if item.sources():
                 query_set = query_set.filter(source__in=item.sources())
             self.get_data(query_set, item.product.name, item.row, item.price)
@@ -286,6 +296,16 @@ class DailyReportFactory(object):
             query_set = DailyTran.objects.filter(product__in=item.product_list(),
                                                  date__year=self.specify_day.year-1,
                                                  date__month=self.specify_day.month)
+
+            # 因應措施是梨
+            if item.product.id == 50182:
+                if self.specify_day.month in [5, 6]:
+                    # 56只抓豐水梨 50186
+                    query_set = query_set.filter(product=50186)
+                elif self.specify_day.month in [7, 8]:
+                    # 78只抓新興梨 50185
+                    query_set = query_set.filter(product=50185)
+
             if item.sources():
                 query_set = query_set.filter(source__in=item.sources())
             self.update_data(query_set, item.product.name, item.row)
@@ -421,7 +441,7 @@ class DailyReportFactory(object):
         pn = 4
         for item_name in desc_2:
             if item_name in self.item_desc:
-                if item_name is '柿子':
+                if item_name == '柿子':
                     desc_2_tmp.append('甜柿')
                 else:
                     desc_2_tmp.append(item_name)

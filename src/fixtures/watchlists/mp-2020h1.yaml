@@ -359,7 +359,7 @@
     period: |
             5月~6月(豐水梨)
             7月~8月(新興梨)
-    months: [7, 8]
+    months: [5, 6, 7, 8]
     action: |
             辦理國軍及農會超市促銷、冷藏調節、加強外銷與啟動國產水果優惠訂購平台等措施
 
@@ -588,7 +588,6 @@
     always_display: True
     action: |
             辦理國軍、監所團膳及農會超市促銷與啟動國產水果優惠訂購平台等措施，收購次級品加工
-
 
 - model: watchlists.MonitorProfile
   pk: 430
