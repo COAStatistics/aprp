@@ -44,18 +44,19 @@ def active_update():
                 tran = q.order_by('date').last()
 
                 if tran:
-                    avg_price = tran['avg_price']
-                    is_active = profile.active_compare(avg_price)
+                    if watchlist.start_date <= tran['date'] <= watchlist.end_date and tran["month"] in profile.months.values_list('id', flat=True):
+                        avg_price = tran['avg_price']
+                        is_active = profile.active_compare(avg_price)
 
-                    # for logging
-                    if profile.is_active is not is_active:
-                        if profile.is_active:
-                            deactivated.append(profile)
-                        else:
-                            activated.append(profile)
+                        # for logging
+                        if profile.is_active is not is_active:
+                            if profile.is_active:
+                                deactivated.append(profile)
+                            else:
+                                activated.append(profile)
 
-                    profile.is_active = is_active
-                    profile.save()
+                        profile.is_active = is_active
+                        profile.save()
                 else:
                     db_logger.warning('Product %s has no price' % profile.product, extra=logger_extra)
 
