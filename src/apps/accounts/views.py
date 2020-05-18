@@ -40,7 +40,7 @@ def login_view(request):
         login(request, user)
 
         # remember me
-        if not form.cleaned_data.get('remember_me'):
+        if not form.cleaned_data.get('remember'):
             request.session.set_expiry(0)
 
         request.session['mail_sent'] = False
