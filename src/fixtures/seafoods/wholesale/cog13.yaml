@@ -8561,7 +8561,7 @@
 - model: seafoods.Seafood
   pk: 121042
   fields:
-    name: 龍虎斑
+    name: 珍珠龍膽/龍虎斑
     code: 1174
     type: 1
     config: 13
