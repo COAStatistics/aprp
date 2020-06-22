@@ -58,7 +58,7 @@ def date_transfer(sep=None, string=None, date=None, roc_format=False, zfill=None
         # if roc_format:
         #     year += 1911
         if len(str(year)) <= 3:
-            year = date.year + 1911
+            year = year + 1911
 
         return datetime.date(year=year, month=month, day=day)
 
