@@ -11,7 +11,7 @@ class Api(AbstractApi):
     # Settings
     API_NAME = 'apis'
     ZFILL = False
-    ROC_FORMAT = True
+    ROC_FORMAT = False
     SEP = '/'
 
     # Filters
