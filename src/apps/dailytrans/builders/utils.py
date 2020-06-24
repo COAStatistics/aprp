@@ -18,34 +18,19 @@ def date_transfer(sep=None, string=None, date=None, roc_format=False, zfill=None
     if string:
         if sep == '':
 
-            # if roc_format:
-            #     if len(string) < 7:
-            #         raise OverflowError
-            #     year = string[0:3]
-            #     month = string[3:5]
-            #     day = string[5:7]
-            # else:
-            #     if len(string) < 8:
-            #         raise OverflowError
-            #     year = string[0:4]
-            #     month = string[4:6]
-            #     day = string[6:8]
-
-            # 年份長度判斷是否為西元年
-            if len(string) == 6:
-                year = string[0:2]
-                month = string[2:4]
-                day = string[4:6]
-            elif len(string) == 7:
+            if roc_format:
+                if len(string) < 7:
+                    raise OverflowError
                 year = string[0:3]
                 month = string[3:5]
                 day = string[5:7]
-            elif len(string) == 8:
+            else:
+                if len(string) < 8:
+                    raise OverflowError
                 year = string[0:4]
                 month = string[4:6]
                 day = string[6:8]
-            else:
-                raise OverflowError
+
         else:
             year, month, day = string.split(sep)
         try:
@@ -55,10 +40,8 @@ def date_transfer(sep=None, string=None, date=None, roc_format=False, zfill=None
         except TypeError:
             raise TypeError
 
-        # if roc_format:
-        #     year += 1911
-        if len(str(year)) <= 3:
-            year = year + 1911
+        if roc_format:
+            year += 1911
 
         return datetime.date(year=year, month=month, day=day)
 
@@ -67,9 +50,7 @@ def date_transfer(sep=None, string=None, date=None, roc_format=False, zfill=None
         month = date.month
         day = date.day
 
-        # if roc_format:
-        #     year = date.year - 1911
-        if len(str(year)) == 4:
+        if roc_format:
             year = date.year - 1911
 
         if year < 0:
