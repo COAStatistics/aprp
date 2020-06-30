@@ -3,7 +3,7 @@
   fields:
     name: 109上半年
     user: 1
-    is_default: True
+    is_default: False
     start_date: 2020-01-01
     end_date: 2020-06-30
 
