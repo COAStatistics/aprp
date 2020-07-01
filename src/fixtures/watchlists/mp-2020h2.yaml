@@ -350,7 +350,7 @@
     watchlist: 7
     type: 1
     price: 34.4
-    row: 58
+    row: 57 #顯示新興梨需改為57;顯示豐水梨需改為58
     comparator: __lt__
     color: danger
     info: |
