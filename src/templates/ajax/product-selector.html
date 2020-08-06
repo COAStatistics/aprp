@@ -210,8 +210,12 @@ $(document).ready(function() {
                     url += '&sources=' + $sourceSelect.val().toString();
                 }
                 // collapse setting widget
-                $('#product-selector-widget').addClass('jarviswidget-collapsed').children('div').slideUp('fast');
-                $('#product-selector-widget .jarviswidget-toggle-btn > i').addClass('fa-plus').removeClass('fa-minus');
+                //$('#product-selector-widget').addClass('jarviswidget-collapsed').children('div').slideUp('fast');
+                //$('#product-selector-widget .jarviswidget-toggle-btn > i').addClass('fa-plus').removeClass('fa-minus');
+                //查詢後手動開啟縮合功能改為使用原有功能進行
+                if (!$("#product-selector-widget").hasClass('jarviswidget-collapsed')) {
+                    $('#product-selector-widget .jarviswidget-toggle-btn').trigger('click');
+                }
                 // load page
                 loadURL(url, $container);
             }
