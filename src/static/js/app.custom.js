@@ -89,7 +89,7 @@ function dynamic_setup_widgets(container){
 
     if ( $.navAsAjax && enableJarvisWidgets && $("#" + container)[0] ) {
 
-        $("#widget-grid").jarvisWidgets('destroy');
+        //$("#widget-grid").jarvisWidgets('destroy');	//取消destroy
         // debugState
         if (debugState){
             root.console.log("✔ dynamic JarvisWidgets #" + container + " destroyed");

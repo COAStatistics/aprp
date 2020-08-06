@@ -87,6 +87,7 @@
                     }
                 }
                 if (t.storage.enabled && t.storage.getKeySettings) {
+                    t.storage.getKeySettings = t.storage.getKeySettings.replace('"collapsed":1', '"collapsed":0') //初始化全品項查詢時強制設定為關閉縮合功能
                     var n = JSON.parse(t.storage.getKeySettings);
                     for (var a in n.widget) {
                         var r = e("#" + n.widget[a].id);
