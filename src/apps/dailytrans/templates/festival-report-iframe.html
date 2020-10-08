@@ -1,0 +1,72 @@
+{% if not oneday %}
+<iframe framebsorder="0"
+        height="1000px"
+        width="110%"
+        src="https://drive.google.com/file/d/{{ file_id }}/preview">
+</iframe>
+
+        {% if user.info.festivalreport_refresh and refresh %}
+        <span class="input-group-btn">
+                <button class="btn btn-default search-btn" type="button" id="festival-report-refresh-submit">
+                        <span class="fa fa-fw fa-refresh fa-lg"></span>
+                </button>
+        </span>
+        更新 {{ roc_year }}_{{ festival_name }} 價格表(約需3分鐘時間,測試網站資源較小,更新所需時間較長約需15分鐘)
+        {% endif %}
+{% endif %}
+
+        {% if oneday %}
+                <table class="table table-striped">
+                        <thead>
+                                <tr>
+                                <th scope="col">{{ festival_name }} 農產品名稱</th>
+                                <th scope="col">{{ date }} 當日價格</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {% for key, value in product_data.items %} 
+                                        <tr>
+                                        <td scope="row">{{key}}</td>
+                                        {% if value == None %}
+                                        <td scope="row">--</td>
+                                        {% else %}
+                                        <td scope="row">{{value|floatformat:1}}</td>
+                                        {% endif %}
+                                        </tr>
+                                {% endfor %}
+                        </tbody>
+                </table>
+
+        {% endif %}
+<script>
+
+	pageSetUp();
+
+	pagefunction = function(){	
+        $('#festival-report-refresh-submit').on('click', function(e){
+        var $container = $('#festival-report-container');
+        var url = $container.attr('data-load-url');
+        var sel_festival = document.getElementById("sel_festival");
+        var festival_id = sel_festival.options[sel_festival.selectedIndex].value;
+        var festival_name = sel_festival.options[sel_festival.selectedIndex].text;
+        var sel_roc_year = document.getElementById("sel_roc_year");
+        var roc_year = sel_roc_year.options[sel_roc_year.selectedIndex].value;
+
+        data = {
+        'festival_id': festival_id,
+        'festival_name': festival_name,
+        'refresh': 'True',
+        'roc_year': roc_year,
+        'oneday':'False',
+        };
+
+        loadURL(url, $container, data, "POST");
+        });
+
+	}
+
+    // PAGE RELATED SCRIPTS
+
+    pagefunction();
+
+</script>

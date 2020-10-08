@@ -1,0 +1,57 @@
+- model: configs.Festival
+  pk: 1
+  fields:
+    roc_year: 109
+    name: 1 #1:春節;2:端午節;3:中秋節
+
+- model: configs.Festival
+  pk: 2
+  fields:
+    roc_year: 109
+    name: 2
+
+
+- model: configs.Festival
+  pk: 3
+  fields:
+    roc_year: 109
+    name: 3
+
+- model: configs.Festival
+  pk: 4
+  fields:
+    roc_year: 108
+    name: 1
+
+- model: configs.Festival
+  pk: 5
+  fields:
+    roc_year: 108
+    name: 2
+
+
+- model: configs.Festival
+  pk: 6
+  fields:
+    roc_year: 108
+    name: 3
+
+- model: configs.Festival
+  pk: 7
+  fields:
+    roc_year: 107
+    name: 1
+
+- model: configs.Festival
+  pk: 8
+  fields:
+    roc_year: 107
+    name: 2
+
+
+- model: configs.Festival
+  pk: 9
+  fields:
+    roc_year: 107
+    name: 3
+

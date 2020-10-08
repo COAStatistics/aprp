@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.forms import ModelForm, ValidationError
 from django.utils.translation import ugettext_lazy as _
-from .models import DailyTran, DailyReport
+from .models import DailyTran, DailyReport, FestivalReport
 from rangefilter.filter import DateRangeFilter
 
 
@@ -87,5 +87,14 @@ class DailyReportAdmin(admin.ModelAdmin):
     )
 
 
+class FestivalReportAdmin(admin.ModelAdmin):
+    list_display = (
+        'festival_id',
+        'file_id',
+        'update_time',
+        'create_time',
+    )
+    
 admin.site.register(DailyTran, DailyTranAdmin)
 admin.site.register(DailyReport, DailyReportAdmin)
+admin.site.register(FestivalReport, FestivalReportAdmin)

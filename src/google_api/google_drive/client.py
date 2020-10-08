@@ -70,3 +70,7 @@ class GoogleDriveClient(GoogleOAuthClient):
 
     def get_revision(self, file_id, revision_id, fields='*'):
         return self.service.revisions().get(fileId=file_id, revisionId=revision_id, fields=fields).execute()
+
+    def delete_file(self, file_id):
+        file = self.service.files().delete(fileId=file_id)
+        return file.execute()

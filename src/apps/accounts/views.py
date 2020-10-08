@@ -21,7 +21,7 @@ from .models import (
     ResetPasswordProfile,
     ResetEmailProfile
 )
-
+import logging
 
 User = get_user_model()
 
@@ -38,7 +38,11 @@ def login_view(request):
         password = form.cleaned_data.get('password')
         user = authenticate(username=username, password=password)
         login(request, user)
-
+        #紀錄帳號每次登入時間
+        dns = user.email.split('@')[1]
+        group_info = GroupInformation.objects.filter(email_dns=dns).first()
+        db_logger = logging.getLogger('aprp')
+        db_logger.info(f'{user} {user.info} {group_info}', extra={'type_code': 'login'})
         # remember me
         if not form.cleaned_data.get('remember'):
             request.session.set_expiry(0)

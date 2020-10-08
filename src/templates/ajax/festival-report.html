@@ -1,0 +1,148 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!-- Bread crumb is created dynamically -->
+<!-- row -->
+<div class="row">
+	<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+		<h1 class="page-title txt-color-blueDark">
+
+			<!-- PAGE HEADER -->
+			<i class="fa-fw fa fa-home"></i>
+				{% trans 'Main' %}
+			<span>>
+				{% trans 'Festival Report' %}
+			</span>
+
+		</h1>
+	</div>
+</div>
+<!-- end row -->
+
+<div class="row">
+	<div class="col-sm-12 col-md-6 col-lg-4">
+		<div id="search-area" class="input-group input-group-lg search-area">
+			{% csrf_token %}
+			<span class="input-group-addon">
+			<label for="sel_year">篩選年度 :</label>
+			</span>
+			<select name="roc_year" id="sel_roc_year" class="form-control search-text" data-load-url="{% url 'festival_report' %}" style="width: 150px;">
+					<option value='all'>所有年度</option>
+				{% for roc_year in roc_year_list %}
+					<option value={{roc_year}}>{{roc_year}}</option>
+				{% endfor %}
+			</select>
+			<span class="input-group-addon">
+			<label for="sel_festival">節日 :</label>
+			</span>
+			<select name="festival_list" id="sel_festival" class="form-control search-text" style="width: 150px;">
+				{% for festival in festival_list%}
+					<option value={{festival.id}}>{{festival.roc_year}}_{{festival.name}}</option>
+				{% endfor %}
+			</select>
+			
+			<span class="input-group-btn">
+				<button class="btn btn-default search-btn" type="button" id="festival-report-submit">
+					<span class="fa fa-fw fa-search fa-lg"></span>
+				</button>
+			</span>
+			<span class="input-group-addon">查詢特定日期</span>
+			<input type="text" class="form-control search-text" name="date" id="festival_daily-report-date" style="width: 150px;">
+			<span class="input-group-btn">
+				<button class="btn btn-default search-btn" name="oneday" type="button" id="festival_daily-report-date-submit">
+					<span class="fa fa-fw fa-search fa-lg"></span>
+			  </button>
+			</span>
+		</div>
+
+	</div>
+</div>
+
+<div id="festival-report-container" data-load data-load-url="{% url 'dailytrans:render_festival_report' %}"></div>
+
+<script>
+
+	pageSetUp();
+
+	pagefunction = function(){
+
+		$('#sel_roc_year').change(function () {
+			var optionSelected = $(this).find("option:selected");
+			var valueSelected  = optionSelected.val();
+			var url = $(this).attr('data-load-url');
+			var data = {'roc_year_sel':valueSelected,
+						csrfmiddlewaretoken:$('[name="csrfmiddlewaretoken"]').val()
+						}
+			//console.log('data=',data);
+			$.ajax({
+					type: 'POST',
+					url: url,
+					data: data,
+					success: function(data){
+						$("#main #content").html(data);
+						$('#sel_roc_year').val(valueSelected);
+					}
+					});
+		});
+		
+        $('#festival-report-submit').on('click', function(e){
+            var $container = $('#festival-report-container');
+            var url = $container.attr('data-load-url');
+			var sel_festival = document.getElementById("sel_festival");
+			var festival_id = sel_festival.options[sel_festival.selectedIndex].value;
+			var festival_name = sel_festival.options[sel_festival.selectedIndex].text;
+
+            data = {
+                'festival_id': festival_id,
+				'festival_name': festival_name,
+				'refresh': 'False',
+				'oneday':'False',
+            };
+
+            loadURL(url, $container, data, "POST");
+        });
+
+		// Default to yesterday
+        var d = new Date();
+        var yesterday = d.addDays(-1);
+
+        yesterday = $.datepicker.formatDate('yy/mm/dd', yesterday);
+
+        $input = $('#festival_daily-report-date')
+
+        $input.datepicker({
+            dateFormat : 'yy/mm/dd',
+            defaultDate: -1,
+        }).datepicker( "setDate", yesterday );
+
+        $('#festival_daily-report-date-submit').on('click', function(e){
+            var $container = $('#festival-report-container');
+            var url = $container.attr('data-load-url');
+            var date = $input.datepicker('getDate');
+			var sel_festival = document.getElementById("sel_festival");
+			var festival_id = sel_festival.options[sel_festival.selectedIndex].value;
+			var festival_name = sel_festival.options[sel_festival.selectedIndex].text;
+
+            data = {
+                'day': date.getDate(),
+                'month': date.getMonth() + 1,
+                'year': date.getFullYear(),
+				'festival_id': festival_id,
+				'festival_name': festival_name,
+				'refresh': 'False',
+				'oneday':'True'
+            }
+
+            loadURL(url, $container, data, "POST");
+        })
+
+	}
+
+    // PAGE RELATED SCRIPTS
+
+    pagefunction();
+
+</script>
+
+
+

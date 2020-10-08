@@ -52,7 +52,7 @@
         traditional href="" links. See documentation for details.
         -->
 
-        <ul>
+        <ul style="padding-bottom: 80px;">
             <li>
                 <a href="{% url 'about' %}" title="{% trans 'Main' %}"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{% trans 'Main' %}</span></a>
                 <ul>
@@ -355,9 +355,48 @@
 				</ul>
             </li>
 			{% endif %}
+            {% if user.info.festivalreport_viewer %} 
+			<li>
+                <a color-alert a href="{% url 'festival_report' %}" name="festival-report" title="{% trans 'Festival Report' %}"><i class="fa fa-lg fa-fw fa-cube txt-color-red"></i>
+                    <span class="menu-item-parent">三節農產品價格表</span>
+                </a>
+                {% comment %} <ul>
+					<li>
+						<a color-alert href="#"><span class="menu-item-parent">春節</span></a>
+						<ul>
+							<li>
+                                <a href="{% url 'dailytrans:render_festival_report' festival='Chinese_New_Year' year=109 %}" name="festival-report" title="春節"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">109年</span></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a color-alert href="#"><span class="menu-item-parent">端午節</span></a>
+						<ul>
+							<li>
+                                <a href="{% url 'dailytrans:render_festival_report' festival='Dragon_Boat_Festival' year=109 %}" name="festival-report" title="端午節"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">109年</span></a>
+							</li>
+        </ul>
+        </li>
+					<li>
+						<a color-alert href="#"><span class="menu-item-parent">中秋節</span></a>
+						<ul>
+							<li>
+                                <a href="{% url 'dailytrans:render_festival_report' festival='Mid_Autumn_Festival' year=109 %}" name="festival-report" title="中秋節"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">109年</span></a>
+							</li>
+						</ul>
+					</li>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+				</ul> {% endcomment %}
+            </li>
+			{% endif %}
         </ul>
     </nav>
-    <span class="minifyme" data-action="minifyMenu"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+    <span class="minifyme" data-action="minifyMenu" style="bottom: 5px;"> <i class="fa fa-arrow-circle-left hit"></i> </span>
 
 </aside>
 <!-- END NAVIGATION -->

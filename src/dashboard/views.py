@@ -21,6 +21,7 @@ from apps.configs.models import (
     Config,
     Chart,
     Type,
+    Festival,
 )
 
 
@@ -110,6 +111,35 @@ class DailyReport(LoginRequiredMixin, TemplateView):
     template_name = 'ajax/daily-report.html'
 
 
+class FestivalReport(LoginRequiredMixin, TemplateView):
+    redirect_field_name = 'redirect_to'
+    template_name = 'ajax/festival-report.html'
+    roc_year_sel='all'
+
+    def post(self, request, **kwargs):
+        # print("roc_year_sel1=",self.roc_year_sel)
+        self.kwargs['POST'] = request.POST
+        # print("self.kwargs['POST']=",self.kwargs['POST'])
+        self.roc_year_sel=self.kwargs['POST']['roc_year_sel']
+        # print("roc_year_sel=",self.roc_year_sel)
+        return self.render_to_response(self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super(FestivalReport, self).get_context_data(**kwargs)
+        # print("roc_year_sel2=",self.roc_year_sel)
+        if self.roc_year_sel=='all':
+            context['festival_list'] = Festival.objects.filter(enable=True).order_by('id')
+        else:
+            context['festival_list'] = Festival.objects.filter(enable=True).filter(roc_year=self.roc_year_sel)
+        # print("context['festival_list']=",context['festival_list'])
+
+        roc_year_set = set()
+        for y in Festival.objects.values('roc_year'):
+            roc_year_set.add(y['roc_year'])
+        context['roc_year_list'] = sorted(roc_year_set,reverse=True)
+        return context
+
+        
 class ProductSelector(LoginRequiredMixin, TemplateView):
     redirect_field_name = 'redirect_to'
     template_name = 'ajax/product-selector.html'

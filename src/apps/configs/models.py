@@ -12,7 +12,7 @@ from django.db.models import (
     BooleanField,
     Q,
 )
-
+from django.utils import timezone
 
 class AbstractProduct(Model):
     name = CharField(max_length=50, verbose_name=_('Name'))
@@ -305,3 +305,60 @@ class Month(Model):
 
     def __unicode__(self):
         return str(self.name)
+
+        
+class Festival(Model):
+    roc_year = CharField(max_length=3, default=timezone.now().year-1911, verbose_name=_('ROC Year'))
+    name = ForeignKey('configs.FestivalName', null=True, blank=True, on_delete=SET_NULL, verbose_name=_('Name'))
+    enable = BooleanField(default=True, verbose_name=_('Enabled'))
+    update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
+    create_time = DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name=_('Created'))
+
+    class Meta:
+        verbose_name = _('Festival')
+        verbose_name_plural = _('Festivals')
+        ordering = ('id',)
+
+    def __str__(self):
+        return self.roc_year + '_' + self.name.name
+
+    def __unicode__(self):
+        return self.roc_year + '_' + self.name.name
+
+
+class FestivalName(Model):
+    name = CharField(max_length=20, verbose_name=_('Name'))
+    enable = BooleanField(default=True, verbose_name=_('Enabled'))
+    update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
+    create_time = DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name=_('Created'))
+
+    class Meta:
+        verbose_name = _('FestivalName')
+        ordering = ('id',)
+
+    def __str__(self):
+        return self.name
+
+    def __unicode__(self):
+        return self.name
+
+
+class FestivalItems(Model):
+    name = CharField(max_length=20, verbose_name=_('Name'))
+    enable = BooleanField(default=True, verbose_name=_('Enabled'))
+    order_sn = IntegerField(default=9, verbose_name=_('Order SN'))
+    festivalname = ManyToManyField('configs.FestivalName', verbose_name=_('FestivalName'))
+    product_id = ManyToManyField('configs.AbstractProduct', verbose_name=_('Product_id'))
+    source = ManyToManyField('configs.Source', verbose_name=_('Source'))
+    update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
+    create_time = DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name=_('Created'))
+
+    class Meta:
+        verbose_name = _('FestivalItem')
+        ordering = ('order_sn',)
+
+    def __str__(self):
+        return self.name
+
+    def __unicode__(self):
+        return self.name
