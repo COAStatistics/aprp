@@ -6,7 +6,10 @@ from .models import (
     Source,
     Type,
     Unit,
-    Chart
+    Chart,
+    Festival,
+    FestivalName,
+    FestivalItems,
 )
 
 
@@ -90,9 +93,48 @@ class ChartAdmin(admin.ModelAdmin):
     list_editable = ['name']
 
 
+class FestivalModelForm(ModelForm):
+
+    class Meta:
+        model = Festival
+        exclude = ['update_time']
+
+
+class FestivalAdmin(admin.ModelAdmin):
+    form = FestivalModelForm
+    list_display = ['id', 'roc_year', 'name', 'enable', 'update_time', 'create_time']
+    list_editable = ['roc_year', 'name', 'enable']
+
+
+class FestivalNameModelForm(ModelForm):
+
+    class Meta:
+        model = FestivalName
+        exclude = ['update_time']
+
+
+class FestivalNameAdmin(admin.ModelAdmin):
+    form = FestivalNameModelForm
+    list_display = ['id', 'name', 'enable', 'update_time', 'create_time']
+    list_editable = ['name', 'enable']
+
+class FestivalItemsModelForm(ModelForm):
+
+    class Meta:
+        model = FestivalItems
+        exclude = ['update_time']
+
+class FestivalItemsAdmin(admin.ModelAdmin):
+    form = FestivalItemsModelForm
+    list_display = ['id', 'order_sn', 'name', 'enable', 'update_time', 'create_time']
+    list_editable = ['name', 'enable']
+    
 admin.site.register(AbstractProduct, AbstractProductAdmin)
 admin.site.register(Config, ConfigAdmin)
 admin.site.register(Source, SourceAdmin)
 admin.site.register(Type, TypeAdmin)
 admin.site.register(Unit, UnitAdmin)
 admin.site.register(Chart, ChartAdmin)
+admin.site.register(Festival, FestivalAdmin)
+admin.site.register(FestivalName, FestivalNameAdmin)
+admin.site.register(FestivalItems, FestivalItemsAdmin)

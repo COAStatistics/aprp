@@ -266,6 +266,7 @@ FIXTURE_DIRS = [
     str(BASE_DIR('fixtures/cattles')),
     str(BASE_DIR('fixtures/watchlists')),
     str(BASE_DIR('fixtures/events')),
+    str(BASE_DIR('fixtures/festivals')),
 ]
 
 # Rest-framework
@@ -376,3 +377,4 @@ GOOGLE_DRIVE_REFRESH_TOKEN = env.str('GOOGLE_DRIVE_REFRESH_TOKEN')
 
 DAILY_REPORT_FOLDER_ID = env.str('DAILY_REPORT_FOLDER_ID', default='')
 TEST_DAILY_REPORT_FOLDER_ID = env.str('TEST_DAILY_REPORT_FOLDER_ID', default='')
+FESTIVAL_REPORT_FOLDER_ID = env.str('FESTIVAL_REPORT_FOLDER_ID', default='')

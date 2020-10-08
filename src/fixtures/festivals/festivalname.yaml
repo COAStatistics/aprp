@@ -1,0 +1,16 @@
+- model: configs.FestivalName
+  pk: 1
+  fields:
+    name: 春節
+
+- model: configs.FestivalName
+  pk: 2
+  fields:
+    name: 端午節
+
+
+- model: configs.FestivalName
+  pk: 3
+  fields:
+    name: 中秋節
+

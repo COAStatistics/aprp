@@ -1,0 +1,56 @@
+- model: dailytrans.FestivalReport
+  pk: 1
+  fields:
+    festival_id: 1 #109_春節
+    file_id: 11h1kIgL_2Krl-2Jo8HxGNx0DGak4s5QV
+
+- model: dailytrans.FestivalReport
+  pk: 2
+  fields:
+    festival_id: 2 #109_端午節
+    file_id: 1xJVybYBy6qEcRSqOUShN9lNCdJnjE5dx
+
+- model: dailytrans.FestivalReport
+  pk: 3
+  fields:
+    festival_id: 3 #109_中秋節
+    file_id: 1eAIpo-XrSyzdBFHEmXz6skX9RUyWv8Wd
+
+- model: dailytrans.FestivalReport
+  pk: 4
+  fields:
+    festival_id: 4 #108_春節
+    file_id: 18E6chs3LgN7DpvmV_HFRPZsiibls_Hol
+
+- model: dailytrans.FestivalReport
+  pk: 5
+  fields:
+    festival_id: 5 #108_端午節
+    file_id: 1sysCCdzW-rw4fQi7KTVqDOGdAiPW8qcA
+
+- model: dailytrans.FestivalReport
+  pk: 6
+  fields:
+    festival_id: 6 #108_中秋節
+    file_id: 1-PufTxQm5GtOIf_HF28jsKxoqtQLVLeN
+
+- model: dailytrans.FestivalReport
+  pk: 7
+  fields:
+    festival_id: 7 #107_春節
+    file_id: 1UkRjs_HyqPOhZW9xGR9l-7wQpDBiEzsd
+
+- model: dailytrans.FestivalReport
+  pk: 8
+  fields:
+    festival_id: 8 #107_端午節
+    file_id: 1yv4bCpwfy214saSetFEmJ98FUh8zD97-
+
+- model: dailytrans.FestivalReport
+  pk: 9
+  fields:
+    festival_id: 9 #107_中秋節
+    file_id: 1s8UCy2S7hFPUs9TLaQEILUtGBCcVyMr9
+
+
+

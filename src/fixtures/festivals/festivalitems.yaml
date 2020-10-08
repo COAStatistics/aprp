@@ -1,0 +1,397 @@
+- model: configs.FestivalItems
+  pk: 1
+  fields:
+    name: 蔬菜(台北批發)
+    order_sn: 100
+    festivalname: [1, 2, 3] #1:春節; 2:端午節; 3:中秋節
+    product_id: [10006, 10007, 10008, 10009, 10010]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 2
+  fields:
+    name: 甘藍
+    order_sn: 101
+    festivalname: [1, 3]
+    product_id: [40164, 40165, 40172]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 3
+  fields:
+    name: 花椰菜
+    order_sn: 102
+    festivalname: [1]
+    product_id: [40019, 40020, 40021, 40022, 40023, 40024, 40025, 40026]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 4
+  fields:
+    name: 結球白菜
+    order_sn: 103
+    festivalname: [1]
+    product_id: [40187, 40188]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 5
+  fields:
+    name: 蘿蔔
+    order_sn: 104
+    festivalname: [1]
+    product_id: [40397, 40398, 40399, 40405, 40406, 40393, 40394, 40395]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 6
+  fields:
+    name: 大芥菜
+    order_sn: 105
+    festivalname: [1]
+    product_id: [40233]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 7
+  fields:
+    name: 水果(台北批發)
+    order_sn: 200
+    festivalname: [1, 2, 3]
+    product_id: [20003, 20004]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 8
+  fields:
+    name: 進口水果
+    order_sn: 201
+    festivalname: [1]
+    product_id: [20004]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 9
+  fields:
+    name: 國產水果
+    order_sn: 202
+    festivalname: [1]
+    product_id: [20003]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 10
+  fields:
+    name: 棗子
+    order_sn: 203
+    festivalname: [1]
+    product_id: [50009]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 11
+  fields:
+    name: 椪柑
+    order_sn: 204
+    festivalname: [1]
+    product_id: [50078]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 12
+  fields:
+    name: 桶柑
+    order_sn: 205
+    festivalname: [1]
+    product_id: [50093]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 13
+  fields:
+    name: 木瓜
+    order_sn: 206
+    festivalname: [1]
+    product_id: [50145]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 14
+  fields:
+    name: 蓮霧
+    order_sn: 207
+    festivalname: [1]
+    product_id: [50203]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 15
+  fields:
+    name: 花卉(台北市場)
+    order_sn: 300
+    festivalname: [1, 3]
+    product_id: [30002]
+    source: [30001]
+
+- model: configs.FestivalItems
+  pk: 16
+  fields:
+    name: 毛豬(拍賣價)
+    order_sn: 400
+    festivalname: [1, 2, 3]
+    product_id: [70001]
+
+- model: configs.FestivalItems
+  pk: 17
+  fields:
+    name: 紅羽土雞(產地價)
+    order_sn: 401
+    festivalname: [1, 2, 3]
+    product_id: [90008]
+
+- model: configs.FestivalItems
+  pk: 18
+  fields:
+    name: 白肉雞(產地價)
+    order_sn: 402
+    festivalname: [1, 3]
+    product_id: [90014]
+
+- model: configs.FestivalItems
+  pk: 19
+  fields:
+    name: 雞蛋(產地價)
+    order_sn: 403
+    festivalname: [1, 3]
+    product_id: [90016]
+
+- model: configs.FestivalItems
+  pk: 20
+  fields:
+    name: 漁產品(消費地批發價)
+    order_sn: 500
+    festivalname: [1, 2, 3]
+    product_id: [120008,120013,120015,120017,120022,120024,120026,120029,120031,120033,120035,120037,120039,120041,120043,120045,120047,120049,120051,120053,120055,120057,120059,120061,120063,120065,120067,120069,120071,120073,120075,120077,120079,120081,120083,120085,120087,120089,120091,120093,120095,120097,120099,120101,120103,120105,120107,120109,120111,120113,120115,120117,120119,120121,120123,120125,120127,120129,120131,120133,120135,120137,120139,120141,120143,120145,120147,120149,120151,120153,120155,120157,120159,120161,120163,120165,120167,120169,120171,120173,120175,120177,120179,120181,120183,120185,120187,120206,120208,120210,120212,120215,120217,120219,120221,120223,120225,120227,120229,120231,120233,120235,120237,120239,120241,120243,120245,120247,120249,120251,120253,120255,120257,120259,120261,120263,120265,120267,120269,120271,120273,120275,120277,120279,120281,120283,120285,120287,120289,120291,120293,120295,120297,120299,120301,120303,120305,120307,120309,120312,120315,120317,120319,120321,120323,120325,120327,120329,120331,120333,120335,120337,120339,120341,120343,120345,120347,120349,120351,120353,120355,120357,120359,120361,120363,120365,120368,120370,120372,120374,120376,120378,120380,120382,120448,120450,120452,120454,120384,120386,120388,120390,120392,120394,120396,120398,120400,120402,120404,120406,120408,120410,120456,120458,120460,120462,120464,120466,120468,120470,120472,120504,120506,120508,120510,120512,120514,120516,120518,120520,120522,120524,120526,120528,120530,120532,120534,120536,120538,120540,120542,120544,120588,120590,120592,120594,120610,120612,120614,120616,120668,120672,120674,120676,120678,120680,120708,120710,120712,120714,120716,120718,120720,120722,120724,120726,120728,120730,120732,120734,120736,120738,120740,120742,120744,120746,120748,120750,120752,120754,120756,120758,120760,120762,120412,120414,120416,120418,120420,120422,120424,120426,120428,120430,120432,120434,120436,120438,120440,120442,120444,120446,120764,120766,120768,120770,120772,120774,120776,120778,120780,120782,120784,120786,120788,120790,120792,120822,120824,120826,120828,120830,120832,120834,120836,120838,120840,120843,120845,120847,120849,120474,120476,120478,120480,120482,120484,120486,120488,120490,120492,120494,120496,120498,120500,120502,120546,120548,120550,120552,120554,120556,120558,120560,120562,120564,120566,120568,120570,120572,120574,120576,120578,120580,120582,120584,120586,120618,120620,120622,120624,120626,120628,120630,120632,120634,120636,120640,120642,120644,120646,120648,120650,120652,120654,120656,120658,120660,120662,120664,120666,120638,120670,120794,120796,120798,120800,120802,120804,120806,120808,120810,120812,120814,120816,120818,120820,120851,120853,120855,120857,120859,120897,120899,120901,120903,120905,120907,120909,120911,120913,120197,120019,121042,120189,120191,120193,120195,120199,120202,120204,120596,120598,120600,120602,120604,120606,120608,120682,120684,120686,120688,120690,120692,120694,120696,120698,120700,120702,120704,120706,120861,120863,120865,120867,120869,120871,120873,120875,120877,120879,120881,120883,120885,120887,120889,120891,120893,120895]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 21
+  fields:
+    name: 吳郭魚(批發價)
+    order_sn: 501
+    festivalname: [1]
+    product_id: [120008]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 22
+  fields:
+    name: 金目鱸(批發價)
+    order_sn: 502
+    festivalname: [1]
+    product_id: [120022]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 23
+  fields:
+    name: 石斑(批發價)
+    order_sn: 503
+    festivalname: [1]
+    product_id: [120212]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 24
+  fields:
+    name: 金鯧(批發價)
+    order_sn: 504
+    festivalname: [1]
+    product_id: [120039]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 25
+  fields:
+    name: 白鯧(批發價)
+    order_sn: 505
+    festivalname: [1]
+    product_id: [120071]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 26
+  fields:
+    name: 黃魚(批發價)
+    order_sn: 506
+    festivalname: [1]
+    product_id: [120051]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 27
+  fields:
+    name: 國產長糯白米(批發)
+    order_sn: 1
+    festivalname: [2]
+    product_id: [15]
+
+- model: configs.FestivalItems
+  pk: 28
+  fields:
+    name: 國產圓糯白米(批發)
+    order_sn: 2
+    festivalname: [2]
+    product_id: [12]
+
+- model: configs.FestivalItems
+  pk: 29
+  fields:
+    name: 菜豆
+    order_sn: 106
+    festivalname: [2]
+    product_id: [40484, 40085, 40086, 40087, 40088]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 30
+  fields:
+    name: 茄子
+    order_sn: 107
+    festivalname: [2]
+    product_id: [40060, 40061]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 31
+  fields:
+    name: 瓠瓜
+    order_sn: 108
+    festivalname: [2]
+    product_id: [40057, 40056, 40054, 40055]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 32
+  fields:
+    name: 鴨蛋(產地價)
+    order_sn: 404
+    festivalname: [2, 3]
+    product_id: [100006]
+
+- model: configs.FestivalItems
+  pk: 33
+  fields:
+    name: 茭白筍(帶殼)
+    order_sn: 109
+    festivalname: [3]
+    product_id: [40489]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 34
+  fields:
+    name: 玉米(甜軟殼)
+    order_sn: 110
+    festivalname: [3]
+    product_id: [40155]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 35
+  fields:
+    name: 濕香菇
+    order_sn: 111
+    festivalname: [3]
+    product_id: [40312]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 36
+  fields:
+    name: 甜椒(青椒)
+    order_sn: 112
+    festivalname: [3]
+    product_id: [40072]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 37
+  fields:
+    name: 青蔥(日蔥+北蔥+粉蔥)
+    order_sn: 113
+    festivalname: [3]
+    product_id: [40426, 40427, 40431]
+    source: [10001, 10002]
+
+- model: configs.FestivalItems
+  pk: 38
+  fields:
+    name: 文旦柚
+    order_sn: 208
+    festivalname: [3]
+    product_id: [50132]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 39
+  fields:
+    name: 新興梨
+    order_sn: 209
+    festivalname: [3]
+    product_id: [50185]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 40
+  fields:
+    name: 香魚
+    order_sn: 507
+    festivalname: [3]
+    product_id: [120374]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 41
+  fields:
+    name: 透抽
+    order_sn: 508
+    festivalname: [3]
+    product_id: [120089]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 42
+  fields:
+    name: 秋刀魚
+    order_sn: 509
+    festivalname: [3]
+    product_id: [120149]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 43
+  fields:
+    name: 白蝦
+    order_sn: 510
+    festivalname: [3]
+    product_id: [120365]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 44
+  fields:
+    name: 文蛤
+    order_sn: 511
+    festivalname: [3]
+    product_id: [120312]
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+- model: configs.FestivalItems
+  pk: 45
+  fields:
+    name: 火龍果
+    order_sn: 210
+    festivalname: [3]
+    product_id: [50040, 50041]
+    source: [20001, 20002]
