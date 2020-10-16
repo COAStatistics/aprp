@@ -1027,7 +1027,7 @@
 - model: seafoods.Seafood
   pk: 120117
   fields:
-    name: 青筆
+    name: 青筆、雞仔魚
     code: 2541
     type: 1
     config: 13
@@ -1360,7 +1360,7 @@
 - model: seafoods.Seafood
   pk: 120152
   fields:
-    name: 鱈魚(凍)
+    name: 比目魚
     config: 13
     unit: 1
     track_item: false
@@ -1369,7 +1369,7 @@
 - model: seafoods.Seafood
   pk: 120153
   fields:
-    name: 鱈魚(凍)
+    name: 比目魚
     code: 3641
     type: 1
     config: 13
@@ -1588,7 +1588,7 @@
 - model: seafoods.Seafood
   pk: 120176
   fields:
-    name: 鱈魚片
+    name: 比目魚片
     config: 13
     unit: 1
     track_item: false
@@ -1597,7 +1597,7 @@
 - model: seafoods.Seafood
   pk: 120177
   fields:
-    name: 鱈魚片
+    name: 比目魚片
     code: 6009
     type: 1
     config: 13
@@ -1901,7 +1901,7 @@
 - model: seafoods.Seafood
   pk: 120212
   fields:
-    name: 青石斑
+    name: 青斑
     code: 1171
     type: 1
     config: 13
@@ -2490,7 +2490,7 @@
 - model: seafoods.Seafood
   pk: 120275
   fields:
-    name: 國光
+    name: 國光、角仔魚
     code: 2531
     type: 1
     config: 13
