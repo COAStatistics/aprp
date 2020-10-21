@@ -142,14 +142,18 @@ class FestivalReportFactory(object):
 
         if self.oneday:
             #Pandas dataframe 模式
-            table = pd.read_sql_query(f"select product_id, source_id, avg_price, avg_weight, volume, date from dailytrans_dailytran INNER JOIN unnest(ARRAY{self.all_product_id_list}) as pid ON pid=dailytrans_dailytran.product_id where date = '{self.special_day}' ",con=engine)
+            #Preventing SQL Injection Attacks
+            table = pd.read_sql_query("select product_id, source_id, avg_price, avg_weight, volume, date from dailytrans_dailytran INNER JOIN unnest(%(all_product_id_list)s) as pid ON pid=dailytrans_dailytran.product_id where date = %(day)s ", params={'all_product_id_list':self.all_product_id_list,'day':self.special_day},con=engine)
+            # table = pd.read_sql_query(f"select product_id, source_id, avg_price, avg_weight, volume, date from dailytrans_dailytran INNER JOIN unnest(ARRAY{self.all_product_id_list}) as pid ON pid=dailytrans_dailytran.product_id where date = '{self.special_day}' ",con=engine)
 
             #Django ORM 模式
             # table = DailyTran.objects.filter(product__in=self.all_product_id_list).filter(date = self.special_day)
 
         else:
             #Pandas dataframe 模式
-            table = pd.read_sql_query(f"select product_id, source_id, avg_price, avg_weight, volume, date from dailytrans_dailytran INNER JOIN unnest(ARRAY{self.all_product_id_list}) as pid ON pid=dailytrans_dailytran.product_id where ((date between '{self.all_date_list[0][0]}' and '{self.all_date_list[0][1]}') or (date between '{self.all_date_list[1][0]}' and '{self.all_date_list[1][1]}') or (date between '{self.all_date_list[2][0]}' and '{self.all_date_list[2][1]}') or (date between '{self.all_date_list[3][0]}' and '{self.all_date_list[3][1]}') or (date between '{self.all_date_list[4][0]}' and '{self.all_date_list[4][1]}') or (date between '{self.all_date_list[5][0]}' and '{self.all_date_list[5][1]}'))",con=engine)
+            #Preventing SQL Injection Attacks
+            table = pd.read_sql_query("select product_id, source_id, avg_price, avg_weight, volume, date from dailytrans_dailytran INNER JOIN unnest(ARRAY%(all_product_id_list)s) as pid ON pid=dailytrans_dailytran.product_id where ((date between %(all_date_list00)s and %(all_date_list01)s) or (date between %(all_date_list10)s and %(all_date_list11)s) or (date between %(all_date_list20)s and %(all_date_list21)s) or (date between %(all_date_list30)s and %(all_date_list31)s) or (date between %(all_date_list40)s and %(all_date_list41)s) or (date between %(all_date_list50)s and %(all_date_list51)s))", params={'all_product_id_list':self.all_product_id_list,'all_date_list00':self.all_date_list[0][0],'all_date_list01':self.all_date_list[0][1],'all_date_list10':self.all_date_list[1][0],'all_date_list11':self.all_date_list[1][1],'all_date_list20':self.all_date_list[2][0],'all_date_list21':self.all_date_list[2][1],'all_date_list30':self.all_date_list[3][0],'all_date_list31':self.all_date_list[3][1],'all_date_list40':self.all_date_list[4][0],'all_date_list41':self.all_date_list[4][1],'all_date_list50':self.all_date_list[5][0],'all_date_list51':self.all_date_list[5][1]},con=engine)
+            # table = pd.read_sql_query(f"select product_id, source_id, avg_price, avg_weight, volume, date from dailytrans_dailytran INNER JOIN unnest(ARRAY{self.all_product_id_list}) as pid ON pid=dailytrans_dailytran.product_id where ((date between '{self.all_date_list[0][0]}' and '{self.all_date_list[0][1]}') or (date between '{self.all_date_list[1][0]}' and '{self.all_date_list[1][1]}') or (date between '{self.all_date_list[2][0]}' and '{self.all_date_list[2][1]}') or (date between '{self.all_date_list[3][0]}' and '{self.all_date_list[3][1]}') or (date between '{self.all_date_list[4][0]}' and '{self.all_date_list[4][1]}') or (date between '{self.all_date_list[5][0]}' and '{self.all_date_list[5][1]}'))",con=engine)
 
             #Django ORM 模式
             # table = DailyTran.objects.filter(product__in=self.all_product_id_list).filter(Q((date >= self.all_date_list[0][0]) & (date <= self.all_date_list[0][1])) | Q((date >= self.all_date_list[1][0]) & (date <= self.all_date_list[1][1])) | Q((date >= self.all_date_list[2][0]) & (date <= self.all_date_list[2][1])) | Q((date >= self.all_date_list[3][0]) & (date <= self.all_date_list[3][1])) | Q((date >= self.all_date_list[4][0]) & (date <= self.all_date_list[4][1])) | Q((date >= self.all_date_list[5][0]) & (date <= self.all_date_list[5][1])) )
@@ -235,9 +239,9 @@ class FestivalReportFactory(object):
                         df_product_id = self.table.query(f'product_id in @product_id and date >= "{start_date}" and date <= "{end_date}"')
                         # df_product_id = self.table.filter(product__in=product_id).filter(date >=start_date).filter(date <= end_date)
                     
-                    if df_product_id['avg_price'].any():
-                        has_volume = df_product_id['volume'].notna().sum() / df_product_id['avg_price'].count() > 0.8
-                        has_weight = df_product_id['avg_weight'].notna().sum() / df_product_id['avg_price'].count() > 0.8
+                    if df_product_id.any():
+                        has_volume = df_product_id['volume'].notna().sum() / df_product_id.count() > 0.8
+                        has_weight = df_product_id['avg_weight'].notna().sum() / df_product_id.count() > 0.8
                     else:
                         has_volume = False
                         has_weight = False
@@ -247,6 +251,8 @@ class FestivalReportFactory(object):
                         avgprice=(df_product_id['avg_price']*df_product_id['volume']).sum()/df_product_id['volume'].sum()
                     else:
                         avgprice=df_product_id['avg_price'].mean()
+
+
 
                     # total_price = list()
                     # total_volume = list()
