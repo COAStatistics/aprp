@@ -24,7 +24,7 @@
 		<div id="search-area" class="input-group input-group-lg search-area">
 			{% csrf_token %}
 			<span class="input-group-addon">
-			<label for="sel_year">篩選年度 :</label>
+			<label for="sel_year" style="margin-bottom: 0px;">篩選年度 :</label>
 			</span>
 			<select name="roc_year" id="sel_roc_year" class="form-control search-text" data-load-url="{% url 'festival_report' %}" style="width: 150px;">
 					<option value='all'>所有年度</option>
@@ -33,7 +33,7 @@
 				{% endfor %}
 			</select>
 			<span class="input-group-addon">
-			<label for="sel_festival">節日 :</label>
+			<label for="sel_festival" style="margin-bottom: 0px;">節日 :</label>
 			</span>
 			<select name="festival_list" id="sel_festival" class="form-control search-text" style="width: 150px;">
 				{% for festival in festival_list%}
