@@ -1574,3 +1574,7 @@ msgstr "畜禽產品"
 #: templates/navigation.html:180
 msgid "Fisheries"
 msgstr "漁產品"
+
+#: templates/ajax/festival-report.html:14
+msgid "Festival Report"
+msgstr "三節報表"
