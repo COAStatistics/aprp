@@ -2,7 +2,7 @@
   pk: 70001
   fields:
     name: 規格豬
-    code: 規格豬(75公斤以上)
+    code: 規格豬(95公斤以上)
     type: 1
     config: 8
     unit: 3
@@ -28,8 +28,8 @@
 - model: hogs.Hog
   pk: 70004
   fields:
-    name: 75公斤以下
-    code: 75公斤以下
+    name: 95公斤以下
+    code: 95公斤以下
     type: 1
     config: 8
     unit: 3

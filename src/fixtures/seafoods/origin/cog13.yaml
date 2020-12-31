@@ -503,7 +503,7 @@
 - model: seafoods.Seafood
   pk: 120954
   fields:
-    name: 0.6公斤/尾
+    name: 0.6-0.8公斤/尾
     code: priceU
     type: 2
     config: 13
