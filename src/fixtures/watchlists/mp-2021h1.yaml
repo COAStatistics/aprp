@@ -789,7 +789,7 @@
 - model: watchlists.MonitorProfile
   pk: 639
   fields:
-    product: 70001 #規格豬(95-155KG)
+    product: 70001 #規格豬(95-155KG) #2021上半年規格豬改為95-155公斤,但API來源沒有改還是寫75公斤
     watchlist: 8
     type: 1
     price: 53.2
