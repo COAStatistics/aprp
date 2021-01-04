@@ -524,7 +524,7 @@
 - model: watchlists.WatchlistItem
   pk: 6404
   fields:
-    product: 120941 # 文蛤 40-60粒/0.6公斤
+    product: 120939 # 文蛤 40-60粒/0.6公斤 #2021h1 監控品級改40-60粒/台斤
     sources: []
     parent: 8
 
