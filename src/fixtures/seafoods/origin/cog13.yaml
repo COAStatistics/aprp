@@ -343,8 +343,8 @@
 - model: seafoods.Seafood
   pk: 120939
   fields:
-    name: 30-40粒/0.6公斤
-    code: priceU
+    name: 40-60粒/0.6公斤 #2021h1 watchlist 文蛤監控品級改40-60粒/台斤
+    code: priceU  
     type: 2
     config: 13
     unit: 2
@@ -365,7 +365,7 @@
 - model: seafoods.Seafood
   pk: 120941
   fields:
-    name: 40-60粒/0.6公斤
+    name: 30-40粒/0.6公斤 #2021h1 watchlist 文蛤監控品級改40-60粒/台斤
     code: priceM
     type: 2
     config: 13
