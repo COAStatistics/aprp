@@ -344,7 +344,7 @@
   pk: 120939
   fields:
     name: 40-60粒/0.6公斤 #2021h1 watchlist 文蛤監控品級改40-60粒/台斤
-    code: priceU  
+    code: priceM  #2021/1/5 和養殖基金會余文晴確認 2021h1 文蛤40-60粒/臺斤的價格為priceM的價格
     type: 2
     config: 13
     unit: 2
@@ -366,7 +366,7 @@
   pk: 120941
   fields:
     name: 30-40粒/0.6公斤 #2021h1 watchlist 文蛤監控品級改40-60粒/台斤
-    code: priceM
+    code: priceU  #2021/1/5 和養殖基金會余文晴確認 2020h2 文蛤30-40粒/臺斤的價格為priceU的價格
     type: 2
     config: 13
     unit: 2
