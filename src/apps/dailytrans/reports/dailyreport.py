@@ -144,8 +144,10 @@ class DailyReportFactory(object):
                 self.col_dict['{}_volume'.format(date)] = 'A{}'.format(chr(65 + i - 3))
 
     def check_months(self, item):
-        # 不在監控品項月份變更底色改為在顯示月份內的品項顯示
-        if item.months.filter(name__icontains=self.specify_day.month) or item.always_display:
+        # 不在監控品項月份變更底色改為在顯示月份內的品項顯示        
+        # if item.months.filter(name__icontains=self.specify_day.month) or item.always_display:
+        #原判斷條件導致10/11/12月份的品項在1/2月分也會出現
+        if item.months.filter(name=f'{self.specify_day.month}月') or item.always_display:
             self.row_visible.append(item.row)
             if item.product.name == '梨':
                 if self.specify_day.month in [5, 6]:
