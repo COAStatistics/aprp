@@ -9,7 +9,9 @@ from apps.dailytrans.reports.dailyreport import DailyReportFactory
 from apps.dailytrans.reports.festivalreport import FestivalReportFactory
 from distutils.util import strtobool
 import logging
-from apps.configs.models import Festival, FestivalItems
+from apps.configs.models import Festival, FestivalItems, FestivalName, AbstractProduct
+from django.core.exceptions import ObjectDoesNotExist
+import json
 # import time
 
 def upload_file2google_client(file_name, file_path, folder_id, from_mimetype='XLSX'):
@@ -76,15 +78,16 @@ def render_festival_report(request,refresh=False):
     folder_id = settings.FESTIVAL_REPORT_FOLDER_ID
     # google_drive_client = DefaultGoogleDriveClient()
     data = request.GET or request.POST
-    festival_id = data.get('festival_id')
-    festival = data.get('festival_name')
-    roc_year=festival.split('_')[0]
+    roc_year = data.get('roc_year')
     year = int(roc_year) + 1911
-    festival_name = festival.split('_')[1]
+    festival_id = data.get('festival_id')
     refresh = bool(strtobool(data.get('refresh')))
     oneday = bool(strtobool(data.get('oneday')))
-
+    item_search_list = data.getlist('item_search[]')
+    custom_search = bool(strtobool(data.get('custom_search')))
     # start_time = time.time()
+    festival_name = FestivalName.objects.filter(id = festival_id)
+
     if oneday:
         day = data.get('day')
         if len(day)==1:
@@ -94,20 +97,11 @@ def render_festival_report(request,refresh=False):
             month = '0'+ month
         year = data.get('year')
         date = year + '-' + month + '-' + day
-    
-    #html switch to db
-    if festival_name=='春節':
-        festival=1
-    elif festival_name=='端午節':
-        festival=2
-    elif festival_name=='中秋節':
-        festival=3
 
-    if oneday:
-        factory = FestivalReportFactory(rocyear=roc_year,festival=festival,oneday=oneday,special_day=date)
+        factory = FestivalReportFactory(rocyear=roc_year,festival=festival_id,oneday=oneday,special_day=date)
         resule_data = factory()
         product_name_list = []
-        pid = FestivalItems.objects.filter(festivalname__id__contains=festival)
+        pid = FestivalItems.objects.filter(festivalname__id__contains=festival_id)
         for i in pid.all():
             product_name_list.append(i)
 
@@ -118,58 +112,108 @@ def render_festival_report(request,refresh=False):
             values_list.append(v[str(year)][0])
 
         product_data={}
+        product_data_list=list()
+        product_data_list.append([festival_name[0].name+'農產品品項',date+'當日價格'])
         if len(values_list) == len(product_name_list):
             for i in range(len(values_list)):
-                product_data[product_name_list[i]]=values_list[i]
+                product_data[product_name_list[i].name]=values_list[i]
+                product_data_list.append([product_name_list[i].name,values_list[i]])
 
         context = {
                 'oneday': oneday,
                 'festival_name': festival_name,
                 'date':date,
                 'product_data': product_data,
+                'json_data': json.dumps(product_data_list),
+            }
+
+    elif custom_search:
+        day = data.get('day')
+        if len(day)==1:
+            day = '0'+ day
+        month = data.get('month')
+        if len(month)==1:
+            month = '0'+ month
+        year = data.get('year')
+        date = year + '-' + month + '-' + day
+        if item_search_list:
+            factory = FestivalReportFactory(custom_search = custom_search, custom_search_item = item_search_list, special_day = date)
+            resule_data = factory()
+            #to_htmo
+            # product_data = resule_data.to_html()
+            #to_json
+            json_records = resule_data.reset_index().to_json(orient ='records') 
+            product_data = json.loads(json_records) 
+            context = {
+                'custom_search': custom_search,
+                'date': date,
+                'product_data': product_data,
+            }
+        else:
+            context = {
+                'custom_search': custom_search,
+                'date': date,
+                'no_product': True,
             }
 
     else:
-        festival_report = FestivalReport.objects.filter(festival_id_id=festival_id)
+        try:
+            festival_id = Festival.objects.get(roc_year=roc_year,name=festival_id)
+            festival_report = FestivalReport.objects.filter(festival_id_id=festival_id.id)
+        except ObjectDoesNotExist:
+            db_logger = logging.getLogger('aprp')
+            db_logger.warning(f'search festival report error:{roc_year} {festival_name}', extra={'type_code': 'festivalreport'})
+            festival_id = None
+        
+        if festival_id:
+            if not refresh:
+                if festival_report:
+                    file_id = festival_report[0].file_id
+                else:
+                    # generate file
+                    factory = FestivalReportFactory(rocyear=roc_year,festival=festival_id)
+                    file_name, file_path = factory()
+                    # upload file
+                    file_id = upload_file2google_client(file_name, file_path, folder_id)
+                    # write result to database
+                    FestivalReport.objects.create(festival_id_id=festival_id.id, file_id=file_id)
+                    # remove local file
+                    os.remove(file_path)
 
-        if not refresh:
-            if festival_report:
-                file_id = festival_report[0].file_id
             else:
-                # generate file
-                factory = FestivalReportFactory(rocyear=roc_year,festival=festival)
+                # 重新產生報告
+                factory = FestivalReportFactory(rocyear=roc_year,festival=festival_id)
                 file_name, file_path = factory()
-                # upload file
+                #刪除資料庫中三節報表的id
+                file_id = festival_report[0].file_id
+                festival_report[0].delete()
+                #刪除 google drive 報表檔案
+                google_drive_client = DefaultGoogleDriveClient()
+                response = google_drive_client.delete_file(file_id=file_id)
+                if not response: #google drive 刪除成功返回空值
+                    pass
+                else:
+                    db_logger = logging.getLogger('aprp')
+                    db_logger.warning(f'delete google file error:{response}', extra={'type_code': 'festivalreport'})
+                #檔案上傳 google drive
                 file_id = upload_file2google_client(file_name, file_path, folder_id)
-                # write result to database
-                FestivalReport.objects.create(festival_id_id=festival_id, file_id=file_id)
-                # remove local file
+                FestivalReport.objects.create(festival_id_id=festival_id.id, file_id=file_id)
+                #刪除本地暫存報表檔案
                 os.remove(file_path)
 
+            refresh = True
+            context = {
+                'file_id': file_id,
+                'refresh' : refresh,
+                'roc_year': roc_year,
+                'festival_name': festival_name,
+            }
         else:
-            file_id = festival_report[0].file_id
-            festival_report[0].delete()
-            google_drive_client = DefaultGoogleDriveClient()
-            response = google_drive_client.delete_file(file_id=file_id)
-            if not response: #google drive 刪除成功返回空值
-                pass
-            else:
-                db_logger = logging.getLogger('aprp')
-                db_logger.warning(f'delete google file error:{response}', extra={'type_code': 'festivalreport'})
-            # 重新產生報告
-            factory = FestivalReportFactory(rocyear=roc_year,festival=festival)
-            file_name, file_path = factory()
-            file_id = upload_file2google_client(file_name, file_path, folder_id)
-            FestivalReport.objects.create(festival_id_id=festival_id, file_id=file_id)
-            os.remove(file_path)
-
-        refresh = True
-        context = {
-            'file_id': file_id,
-            'refresh' : refresh,
-            'roc_year': roc_year,
-            'festival_name': festival_name,
-        }
+            context = {
+                'no_festival': True,
+                'roc_year': roc_year,
+                'festival_name': festival_name,
+            }
     template = 'festival-report-iframe.html'
     # end_time = time.time()
     # print('spend time=',end_time-start_time)

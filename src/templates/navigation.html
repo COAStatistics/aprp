@@ -62,6 +62,13 @@
                     <li class="">
                         <a href="{% url 'daily_report' %}" name="daily-report" title="{% trans 'Daily Report' %}"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">{% trans 'Daily Report' %}</span></a>
                     </li>
+                    {% if user.info.festivalreport_viewer %} 
+                    <li class="">
+                        <a href="{% url 'festival_report' %}" name="festival-report" title="{% trans 'Festival Report' %}"><i class="fa fa-lg fa-fw fa-file-text-o" ></i>
+                            <span class="menu-item-parent">三節農產品價格表</span>
+                        </a>
+                    </li>
+                    {% endif %}
                     <li class="">
                         <a href="{% url 'product_selector' %}" name="product-selector" title="{% trans 'Product Selector' %}"><i class="fa fa-lg fa-fw fa-search-plus"></i> <span class="menu-item-parent">{% trans 'Product Selector' %}</span></a>
                     </li>
@@ -353,45 +360,6 @@
 					<br>
 					<br>
 				</ul>
-            </li>
-			{% endif %}
-            {% if user.info.festivalreport_viewer %} 
-			<li>
-                <a color-alert a href="{% url 'festival_report' %}" name="festival-report" title="{% trans 'Festival Report' %}"><i class="fa fa-lg fa-fw fa-cube txt-color-red"></i>
-                    <span class="menu-item-parent">三節農產品價格表</span>
-                </a>
-                {% comment %} <ul>
-					<li>
-						<a color-alert href="#"><span class="menu-item-parent">春節</span></a>
-						<ul>
-							<li>
-                                <a href="{% url 'dailytrans:render_festival_report' festival='Chinese_New_Year' year=109 %}" name="festival-report" title="春節"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">109年</span></a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a color-alert href="#"><span class="menu-item-parent">端午節</span></a>
-						<ul>
-							<li>
-                                <a href="{% url 'dailytrans:render_festival_report' festival='Dragon_Boat_Festival' year=109 %}" name="festival-report" title="端午節"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">109年</span></a>
-							</li>
-        </ul>
-        </li>
-					<li>
-						<a color-alert href="#"><span class="menu-item-parent">中秋節</span></a>
-						<ul>
-							<li>
-                                <a href="{% url 'dailytrans:render_festival_report' festival='Mid_Autumn_Festival' year=109 %}" name="festival-report" title="中秋節"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">109年</span></a>
-							</li>
-						</ul>
-					</li>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-				</ul> {% endcomment %}
             </li>
 			{% endif %}
         </ul>

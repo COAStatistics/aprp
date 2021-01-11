@@ -21,40 +21,97 @@
 
 <div class="row">
 	<div class="col-sm-12 col-md-6 col-lg-4">
-		<div id="search-area" class="input-group input-group-lg search-area">
-			{% csrf_token %}
-			<span class="input-group-addon">
-			<label for="sel_year" style="margin-bottom: 0px;">篩選年度 :</label>
-			</span>
-			<select name="roc_year" id="sel_roc_year" class="form-control search-text" data-load-url="{% url 'festival_report' %}" style="width: 150px;">
-					<option value='all'>所有年度</option>
-				{% for roc_year in roc_year_list %}
-					<option value={{roc_year}}>{{roc_year}}</option>
-				{% endfor %}
-			</select>
-			<span class="input-group-addon">
-			<label for="sel_festival" style="margin-bottom: 0px;">節日 :</label>
-			</span>
-			<select name="festival_list" id="sel_festival" class="form-control search-text" style="width: 150px;">
-				{% for festival in festival_list%}
-					<option value={{festival.id}}>{{festival.roc_year}}_{{festival.name}}</option>
-				{% endfor %}
-			</select>
+		{% csrf_token %}
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="festivalRadioOptions" id="festivalRadio1" value="option1" checked style="font-size: 15px;">
+			<label class="form-check-label" for="festivalRadio1" style="font-size: 15px;">查詢三節報表或特定日期</label>
+			<input class="form-check-input" type="radio" name="festivalRadioOptions" id="festivalRadio2" value="option2" style="font-size: 15px;">
+			<label class="form-check-label" for="festivalRadio2"style="font-size: 15px;">查詢自訂品項及日期</label>
+		</div>
+		<div id="search-area1" class="input-group input-group-lg search-area">
 			
-			<span class="input-group-btn">
-				<button class="btn btn-default search-btn" type="button" id="festival-report-submit">
+			<span class="input-group-addon" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+				<label for="sel_roc_year" style="margin-bottom: 0px;" class="label label-success" style="padding-top: 2px;padding-right: 2px;padding-bottom: 2px;padding-left: 2px;">年度</label>
+			</span>
+			<select name="roc_year" id="sel_roc_year" class="form-control search-text" data-load-url="{% url 'festival_report' %}" style="min-width: 60px; padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+				{% for roc_year in roc_year_list%}
+					<option value={{roc_year}} style="background:#009933;color:#ffffff">{{roc_year}}</option>
+				{% endfor %}
+			</select>
+			<span class="input-group-addon" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+				<label for="sel_festival" style="margin-bottom: 0px;" class="label label-success" style="padding-top: 2px;padding-right: 2px;padding-bottom: 2px;padding-left: 2px;">節日</label>
+			</span>
+			<select name="festival_list" id="sel_festival" class="form-control search-text" style="min-width: 80px; padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+				{% for festival in festival_list %}
+					<option value={{ festival.id }} style="background:#009933;color:#ffffff">{{ festival.name }}</option>
+				{% endfor %}
+			</select>
+			<span class="input-group-btn" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+				<button class="btn btn-success search-btn" type="button" id="festival-report-submit" >
 					<span class="fa fa-fw fa-search fa-lg"></span>
 				</button>
 			</span>
-			<span class="input-group-addon">查詢特定日期</span>
-			<input type="text" class="form-control search-text" name="date" id="festival_daily-report-date" style="width: 150px;">
-			<span class="input-group-btn">
-				<button class="btn btn-default search-btn" name="oneday" type="button" id="festival_daily-report-date-submit">
+		</div>
+		<div id="search-area2" class="input-group input-group-lg search-area">
+			<span class="input-group-addon" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+				<label for="festival_daily-report-date" style="margin-bottom: 0px;" id="festival-name" class="label label-info" style="padding-top: 2px;padding-right: 2px;padding-bottom: 2px;padding-left: 2px;">春節品項特定日期價格查詢</label>
+			</span>
+			<input type="text" class="form-control search-text" name="date" id="festival_daily-report-date" style="min-width: 100px; padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+			<span class="input-group-btn" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+				<button class="btn btn-info search-btn" name="oneday" type="button" id="festival_daily-report-date-submit" >
 					<span class="fa fa-fw fa-search fa-lg"></span>
 			  </button>
 			</span>
+			{% comment %} <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> {% endcomment %}
+		{% comment %} </div>
+		<div id="search-area2" class="input-group input-group-lg search-area"> {% endcomment %}
 		</div>
+		<div id="search-area3" class="input-group input-group-lg search-area hidden">
+			<!-- Button trigger modal -->
+			<span class="input-group-btn" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+			<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalScrollable" style="padding-top: 2px;padding-right: 2px;padding-bottom: 2px;padding-left: 2px;">
+			自選農產品
+			</button>
+			</span>
 
+			<span class="input-group-addon" style="padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">
+				<label for="festival_daily-report-custom-date" style="margin-bottom: 0px;" class="label label-warning">自訂查詢日期</label>
+			</span>
+			<input type="text" class="form-control search-text" name="custom-date" id="festival_daily-report-custom-date" style="min-width: 100px; padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;">			
+
+			<!-- Modal -->
+			<div class="modal fade bd-example-modal-xl" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalScrollableTitle">請選擇要查詢的農產品<br>(複選上限 30 個農產品品項)<br>雞/鴨/鵝/牛為產地品項,其餘皆為批發品項</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" style="padding:10px">
+					<div>
+					<select name="item" id="sel_item" class="form-control" multiple>
+						{% for item in item_list %}
+						<option value="{{ item.id }}"> {{ item.name }} - {{ item.code }} </option>
+						{% endfor %}
+					</select>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" id="desel_all_btn">取消所有選擇品項</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">確定</button>
+				</div>
+				</div>
+			</div>
+			</div>
+
+			<span class="input-group-btn">
+				<button class="btn btn-warning search-btn" name="custom_search" type="button" id="custom_search">
+					<span class="fa fa-fw fa-search fa-lg"></span>
+			    </button>
+			</span>
+		</div>
 	</div>
 </div>
 
@@ -66,41 +123,45 @@
 
 	pagefunction = function(){
 
-		$('#sel_roc_year').change(function () {
+		$('#sel_festival').change(function () {
 			var optionSelected = $(this).find("option:selected");
-			var valueSelected  = optionSelected.val();
-			var url = $(this).attr('data-load-url');
-			var data = {'roc_year_sel':valueSelected,
-						csrfmiddlewaretoken:$('[name="csrfmiddlewaretoken"]').val()
-						}
-			//console.log('data=',data);
-			$.ajax({
-					type: 'POST',
-					url: url,
-					data: data,
-					success: function(data){
-						$("#main #content").html(data);
-						$('#sel_roc_year').val(valueSelected);
-					}
-					});
+			var valueSelected  = optionSelected.text();
+			$('#festival-name').text(valueSelected + '品項特定日期價格查詢');
 		});
-		
-        $('#festival-report-submit').on('click', function(e){
+
+        $('#festival-report-submit').on('click', function(){
             var $container = $('#festival-report-container');
             var url = $container.attr('data-load-url');
+			var sel_roc_year = document.getElementById("sel_roc_year");
+			var roc_year = sel_roc_year.options[sel_roc_year.selectedIndex].text;
 			var sel_festival = document.getElementById("sel_festival");
 			var festival_id = sel_festival.options[sel_festival.selectedIndex].value;
-			var festival_name = sel_festival.options[sel_festival.selectedIndex].text;
 
             data = {
-                'festival_id': festival_id,
-				'festival_name': festival_name,
+                'roc_year': roc_year,
+				'festival_id': festival_id,
 				'refresh': 'False',
 				'oneday':'False',
+				'item_search':'',
+				'custom_search':'False',
             };
 
             loadURL(url, $container, data, "POST");
         });
+
+		// "Update details" button opens the <dialog> modally
+		$('#item_search').on('click', function(){
+		if (typeof item_Dialog.showModal === "function") {
+			item_Dialog.showModal();
+		} else {
+			alert("The <dialog> API is not supported by this browser");
+		}
+		});
+
+		// "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
+		$('#itemconfirmBtn').on('click', function () {
+			var item_id_list = $('#sel_item').val();
+		});
 
 		// Default to yesterday
         var d = new Date();
@@ -115,32 +176,136 @@
             defaultDate: -1,
         }).datepicker( "setDate", yesterday );
 
+		$input2 = $('#festival_daily-report-custom-date');
+		$input2.datepicker({
+            dateFormat : 'yy/mm/dd',
+            defaultDate: -1,
+        }).datepicker( "setDate", yesterday );
+
         $('#festival_daily-report-date-submit').on('click', function(e){
             var $container = $('#festival-report-container');
             var url = $container.attr('data-load-url');
             var date = $input.datepicker('getDate');
+			var sel_roc_year = document.getElementById("sel_roc_year");
+			var roc_year = sel_roc_year.options[sel_roc_year.selectedIndex].text;
 			var sel_festival = document.getElementById("sel_festival");
 			var festival_id = sel_festival.options[sel_festival.selectedIndex].value;
-			var festival_name = sel_festival.options[sel_festival.selectedIndex].text;
 
             data = {
                 'day': date.getDate(),
                 'month': date.getMonth() + 1,
                 'year': date.getFullYear(),
+				'roc_year': roc_year,
 				'festival_id': festival_id,
-				'festival_name': festival_name,
 				'refresh': 'False',
-				'oneday':'True'
+				'oneday':'True',
+				'item_search':'',
+				'custom_search':'False',
             }
 
             loadURL(url, $container, data, "POST");
-        })
+        });
+
+		$('#custom_search').on('click', function(e){
+            var $container = $('#festival-report-container');
+            var url = $container.attr('data-load-url');
+            var date2 = $input2.datepicker('getDate');
+			{% comment %} var roc_year = date2.getFullYear()-1911; {% endcomment %}
+			var festival_id = sel_festival.options[sel_festival.selectedIndex].value;
+			var item_id_list = $('#sel_item').val();
+
+            data = {
+                'day': date2.getDate(),
+                'month': date2.getMonth() + 1,
+                'year': date2.getFullYear(),
+				'roc_year': date2.getFullYear()-1911,
+				'festival_id': festival_id,
+				'refresh': 'False',
+				'oneday':'False',
+				'item_search': item_id_list,
+				'custom_search':'True',
+            }
+
+            loadURL(url, $container, data, "POST");
+        });
+
+
+		//農產品品項多選功能
+		$('#sel_item').multiselect({
+        enableFiltering: true,
+        enableCaseInsensitiveFiltering:true, 
+        numberDisplayed: 3, 
+        includeSelectAllOption: false, 
+        onChange: function(option, checked) {
+                // Get selected options.
+                var selectedOptions = $('#sel_item option:selected');
+ 
+                if (selectedOptions.length >= 30) {
+                    // Disable all other checkboxes.
+                    var nonSelectedOptions = $('#sel_item option').filter(function() {
+                        return !$(this).is(':selected');
+                    });
+ 
+                    nonSelectedOptions.each(function() {
+                        var input = $('input[value="' + $(this).val() + '"]');
+                        input.prop('disabled', true);
+                        input.parent('li').addClass('disabled');
+                    });
+                }
+                else {
+                    // Enable all checkboxes.
+                    $('#sel_item option').each(function() {
+                        var input = $('input[value="' + $(this).val() + '"]');
+                        input.prop('disabled', false);
+                        input.parent('li').addClass('disabled');
+                    });
+                }
+            }});
+            
+            
+			{% comment %} /*Add This to Block SHIFT Key*/       
+			var shiftClick = $.Event("click");
+			shiftClick.shiftKey = true;
+
+			$(".multiselect-container li *").click(function(event) {
+				if (event.shiftKey) {
+				//alert("Shift key is pressed");
+					event.preventDefault();
+					return false;
+				}
+				else {
+					//alert('No shift hey');
+				}
+			}); {% endcomment %}
+
+		$("#desel_all_btn").click(function(){
+		{% comment %} $('option', $('#sel_item')).each(function(element) {
+			$(this).removeAttr('selected').prop('selected', false);
+		}); {% endcomment %}
+		{% comment %} $('#sel_item option').prop('selected', false);
+		$("#sel_item").multiselect('refresh'); {% endcomment %}
+		var arr_selected_val = $('#sel_item option:selected').toArray().map(opt => $(opt).val());
+		$("#sel_item").multiselect('deselect', arr_selected_val);
+		});
+
+		$("#festivalRadio1").click(function(){
+		$("#search-area3").addClass('hidden');
+		$("#search-area1").removeClass('hidden');
+		$("#search-area2").removeClass('hidden');
+		$("#festival-report-container").empty();
+		});
+
+		$("#festivalRadio2").click(function(){
+		$("#search-area1").addClass('hidden');
+		$("#search-area2").addClass('hidden');
+		$("#search-area3").removeClass('hidden');
+		$("#festival-report-container").empty();
+		});
 
 	}
 
     // PAGE RELATED SCRIPTS
-
-    pagefunction();
+	pagefunction();
 
 </script>
 

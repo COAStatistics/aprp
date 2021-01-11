@@ -1,4 +1,87 @@
-{% if not oneday %}
+{% load staticfiles %}
+{% if no_festival %}
+<div class="alert alert-danger" role="alert">{{ roc_year }} 年度 {{ festival_name.0.name }} 未開放報表查詢</div>
+{% endif %}
+
+{% if custom_search %}
+        {% if no_product %}
+        <div class="alert alert-danger" role="alert">{{ date }} 未選擇農產品，請點選"自選農產品"按鈕選擇要查詢的農產品品項</div>
+        {% else %}
+        <div class="alert alert-success" role="alert">{{ date }} 農產品價格表</div>
+        <div class="table-responsive text-nowrap">
+                <table class="table table-striped table-hover table-fixed" id="custom_search_table">
+                        <thead>
+                                <tr>
+                                {% for p in product_data %}
+                                {% if forloop.first %}
+                                        {% for k in p.keys %}
+                                        <th scope="col" class="text-center" style="vertical-align:middle">{{ k|safe }}</th>
+                                        {% endfor %}
+                                {% endif %}
+                                {% endfor %} 
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {% for p in product_data %}
+                                <tr>
+                                        {% for v in p.values %}
+                                        {% if v == None %}
+                                        <td scope="row" class="text-center">--</td>
+                                        {% else %}
+                                        <td scope="row" class="text-center">{{ v }}</td>
+                                        {% endif %}
+                                        {% endfor %}                                
+                                </tr>
+                                {% endfor %}
+                        </tbody>             
+                </table>
+        </div>
+        <button id="download_custom_search_table">
+        <span class="fa fa-download" aria-hidden="true"></span>
+        下載所查詢的資料表 (.csv)
+        </button>
+        <button id="download_custom_search_table_pdf">
+        <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
+        下載所查詢的資料表(A0橫版) (.pdf)
+        </button>
+        {% endif %}
+{% endif %}
+
+{% if oneday %}
+        <div id='oneday_div'>
+        <table class="table table-striped table-hover" id="oneday_table">
+                <thead>
+                        <tr>
+                        <th scope="col">{{ festival_name.0.name }} 農產品名稱</th>
+                        <th scope="col">{{ date }} 當日價格</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for key, value in product_data.items %} 
+                                <tr>
+                                <td scope="row">{{key}}</td>
+                                {% if value == None %}
+                                <td scope="row">--</td>
+                                {% else %}
+                                <td scope="row">{{value|floatformat:1}}</td>
+                                {% endif %}
+                                </tr>
+                        {% endfor %}
+                </tbody>
+        </table>
+        </div>
+        <button id="download_oneday_table">
+        <span class="fa fa-download" aria-hidden="true"></span>
+        下載所查詢的資料表 (.csv)
+        </button>
+        <button id="download_oneday_table_pdf">
+        <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
+        下載所查詢的資料表(A4直版) (.pdf)
+        </button>
+
+{% endif %}
+
+{% if not oneday and not custom_search and not no_festival%}
 <iframe framebsorder="0"
         height="750px"
         width="100%"
@@ -11,38 +94,37 @@
                         <span class="fa fa-fw fa-refresh fa-lg"></span>
                 </button>
         </span>
-        更新 {{ roc_year }}_{{ festival_name }} 價格表
+        更新 {{ roc_year }}_{{ festival_name.0.name }} 價格表
         {% endif %}
 {% endif %}
 
-        {% if oneday %}
-                <table class="table table-striped">
-                        <thead>
-                                <tr>
-                                <th scope="col">{{ festival_name }} 農產品名稱</th>
-                                <th scope="col">{{ date }} 當日價格</th>
-                                </tr>
-                        </thead>
-                        <tbody>
-                                {% for key, value in product_data.items %} 
-                                        <tr>
-                                        <td scope="row">{{key}}</td>
-                                        {% if value == None %}
-                                        <td scope="row">--</td>
-                                        {% else %}
-                                        <td scope="row">{{value|floatformat:1}}</td>
-                                        {% endif %}
-                                        </tr>
-                                {% endfor %}
-                        </tbody>
-                </table>
+<script type="text/javascript" src='{% static "vendor/js/plugin/table2csv/table2csv.min.js" %}'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js'></script>
+<script src='{% static "vendor/js/plugin/jsPDF/TP-normal.js" %}'></script>
 
-        {% endif %}
 <script>
-
 	pageSetUp();
 
-	pagefunction = function(){	
+	pagefunction = function(){
+        const pad = (v) => {
+        return (v<10)?'0'+v:v
+        };
+
+        const getDateString = (d) => {
+        let year = d.getFullYear().toString();
+        let month = pad(d.getMonth()+1);
+        let day = pad(d.getDate());
+        let hour = pad(d.getHours());
+        let min = pad(d.getMinutes());
+        let sec = pad(d.getSeconds());
+        //YYYYMMDDhhmmss
+        return year+month+day;
+        //YYYY-MM-DD hh:mm:ss
+        //return year+"-"+month+"-"day+" "+hour+":"+min+":"+sec
+        };
+        const today = new Date();
+
         $('#festival-report-refresh-submit').on('click', function(e){
         var $container = $('#festival-report-container');
         var url = $container.attr('data-load-url');
@@ -58,15 +140,76 @@
         'refresh': 'True',
         'roc_year': roc_year,
         'oneday':'False',
+        'item_search':'',
+        'custom_search':'False',
         };
 
         loadURL(url, $container, data, "POST");
         });
 
-	}
+        $("#download_oneday_table").on('click', function(e){
+                $("#oneday_table").table2csv({
+                filename:'oneday_'+getDateString(today)+'.csv',
+                separator: ',',
+                newline: '\n',
+                quoteFields: true,
+                excludeColumns: '',
+                excludeRows: '',
+                trimContent: true, // Trims the content of individual <th>, <td> tags of whitespaces. 
+                }); 
+        });
 
+        $("#download_custom_search_table").on('click', function(e){
+                $("#custom_search_table").table2csv({
+                filename:'custom_search_'+getDateString(today)+'.csv',
+                separator: ',',
+                newline: '\n',
+                quoteFields: true,
+                excludeColumns: '',
+                excludeRows: '',
+                trimContent: true, // Trims the content of individual <th>, <td> tags of whitespaces. 
+                }); 
+        });
+        
+        $("#download_oneday_table_pdf").on('click', function(e){
+                var doc = new jspdf.jsPDF();
+                doc.addFileToVFS('TP-normal.ttf', font);
+                doc.addFont('TP-normal.ttf', 'TP', 'normal');
+                doc.setFont('TP');
+                doc.autoTable({
+                        html: '#oneday_table',
+                        styles: { fillColor: [255, 255, 255], font: 'TP', fontStyle: 'normal', textColor: [0, 0, 0], halign: 'center' }
+                });
+                doc.save('oneday_'+getDateString(today)+'.pdf');
+        });
+
+        $("#download_custom_search_table_pdf").on('click', function(e){
+                var doc = new jspdf.jsPDF('l','pt','a0');
+                doc.addFileToVFS('TP-normal.ttf', font);
+                doc.addFont('TP-normal.ttf', 'TP', 'normal');
+                doc.setFont('TP');
+                doc.setFontSize(12);
+                doc.autoTable({
+                        html: '#custom_search_table',
+                        theme: 'striped', //striped(顏色交替),grid(框線),plain(無)
+                        tableWidth: 'auto',//表格寬度,auto(自動縮小各欄位寬度至設定寬度中),wrap(超過部分會被裁切),具體數據
+                        //startY: 0,//表格Y位置
+                        margin: {top: 0, right: 0, bottom: 0, left: 0},//表格邊距
+                        showHead: 'everyPage', //everyPage,firstPage,never
+                        styles: { fillColor: [255, 255, 255], font: 'TP', fontSize: 4.5, fontStyle: 'normal', textColor: [0, 0, 0], halign: 'center' },
+                        columnStyles: {
+                                        0: {cellWidth: 22},
+                                        1: {cellWidth: 70},
+                                        }
+                });
+                doc.save('custom_search_A0_'+getDateString(today)+'.pdf');
+        });
+
+        };
     // PAGE RELATED SCRIPTS
 
     pagefunction();
 
 </script>
+
+
