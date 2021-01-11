@@ -22,6 +22,8 @@ from apps.configs.models import (
     Chart,
     Type,
     Festival,
+    FestivalName,
+    AbstractProduct,
 )
 
 
@@ -114,29 +116,27 @@ class DailyReport(LoginRequiredMixin, TemplateView):
 class FestivalReport(LoginRequiredMixin, TemplateView):
     redirect_field_name = 'redirect_to'
     template_name = 'ajax/festival-report.html'
-    roc_year_sel='all'
+    # roc_year_sel='all'
 
     def post(self, request, **kwargs):
-        # print("roc_year_sel1=",self.roc_year_sel)
         self.kwargs['POST'] = request.POST
-        # print("self.kwargs['POST']=",self.kwargs['POST'])
         self.roc_year_sel=self.kwargs['POST']['roc_year_sel']
-        # print("roc_year_sel=",self.roc_year_sel)
         return self.render_to_response(self.get_context_data())
 
     def get_context_data(self, **kwargs):
         context = super(FestivalReport, self).get_context_data(**kwargs)
-        # print("roc_year_sel2=",self.roc_year_sel)
-        if self.roc_year_sel=='all':
-            context['festival_list'] = Festival.objects.filter(enable=True).order_by('id')
-        else:
-            context['festival_list'] = Festival.objects.filter(enable=True).filter(roc_year=self.roc_year_sel)
-        # print("context['festival_list']=",context['festival_list'])
-
+        #節日名稱       
+        festival_list = FestivalName.objects.filter(enable=True).order_by('id')        
+        context['festival_list'] = festival_list
+        #年度
         roc_year_set = set()
         for y in Festival.objects.values('roc_year'):
             roc_year_set.add(y['roc_year'])
         context['roc_year_list'] = sorted(roc_year_set,reverse=True)
+        #自選農產品清單
+        item_list = AbstractProduct.objects.filter(type=1,track_item=True) | AbstractProduct.objects.filter(id__range = [130001,130005],type=2,track_item=True) | AbstractProduct.objects.filter(id__range = [90008,90016],type=2,track_item=True) | AbstractProduct.objects.filter(id__range = [100004,100006],type=2,track_item=True) | AbstractProduct.objects.filter(id__range = [110003,110006],type=2,track_item=True) #批發品項+產地(牛5,雞8,鴨3,鵝4)
+
+        context['item_list'] = item_list
         return context
 
         

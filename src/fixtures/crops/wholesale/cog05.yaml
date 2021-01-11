@@ -187,7 +187,7 @@
 - model: crops.Crop
   pk: 40020
   fields:
-    name: FB1
+    name: 花椰菜-青梗
     code: FB1
     type: 1
     config: 5
@@ -197,7 +197,7 @@
 - model: crops.Crop
   pk: 40021
   fields:
-    name: FB11
+    name: 花椰菜-青梗
     code: FB11
     type: 1
     config: 5
@@ -207,7 +207,7 @@
 - model: crops.Crop
   pk: 40022
   fields:
-    name: FB12
+    name: 花椰菜-青梗
     code: FB12
     type: 1
     config: 5
@@ -228,7 +228,7 @@
 - model: crops.Crop
   pk: 40024
   fields:
-    name: FB2
+    name: 花椰菜-白梗
     code: FB2
     type: 1
     config: 5
@@ -238,7 +238,7 @@
 - model: crops.Crop
   pk: 40025
   fields:
-    name: FB22
+    name: 花椰菜-白梗
     code: FB22
     type: 1
     config: 5
@@ -248,7 +248,7 @@
 - model: crops.Crop
   pk: 40026
   fields:
-    name: FB21
+    name: 花椰菜-白梗
     code: FB21
     type: 1
     config: 5
