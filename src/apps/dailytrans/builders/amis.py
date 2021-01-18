@@ -54,10 +54,12 @@ class Api(AbstractApi):
                     sum_avg_price = 0
                     sum_volume = 0
                     for dic in lst:
-                        avg_price = float(dic.get('AvgPrice'))
-                        volume = float(dic.get('TransVolume'))
-                        sum_avg_price += avg_price * volume
-                        sum_volume += volume
+                        #排除ProductNo含有'-' 之子項,僅用平等之大項進行全部花卉L之計算,例如排除 FH-FH201~ FH-FH204
+                        if '-' not in dic.get('ProductNo'):
+                            avg_price = float(dic.get('AvgPrice'))
+                            volume = float(dic.get('TransVolume'))
+                            sum_avg_price += avg_price * volume
+                            sum_volume += volume
                     return sum_avg_price / sum_volume, sum_volume
 
                 product_code = self.sum_to_product

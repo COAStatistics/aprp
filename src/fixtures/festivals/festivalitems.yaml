@@ -395,3 +395,13 @@
     festivalname: [3]
     product_id: [50040, 50041]
     source: [20001, 20002]
+
+#春節依袁麗惠要求新增銀柳品項 FH201~FH204
+- model: configs.FestivalItems
+  pk: 46
+  fields:
+    name: 銀柳
+    order_sn: 301
+    festivalname: [1]
+    product_id: [60101, 60102, 60103, 60104]
+    source: [30001]

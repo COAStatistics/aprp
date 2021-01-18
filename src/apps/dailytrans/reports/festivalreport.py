@@ -30,7 +30,7 @@ engine = create_engine('postgresql://'+my_uesrname+':'+my_pwd+'@'+my_host+':'+st
 
 
 class FestivalReportFactory(object):
-    def __init__(self, rocyear=date.today().year-1911, festival=1, oneday=False, custom_search=False, custom_search_item=list(), special_day=date.today()-timedelta(days=1)):
+    def __init__(self, rocyear=date.today().year-1911, festival='1', oneday=False, custom_search=False, custom_search_item=list(), special_day=date.today()-timedelta(days=1)):
         self.roc_year = int(rocyear)
         self.year = self.roc_year + 1911
         self.result_data = dict()
@@ -129,11 +129,11 @@ class FestivalReportFactory(object):
             #         self. Mid_Autumn_Festival_dict[str(y)]=['{0}~{1}'.format(b4w_start.date(),b4w_end.date()),'{0}~{1}'.format(b3w_start.date(),b3w_end.date()),'{0}~{1}'.format(b2w_start.date(),b2w_end.date()),'{0}~{1}'.format(b1w_start.date(),b1w_end.date()),'{0}~{1}'.format(a1w_start.date(),a1w_end.date()),'{0}~{1}'.format(a2w_start.date(),a2w_end.date()),'{0}~{1}'.format(a3w_start.date(),a3w_end.date()),'{0}~{1}'.format(a4w_start.date(),a4w_end.date()),'{0}~{1}'.format(self.yesterday,self.yesterday)]
             # else:
             if not self.custom_search:
-                if self.festival ==1:
+                if self.festival =='1':
                     self.Chinese_New_Year_dict[str(y)]=['{0}~{1}'.format(b4w_start.date(),b4w_end.date()),'{0}~{1}'.format(b3w_start.date(),b3w_end.date()),'{0}~{1}'.format(b2w_start.date(),b2w_end.date()),'{0}~{1}'.format(b1w_start.date(),b1w_end.date()),'{0}~{1}'.format(a1w_start.date(),a1w_end.date()),'{0}~{1}'.format(a2w_start.date(),a2w_end.date()),'{0}~{1}'.format(a3w_start.date(),a3w_end.date()),'{0}~{1}'.format(a4w_start.date(),a4w_end.date())]
-                elif self.festival ==2:
+                elif self.festival =='2':
                     self.Dragon_Boat_Festival_dict[str(y)]=['{0}~{1}'.format(b4w_start.date(),b4w_end.date()),'{0}~{1}'.format(b3w_start.date(),b3w_end.date()),'{0}~{1}'.format(b2w_start.date(),b2w_end.date()),'{0}~{1}'.format(b1w_start.date(),b1w_end.date()),'{0}~{1}'.format(a1w_start.date(),a1w_end.date()),'{0}~{1}'.format(a2w_start.date(),a2w_end.date()),'{0}~{1}'.format(a3w_start.date(),a3w_end.date()),'{0}~{1}'.format(a4w_start.date(),a4w_end.date())]
-                elif self.festival ==3:
+                elif self.festival =='3':
                     self.Mid_Autumn_Festival_dict[str(y)]=['{0}~{1}'.format(b4w_start.date(),b4w_end.date()),'{0}~{1}'.format(b3w_start.date(),b3w_end.date()),'{0}~{1}'.format(b2w_start.date(),b2w_end.date()),'{0}~{1}'.format(b1w_start.date(),b1w_end.date()),'{0}~{1}'.format(a1w_start.date(),a1w_end.date()),'{0}~{1}'.format(a2w_start.date(),a2w_end.date()),'{0}~{1}'.format(a3w_start.date(),a3w_end.date()),'{0}~{1}'.format(a4w_start.date(),a4w_end.date())]
             else:
                 self.Custom_dict[str(y)]=['{0}~{1}'.format(b4w_start.date(),b4w_end.date()),'{0}~{1}'.format(b3w_start.date(),b3w_end.date()),'{0}~{1}'.format(b2w_start.date(),b2w_end.date()),'{0}~{1}'.format(b1w_start.date(),b1w_end.date()),'{0}~{1}'.format(a1w_start.date(),a1w_end.date()),'{0}~{1}'.format(a2w_start.date(),a2w_end.date()),'{0}~{1}'.format(a3w_start.date(),a3w_end.date()),'{0}~{1}'.format(a4w_start.date(),a4w_end.date())]
@@ -191,7 +191,7 @@ class FestivalReportFactory(object):
         return table
 
 
-    def result(self, product_id, source_id, festival=1):
+    def result(self, product_id, source_id, festival='1'):
         self.result_data[str(product_id)]={}
         if self.oneday:
             self.result_data[str(product_id)][str(self.special_day_year)]=[]
@@ -247,11 +247,11 @@ class FestivalReportFactory(object):
 
             for y in range(self.roc_before5years,self.roc_year+1):
                 if not self.custom_search:
-                    if festival ==1:
+                    if festival =='1':
                         date_range = self.Chinese_New_Year_dict[str(y)]
-                    if festival ==2:
+                    if festival =='2':
                         date_range = self.Dragon_Boat_Festival_dict[str(y)]
-                    if festival ==3:
+                    if festival =='3':
                         date_range = self.Mid_Autumn_Festival_dict[str(y)]
                 else:
                     date_range = self.Custom_dict[str(y)]

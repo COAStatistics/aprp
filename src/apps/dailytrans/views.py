@@ -80,13 +80,13 @@ def render_festival_report(request,refresh=False):
     data = request.GET or request.POST
     roc_year = data.get('roc_year')
     year = int(roc_year) + 1911
-    festival_id = data.get('festival_id')
+    festivalname_id = data.get('festival_id')
     refresh = bool(strtobool(data.get('refresh')))
     oneday = bool(strtobool(data.get('oneday')))
     item_search_list = data.getlist('item_search[]')
     custom_search = bool(strtobool(data.get('custom_search')))
     # start_time = time.time()
-    festival_name = FestivalName.objects.filter(id = festival_id)
+    festival_name = FestivalName.objects.filter(id = festivalname_id)
 
     if oneday:
         day = data.get('day')
@@ -98,10 +98,10 @@ def render_festival_report(request,refresh=False):
         year = data.get('year')
         date = year + '-' + month + '-' + day
 
-        factory = FestivalReportFactory(rocyear=roc_year,festival=festival_id,oneday=oneday,special_day=date)
+        factory = FestivalReportFactory(rocyear=roc_year,festival=festivalname_id,oneday=oneday,special_day=date)
         resule_data = factory()
         product_name_list = []
-        pid = FestivalItems.objects.filter(festivalname__id__contains=festival_id)
+        pid = FestivalItems.objects.filter(festivalname__id__contains=festivalname_id)
         for i in pid.all():
             product_name_list.append(i)
 
@@ -158,20 +158,22 @@ def render_festival_report(request,refresh=False):
 
     else:
         try:
-            festival_id = Festival.objects.get(roc_year=roc_year,name=festival_id)
+            # festival_id = Festival.objects.get(roc_year=roc_year,name=festival_id)
+            festival_id = Festival.objects.get(roc_year=roc_year,name=festival_name)
             festival_report = FestivalReport.objects.filter(festival_id_id=festival_id.id)
+
         except ObjectDoesNotExist:
             db_logger = logging.getLogger('aprp')
             db_logger.warning(f'search festival report error:{roc_year} {festival_name}', extra={'type_code': 'festivalreport'})
             festival_id = None
         
-        if festival_id:
+        if festival_id.id:
             if not refresh:
                 if festival_report:
                     file_id = festival_report[0].file_id
                 else:
                     # generate file
-                    factory = FestivalReportFactory(rocyear=roc_year,festival=festival_id)
+                    factory = FestivalReportFactory(rocyear=roc_year,festival=festivalname_id)
                     file_name, file_path = factory()
                     # upload file
                     file_id = upload_file2google_client(file_name, file_path, folder_id)
@@ -182,7 +184,7 @@ def render_festival_report(request,refresh=False):
 
             else:
                 # 重新產生報告
-                factory = FestivalReportFactory(rocyear=roc_year,festival=festival_id)
+                factory = FestivalReportFactory(rocyear=roc_year,festival=festivalname_id)
                 file_name, file_path = factory()
                 #刪除資料庫中三節報表的id
                 file_id = festival_report[0].file_id
