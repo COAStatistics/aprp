@@ -1069,3 +1069,44 @@
     unit: 5
     type: 1
     parent: 60049
+
+#三節報表中春節品項,依袁麗惠要求新增(銀柳 FH201~FH204),農糧署 amis API 中提供對應代碼為 FH-FH201~FH-FH204
+- model: flowers.Flower
+  pk: 60101
+  fields:
+    name: 貓柳直支
+    code: FH-FH201
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60056
+
+- model: flowers.Flower
+  pk: 60102
+  fields:
+    name: 珍珠柳直支
+    code: FH-FH202
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60056
+
+- model: flowers.Flower
+  pk: 60103
+  fields:
+    name: 貓柳開叉
+    code: FH-FH203
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60056
+
+- model: flowers.Flower
+  pk: 60104
+  fields:
+    name: 珍珠柳開叉
+    code: FH-FH204
+    config: 7
+    unit: 5
+    type: 1
+    parent: 60056
