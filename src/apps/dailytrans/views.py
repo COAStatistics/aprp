@@ -167,7 +167,7 @@ def render_festival_report(request,refresh=False):
             db_logger.warning(f'search festival report error:{roc_year} {festival_name}', extra={'type_code': 'festivalreport'})
             festival_id = None
         
-        if festival_id.id:
+        if festival_id is not None and festival_id.id:
             if not refresh:
                 if festival_report:
                     file_id = festival_report[0].file_id
