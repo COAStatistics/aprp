@@ -153,6 +153,13 @@ class EventBatchFileAPIView(APIView):
 
     def post(self, request, format=None):
         file_obj = request.data['file']
-        data = funcBatchEventFile(file_obj)
-
-        return Response(data, status=200)
+        if file_obj == 'undefined':
+            #未選擇檔案
+            return Response(status=400)
+        else:
+            data = funcBatchEventFile(file_obj)
+            if data:
+                return Response(data, status=200)
+            else:
+                #檔案內格式錯誤(非excel,只有1列,欄位數量錯誤,日期格式錯誤)
+                return Response(status=400)
