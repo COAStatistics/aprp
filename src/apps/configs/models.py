@@ -329,6 +329,8 @@ class Festival(Model):
 class FestivalName(Model):
     name = CharField(max_length=20, verbose_name=_('Name'))
     enable = BooleanField(default=True, verbose_name=_('Enabled'))
+    lunarmonth = CharField(max_length=2, default='01', verbose_name=_('LunarMonth'))
+    lunarday = CharField(max_length=2, default='01', verbose_name=_('LunarDay'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
     create_time = DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name=_('Created'))
 

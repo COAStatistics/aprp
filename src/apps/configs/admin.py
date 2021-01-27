@@ -115,8 +115,17 @@ class FestivalNameModelForm(ModelForm):
 
 class FestivalNameAdmin(admin.ModelAdmin):
     form = FestivalNameModelForm
-    list_display = ['id', 'name', 'enable', 'update_time', 'create_time']
-    list_editable = ['name', 'enable']
+    list_display = ['id',
+                    'name',
+                    'lunarmonth',
+                    'lunarday',
+                    'enable',
+                    'update_time',
+                    'create_time']
+    list_editable = ['name',
+                    'lunarmonth',
+                    'lunarday',
+                    'enable']
 
 class FestivalItemsModelForm(ModelForm):
 

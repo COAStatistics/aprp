@@ -109,7 +109,9 @@ def render_festival_report(request,refresh=False):
         for v in resule_data.values():
             if str(v[str(year)][0]) == 'nan':
                 v[str(year)][0] = None
-            values_list.append(v[str(year)][0])
+            if str(v[str(year)][1]) == 'nan':
+                v[str(year)][1] = None
+            values_list.append([v[str(year)][0],v[str(year)][1]])
 
         product_data={}
         product_data_list=list()
@@ -138,16 +140,20 @@ def render_festival_report(request,refresh=False):
         date = year + '-' + month + '-' + day
         if item_search_list:
             factory = FestivalReportFactory(custom_search = custom_search, custom_search_item = item_search_list, special_day = date)
-            resule_data = factory()
+            resule_data, resule_volume = factory()
             #to_htmo
             # product_data = resule_data.to_html()
             #to_json
             json_records = resule_data.reset_index().to_json(orient ='records') 
+            json_records_volume = resule_volume.reset_index().to_json(orient ='records') 
             product_data = json.loads(json_records) 
+            product_data_volume = json.loads(json_records_volume) 
+
             context = {
                 'custom_search': custom_search,
                 'date': date,
                 'product_data': product_data,
+                'product_data_volume': product_data_volume,
             }
         else:
             context = {
@@ -158,7 +164,6 @@ def render_festival_report(request,refresh=False):
 
     else:
         try:
-            # festival_id = Festival.objects.get(roc_year=roc_year,name=festival_id)
             festival_id = Festival.objects.get(roc_year=roc_year,name=festival_name)
             festival_report = FestivalReport.objects.filter(festival_id_id=festival_id.id)
 
@@ -166,46 +171,54 @@ def render_festival_report(request,refresh=False):
             db_logger = logging.getLogger('aprp')
             db_logger.warning(f'search festival report error:{roc_year} {festival_name}', extra={'type_code': 'festivalreport'})
             festival_id = None
-        
+
         if festival_id is not None and festival_id.id:
             if not refresh:
                 if festival_report:
                     file_id = festival_report[0].file_id
+                    file_volume_id = festival_report[0].file_volume_id
                 else:
                     # generate file
                     factory = FestivalReportFactory(rocyear=roc_year,festival=festivalname_id)
-                    file_name, file_path = factory()
+                    file_name, file_path, file_volume_name, file_volume_path = factory()
                     # upload file
                     file_id = upload_file2google_client(file_name, file_path, folder_id)
+                    file_volume_id = upload_file2google_client(file_volume_name, file_volume_path, folder_id)
                     # write result to database
-                    FestivalReport.objects.create(festival_id_id=festival_id.id, file_id=file_id)
+                    FestivalReport.objects.create(festival_id_id=festival_id.id, file_id=file_id, file_volume_id=file_volume_id)
                     # remove local file
                     os.remove(file_path)
+                    os.remove(file_volume_path)
 
             else:
                 # 重新產生報告
                 factory = FestivalReportFactory(rocyear=roc_year,festival=festivalname_id)
-                file_name, file_path = factory()
+                file_name, file_path, file_volume_name, file_volume_path = factory()
                 #刪除資料庫中三節報表的id
                 file_id = festival_report[0].file_id
+                file_volume_id = festival_report[0].file_volume_id
                 festival_report[0].delete()
                 #刪除 google drive 報表檔案
                 google_drive_client = DefaultGoogleDriveClient()
                 response = google_drive_client.delete_file(file_id=file_id)
-                if not response: #google drive 刪除成功返回空值
+                response_volume = google_drive_client.delete_file(file_id=file_volume_id)
+                if not response and not response_volume: #google drive 刪除成功返回空值
                     pass
                 else:
                     db_logger = logging.getLogger('aprp')
-                    db_logger.warning(f'delete google file error:{response}', extra={'type_code': 'festivalreport'})
+                    db_logger.warning(f'delete google file error:{response}, {response_volume}', extra={'type_code': 'festivalreport'})
                 #檔案上傳 google drive
                 file_id = upload_file2google_client(file_name, file_path, folder_id)
-                FestivalReport.objects.create(festival_id_id=festival_id.id, file_id=file_id)
+                file_volume_id = upload_file2google_client(file_volume_name, file_volume_path, folder_id)
+                FestivalReport.objects.create(festival_id_id=festival_id.id, file_id=file_id, file_volume_id=file_volume_id)
                 #刪除本地暫存報表檔案
                 os.remove(file_path)
+                os.remove(file_volume_path)
 
             refresh = True
             context = {
                 'file_id': file_id,
+                'file_volume_id':file_volume_id,
                 'refresh' : refresh,
                 'roc_year': roc_year,
                 'festival_name': festival_name,

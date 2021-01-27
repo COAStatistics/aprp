@@ -136,7 +136,7 @@
 - model: configs.FestivalItems
   pk: 16
   fields:
-    name: 毛豬(拍賣價)
+    name: 毛豬(規格豬)(拍賣價)
     order_sn: 400
     festivalname: [1, 2, 3]
     product_id: [70001]
@@ -195,10 +195,10 @@
 - model: configs.FestivalItems
   pk: 23
   fields:
-    name: 石斑(批發價)
+    name: 石斑1171(批發價)
     order_sn: 503
     festivalname: [1]
-    product_id: [120212, 121042]  #2021/1/19 袁麗惠通知漁業署報告109年以後石斑品項除了原本 1171 外,多新增代碼 1174
+    product_id: [120212]  #2021/1/19 袁麗惠通知漁業署報告109年以後石斑品項不是 1171 ,而是代碼 1174
     source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
 
 - model: configs.FestivalItems
@@ -405,3 +405,31 @@
     festivalname: [1]
     product_id: [60101, 60102, 60103, 60104]
     source: [30001]
+
+#春節依袁麗惠要求新增茂谷柑品項 C2
+- model: configs.FestivalItems
+  pk: 47
+  fields:
+    name: 茂谷柑
+    order_sn: 211
+    festivalname: [1]
+    product_id: [50081]
+    source: [20001, 20002]
+
+- model: configs.FestivalItems
+  pk: 48
+  fields:
+    name: 石斑1174(批發價)
+    order_sn: 503
+    festivalname: [1]
+    product_id: [121042]  #2021/1/19 袁麗惠通知漁業署報告109年以後石斑品項不是 1171 ,而是代碼 1174
+    source: [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+
+#因為袁要求毛豬交易量為所有豬
+- model: configs.FestivalItems
+  pk: 49
+  fields:
+    name: 毛豬(所有)(拍賣價)
+    order_sn: 400
+    festivalname: [1, 2, 3]
+    product_id: [70011]

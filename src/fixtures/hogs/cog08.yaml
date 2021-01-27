@@ -65,5 +65,25 @@
     unit: 3
     parent: 70002
 
+#因應三節報表需要成交頭數的交易量
+- model: hogs.Hog
+  pk: 70010
+  fields:
+    name: 成交頭數
+    type: 1
+    track_item: false
+    config: 8
+    unit: 3
+
+- model: hogs.Hog
+  pk: 70011
+  fields:
+    name: 成交頭數
+    code: 成交頭數
+    type: 1
+    config: 8
+    unit: 3
+    parent: 70010
+
 
 

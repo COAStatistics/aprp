@@ -89,6 +89,7 @@ class DailyReport(Model):
 class FestivalReport(Model):
     festival_id = ForeignKey('configs.Festival', on_delete=CASCADE, verbose_name=_('Festival ID'))
     file_id = CharField(max_length=120, unique=True, verbose_name=_('File ID'))
+    file_volume_id = CharField(max_length=120, null=True, blank=True, verbose_name=_('File Volume ID'))
     update_time = DateTimeField(auto_now=True, null=True, blank=True, verbose_name=_('Updated'))
     create_time = DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name=_('Created'))
 
@@ -97,4 +98,4 @@ class FestivalReport(Model):
         verbose_name_plural = _('Festival Reports')
 
     def __str__(self):
-        return '{}, {}'.format(self.festival_id, self.file_id)
+        return '{}, {}, {}'.format(self.festival_id, self.file_id, self.file_volume_id)
