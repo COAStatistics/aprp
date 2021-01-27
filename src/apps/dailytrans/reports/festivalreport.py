@@ -640,7 +640,7 @@ class FestivalReportFactory(object):
             writer = pd.ExcelWriter(file_name)
             wb = openpyxl.Workbook()
             df6 = df5.copy()
-            df6.to_excel(writer)
+            df6.fillna('-').to_excel(writer)
             if volume:
                 ws = wb.create_sheet(index=0, title="交易量表")
             else:
