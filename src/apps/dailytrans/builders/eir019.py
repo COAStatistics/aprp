@@ -33,7 +33,11 @@ class Api(AbstractApi):
 
         def create_tran(obj, source):
             code = obj.code
-            volume_column = self.COLUMN_SEP.join((code, self.VOLUME_COLUMN))
+            if code == '成交頭數':
+                volume_column = self.COLUMN_SEP.join((code, '總數'))
+            else:
+                volume_column = self.COLUMN_SEP.join((code, self.VOLUME_COLUMN))
+            
             avg_weight_column = self.COLUMN_SEP.join((code, self.AVG_WEIGHT_COLUMN))
             avg_price_column = self.COLUMN_SEP.join((code, self.AVG_PRICE_COLUMN))
             tran = DailyTran(

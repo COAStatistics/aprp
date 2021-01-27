@@ -5,9 +5,9 @@
 
 {% if custom_search %}
         {% if no_product %}
-        <div class="alert alert-danger" role="alert">{{ date }} 未選擇農產品，請點選"自選農產品"按鈕選擇要查詢的農產品品項</div>
+        <div class="alert alert-danger" role="alert">{{ date }} 未選擇任何產品，請點選"自選產品"按鈕選擇要查詢的農產品品項</div>
         {% else %}
-        <div class="alert alert-success" role="alert">{{ date }} 農產品價格表</div>
+        <div class="alert alert-success" role="alert">{{ date }} 自選產品價格表</div>
         <div class="table-responsive text-nowrap">
                 <table class="table table-striped table-hover table-fixed" id="custom_search_table">
                         <thead>
@@ -36,14 +36,64 @@
                         </tbody>             
                 </table>
         </div>
+ 
         <button id="download_custom_search_table">
         <span class="fa fa-download" aria-hidden="true"></span>
-        下載所查詢的資料表 (.csv)
+        下載所查詢的價格表 (.csv)
         </button>
         <button id="download_custom_search_table_pdf">
         <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
-        下載所查詢的資料表(A0橫版) (.pdf)
+        下載所查詢的價格表(A0橫版) (.pdf)
         </button>
+        <p>
+
+        </p>
+        <div class="alert alert-success" role="alert">{{ date }} 自選產品交易量表</div>
+        <div class="table-responsive text-nowrap">
+                <table class="table table-striped table-hover table-fixed" id="custom_search_table_volume">
+                        <thead>
+                                <tr>
+                                {% for p in product_data_volume %}
+                                {% if forloop.first %}
+                                        {% for k in p.keys %}
+                                        <th scope="col" class="text-center" style="vertical-align:middle">{{ k|safe }}</th>
+                                        {% endfor %}
+                                {% endif %}
+                                {% endfor %} 
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {% for p in product_data_volume %}
+                                <tr>
+                                        {% for v in p.values %}
+                                        {% if v == None %}
+                                        <td scope="row" class="text-center">--</td>
+                                        {% else %}
+                                        <td scope="row" class="text-center">{{ v }}</td>
+                                        {% endif %}
+                                        {% endfor %}                                
+                                </tr>
+                                {% endfor %}
+                        </tbody>             
+                </table>
+        </div>
+
+        <button id="download_custom_search_table_volume">
+        <span class="fa fa-download" aria-hidden="true"></span>
+        下載所查詢的交易量表 (.csv)
+        </button>
+        <button id="download_custom_search_table_pdf_volume">
+        <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
+        下載所查詢的交易量(A0橫版) (.pdf)
+        </button>
+        <br />
+        <div style="color:red">
+        備註: 
+        蔬菜/水果/花卉為(台北批發市場)統計; 
+        毛豬為(台灣地區不含澎湖)統計; 
+        羊為(彰化市場)統計; 
+        漁產品為(消費地市場不含埔里)統計; 
+        </div>
         {% endif %}
 {% endif %}
 
@@ -54,23 +104,29 @@
                         <tr>
                         <th scope="col">{{ festival_name.0.name }} 農產品名稱</th>
                         <th scope="col">{{ date }} 當日價格</th>
+                        <th scope="col">{{ date }} 當日交易量</th>
                         </tr>
                 </thead>
                 <tbody>
                         {% for key, value in product_data.items %} 
                                 <tr>
                                 <td scope="row">{{key}}</td>
-                                {% if value == None %}
+                                {% if value.0 == None %}
                                 <td scope="row">--</td>
                                 {% else %}
-                                <td scope="row">{{value|floatformat:1}}</td>
+                                <td scope="row">{{value.0|floatformat:1}}</td>
+                                {% endif %}
+                                {% if value.1 == None %}
+                                <td scope="row">--</td>
+                                {% else %}
+                                <td scope="row">{{value.1|floatformat:1}}</td>
                                 {% endif %}
                                 </tr>
                         {% endfor %}
                 </tbody>
         </table>
         </div>
-        <div style="color:red">備註:紅羽土雞為 (北區) 價格</div>
+        
         <button id="download_oneday_table">
         <span class="fa fa-download" aria-hidden="true"></span>
         下載所查詢的資料表 (.csv)
@@ -79,23 +135,47 @@
         <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
         下載所查詢的資料表(A4直版) (.pdf)
         </button>
+        <br />
+        <div style="color:red">
+        備註:
+        蔬菜/水果/花卉為(台北批發市場)統計; 
+        紅羽土雞為(北區)統計; 
+        毛豬為(台灣地區不含澎湖)統計; 
+        羊為(彰化市場)統計; 
+        漁產品為(消費地市場不含埔里)統計; 
+        </div>
 
 {% endif %}
 
 {% if not oneday and not custom_search and not no_festival%}
+<div>價格表</div>
 <iframe framebsorder="0"
         height="750px"
         width="100%"
         src="https://drive.google.com/file/d/{{ file_id }}/preview">
 </iframe>
-        <div style="color:red">備註:紅羽土雞為 (北區) 價格</div>
+<br>
+<div>交易量表</div>
+<iframe framebsorder="0"
+        height="750px"
+        width="100%"
+        src="https://drive.google.com/file/d/{{ file_volume_id }}/preview">
+</iframe>
+        <div style="color:red">
+        備註: 
+        蔬菜/水果/花卉為(台北批發市場)統計; 
+        紅羽土雞為(北區)價格; 
+        毛豬為(台灣地區不含澎湖)統計; 
+        羊為(彰化)統計; 
+        漁產品為(消費地市場不含埔里)統計; 
+        </div>
         {% if user.info.festivalreport_refresh and refresh %}
         <span class="input-group-btn">
                 <button class="btn btn-default search-btn" type="button" id="festival-report-refresh-submit">
                         <span class="fa fa-fw fa-refresh fa-lg"></span>
                 </button>
         </span>
-        更新 {{ roc_year }}_{{ festival_name.0.name }} 價格表
+        更新 {{ roc_year }}_{{ festival_name.0.name }} 價格及交易量表
         {% endif %}
 {% endif %}
 
@@ -171,6 +251,18 @@
                 trimContent: true, // Trims the content of individual <th>, <td> tags of whitespaces. 
                 }); 
         });
+
+        $("#download_custom_search_table_volume").on('click', function(e){
+                $("#custom_search_table_volume").table2csv({
+                filename:'custom_search_volume_'+getDateString(today)+'.csv',
+                separator: ',',
+                newline: '\n',
+                quoteFields: true,
+                excludeColumns: '',
+                excludeRows: '',
+                trimContent: true, // Trims the content of individual <th>, <td> tags of whitespaces. 
+                }); 
+        });
         
         $("#download_oneday_table_pdf").on('click', function(e){
                 var doc = new jspdf.jsPDF();
@@ -204,6 +296,28 @@
                                         }
                 });
                 doc.save('custom_search_A0_'+getDateString(today)+'.pdf');
+        });
+
+        $("#download_custom_search_table_pdf_volume").on('click', function(e){
+                var doc = new jspdf.jsPDF('l','pt','a0');
+                doc.addFileToVFS('TP-normal.ttf', font);
+                doc.addFont('TP-normal.ttf', 'TP', 'normal');
+                doc.setFont('TP');
+                doc.setFontSize(12);
+                doc.autoTable({
+                        html: '#custom_search_table_volume',
+                        theme: 'striped', //striped(顏色交替),grid(框線),plain(無)
+                        tableWidth: 'auto',//表格寬度,auto(自動縮小各欄位寬度至設定寬度中),wrap(超過部分會被裁切),具體數據
+                        //startY: 0,//表格Y位置
+                        margin: {top: 0, right: 0, bottom: 0, left: 0},//表格邊距
+                        showHead: 'everyPage', //everyPage,firstPage,never
+                        styles: { fillColor: [255, 255, 255], font: 'TP', fontSize: 4.5, fontStyle: 'normal', textColor: [0, 0, 0], halign: 'center' },
+                        columnStyles: {
+                                        0: {cellWidth: 22},
+                                        1: {cellWidth: 70},
+                                        }
+                });
+                doc.save('custom_search_volume_A0_'+getDateString(today)+'.pdf');
         });
 
         };

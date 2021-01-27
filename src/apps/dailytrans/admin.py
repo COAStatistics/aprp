@@ -91,6 +91,7 @@ class FestivalReportAdmin(admin.ModelAdmin):
     list_display = (
         'festival_id',
         'file_id',
+        'file_volume_id',
         'update_time',
         'create_time',
     )

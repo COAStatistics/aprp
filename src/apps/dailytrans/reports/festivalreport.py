@@ -1,4 +1,5 @@
 import pandas as pd 
+import numpy as np
 import psycopg2
 import sxtwl #陽曆陰曆轉換套件
 from datetime import datetime,timedelta,date
@@ -34,6 +35,7 @@ class FestivalReportFactory(object):
         self.roc_year = int(rocyear)
         self.year = self.roc_year + 1911
         self.result_data = dict()
+        self.result_volume = dict()
         self.roc_date_range = dict()
         self.today = date.today()
         self.yesterday = self.today - timedelta(days=1)
@@ -51,6 +53,9 @@ class FestivalReportFactory(object):
             self.ROC_Dragon_Boat_Festival_dict = dict() #端午節_民國年
             self.ROC_Mid_Autumn_Festival_dict = dict() #中秋節_民國年
             self.pid = FestivalItems.objects.filter(festivalname__id__contains=self.festival)
+            self.festivalname = FestivalName.objects.filter(id=self.festival)
+            self.lunarmonth = self.festivalname[0].lunarmonth
+            self.lunarday = self.festivalname[0].lunarday
             for i in self.pid:
                 self.product_dict[i.name]=[]
                 for j in i.product_id.all():
@@ -78,6 +83,7 @@ class FestivalReportFactory(object):
             self.ROC_Custom_dict = dict() #自訂日期_民國年
         self.table = ''
         self.all_date_list = list()
+        self.unit='(元/公斤)'
         
 
     def festival_date(self, festival=1):
@@ -86,14 +92,9 @@ class FestivalReportFactory(object):
         for y in range(self.roc_before5years,self.roc_year+1):
             if not self.custom_search:
                 #陰曆轉陽曆
-                if self.festival == '1':
-                    lunarday='{}-01-01'.format(int(y)+1911) #農曆春節
-                elif self.festival == '2':
-                    lunarday='{}-05-05'.format(int(y)+1911) #農曆端午節
-                elif self.festival == '3':
-                    lunarday='{}-08-15'.format(int(y)+1911) #農曆中秋節
-                lunarday_list = lunarday.split('-')
-                solar_day = lunar.getDayByLunar((int)(lunarday_list[0]),(int)(lunarday_list[1]),(int)(lunarday_list[2])) 
+                lunardate='{0}-{1}-{2}'.format(int(y)+1911, self.lunarmonth, self.lunarday) #農曆春節
+                lunardate_list = lunardate.split('-')
+                solar_day = lunar.getDayByLunar((int)(lunardate_list[0]),(int)(lunardate_list[1]),(int)(lunardate_list[2])) 
                 festivalday="{0}-{1}-{2}".format(solar_day.y,solar_day.m,solar_day.d)
             else:
                 festivalday_list = self.special_day.split('-')
@@ -193,6 +194,7 @@ class FestivalReportFactory(object):
 
     def result(self, product_id, source_id, festival='1'):
         self.result_data[str(product_id)]={}
+        self.result_volume[str(product_id)]={}
         if self.oneday:
             self.result_data[str(product_id)][str(self.special_day_year)]=[]
 
@@ -216,12 +218,21 @@ class FestivalReportFactory(object):
             else:
                 has_volume = False
                 has_weight = False
+
             if has_volume and has_weight:
                 avgprice=(df_product_id['avg_price']*df_product_id['avg_weight']*df_product_id['volume']).sum()/(df_product_id['avg_weight']*df_product_id['volume']).sum()
+                if 80001 <= int(product_id[0]) < 80005: #羊的交易量不是重量x交易量
+                    avgvolume = (df_product_id['volume']).sum()
+                elif 70001 <= int(product_id[0]) < 70012 : #毛豬交易量為頭數
+                    avgvolume = (df_product_id['volume']).sum()
+                else:
+                    avgvolume = (df_product_id['avg_weight']*df_product_id['volume']).sum()/(df_product_id['volume']).sum()
             elif has_volume:
                 avgprice=(df_product_id['avg_price']*df_product_id['volume']).sum()/df_product_id['volume'].sum()
+                avgvolume = (df_product_id['volume']).sum()
             else:
                 avgprice=df_product_id['avg_price'].mean()
+                avgvolume = np.nan
             
             #Django ORM 模式
             # total_price = list()
@@ -240,10 +251,12 @@ class FestivalReportFactory(object):
             #     avgprice = 'nan'
 
             self.result_data[str(product_id)][str(self.special_day_year)].append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgprice)))
+            self.result_data[str(product_id)][str(self.special_day_year)].append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolume)))
 
         else:
             for y in range(self.roc_before5years,self.roc_year+1):
                 self.result_data[str(product_id)][str(y)]=[]
+                self.result_volume[str(product_id)][str(y)]=[]
 
             for y in range(self.roc_before5years,self.roc_year+1):
                 if not self.custom_search:
@@ -276,10 +289,18 @@ class FestivalReportFactory(object):
                         has_weight = False
                     if has_volume and has_weight:
                         avgprice=(df_product_id['avg_price']*df_product_id['avg_weight']*df_product_id['volume']).sum()/(df_product_id['avg_weight']*df_product_id['volume']).sum()
+                        if 80001 <= int(product_id[0]) < 80005: #羊的交易量不是重量x交易量
+                            avgvolume = (df_product_id['volume']).sum()
+                        elif 70001 <= int(product_id[0]) < 70012 : #毛豬交易量為頭數
+                            avgvolume = (df_product_id['volume']).sum()
+                        else:
+                            avgvolume=(df_product_id['avg_weight']*df_product_id['volume']).sum()/(df_product_id['volume']).sum()
                     elif has_volume:
                         avgprice=(df_product_id['avg_price']*df_product_id['volume']).sum()/df_product_id['volume'].sum()
+                        avgvolume=df_product_id['volume'].sum()
                     else:
                         avgprice=df_product_id['avg_price'].mean()
+                        avgvolume=np.nan
 
 
 
@@ -298,8 +319,9 @@ class FestivalReportFactory(object):
                     # else:
                     #     avgprice = 'nan'
                     self.result_data[str(product_id)][str(y)].append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgprice)))
+                    self.result_volume[str(product_id)][str(y)].append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolume)))
 
-        return self.result_data
+        return self.result_data,self.result_volume
 
     def trimmean(self, arr):
         arr_min = arr.min()
@@ -308,9 +330,9 @@ class FestivalReportFactory(object):
         arr_trimmean = (arr_sum - arr_max - arr_min)/(len(arr)-2)
         return arr_trimmean
 
-    def data2pandas2save(self, product_dict, result_data, festival=1):
-        year_df = pd.Series(self.result_data.values())
-        index_df = pd.Series(list(self.result_data.keys()))
+    def data2pandas2save(self, product_dict, result_data, festival='1', volume=0):
+        year_df = pd.Series(result_data.values())
+        index_df = pd.Series(list(result_data.keys()))
         df1 = pd.DataFrame(index_df,index=[i for i in range(0,len(self.product_dict.keys()))])
         df2 = pd.DataFrame(list(year_df[0]),index=[i for i in range(0,len(self.product_dict.keys()))])
         df3 = pd.merge(df1,df2, left_index =True, right_index =True, how='outer')
@@ -383,38 +405,43 @@ class FestivalReportFactory(object):
             product_name = [k for k in list(self.product_dict.keys())][index]
             df4.loc[index,('農產品','產品名稱')] = product_name
 
+        if volume:
+            #不顯示交易量的單位
+            self.unit=''
+
+
         for index, row in df4.iterrows():
             df4.loc[index,('節前四週與去年同期比較','漲跌率(%)')] = df4.loc[index,(str(self.roc_year), '節前四週')]/df4.loc[index,(str(self.roc_year-1), '節前四週')]*100-100
-            df4.loc[index,('節前四週與去年同期比較','差幅(元/公斤)')] = df4.loc[index,(str(self.roc_year), '節前四週')]-df4.loc[index,(str(self.roc_year-1), '節前四週')]
-            df4.loc[index,('前五年簡單平均','節前四週平均(元/公斤)')] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節前四週'),(str(self.roc_year-2), '節前四週'),(str(self.roc_year-3), '節前四週'),(str(self.roc_year-4), '節前四週'),(str(self.roc_year-5), '節前四週')]])
+            df4.loc[index,('節前四週與去年同期比較','差幅{}'.format(self.unit))] = df4.loc[index,(str(self.roc_year), '節前四週')]-df4.loc[index,(str(self.roc_year-1), '節前四週')]
+            df4.loc[index,('前五年簡單平均','節前四週平均{}'.format(self.unit))] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節前四週'),(str(self.roc_year-2), '節前四週'),(str(self.roc_year-3), '節前四週'),(str(self.roc_year-4), '節前四週'),(str(self.roc_year-5), '節前四週')]])
 
             df4.loc[index,('節前三週與去年同期比較','漲跌率(%)')] = df4.loc[index,(str(self.roc_year), '節前三週')]/df4.loc[index,(str(self.roc_year-1), '節前三週')]*100-100
-            df4.loc[index,('節前三週與去年同期比較','差幅(元/公斤)')] = df4.loc[index,(str(self.roc_year), '節前三週')]-df4.loc[index,(str(self.roc_year-1), '節前三週')]
-            df4.loc[index,('前五年簡單平均','節前三週平均(元/公斤)')] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節前三週'),(str(self.roc_year-2), '節前三週'),(str(self.roc_year-3), '節前三週'),(str(self.roc_year-4), '節前三週'),(str(self.roc_year-5), '節前三週')]])
+            df4.loc[index,('節前三週與去年同期比較','差幅{}'.format(self.unit))] = df4.loc[index,(str(self.roc_year), '節前三週')]-df4.loc[index,(str(self.roc_year-1), '節前三週')]
+            df4.loc[index,('前五年簡單平均','節前三週平均{}'.format(self.unit))] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節前三週'),(str(self.roc_year-2), '節前三週'),(str(self.roc_year-3), '節前三週'),(str(self.roc_year-4), '節前三週'),(str(self.roc_year-5), '節前三週')]])
 
             df4.loc[index,('節前二週與去年同期比較','漲跌率(%)')] = df4.loc[index,(str(self.roc_year), '節前二週')]/df4.loc[index,(str(self.roc_year-1), '節前二週')]*100-100
-            df4.loc[index,('節前二週與去年同期比較','差幅(元/公斤)')] = df4.loc[index,(str(self.roc_year), '節前二週')]-df4.loc[index,(str(self.roc_year-1), '節前二週')]
-            df4.loc[index,('前五年簡單平均','節前二週平均(元/公斤)')] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節前二週'),(str(self.roc_year-2), '節前二週'),(str(self.roc_year-3), '節前二週'),(str(self.roc_year-4), '節前二週'),(str(self.roc_year-5), '節前二週')]])
+            df4.loc[index,('節前二週與去年同期比較','差幅{}'.format(self.unit))] = df4.loc[index,(str(self.roc_year), '節前二週')]-df4.loc[index,(str(self.roc_year-1), '節前二週')]
+            df4.loc[index,('前五年簡單平均','節前二週平均{}'.format(self.unit))] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節前二週'),(str(self.roc_year-2), '節前二週'),(str(self.roc_year-3), '節前二週'),(str(self.roc_year-4), '節前二週'),(str(self.roc_year-5), '節前二週')]])
 
             df4.loc[index,('節前一週與去年同期比較','漲跌率(%)')] = df4.loc[index,(str(self.roc_year), '節前一週')]/df4.loc[index,(str(self.roc_year-1), '節前一週')]*100-100
-            df4.loc[index,('節前一週與去年同期比較','差幅(元/公斤)')] = df4.loc[index,(str(self.roc_year), '節前一週')]-df4.loc[index,(str(self.roc_year-1), '節前一週')]
-            df4.loc[index,('前五年簡單平均','節前一週平均(元/公斤)')] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節前一週'),(str(self.roc_year-2), '節前一週'),(str(self.roc_year-3), '節前一週'),(str(self.roc_year-4), '節前一週'),(str(self.roc_year-5), '節前一週')]])
+            df4.loc[index,('節前一週與去年同期比較','差幅{}'.format(self.unit))] = df4.loc[index,(str(self.roc_year), '節前一週')]-df4.loc[index,(str(self.roc_year-1), '節前一週')]
+            df4.loc[index,('前五年簡單平均','節前一週平均{}'.format(self.unit))] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節前一週'),(str(self.roc_year-2), '節前一週'),(str(self.roc_year-3), '節前一週'),(str(self.roc_year-4), '節前一週'),(str(self.roc_year-5), '節前一週')]])
 
             df4.loc[index,('節後一週與去年同期比較','漲跌率(%)')] = df4.loc[index,(str(self.roc_year), '節後一週')]/df4.loc[index,(str(self.roc_year-1), '節後一週')]*100-100
-            df4.loc[index,('節後一週與去年同期比較','差幅(元/公斤)')] = df4.loc[index,(str(self.roc_year), '節後一週')]-df4.loc[index,(str(self.roc_year-1), '節後一週')]
-            df4.loc[index,('前五年簡單平均','節後一週平均(元/公斤)')] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節後一週'),(str(self.roc_year-2), '節後一週'),(str(self.roc_year-3), '節後一週'),(str(self.roc_year-4), '節後一週'),(str(self.roc_year-5), '節後一週')]])
+            df4.loc[index,('節後一週與去年同期比較','差幅{}'.format(self.unit))] = df4.loc[index,(str(self.roc_year), '節後一週')]-df4.loc[index,(str(self.roc_year-1), '節後一週')]
+            df4.loc[index,('前五年簡單平均','節後一週平均{}'.format(self.unit))] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節後一週'),(str(self.roc_year-2), '節後一週'),(str(self.roc_year-3), '節後一週'),(str(self.roc_year-4), '節後一週'),(str(self.roc_year-5), '節後一週')]])
 
             df4.loc[index,('節後二週與去年同期比較','漲跌率(%)')] = df4.loc[index,(str(self.roc_year), '節後二週')]/df4.loc[index,(str(self.roc_year-1), '節後二週')]*100-100
-            df4.loc[index,('節後二週與去年同期比較','差幅(元/公斤)')] = df4.loc[index,(str(self.roc_year), '節後二週')]-df4.loc[index,(str(self.roc_year-1), '節後二週')]
-            df4.loc[index,('前五年簡單平均','節後二週平均(元/公斤)')] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節後二週'),(str(self.roc_year-2), '節後二週'),(str(self.roc_year-3), '節後二週'),(str(self.roc_year-4), '節後二週'),(str(self.roc_year-5), '節後二週')]])
+            df4.loc[index,('節後二週與去年同期比較','差幅{}'.format(self.unit))] = df4.loc[index,(str(self.roc_year), '節後二週')]-df4.loc[index,(str(self.roc_year-1), '節後二週')]
+            df4.loc[index,('前五年簡單平均','節後二週平均{}'.format(self.unit))] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節後二週'),(str(self.roc_year-2), '節後二週'),(str(self.roc_year-3), '節後二週'),(str(self.roc_year-4), '節後二週'),(str(self.roc_year-5), '節後二週')]])
 
             df4.loc[index,('節後三週與去年同期比較','漲跌率(%)')] = df4.loc[index,(str(self.roc_year), '節後三週')]/df4.loc[index,(str(self.roc_year-1), '節後三週')]*100-100
-            df4.loc[index,('節後三週與去年同期比較','差幅(元/公斤)')] = df4.loc[index,(str(self.roc_year), '節後三週')]-df4.loc[index,(str(self.roc_year-1), '節後三週')]
-            df4.loc[index,('前五年簡單平均','節後三週平均(元/公斤)')] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節後三週'),(str(self.roc_year-2), '節後三週'),(str(self.roc_year-3), '節後三週'),(str(self.roc_year-4), '節後三週'),(str(self.roc_year-5), '節後三週')]])
+            df4.loc[index,('節後三週與去年同期比較','差幅{}'.format(self.unit))] = df4.loc[index,(str(self.roc_year), '節後三週')]-df4.loc[index,(str(self.roc_year-1), '節後三週')]
+            df4.loc[index,('前五年簡單平均','節後三週平均{}'.format(self.unit))] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節後三週'),(str(self.roc_year-2), '節後三週'),(str(self.roc_year-3), '節後三週'),(str(self.roc_year-4), '節後三週'),(str(self.roc_year-5), '節後三週')]])
 
             df4.loc[index,('節後四週與去年同期比較','漲跌率(%)')] = df4.loc[index,(str(self.roc_year), '節後四週')]/df4.loc[index,(str(self.roc_year-1), '節後四週')]*100-100
-            df4.loc[index,('節後四週與去年同期比較','差幅(元/公斤)')] = df4.loc[index,(str(self.roc_year), '節後四週')]-df4.loc[index,(str(self.roc_year-1), '節後四週')]
-            df4.loc[index,('前五年簡單平均','節後四週平均(元/公斤)')] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節後四週'),(str(self.roc_year-2), '節後四週'),(str(self.roc_year-3), '節後四週'),(str(self.roc_year-4), '節後四週'),(str(self.roc_year-5), '節後四週')]])
+            df4.loc[index,('節後四週與去年同期比較','差幅{}'.format(self.unit))] = df4.loc[index,(str(self.roc_year), '節後四週')]-df4.loc[index,(str(self.roc_year-1), '節後四週')]
+            df4.loc[index,('前五年簡單平均','節後四週平均{}'.format(self.unit))] = self.trimmean(df4.loc[index,[(str(self.roc_year-1), '節後四週'),(str(self.roc_year-2), '節後四週'),(str(self.roc_year-3), '節後四週'),(str(self.roc_year-4), '節後四週'),(str(self.roc_year-5), '節後四週')]])
 
         df4.index = df4.index + 1
         columns_list=[]
@@ -423,60 +450,60 @@ class FestivalReportFactory(object):
         for y in range(self.roc_year,self.roc_year-5-1,-1):
             columns_list.append(('{}'.format(y), '節前四週'))
         columns_list.append(('節前四週與去年同期比較', '漲跌率(%)'))
-        columns_list.append(('節前四週與去年同期比較', '差幅(元/公斤)'))
-        columns_list.append(('前五年簡單平均', '節前四週平均(元/公斤)'))
+        columns_list.append(('節前四週與去年同期比較', '差幅{}'.format(self.unit)))
+        columns_list.append(('前五年簡單平均', '節前四週平均{}'.format(self.unit)))
 
         for y in range(self.roc_year,self.roc_year-5-1,-1):
             columns_list.append(('{}'.format(y), '節前三週'))
         columns_list.append(('節前三週與去年同期比較', '漲跌率(%)'))
-        columns_list.append(('節前三週與去年同期比較', '差幅(元/公斤)'))
-        columns_list.append(('前五年簡單平均', '節前三週平均(元/公斤)'))
+        columns_list.append(('節前三週與去年同期比較', '差幅{}'.format(self.unit)))
+        columns_list.append(('前五年簡單平均', '節前三週平均{}'.format(self.unit)))
 
         for y in range(self.roc_year,self.roc_year-5-1,-1):
             columns_list.append(('{}'.format(y), '節前二週'))
         columns_list.append(('節前二週與去年同期比較', '漲跌率(%)'))
-        columns_list.append(('節前二週與去年同期比較', '差幅(元/公斤)'))
-        columns_list.append(('前五年簡單平均', '節前二週平均(元/公斤)'))
+        columns_list.append(('節前二週與去年同期比較', '差幅{}'.format(self.unit)))
+        columns_list.append(('前五年簡單平均', '節前二週平均{}'.format(self.unit)))
 
         for y in range(self.roc_year,self.roc_year-5-1,-1):
             columns_list.append(('{}'.format(y), '節前一週'))
         columns_list.append(('節前一週與去年同期比較', '漲跌率(%)'))
-        columns_list.append(('節前一週與去年同期比較', '差幅(元/公斤)'))
-        columns_list.append(('前五年簡單平均', '節前一週平均(元/公斤)'))
+        columns_list.append(('節前一週與去年同期比較', '差幅{}'.format(self.unit)))
+        columns_list.append(('前五年簡單平均', '節前一週平均{}'.format(self.unit)))
 
         for y in range(self.roc_year,self.roc_year-5-1,-1):
             columns_list.append(('{}'.format(y), '節後一週'))
         columns_list.append(('節後一週與去年同期比較', '漲跌率(%)'))
-        columns_list.append(('節後一週與去年同期比較', '差幅(元/公斤)'))
-        columns_list.append(('前五年簡單平均', '節後一週平均(元/公斤)'))
+        columns_list.append(('節後一週與去年同期比較', '差幅{}'.format(self.unit)))
+        columns_list.append(('前五年簡單平均', '節後一週平均{}'.format(self.unit)))
 
         for y in range(self.roc_year,self.roc_year-5-1,-1):
             columns_list.append(('{}'.format(y), '節後二週'))
         columns_list.append(('節後二週與去年同期比較', '漲跌率(%)'))
-        columns_list.append(('節後二週與去年同期比較', '差幅(元/公斤)'))
-        columns_list.append(('前五年簡單平均', '節後二週平均(元/公斤)'))
+        columns_list.append(('節後二週與去年同期比較', '差幅{}'.format(self.unit)))
+        columns_list.append(('前五年簡單平均', '節後二週平均{}'.format(self.unit)))
 
         for y in range(self.roc_year,self.roc_year-5-1,-1):
             columns_list.append(('{}'.format(y), '節後三週'))
         columns_list.append(('節後三週與去年同期比較', '漲跌率(%)'))
-        columns_list.append(('節後三週與去年同期比較', '差幅(元/公斤)'))
-        columns_list.append(('前五年簡單平均', '節後三週平均(元/公斤)'))
+        columns_list.append(('節後三週與去年同期比較', '差幅{}'.format(self.unit)))
+        columns_list.append(('前五年簡單平均', '節後三週平均{}'.format(self.unit)))
 
         for y in range(self.roc_year,self.roc_year-5-1,-1):
             columns_list.append(('{}'.format(y), '節後四週'))
         columns_list.append(('節後四週與去年同期比較', '漲跌率(%)'))
-        columns_list.append(('節後四週與去年同期比較', '差幅(元/公斤)'))
-        columns_list.append(('前五年簡單平均', '節後四週平均(元/公斤)'))
+        columns_list.append(('節後四週與去年同期比較', '差幅{}'.format(self.unit)))
+        columns_list.append(('前五年簡單平均', '節後四週平均{}'.format(self.unit)))
 
         df4=df4[columns_list]
 
         df5 = df4.copy()
         if not self.custom_search:
-            if festival ==1:
+            if festival =='1':
                 self.roc_date_range = self.ROC_Chinese_New_Year_dict
-            if festival ==2:
+            if festival =='2':
                 self.roc_date_range = self.ROC_Dragon_Boat_Festival_dict
-            if festival ==3:
+            if festival =='3':
                 self.roc_date_range = self.ROC_Mid_Autumn_Festival_dict
         else:
             self.roc_date_range = self.ROC_Custom_dict
@@ -491,128 +518,133 @@ class FestivalReportFactory(object):
         if not self.custom_search:
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][0]
-                columns_name.append('{0}年節前四週\n{1}\n(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節前四週\n{1}\n{2}'.format(y,date,self.unit))
             columns_name.append('{}年節前四週\n較{}年同期\n漲跌率\n(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節前四週\n較{}年同期\n差幅\n(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均\n({}-{}年)\n節前四週\n(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節前四週\n較{}年同期\n差幅\n{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均\n({}-{}年)\n節前四週\n{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][1]
-                columns_name.append('{0}年節前三週\n{1}\n(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節前三週\n{1}\n{2}'.format(y,date,self.unit))
             columns_name.append('{}年節前三週\n較{}年同期\n漲跌率\n(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節前三週\n較{}年同期\n差幅\n(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均\n({}-{}年)\n節前三週\n(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節前三週\n較{}年同期\n差幅\n{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均\n({}-{}年)\n節前三週\n{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][2]
-                columns_name.append('{0}年節前二週\n{1}\n(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節前二週\n{1}\n{2}'.format(y,date,self.unit))
             columns_name.append('{}年節前二週\n較{}年同期\n漲跌率\n(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節前二週\n較{}年同期\n差幅\n(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均\n({}-{}年)\n節前二週\n(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節前二週\n較{}年同期\n差幅\n{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均\n({}-{}年)\n節前二週\n{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][3]
-                columns_name.append('{0}年節前一週\n{1}\n(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節前一週\n{1}\n{2}'.format(y,date,self.unit))
             columns_name.append('{}年節前一週\n較{}年同期\n漲跌率\n(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節前一週\n較{}年同期\n差幅\n(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均\n({}-{}年)\n節前一週\n(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節前一週\n較{}年同期\n差幅\n{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均\n({}-{}年)\n節前一週\n{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][4]
-                columns_name.append('{0}年節後一週\n{1}\n(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節後一週\n{1}\n{2}'.format(y,date,self.unit))
             columns_name.append('{}年節後一週\n較{}年同期\n漲跌率\n(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節後一週\n較{}年同期\n差幅\n(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均\n({}-{}年)\n節後一週\n(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節後一週\n較{}年同期\n差幅\n{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均\n({}-{}年)\n節後一週\n{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][5]
-                columns_name.append('{0}年節後二週\n{1}\n(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節後二週\n{1}\n{2}'.format(y,date,self.unit))
             columns_name.append('{}年節後二週\n較{}年同期\n漲跌率\n(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節後二週\n較{}年同期\n差幅\n(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均\n({}-{}年)\n節後二週\n(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節後二週\n較{}年同期\n差幅\n{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均\n({}-{}年)\n節後二週\n{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][6]
-                columns_name.append('{0}年節後三週\n{1}\n(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節後三週\n{1}\n{2}'.format(y,date,self.unit))
             columns_name.append('{}年節後三週\n較{}年同期\n漲跌率\n(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節後三週\n較{}年同期\n差幅\n(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均\n({}-{}年)\n節後三週\n(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節後三週\n較{}年同期\n差幅\n{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均\n({}-{}年)\n節後三週\n{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][7]
-                columns_name.append('{0}年節後四週\n{1}\n(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節後四週\n{1}\n{2}'.format(y,date,self.unit))
             columns_name.append('{}年節後四週\n較{}年同期\n漲跌率\n(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節後四週\n較{}年同期\n差幅\n(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均\n({}-{}年)\n節後四週\n(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節後四週\n較{}年同期\n差幅\n{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均\n({}-{}年)\n節後四週\n{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
         else:
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][0]
-                columns_name.append('{0}年節前四週<br>{1}<br>(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節前四週<br>{1}<br>{2}'.format(y,date,self.unit))
             columns_name.append('{}年節前四週<br>較{}年同期<br>漲跌率<br>(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節前四週<br>較{}年同期<br>差幅<br>(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節前四週<br>(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節前四週<br>較{}年同期<br>差幅<br>{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節前四週<br>{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][1]
-                columns_name.append('{0}年節前三週<br>{1}<br>(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節前三週<br>{1}<br>{2}'.format(y,date,self.unit))
             columns_name.append('{}年節前三週<br>較{}年同期<br>漲跌率<br>(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節前三週<br>較{}年同期<br>差幅<br>(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節前三週<br>(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節前三週<br>較{}年同期<br>差幅<br>{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節前三週<br>{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][2]
-                columns_name.append('{0}年節前二週<br>{1}<br>(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節前二週<br>{1}<br>{2}'.format(y,date,self.unit))
             columns_name.append('{}年節前二週<br>較{}年同期<br>漲跌率<br>(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節前二週<br>較{}年同期<br>差幅<br>(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節前二週<br>(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節前二週<br>較{}年同期<br>差幅<br>{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節前二週<br>{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][3]
-                columns_name.append('{0}年節前一週<br>{1}<br>(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節前一週<br>{1}<br>{2}'.format(y,date,self.unit))
             columns_name.append('{}年節前一週<br>較{}年同期<br>漲跌率<br>(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節前一週<br>較{}年同期<br>差幅<br>(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節前一週<br>(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節前一週<br>較{}年同期<br>差幅<br>{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節前一週<br>{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][4]
-                columns_name.append('{0}年節後一週<br>{1}<br>(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節後一週<br>{1}<br>{2}'.format(y,date,self.unit))
             columns_name.append('{}年節後一週<br>較{}年同期<br>漲跌率<br>(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節後一週<br>較{}年同期<br>差幅<br>(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節後一週<br>(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節後一週<br>較{}年同期<br>差幅<br>{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節後一週<br>{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][5]
-                columns_name.append('{0}年節後二週<br>{1}<br>(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節後二週<br>{1}<br>{2}'.format(y,date,self.unit))
             columns_name.append('{}年節後二週<br>較{}年同期<br>漲跌率<br>(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節後二週<br>較{}年同期<br>差幅<br>(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節後二週<br>(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節後二週<br>較{}年同期<br>差幅<br>{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節後二週<br>{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][6]
-                columns_name.append('{0}年節後三週<br>{1}<br>(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節後三週<br>{1}<br>{2}'.format(y,date,self.unit))
             columns_name.append('{}年節後三週<br>較{}年同期<br>漲跌率<br>(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節後三週<br>較{}年同期<br>差幅<br>(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節後三週<br>(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節後三週<br>較{}年同期<br>差幅<br>{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節後三週<br>{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
             for y in range(self.roc_year,self.roc_year-6,-1):
                 date=self.roc_date_range[str(y)][7]
-                columns_name.append('{0}年節後四週<br>{1}<br>(元/公斤)'.format(y,date))
+                columns_name.append('{0}年節後四週<br>{1}<br>{2}'.format(y,date,self.unit))
             columns_name.append('{}年節後四週<br>較{}年同期<br>漲跌率<br>(%)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('{}年節後四週<br>較{}年同期<br>差幅<br>(元/公斤)'.format(self.roc_year,self.roc_year-1))
-            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節後四週<br>(元/公斤)'.format(self.roc_year-5,self.roc_year-1))
+            columns_name.append('{}年節後四週<br>較{}年同期<br>差幅<br>{}'.format(self.roc_year,self.roc_year-1,self.unit))
+            columns_name.append('近5年簡單平均<br>({}-{}年)<br>節後四週<br>{}'.format(self.roc_year-5,self.roc_year-1,self.unit))
 
         df5.columns = columns_name
         if not self.custom_search:
             festival_name = FestivalName.objects.filter(id = self.festival)
             festival_title = festival_name[0].name
-
-            file_name = '{}_{}節前價格表.xlsx'.format(self.roc_year,festival_title)
+            if volume:
+                file_name = '{}_{}節前交易表.xlsx'.format(self.roc_year,festival_title)
+            else:
+                file_name = '{}_{}節前價格表.xlsx'.format(self.roc_year,festival_title)
 
             writer = pd.ExcelWriter(file_name)
             wb = openpyxl.Workbook()
             df6 = df5.copy()
             df6.to_excel(writer)
-            ws = wb.create_sheet(index=0, title="價格表")
+            if volume:
+                ws = wb.create_sheet(index=0, title="交易量表")
+            else:
+                ws = wb.create_sheet(index=0, title="價格表")
 
             #pandas to openpyxl
             for r in dataframe_to_rows(df6, index=False, header=False):
@@ -639,7 +671,10 @@ class FestivalReportFactory(object):
             # 合併儲存格
             ws.merge_cells('A1:BU1')
             #儲存格內容及格式
-            ws['A1']='{}節前農產品價格變動情形表'.format(festival_title)
+            if volume:
+                ws['A1']='{}節前農產品交易量變動情形表'.format(festival_title)
+            else:
+                ws['A1']='{}節前農產品價格變動情形表'.format(festival_title)
             ws['A1'].alignment=Alignment(horizontal='center', vertical='center')
             ws['A1'].font = title_font
 
@@ -731,7 +766,7 @@ class FestivalReportFactory(object):
                 for k in i.source.all():
                     source_id_list.append(k.id)
 
-                self.result_data = self.result(product_id_list, source_id_list, self.festival)
+                self.result_data,self.result_volume = self.result(product_id_list, source_id_list, self.festival)
  
             #只查詢單一日期,返回各品項查詢值
             if self.oneday:
@@ -741,7 +776,9 @@ class FestivalReportFactory(object):
             else:
                 file_name = self.data2pandas2save(self.product_dict, self.result_data, self.festival)
                 file_path = Path(output_dir, file_name)
-            return file_name,file_path
+                file_volume_name = self.data2pandas2save(self.product_dict, self.result_volume, self.festival,volume=1)
+                file_volume_path = Path(output_dir, file_volume_name)
+            return file_name, file_path, file_volume_name, file_volume_path
 
         else:
             for i in self.custom_search_item:
@@ -752,7 +789,9 @@ class FestivalReportFactory(object):
                 #水果(50001~59019),批發水果(20001~20004),來源為[20001, 20002]
                 #花卉(60001~60100),批發花卉(30001~30002),來源為[30001]
                 #魚(120001~121048),來源為[80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
-                #糧(1~27),毛豬(70001~70009),羊(80001~80004),雞(90004~90016),鴨(100001~100006),雞(110001~110006),牛(130001~130005),沒有來源
+                #羊(80001~80004),來源為[50001] 彰化市場
+                #毛豬(70001~70009),來源為[40002, 40003, 40004, 40005, 40006, 40007, 40008, 40009, 40010, 40011, 40012, 40013, 40014, 40015, 40016, 40017, 40018, 40019, 40020, 40021,40022, 40023],台灣地區不含澎湖
+                #糧(1~27),雞(90004~90016),鴨(100001~100006),雞(110001~110006),牛(130001~130005),沒有來源
                 if 40001 <= int(i) < 50000 or 10006 <= int(i) <= 10010: #蔬菜類,批發蔬菜
                     source_id_list = [10001, 10002]
                 elif 50001 <= int(i) < 60000 or 20001 <= int(i) <= 20004: #水果,批發水果
@@ -761,31 +800,19 @@ class FestivalReportFactory(object):
                     source_id_list = [30001]
                 elif 120001 <= int(i) < 130000: #漁產品
                     source_id_list = [80001, 80003, 80006, 80007, 80008, 80009, 80010, 80011, 80013, 80014, 80017, 80018, 80020]
+                elif 80001 <= int(i) < 80005: #羊,抓彰化市場
+                    source_id_list = [50001]
+                elif 70001 <= int(i) < 70012: #毛豬,台灣地區不含澎湖
+                    source_id_list = [40002, 40003, 40004, 40005, 40006, 40007, 40008, 40009, 40010, 40011, 40012, 40013, 40014, 40015, 40016, 40017, 40018, 40019, 40020, 40021, 40022]
                 else:
                     source_id_list = None
 
-                self.result_data = self.result(product_id = i, source_id = source_id_list)
-            
+                self.result_data,self.result_volume = self.result(product_id = i, source_id = source_id_list)
+
             product_dataframe = self.data2pandas2save(self.product_dict, self.result_data)
-            return product_dataframe
+            product_dataframe_volume = self.data2pandas2save(self.product_dict, self.result_volume, volume=1)
+            return product_dataframe, product_dataframe_volume
 
         #各品項逐一查詢價格
         # for k,v in self.product_dict.items():
             # self.result_data = self.get_data(self.festival,v)
-        
-
-
-
-if __name__ == '__main__':
-    start_time = time.time()
-    rocyear = '109'
-    festival = 3 #1:春節;2:端午節;3:中秋節
-    oneday = False
-    special_day = '2020-09-01'
-    file_name = FestivalReportFactory(rocyear, festival,oneday=oneday, special_day=special_day)()
-    if oneday:
-        print('result =',file_name)
-    else:
-        print('{} save'.format(file_name))
-    end_time = time.time()
-    print('use time =',end_time-start_time)

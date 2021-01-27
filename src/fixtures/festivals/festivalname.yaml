@@ -2,15 +2,21 @@
   pk: 1
   fields:
     name: 春節
+    lunarmonth: '01'
+    lunarday: '01'
 
 - model: configs.FestivalName
   pk: 2
   fields:
     name: 端午節
+    lunarmonth: '05'
+    lunarday: '05'
 
 
 - model: configs.FestivalName
   pk: 3
   fields:
     name: 中秋節
+    lunarmonth: '08'
+    lunarday: '15'
 
