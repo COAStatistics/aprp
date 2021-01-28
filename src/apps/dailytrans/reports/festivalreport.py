@@ -639,8 +639,8 @@ class FestivalReportFactory(object):
 
             writer = pd.ExcelWriter(file_name)
             wb = openpyxl.Workbook()
-            df6 = df5.copy()
-            df6.fillna('-').to_excel(writer)
+            df6 = df5.copy().fillna('-')
+            df6.to_excel(writer)
             if volume:
                 ws = wb.create_sheet(index=0, title="交易量表")
             else:
@@ -665,6 +665,9 @@ class FestivalReportFactory(object):
                     _cell.border = border
                     _cell.font = content_font
                     _cell.number_format = '#,##0.0' #小數一位
+                    _cell.alignment = Alignment(horizontal='right',vertical='center') #數字及 - 靠右對齊
+                cell_A = _row[:1][0].alignment = Alignment(horizontal='left',vertical='center') #column A 物品品項靠左對齊
+
 
             #在第一行前插入一行
             ws.insert_rows(1)
