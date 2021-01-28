@@ -144,7 +144,7 @@
 - model: configs.FestivalItems
   pk: 17
   fields:
-    name: 紅羽土雞(產地價)
+    name: 紅羽土雞(北區)(產地價)
     order_sn: 401
     festivalname: [1, 2, 3]
     product_id: [90008]
@@ -433,3 +433,11 @@
     order_sn: 400
     festivalname: [1, 2, 3]
     product_id: [70011]
+
+- model: configs.FestivalItems
+  pk: 50
+  fields:
+    name: 紅羽土雞(北區+中區)(產地價)
+    order_sn: 401
+    festivalname: [1, 2, 3]
+    product_id: [90008, 90009]
