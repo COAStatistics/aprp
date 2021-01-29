@@ -97,7 +97,8 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
     # prevent division by zero ; 修正原條件遇到特殊情況時還是會發生 division by zero 錯誤
     # if query_set.filter(Q(avg_price=0) | Q(avg_weight=0)).count() == query_set.count():
     #     query_set = query_set.none()
-    query_set = query_set.filter(Q(volume__gt=0) & Q(avg_weight__gt=0))
+    if has_volume and has_weight:
+        query_set = query_set.filter(Q(volume__gt=0) & Q(avg_weight__gt=0))
 
     query_set = (query_set.values('date').annotate(
         year=Year('date'),
