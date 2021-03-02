@@ -351,7 +351,7 @@
 - model: watchlists.WatchlistItem
   pk: 6219
   fields:
-    product: 59008 # 鳳梨(17號)
+    product: 50068 # 鳳梨(金鑽)
     sources: [10073, 10074, 10066, 10068, 10045, 10067, 10038]
     parent: 8
 
