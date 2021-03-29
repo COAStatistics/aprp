@@ -20,7 +20,7 @@ django-celery-results==1.0.1
 eventlet==0.22.1
 kombu==4.1.0
 
-django==1.9.13
+django==1.11.29
 django-crispy-forms==1.7.0
 django-markdown-deux==1.0.5
 django-model-utils==3.0.0
