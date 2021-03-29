@@ -1,0 +1,17 @@
+- model: feed.Feed
+  pk: 140001
+  fields:
+    name: 玉米粒
+    code: 玉米粒
+    config: 15
+    unit: 2
+    type: 2
+
+- model: feed.Feed
+  pk: 140002
+  fields:
+    name: 黃豆粉
+    code: 黃豆粉
+    config: 15
+    unit: 2
+    type: 2

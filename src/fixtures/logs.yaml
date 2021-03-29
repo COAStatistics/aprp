@@ -83,4 +83,14 @@
     name: Watchlist App Logs
     code: LOT-watchlists
 
+- model: logs.LogType
+  pk: 15
+  fields:
+    name: Aprp Login Logs
+    code: login
 
+- model: logs.LogType
+  pk: 16
+  fields:
+    name: Feed App Logs
+    code: LOT-feed
