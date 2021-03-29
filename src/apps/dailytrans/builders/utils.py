@@ -184,7 +184,7 @@ def director(func):
                     if name is None and code is None and kwargs.get('history') is None:
                         d.not_updated += 1
                         d.save(update_fields=["not_updated"])
-                        db_logger.warning('Daily tran data not update, counted to field "not_updated": %s', str(d), extra={
+                        db_logger.warning('Daily tran data not update, counted to field "not_updated": {}'.format(str(d)), extra={
                             'logger_type': data.logger_type_code,
                         })
                     else:
