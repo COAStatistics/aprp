@@ -194,6 +194,14 @@
     type_level: 1
     charts: [1, 2, 3, 4, 5]
 
+- model: configs.Config
+  pk: 15
+  fields:
+    name: 飼料
+    code: COG15
+    type_level: 2
+    charts: [1, 2, 3, 4, 5]
+
 
 # Month
 

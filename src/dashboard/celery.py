@@ -97,6 +97,11 @@ app.conf.beat_schedule = {
         'args': (-4,)  # direct 5 day
     },
     # ======================================== 1 month Builder ========================================
+        'daily-feed-builder-31d': {
+        'task': 'DailyFeedBuilder',
+        'schedule': crontab(minute=10, hour='1,9'),
+        'args': (-30,)  # direct 31 days range
+    },
     'daily-chicken-builder-31d': {
         'task': 'DailyChickenBuilder',
         'schedule': crontab(minute=0, hour='9'),

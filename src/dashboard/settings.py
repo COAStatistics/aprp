@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'apps.comments',
     'apps.events',
     'apps.logs',
+    'apps.feed',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -267,6 +268,7 @@ FIXTURE_DIRS = [
     str(BASE_DIR('fixtures/watchlists')),
     str(BASE_DIR('fixtures/events')),
     str(BASE_DIR('fixtures/festivals')),
+    str(BASE_DIR('fixtures/feed')),
 ]
 
 # Rest-framework
@@ -308,6 +310,7 @@ CELERY_IMPORTS = (
     'apps.cattles.tasks',
     'apps.watchlists.tasks',
     'apps.dailytrans.tasks',
+    'apps.feed.tasks',
 )
 
 # Session Settings
@@ -364,6 +367,7 @@ DAILYTRAN_BUILDER_API = {
     'amis': env.str('BUILDER_API_AMIS_URL', default=''),
     'apis': env.str('BUILDER_API_APIS_URL', default=''),
     'efish': env.str('BUILDER_API_EFISH_URL', default=''),
+    'feed': 'https://www.naif.org.tw/memberLogin.aspx?frontTitleMenuID=105',
 }
 
 # Hide login
@@ -378,3 +382,8 @@ GOOGLE_DRIVE_REFRESH_TOKEN = env.str('GOOGLE_DRIVE_REFRESH_TOKEN')
 DAILY_REPORT_FOLDER_ID = env.str('DAILY_REPORT_FOLDER_ID', default='')
 TEST_DAILY_REPORT_FOLDER_ID = env.str('TEST_DAILY_REPORT_FOLDER_ID', default='')
 FESTIVAL_REPORT_FOLDER_ID = env.str('FESTIVAL_REPORT_FOLDER_ID', default='')
+
+# Naif login
+NAIF_ACCOUNT = env.str('NAIF_ACCOUNT')
+NAIF_PASSWORD = env.str('NAIF_PASSWORD')
+PYTESSERACT_PATH = env.str('PYTESSERACT_PATH')
