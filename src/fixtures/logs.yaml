@@ -94,3 +94,9 @@
   fields:
     name: Feed App Logs
     code: LOT-feed
+
+- model: logs.LogType
+  pk: 17
+  fields:
+    name: Flowers App Logs
+    code: LOT-flowers
