@@ -17,7 +17,7 @@ celery==4.1.0
 redis==2.10.6
 django-celery-beat==1.1.1
 django-celery-results==1.0.1
-eventlet==0.22.1
+eventlet==0.31.0
 kombu==4.1.0
 
 django==1.9.13
