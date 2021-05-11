@@ -100,3 +100,9 @@
   fields:
     name: Flowers App Logs
     code: LOT-flowers
+
+- model: logs.LogType
+  pk: 18
+  fields:
+    name: Last 5 Years Report Logs
+    code: LOT-last5yearsreport

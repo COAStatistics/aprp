@@ -24,8 +24,9 @@ from apps.configs.models import (
     Festival,
     FestivalName,
     AbstractProduct,
+    Last5YearsItems,
 )
-
+import json
 
 def login_required(view):
     """
@@ -139,7 +140,39 @@ class FestivalReport(LoginRequiredMixin, TemplateView):
         context['item_list'] = item_list
         return context
 
-        
+
+class Last5YearsReport(LoginRequiredMixin, TemplateView):
+    redirect_field_name = 'redirect_to'
+    template_name = 'ajax/last5years-report.html'
+
+    def post(self, request, **kwargs):
+        self.kwargs['POST'] = request.POST
+        self.roc_year_sel=self.kwargs['POST']['item_id_list']
+        return self.render_to_response(self.get_context_data())
+
+    def get_context_data(self, **kwargs):
+        context = super(Last5YearsReport, self).get_context_data(**kwargs)
+        #品項       
+        items_list = Last5YearsItems.objects.filter(enable=True).order_by('id')
+        all_items = {}
+        for i in items_list:
+            pid_list = []
+            source_list = []
+            pids = i.product_id.all()
+            sources = i.source.all()
+            for p in pids:
+                pid_list.append(str(p.id))
+            for s in sources:
+                source_list.append(str(s.id))
+            pid = ','.join(pid_list)
+            source = ','.join(source_list)
+            
+            all_items[i.name] = {'product_id':pid,'source':source}
+
+        context['items_list'] = all_items
+        return context
+
+
 class ProductSelector(LoginRequiredMixin, TemplateView):
     redirect_field_name = 'redirect_to'
     template_name = 'ajax/product-selector.html'

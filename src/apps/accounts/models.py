@@ -85,6 +85,7 @@ class UserInformation(Model):
     amislist_viewer = BooleanField(default=False, verbose_name=_('Amis List Viewer'))
     festivalreport_viewer = BooleanField(default=False, verbose_name=_('Festival Report Viewer'))
     festivalreport_refresh = BooleanField(default=False, verbose_name=_('Festival Report Refresh'))
+    last5yearsreport_viewer = BooleanField(default=False, verbose_name=_('Last 5 Years Report Viewer'))
     profile = ImageField(upload_to=upload_location, null=True, blank=True, verbose_name=_('Profile'))
 
     class Meta:

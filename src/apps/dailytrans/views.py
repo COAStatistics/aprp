@@ -7,11 +7,14 @@ from google_api.backends import DefaultGoogleDriveClient
 from apps.dailytrans.models import DailyReport, FestivalReport
 from apps.dailytrans.reports.dailyreport import DailyReportFactory
 from apps.dailytrans.reports.festivalreport import FestivalReportFactory
+from apps.dailytrans.reports.last5yearsreport import Last5YearsReportFactory
 from distutils.util import strtobool
 import logging
 from apps.configs.models import Festival, FestivalItems, FestivalName, AbstractProduct
 from django.core.exceptions import ObjectDoesNotExist
 import json
+import pandas as pd
+import numpy as np
 # import time
 
 def upload_file2google_client(file_name, file_path, folder_id, from_mimetype='XLSX'):
@@ -232,4 +235,69 @@ def render_festival_report(request,refresh=False):
     template = 'festival-report-iframe.html'
     # end_time = time.time()
     # print('spend time=',end_time-start_time)
+    return render(request, template, context)
+
+
+def render_last5years_report(request):
+    is_rams = False
+    is_hogs = False
+    is_flowers = False
+    data = request.GET or request.POST
+    sel_item_id = data.get('sel_item_id_list')
+    sel_item_source = data.get('sel_item_source_list')
+    sel_item_name = data.get('sel_item_name')
+    sel_item_id_list = [int(i) for i in sel_item_id.split(',')]
+    if 80001 <= int(sel_item_id_list[0]) < 80005:
+        is_rams = True
+    elif 70001 <= int(sel_item_id_list[0]) < 70012:
+        is_hogs = True
+    elif 30001 <= int(sel_item_id_list[0]) <= 30002 or 60001 <= int(sel_item_id_list[0]) < 70000:
+        is_flowers = True
+
+    avgvolume_data = None
+    avgweight_data = None
+    avgpriceweight_data = None
+    hightcharts_avgvolume_data = None
+    hightcharts_avgweight_data = None
+    hightcharts_avgpriceweight_data = None
+
+    if sel_item_source:
+        sel_item_source_list = [int(i) for i in sel_item_source.split(',')]
+    else:
+        sel_item_source_list = []
+
+    avgprice_data, avgvolume_data, avgweight_data, avgpriceweight_data = Last5YearsReportFactory(product_id=sel_item_id_list,source=sel_item_source_list, is_hogs=is_hogs, is_rams=is_rams)()
+
+    hightcharts_avgprice_data = avgprice_data.replace(np.nan, '', regex=True).to_dict('split')
+    avgprice_data = avgprice_data.replace(np.nan, '', regex=True).to_html(classes='table table-striped table-hover')
+
+    context = {
+        'avgprice_data': avgprice_data,
+        'hightcharts_avgprice_data': hightcharts_avgprice_data,
+        'sel_item_name':sel_item_name,
+        'is_hogs' : json.dumps(is_hogs),
+        'is_rams' : json.dumps(is_rams),
+        'is_flowers' : json.dumps(is_flowers),
+    }
+
+    if not avgvolume_data.empty:
+        hightcharts_avgvolume_data = avgvolume_data.replace(np.nan, '', regex=True).to_dict('split')
+        avgvolume_data = avgvolume_data.replace(np.nan, '', regex=True).to_html(classes='table table-striped table-hover')
+        context['hightcharts_avgvolume_data'] = hightcharts_avgvolume_data
+        context['avgvolume_data'] = avgvolume_data
+
+    if not avgweight_data.empty:
+        hightcharts_avgweight_data = avgweight_data.replace(np.nan, '', regex=True).to_dict('split')
+        avgweight_data = avgweight_data.replace(np.nan, '', regex=True).to_html(classes='table table-striped table-hover')
+        context['hightcharts_avgweight_data'] = hightcharts_avgweight_data
+        context['avgweight_data'] = avgweight_data
+
+    if not avgpriceweight_data.empty:
+        hightcharts_avgpriceweight_data = avgpriceweight_data.replace(np.nan, '', regex=True).to_dict('split')
+        avgpriceweight_data = avgpriceweight_data.replace(np.nan, '', regex=True).to_html(classes='table table-striped table-hover')
+        context['hightcharts_avgpriceweight_data'] = hightcharts_avgpriceweight_data
+        context['avgpriceweight_data'] = avgpriceweight_data
+
+    template = 'last5years-report-iframe.html'
+
     return render(request, template, context)

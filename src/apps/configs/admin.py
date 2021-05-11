@@ -10,6 +10,7 @@ from .models import (
     Festival,
     FestivalName,
     FestivalItems,
+    Last5YearsItems,
 )
 
 
@@ -137,6 +138,16 @@ class FestivalItemsAdmin(admin.ModelAdmin):
     form = FestivalItemsModelForm
     list_display = ['id', 'order_sn', 'name', 'enable', 'update_time', 'create_time']
     list_editable = ['name', 'enable']
+
+class Last5YearsItemsModelForm(ModelForm):
+    class Meta:
+        model = Last5YearsItems
+        exclude = ['update_time']
+
+class Last5YearsItemsAdmin(admin.ModelAdmin):
+    form = Last5YearsItemsModelForm
+    list_display = ['id', 'name', 'enable', 'update_time', 'create_time']
+    list_editable = ['name', 'enable']
     
 admin.site.register(AbstractProduct, AbstractProductAdmin)
 admin.site.register(Config, ConfigAdmin)
@@ -147,3 +158,4 @@ admin.site.register(Chart, ChartAdmin)
 admin.site.register(Festival, FestivalAdmin)
 admin.site.register(FestivalName, FestivalNameAdmin)
 admin.site.register(FestivalItems, FestivalItemsAdmin)
+admin.site.register(Last5YearsItems, Last5YearsItemsAdmin)
