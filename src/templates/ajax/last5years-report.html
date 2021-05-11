@@ -39,14 +39,11 @@
 <br>
 <div id="last_5_years-report-container" data-load data-load-url="{% url 'dailytrans:render_last_5_years_report' %}"></div>
 
-
-<script src='{% static "vendor/js/plugin/highcharts/highstock.js" %}'></script>
-<script src='{% static "vendor/js/plugin/highcharts/exporting.js" %}'></script>
 <script>
 
 	pageSetUp();
 
-	pagefunction = function(){
+	var pagefunction = function(){
 		$('.search-text').selectpicker();
 		$('#last_5_years-report-submit').on('click', function(e){
             var $container = $('#last_5_years-report-container');
@@ -64,8 +61,12 @@
 
 	}
 
-    // PAGE RELATED SCRIPTS
-	pagefunction();
+	var scripts = [
+	    // Highcharts plugins
+	    "{% static 'vendor/js/plugin/highcharts/highstock.js' %}",
+	    "{% static 'vendor/js/plugin/highcharts/exporting.js' %}",
+	]
+    scriptLoader(scripts, pagefunction);
 
 </script>
 
