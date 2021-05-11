@@ -269,6 +269,7 @@ FIXTURE_DIRS = [
     str(BASE_DIR('fixtures/events')),
     str(BASE_DIR('fixtures/festivals')),
     str(BASE_DIR('fixtures/feed')),
+    str(BASE_DIR('fixtures/last5years')),
 ]
 
 # Rest-framework

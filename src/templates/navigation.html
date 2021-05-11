@@ -69,6 +69,13 @@
                         </a>
                     </li>
                     {% endif %}
+                    {% if user.info.last5yearsreport_viewer %} 
+                    <li class="">
+                        <a href="{% url 'last5years_report' %}" name="last5years-report" title="近五年月平均報表"><i class="fa fa-lg fa-fw fa-line-chart" ></i>
+                            <span class="menu-item-parent">近五年月平均報表</span>
+                        </a>
+                    </li>
+                    {% endif %}
                     <li class="">
                         <a href="{% url 'product_selector' %}" name="product-selector" title="{% trans 'Product Selector' %}"><i class="fa fa-lg fa-fw fa-search-plus"></i> <span class="menu-item-parent">{% trans 'Product Selector' %}</span></a>
                     </li>

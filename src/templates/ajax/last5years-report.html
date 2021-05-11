@@ -1,0 +1,73 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!-- Bread crumb is created dynamically -->
+<!-- row -->
+<div class="row">
+	<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+		<h1 class="page-title txt-color-blueDark">
+
+			<!-- PAGE HEADER -->
+			<i class="fa-fw fa fa-home"></i>
+				{% trans 'Main' %}
+			<span>>
+				近五年月平均報表
+			</span>
+
+		</h1>
+	</div>
+</div>
+<!-- end row -->
+<div class="row">
+	<div class="col-sm-12 col-md-6 col-lg-4">
+		<div class="input-group input-group-lg search-area">
+			<span class="input-group-addon">品項</span>
+			<select class="form-control search-text" data-live-search="true" style="min-width: 60px; padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;" data-live-search="true" name="item" id="sel_item_id_list" >
+				{% for k,v in items_list.items %}
+				<option value="{{ v.product_id }}" source="{{ v.source }}"> {{ k }} </option>
+				{% endfor %}
+			</select>
+			<span class="input-group-btn">
+				<button class="btn btn-default search-btn" type="button" id="last_5_years-report-submit">
+					<span class="fa fa-fw fa-search fa-lg"></span>
+			  </button>
+			</span>
+		</div>
+	</div>
+</div>
+
+<br>
+<div id="last_5_years-report-container" data-load data-load-url="{% url 'dailytrans:render_last_5_years_report' %}"></div>
+
+
+<script src='{% static "vendor/js/plugin/highcharts/highstock.js" %}'></script>
+<script src='{% static "vendor/js/plugin/highcharts/exporting.js" %}'></script>
+<script>
+
+	pageSetUp();
+
+	pagefunction = function(){
+		$('.search-text').selectpicker();
+		$('#last_5_years-report-submit').on('click', function(e){
+            var $container = $('#last_5_years-report-container');
+            var url = $container.attr('data-load-url');
+			var sel_item_id_list = $('#sel_item_id_list').val();
+			var sel_item_source_list = $('#sel_item_id_list').find('option:selected').attr('source');
+			var sel_item_name = $('#sel_item_id_list').find('option:selected').text();
+            data = {
+				'sel_item_id_list' : sel_item_id_list,
+				'sel_item_source_list' : sel_item_source_list,
+				'sel_item_name' :　sel_item_name,
+            };
+            loadURL(url, $container, data, "POST");
+        });
+
+	}
+
+    // PAGE RELATED SCRIPTS
+	pagefunction();
+
+</script>
+
+
+

@@ -32,6 +32,7 @@ from .views import (
     IntegrationTable,
     BrowserNotSupport,
     FestivalReport,
+    Last5YearsReport,
 )
 
 urlpatterns = [
@@ -84,6 +85,7 @@ urlpatterns += i18n_patterns(
     url(r'^daily-report/', DailyReport.as_view(), name='daily_report'),
     # festival report ajax
     url(r'^festival-report/', FestivalReport.as_view(), name='festival_report'),
+    url(r'^last5years-report/', Last5YearsReport.as_view(), name='last5years_report'),
     # product selector
     url(r'^product-selector/$', ProductSelector.as_view(), name='product_selector'),
     url(r'^product-selector-ui/step/(?P<step>\d+)/$', ProductSelectorUI.as_view(), name='product_selector_ui'),

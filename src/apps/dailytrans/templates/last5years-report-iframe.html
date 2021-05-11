@@ -1,0 +1,467 @@
+{% load staticfiles %}
+        {% if avgprice_data %}
+        <div id='avgprice_container'></div>
+        <br>
+        <div>
+                {{ avgprice_data|safe }}
+        </div>
+
+        <script language="JavaScript">
+         hightcharts_avgprice_data = {{ hightcharts_avgprice_data|safe }};
+         sel_item_name = "{{ sel_item_name }}";
+         is_flowers = {{ is_flowers }};
+         $(document).ready(function() {
+            var title = {
+               text: sel_item_name,
+               style:{
+                  "fontSize": "24px"
+               }
+            };
+            var subtitle = {
+               text: '近五年月平均價',
+               style:{
+                  "fontSize": "20px"
+               }
+            };
+            var xAxis = {
+               categories: hightcharts_avgprice_data.columns
+            };
+            if (is_flowers){
+            var yAxis = {
+               title: {
+                  text: '元/把'
+               },
+               plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+               }]
+            };   
+            } else{
+               var yAxis = {
+               title: {
+                  text: '元/公斤'
+               },
+               plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+               }]
+            };   
+            }
+         
+            var tooltip = {
+               valueSuffix: ''
+            }
+         
+            var legend = {
+               layout: 'vertical',
+               align: 'right',
+               verticalAlign: 'middle',
+               borderWidth: 0
+            };
+         
+            var series =  [
+               {
+                  name: hightcharts_avgprice_data.index[0],
+                  data: hightcharts_avgprice_data.data[0]
+               },
+               {
+                  name: hightcharts_avgprice_data.index[1],
+                  data: hightcharts_avgprice_data.data[1]
+               }, 
+               {
+                  name: hightcharts_avgprice_data.index[2],
+                  data: hightcharts_avgprice_data.data[2]
+               }, 
+               {
+                  name: hightcharts_avgprice_data.index[3],
+                  data: hightcharts_avgprice_data.data[3]
+               }, 
+               {
+                  name: hightcharts_avgprice_data.index[4],
+                  data: hightcharts_avgprice_data.data[4]
+               }, 
+               {
+                  name: hightcharts_avgprice_data.index[5],
+                  data: hightcharts_avgprice_data.data[5]
+               }, 
+               {
+                  name: hightcharts_avgprice_data.index[6],
+                  data: hightcharts_avgprice_data.data[6]
+               },  
+       
+            ];
+       
+            var credits = {
+             enabled:false,
+            };
+         
+            var json = {};
+            json.title = title;
+            json.subtitle = subtitle;
+            json.xAxis = xAxis;
+            json.yAxis = yAxis;
+            json.tooltip = tooltip;
+            json.legend = legend;
+            json.series = series;
+            json.credits = credits;
+         
+            $('#avgprice_container').highcharts(json);
+         });
+         </script>
+
+        {% endif %}
+
+        {% if avgvolume_data %}
+        <div id='avgvolume_container'></div>
+        <br>
+        <div>
+                {{ avgvolume_data|safe }}
+        </div>
+
+        <script language="JavaScript">
+         hightcharts_avgvolume_data = {{ hightcharts_avgvolume_data|safe }};
+         sel_item_name = "{{ sel_item_name }}";
+         is_rams = {{ is_rams }};
+         is_hogs = {{ is_hogs }};
+         is_flowers = {{ is_flowers }};
+         $(document).ready(function() {
+            var title = {
+               text: sel_item_name,
+               style:{
+                  "fontSize": "24px"
+               } 
+            };
+            var subtitle = {
+               text: '近五年月平均量',
+               style:{
+                  "fontSize": "20px"
+               }
+            };
+            var xAxis = {
+               categories: hightcharts_avgvolume_data.columns
+            };
+            if (is_hogs){
+               var yAxis = {
+                  title: {
+                        text: '千頭'
+                  },
+                  plotLines: [{
+                     value: 0,
+                     width: 1,
+                     color: '#808080'
+                  }]
+               };  
+            } else if (is_rams){
+               var yAxis = {
+                  title: {
+                        text: '頭'
+                  },
+                  plotLines: [{
+                     value: 0,
+                     width: 1,
+                     color: '#808080'
+                  }]
+               };  
+
+            } else if (is_flowers){
+               var yAxis = {
+                  title: {
+                        text: '千把'
+                  },
+                  plotLines: [{
+                     value: 0,
+                     width: 1,
+                     color: '#808080'
+                  }]
+               };  
+
+            } else {
+               var yAxis = {
+                  title: {
+                        text: '公噸'
+                  },
+                  plotLines: [{
+                     value: 0,
+                     width: 1,
+                     color: '#808080'
+                  }]
+               };  
+
+            } 
+         
+            var tooltip = {
+               valueSuffix: ''
+            }
+         
+            var legend = {
+               layout: 'vertical',
+               align: 'right',
+               verticalAlign: 'middle',
+               borderWidth: 0
+            };
+         
+            var series =  [
+               {
+                  name: hightcharts_avgvolume_data.index[0],
+                  data: hightcharts_avgvolume_data.data[0]
+               },
+               {
+                  name: hightcharts_avgvolume_data.index[1],
+                  data: hightcharts_avgvolume_data.data[1]
+               }, 
+               {
+                  name: hightcharts_avgvolume_data.index[2],
+                  data: hightcharts_avgvolume_data.data[2]
+               }, 
+               {
+                  name: hightcharts_avgvolume_data.index[3],
+                  data: hightcharts_avgvolume_data.data[3]
+               }, 
+               {
+                  name: hightcharts_avgvolume_data.index[4],
+                  data: hightcharts_avgvolume_data.data[4]
+               }, 
+               {
+                  name: hightcharts_avgvolume_data.index[5],
+                  data: hightcharts_avgvolume_data.data[5]
+               }, 
+               {
+                  name: hightcharts_avgvolume_data.index[6],
+                  data: hightcharts_avgvolume_data.data[6]
+               },  
+       
+            ];
+       
+            var credits = {
+             enabled:false,
+            };
+         
+            var json = {};
+            json.title = title;
+            json.subtitle = subtitle;
+            json.xAxis = xAxis;
+            json.yAxis = yAxis;
+            json.tooltip = tooltip;
+            json.legend = legend;
+            json.series = series;
+            json.credits = credits;
+         
+            $('#avgvolume_container').highcharts(json);
+         });
+         </script>
+
+        {% endif %}
+
+        {% if avgweight_data %}
+        <div id='avgweight_container'></div>
+        <br>
+        <div>
+                {{ avgweight_data|safe }}
+        </div>
+
+        <script language="JavaScript">
+         hightcharts_avgweight_data = {{ hightcharts_avgweight_data|safe }};
+         sel_item_name = "{{ sel_item_name }}";
+         $(document).ready(function() {
+            var title = {
+               text: sel_item_name,
+               style:{
+                  "fontSize": "24px"
+               }   
+            };
+            var subtitle = {
+               text: '近五年月平均重量',
+               style:{
+                  "fontSize": "20px"
+               }
+            };
+            var xAxis = {
+               categories: hightcharts_avgweight_data.columns
+            };
+            var yAxis = {
+               title: {
+                  text: '公斤'
+               },
+               plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+               }]
+            };   
+         
+            var tooltip = {
+               valueSuffix: ''
+            }
+         
+            var legend = {
+               layout: 'vertical',
+               align: 'right',
+               verticalAlign: 'middle',
+               borderWidth: 0
+            };
+         
+            var series =  [
+               {
+                  name: hightcharts_avgweight_data.index[0],
+                  data: hightcharts_avgweight_data.data[0]
+               },
+               {
+                  name: hightcharts_avgweight_data.index[1],
+                  data: hightcharts_avgweight_data.data[1]
+               }, 
+               {
+                  name: hightcharts_avgweight_data.index[2],
+                  data: hightcharts_avgweight_data.data[2]
+               }, 
+               {
+                  name: hightcharts_avgweight_data.index[3],
+                  data: hightcharts_avgweight_data.data[3]
+               }, 
+               {
+                  name: hightcharts_avgweight_data.index[4],
+                  data: hightcharts_avgweight_data.data[4]
+               }, 
+               {
+                  name: hightcharts_avgweight_data.index[5],
+                  data: hightcharts_avgweight_data.data[5]
+               }, 
+               {
+                  name: hightcharts_avgweight_data.index[6],
+                  data: hightcharts_avgweight_data.data[6]
+               },  
+       
+            ];
+       
+            var credits = {
+             enabled:false,
+            };
+         
+            var json = {};
+            json.title = title;
+            json.subtitle = subtitle;
+            json.xAxis = xAxis;
+            json.yAxis = yAxis;
+            json.tooltip = tooltip;
+            json.legend = legend;
+            json.series = series;
+            json.credits = credits;
+         
+            $('#avgweight_container').highcharts(json);
+         });
+         </script>
+
+        {% endif %}
+
+        {% if avgpriceweight_data %}
+        <div id='avgpriceweight_container'></div>
+        <br>
+        <div>
+                {{ avgpriceweight_data|safe }}
+        </div>
+
+        <script language="JavaScript">
+        hightcharts_avgpriceweight_data = {{ hightcharts_avgpriceweight_data|safe }};
+        sel_item_name = "{{ sel_item_name }}";
+        $(document).ready(function() {
+           var title = {
+              text: sel_item_name,
+              style:{
+                  "fontSize": "24px"
+               }   
+           };
+           var subtitle = {
+              text: '近五年月平均交易重量',
+              style:{
+                  "fontSize": "20px"
+               }
+           };
+           var xAxis = {
+              categories: hightcharts_avgpriceweight_data.columns
+           };
+           var yAxis = {
+              title: {
+                 text: '公噸'
+              },
+              plotLines: [{
+                 value: 0,
+                 width: 1,
+                 color: '#808080'
+              }]
+           };   
+        
+           var tooltip = {
+              valueSuffix: ''
+           }
+        
+           var legend = {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0
+           };
+        
+           var series =  [
+              {
+                 name: hightcharts_avgpriceweight_data.index[0],
+                 data: hightcharts_avgpriceweight_data.data[0]
+              },
+              {
+                 name: hightcharts_avgpriceweight_data.index[1],
+                 data: hightcharts_avgpriceweight_data.data[1]
+              }, 
+              {
+                 name: hightcharts_avgpriceweight_data.index[2],
+                 data: hightcharts_avgpriceweight_data.data[2]
+              }, 
+              {
+                 name: hightcharts_avgpriceweight_data.index[3],
+                 data: hightcharts_avgpriceweight_data.data[3]
+              }, 
+              {
+                 name: hightcharts_avgpriceweight_data.index[4],
+                 data: hightcharts_avgpriceweight_data.data[4]
+              }, 
+              {
+                 name: hightcharts_avgpriceweight_data.index[5],
+                 data: hightcharts_avgpriceweight_data.data[5]
+              }, 
+              {
+                 name: hightcharts_avgpriceweight_data.index[6],
+                 data: hightcharts_avgpriceweight_data.data[6]
+              },  
+      
+           ];
+      
+           var credits = {
+            enabled:false,
+           };
+        
+           var json = {};
+           json.title = title;
+           json.subtitle = subtitle;
+           json.xAxis = xAxis;
+           json.yAxis = yAxis;
+           json.tooltip = tooltip;
+           json.legend = legend;
+           json.series = series;
+           json.credits = credits;
+        
+           $('#avgpriceweight_container').highcharts(json);
+        });
+        </script>
+
+        {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
