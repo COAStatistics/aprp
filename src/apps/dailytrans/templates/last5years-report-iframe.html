@@ -5,8 +5,20 @@
         <div>
                 {{ avgprice_data|safe }}
         </div>
-
+         
         <script language="JavaScript">
+        $("table.dataframe.table.table-striped.table-hover").DataTable({
+        bPaginate: false,
+        bInfo: false,
+        responsive: true,
+        searching: false,
+        dom: 'lBfrtip',
+        buttons: [
+            { extend: 'copyHtml5', text: '複製表格' },
+            { extend: 'excelHtml5', text: '下載Excel' },
+        ],
+    });
+    
          hightcharts_avgprice_data = {{ hightcharts_avgprice_data|safe }};
          sel_item_name = "{{ sel_item_name }}";
          is_flowers = {{ is_flowers }};
@@ -109,6 +121,7 @@
          
             $('#avgprice_container').highcharts(json);
          });
+
          </script>
 
         {% endif %}
