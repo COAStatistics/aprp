@@ -154,7 +154,7 @@
   fields:
     name: 白肉雞(產地價)
     order_sn: 402
-    festivalname: [1, 3]
+    festivalname: [1, 2, 3]
     product_id: [90014]
 
 - model: configs.FestivalItems
