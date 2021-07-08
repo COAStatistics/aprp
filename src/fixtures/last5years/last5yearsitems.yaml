@@ -542,3 +542,10 @@
     name: 金鑽鳳梨(B2)
     product_id: [50068]
     source: [20001, 20002]
+
+- model: configs.Last5YearsItems
+  pk: 81
+  fields:
+    name: 檸檬(F1)
+    product_id: [50103]
+    source: [20001, 20002]
