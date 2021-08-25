@@ -139,6 +139,25 @@ var chart2Helper = {
 
     },
     create: function(container, seriesOptions, unit) {
+        const oneDay = 1000 * 60 * 60 * 24;
+        let rows = seriesOptions[0].raw.rows;
+        let D1 = Date.parse(rows[rows.length - 1][0]);
+        let D2 = Date.today().add(0).days();
+        const days_delta = Math.ceil((D2.getTime() - D1.getTime()) / oneDay);
+        // 後端送來的最後日期，到昨天為止，每天再補上對應資料
+        for (i = 1; i <= days_delta; i++) {
+            let D_ms = D1.getTime() + i * oneDay;
+            let D_obj = new Date(D_ms)
+            let Y = D_obj.getFullYear().toString();
+            let M = (D_obj.getMonth() + 1).toString();
+            let D = D_obj.getDate().toString();
+            let sep = "-";
+            let D_str = Y + sep + M.padStart(2, "0") + sep + D.padStart(2, "0");
+            seriesOptions[0].highchart.avg_price.push([D_ms, null]);
+            seriesOptions[0].highchart.avg_weight.push([D_ms, null]);
+            seriesOptions[0].highchart.sum_volume.push([D_ms, null]);
+            seriesOptions[0].raw.rows.push([D_str, null, null, null]);
+        }
 
         var series = [];
         var yAxis = [];

@@ -316,6 +316,15 @@ CELERY_IMPORTS = (
 
 # Session Settings
 SESSION_COOKIE_AGE = 60 * 60 * 2
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = True
+
+# Django Security Settings
+SECURE_HSTS_SECONDS = 60 * 60 * 2   # Strict-Transport-Security
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_REFERRER_POLICY = 'same-origin'  # Referrer-Policy
+SECURE_CONTENT_TYPE_NOSNIFF = True  # X-Content-Type-Options
+SECURE_BROWSER_XSS_FILTER = True    # X-XSS-Protection
 
 # Google Analytics
 USE_GA = env.bool('USE_GA', default=False)
