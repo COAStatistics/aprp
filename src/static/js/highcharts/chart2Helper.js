@@ -141,21 +141,22 @@ var chart2Helper = {
     create: function(container, seriesOptions, unit) {
         const oneDay = 1000 * 60 * 60 * 24;
         let rows = seriesOptions[0].raw.rows;
+        let keys = Object.keys(seriesOptions[0].highchart);
         let D1 = Date.parse(rows[rows.length - 1][0]);
         let D2 = Date.today().add(0).days();
         const days_delta = Math.ceil((D2.getTime() - D1.getTime()) / oneDay);
-        // 後端送來的最後日期，到昨天為止，每天再補上對應資料
+        // 後端送來的最後日期，到今天為止，每天再補上對應資料
         for (i = 1; i <= days_delta; i++) {
             let D_ms = D1.getTime() + i * oneDay;
             let D_obj = new Date(D_ms)
             let Y = D_obj.getFullYear().toString();
             let M = (D_obj.getMonth() + 1).toString();
             let D = D_obj.getDate().toString();
-            let sep = "-";
-            let D_str = Y + sep + M.padStart(2, "0") + sep + D.padStart(2, "0");
-            seriesOptions[0].highchart.avg_price.push([D_ms, null]);
-            seriesOptions[0].highchart.avg_weight.push([D_ms, null]);
-            seriesOptions[0].highchart.sum_volume.push([D_ms, null]);
+            let D_str = Y + "-" + M.padStart(2, "0") + "-" + D.padStart(2, "0");
+            // 有些品項只有部分key: avg_price/avg_weight/sum_volume
+            keys.forEach(function (k) {
+                seriesOptions[0].highchart[k].push([D_ms, null]);
+            })
             seriesOptions[0].raw.rows.push([D_str, null, null, null]);
         }
 
@@ -577,6 +578,7 @@ var chart2Helper = {
             setTimeout(function () {
                 $('input.highcharts-range-selector', $(chart.container).parent()).datepicker({
                     dateFormat: 'yy-mm-dd',
+                    maxDate: 0,
                     onSelect: function () {
                         this.onchange();
                         this.onblur();
