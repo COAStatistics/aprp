@@ -318,15 +318,15 @@ CELERY_IMPORTS = (
 SESSION_COOKIE_AGE = 60 * 60 * 2
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_HTTPONLY = True
+# CSRF_COOKIE_HTTPONLY = True   #   disable for csrf token post 403 error
 CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SAMESITE = 'None'
-CSRF_COOKIE_SAMESITE = 'None'
+# SESSION_COOKIE_SAMESITE = 'None'  # django 1.9 not support
+# CSRF_COOKIE_SAMESITE = 'None'     # django 1.9 not support
 
 # Django Security Settings
 SECURE_HSTS_SECONDS = 15768000   # Strict-Transport-Security, 6 months
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_REFERRER_POLICY = 'same-origin'  # Referrer-Policy
+# SECURE_REFERRER_POLICY = 'same-origin'  # Referrer-Policy; django 1.9 not support
 SECURE_CONTENT_TYPE_NOSNIFF = True  # X-Content-Type-Options
 SECURE_BROWSER_XSS_FILTER = True    # X-XSS-Protection
 
