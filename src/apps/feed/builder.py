@@ -3,14 +3,16 @@ from apps.dailytrans.builders.utils import (
     director,
     date_generator,
     DirectData,
+    date_delta,
 )
 from .models import Feed
 import pandas as pd
 import numpy as np
-from datetime import datetime,timedelta,date
+# from datetime import datetime,timedelta,date
 import time
 import os
 import requests
+import re
 from bs4 import BeautifulSoup as bs
 import json
 import pytesseract
@@ -36,7 +38,7 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
     for model in MODELS:
         api = Api(model=model, **data._asdict())
 
-        #畜產會飼料價格為一整個月份的數據,飼料(玉米粒,黃豆粉) 養豬合作社聯合社電訪資料來源為網頁格式, 因此爬取網頁數據後組合成 json 格式以便後續流程
+        #畜產會飼料價格為一整個月份的數據,飼料(玉米粒,黃豆粉), 因此爬取網頁數據後組合成 json 格式以便後續流程
         data_list = []
 
         #pytesseract執行檔絕對路徑,系統需要額外安裝 tesseract-ocr
@@ -48,11 +50,16 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
         def str2float(l):
             sum = 0
             count = 0
-            for i in l:
-                templ = i.split(' ')
-                for j in templ:
+            pattern = re.compile(r'\d+.?\d*\(.*?\)|\d+.?\d*')
+            pattern2 = re.compile(r'\d+.?\d*')
+            templ = pattern.findall(l)
+            for j in templ:
+                if "阿根廷" in j:
+                    continue    #阿根廷的玉米粒報價較低是因為阿根廷的玉米粒較硬,不適合當豬的飼料,所以統計時要排除阿根廷的玉米粒報價
+                else:
+                    tempd=pattern2.findall(j)
                     try:
-                        j = float(j)
+                        j = float(tempd[0])
                     except ValueError:
                         continue
                     sum = sum + j
@@ -113,7 +120,7 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
             end_month = end_date.month
 
         if not start_date and not end_date:
-            delta_start_date, delta_end_date = date_delta(delta)
+            delta_start_date, delta_end_date = date_delta(DELTA_DAYS)
             start_year = delta_start_date.year
             start_month = delta_start_date.month
             end_year = delta_end_date.year
@@ -175,17 +182,19 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
                         temp_list = []
                         d = tr.find('th').getText() #日期欄位
                         tds = tr.find_all('td')
-                        for td in tds[0:4]:
+                        #葉科詢問畜產會得知中華食物網為上游的港口數據,養豬合作社為下游單位,當缺料時養豬合作社就會無法報價
+                        #因此飼料數據來源由養豬合作社改為中華食物網
+                        for td in tds[6:10]:
                             temp_list.append(td.getText())
 
-                        #玉米粒-台中港
-                        d1 = str2float(temp_list[0].split('(')) 
-                        #玉米粒-高雄港
-                        d2 = str2float(temp_list[1].split('('))
-                        #黃豆粉-中聯
-                        d3 = str2float(temp_list[2].split('('))
-                        #黃豆粉-大統益
-                        d4 = str2float(temp_list[3].split('('))
+                        #玉米粒-中華食物網:台中港
+                        d1 = str2float(temp_list[0]) 
+                        #玉米粒-中華食物網:高雄港
+                        d2 = str2float(temp_list[1])
+                        #黃豆粉-中華食物網:台中港
+                        d3 = str2float(temp_list[2])
+                        #黃豆粉-中華食物網:高雄港
+                        d4 = str2float(temp_list[3])
                         
                         #玉米粒來源地平均
                         avg1 = float2avg(d1,d2)
