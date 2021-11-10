@@ -549,3 +549,17 @@
     name: 檸檬(F1)
     product_id: [50103]
     source: [20001, 20002]
+
+- model: configs.Last5YearsItems
+  pk: 82
+  fields:
+    name: 釋迦(31)
+    product_id: [50013]
+    source: [20001, 20002]
+
+- model: configs.Last5YearsItems
+  pk: 83
+  fields:
+    name: 鳳梨釋迦(32)
+    product_id: [50014]
+    source: [20001, 20002]
