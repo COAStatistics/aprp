@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'apps.events',
     'apps.logs',
     'apps.feed',
+    'apps.naifchickens',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -269,6 +270,7 @@ FIXTURE_DIRS = [
     str(BASE_DIR('fixtures/events')),
     str(BASE_DIR('fixtures/festivals')),
     str(BASE_DIR('fixtures/feed')),
+    str(BASE_DIR('fixtures/naifchickens')),
     str(BASE_DIR('fixtures/last5years')),
 ]
 
@@ -312,6 +314,7 @@ CELERY_IMPORTS = (
     'apps.watchlists.tasks',
     'apps.dailytrans.tasks',
     'apps.feed.tasks',
+    'apps.naifchickens.tasks',
 )
 
 # Session Settings
@@ -381,7 +384,8 @@ DAILYTRAN_BUILDER_API = {
     'amis': env.str('BUILDER_API_AMIS_URL', default=''),
     'apis': env.str('BUILDER_API_APIS_URL', default=''),
     'efish': env.str('BUILDER_API_EFISH_URL', default=''),
-    'feed': 'https://www.naif.org.tw/memberLogin.aspx?frontTitleMenuID=105',
+    'feed': 'https://www.naif.org.tw/memberLogin.aspx?frontTitleMenuID=105',   #飼料和環南市場雞隻等數據是從中央畜產會登入帳號爬蟲取得
+    'naifchickens': 'https://www.naif.org.tw/memberLogin.aspx?frontTitleMenuID=105',   #飼料和環南市場雞隻等數據是從中央畜產會登入帳號爬蟲取得
 }
 
 # Hide login
@@ -401,3 +405,4 @@ FESTIVAL_REPORT_FOLDER_ID = env.str('FESTIVAL_REPORT_FOLDER_ID', default='')
 NAIF_ACCOUNT = env.str('NAIF_ACCOUNT')
 NAIF_PASSWORD = env.str('NAIF_PASSWORD')
 PYTESSERACT_PATH = env.str('PYTESSERACT_PATH')
+USER_AGENT = env.str('User_Agent')

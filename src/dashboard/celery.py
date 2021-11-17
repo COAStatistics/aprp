@@ -102,6 +102,11 @@ app.conf.beat_schedule = {
         'schedule': crontab(minute=10, hour='1,9'),
         'args': (-30,)  # direct 31 days range
     },
+    'daily-naifchickens-builder-31d': {
+        'task': 'DailyNaifchickensBuilder',
+        'schedule': crontab(minute=13, hour='1,9'),
+        'args': (-30,)  # direct 31 days range
+    },
     'daily-chicken-builder-31d': {
         'task': 'DailyChickenBuilder',
         'schedule': crontab(minute=0, hour='9'),

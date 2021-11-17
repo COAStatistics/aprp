@@ -1,0 +1,17 @@
+- model: naifchickens.Naifchickens
+  pk: 150001
+  fields:
+    name: 環南-白肉雞
+    code: 環南-白肉雞
+    config: 16
+    unit: 3
+    type: 1
+
+- model: naifchickens.Naifchickens
+  pk: 150002
+  fields:
+    name: 環南-土雞
+    code: 環南-土雞
+    config: 16
+    unit: 3
+    type: 1

@@ -202,6 +202,14 @@
     type_level: 2
     charts: [1, 2, 3, 4, 5]
 
+- model: configs.Config
+  pk: 16
+  fields:
+    name: 環南-雞
+    code: COG16
+    type_level: 1
+    charts: [1, 2, 3, 4, 5]
+
 
 # Month
 

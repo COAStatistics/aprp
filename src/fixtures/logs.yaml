@@ -106,3 +106,9 @@
   fields:
     name: Last 5 Years Report Logs
     code: LOT-last5yearsreport
+
+- model: logs.LogType
+  pk: 19
+  fields:
+    name: Naifchickens App Logs
+    code: LOT-naifchickens
