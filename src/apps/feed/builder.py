@@ -44,7 +44,7 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
         #pytesseract執行檔絕對路徑,系統需要額外安裝 tesseract-ocr
         pytesseract.pytesseract.tesseract_cmd = settings.PYTESSERACT_PATH
 
-        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36',}
+        headers = {'User-Agent': settings.USER_AGENT,}
 
         #類型轉換,字符串轉浮點數,並將單一儲存格內如有多組數字時先行平均
         def str2float(l):
@@ -81,7 +81,7 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
                 return round(sum / count, 2)
 
         #中央畜產會會員登入頁面
-        naif_login_url = 'https://www.naif.org.tw/memberLogin.aspx?frontTitleMenuID=105'
+        naif_login_url = settings.DAILYTRAN_BUILDER_API['feed']
         ss = requests.Session()
         r1 = ss.get(naif_login_url, headers=headers)
 

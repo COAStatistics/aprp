@@ -563,3 +563,15 @@
     name: 鳳梨釋迦(32)
     product_id: [50014]
     source: [20001, 20002]
+
+- model: configs.Last5YearsItems
+  pk: 84
+  fields:
+    name: 環南_白肉雞
+    product_id: [150001]
+
+- model: configs.Last5YearsItems
+  pk: 85
+  fields:
+    name: 環南_土雞
+    product_id: [150002]

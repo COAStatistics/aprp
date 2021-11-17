@@ -105,8 +105,10 @@ class Last5YearsReportFactory(object):
                         avgvolume = one_month_data.groupby('date').sum()['volume'].mean() / 1000
                         avgweight = avgweight
                         avgvolumeweight = (avgweight*avgvolume*1000) / 1000
-                    else:
-                        avgvolume = (one_month_data['avg_weight']*one_month_data['volume']).sum()/(one_month_data['volume']).sum()
+                    else:   #環南市場-雞的交易量
+                        # avgvolume = (one_month_data['avg_weight']*one_month_data['volume']).sum()/(one_month_data['volume']).sum()
+                        avgvolume = one_month_data.groupby('date').sum()['volume'].mean()
+                        avgweight = one_month_data.groupby('date').sum()['avg_weight'].mean()
                         
                 elif has_volume:
                     avgprice=(one_month_data['avg_price']*one_month_data['volume']).sum()/one_month_data['volume'].sum()
@@ -195,7 +197,8 @@ class Last5YearsReportFactory(object):
                     last_5_years_avg_data['avgvolumeweight'][m] = float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(one_month_avgvolumeweight))
                     last_5_years_avgvolumeweight_list.append(last_5_years_avg_data['avgvolumeweight'][m])
                 else:
-                    last_5_years_avg_data['avgvolume'][m] = (last_5_years_onemonth_table['avg_weight']*last_5_years_onemonth_table['volume']).sum()/(last_5_years_onemonth_table['volume']).sum()
+                    last_5_years_avg_data['avgvolume'][m] = last_5_years_onemonth_table.groupby('date').sum()['volume'].mean()
+                    last_5_years_avg_data['avgweight'][m] = last_5_years_onemonth_table.groupby('date').sum()['avg_weight'].mean()
 
                 last_5_years_avgprice_list.append(last_5_years_avg_data['avgprice'][m])
                 last_5_years_avgvolume_list.append(last_5_years_avg_data['avgvolume'][m])
