@@ -575,3 +575,15 @@
   fields:
     name: 環南_土雞
     product_id: [150002]
+
+- model: configs.Last5YearsItems
+  pk: 86
+  fields:
+    name: 玉米粒
+    product_id: [140001]
+
+- model: configs.Last5YearsItems
+  pk: 87
+  fields:
+    name: 黃豆粉
+    product_id: [140002]
