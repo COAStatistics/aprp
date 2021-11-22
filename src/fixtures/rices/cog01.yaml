@@ -9,7 +9,7 @@
 - model: rices.Rice
   pk: 2
   fields:
-    name: 硬種(蓬萊)
+    name: 稉種(蓬萊)
     code: japt
     config: 1
     unit: 2
@@ -19,7 +19,7 @@
 - model: rices.Rice
   pk: 3
   fields:
-    name: 硬種(蓬萊)
+    name: 稉種(蓬萊)
     code: pt_1japt
     type: 3
     config: 1
@@ -29,7 +29,7 @@
 - model: rices.Rice
   pk: 4
   fields:
-    name: 硬種(蓬萊)
+    name: 稉種(蓬萊)
     code: pt_2japt
     type: 1
     config: 1
@@ -168,7 +168,7 @@
 - model: rices.Rice
   pk: 18
   fields:
-    name: 硬種(蓬萊)
+    name: 稉種(蓬萊)
     code: japt
     config: 1
     unit: 2
@@ -178,7 +178,7 @@
 - model: rices.Rice
   pk: 19
   fields:
-    name: 硬種(蓬萊)
+    name: 稉種(蓬萊)
     code: pt_4japt
     type: 2
     config: 1
