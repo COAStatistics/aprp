@@ -188,3 +188,14 @@
     config: 6
     unit: 2
     parent: 50016
+
+# 111上半年監控清單 新增 鳳梨釋迦
+- model: fruits.Fruit
+  pk: 59020
+  fields:
+    name: 鳳梨釋迦
+    code: 鳳梨釋迦
+    type: 2
+    config: 6
+    unit: 2
+    parent: 50012
