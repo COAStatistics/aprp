@@ -444,7 +444,7 @@
   pk: 8232
   fields:
     product: 59020 # 鳳梨釋迦 產地
-    sources: [20011]
+    sources: [10118]
     parent: 10
 
 # Hogs
