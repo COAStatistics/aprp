@@ -107,7 +107,7 @@
 - model: fruits.Fruit
   pk: 50013
   fields:
-    name: 釋迦
+    name: 番荔枝(大目)  #111/1/4 依照袁提出要求此品項名稱(為了避免混淆)修改為和價格日報表相同由'釋迦'改為'番荔枝(大目)'
     code: 31
     type: 1
     config: 6
