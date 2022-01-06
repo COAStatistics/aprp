@@ -433,7 +433,7 @@
 - model: watchlists.MonitorProfile
   pk: 821
   fields:
-    product: 50012 # 番荔枝(釋迦)
+    product: 50013 # 番荔枝(釋迦)       #原本標註釋迦大品項50012,因釋迦大品項多了監控產地鳳梨釋迦,導致平台點釋迦大品項就出現批發的監控資訊,改成在各別的品項中才出現監控資訊避免混淆
     watchlist: 10
     type: 1
     price: 41.8
