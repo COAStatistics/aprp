@@ -809,7 +809,7 @@
 
 #111年上半年監控清單新增鳳梨釋迦產地
 - model: watchlists.MonitorProfile
-  pk: 858
+  pk: 859
   fields:
     product: 59020 # 鳳梨釋迦 產地
     watchlist: 10
