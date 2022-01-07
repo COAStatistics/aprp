@@ -11,8 +11,8 @@
     {% endfor %}
 </ul>
 
-<div id="chart-{{ chart.id }}-content" class="tab-content no-padding">
-    <section id="chart-{{ chart.id }}-widget-grid">
+<section id="chart-{{ chart.id }}-widget-grid">
+    <div id="chart-{{ chart.id }}-content" class="tab-content no-padding">
         {% for option in series_options %}
         <div class="tab-pane fade {% if forloop.counter0 == 0 %}in active{% endif %}" id="chart-{{ chart.id }}-{{ option.type.id }}-content">
             <div class="panel-group smart-accordion-default" id="chart-{{ chart.id }}-panel-group">
@@ -77,8 +77,8 @@
 
         </div>
         {% endfor %}
-    </section>
-</div>
+    </div>
+</section>
 
 <script>
 
