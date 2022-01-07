@@ -367,6 +367,7 @@ var chart2Helper = {
             },
 
             xAxis: {
+                minRange: 1000 * 60 * 60 * 24,  // 新增最小日期範圍參數,如果沒有加此參數,部分品項的搜尋日期區間無法小於五天
                 events: {
                     afterSetExtremes: function(e) {
 
