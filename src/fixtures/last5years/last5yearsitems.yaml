@@ -587,3 +587,9 @@
   fields:
     name: 黃豆粉
     product_id: [140002]
+
+- model: configs.Last5YearsItems
+  pk: 88
+  fields:
+    name: 蒜頭(蒜球)(旬價)
+    product_id: [49012]

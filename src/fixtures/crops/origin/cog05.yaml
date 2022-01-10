@@ -107,3 +107,13 @@
     config: 5
     unit: 2
     parent: 40160
+
+- model: crops.Crop
+  pk: 49012
+  fields:
+    name: 蒜頭(蒜球)(旬價)
+    code: 蒜頭(蒜球)(旬價)
+    type: 2
+    config: 5
+    unit: 2
+    parent: 40438

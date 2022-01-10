@@ -129,7 +129,8 @@ def product_selector_ui_extra_context(view):
 
         # Handling special cases, if there is parent product e.g. FB1, replaces with sub products
         if config_id == '5':
-            fb_related_products = AbstractProduct.objects.filter(track_item=False, code__icontains='FB')
+            # filter 內新增參數 type_id,原只過濾 code 包含 FB 會讓蔬果產地多了批發品項也會多火鶴花(FB)
+            fb_related_products = AbstractProduct.objects.filter(track_item=False, code__icontains='FB', type_id= type_id)
             products = products.exclude(name__icontains='FB') | fb_related_products
 
         # Handling special cases, replace origin seafoods parent with sub product

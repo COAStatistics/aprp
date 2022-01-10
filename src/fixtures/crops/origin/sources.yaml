@@ -708,3 +708,132 @@
     name: 台東地區農會
     configs: [5, 6]
     type: 2
+
+
+#以下為蒜頭(蒜球)(旬價)使用的來源
+- model: configs.Source
+  pk: 10119
+  fields:
+    name: _
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10120
+  fields:
+    name: 雲林縣_北港鎮
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10121
+  fields:
+    name: 雲林縣_崙背鄉
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10122
+  fields:
+    name: 雲林縣_台西鄉
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10123
+  fields:
+    name: 雲林縣_元長鄉
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10124
+  fields:
+    name: 雲林縣_四湖鄉
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10125
+  fields:
+    name: 雲林縣_土庫鎮
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10126
+  fields:
+    name: 雲林縣_虎尾鎮
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10127
+  fields:
+    name: 彰化縣_伸港鄉
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10128
+  fields:
+    name: 台南市_七股區農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10129
+  fields:
+    name: 雲林縣_口湖鄉農會
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10130
+  fields:
+    name: 雲林縣_水林鄉
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10131
+  fields:
+    name: 雲林縣_東勢鄉
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10132
+  fields:
+    name: 雲林縣_莿桐鄉
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10133
+  fields:
+    name: 雲林縣_麥寮鄉
+    configs: [5, 6]
+    type: 2
+
+
+- model: configs.Source
+  pk: 10134
+  fields:
+    name: 雲林縣_褒忠鄉農會
+    configs: [5, 6]
+    type: 2
