@@ -83,11 +83,21 @@ desc_3 = [
     '水產品產地價格─本會漁業署。'
 ]
 
-
-def get_avg_price(qs, has_volume, week_start=None, week_end=None):
+def get_avg_price(qs, has_volume, has_weight, week_start=None, week_end=None):
     total_price = list()
     total_volume = list()
-    if has_volume:
+    total_volume_weight = list()
+    if has_volume and has_weight:   # 新增有日均重量的品項計算平均價格公式
+        for q in qs:
+            if week_start is not None and week_end is not None:
+                if week_start.date() <= q['date'] <= week_end.date():
+                    total_price.append(q['avg_price'] * q['sum_volume'] * q['avg_avg_weight'])
+                    total_volume_weight.append(q['sum_volume'] * q['avg_avg_weight'])
+            else:
+                total_price.append(q['avg_price'] * q['sum_volume'] * q['avg_avg_weight'])
+                total_volume_weight.append(q['sum_volume'] * q['avg_avg_weight'])
+        return sum(total_price) / sum(total_volume_weight) if len(total_volume_weight) else 0
+    elif has_volume:
         for q in qs:
             if week_start is not None and week_end is not None:
                 if week_start.date() <= q['date'] <= week_end.date():
@@ -182,8 +192,8 @@ class DailyReportFactory(object):
                 self.result[product].update({
                     '{}{}'.format(self.col_dict['{}_volume'.format(q['date'])], row): q['sum_volume'],
                 })
-        last_avg_price = get_avg_price(qs, has_volume, self.last_week_start, self.last_week_end)
-        this_avg_price = get_avg_price(qs, has_volume, self.this_week_start, self.this_week_end)
+        last_avg_price = get_avg_price(qs, has_volume, has_weight, self.last_week_start, self.last_week_end)
+        this_avg_price = get_avg_price(qs, has_volume, has_weight, self.this_week_start, self.this_week_end)
         if last_avg_price > 0:
             self.result[product].update({
                 'L{}'.format(row): ((this_avg_price - last_avg_price) / last_avg_price * 100),
@@ -211,7 +221,7 @@ class DailyReportFactory(object):
         qs, has_volume, has_weight = get_group_by_date_query_set(query_set,
                                                                  self.last_year_month_start,
                                                                  self.last_year_month_end)
-        last_year_avg_price = get_avg_price(qs, has_volume)
+        last_year_avg_price = get_avg_price(qs, has_volume, has_weight)
         if last_year_avg_price > 0:
             self.result[product].update({
                 'G{}'.format(row): last_year_avg_price,
