@@ -86,14 +86,7 @@
         <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
         下載所查詢的交易量(A0橫版) (.pdf)
         </button>
-        <br />
-        <div style="color:red">
-        備註: 
-        蔬菜/水果/花卉為(台北批發市場)統計; 
-        毛豬為(台灣地區不含澎湖)統計; 
-        羊為(彰化市場)統計; 
-        漁產品為(消費地市場不含埔里)統計; 
-        </div>
+
         {% endif %}
 {% endif %}
 
@@ -135,14 +128,6 @@
         <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
         下載所查詢的資料表(A4直版) (.pdf)
         </button>
-        <br />
-        <div style="color:red">
-        備註:
-        蔬菜/水果/花卉為(台北批發市場)統計; 
-        毛豬為(台灣地區不含澎湖)統計; 
-        羊為(彰化市場)統計; 
-        漁產品為(消費地市場不含埔里)統計; 
-        </div>
 
 {% endif %}
 
@@ -160,13 +145,7 @@
         width="100%"
         src="https://drive.google.com/file/d/{{ file_volume_id }}/preview">
 </iframe>
-        <div style="color:red">
-        備註: 
-        蔬菜/水果/花卉為(台北批發市場)統計; 
-        毛豬為(台灣地區不含澎湖)統計; 
-        羊為(彰化)統計; 
-        漁產品為(消費地市場不含埔里)統計; 
-        </div>
+
         {% if user.info.festivalreport_refresh and refresh %}
         <span class="input-group-btn">
                 <button class="btn btn-default search-btn" type="button" id="festival-report-refresh-submit">
@@ -176,7 +155,19 @@
         更新 {{ roc_year }}_{{ festival_name.0.name }} 價格及交易量表
         {% endif %}
 {% endif %}
-
+        <br />
+        <br />
+        <div style="color:red">
+        備註: 
+        蔬菜/水果/花卉為(台北批發市場)統計; 
+        毛豬為(台灣地區不含澎湖)統計; 
+        羊為(彰化市場)統計; 
+        漁產品為(消費地市場不含埔里)統計;
+        <br />
+        交易量單位:蔬菜/水果/漁產品交易單位為(公斤);
+        花卉交易單位為(把);
+        毛豬交易單位為(頭);
+        </div>
 <script type="text/javascript" src='{% static "vendor/js/plugin/table2csv/table2csv.min.js" %}'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js'></script>
