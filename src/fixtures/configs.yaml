@@ -205,7 +205,7 @@
 - model: configs.Config
   pk: 16
   fields:
-    name: 環南-雞
+    name: 畜產會
     code: COG16
     type_level: 1
     charts: [1, 2, 3, 4, 5]

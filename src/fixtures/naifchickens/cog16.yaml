@@ -15,3 +15,21 @@
     config: 16
     unit: 3
     type: 1
+
+- model: naifchickens.Naifchickens
+  pk: 150003
+  fields:
+    name: 白肉雞總貨
+    code: 白肉雞總貨
+    config: 16
+    unit: 3
+    type: 1
+
+- model: naifchickens.Naifchickens
+  pk: 150004
+  fields:
+    name: 紅羽土雞總貨
+    code: 紅羽土雞總貨
+    config: 16
+    unit: 3
+    type: 1

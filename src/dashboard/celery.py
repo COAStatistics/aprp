@@ -100,12 +100,12 @@ app.conf.beat_schedule = {
         'daily-feed-builder-31d': {
         'task': 'DailyFeedBuilder',
         'schedule': crontab(minute=10, hour='1,9'),
-        'args': (-30,)  # direct 31 days range
+        'args': (-1,)  # direct 1 days range    因飼料網頁編排一次就會抓同一個月份的資料
     },
     'daily-naifchickens-builder-31d': {
         'task': 'DailyNaifchickensBuilder',
-        'schedule': crontab(minute=13, hour='1,9'),
-        'args': (-30,)  # direct 31 days range
+        'schedule': crontab(minute=13, hour='1,5,9'),
+        'args': (-30,)  # direct 31 days range  環南市場白肉雞/土雞網頁編排一次就會抓同一個月份的資料,但白肉雞總貨和土雞總貨網頁一次只會抓一天
     },
     'daily-chicken-builder-31d': {
         'task': 'DailyChickenBuilder',
