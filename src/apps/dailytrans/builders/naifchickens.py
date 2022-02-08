@@ -210,7 +210,6 @@ class Api(AbstractApi):
                 date = d.strftime('%Y-%m-%d')
             
                 naif_url = 'https://ppg.naif.org.tw/naif/MarketInformation/Poultry/Product.aspx'
-                not_data_flag = False   #判斷有無交易用的旗標
 
                 postdata = {
                             '__VIEWSTATE:': None,
@@ -271,14 +270,15 @@ class Api(AbstractApi):
                 soup2 = bs(r4.text, 'html.parser')
 
                 table = soup2.find('table', {'cellspacing': '0'})
-                not_data_msg = table.find_all('tr')[3].getText().strip()   # 特殊日期沒有交易會顯示"查無交易資料!"
-                if '查無交易資料！' in not_data_msg:
-                    self.LOGGER.warning(f'{date} 查無交易資料！', extra=self.LOGGER_EXTRA)
-                    not_data_flag = True
-                    continue
 
-                trs = table.find_all('tr')[5:7]
-                if not not_data_flag:
+                #查詢特定日期網站出現錯誤頁面異常,例如查詢 2012/10/15, 2012/10/24 這兩天, 網站會出現"發現除以零的錯誤"錯誤頁面
+                if table:
+                    not_data_msg = table.find_all('tr')[3].getText().strip()   # 特殊日期沒有交易會顯示"查無交易資料!"
+                    if '查無交易資料！' in not_data_msg:
+                        self.LOGGER.warning(f'{date} 查無交易資料！', extra=self.LOGGER_EXTRA)
+                        continue
+
+                    trs = table.find_all('tr')[5:7]
                     for tr in trs:
                         tds = tr.find_all('td')
                         name = tds[0].getText() + tds[1].getText()  #將"白肉雞"/"紅羽土雞"和"總貨"字串連接
@@ -308,7 +308,12 @@ class Api(AbstractApi):
                             dict2['weight'] = float(this_weight)
                             data_list.append(dict2)
 
-                time.sleep(3)      
+                    time.sleep(3)
+
+                #網站出現錯誤頁面時略過,查下一個日期
+                else:
+                    self.LOGGER.warning(f'{date} 網站發生異常！', extra=self.LOGGER_EXTRA)
+                    continue
 
             return data_list
 
