@@ -3,6 +3,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
 from google_api.client import GoogleOAuthClient
+import httplib2shim
 
 logger = logging.getLogger(__name__)
 
@@ -15,6 +16,7 @@ class GoogleDriveClient(GoogleOAuthClient):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        httplib2shim.patch()
         self.service = build('drive', 'v3', credentials=self.credentials, cache_discovery=False)
 
     def media_upload(self, name, file_path, from_mimetype, to_mimetype=None, parents=[], fields='id'):

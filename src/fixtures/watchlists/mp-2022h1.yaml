@@ -86,7 +86,7 @@
     product: 40438 # 大蒜
     watchlist: 10
     type: 2
-    price: 183.6
+    price: 162.9        # 2022/3/18 農糧署來函更新大蒜高價
     comparator: __gt__
     color: danger
     info: |
