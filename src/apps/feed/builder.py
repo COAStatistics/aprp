@@ -48,22 +48,22 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
 
         #類型轉換,字符串轉浮點數,並將單一儲存格內如有多組數字時先行平均
         def str2float(l):
+            #阿根廷的玉米粒報價較低是因為阿根廷的玉米粒較硬,不適合當豬的飼料,所以統計時要排除阿根廷的玉米粒報價
+            #儲存格來源資料先完全過濾掉阿根廷的數據,避免後續數值統計問題
+            l = re.sub(r'\d+.?\d*-\d+.?\d*\(阿根廷\)|\d+.?\d*\(阿根廷\)','',l)
             sum = 0
             count = 0
             pattern = re.compile(r'\d+.?\d*\(.*?\)|\d+.?\d*')
             pattern2 = re.compile(r'\d+.?\d*')
             templ = pattern.findall(l)
             for j in templ:
-                if "阿根廷" in j:
-                    continue    #阿根廷的玉米粒報價較低是因為阿根廷的玉米粒較硬,不適合當豬的飼料,所以統計時要排除阿根廷的玉米粒報價
-                else:
-                    tempd=pattern2.findall(j)
-                    try:
-                        j = float(tempd[0])
-                    except ValueError:
-                        continue
-                    sum = sum + j
-                    count += 1
+                tempd=pattern2.findall(j)
+                try:
+                    j = float(tempd[0])
+                except ValueError:
+                    continue
+                sum = sum + j
+                count += 1
             if count:
                 return round(sum / count, 2)
         
