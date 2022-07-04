@@ -4,7 +4,7 @@
   pk: 901
   fields:
     product: 40160 # 落花生
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 37.7
     row: 14
@@ -24,7 +24,7 @@
   pk: 902
   fields:
     product: 49002 # 紅豆
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 34.2
     row: 15
@@ -43,7 +43,7 @@
   pk: 903
   fields:
     product: 40477 # 甘藷
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 4.4
     row: 33
@@ -64,7 +64,7 @@
   pk: 904
   fields:
     product: 40438 # 大蒜
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 40.8
     row: 16
@@ -84,7 +84,7 @@
   pk: 958
   fields:
     product: 40438 # 大蒜
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 162.9        # 2022/3/18 農糧署來函更新大蒜高價
     comparator: __gt__
@@ -106,7 +106,7 @@
   pk: 905
   fields:
     product: 40422 # 洋蔥
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 7.3
     row: 17
@@ -125,7 +125,7 @@
   pk: 906
   fields:
     product: 40163 # 甘藍
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 5.8
     row: 19
@@ -145,7 +145,7 @@
   pk: 907
   fields:
     product: 40539 # 青蔥日蔥
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 33.2
     row: 21
@@ -165,7 +165,7 @@
   pk: 908
   fields:
     product: 40541 # 青蔥-粉蔥(含北蔥)
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 12.8
     row: 23
@@ -185,7 +185,7 @@
   pk: 909
   fields:
     product: 40185 # 包心白菜
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 5.2
     row: 20
@@ -205,7 +205,7 @@
   pk: 910
   fields:
     product: 40016 # 花椰菜
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 8.5
     row: 24
@@ -225,7 +225,7 @@
   pk: 911
   fields:
     product: 40387 # 蘿蔔
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 4.6
     row: 28
@@ -244,7 +244,7 @@
   pk: 912
   fields:
     product: 40027 # 胡瓜
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 8.5
     row: 26
@@ -266,7 +266,7 @@
   pk: 913
   fields:
     product: 40030 # 花胡瓜
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 12.4
     row: 27
@@ -288,7 +288,7 @@
   pk: 914
   fields:
     product: 40040 # 絲瓜
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 13.8
     row: 31
@@ -309,7 +309,7 @@
   pk: 915
   fields:
     product: 40059 # 茄子
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 11.6
     row: 32
@@ -332,7 +332,7 @@
   pk: 916
   fields:
     product: 50227 # 大西瓜
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 8.5
     row: 39
@@ -351,7 +351,7 @@
 #   pk: 917
 #   fields:
 #     product: 50241 # 洋香瓜
-#     watchlist: 10
+#     watchlist: 11
 #     type: 1
 #     price: 14.5
 #     row: 40
@@ -370,7 +370,7 @@
   pk: 918
   fields:
     product: 50182 # 梨(新興梨/豐水梨)
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 36.5
     row: 57 #顯示新興梨需改為57;顯示豐水梨需改為58
@@ -392,7 +392,7 @@
   pk: 919
   fields:
     product: 50008 # 棗子
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 23.7
     row: 59
@@ -414,7 +414,7 @@
 #   pk: 920
 #   fields:
 #     product: 50218 # 巨峰葡萄
-#     watchlist: 10
+#     watchlist: 11
 #     type: 1
 #     price: 33.7
 #     row: 61
@@ -434,7 +434,7 @@
   pk: 921
   fields:
     product: 50013 # 番荔枝(釋迦)       #原本標註釋迦大品項50012,因釋迦大品項多了監控產地鳳梨釋迦,導致平台點釋迦大品項就出現批發的監控資訊,改成在各別的品項中才出現監控資訊避免混淆
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 41.7
     row: 63
@@ -456,7 +456,7 @@
   pk: 922
   fields:
     product: 50288 # 甜柿
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 39.8
     row: 67
@@ -475,7 +475,7 @@
   pk: 923
   fields:
     product: 50144 # 網室木瓜
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 14.4
     row: 68
@@ -497,7 +497,7 @@
   pk: 924
   fields:
     product: 50202 # 蓮霧
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 35.6
     row: 69
@@ -518,7 +518,7 @@
   pk: 925
   fields:
     product: 50208 # 愛文芒果
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 30.3
     row: 70
@@ -539,7 +539,7 @@
   pk: 926
   fields:
     product: 50061 # 香蕉
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 7.1
     row: 71
@@ -563,7 +563,7 @@
   pk: 927
   fields:
     product: 50066 # 金鑽鳳梨
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 8.7
     row: 75
@@ -584,7 +584,7 @@
   pk: 928
   fields:
     product: 50157 # 龍眼
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 20.0
     row: 79
@@ -605,7 +605,7 @@
   pk: 929
   fields:
     product: 50195 # 番石榴(珍珠拔)
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 16.6
     row: 80
@@ -627,7 +627,7 @@
   pk: 930
   fields:
     product: 50150 # 黑葉荔枝
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 22.9
     row: 81
@@ -648,7 +648,7 @@
   pk: 931
   fields:
     product: 50016 # 竿採梅
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 8.2
     row: 82
@@ -669,7 +669,7 @@
   pk: 932
   fields:
     product: 50039 # 火龍果
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 17.3
     row: 88
@@ -690,7 +690,7 @@
   pk: 933
   fields:
     product: 50076 # 椪柑
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 19.0
     row: 60
@@ -710,7 +710,7 @@
   pk: 934
   fields:
     product: 50092 # 桶柑
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 12.6
     row: 65
@@ -730,7 +730,7 @@
   pk: 935
   fields:
     product: 50128 # 文旦柚
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 11.3
     row: 66
@@ -751,7 +751,7 @@
   pk: 936
   fields:
     product: 50096 # 柳橙
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 13.0
     row: 74
@@ -771,7 +771,7 @@
   pk: 937
   fields:
     product: 50102 # 檸檬
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 12.4
     row: 76
@@ -791,7 +791,7 @@
   pk: 938
   fields:
     product: 50080 # 茂谷柑
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 19.4
     row: 89
@@ -812,7 +812,7 @@
   pk: 959
   fields:
     product: 59020 # 鳳梨釋迦 產地
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 39.9
     row: 90
@@ -836,7 +836,7 @@
   pk: 939
   fields:
     product: 70001 #規格豬(95-155KG) #2021上半年規格豬改為95-155公斤,但API來源沒有改還是寫75公斤
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 74.3
     row: 115
@@ -857,7 +857,7 @@
 #   pk: 940
 #   fields:
 #     product: 70001
-#     watchlist: 10
+#     watchlist: 11
 #     type: 1
 #     price: 60.0
 #     row: 115    #規格豬的另一組下限值設定刪除後,會導致日報中規格豬沒有數值且隱藏整列,所以新增此項
@@ -876,7 +876,7 @@
 #   pk: 941
 #   fields:
 #     product: 70001
-#     watchlist: 10
+#     watchlist: 11
 #     type: 1
 #     price: 66.5
 #     row: 115
@@ -896,7 +896,7 @@
 #   pk: 942
 #   fields:
 #     product: 70001
-#     watchlist: 10
+#     watchlist: 11
 #     type: 1
 #     price: 79.0
 #     comparator: __gt__
@@ -914,7 +914,7 @@
 #   pk: 943
 #   fields:
 #     product: 70001
-#     watchlist: 10
+#     watchlist: 11
 #     type: 1
 #     price: 84.0
 #     comparator: __gt__
@@ -933,7 +933,7 @@
   pk: 944
   fields:
     product: 130001 # 肥育乳公牛550公斤以上
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 92.0
     row: 116
@@ -956,7 +956,7 @@
   pk: 945
   fields:
     product: 80001 # 努比亞雜交閹公羊
-    watchlist: 10
+    watchlist: 11
     type: 1
     price: 178.8
     row: 117
@@ -979,7 +979,7 @@
   pk: 946
   fields:
     product: 90006 # 白肉雞
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 46.14
     row: 120
@@ -1001,7 +1001,7 @@
   pk: 947
   fields:
     product: 90004 # 紅羽土雞(北區)
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 57.4
     row: 119
@@ -1023,7 +1023,7 @@
   pk: 948
   fields:
     product: 90007 # 雞蛋
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 42.2
     row: 121
@@ -1047,7 +1047,7 @@
   pk: 949
   fields:
     product: 100002 # 土番鴨(75天)
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 62.0
     row: 118
@@ -1071,7 +1071,7 @@
   pk: 950
   fields:
     product: 120007 # 吳郭魚內銷(0.6-0.8公斤/尾)
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 39.8
     row: 123
@@ -1094,7 +1094,7 @@
   pk: 951
   fields:
     product: 120198 # 虱目魚(0.6-0.8公斤/尾)晚撈
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 60.1
     row: 122
@@ -1117,7 +1117,7 @@
   pk: 953
   fields:
     product: 120311 # 文蛤 40-60粒/0.6公斤
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 54.5
     row: 128
@@ -1139,7 +1139,7 @@
   pk: 954
   fields:
     product: 120021 # 金目鱸(0.6-0.8公斤/尾)
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 82.7
     row: 129
@@ -1161,7 +1161,7 @@
   pk: 955
   fields:
     product: 120040 # 午仔魚(300-375g/尾)
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 138.6
     row: 131
@@ -1183,7 +1183,7 @@
   pk: 956
   fields:
     product: 120364 # 白蝦(50尾/0.6公斤)
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 78.0
     row: 130
@@ -1205,7 +1205,7 @@
   pk: 957
   fields:
     product: 121041 # 龍虎斑 0.6-0.9公斤/尾
-    watchlist: 10
+    watchlist: 11
     type: 2
     price: 140.9
     row: 127
