@@ -55,15 +55,32 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
             count = 0
             pattern = re.compile(r'\d+.?\d*\(.*?\)|\d+.?\d*')
             pattern2 = re.compile(r'\d+.?\d*')
-            templ = pattern.findall(l)
-            for j in templ:
-                tempd=pattern2.findall(j)
-                try:
-                    j = float(tempd[0])
-                except ValueError:
-                    continue
-                sum = sum + j
-                count += 1
+            prepen = r'\d+.?\d*-\d+.?\d*.?\d*-.?\d*'    # 處理來源數據黏在一起誤判問題,如來源為: 11.55-11.7511.55-11.75
+            tempres = re.findall(prepen,l)
+            if tempres: # 如果來源數據黏在一起
+                prepen2 = r'\d+.?\d{1,2}-\d+.?\d{1,2}'
+                l = re.findall(prepen2,l)   # 先拆解成 ['11.55-11.75', '11.55-11.75']
+                for k in l:
+                    tempd=pattern2.findall(k)   # 再分別拆分為 ['11.55', '11.75']
+                    for i in tempd:
+                        try:
+                            k = float(i)
+                        except ValueError:
+                            continue
+                        sum = sum + k
+                        count += 1
+
+            else:
+                templ = pattern.findall(l)
+                
+                for j in templ:
+                    tempd=pattern2.findall(j)
+                    try:
+                        j = float(tempd[0])
+                    except ValueError:
+                        continue
+                    sum = sum + j
+                    count += 1
             if count:
                 return round(sum / count, 2)
         
