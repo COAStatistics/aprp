@@ -469,43 +469,43 @@
 - model: configs.Last5YearsItems
   pk: 69
   fields:
-    name: 虱目魚
+    name: 虱目魚(產地)
     product_id: [120954]
 
 - model: configs.Last5YearsItems
   pk: 70
   fields:
-    name: 吳郭魚
+    name: 吳郭魚(產地)
     product_id: [120947]
 
 - model: configs.Last5YearsItems
   pk: 71
   fields:
-    name: 龍虎斑
+    name: 龍虎斑(產地)
     product_id: [121044]
 
 - model: configs.Last5YearsItems
   pk: 72
   fields:
-    name: 文蛤
+    name: 文蛤(產地)
     product_id: [120941]
 
 - model: configs.Last5YearsItems
   pk: 73
   fields:
-    name: 金目鱸
+    name: 金目鱸(產地)
     product_id: [120950]
 
 - model: configs.Last5YearsItems
   pk: 74
   fields:
-    name: 白蝦
+    name: 白蝦(產地)
     product_id: [120937]
 
 - model: configs.Last5YearsItems
   pk: 75
   fields:
-    name: 午仔魚
+    name: 午仔魚(產地)
     product_id: [120987]
 
 - model: configs.Last5YearsItems
@@ -593,3 +593,52 @@
   fields:
     name: 蒜頭(蒜球)(旬價)
     product_id: [49012]
+
+- model: configs.Last5YearsItems
+  pk: 89
+  fields:
+    name: 吳郭魚(1011)(批發)
+    product_id: [120008]
+    source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
+
+- model: configs.Last5YearsItems
+  pk: 90
+  fields:
+    name: 虱目魚(1041)(批發)
+    product_id: [120199]
+    source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
+
+- model: configs.Last5YearsItems
+  pk: 91
+  fields:
+    name: 文蛤養(5022)(批發)
+    product_id: [120312]
+    source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
+
+- model: configs.Last5YearsItems
+  pk: 92
+  fields:
+    name: 金目鱸(1071)(批發)
+    product_id: [120022]
+    source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
+
+- model: configs.Last5YearsItems
+  pk: 93
+  fields:
+    name: 午仔魚(1272)(批發)
+    product_id: [120041]
+    source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
+
+- model: configs.Last5YearsItems
+  pk: 94
+  fields:
+    name: 白蝦(4015)(批發)
+    product_id: [120365]
+    source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
+
+- model: configs.Last5YearsItems
+  pk: 95
+  fields:
+    name: 龍虎斑(1174)(批發)
+    product_id: [121042]
+    source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
