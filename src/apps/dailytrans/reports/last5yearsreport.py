@@ -242,29 +242,29 @@ class Last5YearsReportFactory(object):
         avgprice_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgprice'], orient='index')
         avgprice_data.columns = columns_name
         avgprice_data.loc['近五年平均'] = last_5_years_avgprice_list
-        avgprice_data = avgprice_data.round(1)
+        avgprice_data = avgprice_data.round(2)
 
         if has_volume:
             avgvolume_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgvolume'], orient='index')
             avgvolume_data.columns = columns_name
             avgvolume_data.loc['近五年平均'] = last_5_years_avgvolume_list
-            avgvolume_data = avgvolume_data.round(1)
+            avgvolume_data = avgvolume_data.round(3)
 
         if self.is_hogs and has_weight:
             avgweight_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgweight'], orient='index')
             avgweight_data.columns = columns_name
             avgweight_data.loc['近五年平均'] = last_5_years_avgweight_list
-            avgweight_data = avgweight_data.round(1)
+            avgweight_data = avgweight_data.round(3)
             
             avgvolumeweight_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgvolumeweight'], orient='index')
             avgvolumeweight_data.columns = columns_name
             avgvolumeweight_data.loc['近五年平均'] = last_5_years_avgvolumeweight_list
-            avgvolumeweight_data = avgvolumeweight_data.round(1)
+            avgvolumeweight_data = avgvolumeweight_data.round(3)
         elif has_weight:
             avgweight_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgweight'], orient='index')
             avgweight_data.columns = columns_name
             avgweight_data.loc['近五年平均'] = last_5_years_avgweight_list
-            avgweight_data = avgweight_data.round(1)
+            avgweight_data = avgweight_data.round(3)
 
         return avgprice_data, avgvolume_data, avgweight_data, avgvolumeweight_data
 
