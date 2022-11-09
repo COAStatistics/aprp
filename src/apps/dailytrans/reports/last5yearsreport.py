@@ -120,8 +120,8 @@ class Last5YearsReportFactory(object):
                     avgweight = np.nan
 
                 avgprice_month_list.append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgprice)))
-                if has_volume:    
-                    avgvolume_month_list.append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolume)))
+                # if has_volume:    # 特定產品於某年度9~12月份才開始有數據,原條件判斷會導致該年度9~12月份的數據變成1~4月   
+                avgvolume_month_list.append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolume)))
                 if self.is_hogs and has_weight:
                     avgweight_month_list.append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgweight)))
                     avgvolumeweight_month_list.append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolumeweight)))
@@ -129,8 +129,8 @@ class Last5YearsReportFactory(object):
                     avgweight_month_list.append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgweight)))
 
             avgprice_dict[str(y-1911)+'年'] = avgprice_month_list
-            if has_volume:
-                avgvolume_dict[str(y-1911)+'年'] = avgvolume_month_list
+            # if has_volume:    # 特定產品於某年度9~12月份才開始有數據,原條件判斷會導致該年度9~12月份的數據變成1~4月
+            avgvolume_dict[str(y-1911)+'年'] = avgvolume_month_list
             
             if self.is_hogs and has_weight:
                 avgweight_dict[str(y-1911)+'年'] = avgweight_month_list
