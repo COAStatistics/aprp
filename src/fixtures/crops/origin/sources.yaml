@@ -209,7 +209,7 @@
 - model: configs.Source
   pk: 10056
   fields:
-    name: 南州鄉農會
+    name: 南州地區農會
     configs: [5, 6]
     type: 2
 
