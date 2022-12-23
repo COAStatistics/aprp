@@ -450,44 +450,44 @@
 # Hogs
 
 - model: watchlists.WatchlistItem
-  pk: 9301
+  pk: 10301
   fields:
     product: 70001 # 規格豬(75-155公斤)
     sources: [40002, 40003, 40004, 40005, 40006, 40007, 40008, 40009, 40010, 40011, 40012, 40013, 40014, 40015, 40016, 40017, 40018, 40019, 40020, 40021, 40022]
-    parent: 11
+    parent: 12
 
 # Cattle
 
 - model: watchlists.WatchlistItem
-  pk: 9302
+  pk: 10302
   fields:
     product: 130001 # 肥育乳公牛550公斤以上
-    parent: 11
+    parent: 12
 
 # Rams
 
 - model: watchlists.WatchlistItem
-  pk: 9303
+  pk: 10303
   fields:
     product: 80002 # 努比亞雜交閹公羊(50-75公斤)
     sources: [50001]
-    parent: 11
+    parent: 12
 
 # Chickens
 
 - model: watchlists.WatchlistItem
-  pk: 9304
+  pk: 10304
   fields:
     product: 90014 # 白肉雞(1.75-2.0Kg)
     sources: []
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9305
+  pk: 10305
   fields:
     product: 90008 # 紅羽土雞北區
     sources: []
-    parent: 11
+    parent: 12
 
 #109下半年監控清單紅羽土雞改為只監控(北區)
 # - model: watchlists.WatchlistItem
@@ -498,153 +498,153 @@
 #     parent: 11
 
 - model: watchlists.WatchlistItem
-  pk: 9308
+  pk: 10308
   fields:
     product: 90016 # 雞蛋
     sources: []
-    parent: 11
+    parent: 12
 
 # Ducks
 
 - model: watchlists.WatchlistItem
-  pk: 9309
+  pk: 10309
   fields:
     product: 100005 # 土番鴨(75天)
     sources: []
-    parent: 11
+    parent: 12
 
 # Seafood
 
 - model: watchlists.WatchlistItem
-  pk: 9401
+  pk: 10401
   fields:
     product: 120947 # 吳郭魚105
     sources: []
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9402
+  pk: 10402
   fields:
     product: 120954 # 虱目魚晚撈 0.6-0.8公斤/尾
     sources: []
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9404
+  pk: 10404
   fields:
     product: 120941 # 文蛤 40-60粒/0.6公斤 #2021h1 監控品級改40-60粒/台斤
     sources: []
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9405
+  pk: 10405
   fields:
     product: 120950 # 金目鱸 600-800g
     sources: []
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9406
+  pk: 10406
   fields:
     product: 120987 # 午仔魚 300g-375g
     sources: []
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9407
+  pk: 10407
   fields:
     product: 120937 # 白蝦 50尾/0.6公斤
     sources: []
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9408
+  pk: 10408
   fields:
     product: 121044 # 龍虎斑 0.6-0.9公斤/尾
     sources: []
-    parent: 11
+    parent: 12
 
 # Crops - COG02
 
 - model: watchlists.WatchlistItem
-  pk: 9501
+  pk: 10501
   fields:
     product: 10006 # 根莖菜類
     sources: [10001, 10002]
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9502
+  pk: 10502
   fields:
     product: 10007 # 葉菜類
     sources: [10001, 10002]
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9503
+  pk: 10503
   fields:
     product: 10008 # 花果菜類
     sources: [10001, 10002]
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9504
+  pk: 10504
   fields:
     product: 10009 # 姑菌類
     sources: [10001, 10002]
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9505
+  pk: 10505
   fields:
     product: 10010 # 醃製類
     sources: [10001, 10002]
-    parent: 11
+    parent: 12
 
 # Fruits - COG03
 
 - model: watchlists.WatchlistItem
-  pk: 9506
+  pk: 10506
   fields:
     product: 20003 # 國產 O
     sources: [20001, 20002]
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9507
+  pk: 10507
   fields:
     product: 20004 # 進口 I
     sources: [20001, 20002]
-    parent: 11
+    parent: 12
 
 # Flowers - COG04
 
 - model: watchlists.WatchlistItem
-  pk: 9508
+  pk: 10508
   fields:
     product: 30002 # 全部花卉 L
     sources: [30001, 30002, 30003, 30004, 30005]
-    parent: 11
+    parent: 12
 
 # Flowers - COG07
 
 - model: watchlists.WatchlistItem
-  pk: 9509
+  pk: 10509
   fields:
     product: 60051 # 火鶴花 FB
     sources: [30001, 30002, 30003, 30004, 30005]
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem
-  pk: 9510
+  pk: 10510
   fields:
     product: 60066 # 文心蘭 FO3
     sources: [30001, 30002, 30003, 30004, 30005]
-    parent: 11
+    parent: 12
 
 - model: watchlists.WatchlistItem #葉科長指示日報已經新增香水百合,所以在監控清單上也新增香水百合以便長官快速查詢
-  pk: 9511
+  pk: 10511
   fields:
     product: 60068 # 香水百合 FS
     sources: [30001, 30002, 30003, 30004, 30005]
-    parent: 11
+    parent: 12
