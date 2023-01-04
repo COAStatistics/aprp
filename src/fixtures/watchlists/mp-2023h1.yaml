@@ -1185,7 +1185,7 @@
 - model: watchlists.MonitorProfile
   pk: 1056
   fields:
-    product: 120364 # 白蝦(40尾/0.6公斤)
+    product: 120364 # 白蝦(50尾/0.6公斤)
     watchlist: 12
     type: 2
     price: 79.5

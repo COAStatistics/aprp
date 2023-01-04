@@ -553,7 +553,7 @@
 - model: watchlists.WatchlistItem
   pk: 10407
   fields:
-    product: 120936 # 白蝦 40尾/0.6公斤
+    product: 120937 # 白蝦 50尾/0.6公斤
     sources: []
     parent: 12
 
