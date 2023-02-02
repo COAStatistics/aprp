@@ -300,12 +300,12 @@ var dataTableHelper = {
         var ajaxData = dataTableHelper.getAjaxDataFromContainer($container);
 
         // Add btnLoad if start date and end date in same year
-        sameYear = ajaxData.min.getYear() == ajaxData.max.getYear();
-        btnLoadRow = sameYear ? {
+        // sameYear = ajaxData.min.getYear() == ajaxData.max.getYear(); // 取消同年度才顯示歷年資料
+        btnLoadRow = {
             text: gettext('Load Historical Data'),
             action: integrationHelper.loadRowFunction($container),
-        } : null
-        if(sameYear) buttons.push(btnLoadRow);
+        }
+        buttons.push(btnLoadRow);
 
         // adjust column width
         var columnLength = $container.find("tr:first th").length;
