@@ -501,7 +501,6 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                     splitted_df['end_year'] = end_date.year - i
                     df_list.append(splitted_df)
                 df = pd.concat(df_list, axis=1).T
-                df = df.drop(len(df)-1)
         else:    
             if has_volume and has_weight:
                 df['avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight']
