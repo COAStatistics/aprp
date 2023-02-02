@@ -469,7 +469,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             if has_volume and has_weight:
                 df['avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight']
                 df['sum_volume_weight'] = df['sum_volume'] * df['avg_avg_weight']
-                for i in range(1, start_date.year-2011+1):
+                for i in range(1, start_date.year-q.first()['year']+1):
                     splitted_df = df[
                         (df['date']>=datetime.date(start_date.year-i, start_date.month, start_date.day))\
                             &(df['date']<=datetime.date(end_date.year-i, end_date.month, end_date.day))\
@@ -478,12 +478,10 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                     splitted_df['end_year'] = end_date.year - i
                     df_list.append(splitted_df)
                 df = pd.concat(df_list, axis=1).T
-                df = df.drop(len(df)-1)
-                df = df.drop(['date'], axis=1).dropna()
                 df['avg_price'] = df['avg_price'] / df['sum_volume_weight']
             elif has_volume:
                 df['avg_price'] = df['avg_price'] * df['sum_volume']
-                for i in range(1, start_date.year-2011+1):
+                for i in range(1, start_date.year-q.first()['year']+1):
                     splitted_df = df[
                         (df['date']>=datetime.date(start_date.year-i, start_date.month, start_date.day))\
                             &(df['date']<=datetime.date(end_date.year-i, end_date.month, end_date.day))\
@@ -492,11 +490,9 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                     splitted_df['end_year'] = end_date.year - i
                     df_list.append(splitted_df)
                 df = pd.concat(df_list, axis=1).T
-                df = df.drop(len(df)-1)
-                # df = df.groupby(['year'], as_index=False).mean()
                 df['avg_price'] = df['avg_price'] / df['sum_volume']
             else:
-                for i in range(1, start_date.year-2011+1):
+                for i in range(1, start_date.year-q.first()['year']+1):
                     splitted_df = df[
                         (df['date']>=datetime.date(start_date.year-i, start_date.month, start_date.day))\
                             &(df['date']<=datetime.date(end_date.year-i, end_date.month, end_date.day))\
