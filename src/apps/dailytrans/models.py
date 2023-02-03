@@ -1,4 +1,5 @@
 from django.utils import timezone
+import datetime
 from django.db.models import (
     Model,
     CASCADE,
@@ -19,7 +20,20 @@ class DailyTranQuerySet(QuerySet):
         super(DailyTranQuerySet, self).update(*args, **kwargs)
 
     def between_month_day_filter(self, start_date=None, end_date=None):
-        if start_date and end_date:
+        
+        if start_date and end_date and start_date.year != end_date.year: # 跨年度資料
+            start_md = int(start_date.strftime('%m%d'))
+            end_md = int(end_date.strftime('%m%d'))
+            ids=[]
+            for obj in self.all():
+                if start_date.date() <= obj.date <= end_date.date():
+                    ids.append(obj.id)
+                for i in range(1, start_date.year-2011+1):
+                    if datetime.date(start_date.year-i, start_date.month, start_date.day) <= obj.date <= datetime.date(end_date.year-i, end_date.month, end_date.day):
+                            ids.append(obj.id)
+            return self.filter(id__in=ids)
+
+        elif start_date and end_date:
             start_md = int(start_date.strftime('%m%d'))
             end_md = int(end_date.strftime('%m%d'))
 

@@ -3,6 +3,8 @@ import operator
 import datetime
 from django.db.models.expressions import RawSQL
 
+import numpy as np
+import pandas as pd
 from pandas import DataFrame
 from collections import OrderedDict
 from functools import reduce
@@ -460,19 +462,57 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
 
         return result
 
-    def pandas_annotate_year(qs, has_volume, has_weight):
+    def pandas_annotate_year(qs, has_volume, has_weight, start_date=None, end_date=None):
         df = DataFrame(list(qs))
-        if has_volume and has_weight:
-            df['avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight']
-            df['sum_volume_weight'] = df['sum_volume'] * df['avg_avg_weight']
-            df = df.groupby(['year'], as_index=False).mean()
-            df['avg_price'] = df['avg_price'] / df['sum_volume_weight']
-        elif has_volume:
-            df['avg_price'] = df['avg_price'] * df['sum_volume']
-            df = df.groupby(['year'], as_index=False).mean()
-            df['avg_price'] = df['avg_price'] / df['sum_volume']
-        else:
-            df = df.groupby(['year'], as_index=False).mean()
+        if start_date and end_date and start_date.year != end_date.year:
+            df_list=[]
+            if has_volume and has_weight:
+                df['avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight']
+                df['sum_volume_weight'] = df['sum_volume'] * df['avg_avg_weight']
+                for i in range(1, start_date.year-q.first()['year']+1):
+                    splitted_df = df[
+                        (df['date']>=datetime.date(start_date.year-i, start_date.month, start_date.day))\
+                            &(df['date']<=datetime.date(end_date.year-i, end_date.month, end_date.day))\
+                                ].mean()
+                    splitted_df['year'] = start_date.year - i
+                    splitted_df['end_year'] = end_date.year - i
+                    df_list.append(splitted_df)
+                df = pd.concat(df_list, axis=1).T
+                df['avg_price'] = df['avg_price'] / df['sum_volume_weight']
+            elif has_volume:
+                df['avg_price'] = df['avg_price'] * df['sum_volume']
+                for i in range(1, start_date.year-q.first()['year']+1):
+                    splitted_df = df[
+                        (df['date']>=datetime.date(start_date.year-i, start_date.month, start_date.day))\
+                            &(df['date']<=datetime.date(end_date.year-i, end_date.month, end_date.day))\
+                                ].mean()
+                    splitted_df['year'] = start_date.year - i
+                    splitted_df['end_year'] = end_date.year - i
+                    df_list.append(splitted_df)
+                df = pd.concat(df_list, axis=1).T
+                df['avg_price'] = df['avg_price'] / df['sum_volume']
+            else:
+                for i in range(1, start_date.year-q.first()['year']+1):
+                    splitted_df = df[
+                        (df['date']>=datetime.date(start_date.year-i, start_date.month, start_date.day))\
+                            &(df['date']<=datetime.date(end_date.year-i, end_date.month, end_date.day))\
+                                ].mean()
+                    splitted_df['year'] = start_date.year - i
+                    splitted_df['end_year'] = end_date.year - i
+                    df_list.append(splitted_df)
+                df = pd.concat(df_list, axis=1).T
+        else:    
+            if has_volume and has_weight:
+                df['avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight']
+                df['sum_volume_weight'] = df['sum_volume'] * df['avg_avg_weight']
+                df = df.groupby(['year'], as_index=False).mean()
+                df['avg_price'] = df['avg_price'] / df['sum_volume_weight']
+            elif has_volume:
+                df['avg_price'] = df['avg_price'] * df['sum_volume']
+                df = df.groupby(['year'], as_index=False).mean()
+                df['avg_price'] = df['avg_price'] / df['sum_volume']
+            else:
+                df = df.groupby(['year'], as_index=False).mean()
         df = df.drop(['month', 'day'], axis=1)
         result = df.T.to_dict().values()
         # group by year
@@ -505,14 +545,15 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                                                                                end_date=last_end_date,
                                                                                specific_year=True)
 
-        # if same year do this
-        if start_date.year == end_date.year:
+        # if same year do this -> generate the data in the last 5 year. 
+        # if start_date.year == end_date.year:
             # q_fy: recent five years
-            q_fy = query_set.filter(date__year__gte=end_date.year-5, date__year__lt=end_date.year)
-            q_fy, has_volume_fy, has_weight_fy = get_group_by_date_query_set(q_fy,
-                                                                             start_date=start_date,
-                                                                             end_date=end_date,
-                                                                             specific_year=False)
+        # 主任想看到跨年度資料的歷年比較，故取消這條件判斷
+        q_fy = query_set.filter(date__gte=end_date-datetime.timedelta(days=365*5+1), date__lt=end_date)
+        q_fy, has_volume_fy, has_weight_fy = get_group_by_date_query_set(q_fy,
+                                                                            start_date=start_date,
+                                                                            end_date=end_date,
+                                                                            specific_year=False)
 
         if q.count() > 0:
             data_this = pandas_annotate_init(q)
@@ -530,28 +571,31 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             data_last['order'] = 2
             integration.append(data_last)
 
-        # if same year do this
-        if start_date.year == end_date.year:
-            actual_years = set(q_fy.values_list('year', flat=True))
-            if len(actual_years) == 5:
-                data_fy = pandas_annotate_init(q_fy)
-                data_fy['name'] = _('5 Years')
-                data_fy['points'] = spark_point_maker(q_fy)
-                data_fy['base'] = False
-                data_fy['order'] = 3
-                integration.append(data_fy)
+        # if same year do this # 主任想看到跨年度資料的歷年比較，故取消這條件判斷。
+        # if start_date.year == end_date.year:
+        #     actual_years = set(q_fy.values_list('year', flat=True))
+        # if len(actual_years) == 5:
+        if q_fy.last()['year'] - q_fy.first()['year'] == 5:
+            data_fy = pandas_annotate_init(q_fy)
+            data_fy['name'] = _('5 Years')
+            data_fy['points'] = spark_point_maker(q_fy)
+            data_fy['base'] = False
+            data_fy['order'] = 3
+            integration.append(data_fy)
 
     # Return each year integration exclude current term
     else:
-        this_year = start_date.year
+        this_year = end_date.year
         query_set = query_set.filter(date__year__lt=this_year)
         # Group by year
         q, has_volume, has_weight = get_group_by_date_query_set(query_set,
                                                                 start_date=start_date,
                                                                 end_date=end_date,
                                                                 specific_year=False)
+        
+            
 
-        if q.count() > 0:
+        if q.count() > 0 and start_date.year == end_date.year:
             data_all = pandas_annotate_year(q, has_volume, has_weight)
             for dic in data_all:
                 year = dic['year']
@@ -560,6 +604,21 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                 dic['points'] = spark_point_maker(q_filter_by_year)
                 dic['base'] = False
                 dic['order'] = 4 + this_year - year
+
+            integration = list(data_all)
+            integration.reverse()
+
+        elif q.count() > 0 and start_date.year != end_date.year:
+            data_all = pandas_annotate_year(q, has_volume, has_weight, start_date, end_date)
+            for dic in data_all:
+                start_year = int(dic['year'])
+                end_year = int(dic['end_year'])
+                q_filter_by_year = q.filter(date__gte=datetime.date(start_year, start_date.month, start_date.day),\
+                                                date__lte=datetime.date(end_year, end_date.month, end_date.day))
+                dic['name'] = '{}~{}'.format(start_year, end_year)
+                dic['points'] = spark_point_maker(q_filter_by_year)
+                dic['base'] = False
+                dic['order'] = 4 + this_year - start_year
 
             integration = list(data_all)
             integration.reverse()
