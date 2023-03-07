@@ -549,7 +549,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         # if start_date.year == end_date.year:
             # q_fy: recent five years
         # 主任想看到跨年度資料的歷年比較，故取消這條件判斷
-        q_fy = query_set.filter(date__gte=end_date-datetime.timedelta(days=365*5+1), date__lt=end_date)
+        q_fy = query_set.filter(date__gte=start_date-datetime.timedelta(days=365*5+1), date__lte=end_date-datetime.timedelta(days=365))
         q_fy, has_volume_fy, has_weight_fy = get_group_by_date_query_set(q_fy,
                                                                             start_date=start_date,
                                                                             end_date=end_date,
