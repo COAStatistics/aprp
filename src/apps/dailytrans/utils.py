@@ -549,7 +549,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         # if start_date.year == end_date.year:
             # q_fy: recent five years
         # 主任想看到跨年度資料的歷年比較，故取消這條件判斷
-        q_fy = query_set.filter(date__gte=end_date-datetime.timedelta(days=365*5+1), date__lt=end_date)
+        q_fy = query_set.filter(date__gte=start_date-datetime.timedelta(days=365*5+1), date__lte=end_date-datetime.timedelta(days=365))
         q_fy, has_volume_fy, has_weight_fy = get_group_by_date_query_set(q_fy,
                                                                             start_date=start_date,
                                                                             end_date=end_date,
@@ -575,7 +575,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         # if start_date.year == end_date.year:
         #     actual_years = set(q_fy.values_list('year', flat=True))
         # if len(actual_years) == 5:
-        if q_fy.last()['year'] - q_fy.first()['year'] == 5:
+        if q_fy.order_by('date').last()['year'] - q_fy.order_by('date').first()['year'] + 1 == 5:
             data_fy = pandas_annotate_init(q_fy)
             data_fy['name'] = _('5 Years')
             data_fy['points'] = spark_point_maker(q_fy)
