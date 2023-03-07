@@ -575,7 +575,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         # if start_date.year == end_date.year:
         #     actual_years = set(q_fy.values_list('year', flat=True))
         # if len(actual_years) == 5:
-        if q_fy.order_by('date').last()['year'] - q_fy.order_by('date').first()['year'] == 5:
+        if q_fy.order_by('date').last()['year'] - q_fy.order_by('date').first()['year'] + 1 >= 5:
             data_fy = pandas_annotate_init(q_fy)
             data_fy['name'] = _('5 Years')
             data_fy['points'] = spark_point_maker(q_fy)
