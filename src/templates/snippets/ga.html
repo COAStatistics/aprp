@@ -1,4 +1,4 @@
-<!-- Global site tag (gtag.js) - Google Analytics -->
+{% comment %} <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 <script>
 
@@ -18,4 +18,14 @@ jQuery(document).ajaxError(function (e, request, settings) {
     });
 });
 
+</script> {% endcomment %}
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LTXKDEJDTT"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LTXKDEJDTT');
 </script>
