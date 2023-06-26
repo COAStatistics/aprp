@@ -33,6 +33,8 @@ class Api(AbstractApi):
 
         def create_tran(obj, source):
             code = obj.code
+            if code == '規格豬(75公斤以上)':
+                code = code[:3]
             if code == '成交頭數':
                 volume_column = self.COLUMN_SEP.join((code, '總數'))
             else:
