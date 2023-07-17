@@ -75,12 +75,12 @@ desc_1 = [
 desc_2 = ['新興梨', '豐水梨', '柿子']
 
 desc_3 = [
-    '花卉交易(全部花卉市場) 交易量：火鶴花以單枝，文心蘭10枝，香水百合5枝─農產品行情報導，本會農糧署。',
+    '花卉交易(全部花卉市場) 交易量：火鶴花以單枝，文心蘭10枝，香水百合5枝─農產品行情報導，本部農糧署。',
     '95KG以上規格毛豬拍賣價格及土番鴨、白肉雞、雞蛋產地價格—中央畜產會。',
-    '550KG以上肉牛產地價格—本會畜產試驗所恆春分所及中央畜產會。',
+    '550KG以上肉牛產地價格—本部畜產試驗所恆春分所及中央畜產會。',
     '努比亞雜交閹公羊拍賣價格—彰化縣肉品拍賣市場。',
     '紅羽土雞產地價格(北區)—中華民國養雞協會。',
-    '水產品產地價格─本會漁業署。'
+    '水產品產地價格─本部漁業署。'
 ]
 
 def get_avg_price(qs, has_volume, has_weight, week_start=None, week_end=None):
@@ -449,7 +449,7 @@ class DailyReportFactory(object):
                 td.value = f"{tmp}{desc_1_text}；"
                 now_row += 1
         td = sheet.cell(row=now_row-1, column=1)
-        td.value = td.value.replace('；', '—農產品價格查報，本會農糧署。')
+        td.value = td.value.replace('；', '—農產品價格查報，本部農糧署。')
         desc_2_tmp = list()
         pn = 4
         for item_name in desc_2:
@@ -461,7 +461,7 @@ class DailyReportFactory(object):
         if desc_2_tmp:
             td = sheet.cell(row=now_row, column=1)
             desc_2_text = '4.'+'、'.join(desc_2_tmp) + \
-                '交易量價(東勢果菜市場價格)－農產品行情報導，本會農糧署。'
+                '交易量價(東勢果菜市場價格)－農產品行情報導，本部農糧署。'
             td.value = desc_2_text
             now_row += 1
             pn += 1
