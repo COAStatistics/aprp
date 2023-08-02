@@ -157,7 +157,7 @@ class UserRegisterForm(forms.ModelForm):
         # restrict email dns
         dns = email.split('@')[1]
         if not GroupInformation.objects.filter(email_dns=dns).count():
-            raise forms.ValidationError(_('Please register with email under domain "@mail.coa.gov.tw"'))
+            raise forms.ValidationError(_('Please register with email under domain "@mail.moa.gov.tw"'))
 
         email_qs = User.objects.filter(email=email)
         if email_qs.exists():
