@@ -128,14 +128,26 @@ class Last5YearsReportFactory(object):
                 elif has_weight:
                     avgweight_month_list.append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgweight)))
 
+            # insert yearly avg price, volume, weight and volume*weight to dict
+            avgprice_year = sum([x for x in avgprice_month_list if x==x]) / len([x for x in avgprice_month_list if x==x])
+            avgprice_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgprice_year)))
+            if [x for x in avgvolume_month_list if x==x] != []:
+                avgvolume_year = sum([x for x in avgvolume_month_list if x==x]) / len([x for x in avgvolume_month_list if x==x])
+                avgvolume_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolume_year)))
             avgprice_dict[str(y-1911)+'年'] = avgprice_month_list
             # if has_volume:    # 特定產品於某年度9~12月份才開始有數據,原條件判斷會導致該年度9~12月份的數據變成1~4月
             avgvolume_dict[str(y-1911)+'年'] = avgvolume_month_list
             
             if self.is_hogs and has_weight:
+                avgweight_year = sum([x for x in avgweight_month_list if x==x]) / len([x for x in avgweight_month_list if x==x])
+                avgweight_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgweight_year)))
                 avgweight_dict[str(y-1911)+'年'] = avgweight_month_list
+                avgvolumeweight_yaer = sum([x for x in avgvolumeweight_month_list if x==x]) / len([x for x in avgvolumeweight_month_list if x==x])
+                avgvolumeweight_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolumeweight_yaer)))
                 avgvolumeweight_dict[str(y-1911)+'年'] = avgvolumeweight_month_list
             elif has_weight:
+                avgweight_year = sum([x for x in avgweight_month_list if x==x]) / len([x for x in avgweight_month_list if x==x])
+                avgweight_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgweight_year)))
                 avgweight_dict[str(y-1911)+'年'] = avgweight_month_list
                 
         product_data_dict[self.all_product_id_list[0]] = {'avgprice' : avgprice_dict, 'avgvolume' : avgvolume_dict, 'avgweight' : avgweight_dict, 'avgvolumeweight' : avgvolumeweight_dict}
@@ -148,10 +160,10 @@ class Last5YearsReportFactory(object):
         last_5_years_avg_data['avgvolumeweight'] = {}
         has_volume = False
         has_weight = False
-        last_5_years_avgprice_list = []
-        last_5_years_avgvolume_list = []
-        last_5_years_avgweight_list = []
-        last_5_years_avgvolumeweight_list = []
+        last_5_years_avgprice_list = [np.nan]
+        last_5_years_avgvolume_list = [np.nan]
+        last_5_years_avgweight_list = [np.nan]
+        last_5_years_avgvolumeweight_list = [np.nan]
         avgprice_data = pd.DataFrame()
         avgvolume_data = pd.DataFrame()
         avgweight_data = pd.DataFrame()
@@ -238,7 +250,7 @@ class Last5YearsReportFactory(object):
                 last_5_years_avgweight_list.append(np.nan)
                 last_5_years_avgvolumeweight_list.append(np.nan)
 
-        columns_name = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+        columns_name = ['年平均', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
         avgprice_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgprice'], orient='index')
         avgprice_data.columns = columns_name
         avgprice_data.loc['近五年平均'] = last_5_years_avgprice_list

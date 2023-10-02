@@ -268,7 +268,7 @@ def render_last5years_report(request):
 
     avgprice_data, avgvolume_data, avgweight_data, avgpriceweight_data = Last5YearsReportFactory(product_id=sel_item_id_list,source=sel_item_source_list, is_hogs=is_hogs, is_rams=is_rams)()
 
-    hightcharts_avgprice_data = avgprice_data.replace(np.nan, '', regex=True).to_dict('split')
+    hightcharts_avgprice_data = avgprice_data[avgprice_data.columns[1:]].replace(np.nan, '', regex=True).to_dict('split')
     avgprice_data = avgprice_data.replace(np.nan, '', regex=True).to_html(classes='table table-striped table-hover')
 
     context = {
@@ -281,19 +281,19 @@ def render_last5years_report(request):
     }
 
     if not avgvolume_data.empty:
-        hightcharts_avgvolume_data = avgvolume_data.replace(np.nan, '', regex=True).to_dict('split')
+        hightcharts_avgvolume_data = avgvolume_data[avgvolume_data.columns[1:]].replace(np.nan, '', regex=True).to_dict('split')
         avgvolume_data = avgvolume_data.replace(np.nan, '', regex=True).to_html(classes='table table-striped table-hover')
         context['hightcharts_avgvolume_data'] = hightcharts_avgvolume_data
         context['avgvolume_data'] = avgvolume_data
 
     if not avgweight_data.empty:
-        hightcharts_avgweight_data = avgweight_data.replace(np.nan, '', regex=True).to_dict('split')
+        hightcharts_avgweight_data = avgweight_data[avgweight_data.columns[1:]].replace(np.nan, '', regex=True).to_dict('split')
         avgweight_data = avgweight_data.replace(np.nan, '', regex=True).to_html(classes='table table-striped table-hover')
         context['hightcharts_avgweight_data'] = hightcharts_avgweight_data
         context['avgweight_data'] = avgweight_data
 
     if not avgpriceweight_data.empty:
-        hightcharts_avgpriceweight_data = avgpriceweight_data.replace(np.nan, '', regex=True).to_dict('split')
+        hightcharts_avgpriceweight_data = avgpriceweight_data[avgpriceweight_data.columns[1:]].replace(np.nan, '', regex=True).to_dict('split')
         avgpriceweight_data = avgpriceweight_data.replace(np.nan, '', regex=True).to_html(classes='table table-striped table-hover')
         context['hightcharts_avgpriceweight_data'] = hightcharts_avgpriceweight_data
         context['avgpriceweight_data'] = avgpriceweight_data
