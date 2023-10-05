@@ -74,6 +74,8 @@ class Last5YearsReportFactory(object):
             avgvolume_month_list = []
             avgweight_month_list = []
             avgvolumeweight_month_list = []
+            totalprice, totalvolume, totalweight, totalvolumeweight = 0, 0, 0, 0
+            dayswithprice, dayswithvolume, dayswithweight, dayswithvolumeweight = 0, 0, 0, 0
 
             end_month = 13
             if y == self.today_year:
@@ -96,28 +98,47 @@ class Last5YearsReportFactory(object):
                     has_weight = False
                 
                 if has_volume and has_weight:
-                    avgprice=(one_month_data['avg_price']*one_month_data['avg_weight']*one_month_data['volume']).sum()/(one_month_data['avg_weight']*one_month_data['volume']).sum()
-                    avgweight=(one_month_data['avg_weight']*one_month_data['volume']).sum()/(one_month_data['volume']).sum()
+                    one_month_totalprice = (one_month_data['avg_price']*one_month_data['avg_weight']*one_month_data['volume']).sum()
+                    one_month_totalweight = (one_month_data['avg_weight']*one_month_data['volume']).sum()
+                    one_month_totalvolume = (one_month_data['volume']).sum()
+                    totalprice += one_month_totalprice
+                    totalweight += one_month_totalweight
+                    avgprice = one_month_totalprice / one_month_totalweight
+                    avgweight = one_month_totalweight / one_month_totalvolume
                     
                     if self.is_rams : #羊的交易量,
+                        totalvolume += one_month_totalvolume
                         avgvolume = one_month_data.groupby('date').sum()['volume'].mean()
+                        print(one_month_data)
                     elif self.is_hogs: #毛豬交易量為頭數
+                        totalvolume += one_month_totalvolume / 1000
+                        totalvolumeweight += one_month_totalweight
                         avgvolume = one_month_data.groupby('date').sum()['volume'].mean() / 1000
                         avgweight = avgweight
                         avgvolumeweight = (avgweight*avgvolume*1000) / 1000
                     else:   #環南市場-雞的交易量
                         # avgvolume = (one_month_data['avg_weight']*one_month_data['volume']).sum()/(one_month_data['volume']).sum()
+                        totalvolume += one_month_totalvolume
                         avgvolume = one_month_data.groupby('date').sum()['volume'].mean()
                         avgweight = one_month_data.groupby('date').sum()['avg_weight'].mean()
-                        
+                    dayswithprice += (one_month_data['avg_weight']*one_month_data['volume']).sum()
+                    dayswithweight += one_month_data['volume'].sum()
+                    dayswithvolume += one_month_data.groupby('date').sum()['volume'].count()
+                    dayswithvolumeweight += one_month_data.groupby('date').sum()['volume'].count()
                 elif has_volume:
+                    totalprice += (one_month_data['avg_price']*one_month_data['volume']).sum()
+                    totalvolume += one_month_data.groupby('date').sum()['volume'].sum() / 1000
                     avgprice=(one_month_data['avg_price']*one_month_data['volume']).sum()/one_month_data['volume'].sum()
                     avgvolume = one_month_data.groupby('date').sum()['volume'].mean() / 1000
+                    dayswithprice += (one_month_data['volume'].sum())
+                    dayswithvolume += one_month_data.groupby('date').sum()['volume'].count()
 
                 else:
-                    avgprice=one_month_data['avg_price'].mean()
+                    totalprice += one_month_data['avg_price'].sum()
+                    avgprice = one_month_data['avg_price'].mean()
                     avgvolume = np.nan
                     avgweight = np.nan
+                    dayswithprice += one_month_data['avg_price'].count()
 
                 avgprice_month_list.append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgprice)))
                 # if has_volume:    # 特定產品於某年度9~12月份才開始有數據,原條件判斷會導致該年度9~12月份的數據變成1~4月   
@@ -129,27 +150,27 @@ class Last5YearsReportFactory(object):
                     avgweight_month_list.append(float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgweight)))
 
             # insert yearly avg price, volume, weight and volume*weight to dict
-            avgprice_year = sum([x for x in avgprice_month_list if x==x]) / len([x for x in avgprice_month_list if x==x])
+            avgprice_year = totalprice / dayswithprice
             avgprice_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgprice_year)))
             if [x for x in avgvolume_month_list if x==x] != []:
-                avgvolume_year = sum([x for x in avgvolume_month_list if x==x]) / len([x for x in avgvolume_month_list if x==x])
+                avgvolume_year = totalvolume / dayswithvolume
                 avgvolume_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolume_year)))
             avgprice_dict[str(y-1911)+'年'] = avgprice_month_list
             # if has_volume:    # 特定產品於某年度9~12月份才開始有數據,原條件判斷會導致該年度9~12月份的數據變成1~4月
             avgvolume_dict[str(y-1911)+'年'] = avgvolume_month_list
             
             if self.is_hogs and has_weight:
-                avgweight_year = sum([x for x in avgweight_month_list if x==x]) / len([x for x in avgweight_month_list if x==x])
+                avgweight_year = totalweight / dayswithweight
                 avgweight_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgweight_year)))
                 avgweight_dict[str(y-1911)+'年'] = avgweight_month_list
-                avgvolumeweight_yaer = sum([x for x in avgvolumeweight_month_list if x==x]) / len([x for x in avgvolumeweight_month_list if x==x])
+                avgvolumeweight_yaer = totalvolumeweight / dayswithvolumeweight / 1000
                 avgvolumeweight_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolumeweight_yaer)))
                 avgvolumeweight_dict[str(y-1911)+'年'] = avgvolumeweight_month_list
             elif has_weight:
-                avgweight_year = sum([x for x in avgweight_month_list if x==x]) / len([x for x in avgweight_month_list if x==x])
+                avgweight_year = totalweight / dayswithweight
                 avgweight_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgweight_year)))
                 avgweight_dict[str(y-1911)+'年'] = avgweight_month_list
-                
+
         product_data_dict[self.all_product_id_list[0]] = {'avgprice' : avgprice_dict, 'avgvolume' : avgvolume_dict, 'avgweight' : avgweight_dict, 'avgvolumeweight' : avgvolumeweight_dict}
 
         # 近五年平均值

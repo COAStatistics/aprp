@@ -268,6 +268,7 @@ def render_last5years_report(request):
 
     avgprice_data, avgvolume_data, avgweight_data, avgpriceweight_data = Last5YearsReportFactory(product_id=sel_item_id_list,source=sel_item_source_list, is_hogs=is_hogs, is_rams=is_rams)()
 
+    # The first column is the yearly average value, it is not needed to display on the chart.
     hightcharts_avgprice_data = avgprice_data[avgprice_data.columns[1:]].replace(np.nan, '', regex=True).to_dict('split')
     avgprice_data = avgprice_data.replace(np.nan, '', regex=True).to_html(classes='table table-striped table-hover')
 
