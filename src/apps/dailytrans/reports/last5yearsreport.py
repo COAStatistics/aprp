@@ -109,7 +109,7 @@ class Last5YearsReportFactory(object):
                     if self.is_rams : #羊的交易量,
                         totalvolume += one_month_totalvolume
                         avgvolume = one_month_data.groupby('date').sum()['volume'].mean()
-                        print(one_month_data)
+
                     elif self.is_hogs: #毛豬交易量為頭數
                         totalvolume += one_month_totalvolume / 1000
                         totalvolumeweight += one_month_totalweight
