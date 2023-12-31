@@ -3,7 +3,7 @@
   fields:
     name: 112下半年
     user: 1
-    is_default: True
+    is_default: False
     start_date: 2023-07-01
     end_date: 2023-12-31
 
