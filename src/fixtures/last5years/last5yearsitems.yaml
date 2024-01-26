@@ -176,468 +176,482 @@
 - model: configs.Last5YearsItems
   pk: 26
   fields:
+    name: 桶柑(產地)
+    product_id: [50092]
+    source: [10031, 10030, 10032, 10117]
+
+- model: configs.Last5YearsItems
+  pk: 27
+  fields:
     name: 木瓜(I1)
     product_id: [50145]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 27
+  pk: 28
   fields:
     name: 香蕉(產地)
     product_id: [59004]
     source: [10044, 10043, 10077, 10056, 10067, 10041, 10070, 10042, 10039, 10045]
 
 - model: configs.Last5YearsItems
-  pk: 28
+  pk: 29
   fields:
     name: 香蕉(A1)
     product_id: [50063]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 29
+  pk: 30
   fields:
-    name: 珍珠拔(P1)
+    name: 珍珠芭(P1)
     product_id: [50197]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 30
+  pk: 31
   fields:
     name: 椪柑(C1)
     product_id: [50078]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 31
+  pk: 32
   fields:
     name: 柳橙(甜橙)(E1)
     product_id: [50097]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 32
+  pk: 33
   fields:
     name: 火龍果(811,812)
     product_id: [50040, 50041]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 33
+  pk: 34
   fields:
     name: 甜柿(Z4)
     product_id: [50289]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 34
+  pk: 35
   fields:
     name: 龍眼(K3)
     product_id: [50158]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 35
+  pk: 36
   fields:
     name: 番荔枝(31)
     product_id: [50013]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 36
+  pk: 37
   fields:
     name: 檸檬(雜柑)(產地)
     product_id: [59011]
     source: [10043, 10077, 10076, 10045, 10106]
 
 - model: configs.Last5YearsItems
-  pk: 37
+  pk: 38
   fields:
     name: 文旦柚(產地)
     product_id: [59015]
     source: [10083, 10075, 10084, 10085, 10086, 10108, 10109, 10110]
 
 - model: configs.Last5YearsItems
-  pk: 38
+  pk: 39
   fields:
     name: 鳳梨(產地)
     product_id: [59008]
     source: [10073, 10074, 10066, 10068, 10045, 10067, 10038]
 
 - model: configs.Last5YearsItems
-  pk: 39
+  pk: 40
   fields:
     name: 愛文芒果(R1)
     product_id: [50214]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 40
+  pk: 41
   fields:
     name: 西瓜(T1)
     product_id: [50229]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 41
+  pk: 42
   fields:
     name: 梨(O4,O5)
     product_id: [50185, 50186]
     source: [20008]
 
 - model: configs.Last5YearsItems
-  pk: 42
+  pk: 43
   fields:
     name: 葡萄(S1)
     product_id: [50219]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 43
+  pk: 44
   fields:
     name: 荔枝(J2)
     product_id: [50154]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 44
+  pk: 45
   fields:
     name: 棗子(22)
     product_id: [50009]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 45
+  pk: 46
   fields:
     name: 洋香瓜
     product_id: [50241]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 46
+  pk: 47
   fields:
     name: 茂谷柑(C2)
     product_id: [50081]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 47
-  fields:
-    name: 梅(產地)
-    product_id: [59009]
-    source: [10072, 10054, 10069, 10070, 10071]
-
-- model: configs.Last5YearsItems
   pk: 48
   fields:
-    name: 梅(產地)
-    product_id: [59009]
-    source: [10072, 10054, 10069, 10070, 10071]
+    name: 鳳梨釋迦(產地)
+    product_id: [59020]
+    source: [10118]
 
 - model: configs.Last5YearsItems
   pk: 49
+  fields:
+    name: 梅(產地)
+    product_id: [59009]
+    source: [10072, 10054, 10069, 10070, 10071]
+
+- model: configs.Last5YearsItems
+  pk: 50
+  fields:
+    name: 梅(產地)
+    product_id: [59009]
+    source: [10072, 10054, 10069, 10070, 10071]
+
+- model: configs.Last5YearsItems
+  pk: 51
   fields:
     name: 蓮霧(產地)
     product_id: [59007]
     source: [10054, 10055, 10056]
 
 - model: configs.Last5YearsItems
-  pk: 50
+  pk: 52
   fields:
     name: 全部香蕉(A0,A1,A2,A3)
     product_id: [50062, 50063, 50064, 50065]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 51
+  pk: 53
   fields:
     name: 文旦柚(H1)
     product_id: [50132]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 52
+  pk: 54
   fields:
     name: 大蒜(SG5)
     product_id: [40442]
     source: [10001, 10002]
 
 - model: configs.Last5YearsItems
-  pk: 53
+  pk: 55
   fields:
     name: 進口洋蔥(SD9)
     product_id: [40424]
     source: [10001, 10002]
 
 - model: configs.Last5YearsItems
-  pk: 54
+  pk: 56
   fields:
     name: 落花生(FZ1,FZ2)
     product_id: [40161, 40162]
     source: [10001, 10002]
 
 - model: configs.Last5YearsItems
-  pk: 55
+  pk: 57
   fields:
     name: 全部花卉
     product_id: [30002]
     source: [30001, 30002, 30003, 30004, 30005]
 
 - model: configs.Last5YearsItems
-  pk: 56
+  pk: 58
   fields:
     name: 火鶴花(FB)
     product_id: [60051]
     source: [30001, 30002, 30003, 30004, 30005]
 
 - model: configs.Last5YearsItems
-  pk: 57
+  pk: 59
   fields:
     name: 文心蘭(FO3)
     product_id: [60066]
     source: [30001, 30002, 30003, 30004, 30005]
 
 - model: configs.Last5YearsItems
-  pk: 58
-  fields:
-    name: 香水百合(FS)
-    product_id: [60068]
-    source: [30001, 30002, 30003, 30004, 30005]
-
-- model: configs.Last5YearsItems
-  pk: 59
-  fields:
-    name: 香水百合(FS)
-    product_id: [60068]
-    source: [30001, 30002, 30003, 30004, 30005]
-
-- model: configs.Last5YearsItems
   pk: 60
+  fields:
+    name: 香水百合(FS)
+    product_id: [60068]
+    source: [30001, 30002, 30003, 30004, 30005]
+
+- model: configs.Last5YearsItems
+  pk: 61
+  fields:
+    name: 香水百合(FS)
+    product_id: [60068]
+    source: [30001, 30002, 30003, 30004, 30005]
+
+- model: configs.Last5YearsItems
+  pk: 62
   fields:
     name: 蓬萊稻穀
     product_id: [19]
 
 - model: configs.Last5YearsItems
-  pk: 61
+  pk: 63
   fields:
     name: 長糯白米
     product_id: [15]
 
 - model: configs.Last5YearsItems
-  pk: 62
+  pk: 64
   fields:
     name: 規格豬
     product_id: [70001]
 
 - model: configs.Last5YearsItems
-  pk: 63
+  pk: 65
   fields:
     name: 肥育乳公牛550公斤以上
     product_id: [130001]
 
 - model: configs.Last5YearsItems
-  pk: 64
+  pk: 66
   fields:
     name: 努比亞雜交閹公羊(50-75公斤)
     product_id: [80002]
     source: [50001]
 
 - model: configs.Last5YearsItems
-  pk: 65
+  pk: 67
   fields:
     name: 土番鴨
     product_id: [100005]
 
 - model: configs.Last5YearsItems
-  pk: 66
+  pk: 68
   fields:
     name: 紅羽土雞(北區)
     product_id: [90008]
 
 - model: configs.Last5YearsItems
-  pk: 67
+  pk: 69
   fields:
     name: 白肉雞
     product_id: [90014]
 
 - model: configs.Last5YearsItems
-  pk: 68
+  pk: 70
   fields:
     name: 雞蛋
     product_id: [90016]
 
 - model: configs.Last5YearsItems
-  pk: 69
+  pk: 71
   fields:
     name: 虱目魚(產地)
     product_id: [120954]
 
 - model: configs.Last5YearsItems
-  pk: 70
+  pk: 72
   fields:
     name: 吳郭魚(產地)
     product_id: [120947]
 
 - model: configs.Last5YearsItems
-  pk: 71
+  pk: 73
   fields:
     name: 龍虎斑(產地)
     product_id: [121044]
 
 - model: configs.Last5YearsItems
-  pk: 72
+  pk: 74
   fields:
     name: 文蛤(產地)
     product_id: [120941]
 
 - model: configs.Last5YearsItems
-  pk: 73
+  pk: 75
   fields:
     name: 金目鱸(產地)
     product_id: [120950]
 
 - model: configs.Last5YearsItems
-  pk: 74
+  pk: 76
   fields:
     name: 白蝦(產地)
     product_id: [120937]
 
 - model: configs.Last5YearsItems
-  pk: 75
+  pk: 77
   fields:
     name: 午仔魚(產地)
     product_id: [120987]
 
 - model: configs.Last5YearsItems
-  pk: 76
+  pk: 78
   fields:
     name: 短期葉菜類
     product_id: [40174,40177,40181,40175,40194,40198,40201,40208,40209,40210,40211,40212,40213,40216,40217,40228,40221,40222,40223,40224,40225,40226,40227,40231,40241,40240,40238,40239,40242,40245,40246,40247,40249,40254,40257]
     source: [10001,10002]
 
 - model: configs.Last5YearsItems
-  pk: 77
+  pk: 79
   fields:
     name: 長期葉菜類
     product_id: [40164,40165,40166,40167,40168,40169,40170,40171,40172,40186,40187,40188,40189,40190,40191,40192,40193]
     source: [10001,10002]
 
 - model: configs.Last5YearsItems
-  pk: 78
+  pk: 80
   fields:
     name: 小白菜(LB2,LB21,LB22)
     product_id: [40182, 40183, 40184]
     source: [10001,10002]
 
 - model: configs.Last5YearsItems
-  pk: 79
+  pk: 81
   fields:
     name: 康乃馨(FA)
     product_id: [60100]
     source: [30001, 30002, 30003, 30004, 30005]
 
 - model: configs.Last5YearsItems
-  pk: 80
+  pk: 82
   fields:
     name: 金鑽鳳梨(B2)
     product_id: [50068]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 81
+  pk: 83
   fields:
     name: 檸檬(F1)
     product_id: [50103]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 82
+  pk: 84
   fields:
     name: 釋迦(31)
     product_id: [50013]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 83
+  pk: 85
   fields:
     name: 鳳梨釋迦(32)
     product_id: [50014]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
-  pk: 84
+  pk: 86
   fields:
     name: 環南_白肉雞
     product_id: [150001]
 
 - model: configs.Last5YearsItems
-  pk: 85
+  pk: 87
   fields:
     name: 環南_土雞
     product_id: [150002]
 
 - model: configs.Last5YearsItems
-  pk: 86
+  pk: 88
   fields:
     name: 玉米粒
     product_id: [140001]
 
 - model: configs.Last5YearsItems
-  pk: 87
+  pk: 89
   fields:
     name: 黃豆粉
     product_id: [140002]
 
 - model: configs.Last5YearsItems
-  pk: 88
+  pk: 90
   fields:
     name: 蒜頭(蒜球)(旬價)
     product_id: [49012]
 
 - model: configs.Last5YearsItems
-  pk: 89
+  pk: 91
   fields:
     name: 吳郭魚(1011)(批發)
     product_id: [120008]
     source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
 
 - model: configs.Last5YearsItems
-  pk: 90
+  pk: 92
   fields:
     name: 虱目魚(1041)(批發)
     product_id: [120199]
     source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
 
 - model: configs.Last5YearsItems
-  pk: 91
+  pk: 93
   fields:
     name: 文蛤養(5022)(批發)
     product_id: [120312]
     source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
 
 - model: configs.Last5YearsItems
-  pk: 92
+  pk: 94
   fields:
     name: 金目鱸(1071)(批發)
     product_id: [120022]
     source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
 
 - model: configs.Last5YearsItems
-  pk: 93
+  pk: 95
   fields:
     name: 午仔魚(1272)(批發)
     product_id: [120041]
     source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
 
 - model: configs.Last5YearsItems
-  pk: 94
+  pk: 96
   fields:
     name: 白蝦(4015)(批發)
     product_id: [120365]
     source: [80001,80003,80006,80007,80008,80009,80010,80011,80013,80014,80017,80018,80020] #台北,三重,新竹,桃園,苗栗,台中,彰化,埔心,嘉義,斗南,佳里,新營,岡山
 
 - model: configs.Last5YearsItems
-  pk: 95
+  pk: 97
   fields:
     name: 龍虎斑(1174)(批發)
     product_id: [121042]
