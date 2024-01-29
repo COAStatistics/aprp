@@ -8,11 +8,12 @@ from django.conf import settings
 
 from apps.watchlists.models import Watchlist, WatchlistItem, MonitorProfile
 from apps.dailytrans.models import DailyTran
-from apps.dailytrans.utils import get_group_by_date_query_set
+from apps.dailytrans.utils import get_group_by_date_query_set, Year, Month, Day
 from apps.fruits.models import Fruit
 from apps.configs.models import Source
 from apps.flowers.models import Flower
-
+from django.db.models import Q
+from django.db.models import Sum, Avg, F, Func, IntegerField
 
 TEMPLATE = str(settings.BASE_DIR('apps/dailytrans/reports/template.xlsx'))
 
@@ -218,9 +219,29 @@ class DailyReportFactory(object):
         })
 
     def update_data(self, query_set, product, row):
-        qs, has_volume, has_weight = get_group_by_date_query_set(query_set,
-                                                                 self.last_year_month_start,
-                                                                 self.last_year_month_end)
+        if query_set.count():
+            has_volume = query_set.filter(volume__isnull=False).count() / query_set.count() > 0.8
+            has_weight = query_set.filter(avg_weight__isnull=False).count() / query_set.count() > 0.8
+        else:
+            has_volume = False
+            has_weight = False
+
+        if has_volume and has_weight:
+            query_set = query_set.filter(Q(volume__gt=0) & Q(avg_weight__gt=0))
+
+        query_set = (query_set.values('date').annotate(
+            year=Year('date'),
+            month=Month('date'),
+            day=Day('date')))
+        
+        qs = query_set.annotate(
+            avg_price=F('avg_price'),
+            sum_volume=F('volume'),
+            avg_avg_weight=F('avg_weight'),
+        )
+
+        qs = qs.order_by('date')
+
         last_year_avg_price = get_avg_price(qs, has_volume, has_weight)
         if last_year_avg_price > 0:
             self.result[product].update({
@@ -352,7 +373,7 @@ class DailyReportFactory(object):
         sources = Source.objects.filter(id__in=[20001, 20002])
         query_set = DailyTran.objects.filter(product=product, source__in=sources)
         self.get_data(query_set, '{}{}'.format(product.name, product.type), 73, None)
-        query_set = DailyTran.objects.filter(product=product, date__year=self.specify_day.year-1, date__month=self.specify_day.month)
+        query_set = DailyTran.objects.filter(product=product, source__in=sources, date__year=self.specify_day.year-1, date__month=self.specify_day.month)
         self.update_data(query_set, '{}{}'.format(product.name, product.type), 73)
 
         # 青香蕉下品()內銷)

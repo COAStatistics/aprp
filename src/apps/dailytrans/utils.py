@@ -129,7 +129,7 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
     # Order by date
     q = q.order_by('date')
 
-    return q, has_volume, has_weight
+    return q, has_volume, has_weight    
 
 
 def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date=None):
