@@ -461,7 +461,7 @@
 - model: watchlists.WatchlistItem
   pk: 12302
   fields:
-    product: 140001 # 肥育乳公牛550公斤以上
+    product: 130001 # 肥育乳公牛550公斤以上
     parent: 14
 
 # Rams
