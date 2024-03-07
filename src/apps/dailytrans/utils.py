@@ -10,66 +10,60 @@ from collections import OrderedDict
 from functools import reduce
 
 from django.utils.translation import ugettext as _
-from django.db.models import Q
-from django.db.models import Sum, Avg, F, Func, IntegerField
+from django.db.models import Sum, F, Func, IntegerField, Case, When, FloatField, Value, Q
 
 from apps.dailytrans.models import DailyTran
 from apps.configs.api.serializers import TypeSerializer
 from apps.watchlists.models import WatchlistItem
-from apps.configs.models import AbstractProduct
+from apps.configs.models import AbstractProduct, Type, Source
 
-
-def get_query_set(_type, items, sources=None):
+def get_query_set(product_type: Type, items: AbstractProduct, sources: Source=None) -> any:
     """
-    :param _type: Type object
+    Get the query set based on the given parameters.
+
+    :param product_type: Type object
     :param items: WatchlistItem objects or AbstractProduct objects
-    :param sources: Source objects  # optional
-    :return: <QuerySet>
+    :param sources: Source objects (optional)
+    :return: QuerySet
     """
 
     if not items:
         return DailyTran.objects.none()
 
-    first = items.first()
-    is_watchlist_item = isinstance(first, WatchlistItem)
-    is_product = isinstance(first, AbstractProduct)
+    first_item = items.first()
+    is_watchlist_item = isinstance(first_item, WatchlistItem)
+    is_product = isinstance(first_item, AbstractProduct)
 
     if is_watchlist_item:
-
-        if sources:
-            query = reduce(
-                operator.or_,
-                (
-                    (Q(product=item.product) & Q(source__in=sources)) for item in items)
-            )
-        else:
-            query = reduce(
-                operator.or_,
-                (
-                    (Q(product=item.product) & Q(source__in=item.sources.all())) if item.sources.all() else
-                    (Q(product=item.product)) for item in items)
-            )
-
+        query = _build_watchlist_query(items, sources)
     elif is_product:
-
-        if sources:
-            query = reduce(
-                operator.or_,
-                (
-                    (Q(product=item) & Q(source__in=sources)) for item in items)
-            )
-        else:
-            query = reduce(
-                operator.or_,
-                (
-                    (Q(product=item) & Q(source__in=item.sources())) if item.sources() else
-                    (Q(product=item)) for item in items)
-            )
-
+        query = _build_product_query(items, sources)
     else:
-        raise AttributeError(f"Found not support type {type(first)}")
+        raise AttributeError(f"Unsupported type: {type(first_item)}")
 
-    return DailyTran.objects.filter(product__type=_type).filter(query)
+    return DailyTran.objects.filter(product__type=product_type).filter(query)
+
+
+def _build_watchlist_query(items, sources):
+    query = Q()
+    for item in items:
+        item_sources = sources or item.sources.all()
+        if item_sources:
+            query |= Q(product=item.product, source__in=item_sources)
+        else:
+            query |= Q(product=item.product)
+    return query
+
+
+def _build_product_query(items, sources):
+    query = Q()
+    for item in items:
+        item_sources = sources or item.sources()
+        if item_sources:
+            query |= Q(product=item, source__in=item_sources)
+        else:
+            query |= Q(product=item)
+    return query
 
 
 def get_group_by_date_query_set(query_set, start_date=None, end_date=None, specific_year=True):
@@ -91,7 +85,7 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
 
     # Date filters
     if isinstance(start_date, datetime.date) and isinstance(end_date, datetime.date):
-        if specific_year:
+        if (specific_year):
             query_set = query_set.filter(date__range=[start_date, end_date])
         else:
             query_set = query_set.between_month_day_filter(start_date, end_date)
@@ -99,32 +93,37 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
     # prevent division by zero ; 修正原條件遇到特殊情況時還是會發生 division by zero 錯誤
     # if query_set.filter(Q(avg_price=0) | Q(avg_weight=0)).count() == query_set.count():
     #     query_set = query_set.none()
-    if has_volume and has_weight:
-        query_set = query_set.filter(Q(volume__gt=0) & Q(avg_weight__gt=0))
-
+    # if has_volume and has_weight:
+    #     query_set = query_set.filter(Q(volume__gt=0) & Q(avg_weight__gt=0))
+    
     query_set = (query_set.values('date').annotate(
-        year=Year('date'),
-        month=Month('date'),
-        day=Day('date')))
+        volume_for_cal = Case(
+            When(volume__isnull=True, then=1),
+            default=F('volume'),
+            output_field=FloatField()
+        ),
+        weight_for_cal = Case(
+            When(avg_weight__isnull=True, then=1),
+            default=F('avg_weight'),
+            output_field=FloatField()
+        ),
+        year = Year('date'),
+        month = Month('date'),
+        day = Day('date'),
+        source_for_cal = Value(1, IntegerField())
+    ))
 
-
-    if has_volume and has_weight:
-
-        q = query_set.annotate(
-            avg_price=Sum(F('avg_price') * F('volume') * F('avg_weight')) / Sum(F('volume') * F('avg_weight')),
-            sum_volume=Sum(F('volume')),
-            avg_avg_weight=Sum(F('avg_weight') * F('volume')) / Sum(F('volume')),
-        )
-
-    elif has_volume:
-
-        q = query_set.annotate(
-            avg_price=Sum(F('avg_price') * F('volume')) / Sum('volume'),
-            sum_volume=Sum('volume')
-        )
-
-    else:
-        q = query_set.annotate(avg_price=Avg('avg_price')).order_by('date')
+    q = query_set.annotate(
+        avg_price=Sum(F('avg_price') * F('volume_for_cal') * F('weight_for_cal') * F('source_for_cal')) / Sum(F('volume_for_cal') * F('weight_for_cal') * F('source_for_cal')),
+        sum_volume=Sum(F('volume_for_cal')),
+        avg_avg_weight=Sum(F('weight_for_cal') * F('volume_for_cal')) / Sum(F('volume_for_cal')),
+        sum_source = Sum('source_for_cal')
+    )
+    
+    if not has_volume and not has_weight:
+        q = q.values('date','year','month','day','avg_price','sum_source')
+    elif not has_weight:
+        q = q.values('date','year','month','day','avg_price','sum_volume','sum_source')
 
     # Order by date
     q = q.order_by('date')
@@ -143,7 +142,7 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
         start_date = start_date or q.first()['date']
         end_date = end_date or q.last()['date']
         diff = end_date - start_date
-        date_list = [start_date + datetime.timedelta(days=x) for x in range(0, diff.days + 1)]
+        date_list = [start_date + datetime.timedelta(days=x) for x in range(diff.days + 1)]
 
         if has_volume and has_weight:
 
@@ -231,7 +230,7 @@ def get_daily_price_by_year(_type, items, sources=None):
 
         # Create date_list
         base = datetime.date(2016, 1, 1)
-        date_list = [base + datetime.timedelta(days=x) for x in range(0, 366)]
+        date_list = [base + datetime.timedelta(days=x) for x in range(366)]
 
         result = {year: OrderedDict(((date, None) for date in date_list)) for year in years}
 
@@ -250,7 +249,7 @@ def get_daily_price_by_year(_type, items, sources=None):
 
             for year in years:
                 for i, obj in enumerate(result[year]):
-                    value = obj[1] if obj[1] else ''
+                    value = obj[1] or ''
                     raw_data_rows[i].append(value)
 
             def all_empty(lst):
@@ -282,7 +281,7 @@ def get_daily_price_by_year(_type, items, sources=None):
 
     q, has_volume, has_weight = get_group_by_date_query_set(query_set)
 
-    response_data = dict()
+    response_data = {}
 
     years = [date.year for date in query_set.dates('date', 'year')]
 
@@ -321,6 +320,10 @@ def annotate_avg_price(df, key):
         sum_volume = group['sum_volume']
         return (avg_price * sum_volume).sum() / sum_volume.sum()
 
+    def by_source(group):
+        avg_price = group['avg_price']
+        sum_source = group['sum_source']
+        return (avg_price * sum_source).sum() / sum_source.sum()
     grouped_df = df.groupby(key)
     if 'avg_avg_weight' in df and 'sum_volume' in df:
         price_series = grouped_df.apply(by_weight_volume)
@@ -329,7 +332,8 @@ def annotate_avg_price(df, key):
         price_series = grouped_df.apply(by_volume)
         return price_series.T.to_dict()
     else:
-        return grouped_df.mean().to_dict().get('avg_price')
+        price_series = grouped_df.apply(by_source)
+        return price_series.T.to_dict()
 
 
 def annotate_avg_weight(df, key):
@@ -407,7 +411,7 @@ def get_monthly_price_distribution(_type, items, sources=None, selected_years=No
 
     q, has_volume, has_weight = get_group_by_date_query_set(query_set)
 
-    response_data = dict()
+    response_data = {}
     response_data['type'] = TypeSerializer(_type).data
 
     response_data['years'] = years
@@ -532,7 +536,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
     last_start_date = start_date - diff
     last_end_date = end_date - diff
 
-    integration = list()
+    integration = []
 
     # Return "this term" and "last term" integration data
     if to_init:
@@ -628,7 +632,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         'integration': integration,
         'has_volume': False,
         'has_weight': False,
-        'no_data': len(integration) == 0,
+        'no_data': not integration,
     }
 
     if integration:
