@@ -43,6 +43,7 @@ def jarvismenu_extra_context(view):
     kwargs = view.kwargs
     user = view.request.user
 
+    extra_context = dict()
 
     watchlist_id = kwargs.get('wi')
     content_type = kwargs.get('ct')
@@ -51,7 +52,7 @@ def jarvismenu_extra_context(view):
     last_object_id = kwargs.get('loi')
 
     watchlist = Watchlist.objects.get(id=watchlist_id)
-    extra_context = {'watchlist': watchlist}
+    extra_context['watchlist'] = watchlist
 
     if content_type == 'config':
         config = Config.objects.get(id=object_id)
@@ -106,6 +107,7 @@ def jarvismenu_extra_context(view):
 
 
 def product_selector_ui_extra_context(view):
+    extra_context = dict()
 
     # Captured values
     kwargs = view.kwargs
@@ -116,7 +118,7 @@ def product_selector_ui_extra_context(view):
     config_id = data.get('config_id')
     type_id = data.get('type_id')
 
-    extra_context = {'step': step}
+    extra_context['step'] = step
     if step == 1:
         extra_context['configs'] = Config.objects.order_by('id').all()
     elif step == 2:
@@ -151,6 +153,7 @@ def product_selector_ui_extra_context(view):
 
 
 def chart_tab_extra_context(view):
+    extra_context = dict()
 
     # Query params
     params = view.request.GET
@@ -159,7 +162,7 @@ def chart_tab_extra_context(view):
     product_ids = params.get('products')  # string with separator
     source_ids = params.get('sources')  # string with separator
 
-    extra_context = {'charts': Config.objects.get(id=config_id).charts.filter(id__in=[1, 2, 3, 4])}
+    extra_context['charts'] = Config.objects.get(id=config_id).charts.filter(id__in=[1, 2, 3, 4])
     extra_context['type'] = type_id
     extra_context['products'] = '_'.join(product_ids.split(',')) if product_ids else '_'
     extra_context['sources'] = '_'.join(source_ids.split(',')) if source_ids else '_'
@@ -168,6 +171,8 @@ def chart_tab_extra_context(view):
 
 
 def watchlist_base_chart_tab_extra_context(view):
+    extra_context = dict()
+
     # Captured values
     kwargs = view.kwargs
     content_type = kwargs.get('ct')
@@ -177,7 +182,7 @@ def watchlist_base_chart_tab_extra_context(view):
     watchlist_id = kwargs.get('wi')
     watchlist = Watchlist.objects.get(id=watchlist_id)
 
-    extra_context = {'watchlist': watchlist}
+    extra_context['watchlist'] = watchlist
 
     if content_type == 'config':
         config = Config.objects.get(id=object_id)
@@ -204,10 +209,12 @@ def watchlist_base_chart_tab_extra_context(view):
 
 
 def product_selector_base_extra_context(view):
+    extra_context = dict()
+
     # Captured values
     params = view.request.GET
     source_ids = params.get('sources').split('_') if params.get('sources') != '_' else []
-    extra_context = {'sources': params.get('sources')}
+    extra_context['sources'] = params.get('sources')
 
     kwargs = view.kwargs
     chart_id = kwargs.get('ci')
@@ -233,7 +240,10 @@ def product_selector_base_extra_context(view):
     if product_qs.first().track_item is False and product_qs.first().config.id == 13:
         products = product_qs
 
-    sources = Source.objects.filter(id__in=source_ids) if source_ids else []
+    if source_ids:
+        sources = Source.objects.filter(id__in=source_ids)
+    else:
+        sources = []
 
     extra_context['unit_json'] = UnitSerializer(products.first().unit).data
 
@@ -262,9 +272,9 @@ def product_selector_base_extra_context(view):
 
     if chart_id == '4':
         this_year = datetime.datetime.now().year
-        selected_years = selected_years or list(range(this_year-5, this_year))  # default latest 5 years
+        selected_years = selected_years or [y for y in range(this_year-5, this_year)]  # default latest 5 years
         selected_years = [int(y) for y in selected_years]  # cast to integer
-        print(selected_years)
+
         extra_context['method'] = view.request.method
         extra_context['selected_years'] = selected_years
 
@@ -283,7 +293,7 @@ def product_selector_base_extra_context(view):
 
 def watchlist_base_chart_contents_extra_context(view):
 
-    extra_context = {}
+    extra_context = dict()
 
     # Captured values
     kwargs = view.kwargs
@@ -360,7 +370,7 @@ def watchlist_base_chart_contents_extra_context(view):
 
     if chart_id == '4':
         this_year = datetime.datetime.now().year
-        selected_years = selected_years or list(range(this_year-5, this_year))  # default latest 5 years
+        selected_years = selected_years or [y for y in range(this_year-5, this_year)]  # default latest 5 years
         selected_years = [int(y) for y in selected_years]  # cast to integer
 
         extra_context['method'] = view.request.method
@@ -381,6 +391,7 @@ def watchlist_base_chart_contents_extra_context(view):
 
 
 def product_selector_base_integration_extra_context(view):
+    extra_context = dict()
 
     # Captured values
     params = view.request.GET
@@ -413,9 +424,12 @@ def product_selector_base_integration_extra_context(view):
     if product_qs.first().track_item is False and product_qs.first().config.id == 13:
         products = product_qs
 
-    sources = Source.objects.filter(id__in=source_ids) if source_ids else []
+    if source_ids:
+        sources = Source.objects.filter(id__in=source_ids)
+    else:
+        sources = []
 
-    extra_context = {'unit_json': UnitSerializer(products.first().unit).data}
+    extra_context['unit_json'] = UnitSerializer(products.first().unit).data
 
     # get tran data by chart
     series_options = []
@@ -447,7 +461,7 @@ def product_selector_base_integration_extra_context(view):
                                  end_date=end_date,
                                  to_init=False)
 
-        extra_context['option'] = None if option['no_data'] else option
+        extra_context['option'] = option if not option['no_data'] else None
 
     extra_context['series_options'] = series_options
 
@@ -456,6 +470,8 @@ def product_selector_base_integration_extra_context(view):
 
 def watchlist_base_integration_extra_context(view):
     kwargs = view.kwargs
+
+    extra_context = dict()
 
     # Captured values
     chart_id = kwargs.get('ci')
@@ -495,7 +511,7 @@ def watchlist_base_integration_extra_context(view):
         items = watchlist.children().filter_by_product(product__id=last_object_id)
         sources = Source.objects.filter(id=object_id)
 
-    extra_context = {'unit_json': UnitSerializer(items.get_unit()).data}
+    extra_context['unit_json'] = UnitSerializer(items.get_unit()).data
 
     if view.to_init:
 
@@ -530,7 +546,7 @@ def watchlist_base_integration_extra_context(view):
                                  end_date=end_date,
                                  to_init=False)
 
-        extra_context['option'] = None if option['no_data'] else option
+        extra_context['option'] = option if not option['no_data'] else None
 
     extra_context['series_options'] = series_options
     return extra_context

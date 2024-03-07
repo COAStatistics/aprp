@@ -282,10 +282,6 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ),
     "DATE_INPUT_FORMATS": ["%Y/%m/%d"],
-
-    'DEFAULT_PAGINATION_CLASS':
-    'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10000
 }
 
 
@@ -373,18 +369,18 @@ APRP_VERSION = '19.11.0'
 
 # API urls
 DAILYTRAN_BUILDER_API = {
-    'cattle': 'https://data.moa.gov.tw/Service/OpenData/BeefPriceService.aspx?',
-    'eir019': 'https://data.moa.gov.tw/Service/OpenData/FromM/AnimalTransData.aspx?',
-    'eir030': 'https://data.moa.gov.tw/Service/OpenData/FromM/FarmTransData.aspx?',
-    'eir032': 'https://data.moa.gov.tw/Service/OpenData/FromM/AquaticTransData.aspx?',
-    'eir49': 'https://data.moa.gov.tw/Service/OpenData/FromM/PoultryTransBoiledChickenData.aspx?',
-    'eir049': 'https://data.moa.gov.tw/Service/OpenData/FromM/PoultryTransLocalRedChickenData.aspx?',
-    'eir50': 'https://data.moa.gov.tw/Service/OpenData/FromM/PoultryTransGooseDailyPriceData.aspx?',
-    'eir050': 'https://data.moa.gov.tw/Service/OpenData/FromM/PoultryTransLocalBlackChickenData.aspx?',
-    'eir51': 'https://data.moa.gov.tw/Service/OpenData/FromM/PoultryTransGooseDuckData.aspx?',
-    'eir097': 'https://data.moa.gov.tw/Service/OpenData/FromM/RicepriceData.aspx?',
-    'eir107': 'https://data.moa.gov.tw/Service/OpenData/FromM/SheepTransData.aspx?',
-    'rice_avg': 'https://data.moa.gov.tw/Service/OpenData/Ricepriceavg.aspx?',
+    'cattle': 'https://data.coa.gov.tw/Service/OpenData/BeefPriceService.aspx?',
+    'eir019': 'https://data.coa.gov.tw/Service/OpenData/FromM/AnimalTransData.aspx?',
+    'eir030': 'https://data.coa.gov.tw/Service/OpenData/FromM/FarmTransData.aspx?',
+    'eir032': 'https://data.coa.gov.tw/Service/OpenData/FromM/AquaticTransData.aspx?',
+    'eir49': 'https://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransBoiledChickenData.aspx?',
+    'eir049': 'https://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransLocalRedChickenData.aspx?',
+    'eir50': 'https://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransGooseDailyPriceData.aspx?',
+    'eir050': 'https://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransLocalBlackChickenData.aspx?',
+    'eir51': 'https://data.coa.gov.tw/Service/OpenData/FromM/PoultryTransGooseDuckData.aspx?',
+    'eir097': 'https://data.coa.gov.tw/Service/OpenData/FromM/RicepriceData.aspx?',
+    'eir107': 'https://data.coa.gov.tw/Service/OpenData/FromM/SheepTransData.aspx?',
+    'rice_avg': 'https://data.coa.gov.tw/Service/OpenData/Ricepriceavg.aspx?',
     'amis': env.str('BUILDER_API_AMIS_URL', default=''),
     'apis': env.str('BUILDER_API_APIS_URL', default=''),
     'efish': env.str('BUILDER_API_EFISH_URL', default=''),
