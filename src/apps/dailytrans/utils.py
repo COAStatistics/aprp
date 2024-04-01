@@ -503,6 +503,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                 df = pd.concat(df_list, axis=1).T
                 df['avg_price'] = df['avg_price'] / df['sum_volume']
             else:
+                df['avg_price'] = df['avg_price'] * df['sum_source']
                 for i in range(1, start_date.year-q.first()['year']+1):
                     splitted_df = df[
                         (df['date']>=datetime.date(start_date.year-i, start_date.month, start_date.day))\
@@ -512,6 +513,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                     splitted_df['end_year'] = end_date.year - i
                     df_list.append(splitted_df)
                 df = pd.concat(df_list, axis=1).T
+                df['avg_price'] = df['avg_price'] / df['sum_source']
         else:    
             if has_volume and has_weight:
                 df['avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight']
@@ -523,7 +525,9 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                 df = df.groupby(['year'], as_index=False).mean()
                 df['avg_price'] = df['avg_price'] / df['sum_volume']
             else:
+                df['avg_price'] = df['avg_price'] * df['sum_source']
                 df = df.groupby(['year'], as_index=False).mean()
+                df['avg_price'] = df['avg_price'] / df['sum_source']
         df = df.drop(['month', 'day'], axis=1)
         result = df.T.to_dict().values()
         # group by year
@@ -582,7 +586,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             data_last['order'] = 2
             integration.append(data_last)
 
-        # if same year do this # 主任想看到跨年度資料的歷年比較，故取消這條件判斷。
+        # if same year do this # 徐主任想看到跨年度資料的歷年比較，故取消這條件判斷。
         # if start_date.year == end_date.year:
         #     actual_years = set(q_fy.values_list('year', flat=True))
         # if len(actual_years) == 5:
