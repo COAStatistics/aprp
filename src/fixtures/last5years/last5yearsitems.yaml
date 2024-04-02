@@ -607,6 +607,7 @@
   fields:
     name: 蒜頭(蒜球)(旬價)
     product_id: [49012]
+    source: [10119, 10120, 10121, 10123, 10124, 10127, 10128, 10130, 10134]
 
 - model: configs.Last5YearsItems
   pk: 91
