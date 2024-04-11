@@ -3,7 +3,9 @@
 DJANGO_CONTAINER_NAME = web
 DJANGO_SERVICE_NAME = web
 DATABASE_SERVICE_NAME = postgres
+PGADMIN_SERVICE_NAME = pgadmin
 REDIS_SERVICE_NAME = redis
+REDIS_COMMANDER_SERVICE_NAME = redis-commander
 
 ## -- docker targets --
 
@@ -29,13 +31,25 @@ test:
 config:
 	docker-compose config
 
-## run db service
-up-db:
+## run postgres service
+up-postgres:
 	docker-compose -f docker-compose.dev.yml up ${DATABASE_SERVICE_NAME} -d
+
+## run pgadmin service
+up-pgadmin:
+	docker-compose -f docker-compose.dev.yml up ${PGADMIN_SERVICE_NAME} -d
 
 ## run redis service
 up-redis:
 	docker-compose -f docker-compose.dev.yml up ${REDIS_SERVICE_NAME} -d
+
+## run web service
+up-redis-commander:
+	docker-compose -f docker-compose.dev.yml up ${REDIS_COMMANDER_SERVICE_NAME} -d
+
+## run web service
+up-web:
+	docker-compose -f docker-compose.dev.yml up ${DJANGO_SERVICE_NAME} -d
 
 ## docker compose up in development and background
 up-dev:
