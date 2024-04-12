@@ -51,16 +51,21 @@ up-redis-commander:
 up-web:
 	docker-compose -f docker-compose.dev.yml up ${DJANGO_SERVICE_NAME} -d
 
+## build and run web service, if image source is updated
+build-web:
+	docker-compose -f docker-compose.dev.yml up --build ${DJANGO_SERVICE_NAME} -d
+
 ## docker compose up in development and background
 up-dev:
 	docker-compose -f docker-compose.dev.yml up -d
 
 down-dev:
-	docker-compose down -f docker-compose.dev.yml
+	docker-compose -f docker-compose.dev.yml down
 
 ## make migrations in web service
 migrate:
-	docker-compose run ${DJANGO_SERVICE_NAME} python manage.py makemigrations && python manage.py migrate
+	docker-compose -f docker-compose.dev.yml exec ${DJANGO_SERVICE_NAME} python manage.py makemigrations
+	docker-compose -f docker-compose.dev.yml exec ${DJANGO_SERVICE_NAME} python manage.py migrate
 
 ## jupyter notebook
 jupyter:

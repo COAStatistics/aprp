@@ -1,4 +1,7 @@
-FROM python:3.6
+# Description: Dockerfile for the project
+
+# Base image
+FROM python:3.6 as base
 
 # python envs
 ENV PYTHONFAULTHANDLER=1 \
@@ -11,10 +14,22 @@ ENV PYTHONFAULTHANDLER=1 \
 RUN apt-get update \
     && apt-get install -y gettext libgettextpo-dev
 
+RUN useradd --create-home --home-dir /app --shell /bin/bash app
+
 WORKDIR /app
 
-COPY src/requirements.txt .
+COPY src/requirements/base.txt \
+    src/requirements/dev.txt \
+    src/requirements/test.txt \
+    src/requirements/prod.txt \
+    /app/requirements/
 
-RUN pip install -r requirements.txt
+RUN pip install -r requirements/base.txt
 
 ADD src .
+
+# Development image
+FROM base as dev
+RUN pip install -r requirements/dev.txt
+RUN pip install -r requirements/test.txt
+USER app

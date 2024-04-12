@@ -6,9 +6,12 @@ services:
     image: postgres:10-alpine
     volumes:
       - pg-data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
+    expose:
+      - "5432"
     environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_HOST=localhost
+      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     networks:
       - main
@@ -54,7 +57,12 @@ services:
     container_name: web
     build:
       context: .
-      target: local
+      target: dev
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     ports:
       - "8000:8000"
     depends_on:
@@ -68,6 +76,8 @@ services:
       - "manage.py"
       - "runserver"
       - "0.0.0.0:8000"
+    networks:
+      - main
 
   worker:
     <<: *web
