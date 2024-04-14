@@ -76,26 +76,27 @@ services:
       - "manage.py"
       - "runserver"
       - "0.0.0.0:8000"
+    restart: on-failure
     networks:
       - main
 
   worker:
     <<: *web
     container_name: worker
-    depends_on:
-      - web
     ports: [ ]
-    command: [ "celery", "worker", "--app=dashboard", "--pool=eventlet", "--loglevel=info" ]
-    entrypoint: ./scripts/entrypoint.sh
+    command:
+      - "python"
+      - "manage.py"
+      - "start_celery_worker"
 
   beat:
     <<: *web
     container_name: beat
-    depends_on:
-      - web
     ports: [ ]
-    command: [ "celery", "beat", "--app=dashboard", "--loglevel=info", "--pidfile=/opt/celeryd.pid" ]
-    entrypoint: ./scripts/entrypoint.sh
+    command:
+      - "python"
+      - "manage.py"
+      - "start_celery_beat"
 
 volumes:
   pg-data:
