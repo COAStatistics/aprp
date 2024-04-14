@@ -98,6 +98,38 @@ services:
       - "manage.py"
       - "start_celery_beat"
 
+  flower:
+    container_name: flower
+    image: mher/flower
+    ports:
+      - "49555:5555"
+    networks:
+      - main
+    depends_on:
+      - worker
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/1
+
+  notebook:
+    <<: *web
+    container_name: notebook
+    command:
+      - python
+      - manage.py
+      - shell_plus
+      - --notebook
+    ports:
+      - "8888:8888"
+
+  mailhog:
+    container_name: mailhog
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - main
+
 volumes:
   pg-data:
   redis-data:
