@@ -24,4 +24,4 @@ class Command(BaseCommand):
         except FileNotFoundError as e:
             print(e)
 
-        autoreload.main(restart_celery_beat)
+        autoreload.python_reloader(restart_celery_beat)

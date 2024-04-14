@@ -14,4 +14,4 @@ def restart_celery_worker():
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        autoreload.main(restart_celery_worker)
+        autoreload.python_reloader(restart_celery_worker)
