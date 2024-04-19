@@ -6,6 +6,10 @@ DATABASE_SERVICE_NAME = postgres
 PGADMIN_SERVICE_NAME = pgadmin
 REDIS_SERVICE_NAME = redis
 REDIS_COMMANDER_SERVICE_NAME = redis-commander
+JUPYTER_NOTEBOOK_SERVICE_NAME = notebook
+MAIL_HOG_SERVICE_NAME = mailhog
+BEAT_SERVICE_NAME = beat
+WORKER_SERVICE_NAME = worker
 
 ## -- docker targets --
 
@@ -51,6 +55,23 @@ up-redis-commander:
 up-web:
 	docker-compose -f docker-compose.dev.yml up ${DJANGO_SERVICE_NAME} -d
 
+
+## run beat service
+up-beat:
+	docker-compose -f docker-compose.dev.yml up ${BEAT_SERVICE_NAME} -d
+
+## run worker service
+up-worker:
+	docker-compose -f docker-compose.dev.yml up ${WORKER_SERVICE_NAME} -d
+
+## run jupyter service
+up-jupyter:
+	docker-compose -f docker-compose.dev.yml up ${JUPYTER_NOTEBOOK_SERVICE_NAME} -d
+
+## run mail service
+up-mail:
+	docker-compose -f docker-compose.dev.yml up ${MAIL_HOG_SERVICE_NAME} -d
+
 ## build and run web service, if image source is updated
 build-web:
 	docker-compose -f docker-compose.dev.yml up --build ${DJANGO_SERVICE_NAME} -d
@@ -66,10 +87,6 @@ down-dev:
 migrate:
 	docker-compose -f docker-compose.dev.yml exec ${DJANGO_SERVICE_NAME} python manage.py makemigrations
 	docker-compose -f docker-compose.dev.yml exec ${DJANGO_SERVICE_NAME} python manage.py migrate
-
-## jupyter notebook
-jupyter:
-	docker-compose run ${DJANGO_SERVICE_NAME} -c "cd notebooks && ../manage.py shell_plus --notebook"
 
 ## run pytest-cov with web service
 pytest-cov:

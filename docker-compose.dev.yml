@@ -63,6 +63,12 @@ services:
       - POSTGRES_HOST=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - SECRET_KEY=qd!xxe%zu_this_%8j$is_@#)$_dev_@#%%%_secret_key%)^
+      - DEBUG=True
+      - DJANGO_SETTINGS_MODULE=dashboard.settings.development
+      - JUPYTER_ALLOW_INSECURE_WRITES=1
+      - REDIS_HOST=redis
+      - PID_FILE=/opt/celeryd.pid
     ports:
       - "8000:8000"
     depends_on:

@@ -9,10 +9,10 @@ from django.utils import autoreload
 PIDFILE = os.environ.get("PIDFILE", "/opt/celeryd.pid")
 
 
-def restart_celery_beat():
+def restart_celery_beat(*args, **kwargs):
     cmd = "pkill -9 celery"
     subprocess.call(shlex.split(cmd))
-    cmd = f"celery beat --app=dashboard --loglevel=info --pidfile={PIDFILE}"
+    cmd = f"celery --app=dashboard.celery:app beat --loglevel=info --pidfile={PIDFILE}"
     subprocess.call(shlex.split(cmd))
 
 
@@ -24,4 +24,4 @@ class Command(BaseCommand):
         except FileNotFoundError as e:
             print(e)
 
-        autoreload.python_reloader(restart_celery_beat)
+        autoreload.python_reloader(restart_celery_beat, args, options)
