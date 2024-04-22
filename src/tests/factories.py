@@ -4,7 +4,7 @@ import factory
 from factory import Faker
 from factory.django import DjangoModelFactory
 
-from ..apps.configs.models import (
+from apps.configs.models import (
     Config,
     Type,
     Source,

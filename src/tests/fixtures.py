@@ -1,6 +1,7 @@
-import pytest
 from bs4 import BeautifulSoup
 from django.http import HttpResponse
+
+from tests.configs.fixtures import *
 
 
 class Object:
