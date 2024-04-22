@@ -25,9 +25,6 @@ attach:
 shell:
 	docker exec -it ${DJANGO_CONTAINER_NAME} python manage.py shell
 
-test:
-	docker exec ${DJANGO_CONTAINER_NAME} pytest -m "not secret"
-
 
 ## -- docker-compose targets --
 
@@ -82,6 +79,10 @@ up-dev:
 
 down-dev:
 	docker-compose -f docker-compose.dev.yml down
+
+## test web service
+test:
+	docker-compose -f docker-compose.dev.yml run --rm ${DJANGO_SERVICE_NAME} pytest
 
 ## make migrations in web service
 migrate:
