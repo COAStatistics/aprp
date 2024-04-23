@@ -1,5 +1,6 @@
 from django.utils import timezone
 import datetime
+from dateutil import rrule
 from django.db.models import (
     Model,
     CASCADE,
@@ -20,35 +21,22 @@ class DailyTranQuerySet(QuerySet):
         super(DailyTranQuerySet, self).update(*args, **kwargs)
 
     def between_month_day_filter(self, start_date=None, end_date=None):
-        
-        if start_date and end_date and start_date.year != end_date.year: # 跨年度資料
-            start_md = int(start_date.strftime('%m%d'))
-            end_md = int(end_date.strftime('%m%d'))
-            ids=[]
-            for obj in self.all():
-                if start_date.date() <= obj.date <= end_date.date():
-                    ids.append(obj.id)
-                for i in range(1, start_date.year-2011+1):
-                    if datetime.date(start_date.year-i, start_date.month, start_date.day) <= obj.date <= datetime.date(end_date.year-i, end_date.month, end_date.day):
-                            ids.append(obj.id)
-            return self.filter(id__in=ids)
-
-        elif start_date and end_date:
-            start_md = int(start_date.strftime('%m%d'))
-            end_md = int(end_date.strftime('%m%d'))
-
-            ids = []
-            for obj in self.all():
-                if start_md <= obj.month_day <= end_md:
-                    ids.append(obj.id)
-            return self.filter(id__in=ids)
-
-        elif start_date and end_date is None:
-            return self.filter(date__month__gte=start_date.month, date__day__gte=start_date.day)
-        elif end_date and start_date is None:
-            return self.filter(date__month__lte=end_date.month, date__day__lte=end_date.day)
-        else:
+        if not start_date or not end_date:
             return self
+        elif start_date and end_date:
+            date_ranges=[]
+            start_year = start_date.year
+            end_year = end_date.year
+            for i in range(0, start_year-2011+1):
+                start_date = datetime.date(start_year-i, start_date.month, start_date.day)
+                end_date = datetime.date(end_year-i, end_date.month, end_date.day)
+                date_range = list(rrule.rrule(rrule.DAILY, dtstart=start_date, until=end_date))
+                date_ranges.extend(date_range)
+            return self.filter(date__in=date_ranges)
+        elif start_date:
+            return self.filter(date__month__gte=start_date.month, date__day__gte=start_date.day)
+        else:
+            return self.filter(date__month__lte=end_date.month, date__day__lte=end_date.day)
 
 
 class DailyTran(Model):

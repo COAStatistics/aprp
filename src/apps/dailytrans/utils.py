@@ -29,46 +29,16 @@ def get_query_set(_type, items, sources=None):
     if not items:
         return DailyTran.objects.none()
 
-    first = items.first()
-    is_watchlist_item = isinstance(first, WatchlistItem)
-    is_product = isinstance(first, AbstractProduct)
+    product_ids = {item.product_id for item in items if isinstance(item, WatchlistItem)}
+    product_ids.update({item.id for item in items if isinstance(item, AbstractProduct)})
 
-    if is_watchlist_item:
+    source_ids = set(source.id for source in sources) if sources else None
 
-        if sources:
-            query = reduce(
-                operator.or_,
-                (
-                    (Q(product=item.product) & Q(source__in=sources)) for item in items)
-            )
-        else:
-            query = reduce(
-                operator.or_,
-                (
-                    (Q(product=item.product) & Q(source__in=item.sources.all())) if item.sources.all() else
-                    (Q(product=item.product)) for item in items)
-            )
+    query = DailyTran.objects.filter(product__type=_type, product_id__in=product_ids)
+    if source_ids:
+        query = query.filter(source_id__in=source_ids)
 
-    elif is_product:
-
-        if sources:
-            query = reduce(
-                operator.or_,
-                (
-                    (Q(product=item) & Q(source__in=sources)) for item in items)
-            )
-        else:
-            query = reduce(
-                operator.or_,
-                (
-                    (Q(product=item) & Q(source__in=item.sources())) if item.sources() else
-                    (Q(product=item)) for item in items)
-            )
-
-    else:
-        raise AttributeError(f"Found not support type {type(first)}")
-
-    return DailyTran.objects.filter(product__type=_type).filter(query)
+    return query
 
 
 def get_group_by_date_query_set(query_set, start_date=None, end_date=None, specific_year=True):
@@ -80,13 +50,8 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
     :return: Query after annotation
     """
 
-    # The count() might be different while queue running and storing new data
-    if query_set.count():
-        has_volume = query_set.filter(volume__isnull=False).count() / query_set.count() > 0.8
-        has_weight = query_set.filter(avg_weight__isnull=False).count() / query_set.count() > 0.8
-    else:
-        has_volume = False
-        has_weight = False
+    has_volume = query_set.filter(volume__isnull=False).count() > (0.8 * query_set.count())
+    has_weight = query_set.filter(avg_weight__isnull=False).count() > (0.8 * query_set.count())
 
     # Date filters
     if isinstance(start_date, datetime.date) and isinstance(end_date, datetime.date):
@@ -564,7 +529,8 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         # if start_date.year == end_date.year:
             # q_fy: recent five years
         # 主任想看到跨年度資料的歷年比較，故取消這條件判斷
-        q_fy = query_set.filter(date__gte=start_date-datetime.timedelta(days=365*5+1), date__lte=end_date-datetime.timedelta(days=365))
+        q_fy = query_set.filter(date__gte=datetime.datetime(start_date.year-5, start_date.month, start_date.day), \
+                                date__lte=datetime.datetime(end_date.year-1, end_date.month, end_date.day))
         q_fy, has_volume_fy, has_weight_fy = get_group_by_date_query_set(q_fy,
                                                                             start_date=start_date,
                                                                             end_date=end_date,
@@ -590,7 +556,7 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         # if start_date.year == end_date.year:
         #     actual_years = set(q_fy.values_list('year', flat=True))
         # if len(actual_years) == 5:
-        if q_fy.order_by('date').last()['year'] - q_fy.order_by('date').first()['year'] + 1 == 5:
+        if start_date.year - q_fy.order_by('date').first()['year'] == 5:
             data_fy = pandas_annotate_init(q_fy)
             data_fy['name'] = _('5 Years')
             data_fy['points'] = spark_point_maker(q_fy)
