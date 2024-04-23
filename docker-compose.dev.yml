@@ -1,0 +1,147 @@
+version: '3.9'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:10-alpine
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    expose:
+      - "5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_HOST=localhost
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - main
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:8.3
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pg-admin:/root/.pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - main
+    restart: unless-stopped
+
+  redis:
+    container_name: redis
+    hostname: redis
+    image: redis:4.0
+    volumes:
+      - redis-data:/data
+    networks:
+      - main
+
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: ghcr.io/joeferner/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "8085:8081"
+    depends_on:
+      - "redis"
+    networks:
+      - main
+    restart: always
+
+  web: &web
+    container_name: web
+    build:
+      context: .
+      target: dev
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_HOST=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - SECRET_KEY=qd!xxe%zu_this_%8j$is_@#)$_dev_@#%%%_secret_key%)^
+      - DEBUG=True
+      - DJANGO_SETTINGS_MODULE=dashboard.settings.development
+      - JUPYTER_ALLOW_INSECURE_WRITES=1
+      - REDIS_HOST=redis
+      - PID_FILE=/opt/celeryd.pid
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./src:/app
+    entrypoint: ./scripts/entrypoint.sh
+    command:
+      - "python"
+      - "manage.py"
+      - "runserver"
+      - "0.0.0.0:8000"
+    restart: on-failure
+    networks:
+      - main
+
+  worker:
+    <<: *web
+    container_name: worker
+    ports: [ ]
+    command:
+      - "python"
+      - "manage.py"
+      - "start_celery_worker"
+
+  beat:
+    <<: *web
+    container_name: beat
+    ports: [ ]
+    command:
+      - "python"
+      - "manage.py"
+      - "start_celery_beat"
+
+  flower:
+    container_name: flower
+    image: mher/flower
+    ports:
+      - "49555:5555"
+    networks:
+      - main
+    depends_on:
+      - worker
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/1
+
+  notebook:
+    <<: *web
+    container_name: notebook
+    command:
+      - python
+      - manage.py
+      - shell_plus
+      - --notebook
+    ports:
+      - "8888:8888"
+
+  mailhog:
+    container_name: mailhog
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - main
+
+volumes:
+  pg-data:
+  redis-data:
+  pg-admin:
+
+
+networks:
+  main:
+    driver: bridge
