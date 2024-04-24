@@ -10,8 +10,19 @@ from apps.configs.models import (
     Month,
     Festival,
     FestivalName,
+    AbstractProduct,
 )
 from tests.factories import *
+
+
+class AbstractProductFactory(BaseFactory):
+    class Meta:
+        model = AbstractProduct
+
+    name = Faker('name', 'zh_TW')
+    config = factory.SubFactory("tests.configs.factories.ConfigFactory")
+    type = factory.SubFactory("tests.configs.factories.TypeFactory")
+    unit = factory.SubFactory("tests.configs.factories.UnitFactory")
 
 
 class UnitFactory(BaseFactory):

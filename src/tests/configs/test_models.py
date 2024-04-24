@@ -4,7 +4,7 @@ from apps.configs.models import (
     Config,
     Source,
     Type,
-    Chart, FestivalName, Festival,
+    Chart, FestivalName, Festival, AbstractProduct,
 )
 from tests.configs.factories import (
     SourceFactory,
@@ -12,6 +12,73 @@ from tests.configs.factories import (
     MonthFactory,
     FestivalNameFactory,
 )
+
+
+@pytest.mark.django_db
+class TestAbstractProductModel:
+    def test_str_method(self, product_of_rice):
+        assert str(product_of_rice) == product_of_rice.name
+
+    def test_children_method(self, product_of_rice):
+        # japt
+        children = product_of_rice.children()
+
+        assert children.count() == 1
+
+        # pt_1japt and pt_2japt
+        children = children.first().children()
+
+        assert children.count() == 2
+        assert children.first().children().count() == 0
+
+    def test_children_all_method(self, product_of_rice):
+        # japt, pt_1japt and pt_2japt
+        children = product_of_rice.children_all()
+
+        assert children.count() == 3
+
+        # pt_1japt and pt_2japt
+        children = children.first().children_all()
+
+        assert children.count() == 2
+        assert children.first().children_all().count() == 0
+
+    def test_level_method(self, product_of_rice):
+        parent = product_of_rice
+
+        assert parent.level == 1
+
+        rice_ja = parent.children().first()
+
+        assert rice_ja.level == 2
+
+    def test_to_direct_method(self, product_of_rice):
+        parent = product_of_rice
+
+        # Act
+        result = parent.to_direct
+
+        # Assert
+        assert result is False
+
+        # japt
+        children = product_of_rice.children().first()
+
+        # Act
+        result = children.to_direct
+
+        # Assert
+        assert result is True
+
+    def test_related_product_ids_method(self, product_of_rice):
+        # Arrange
+        result = sorted(product_of_rice.related_product_ids)
+
+        # Act
+        products = AbstractProduct.objects.filter(id__in=result)
+
+        # Assert
+        assert [product.id for product in products] == result
 
 
 @pytest.mark.django_db
