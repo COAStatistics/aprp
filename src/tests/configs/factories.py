@@ -2,13 +2,21 @@ from factory import Faker
 
 from apps.configs.models import (
     Last5YearsItems,
+    Unit,
+    Type,
+    Source,
+    Config,
+    Chart,
+    Month,
+    Festival,
+    FestivalName,
 )
 from tests.factories import *
 
 
 class UnitFactory(BaseFactory):
     class Meta:
-        model = "configs.Unit"
+        model = Unit
 
     price_unit = Faker('currency_name')
     volume_unit = Faker('word')
@@ -17,19 +25,19 @@ class UnitFactory(BaseFactory):
 
 class TypeFactory(BaseFactory):
     class Meta:
-        model = "configs.Type"
+        model = Type
 
     name = Faker('name', 'zh_TW')
 
 
 class SourceFactory(BaseFactory):
     class Meta:
-        model = "configs.Source"
+        model = Source
 
     name = Faker('name', 'zh_TW')
     alias = Faker('word', 'zh_TW')
     code = str(Faker('port_number'))
-    type = factory.SubFactory("tests.configs.factories.TypeFactory")
+    type = factory.SubFactory(TypeFactory)
 
     @factory.post_generation
     def configs(self, create, extracted, **kwargs):
@@ -45,7 +53,7 @@ class SourceFactory(BaseFactory):
 
 class ConfigFactory(BaseFactory):
     class Meta:
-        model = "configs.Config"
+        model = Config
 
     name = Faker('name', 'zh_TW')
     code = Faker('license_plate')
@@ -64,7 +72,7 @@ class ConfigFactory(BaseFactory):
 
 class ChartFactory(BaseFactory):
     class Meta:
-        model = "configs.Chart"
+        model = Chart
 
     name = Faker('name', 'zh_TW')
     code = Faker('word')
@@ -73,19 +81,19 @@ class ChartFactory(BaseFactory):
 
 class MonthFactory(BaseFactory):
     class Meta:
-        model = "configs.Month"
+        model = Month
 
     name = Faker('month_name', 'zh_TW')
 
 
 class FestivalFactory(BaseFactory):
     class Meta:
-        model = "configs.Festival"
+        model = Festival
 
 
 class FestivalNameFactory(BaseFactory):
     class Meta:
-        model = "configs.FestivalName"
+        model = FestivalName
 
     name = Faker('word', 'zh_TW')
 

@@ -4,7 +4,7 @@ from apps.configs.models import (
     Config,
     Source,
     Type,
-    Chart,
+    Chart, FestivalName, Festival,
 )
 from tests.configs.factories import (
     SourceFactory,
@@ -284,6 +284,25 @@ class TestFestivalModel:
         assert festival.enable is True
         assert festival.create_time is not None
         assert festival.update_time is not None
+
+        # testing relationship
+        name = FestivalName.objects.get(name=festival.name.name)
+
+        assert name is not None
+
+        # testing reverse relationship
+        festival_instance = name.festival_set.all().first()
+
+        assert festival == festival_instance
+
+        # testing delete cascade
+        name.delete()
+
+        with pytest.raises(Exception):
+            FestivalName.objects.get(name=festival.name.id)
+
+        festival_instance = Festival.objects.get(id=festival.id)
+        assert festival_instance.name is None
 
     def test_festival_str(self, festival):
         assert str(festival) == f"{festival.roc_year}_{festival.name.name}"
