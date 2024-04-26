@@ -1,8 +1,8 @@
 import factory
 from factory import Faker, SubFactory
 
-from apps.watchlists.models import Watchlist, WatchlistItem
-from tests.configs.factories import SourceFactory, AbstractProductFactory
+from apps.watchlists.models import Watchlist, WatchlistItem, MonitorProfile
+from tests.configs.factories import SourceFactory, AbstractProductFactory, TypeFactory
 from tests.factories import BaseFactory
 
 
@@ -29,3 +29,23 @@ class WatchlistItemFactory(BaseFactory):
         if extracted:
             for source in extracted:
                 self.sources.add(source)
+
+
+class MonitorProfileFactory(BaseFactory):
+
+    class Meta:
+        model = MonitorProfile
+
+    product = SubFactory(AbstractProductFactory)
+    watchlist = SubFactory(WatchlistFactory)
+    type = SubFactory(TypeFactory)
+    price = Faker('pyfloat')
+
+    @factory.post_generation
+    def months(self, create, extracted, **kwargs):
+        if not create:
+            return
+
+        if extracted:
+            for month in extracted:
+                self.months.add(month)
