@@ -19,7 +19,7 @@ class TestAbstractProductModel:
     def test_str_method(self, product_of_rice):
         assert str(product_of_rice) == product_of_rice.name
 
-    def test_children_method(self, product_of_rice):
+    def test_children_method(self, product_of_rice, monitor_profile_with_pig):
         # japt
         children = product_of_rice.children()
 
@@ -30,6 +30,16 @@ class TestAbstractProductModel:
 
         assert children.count() == 2
         assert children.first().children().count() == 0
+
+        # Arrange
+        profile = monitor_profile_with_pig
+        expected = profile.product.children()
+
+        # Act
+        products = profile.product.children(watchlist=profile.watchlist)
+
+        # Assert
+        assert [product.id for product in products] == [product.id for product in expected]
 
     def test_children_all_method(self, product_of_rice):
         # japt, pt_1japt and pt_2japt
@@ -79,6 +89,23 @@ class TestAbstractProductModel:
 
         # Assert
         assert [product.id for product in products] == result
+
+    def test_types_method(self, monitor_profile_with_pig):
+        # Arrange
+        profile = monitor_profile_with_pig
+        type_instance = profile.product.type
+
+        # Assert
+        assert profile.product.types().count() == 1
+        assert profile.product.types().first() == type_instance
+
+        # Act
+        result = profile.product.types(watchlist=profile.watchlist)
+        type_instance = profile.product.type
+
+        # Assert
+        assert result.count() == 1
+        assert result.first() == type_instance
 
 
 @pytest.mark.django_db
