@@ -196,3 +196,43 @@ class TestMonitorProfileModel:
         profile = monitor_profile_with_pig
 
         assert profile.watchlist_items().count() == 0
+
+    def test_product_list_method(self, monitor_profile_with_pig):
+        # Act
+        result = monitor_profile_with_pig.product_list()
+
+        assert result is not None
+        assert len(result) == 1
+        assert result[0] == monitor_profile_with_pig.product
+
+    def test_sources_method(self, monitor_profile_with_pig, watchlist_item_with_pig):
+        # Act
+        result = monitor_profile_with_pig.sources()
+
+        # Assert
+        assert result is not None
+        assert len(result) == watchlist_item_with_pig.sources.count()
+
+    def test_active_compare_method(self, monitor_profile_with_pig):
+        # Act
+        result = monitor_profile_with_pig.active_compare(79.0)
+
+        # Assert
+        assert result is False
+
+        result = monitor_profile_with_pig.active_compare(78.0)
+        assert result is True
+
+    def test_format_price_method(self, monitor_profile_with_pig):
+        # Act
+        result = monitor_profile_with_pig.format_price
+
+        # Assert
+        assert result == '<79元/公斤'
+
+    def test_price_range_method(self, monitor_profile_with_pig):
+        # Act
+        result = monitor_profile_with_pig.price_range
+
+        # Assert
+        assert result == [65.0, 79.0]

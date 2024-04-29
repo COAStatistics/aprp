@@ -1,7 +1,21 @@
 import pytest
 
-from tests.configs.factories import TypeFactory, ConfigFactory, UnitFactory, AbstractProductFactory
+from tests.configs.factories import TypeFactory, ConfigFactory, UnitFactory, AbstractProductFactory, SourceFactory
 from tests.watchlists.factories import WatchlistFactory, WatchlistItemFactory, MonitorProfileFactory
+
+
+@pytest.fixture
+def sources_for_pig(type_for_pig):
+    return [
+        SourceFactory(
+            name="高雄鳳山",
+            type=type_for_pig,
+        ),
+        SourceFactory(
+            name="新北市",
+            type=type_for_pig,
+        ),
+    ]
 
 
 @pytest.fixture
@@ -17,6 +31,15 @@ def watchlist_item(watchlist, product_of_rice, source):
     return WatchlistItemFactory(
         product=product_of_rice,
         sources=[source],
+        parent=watchlist,
+    )
+
+
+@pytest.fixture
+def watchlist_item_with_pig(watchlist, product_of_pig, sources_for_pig):
+    return WatchlistItemFactory(
+        product=product_of_pig,
+        sources=sources_for_pig,
         parent=watchlist,
     )
 
