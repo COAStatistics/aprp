@@ -49,20 +49,18 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
     :param specific_year: To filter query_set with date__range else filter with manager method to exclude year
     :return: Query after annotation
     """
+    if not query_set:
+        return pd.DataFrame(columns=['date', 'avg_price', 'num_of_source']), False, False
 
     has_volume = query_set.filter(volume__isnull=False).count() > (0.8 * query_set.count())
     has_weight = query_set.filter(avg_weight__isnull=False).count() > (0.8 * query_set.count())
 
-    # Date filters
     if isinstance(start_date, datetime.date) and isinstance(end_date, datetime.date):
         if specific_year:
             query_set = query_set.filter(date__range=[start_date, end_date])
         else:
             query_set = query_set.between_month_day_filter(start_date, end_date)
 
-    # prevent division by zero ; 修正原條件遇到特殊情況時還是會發生 division by zero 錯誤
-    # if query_set.filter(Q(avg_price=0) | Q(avg_weight=0)).count() == query_set.count():
-    #     query_set = query_set.none()
     if has_volume and has_weight:
         query_set = query_set.filter(Q(volume__gt=0) & Q(avg_weight__gt=0))
 
@@ -77,48 +75,10 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
     df_fin['avg_price'] = df_fin['total_price'] / df_fin['total_weight']
     df_fin['avg_avg_weight'] = df_fin['total_weight'] / df_fin['volume']
     df_fin['avg_volume'] = df_fin['volume'] / df_fin['num_of_source']
-    df_fin.reset_index(inplace=True).sort_values('date')
-    if not (has_volume or has_weight):
-        return df_fin[['date', 'avg_price', 'num_of_source']], has_volume, has_weight
-    elif not has_weight:
-        return df_fin[['date', 'avg_price', 'num_of_source', 'volume', 'avg_volume']], has_volume, has_weight
-    else:
-        return df_fin[['date', 'avg_price', 'num_of_source', 'volume', 'avg_volume', 'avg_avg_weight']], has_volume, has_weight
-
-    # query_set = query_set.values('date').annotate(
-    #     year=Year('date'),
-    #     month=Month('date'),
-    #     day=Day('date'),
-    #     source_for_cal = Value(1, IntegerField()))
-    #
-    # volume_for_cal = Case(
-    #     When(volume__isnull=True, then=1),
-    #     default=F('volume'),
-    #     output_field=FloatField()
-    # )
-    #
-    # weight_for_cal = Case(
-    #     When(avg_weight__isnull=True, then=1),
-    #     default=F('avg_weight'),
-    #     output_field=FloatField()
-    # )
-    #
-    # q = query_set.annotate(
-    #     avg_price=Sum(F('avg_price') * volume_for_cal * weight_for_cal * F('source_for_cal')) / Sum(volume_for_cal * weight_for_cal * F('source_for_cal')),
-    #     sum_volume=Sum(volume_for_cal),
-    #     avg_avg_weight=Sum(weight_for_cal * volume_for_cal) / Sum(volume_for_cal),
-    #     sum_source = Sum('source_for_cal')
-    # )
-
-    # if not has_volume and not has_weight:
-    #     q = q.values('date','year','month','day','avg_price','sum_source')
-    # elif not has_weight:
-    #     q = q.values('date','year','month','day','avg_price','sum_volume','sum_source')
-
-    # Order by date
-    # q = q.order_by('date')
-    #
-    # return q, has_volume, has_weight
+    df_fin.reset_index(inplace=True)
+    df_fin = df_fin.sort_values('date')
+    return df_fin[
+        ['date', 'avg_price', 'num_of_source', 'volume', 'avg_volume', 'avg_avg_weight']], has_volume, has_weight
 
 
 def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date=None):
@@ -143,7 +103,8 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
     if has_volume:
         raw_data['rows'] = [[dic['date'], dic['avg_price'], dic['volume']] for _, dic in q.iterrows()]
     if has_weight:
-        raw_data['rows'] = [[dic['date'], dic['avg_price'], dic['volume'], dic['avg_avg_weight']] for _, dic in q.iterrows()]
+        raw_data['rows'] = [[dic['date'], dic['avg_price'], dic['volume'], dic['avg_avg_weight']] for _, dic in
+                            q.iterrows()]
     missing_point_data = q.set_index('date').reindex(date_list, method='ffill')
     highchart_data = {'avg_price': [[to_unix(date), price] for date, price in missing_point_data['avg_price'].items()]}
     if has_volume:
@@ -163,52 +124,38 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
 
 def get_daily_price_by_year(_type, items, sources=None):
     def get_result(key):
-        # Get years
-        years = list(set([date.year for date in q['date']]))
 
-        # Create date_list
-        base = datetime.date(2016, 1, 1)
-        date_list = [base + datetime.timedelta(days=x) for x in range(366)]
-
-        result = {year: OrderedDict(((date, None) for date in date_list)) for year in years}
-
-        # Fill daily price to result
-        for dic in q:
-            date = datetime.date(year=2016, month=dic['date'].month, day=dic['date'].day)
-
-            result[dic['date'].year][date] = dic[key]
-
-        for year, obj in result.items():
-            result[year] = [[to_unix(date), value] for date, value in obj.items()]
-
-        # Transform result
-        if q:
-            raw_data_rows = [[date] for date in date_list]
-
-            for year in years:
-                for i, obj in enumerate(result[year]):
-                    value = obj[1] or ''
-                    raw_data_rows[i].append(value)
-
-            def all_empty(lst):
-                empty_count = 0
-                for val in lst:
-                    if val == '':
-                        empty_count += 1
-                return empty_count == len(lst)
-
-            # Remove row when all value is empty
-            raw_data_rows_remove_empty = [row for row in raw_data_rows if not all_empty(row[1:])]
-
-            raw_data_columns = [{'value': _('Date'), 'format': 'date'}]
-            raw_data_columns.extend([{'value': str(year), 'format': key} for year in years])
-
-            raw_data = {
-                'columns': raw_data_columns,
-                'rows': raw_data_rows_remove_empty
+        result = {year: [] for year in pd.to_datetime(q['date']).dt.year.unique()}
+        if q.size == 0:
+            return {
+                'highchart': result,
+                'raw': None
             }
-        else:
-            raw_data = None
+
+        date_list = pd.date_range(datetime.date(2016, 1, 1), datetime.date(2016, 12, 31), freq='D')
+        for i, dic in q.iterrows():
+            date = datetime.date(year=2016, month=dic['date'].month, day=dic['date'].day)
+            result[dic['date'].year].append((to_unix(date), dic[key]) if dic[key] else None)
+
+            if not ((dic['date'].year % 4 == 0 and dic['date'].year % 100 != 0) or dic['date'].year % 400 == 0) and dic[
+                'date'].month == 2 and dic['date'].day == 28:
+                result[dic['date'].year].append((to_unix(datetime.date(2016, 2, 29)), None))
+
+        df = pd.DataFrame.from_dict(result, orient='columns')
+        df = df.applymap(lambda x: x[1] if isinstance(x, tuple) else x)
+        df.insert(0, 'date', date_list)
+        row_empty = df.iloc[:, 1:].isna().all(axis=1)
+        raw_data_rows_remove_empty = df[~row_empty]
+        raw_data_rows_remove_empty.fillna('', inplace=True)
+        raw_data_rows_remove_empty = raw_data_rows_remove_empty.values.tolist()
+
+        raw_data_columns = [{'value': _('Date'), 'format': 'date'}]
+        raw_data_columns.extend([{'value': str(year), 'format': key} for year in years])
+
+        raw_data = {
+            'columns': raw_data_columns,
+            'rows': raw_data_rows_remove_empty
+        }
 
         return {
             'highchart': result,
@@ -216,18 +163,23 @@ def get_daily_price_by_year(_type, items, sources=None):
         }
 
     query_set = get_query_set(_type, items, sources)
-
     q, has_volume, has_weight = get_group_by_date_query_set(query_set)
+    if q.size == 0:
+        return {
+            'no_date': True
+        }
 
     response_data = {}
+    years = set([date.year for date in q['date']])
 
-    years = [date.year for date in q['date']]
-
-    this_year = datetime.date.today().year
-
-    # default select last 5 years
     def selected_year(y):
-        return this_year in years and this_year > y >= datetime.date.today().year - 5
+        this_year = datetime.date.today().year
+        return this_year > y >= datetime.date.today().year - 5
+
+    q = q.set_index('date').reindex(
+        pd.date_range(datetime.date(q['date'].min().year, 1, 1), datetime.date(q['date'].max().year, 12, 31)),
+        fill_value=None)
+    q = q.reset_index().rename(columns={'index': 'date'})
 
     response_data['years'] = [(year, selected_year(year)) for year in years]
 
@@ -236,10 +188,10 @@ def get_daily_price_by_year(_type, items, sources=None):
     response_data['price'] = get_result('avg_price')
 
     if has_volume:
-        response_data['volume'] = get_result('sum_volume') if has_volume else None
+        response_data['volume'] = get_result('volume')
 
     if has_weight:
-        response_data['weight'] = get_result('avg_avg_weight') if has_weight else None
+        response_data['weight'] = get_result('avg_avg_weight')
 
     response_data['no_data'] = len(response_data['price']['highchart'].keys()) == 0
 
@@ -247,46 +199,21 @@ def get_daily_price_by_year(_type, items, sources=None):
 
 
 def annotate_avg_price(df, key):
-    def by_weight_volume(group):
-        avg_price = group['avg_price']
-        sum_volume = group['sum_volume']
-        avg_avg_weight = group['avg_avg_weight']
-        return (avg_price * sum_volume * avg_avg_weight).sum() / (sum_volume * avg_avg_weight).sum()
-
-    def by_volume(group):
-        avg_price = group['avg_price']
-        sum_volume = group['sum_volume']
-        return (avg_price * sum_volume).sum() / sum_volume.sum()
-
-    def by_source(group):
-        avg_price = group['avg_price']
-        sum_source = group['sum_source']
-        return (avg_price * sum_source).sum() / sum_source.sum()
-
-    grouped_df = df.groupby(key)
-    if 'avg_avg_weight' in df and 'sum_volume' in df:
-        price_series = grouped_df.apply(by_weight_volume)
-        return price_series.T.to_dict()
-    elif 'sum_volume' in df:
-        price_series = grouped_df.apply(by_volume)
-        return price_series.T.to_dict()
-    else:
-        price_series = grouped_df.apply(by_source)
-        return price_series.T.to_dict()
+    df['weighted_avg_price'] = df['avg_price'] * df['volume'] * df['avg_avg_weight'] * df['num_of_source']
+    df['weighted_sum_volume_weight'] = df['volume'] * df['avg_avg_weight'] * df['num_of_source']
+    df['weighted_avg_price'] = df.groupby(key)['weighted_avg_price'].transform('sum')
+    df['weighted_sum_volume_weight'] = df.groupby(key)['weighted_sum_volume_weight'].transform('sum')
+    df['monthly_avg_price'] = df['weighted_avg_price'] / df['weighted_sum_volume_weight']
+    return df.groupby(key)['monthly_avg_price'].first()
 
 
 def annotate_avg_weight(df, key):
-    def by_volume(group):
-        sum_volume = group['sum_volume']
-        avg_avg_weight = group['avg_avg_weight']
-        return (sum_volume * avg_avg_weight).sum() / sum_volume.sum()
-
-    grouped_df = df.groupby(key)
-    if 'avg_avg_weight' in df and 'sum_volume' in df:
-        weight_series = grouped_df.apply(by_volume)
-        return weight_series.T.to_dict()
-    else:
-        return grouped_df.mean().to_dict().get('avg_avg_weight')
+    df['weighted_avg_weight'] = df['sum_volume'] * df['avg_avg_weight']
+    df['weighted_sum_volume'] = df['sum_volume']
+    df['weighted_avg_weight'] = df.groupby(key)['weighted_avg_weight'].transform('sum')
+    df['weighted_sum_volume'] = df.groupby(key)['weighted_sum_volume'].transform('sum')
+    df['avg_weight'] = df['weighted_avg_weight'] / df['weighted_sum_volume']
+    return df.groupby(key)['avg_weight'].first()
 
 
 def get_monthly_price_distribution(_type, items, sources=None, selected_years=None):
@@ -294,46 +221,46 @@ def get_monthly_price_distribution(_type, items, sources=None, selected_years=No
         highchart_data = {}
         raw_data = {}
 
-        if q.count() > 0:
-            df = DataFrame(list(q))
-
-            s_quantile = df.groupby('month')[key].quantile([.0, .25, .5, .75, 1])
-            if key == 'avg_price':
-                price_dict = annotate_avg_price(df, 'month')
-                s_mean = DataFrame(price_dict, index=[0]).loc[0]
-            elif key == 'avg_avg_weight':
-                weight_dict = annotate_avg_weight(df, 'month')
-                s_mean = DataFrame(weight_dict, index=[0]).loc[0]
-            else:
-                s_mean = df.groupby('month')[key].mean()
-
-            highchart_data = {
-                'perc_0': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 0.0],
-                'perc_25': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 0.25],
-                'perc_50': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 0.5],
-                'perc_75': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 0.75],
-                'perc_100': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 1.0],
-                'mean': [[key, value] for key, value in s_mean.iteritems()],
-                'years': years
+        if q.empty :
+            return {
+                'highchart': highchart_data,
+                'raw': raw_data,
             }
+        s_quantile = q.groupby('month')[key].quantile([.0, .25, .5, .75, 1])
+        if key == 'avg_price':
+            s_mean = annotate_avg_price(q, 'month')
+        elif key == 'avg_avg_weight':
+            s_mean = annotate_avg_weight(q, 'month')
+        else:
+            s_mean = q.groupby('month')[key].mean()
 
-            raw_data = {
-                'columns': [
-                    {'value': _('Month'), 'format': 'integer'},
-                    {'value': _('Min'), 'format': key},
-                    {'value': _('25%'), 'format': key},
-                    {'value': _('50%'), 'format': key},
-                    {'value': _('75%'), 'format': key},
-                    {'value': _('Max'), 'format': key},
-                    {'value': _('Mean'), 'format': key},
-                ],
-                'rows': [[i, s_quantile.loc[i][0.0],
-                          s_quantile.loc[i][0.25],
-                          s_quantile.loc[i][0.5],
-                          s_quantile.loc[i][0.75],
-                          s_quantile.loc[i][1],
-                          s_mean.loc[i]] for i in s_quantile.index.levels[0]]
-            }
+        highchart_data = {
+            'perc_0': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 0.0],
+            'perc_25': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 0.25],
+            'perc_50': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 0.5],
+            'perc_75': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 0.75],
+            'perc_100': [[key[0], value] for key, value in s_quantile.iteritems() if key[1] == 1.0],
+            'mean': [[key, value] for key, value in s_mean.iteritems()],
+            'years': years
+        }
+
+        raw_data = {
+            'columns': [
+                {'value': _('Month'), 'format': 'integer'},
+                {'value': _('Min'), 'format': key},
+                {'value': _('25%'), 'format': key},
+                {'value': _('50%'), 'format': key},
+                {'value': _('75%'), 'format': key},
+                {'value': _('Max'), 'format': key},
+                {'value': _('Mean'), 'format': key},
+            ],
+            'rows': [[i, s_quantile.loc[i][0.0],
+                      s_quantile.loc[i][0.25],
+                      s_quantile.loc[i][0.5],
+                      s_quantile.loc[i][0.75],
+                      s_quantile.loc[i][1],
+                      s_mean.loc[i]] for i in s_quantile.index.levels[0]]
+        }
 
         return {
             'highchart': highchart_data,
@@ -342,12 +269,13 @@ def get_monthly_price_distribution(_type, items, sources=None, selected_years=No
 
     query_set = get_query_set(_type, items, sources)
 
-    years = [date.year for date in query_set.dates('date', 'year')]
-
     if selected_years:
         query_set = query_set.filter(date__year__in=selected_years)
 
     q, has_volume, has_weight = get_group_by_date_query_set(query_set)
+    q['month'] = pd.to_datetime(q['date']).dt.month
+
+    years = pd.to_datetime(q['date']).dt.year.unique()
 
     response_data = {}
     response_data['type'] = TypeSerializer(_type).data
