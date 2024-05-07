@@ -95,7 +95,10 @@ class Api(AbstractApi):
     def load(self, response):
         data = []
         if response.text:
-            data = json.loads(response.text, object_hook=self.hook)
+            try:
+                data = json.loads(response.text, object_hook=self.hook)
+            except Exception as e:
+                self.LOGGER.exception(f'exception: {e}, response: {response.text}', extra=self.LOGGER_EXTRA)
 
         # data should look like [[D, R], [B], {}, [C, A], {}...] after loads
         data = [obj for obj in data if isinstance(obj, list)]
