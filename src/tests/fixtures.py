@@ -1,8 +1,10 @@
+import pytest
 from bs4 import BeautifulSoup
 from django.http import HttpResponse
 
 from tests.configs.fixtures import *
 from tests.watchlists.fixtures import *
+from tests.dailytrans.fixtures import *
 from tests.factories import UserFactory
 
 
