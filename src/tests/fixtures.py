@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 from django.http import HttpResponse
 
 from tests.configs.fixtures import *
+from tests.watchlists.fixtures import *
+from tests.factories import UserFactory
 
 
 class Object:
@@ -48,3 +50,16 @@ def client():
                 return BeautifulSoup(response.content, "lxml")
 
     return _Client()
+
+
+@pytest.fixture
+def user_with_admin():
+    return UserFactory(
+        username='admin',
+        first_name='管理員',
+        last_name='',
+        email='admin@gmail.com',
+        is_superuser=True,
+        is_staff=True,
+        is_active=True
+    )
