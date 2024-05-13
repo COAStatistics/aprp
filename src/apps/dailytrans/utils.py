@@ -28,15 +28,19 @@ def get_query_set(_type, items, sources=None):
 
     if not items:
         return DailyTran.objects.none()
+    if not (isinstance(items.first(), WatchlistItem) or isinstance(items.first(), AbstractProduct)):
+        raise AttributeError(f"Found not support type {items.first()}")
 
     product_ids = {item.product_id for item in items if isinstance(item, WatchlistItem)}
     product_ids.update({item.id for item in items if isinstance(item, AbstractProduct)})
 
-    source_ids = set(source.id for source in sources) if sources else None
+    # source_ids = set(source.id for source in sources) if sources else None
 
-    query = DailyTran.objects.filter(product__type=_type, product_id__in=product_ids)
-    if source_ids:
-        query = query.filter(source_id__in=source_ids)
+    if not sources:
+        sources = set([source for item in items if isinstance(item, WatchlistItem) for source in item.sources.all()])
+        sources.update(set([source for item in items if isinstance(item, AbstractProduct) for source in item.sources()]))
+
+    query = DailyTran.objects.filter(product__type=_type, product_id__in=product_ids, source__in=sources)
 
     return query
 
