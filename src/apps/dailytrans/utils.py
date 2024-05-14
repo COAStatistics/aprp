@@ -35,12 +35,13 @@ def get_query_set(_type, items, sources=None):
     product_ids.update({item.id for item in items if isinstance(item, AbstractProduct)})
 
     # source_ids = set(source.id for source in sources) if sources else None
-
     if not sources:
         sources = set([source for item in items if isinstance(item, WatchlistItem) for source in item.sources.all()])
         sources.update(set([source for item in items if isinstance(item, AbstractProduct) for source in item.sources()]))
 
-    query = DailyTran.objects.filter(product__type=_type, product_id__in=product_ids, source__in=sources)
+    query = DailyTran.objects.filter(product__type=_type, product_id__in=product_ids)
+    if sources:
+        query = DailyTran.objects.filter(source__in=sources)
 
     return query
 
