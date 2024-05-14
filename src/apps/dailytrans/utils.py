@@ -41,7 +41,7 @@ def get_query_set(_type, items, sources=None):
 
     query = DailyTran.objects.filter(product__type=_type, product_id__in=product_ids)
     if sources:
-        query = DailyTran.objects.filter(source__in=sources)
+        query = query.filter(source__in=sources)
 
     return query
 
