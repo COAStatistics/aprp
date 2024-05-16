@@ -24,6 +24,12 @@ def direct(*args, **kwargs):
 
 
 @director
+def direct_wholesale(*args, **kwargs):
+    direct_wholesale_05(*args, **kwargs)
+    direct_wholesale_02(*args, **kwargs)
+
+
+@director
 def direct_wholesale_05(start_date, end_date, *args, **kwargs):
 
     data = DirectData('COG05', 1, LOGGER_TYPE_CODE)
