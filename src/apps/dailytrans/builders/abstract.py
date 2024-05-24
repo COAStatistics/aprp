@@ -43,10 +43,12 @@ class AbstractApi(object):
             self.SOURCE_QS = Source.objects.filter(configs__exact=self.CONFIG)
             self.PRODUCT_QS = self.MODEL.objects
 
+
         if type_id:
             self.SOURCE_QS = self.SOURCE_QS.filter(type__id=type_id)
             self.PRODUCT_QS = self.PRODUCT_QS.filter(type__id=type_id, track_item=True)
 
+        self.target_items = {obj[0] for obj in self.PRODUCT_QS.values_list('code')}
         self.LOGGER = logging.getLogger(logger)
         self.LOGGER_EXTRA = {
             'type_code': logger_type_code,
