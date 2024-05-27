@@ -149,7 +149,7 @@ class Api(AbstractApi):
         }
         data.rename(columns=columns, inplace=True)
         data['date'] = data['date'].apply(lambda x: datetime.datetime.strptime(
-            f'{int(x) // 10000 + 1911}-{(int(x) // 100) % 100:02d}-{int(x) % 100:02d}', '%Y-%m-%d'))
+            f'{int(x) // 10000 + 1911}-{(int(x) // 100) % 100:02d}-{int(x) % 100:02d}', '%Y-%m-%d').date())
         data['source__name'] = data['source__name'].str.replace('台', '臺')
 
         data_db = DailyTran.objects.filter(date=data['date'].iloc[0], product__type=1, product__config=self.CONFIG)
