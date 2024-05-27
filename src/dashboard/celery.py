@@ -92,7 +92,7 @@ app.conf.beat_schedule = {
         'args': (-3,)  # direct 3 day
     },
     'daily-crop-origin-builder-3d': {
-        'tasks': 'DailyCropOriginBuilder',
+        'task': 'DailyCropOriginBuilder',
         'schedule': crontab(minute=30, hour='0,2,22', day_of_week='0-5'),
     },
     'daily-seafood-origin-builder-3d': {
