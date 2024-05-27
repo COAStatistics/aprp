@@ -182,7 +182,7 @@ def director(func):
                     qs = qs.filter(product__type__id=data.type_id)
 
                 for d in qs.filter(update_time__lte=start_time):
-                    if data.config_code not in ['COG05','COG06'] or data.type_id != 1:
+                    if data.config_code not in ['COG05', 'COG06', 'COG13'] or data.type_id != 1:
                         if name is None and code is None and kwargs.get('history') is None:
                             d.not_updated += 1
                             d.save(update_fields=["not_updated"])
