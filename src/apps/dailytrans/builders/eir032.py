@@ -106,8 +106,10 @@ class Api(AbstractApi):
                             columns=['上價', '中價', '下價', '平均價', '交易量', '交易日期', '品種代碼', '市場名稱',
                                      '魚貨名稱'])
         data = data[data['品種代碼'].isin(self.target_items)]
-        if not data.empty:
+        try:
             self._access_data_from_api(data)
+        except Exception as e:
+            self.LOGGER.exception(f'exception: {e}, response: {response.text}', extra=self.LOGGER_EXTRA)
 
     def _access_data_from_api(self, data: pd.DataFrame):
         data_merge = self._compare_data_from_api_and_db(data)
@@ -119,7 +121,7 @@ class Api(AbstractApi):
         if not data_merge[condition].empty:
             for _, value in data_merge[condition].fillna('').iterrows():
                 try:
-                    existed_tran = DailyTran.objects.get(id=value['id'])
+                    existed_tran = DailyTran.objects.get(id=int(value['id'] or 0))
                     if value['avg_price_x']:
                         self._update_data(value, existed_tran)
                     else:
