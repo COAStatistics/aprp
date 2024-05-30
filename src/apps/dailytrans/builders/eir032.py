@@ -114,11 +114,12 @@ class Api(AbstractApi):
     def _access_data_from_api(self, data: pd.DataFrame):
         data_merge = self._compare_data_from_api_and_db(data)
         condition = ((data_merge['avg_price_x'] != data_merge['avg_price_y']) | (
-                data_merge['up_price_x'] != data_merge['up_price_y']) | (
-                             data_merge['low_price_x'] != data_merge['low_price_y']) | (
-                             data_merge['mid_price_x'] != data_merge['mid_price_y']) | (
-                             data_merge['volume_x'] != data_merge['volume_y']))
+                            data_merge['up_price_x'] != data_merge['up_price_y']) | (
+                            data_merge['low_price_x'] != data_merge['low_price_y']) | (
+                            data_merge['mid_price_x'] != data_merge['mid_price_y']) | (
+                            data_merge['volume_x'] != data_merge['volume_y']))
         if not data_merge[condition].empty:
+            print(data_merge[condition].head())
             for _, value in data_merge[condition].fillna('').iterrows():
                 try:
                     existed_tran = DailyTran.objects.get(id=int(value['id'] or 0))
@@ -153,6 +154,7 @@ class Api(AbstractApi):
         data['date'] = data['date'].apply(lambda x: datetime.datetime.strptime(
             f'{int(x) // 10000 + 1911}-{(int(x) // 100) % 100:02d}-{int(x) % 100:02d}', '%Y-%m-%d').date())
         data['source__name'] = data['source__name'].str.replace('台', '臺')
+        data['product__code'] = data['product__code'].astype(str)
 
         data_db = DailyTran.objects.filter(date=data['date'].iloc[0], product__type=1, product__config=self.CONFIG)
         data_db = pd.DataFrame(list(data_db.values('id', 'product__id', 'product__code', 'up_price', 'mid_price',

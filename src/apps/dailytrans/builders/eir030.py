@@ -156,6 +156,7 @@ class Api(AbstractApi):
                                                                                 + x[len(str(x.split('.')[0])):])
                                                                                .replace('.', '-'), '%Y-%m-%d').date())
         data['source__name'] = data['source__name'].str.replace('台', '臺')
+        data['product__code'] = data['product__code'].astype(str)
 
         data_db = DailyTran.objects.filter(date=data['date'].iloc[0], product__type=1, product__config=self.CONFIG)
         data_db = pd.DataFrame(list(data_db.values('id', 'product__id', 'product__code', 'up_price', 'mid_price',
