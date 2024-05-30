@@ -119,7 +119,6 @@ class Api(AbstractApi):
                             data_merge['mid_price_x'] != data_merge['mid_price_y']) | (
                             data_merge['volume_x'] != data_merge['volume_y']))
         if not data_merge[condition].empty:
-            print(data_merge[condition].head())
             for _, value in data_merge[condition].fillna('').iterrows():
                 try:
                     existed_tran = DailyTran.objects.get(id=int(value['id'] or 0))
