@@ -155,6 +155,8 @@ class Last5YearsReportFactory(object):
             if [x for x in avgvolume_month_list if x==x] != []:
                 avgvolume_year = totalvolume / dayswithvolume
                 avgvolume_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolume_year)))
+            else:
+                avgvolume_month_list.insert(0, np.nan)
             avgprice_dict[str(y-1911)+'年'] = avgprice_month_list
             # if has_volume:    # 特定產品於某年度9~12月份才開始有數據,原條件判斷會導致該年度9~12月份的數據變成1~4月
             avgvolume_dict[str(y-1911)+'年'] = avgvolume_month_list
@@ -277,7 +279,7 @@ class Last5YearsReportFactory(object):
         avgprice_data.loc['近五年平均'] = last_5_years_avgprice_list
         avgprice_data = avgprice_data.round(2)
 
-        if product_data_dict[self.all_product_id_list[0]]['avgvolume']:
+        if pd.isna(product_data_dict[self.all_product_id_list[0]]['avgvolume']):
             avgvolume_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgvolume'], orient='index')
             avgvolume_data.columns = columns_name
             avgvolume_data.loc['近五年平均'] = last_5_years_avgvolume_list
