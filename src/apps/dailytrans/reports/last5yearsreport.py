@@ -279,7 +279,7 @@ class Last5YearsReportFactory(object):
         avgprice_data.loc['近五年平均'] = last_5_years_avgprice_list
         avgprice_data = avgprice_data.round(2)
 
-        if pd.isna(product_data_dict[self.all_product_id_list[0]]['avgvolume']):
+        if not all(all(pd.isna(volumes)) for volumes in product_data_dict[self.all_product_id_list[0]]['avgvolume'].values()):
             avgvolume_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgvolume'], orient='index')
             avgvolume_data.columns = columns_name
             avgvolume_data.loc['近五年平均'] = last_5_years_avgvolume_list
