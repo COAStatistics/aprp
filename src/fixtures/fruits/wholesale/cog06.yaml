@@ -351,7 +351,7 @@
 - model: fruits.Fruit
   pk: 50039
   fields:
-    name: 火龍果
+    name: 紅龍果
     config: 6
     unit: 1
     track_item: false
@@ -359,7 +359,7 @@
 - model: fruits.Fruit
   pk: 50040
   fields:
-    name: 火龍果-白肉
+    name: 紅龍果-白肉
     code: 811
     type: 1
     config: 6
@@ -369,7 +369,7 @@
 - model: fruits.Fruit
   pk: 50041
   fields:
-    name: 火龍果-紅肉
+    name: 紅龍果-紅肉
     code: 812
     type: 1
     config: 6
@@ -379,7 +379,7 @@
 - model: fruits.Fruit
   pk: 50042
   fields:
-    name: 火龍果-進口
+    name: 紅龍果-進口
     code: 819
     type: 1
     config: 6

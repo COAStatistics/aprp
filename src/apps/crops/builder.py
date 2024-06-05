@@ -8,6 +8,7 @@ from apps.dailytrans.builders.utils import (
     DirectData,
 )
 from .models import Crop
+import datetime
 
 MODELS = [Crop]
 WHOLESALE_DELTA_DAYS = 30
@@ -24,17 +25,23 @@ def direct(*args, **kwargs):
 
 
 @director
+def direct_wholesale(*args, **kwargs):
+    direct_wholesale_05(*args, **kwargs)
+    direct_wholesale_02(*args, **kwargs)
+
+
+@director
 def direct_wholesale_05(start_date, end_date, *args, **kwargs):
 
     data = DirectData('COG05', 1, LOGGER_TYPE_CODE)
 
     for model in MODELS:
         wholesale_api = WholeSaleApi05(model=model, **data._asdict())
-
-        for obj in product_generator(model, type=1, **kwargs):
-            for delta_start_date, delta_end_date in date_generator(start_date, end_date, WHOLESALE_DELTA_DAYS):
-                response = wholesale_api.request(start_date=delta_start_date, end_date=delta_end_date, code=obj.code)
-                wholesale_api.load(response)
+        date_diff = end_date - start_date
+        for delta in range(date_diff.days+1):
+            response = wholesale_api.request(start_date=start_date + datetime.timedelta(days=delta),
+                                             end_date=start_date + datetime.timedelta(days=delta), tc_type='N04')
+            wholesale_api.load(response)
 
     return data
 

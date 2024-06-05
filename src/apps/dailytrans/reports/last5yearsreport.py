@@ -55,7 +55,7 @@ class Last5YearsReportFactory(object):
         all_date_list = [f'{self.last_5_years_ago}-01-01',self.today.strftime("%Y-%m-%d")]
         table = pd.read_sql_query("select product_id, source_id, avg_price, avg_weight, volume, date from dailytrans_dailytran INNER JOIN unnest(%(all_product_id_list)s) as pid ON pid=dailytrans_dailytran.product_id where ((date between %(all_date_list00)s and %(all_date_list01)s))", params={'all_product_id_list':self.all_product_id_list,'all_date_list00':all_date_list[0],'all_date_list01':all_date_list[1]},con=engine)
 
-        table['date'] =  pd.to_datetime(table['date'], format='%Y-%m-%d')
+        table['date'] = pd.to_datetime(table['date'], format='%Y-%m-%d')
         return table
 
     def result(self,table):
@@ -155,6 +155,8 @@ class Last5YearsReportFactory(object):
             if [x for x in avgvolume_month_list if x==x] != []:
                 avgvolume_year = totalvolume / dayswithvolume
                 avgvolume_month_list.insert(0, float(Context(prec=28, rounding=ROUND_HALF_UP).create_decimal(avgvolume_year)))
+            else:
+                avgvolume_month_list.insert(0, np.nan)
             avgprice_dict[str(y-1911)+'年'] = avgprice_month_list
             # if has_volume:    # 特定產品於某年度9~12月份才開始有數據,原條件判斷會導致該年度9~12月份的數據變成1~4月
             avgvolume_dict[str(y-1911)+'年'] = avgvolume_month_list
@@ -277,13 +279,13 @@ class Last5YearsReportFactory(object):
         avgprice_data.loc['近五年平均'] = last_5_years_avgprice_list
         avgprice_data = avgprice_data.round(2)
 
-        if has_volume:
+        if not all(all(pd.isna(volumes)) for volumes in product_data_dict[self.all_product_id_list[0]]['avgvolume'].values()):
             avgvolume_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgvolume'], orient='index')
             avgvolume_data.columns = columns_name
             avgvolume_data.loc['近五年平均'] = last_5_years_avgvolume_list
             avgvolume_data = avgvolume_data.round(3)
 
-        if self.is_hogs and has_weight:
+        if self.is_hogs and product_data_dict[self.all_product_id_list[0]]['avgweight']:
             avgweight_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgweight'], orient='index')
             avgweight_data.columns = columns_name
             avgweight_data.loc['近五年平均'] = last_5_years_avgweight_list
@@ -293,7 +295,7 @@ class Last5YearsReportFactory(object):
             avgvolumeweight_data.columns = columns_name
             avgvolumeweight_data.loc['近五年平均'] = last_5_years_avgvolumeweight_list
             avgvolumeweight_data = avgvolumeweight_data.round(3)
-        elif has_weight:
+        elif product_data_dict[self.all_product_id_list[0]]['avgweight']:
             avgweight_data = pd.DataFrame.from_dict(product_data_dict[self.all_product_id_list[0]]['avgweight'], orient='index')
             avgweight_data.columns = columns_name
             avgweight_data.loc['近五年平均'] = last_5_years_avgweight_list

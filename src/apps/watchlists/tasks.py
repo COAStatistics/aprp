@@ -41,10 +41,10 @@ def active_update():
                 t = profile.type
                 query_set = get_query_set(_type=t, items=items)
                 q, has_volume, has_weight = get_group_by_date_query_set(query_set)
-                tran = q.order_by('date').last()
+                tran = q.sort_values('date').iloc[-1]
 
                 if tran:
-                    if watchlist.start_date <= tran['date'] <= watchlist.end_date and tran["month"] in profile.months.values_list('id', flat=True):
+                    if watchlist.start_date <= tran['date'] <= watchlist.end_date and tran["date"].month in profile.months.values_list('id', flat=True):
                         avg_price = tran['avg_price']
                         is_active = profile.active_compare(avg_price)
 

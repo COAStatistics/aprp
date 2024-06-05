@@ -1,5 +1,6 @@
 import datetime
 import logging
+import time
 from functools import wraps
 from collections import namedtuple
 from django.utils import timezone
@@ -181,17 +182,18 @@ def director(func):
                     qs = qs.filter(product__type__id=data.type_id)
 
                 for d in qs.filter(update_time__lte=start_time):
-                    if name is None and code is None and kwargs.get('history') is None:
-                        d.not_updated += 1
-                        d.save(update_fields=["not_updated"])
-                        db_logger.warning('Daily tran data not update, counted to field "not_updated": {}'.format(str(d)), extra={
-                            'logger_type': data.logger_type_code,
-                        })
-                    else:
-                        d.delete()
-                        db_logger.warning('Daily tran data has been deleted: {}'.format(str(d)), extra={
-                            'logger_type': data.logger_type_code,
-                        })
+                    if data.config_code not in ['COG05','COG06'] or data.type_id != 1:
+                        if name is None and code is None and kwargs.get('history') is None:
+                            d.not_updated += 1
+                            d.save(update_fields=["not_updated"])
+                            db_logger.warning('Daily tran data not update, counted to field "not_updated": {}'.format(str(d)), extra={
+                                'logger_type': data.logger_type_code,
+                            })
+                        else:
+                            d.delete()
+                            db_logger.warning('Daily tran data has been deleted: {}'.format(str(d)), extra={
+                                'logger_type': data.logger_type_code,
+                            })
 
                 qs.filter(update_time__gt=start_time).update(not_updated=0)
 

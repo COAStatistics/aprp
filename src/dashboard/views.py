@@ -154,6 +154,7 @@ class Last5YearsReport(LoginRequiredMixin, TemplateView):
         context = super(Last5YearsReport, self).get_context_data(**kwargs)
         #品項       
         items_list = Last5YearsItems.objects.filter(enable=True).order_by('id')
+        items_list = self.sort_item_list(items_list)
         all_items = {}
         for i in items_list:
             pid_list = []
@@ -172,6 +173,24 @@ class Last5YearsReport(LoginRequiredMixin, TemplateView):
         context['items_list'] = all_items
         return context
 
+    def sort_item_list(self, items_list):
+        items_dic = {item.name: (item, item.product_id.first().id) for item in items_list}
+        sorted_items = sorted(items_dic.items(), key=lambda x: x[1][1])
+        sub_items = sorted_items[13:35]
+        del sorted_items[13:35]
+        sorted_items = sorted_items[:7] + sub_items + sorted_items[7:]
+        sub_items = sorted_items[30:35]
+        del sorted_items[30:35]
+        sorted_items = sorted_items[:21] + sub_items + sorted_items[21:]
+        sub_items = sorted_items[9:11]
+        del sorted_items[9:11]
+        sorted_items = sorted_items[:37] + sub_items + sorted_items[37:]
+        sorted_items.insert(66, sorted_items.pop(32))
+        sub_items = sorted_items[:2]
+        del sorted_items[:2]
+        sorted_items = sorted_items[:68] + sub_items + sorted_items[68:]
+
+        return [item[1][0] for item in sorted_items]
 
 class ProductSelector(LoginRequiredMixin, TemplateView):
     redirect_field_name = 'redirect_to'

@@ -1,6 +1,5 @@
 # local
 local.py
-production.py
 live-static-files/
 
 *.sqlite

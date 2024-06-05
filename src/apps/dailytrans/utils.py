@@ -1,13 +1,10 @@
 import time
-import operator
+import numpy as np
 import datetime
+
 from django.db.models.expressions import RawSQL
 
-import numpy as np
 import pandas as pd
-from pandas import DataFrame
-from collections import OrderedDict
-from functools import reduce
 
 from django.utils.translation import ugettext as _
 from django.db.models import Sum, Avg, F, Func, IntegerField, Value, Q, Case, When, FloatField
@@ -30,23 +27,23 @@ def get_query_set(_type, items, sources=None):
     Returns:
         QuerySet: A QuerySet of DailyTran objects filtered by type and product/watchlist item.
     """
-    # If no items are provided, return an empty QuerySet
     if not items:
         return DailyTran.objects.none()
+    if not (isinstance(items.first(), (WatchlistItem, AbstractProduct))):
+        raise AttributeError(f"Found not support type {items.first()}")
 
-    # Extract product_ids from WatchlistItem objects and AbstractProduct objects
     product_ids = {item.product_id for item in items if isinstance(item, WatchlistItem)}
     product_ids.update({item.id for item in items if isinstance(item, AbstractProduct)})
-
-    # Extract source_ids from Source objects if sources are provided
-    source_ids = set(source.id for source in sources) if sources else None
-
-    # Create the initial queryset filtered by type and product_ids
     query = DailyTran.objects.filter(product__type=_type, product_id__in=product_ids)
 
-    # Filter the queryset by source_ids if sources are provided
-    if source_ids:
-        query = query.filter(source_id__in=source_ids)
+    # source_ids = set(source.id for source in sources) if sources else None
+    if not sources:
+        sources = {source for item in items if isinstance(item, WatchlistItem) for source in item.sources.all()}
+        sources.update(
+            {source for item in items if isinstance(item, AbstractProduct) for source in item.sources()})
+
+    if sources:
+        query = query.filter(source__in=sources)
 
     return query
 
@@ -64,9 +61,6 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
                and a boolean indicating if weight data is present.
     """
 
-    # Check if the queryset is empty
-    if not query_set:
-        return pd.DataFrame(columns=['date', 'avg_price', 'num_of_source']), False, False
 
     # Check if volume and weight data is present in the queryset
     has_volume = query_set.filter(volume__isnull=False).count() > (0.8 * query_set.count())
@@ -79,33 +73,45 @@ def get_group_by_date_query_set(query_set, start_date=None, end_date=None, speci
         else:
             query_set = query_set.between_month_day_filter(start_date, end_date)
 
+        # Check if the queryset is empty
+    if not query_set:
+        return pd.DataFrame(
+            columns=['date', 'avg_price', 'num_of_source', 'sum_volume', 'avg_avg_weight']), False, False
+
     # Filter the queryset by volume and weight if both are present
     if has_volume and has_weight:
         query_set = query_set.filter(Q(volume__gt=0) & Q(avg_weight__gt=0))
 
     # Convert the queryset to a dataframe and select relevant columns
     df = pd.DataFrame(list(query_set.values()))
-    df = df[['product_id', 'source_id', 'date', 'avg_price', 'avg_weight', 'volume']]
-    df.fillna(1, inplace=True)
+    df = df[['product_id', 'date', 'avg_price', 'avg_weight', 'volume', 'source_id']]
+    df['vol_for_calculation'] = df['volume'].fillna(1)
+    df['wt_for_calculation'] = df['avg_weight'].fillna(1)
 
     # Calculate total price and weight
-    df['total_price'] = df['avg_price'] * df['avg_weight'] * df['volume']
-    df['total_weight'] = df['avg_weight'] * df['volume']
-
-    # Calculate number of sources
-    df['num_of_source'] = 1
+    df['avg_price'] = df['avg_price'] * df['wt_for_calculation'] * df['vol_for_calculation']
+    df['wt_for_calculation'] = df['wt_for_calculation'] * df['vol_for_calculation']
 
     # Group the dataframe by date and product_id and calculate aggregated values
-    group = df.groupby(['date', 'product_id'])
+    if all(pd.isna(df['source_id'])):
+        df['source_id'].fillna(1, inplace=True)
+    group = df.groupby(['date','source_id'])
     df_fin = group.sum()
-    df_fin['avg_price'] = df_fin['total_price'] / df_fin['total_weight']
-    df_fin['avg_avg_weight'] = df_fin['total_weight'] / df_fin['volume']
-    df_fin['avg_volume'] = df_fin['volume'] / df_fin['num_of_source']
+    df_fin['num_of_source'] = 1
+    group = df_fin.groupby('date')
+    df_fin = group.sum()
+    df_fin['avg_price'] = df_fin['avg_price'] / df_fin['wt_for_calculation']
+    df_fin['avg_weight'] = df_fin['wt_for_calculation'] / df_fin['vol_for_calculation']
     df_fin.reset_index(inplace=True)
     df_fin = df_fin.sort_values('date')
+    df_fin.rename(columns={'volume': 'sum_volume', 'avg_weight': 'avg_avg_weight'}, inplace=True)
 
-    return df_fin[
-        ['date', 'avg_price', 'num_of_source', 'volume', 'avg_volume', 'avg_avg_weight']], has_volume, has_weight
+    if not has_volume:
+        df_fin['sum_volume'] = df_fin['num_of_source']
+    if not has_weight:
+        df_fin['avg_avg_weight'] = 1
+
+    return df_fin[['date', 'avg_price', 'num_of_source', 'sum_volume', 'avg_avg_weight']], has_volume, has_weight
 
 
 def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date=None):
@@ -131,7 +137,7 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
     ]
 
     if has_volume:
-        columns.append({'value': _('Sum Volume'), 'format': 'volume'})
+        columns.append({'value': _('Sum Volume'), 'format': 'sum_volume'})
     if has_weight:
         columns.append({'value': _('Average Weight'), 'format': 'avg_avg_weight'})
 
@@ -142,15 +148,15 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
     diff = (end_date - start_date).days + 1
     date_list = pd.date_range(start_date, periods=diff, freq='D')
 
-    missing_point_data = q.set_index('date').reindex(date_list, method='ffill')
+    missing_point_data = q.set_index('date').reindex(date_list, fill_value=None)
 
     highchart_data = {'avg_price': [[to_unix(date), price] for date, price in missing_point_data['avg_price'].items()]}
 
     if has_volume:
-        raw_data['rows'] = [[dic['date'], dic['avg_price'], dic['volume']] for _, dic in q.iterrows()]
-        highchart_data['sum_volume'] = [[to_unix(date), volume] for date, volume in missing_point_data['volume'].items()]
+        raw_data['rows'] = [[dic['date'], dic['avg_price'], dic['sum_volume']] for _, dic in q.iterrows()]
+        highchart_data['sum_volume'] = [[to_unix(date), sum_volume] for date, sum_volume in missing_point_data['sum_volume'].items()]
     if has_weight:
-        raw_data['rows'] = [[dic['date'], dic['avg_price'], dic['volume'], dic['avg_avg_weight']] for _, dic in q.iterrows()]
+        raw_data['rows'] = [[dic['date'], dic['avg_price'], dic['sum_volume'], dic['avg_avg_weight']] for _, dic in q.iterrows()]
         highchart_data['avg_weight'] = [[to_unix(date), weight] for date, weight in missing_point_data['avg_avg_weight'].items()]
 
     response_data = {
@@ -183,7 +189,7 @@ def get_daily_price_by_year(_type, items, sources=None):
         Returns:
             dict: The result dictionary containing the highchart data and raw data.
         """
-        result = {year: [] for year in pd.to_datetime(q['date']).dt.year.unique()}
+        result = {str(year): [] for year in pd.to_datetime(q['date']).dt.year.unique()}
         if q.size == 0:
             return {
                 'highchart': result,
@@ -193,11 +199,11 @@ def get_daily_price_by_year(_type, items, sources=None):
         date_list = pd.date_range(datetime.date(2016, 1, 1), datetime.date(2016, 12, 31), freq='D')
         for i, dic in q.iterrows():
             date = datetime.date(year=2016, month=dic['date'].month, day=dic['date'].day)
-            result[dic['date'].year].append((to_unix(date), dic[key]) if dic[key] else None)
+            result[str(dic['date'].year)].append((to_unix(date), dic[key]) if dic[key] else None)
 
-            if not ((dic['date'].year % 4 == 0 and dic['date'].year % 100 != 0) or dic['date'].year % 400 == 0) and dic[
-                'date'].month == 2 and dic['date'].day == 28:
-                result[dic['date'].year].append((to_unix(datetime.date(2016, 2, 29)), None))
+            if not ((dic['date'].year % 4 == 0 and dic['date'].year % 100 != 0) or dic['date'].year % 400 == 0) and \
+                    dic['date'].month == 2 and dic['date'].day == 28:
+                result[str(dic['date'].year)].append((to_unix(datetime.date(2016, 2, 29)), None))
 
         df = pd.DataFrame.from_dict(result, orient='columns')
         df = df.applymap(lambda x: x[1] if isinstance(x, tuple) else x)
@@ -224,7 +230,7 @@ def get_daily_price_by_year(_type, items, sources=None):
     q, has_volume, has_weight = get_group_by_date_query_set(query_set)
     if q.size == 0:
         return {
-            'no_date': True
+            'no_data': True
         }
 
     years = set([date.year for date in q['date']])
@@ -239,13 +245,13 @@ def get_daily_price_by_year(_type, items, sources=None):
     q = q.reset_index().rename(columns={'index': 'date'})
 
     response_data = {
-        'years':[(year, selected_year(year)) for year in years],
+        'years': [(year, selected_year(year)) for year in years],
         'type': TypeSerializer(_type).data,
         'price': get_result('avg_price'),
     }
 
     if has_volume:
-        response_data['volume'] = get_result('volume')
+        response_data['volume'] = get_result('sum_volume')
 
     if has_weight:
         response_data['weight'] = get_result('avg_avg_weight')
@@ -264,8 +270,8 @@ def annotate_avg_price(df, key):
     Returns:
         pd.DataFrame: The DataFrame with the monthly average price added.
     """
-    df['weighted_avg_price'] = df['avg_price'] * df['volume'] * df['avg_avg_weight'] * df['num_of_source']
-    df['weighted_sum_volume_weight'] = df['volume'] * df['avg_avg_weight'] * df['num_of_source']
+    df['weighted_avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight']
+    df['weighted_sum_volume_weight'] = df['sum_volume'] * df['avg_avg_weight']
     df['weighted_avg_price'] = df.groupby(key)['weighted_avg_price'].transform('sum')
     df['weighted_sum_volume_weight'] = df.groupby(key)['weighted_sum_volume_weight'].transform('sum')
     df['monthly_avg_price'] = df['weighted_avg_price'] / df['weighted_sum_volume_weight']
@@ -420,14 +426,12 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         :param add_unix: To add a key "unix" in each query objects
         :return: List of point object
         """
-        points = list(qs)
+        points = qs.copy()
         if add_unix:
-            for d in points:
-                d['unix'] = to_unix(d['date'])
+            points['unix'] = points['date'].apply(to_unix)
+        return points.to_dict('record')
 
-        return points
-
-    def pandas_annotate_init(df):
+    def pandas_annotate_init(df, has_volume, has_weight):
         series = df.mean()
         result = series.T.to_dict()
 
@@ -436,31 +440,32 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
         price = annotate_avg_price(df, 'key')  # return {'value': price}
         # apply annotated price to result avg_price
         result['avg_price'] = price['value']
-
+        if not has_volume:
+            result.pop('sum_volume')
+        if not has_weight:
+            result.pop('avg_avg_weight')
         return result
 
-    def pandas_annotate_year(qs, has_volume, has_weight, start_date=None, end_date=None):
+    def pandas_annotate_year(qs, start_date=None, end_date=None):
         df = qs.copy()
+        df['avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight']
+        df['sum_volume_weight'] = df['sum_volume'] * df['avg_avg_weight']
         if start_date and end_date and start_date.year != end_date.year:
             df_list = []
-            df['avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight'] * df['num_of_source']
-            df['sum_volume_weight'] = df['sum_volume'] * df['avg_avg_weight'] * df['num_of_source']
-            for i in range(1, start_date.year - q.first()['year'] + 1):
-                splitted_df = df[
+            for i in range(1, start_date.year - df['date'].iloc[0].year + 1):
+                split_df = df[
                     (df['date'] >= datetime.date(start_date.year - i, start_date.month, start_date.day)) \
                     & (df['date'] <= datetime.date(end_date.year - i, end_date.month, end_date.day)) \
                     ].mean()
-                splitted_df['year'] = start_date.year - i
-                splitted_df['end_year'] = end_date.year - i
-                df_list.append(splitted_df)
+                split_df['year'] = start_date.year - i
+                split_df['end_year'] = end_date.year - i
+                df_list.append(split_df)
             df = pd.concat(df_list, axis=1).T
-            df['avg_price'] = df['avg_price'] / df['sum_volume_weight']
         else:
-            df['avg_price'] = df['avg_price'] * df['sum_volume'] * df['avg_avg_weight'] * df['num_of_source']
-            df['sum_volume_weight'] = df['sum_volume'] * df['avg_avg_weight'] * df['num_of_source']
+            df['year'] = pd.to_datetime(df['date']).dt.year
             df = df.groupby(['year'], as_index=False).mean()
-            df['avg_price'] = df['avg_price'] / df['sum_volume_weight']
 
+        df['avg_price'] = df['avg_price'] / df['sum_volume_weight']
         result = df.T.to_dict().values()
         # group by year
         price = annotate_avg_price(df, 'year')  # return {2017: price1, 2018: price2}
@@ -471,6 +476,20 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                 dic['avg_price'] = price[year]
 
         return result
+
+    def generate_integration(query, start, end, specific_year, name, base, order):
+        q, has_volume, has_weight = get_group_by_date_query_set(query,
+                                                                start_date=start,
+                                                                end_date=end,
+                                                                specific_year=specific_year)
+        if q.empty:
+            return
+        data = pandas_annotate_init(q, has_volume, has_weight)
+        data['name'] = name
+        data['points'] = spark_point_maker(q)
+        data['base'] = base
+        data['order'] = order
+        integration.append(data)
 
     query_set = get_query_set(_type, items, sources)
 
@@ -483,45 +502,12 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
 
     # Return "this term" and "last term" integration data
     if to_init:
-        q, has_volume, has_weight = get_group_by_date_query_set(query_set,
-                                                                start_date=start_date,
-                                                                end_date=end_date,
-                                                                specific_year=True)
-        q_last, has_volume_last, has_weight_last = get_group_by_date_query_set(query_set,
-                                                                               start_date=last_start_date,
-                                                                               end_date=last_end_date,
-                                                                               specific_year=True)
+        generate_integration(query_set, start_date, end_date, True, _('This Term'), True, 1)
+        generate_integration(query_set, last_start_date, last_end_date, True, _('Last Term'), False, 2)
 
-        q_fy = query_set.filter(date__gte=datetime.datetime(start_date.year - 5, start_date.month, start_date.day), \
-                                date__lte=datetime.datetime(end_date.year - 1, end_date.month, end_date.day))
-        q_fy, has_volume_fy, has_weight_fy = get_group_by_date_query_set(q_fy,
-                                                                         start_date=start_date,
-                                                                         end_date=end_date,
-                                                                         specific_year=False)
-
-        if q.count() > 0:
-            data_this = pandas_annotate_init(q)
-            data_this['name'] = _('This Term')
-            data_this['points'] = spark_point_maker(q)
-            data_this['base'] = True
-            data_this['order'] = 1
-            integration.append(data_this)
-
-        if q_last.count() > 0:
-            data_last = pandas_annotate_init(q_last)
-            data_last['name'] = _('Last Term')
-            data_last['points'] = spark_point_maker(q_last)
-            data_last['base'] = False
-            data_last['order'] = 2
-            integration.append(data_last)
-
-        if start_date.year - q_fy.order_by('date').first()['year'] == 5:
-            data_fy = pandas_annotate_init(q_fy)
-            data_fy['name'] = _('5 Years')
-            data_fy['points'] = spark_point_maker(q_fy)
-            data_fy['base'] = False
-            data_fy['order'] = 3
-            integration.append(data_fy)
+        query_set_fy = query_set.filter(date__gte=datetime.datetime(start_date.year - 5, start_date.month, start_date.day), \
+                                        date__lte=datetime.datetime(end_date.year - 1, end_date.month, end_date.day))
+        generate_integration(query_set_fy, start_date, end_date, False, _('5 Years'), False, 3)
 
     # Return each year integration exclude current term
     else:
@@ -533,11 +519,11 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
                                                                 end_date=end_date,
                                                                 specific_year=False)
 
-        if q.count() > 0 and start_date.year == end_date.year:
-            data_all = pandas_annotate_year(q, has_volume, has_weight)
+        if q.size > 0 and start_date.year == end_date.year:
+            data_all = pandas_annotate_year(q)
             for dic in data_all:
                 year = dic['year']
-                q_filter_by_year = q.filter(year=year).order_by('date')
+                q_filter_by_year = q[pd.to_datetime(q['date']).dt.year == year].sort_values('date')
                 dic['name'] = '%0.0f' % year
                 dic['points'] = spark_point_maker(q_filter_by_year)
                 dic['base'] = False
@@ -546,13 +532,16 @@ def get_integration(_type, items, start_date, end_date, sources=None, to_init=Tr
             integration = list(data_all)
             integration.reverse()
 
-        elif q.count() > 0 and start_date.year != end_date.year:
-            data_all = pandas_annotate_year(q, has_volume, has_weight, start_date, end_date)
+        elif q.size > 0 and start_date.year != end_date.year:
+            data_all = pandas_annotate_year(q, start_date, end_date)
             for dic in data_all:
                 start_year = int(dic['year'])
                 end_year = int(dic['end_year'])
-                q_filter_by_year = q.filter(date__gte=datetime.date(start_year, start_date.month, start_date.day), \
-                                            date__lte=datetime.date(end_year, end_date.month, end_date.day))
+                q_filter_by_year = q[(
+                        (q['date'] >= datetime.date(start_year, start_date.month, start_date.day)) & \
+                        (q['date'] <= datetime.date(end_year, end_date.month, end_date.day))
+                )]
+
                 dic['name'] = '{}~{}'.format(start_year, end_year)
                 dic['points'] = spark_point_maker(q_filter_by_year)
                 dic['base'] = False
