@@ -184,8 +184,8 @@ class Last5YearsReport(LoginRequiredMixin, TemplateView):
         sorted_items = sorted_items[:21] + sub_items + sorted_items[21:]
         sub_items = sorted_items[9:11]
         del sorted_items[9:11]
-        sorted_items = sorted_items[:37] + sub_items + sorted_items[37:]
-        sorted_items.insert(66, sorted_items.pop(32))
+        sorted_items = sorted_items[:64] + sub_items + sorted_items[64:]
+        sorted_items.insert(65, sorted_items.pop(32))
         sub_items = sorted_items[:2]
         del sorted_items[:2]
         sorted_items = sorted_items[:68] + sub_items + sorted_items[68:]
