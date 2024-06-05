@@ -89,7 +89,7 @@ def get_avg_price(qs, has_volume, has_weight, week_start=None, week_end=None):
     total_volume = list()
     total_volume_weight = list()
     if has_volume and has_weight:   # 新增有日均重量的品項計算平均價格公式
-        for q in qs:
+        for i, q in qs.iterrows():
             if week_start is not None and week_end is not None:
                 if week_start.date() <= q['date'] <= week_end.date():
                     total_price.append(q['avg_price'] * q['sum_volume'] * q['avg_avg_weight'])
@@ -99,7 +99,7 @@ def get_avg_price(qs, has_volume, has_weight, week_start=None, week_end=None):
                 total_volume_weight.append(q['sum_volume'] * q['avg_avg_weight'])
         return sum(total_price) / sum(total_volume_weight) if len(total_volume_weight) else 0
     elif has_volume:
-        for q in qs:
+        for i, q in qs.iterrows():
             if week_start is not None and week_end is not None:
                 if week_start.date() <= q['date'] <= week_end.date():
                     total_price.append(q['avg_price'] * q['sum_volume'])
@@ -109,7 +109,7 @@ def get_avg_price(qs, has_volume, has_weight, week_start=None, week_end=None):
                 total_volume.append(q['sum_volume'])
         return sum(total_price) / sum(total_volume) if len(total_volume) else 0
     else:
-        for q in qs:
+        for i, q in qs.iterrows():
             if week_start is not None and week_end is not None:
                 if week_start.date() <= q['date'] <= week_end.date():
                     total_price.append(q['avg_price'])
@@ -120,7 +120,7 @@ def get_avg_price(qs, has_volume, has_weight, week_start=None, week_end=None):
 
 def get_avg_volume(qs, week_start=None, week_end=None):
     total_volume = list()
-    for q in qs:
+    for i, q in qs.iterrows():
         if week_start.date() <= q['date'] <= week_end.date():
             total_volume.append(q['sum_volume'])
     return sum(total_volume) / len(total_volume) if len(total_volume) else 0
@@ -184,7 +184,8 @@ class DailyReportFactory(object):
     def get_data(self, query_set, product, row, monitor_price):
         qs, has_volume, has_weight = get_group_by_date_query_set(query_set, self.last_week_start, self.this_week_end)
         self.result[product] = dict()
-        for q in qs:
+        for i, q in qs.iterrows():
+            print(q)
             if q['date'] >= self.this_week_start.date():
                 self.result[product].update({
                     '{}{}'.format(self.col_dict['{}'.format(q['date'])], row): q['avg_price'],
@@ -220,8 +221,8 @@ class DailyReportFactory(object):
 
     def update_data(self, query_set, product, row):
         if query_set.count():
-            has_volume = query_set.filter(volume__isnull=False).count() / query_set.count() > 0.8
-            has_weight = query_set.filter(avg_weight__isnull=False).count() / query_set.count() > 0.8
+            has_volume = query_set.filter(volume__isnull=False).count() > 0.8 * query_set.count()
+            has_weight = query_set.filter(avg_weight__isnull=False).count() > 0.8 * query_set.count()
         else:
             has_volume = False
             has_weight = False
