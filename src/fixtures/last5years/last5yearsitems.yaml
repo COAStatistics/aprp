@@ -183,7 +183,7 @@
 - model: configs.Last5YearsItems
   pk: 27
   fields:
-    name: 木瓜(I1)
+    name: 網室木瓜(I1)
     product_id: [50145]
     source: [20001, 20002]
 
@@ -225,7 +225,7 @@
 - model: configs.Last5YearsItems
   pk: 33
   fields:
-    name: 火龍果(811,812)
+    name: 紅龍果(811,812)
     product_id: [50040, 50041]
     source: [20001, 20002]
 
@@ -239,7 +239,7 @@
 - model: configs.Last5YearsItems
   pk: 35
   fields:
-    name: 龍眼(K3)
+    name: 粉殼龍眼(K3)
     product_id: [50158]
     source: [20001, 20002]
 
@@ -281,7 +281,7 @@
 - model: configs.Last5YearsItems
   pk: 41
   fields:
-    name: 西瓜(T1)
+    name: 大西瓜(T1)
     product_id: [50229]
     source: [20001, 20002]
 
@@ -295,14 +295,14 @@
 - model: configs.Last5YearsItems
   pk: 43
   fields:
-    name: 葡萄(S1)
+    name: 巨峰葡萄(S1)
     product_id: [50219]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
   pk: 44
   fields:
-    name: 荔枝(J2)
+    name: 黑葉荔枝(J2)
     product_id: [50154]
     source: [20001, 20002]
 
@@ -562,13 +562,6 @@
   fields:
     name: 檸檬(F1)
     product_id: [50103]
-    source: [20001, 20002]
-
-- model: configs.Last5YearsItems
-  pk: 84
-  fields:
-    name: 釋迦(31)
-    product_id: [50013]
     source: [20001, 20002]
 
 - model: configs.Last5YearsItems
