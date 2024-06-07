@@ -27,9 +27,13 @@ class DailyTranQuerySet(QuerySet):
             date_ranges=[]
             start_year = start_date.year
             end_year = end_date.year
-            for i in range(0, start_year-2011+1):
-                start_date = datetime.date(start_year-i, start_date.month, start_date.day)
-                end_date = datetime.date(end_year-i, end_date.month, end_date.day)
+            for i in range(start_year-2011+1):
+                start_date = datetime.date(start_year-i, start_date.month+1, 1) \
+                    if (is_leap(start_year-i) and start_date.month==2 and start_date.day==29) \
+                    else datetime.date(start_year-i, start_date.month, start_date.day)
+                end_date = datetime.date(end_year-i, end_date.month, end_date.day-1) \
+                    if (is_leap(end_year-i) and end_date.month==2 and end_date.day==29) \
+                    else datetime.date(end_year-i, end_date.month, end_date.day)
                 date_range = list(rrule.rrule(rrule.DAILY, dtstart=start_date, until=end_date))
                 date_ranges.extend(date_range)
             return self.filter(date__in=date_ranges)
@@ -101,3 +105,7 @@ class FestivalReport(Model):
 
     def __str__(self):
         return '{}, {}, {}'.format(self.festival_id, self.file_id, self.file_volume_id)
+
+
+def is_leap(year):
+    return (year % 4 == 0 and year % 100 != 0) or year % 400 == 0
