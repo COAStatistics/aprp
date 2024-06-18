@@ -25,9 +25,13 @@ class Api(AbstractApi):
     def hook(self, dic):
 
         def create_tran(obj):
+            if '南雞' in dic.get(obj.code):
+                avg_price = float(dic.get(obj.code)[5:]) / 0.6
+            else:
+                avg_price = float(dic.get(obj.code)) / 0.6
             tran = DailyTran(
                 product=obj,
-                avg_price=float(dic.get(obj.code)) / 0.6,
+                avg_price=avg_price,
                 date=date_transfer(sep=self.SEP, string=dic.get('日期'), roc_format=self.ROC_FORMAT)
             )
             return tran

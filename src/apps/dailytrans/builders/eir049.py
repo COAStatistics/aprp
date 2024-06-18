@@ -1,4 +1,5 @@
 from django.db.models import Q
+import re
 import datetime
 import json
 from .utils import date_transfer
@@ -25,9 +26,15 @@ class Api(AbstractApi):
     def hook(self, dic):
 
         def create_tran(obj):
+            if '公' in dic.get(obj.code):
+                integers = re.findall(r'\d+\.\d+', dic.get(obj.code))
+                numbers = [float(num) for num in integers]
+                avg_price = sum(numbers) / len(numbers) / 0.6
+            else:
+                avg_price = float(dic.get(obj.code)) / 0.6
             tran = DailyTran(
                 product=obj,
-                avg_price=float(dic.get(obj.code)) / 0.6,
+                avg_price=avg_price,
                 date=date_transfer(sep=self.SEP, string=dic.get('日期'), roc_format=self.ROC_FORMAT)
             )
             return tran
