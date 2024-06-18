@@ -27,17 +27,29 @@ class Api(AbstractApi):
 
         def create_tran(obj):
             if '公' in dic.get(obj.code):
-                integers = re.findall(r'\d+\.\d+', dic.get(obj.code))
-                numbers = [float(num) for num in integers]
-                avg_price = sum(numbers) / len(numbers) / 0.6
-            else:
-                avg_price = float(dic.get(obj.code)) / 0.6
+                obj_male = self.PRODUCT_QS.get(code=f'{obj.code}公')
+                obj_female = self.PRODUCT_QS.get(code=f'{obj.code}母')
+                matches = re.findall(r'(?P<label>\w+)：(?P<value>\d+\.\d+)', dic.get(obj.code))
+                prices = {}
+                for label, value in matches:
+                    prices[label] = float(value) / 0.6
+                tran_male = DailyTran(
+                    product=obj_male,
+                    avg_price=prices['公'],
+                    date=date_transfer(sep=self.SEP, string=dic.get('日期'), roc_format=self.ROC_FORMAT)
+                )
+                tran_female = DailyTran(
+                    product=obj_female,
+                    avg_price=prices['母'],
+                    date=date_transfer(sep=self.SEP, string=dic.get('日期'), roc_format=self.ROC_FORMAT)
+                )
+                return [tran_male, tran_female]
             tran = DailyTran(
                 product=obj,
-                avg_price=avg_price,
+                avg_price=float(dic.get(obj.code)) / 0.6,
                 date=date_transfer(sep=self.SEP, string=dic.get('日期'), roc_format=self.ROC_FORMAT)
             )
-            return tran
+            return [tran]
 
         for key, value in dic.items():
             if isinstance(value, str):
@@ -47,8 +59,8 @@ class Api(AbstractApi):
         for obj in self.PRODUCT_QS.all():
             if obj.track_item and dic.get(obj.code):
                 try:
-                    tran = create_tran(obj)
-                    lst.append(tran)
+                    trans = create_tran(obj)
+                    lst.extend(trans)
                 except Exception as e:
                     if '休市' in str(e) or '-' in str(e):
                         continue

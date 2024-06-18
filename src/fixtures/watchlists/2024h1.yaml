@@ -648,3 +648,17 @@
     product: 60068 # 香水百合 FS
     sources: [30001, 30002, 30003, 30004, 30005]
     parent: 14
+
+- model: watchlists.WatchlistItem
+  pk: 12512
+  fields:
+    product: 90017 # 紅羽土雞北區公
+    sources: []
+    parent: 14
+
+- model: watchlists.WatchlistItem
+  pk: 12513
+  fields:
+    product: 90018 # 紅羽土雞北區母
+    sources: []
+    parent: 14
