@@ -1,6 +1,7 @@
 import datetime
 import calendar
 import openpyxl
+import pandas as pd
 
 from openpyxl.styles import PatternFill, Font
 from pathlib import Path
@@ -172,8 +173,8 @@ class DailyReportFactory(object):
                             'sum_volume'
                         ]
                     })
-        last_avg_price = get_avg_price(qs, has_volume, has_weight, self.last_week_start, self.last_week_end)
-        this_avg_price = get_avg_price(qs, has_volume, has_weight, self.this_week_start, self.this_week_end)
+        last_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.last_week_start & pd.to_datetime(qs['date']) <= self.last_week_end)], has_volume, has_weight)
+        this_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.this_week_start & pd.to_datetime(qs['date']) <= self.this_week_end)], has_volume, has_weight)
         if last_avg_price > 0:
             self.result[product].update(
                 {
