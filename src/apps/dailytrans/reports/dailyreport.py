@@ -173,8 +173,8 @@ class DailyReportFactory(object):
                             'sum_volume'
                         ]
                     })
-        last_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.last_week_start & pd.to_datetime(qs['date']) <= self.last_week_end)], has_volume, has_weight)
-        this_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.this_week_start & pd.to_datetime(qs['date']) <= self.this_week_end)], has_volume, has_weight)
+        last_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.last_week_start) & (pd.to_datetime(qs['date']) <= self.last_week_end)], has_volume, has_weight)
+        this_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.this_week_start) & (pd.to_datetime(qs['date']) <= self.this_week_end)], has_volume, has_weight)
         if last_avg_price > 0:
             self.result[product].update(
                 {
