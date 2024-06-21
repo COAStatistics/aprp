@@ -173,10 +173,10 @@ class DailyReportFactory(object):
                             'sum_volume'
                         ]
                     })
-        last_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= (self.last_week_start)) 
+        last_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= (self.last_week_start - datetime.timedelta(1))) 
                                           & (pd.to_datetime(qs['date']) <= (self.last_week_end - datetime.timedelta(1)))], has_volume, has_weight)
-        this_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= (self.this_week_start)) 
-                                          & (pd.to_datetime(qs['date']) <= (self.this_week_end - datetime.timedelta(1)))], has_volume, has_weight)
+        this_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= (self.this_week_start - datetime.timedelta(1))) 
+                                          & (pd.to_datetime(qs['date']) <= self.this_week_end)], has_volume, has_weight)
         if last_avg_price > 0:
             self.result[product].update(
                 {
@@ -186,8 +186,8 @@ class DailyReportFactory(object):
                 }
             )
         if has_volume:
-            last_avg_volume = get_avg_volume(qs, (self.last_week_start)), (self.last_week_end - datetime.timedelta(1)))
-            this_avg_volume = get_avg_volume(qs, (self.this_week_start)), (self.this_week_end - datetime.timedelta(1)))
+            last_avg_volume = get_avg_volume(qs, (self.last_week_start - datetime.timedelta(1)), (self.last_week_end - datetime.timedelta(1)))
+            this_avg_volume = get_avg_volume(qs, (self.this_week_start - datetime.timedelta(1)), self.this_week_end)
             self.result[product].update({f'T{row}': this_avg_volume})
             if last_avg_volume > 0:
                 self.result[product].update(
