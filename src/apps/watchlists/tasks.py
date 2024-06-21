@@ -43,28 +43,31 @@ def active_update():
                 q, has_volume, has_weight = get_group_by_date_query_set(query_set)
                 tran = q.sort_values('date').iloc[-1]
 
-                if tran:
-                    if watchlist.start_date <= tran['date'] <= watchlist.end_date and tran["date"].month in profile.months.values_list('id', flat=True):
-                        avg_price = tran['avg_price']
-                        is_active = profile.active_compare(avg_price)
+                if tran.empty:
+                    db_logger.warning(
+                        f'Product {profile.product} has no price',
+                        extra=logger_extra,
+                    )
 
-                        # for logging
-                        if profile.is_active is not is_active:
-                            if profile.is_active:
-                                deactivated.append(profile)
-                            else:
-                                activated.append(profile)
+                elif watchlist.start_date <= tran['date'] <= watchlist.end_date and tran["date"].month in profile.months.values_list('id', flat=True):
+                    avg_price = tran['avg_price']
+                    is_active = profile.active_compare(avg_price)
+                    # for logging
+                    if profile.is_active is not is_active:
+                        if profile.is_active:
+                            deactivated.append(profile)
+                        else:
+                            activated.append(profile)
 
-                        profile.is_active = is_active
-                        profile.save()
-                else:
-                    db_logger.warning('Product %s has no price' % profile.product, extra=logger_extra)
+                    profile.is_active = is_active
+                    profile.save()
 
         end_time = datetime.now()
         logger_extra['duration'] = end_time - start_time
 
-        db_logger.info('Updated default watchlist profiles successfully, activate: %s, deactivate: %s'
-                       % (str(activated), str(deactivated)), extra=logger_extra)
+        db_logger.info(
+            f'Updated default watchlist profiles successfully, activate: {activated}, deactivate: {deactivated}'
+            , extra=logger_extra)
 
     except Exception as e:
         db_logger.exception(e, extra=logger_extra)
