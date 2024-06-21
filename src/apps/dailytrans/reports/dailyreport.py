@@ -109,9 +109,9 @@ def get_avg_volume(qs, week_start=None, week_end=None):
 class DailyReportFactory(object):
     def __init__(self, specify_day):
         self.specify_day = specify_day
-        self.this_week_start = self.specify_day - datetime.timedelta(7)
+        self.this_week_start = self.specify_day - datetime.timedelta(6)
         self.this_week_end = self.specify_day
-        self.last_week_start = self.this_week_start - datetime.timedelta(8)
+        self.last_week_start = self.this_week_start - datetime.timedelta(7)
         self.last_week_end = self.this_week_start - datetime.timedelta(1)
         self.last_year_month_start = datetime.datetime(self.specify_day.year - 1, self.specify_day.month, 1)
         self.last_year_month_end = datetime.datetime(self.specify_day.year - 1,
@@ -173,8 +173,10 @@ class DailyReportFactory(object):
                             'sum_volume'
                         ]
                     })
-        last_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.last_week_start) & (pd.to_datetime(qs['date']) <= self.last_week_end)], has_volume, has_weight)
-        this_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.this_week_start) & (pd.to_datetime(qs['date']) <= self.this_week_end)], has_volume, has_weight)
+        last_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= (self.last_week_start - datetime.timedelta(1))) 
+                                          & (pd.to_datetime(qs['date']) <= (self.last_week_end - datetime.timedelta(1)))], has_volume, has_weight)
+        this_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= (self.this_week_start - datetime.timedelta(1))) 
+                                          & (pd.to_datetime(qs['date']) <= (self.this_week_end - datetime.timedelta(1)))], has_volume, has_weight)
         if last_avg_price > 0:
             self.result[product].update(
                 {
@@ -184,8 +186,8 @@ class DailyReportFactory(object):
                 }
             )
         if has_volume:
-            last_avg_volume = get_avg_volume(qs, self.last_week_start, self.last_week_end)
-            this_avg_volume = get_avg_volume(qs, self.this_week_start, self.this_week_end)
+            last_avg_volume = get_avg_volume(qs, (self.last_week_start - datetime.timedelta(1)), (self.last_week_end - datetime.timedelta(1)))
+            this_avg_volume = get_avg_volume(qs, (self.this_week_start - datetime.timedelta(1)), (self.this_week_end - datetime.timedelta(1)))
             self.result[product].update({f'T{row}': this_avg_volume})
             if last_avg_volume > 0:
                 self.result[product].update(
