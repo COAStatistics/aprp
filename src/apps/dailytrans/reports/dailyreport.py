@@ -86,9 +86,7 @@ desc_3 = [
 ]
 
 
-def get_avg_price(qs, has_volume, has_weight, week_start=None, week_end=None):
-    total_price = []
-    total_volume = []
+def get_avg_price(qs, has_volume, has_weight):
     if has_volume and has_weight:   # 新增有日均重量的品項計算平均價格公式
         total_price = qs['avg_price'] * qs['sum_volume'] * qs['avg_avg_weight']
         total_volume_weight = qs['sum_volume'] * qs['avg_avg_weight']
@@ -173,9 +171,9 @@ class DailyReportFactory(object):
                             'sum_volume'
                         ]
                     })
-        last_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= (self.last_week_start - datetime.timedelta(1))) 
-                                          & (pd.to_datetime(qs['date']) <= (self.last_week_end - datetime.timedelta(1)))], has_volume, has_weight)
-        this_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= (self.this_week_start - datetime.timedelta(1))) 
+        last_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.last_week_start) 
+                                          & (pd.to_datetime(qs['date']) <= self.last_week_end)], has_volume, has_weight)
+        this_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.this_week_start) 
                                           & (pd.to_datetime(qs['date']) <= self.this_week_end)], has_volume, has_weight)
         if last_avg_price > 0:
             self.result[product].update(
@@ -186,8 +184,8 @@ class DailyReportFactory(object):
                 }
             )
         if has_volume:
-            last_avg_volume = get_avg_volume(qs, (self.last_week_start - datetime.timedelta(1)), (self.last_week_end - datetime.timedelta(1)))
-            this_avg_volume = get_avg_volume(qs, (self.this_week_start - datetime.timedelta(1)), self.this_week_end)
+            last_avg_volume = get_avg_volume(qs, self.last_week_start, self.last_week_end)
+            this_avg_volume = get_avg_volume(qs, self.this_week_start, self.this_week_end)
             self.result[product].update({f'T{row}': this_avg_volume})
             if last_avg_volume > 0:
                 self.result[product].update(
@@ -204,28 +202,6 @@ class DailyReportFactory(object):
         )
 
     def update_data(self, query_set, product, row):
-        # if query_set.count():
-        #     has_volume = query_set.filter(volume__isnull=False).count() > 0.8 * query_set.count()
-        #     has_weight = query_set.filter(avg_weight__isnull=False).count() > 0.8 * query_set.count()
-        # else:
-        #     has_volume = False
-        #     has_weight = False
-
-        # if has_volume and has_weight:
-        #     query_set = query_set.filter(Q(volume__gt=0) & Q(avg_weight__gt=0))
-
-        # query_set = (query_set.values('date').annotate(
-        #     year=Year('date'),
-        #     month=Month('date'),
-        #     day=Day('date')))
-        
-        # qs = query_set.annotate(
-        #     avg_price=F('avg_price'),
-        #     sum_volume=F('volume'),
-        #     avg_avg_weight=F('avg_weight'),
-        # )
-
-        # qs = qs.order_by('date')
         qs, has_volume, has_weight = get_group_by_date_query_set(query_set)
         last_year_avg_price = get_avg_price(qs, has_volume, has_weight)
         if last_year_avg_price > 0:
@@ -319,9 +295,20 @@ class DailyReportFactory(object):
                                                 date__year=self.specify_day.year-1,
                                                 date__month=self.specify_day.month)
 
+
+            # 因應措施是梨
+            if self.specify_day.month in [5, 6]:
+                if item.product.id == 50182:
+                    # 56只抓豐水梨 50186
+                    query_set = query_set.filter(product=50186)
+            elif self.specify_day.month in [7, 8]:
+                if item.product.id == 50182:
+                    # 78只抓新興梨 50185
+                    query_set = query_set.filter(product=50185)
             if item.sources():
                 query_set = query_set.filter(source__in=item.sources())
             self.update_data(query_set, item.product.name, item.row)
+
             if '羊' in item.product.name:
                 self.update_rams(item, item.row)
             if '牛' in item.product.name:
@@ -332,51 +319,16 @@ class DailyReportFactory(object):
         extra_product = [(3001, 10), (3002, 9), (3508, 99), (3509, 100), (3510, 103)]
         for item in extra_product:
             self._extract_data(item[1], WatchlistItem, item[0], None, self.specify_day)
-            # self.row_visible.append(item[1])
-            # watchlist_item = WatchlistItem.objects.filter(id=item[0]).first()
-            # product = watchlist_item.product
-            # query_set = DailyTran.objects.filter(product=product)
-            # if watchlist_item.sources.all():
-            #     query_set = query_set.filter(source__in=watchlist_item.sources.all())
-            # self.get_data(query_set, product.name, item[1], None)
-            # # last year avg_price of month
-            # query_set = DailyTran.objects.filter(product=product,
-            #                                     date__year=self.specify_day.year-1,
-            #                                     date__month=self.specify_day.month)
-            # if watchlist_item.sources.all():
-            #     query_set = query_set.filter(source__in=watchlist_item.sources.all())
-            # self.update_data(query_set, product.name, item[1])
 
         # 香蕉台北一二批發
         self._extract_data(73, Fruit, 50063, Source.objects.filter(id__in=[20001, 20002]), self.specify_day)
-        # self.row_visible.append(73)
-        # product = Fruit.objects.get(id=50063)
-        # sources = Source.objects.filter(id__in=[20001, 20002])
-        # query_set = DailyTran.objects.filter(product=product, source__in=sources)
-        # self.get_data(query_set, f'{product.name}{product.type}', 73, None)
-        # query_set = DailyTran.objects.filter(product=product, source__in=sources, date__year=self.specify_day.year-1, date__month=self.specify_day.month)
-        # self.update_data(query_set, f'{product.name}{product.type}', 73)
 
         # 青香蕉下品()內銷)
         self._extract_data(72, Fruit, 59019, Source.objects.filter(id__in=range(10030,20001)), self.specify_day)
-        # self.row_visible.append(72)
-        # product = Fruit.objects.get(id=59019)
-        # sources = Source.objects.filter(id__gte=10030, id__lte=20000)
-        # query_set = DailyTran.objects.filter(product=product, source__in=sources)
-        # self.get_data(query_set, '{}{}'.format(product.name, product.type), 72, None)
-        # query_set = DailyTran.objects.filter(product=product, date__year=self.specify_day.year-1, date__month=self.specify_day.month)
-        # self.update_data(query_set, '{}{}'.format(product.name, product.type), 72)
 
         # 2020/4/16 主管會報陳副主委要求花卉品項,農糧署建議新增香水百合 FS  
         self._extract_data(107, Flower, 60068, Source.objects.filter(id__in=[30001, 30002, 30003, 30004, 30005]), self.specify_day)
-        # self.row_visible.append(107)
-        # product = Flower.objects.get(id=60068)
-        # sources = Source.objects.filter(id__in=[30001, 30002, 30003, 30004, 30005])
-        # query_set = DailyTran.objects.filter(product=product, source__in=sources)
-        # self.get_data(query_set, '{}{}'.format(product.name, product.type), 107, None)
-        # query_set = DailyTran.objects.filter(product=product, date__year=self.specify_day.year-1, date__month=self.specify_day.month)
-        # self.update_data(query_set, '{}{}'.format(product.name, product.type), 107)
-
+        
     def _extract_data(self, row, model, product_id, sources=None, date=None):
         self.row_visible.append(row)
         if model == WatchlistItem:
