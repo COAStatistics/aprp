@@ -1,88 +1,88 @@
 - model: watchlists.Watchlist
-  pk: 14
+  pk: 15
   fields:
-    name: 113上半年
+    name: 113下半年
     user: 1
-    is_default: False
-    start_date: 2024-01-01
-    end_date: 2024-06-30
+    is_default: True
+    start_date: 2024-07-01
+    end_date: 2024-12-31
 
 # Rices
 - model: watchlists.WatchlistItem
-  pk: 12001
+  pk: 13001
   fields:
     product: 15 # 長糯
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12002
+  pk: 13002
   fields:
     product: 19 # 稻穀
-    parent: 14
+    parent: 15
 
 # Crops
 - model: watchlists.WatchlistItem
-  pk: 12101
+  pk: 13101
   fields:
     product: 49011 # 落花生(帶殼) 產地
     sources: [10050, 10051, 10049, 10048, 10090]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12102
+  pk: 13102
   fields:
     product: 49003 # 紅豆(中等) 產地
     sources: [10058, 10057, 10044]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12103
+  pk: 13103
   fields:
     product: 49001 # 甘藷 產地
     sources: [10059, 10060]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12104
+  pk: 13104
   fields:
     product: 49005 # 蒜頭(蒜球) 產地
     sources: [10065, 10051, 10049, 10048, 10101, 10095, 10061]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12105
+  pk: 13105
   fields:
     product: 40423 # 洋蔥-本產 SD1
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12106
+  pk: 13106
   fields:
     product: 40164 # 甘藍 LA1
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12107
+  pk: 13107
   fields:
     product: 40165 # 甘藍 LA2
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12108
+  pk: 13108
   fields:
     product: 40172 # 甘藍 LA7
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12109
+  pk: 13109
   fields:
     product: 40539 # 青蔥-日蔥 SE1
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 # - model: watchlists.WatchlistItem
 #   pk: 9110
@@ -101,202 +101,202 @@
 #     parent: 11
 
 - model: watchlists.WatchlistItem
-  pk: 12138
+  pk: 13138
   fields:
     product: 40542 # 青蔥-粉蔥(含北蔥) 北蔥 SE2
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12139
+  pk: 13139
   fields:
     product: 40543 # 青蔥-粉蔥(含北蔥) 粉蔥 SE6
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12111
+  pk: 13111
   fields:
     product: 40187 # 包心白菜-包白 LC1
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12112
+  pk: 13112
   fields:
     product: 40188 # 包心白菜-包頭蓮 LC3
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12113
+  pk: 13113
   fields:
     product: 40020 # 花椰菜-青梗 FB1
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12114
+  pk: 13114
   fields:
     product: 40021 # 花椰菜-青梗 FB11
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12115
+  pk: 13115
   fields:
     product: 40022 # 花椰菜-青梗 FB12
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12116
+  pk: 13116
   fields:
     product: 40024 # 花椰菜-白梗 FB2
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12117
+  pk: 13117
   fields:
     product: 40025 # 花椰菜-白梗 FB22
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12118
+  pk: 13118
   fields:
     product: 40026 # 花椰菜-白梗 FB21
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12119
+  pk: 13119
   fields:
     product: 40397 # 蘿蔔-梅花 SA1
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12120
+  pk: 13120
   fields:
     product: 40398 # 蘿蔔-梅花 SA12
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12121
+  pk: 13121
   fields:
     product: 40399 # 蘿蔔-梅花 SA11
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12122
+  pk: 13122
   fields:
     product: 40405 # 蘿蔔-椿仔 SA2
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12123
+  pk: 13123
   fields:
     product: 40406 # 蘿蔔-椿仔 SA22
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12124
+  pk: 13124
   fields:
     product: 40393 # 蘿蔔-矸仔 SA3
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12125
+  pk: 13125
   fields:
     product: 40394 # 蘿蔔-矸仔 SA32
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12126
+  pk: 13126
   fields:
     product: 40395 # 蘿蔔-矸仔 SA31
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12131
+  pk: 13131
   fields:
     product: 40028 # 胡瓜-黑刺 FC1
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12132
+  pk: 13132
   fields:
     product: 40029 # 胡瓜-改良種 FC2
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12133
+  pk: 13133
   fields:
     product: 40031 # 花胡瓜 FD1
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12134
+  pk: 13134
   fields:
     product: 40041 # 絲瓜-絲瓜 FF1
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12135
+  pk: 13135
   fields:
     product: 40060 # 茄子-胭脂茄 FI1
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12136
+  pk: 13136
   fields:
     product: 40061 # 茄子-麻荸茄 FI2
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 # Fruits
 
 - model: watchlists.WatchlistItem
-  pk: 12201
+  pk: 13201
   fields:
     product: 50229 # 西瓜-大西瓜 T1
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12209
+  pk: 13209
   fields:
     product: 50185 # 梨-新興梨 O4
     sources: [20008]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12210
+  pk: 13210
   fields:
     product: 50186 # 梨-豐水梨 O5
     sources: [20008]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12211
+  pk: 13211
   fields:
     product: 50009 # 棗子 22
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 #109下半年取消葡萄
 # - model: watchlists.WatchlistItem
@@ -307,187 +307,187 @@
 #     parent: 11
 
 - model: watchlists.WatchlistItem
-  pk: 12213
+  pk: 13213
   fields:
     product: 50013 # 釋迦 31
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12214
+  pk: 13214
   fields:
     product: 50289 # 柿子-甜柿 Z4
     sources: [20008]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12215
+  pk: 13215
   fields:
     product: 50145 # 木瓜-網室紅肉 I1
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12216
+  pk: 13216
   fields:
     product: 59007 # 蓮霧 產地
     sources: [10054, 10055, 10056]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12217
+  pk: 13217
   fields:
     product: 50214 # 芒果-愛文 R1
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12218
+  pk: 13218
   fields:
     product: 59004 # 香蕉(內銷) 產地
     sources: [10044, 10043, 10077, 10056, 10067, 10041, 10070, 10042, 10039, 10045]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12219
+  pk: 13219
   fields:
     product: 59008 # 鳳梨(17號)
     sources: [10073, 10074, 10066, 10068, 10045, 10067, 10038]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12220
+  pk: 13220
   fields:
     product: 50158 # 龍眼-粉殼 K3
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12221
+  pk: 13221
   fields:
     product: 50197 # 番石榴-珍珠拔 P1
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12222
+  pk: 13222
   fields:
     product: 50154 # 荔枝-黑葉 J2
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12223
+  pk: 13223
   fields:
     product: 59009 # 青梅(竿採) 產地
     sources: [10072, 10054, 10069, 10070, 10071]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12224
+  pk: 13224
   fields:
     product: 50040 # 火龍果-白肉 811
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12225
+  pk: 13225
   fields:
     product: 50041 # 火龍果-紅肉 812
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12226
+  pk: 13226
   fields:
     product: 50078 # 椪柑 C1
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12227
+  pk: 13227
   fields:
     product: 59001 # 桶柑 產地
     sources: [10031, 10030, 10032, 10117]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12228
+  pk: 13228
   fields:
     product: 59015 # 文旦 產地
     sources: [10083, 10075, 10084, 10085, 10086, 10108, 10109, 10110]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12229
+  pk: 13229
   fields:
     product: 50097 # 甜橙-柳橙 E1
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12230
+  pk: 13230
   fields:
     product: 59011 # 檸檬 產地
     sources: [10043, 10077, 10076, 10045, 10106]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12231
+  pk: 13231
   fields:
     product: 50081 # 茂谷柑 C2
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 #111年上半年監控清單新增鳳梨釋迦
 - model: watchlists.WatchlistItem
-  pk: 12232
+  pk: 13232
   fields:
     product: 59020 # 鳳梨釋迦 產地
     sources: [10118]
-    parent: 14
+    parent: 15
 
 # Hogs
 
 - model: watchlists.WatchlistItem
-  pk: 12301
+  pk: 13301
   fields:
     product: 70001 # 規格豬(75-155公斤)
     sources: [40002, 40003, 40004, 40005, 40006, 40007, 40008, 40009, 40010, 40011, 40012, 40013, 40015, 40016, 40017, 40018, 40019, 40020, 40021, 40022] # 2023上半年 40014 嘉義縣朴子肉品市場因整修而移除
-    parent: 14
+    parent: 15
 
 # Cattle
 
 - model: watchlists.WatchlistItem
-  pk: 12302
+  pk: 13302
   fields:
     product: 130001 # 肥育乳公牛550公斤以上
-    parent: 14
+    parent: 15
 
 # Rams
 
 - model: watchlists.WatchlistItem
-  pk: 12303
+  pk: 13303
   fields:
     product: 80002 # 努比亞雜交閹公羊(50-75公斤)
     sources: [50001]
-    parent: 14
+    parent: 15
 
 # Chickens
 
 - model: watchlists.WatchlistItem
-  pk: 12304
+  pk: 13304
   fields:
     product: 90014 # 白肉雞(1.75-2.05Kg) #2024上半年白肉雞改為1.75-2.05公斤,但API來源沒有改還是寫2.05公斤
     sources: []
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12305
+  pk: 13305
   fields:
     product: 90008 # 紅羽土雞北區
     sources: []
-    parent: 14
+    parent: 15
 
 #109下半年監控清單紅羽土雞改為只監控(北區)
 # - model: watchlists.WatchlistItem
@@ -498,167 +498,167 @@
 #     parent: 11
 
 - model: watchlists.WatchlistItem
-  pk: 12308
+  pk: 13308
   fields:
     product: 90016 # 雞蛋
     sources: []
-    parent: 14
+    parent: 15
 
 # Ducks
 
 - model: watchlists.WatchlistItem
-  pk: 12309
+  pk: 13309
   fields:
     product: 100005 # 土番鴨(75天)
     sources: []
-    parent: 14
+    parent: 15
 
 # Seafood
 
 - model: watchlists.WatchlistItem
-  pk: 12401
+  pk: 13401
   fields:
     product: 120947 # 吳郭魚105
     sources: []
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12402
+  pk: 13402
   fields:
     product: 120954 # 虱目魚晚撈 0.6-0.8公斤/尾
     sources: []
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12404
+  pk: 13404
   fields:
     product: 120941 # 文蛤 40-60粒/0.6公斤 #2021h1 監控品級改40-60粒/台斤
     sources: []
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12405
+  pk: 13405
   fields:
     product: 120950 # 金目鱸 600-800g
     sources: []
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12406
+  pk: 13406
   fields:
     product: 120987 # 午仔魚 300g-375g
     sources: []
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12407
+  pk: 13407
   fields:
     product: 120937 # 白蝦 50尾/0.6公斤
     sources: []
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12408
+  pk: 13408
   fields:
     product: 121044 # 龍虎斑 0.6-0.9公斤/尾
     sources: []
-    parent: 14
+    parent: 15
 
 # Crops - COG02
 
 - model: watchlists.WatchlistItem
-  pk: 12501
+  pk: 13501
   fields:
     product: 10006 # 根莖菜類
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12502
+  pk: 13502
   fields:
     product: 10007 # 葉菜類
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12503
+  pk: 13503
   fields:
     product: 10008 # 花果菜類
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12504
+  pk: 13504
   fields:
     product: 10009 # 姑菌類
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12505
+  pk: 13505
   fields:
     product: 10010 # 醃製類
     sources: [10001, 10002]
-    parent: 14
+    parent: 15
 
 # Fruits - COG03
 
 - model: watchlists.WatchlistItem
-  pk: 12506
+  pk: 13506
   fields:
     product: 20003 # 國產 O
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12507
+  pk: 13507
   fields:
     product: 20004 # 進口 I
     sources: [20001, 20002]
-    parent: 14
+    parent: 15
 
 # Flowers - COG04
 
 - model: watchlists.WatchlistItem
-  pk: 12508
+  pk: 13508
   fields:
     product: 30002 # 全部花卉 L
     sources: [30001, 30002, 30003, 30004, 30005]
-    parent: 14
+    parent: 15
 
 # Flowers - COG07
 
 - model: watchlists.WatchlistItem
-  pk: 12509
+  pk: 13509
   fields:
     product: 60051 # 火鶴花 FB
     sources: [30001, 30002, 30003, 30004, 30005]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12510
+  pk: 13510
   fields:
     product: 60066 # 文心蘭 FO3
     sources: [30001, 30002, 30003, 30004, 30005]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem #葉科長指示日報已經新增香水百合,所以在監控清單上也新增香水百合以便長官快速查詢
-  pk: 12511
+  pk: 13511
   fields:
     product: 60068 # 香水百合 FS
     sources: [30001, 30002, 30003, 30004, 30005]
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12512
+  pk: 13512
   fields:
     product: 90017 # 紅羽土雞北區公
     sources: []
-    parent: 14
+    parent: 15
 
 - model: watchlists.WatchlistItem
-  pk: 12513
+  pk: 13513
   fields:
     product: 90018 # 紅羽土雞北區母
     sources: []
-    parent: 14
+    parent: 15
