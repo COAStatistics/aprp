@@ -81,9 +81,7 @@ class Index(LoginRequiredMixin, TemplateView):
         # filter watchlist item or use default
         # watchlist_id = kwargs.get('wi') or self.request.COOKIES.get('aprp_userwatchlistid')
         watchlist_id = kwargs.get('wi')
-        watchlist = Watchlist.objects.filter(id=watchlist_id).first()
-        if not watchlist:
-            watchlist = Watchlist.objects.get(is_default=True)
+        watchlist = Watchlist.objects.filter(id=watchlist_id).first() or Watchlist.objects.get(is_default=True)
         context['user_watchlist'] = watchlist
 
         # classify config into different folder manually
@@ -97,11 +95,10 @@ class Index(LoginRequiredMixin, TemplateView):
         return context
 
     def render_to_response(self, context, **response_kwargs):
-        response = super(Index, self).render_to_response(context, **response_kwargs)
         # set cookie
         # watchlist = context['user_watchlist']
         # response.set_cookie('aprp_userwatchlistid', watchlist.id)
-        return response
+        return super(Index, self).render_to_response(context, **response_kwargs)
 
 
 class About(LoginRequiredMixin, TemplateView):
@@ -130,9 +127,7 @@ class FestivalReport(LoginRequiredMixin, TemplateView):
         festival_list = FestivalName.objects.filter(enable=True).order_by('id')        
         context['festival_list'] = festival_list
         #年度
-        roc_year_set = set()
-        for y in Festival.objects.values('roc_year'):
-            roc_year_set.add(y['roc_year'])
+        roc_year_set = {y['roc_year'] for y in Festival.objects.values('roc_year')}
         context['roc_year_list'] = sorted(roc_year_set,reverse=True)
         #自選農產品清單
         item_list = AbstractProduct.objects.filter(type=1,track_item=True) | AbstractProduct.objects.filter(id__range = [130001,130005],type=2,track_item=True) | AbstractProduct.objects.filter(id__range = [90008,90016],type=2,track_item=True) | AbstractProduct.objects.filter(id__range = [100004,100006],type=2,track_item=True) | AbstractProduct.objects.filter(id__range = [110003,110006],type=2,track_item=True) #批發品項+產地(牛5,雞8,鴨3,鵝4)
@@ -157,14 +152,10 @@ class Last5YearsReport(LoginRequiredMixin, TemplateView):
         items_list = self.sort_item_list(items_list)
         all_items = {}
         for i in items_list:
-            pid_list = []
-            source_list = []
             pids = i.product_id.all()
             sources = i.source.all()
-            for p in pids:
-                pid_list.append(str(p.id))
-            for s in sources:
-                source_list.append(str(s.id))
+            pid_list = [str(p.id) for p in pids]
+            source_list = [str(s.id) for s in sources]
             pid = ','.join(pid_list)
             source = ','.join(source_list)
             
@@ -255,10 +246,9 @@ class ChartContents(LoginRequiredMixin, TemplateView):
     def get_template_names(self):
         if self.no_data:
             return 'ajax/no-data.html'
-        else:
-            chart_id = self.kwargs.get('ci')
-            chart = Chart.objects.get(id=chart_id)
-            return chart.template_name
+        chart_id = self.kwargs.get('ci')
+        chart = Chart.objects.get(id=chart_id)
+        return chart.template_name
 
     def post(self, request, **kwargs):
         self.kwargs['POST'] = request.POST
@@ -312,11 +302,12 @@ class IntegrationTable(LoginRequiredMixin, TemplateView):
             context.update(extra_context)
 
         # no data checking, if series_options or option is empty, render no-data template
-        if self.to_init:
-            if not context['series_options']:
-                self.no_data = True
-        else:
-            if not context['option']:
-                self.no_data = True
+        if (
+            self.to_init
+            and not context['series_options']
+            or not self.to_init
+            and not context['option']
+        ):
+            self.no_data = True
 
         return context
