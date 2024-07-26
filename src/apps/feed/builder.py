@@ -53,7 +53,7 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
             l = re.sub(r'\d+.?\d*-\d+.?\d*\(阿根廷\)|\d+.?\d*\(阿根廷\)','',l)
             sum = 0
             count = 0
-            pattern = re.compile(r'\d+.?\d*\(.*?\)|\d+.?\d*')
+            pattern = re.compile(r"(\d+(?:\.\d{1,2})?)-(\d+(?:\.\d{1,2})?)")
             pattern2 = re.compile(r'\d+.?\d*')
             prepen = r'\d+.?\d*-\d+.?\d*.?\d*-.?\d*'    # 處理來源數據黏在一起誤判問題,如來源為: 11.55-11.7511.55-11.75
             tempres = re.findall(prepen,l)
@@ -72,7 +72,7 @@ def direct(start_date=None, end_date=None, *args, **kwargs):
 
             else:
                 templ = pattern.findall(l)
-                
+                templ = list(templ[0])
                 for j in templ:
                     tempd=pattern2.findall(j)
                     try:
