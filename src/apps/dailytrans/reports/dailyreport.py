@@ -9,12 +9,10 @@ from django.conf import settings
 
 from apps.watchlists.models import Watchlist, WatchlistItem, MonitorProfile
 from apps.dailytrans.models import DailyTran
-from apps.dailytrans.utils import get_group_by_date_query_set, Year, Month, Day
+from apps.dailytrans.utils import get_group_by_date_query_set
 from apps.fruits.models import Fruit
-from apps.configs.models import Source, AbstractProduct
+from apps.configs.models import Source
 from apps.flowers.models import Flower
-from django.db.models import Q
-from django.db.models import Sum, Avg, F, Func, IntegerField
 
 TEMPLATE = str(settings.BASE_DIR('apps/dailytrans/reports/template.xlsx'))
 
@@ -100,7 +98,7 @@ def get_avg_price(qs, has_volume, has_weight):
         return qs['avg_price'].mean()
 
 
-def get_avg_volume(qs, week_start=None, week_end=None):
+def get_avg_volume(qs):
     return qs['sum_volume'].mean()
 
 
@@ -136,7 +134,7 @@ class DailyReportFactory(object):
     def check_months(self, item):
         # 不在監控品項月份變更底色改為在顯示月份內的品項顯示        
         # if item.months.filter(name__icontains=self.specify_day.month) or item.always_display:
-        #原判斷條件導致10/11/12月份的品項在1/2月分也會出現
+        # 原判斷條件導致10/11/12月份的品項在1/2月分也會出現
         if item.months.filter(name=f'{self.specify_day.month}月') or item.always_display:
             self.row_visible.append(item.row)
             if item.product.name == '梨':
@@ -171,10 +169,12 @@ class DailyReportFactory(object):
                             'sum_volume'
                         ]
                     })
-        last_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.last_week_start) 
-                                          & (pd.to_datetime(qs['date']) <= self.last_week_end)], has_volume, has_weight)
-        this_avg_price = get_avg_price(qs[(pd.to_datetime(qs['date']) >= self.this_week_start) 
-                                          & (pd.to_datetime(qs['date']) <= self.this_week_end)], has_volume, has_weight)
+        last_qs = qs[(pd.to_datetime(qs['date']) >= self.last_week_start)
+                                          & (pd.to_datetime(qs['date']) <= self.last_week_end)]
+        this_qs = qs[(pd.to_datetime(qs['date']) >= self.this_week_start)
+                                          & (pd.to_datetime(qs['date']) <= self.this_week_end)]
+        last_avg_price = get_avg_price(last_qs, has_volume, has_weight)
+        this_avg_price = get_avg_price(this_qs, has_volume, has_weight)
         if last_avg_price > 0:
             self.result[product].update(
                 {
@@ -184,8 +184,8 @@ class DailyReportFactory(object):
                 }
             )
         if has_volume:
-            last_avg_volume = get_avg_volume(qs, self.last_week_start, self.last_week_end)
-            this_avg_volume = get_avg_volume(qs, self.this_week_start, self.this_week_end)
+            last_avg_volume = get_avg_volume(last_qs)
+            this_avg_volume = get_avg_volume(this_qs)
             self.result[product].update({f'T{row}': this_avg_volume})
             if last_avg_volume > 0:
                 self.result[product].update(
