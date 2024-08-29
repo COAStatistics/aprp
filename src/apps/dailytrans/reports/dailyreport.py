@@ -99,7 +99,7 @@ def get_avg_price(qs, has_volume, has_weight):
 
 
 def get_avg_volume(qs):
-    return qs['sum_volume'].mean()
+    return qs['sum_volume'].mean() if not pd.isna(qs['sum_volume'].mean()) else 0
 
 
 class DailyReportFactory(object):
