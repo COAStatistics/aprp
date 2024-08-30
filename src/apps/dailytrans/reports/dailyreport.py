@@ -58,7 +58,8 @@ SHEET_FORMAT = {
 
 # 日報下方資料來源對應品項及其來源說明;香蕉排在本項最後一列加上"一般農產品的資料來源說明",下載日報會出現欄位長度超過列印邊界,移到本項第一列以避免此問題
 desc_1 = [
-    ('香蕉', '香蕉產地價格(上品-中寮、中埔、旗山、美濃及高樹等農會查報上品價格之簡單平均)、(下品-中寮及中埔農會查報下品價格之簡單平均)'),
+    ('香蕉',
+     '香蕉產地價格(上品-中寮、中埔、旗山、美濃及高樹等農會查報上品價格之簡單平均)、(下品-中寮及中埔農會查報下品價格之簡單平均)'),
     ('落花生', '落花生產地價格(芳苑、虎尾、土庫、北港及元長等農會查報價格之簡單平均)'),
     ('紅豆', '紅豆產地價格(屏東縣萬丹鄉、新園鄉等產地農會查報價格之簡單平均)'),
     ('大蒜', '乾蒜頭產地價格(伸港、虎尾、土庫、元長及四湖等農會查報價格之簡單平均)'),
@@ -85,14 +86,14 @@ desc_3 = [
 
 
 def get_avg_price(qs, has_volume, has_weight):
-    if has_volume and has_weight:   # 新增有日均重量的品項計算平均價格公式
+    if has_volume and has_weight:  # 新增有日均重量的品項計算平均價格公式
         total_price = qs['avg_price'] * qs['sum_volume'] * qs['avg_avg_weight']
         total_volume_weight = qs['sum_volume'] * qs['avg_avg_weight']
         return total_price.sum() / total_volume_weight.sum() if len(total_volume_weight) else 0
     elif has_volume:
         total_price = qs['avg_price'] * qs['sum_volume']
         total_volume = qs['sum_volume']
-    
+
         return total_price.sum() / total_volume.sum() if len(total_volume) else 0
     else:
         return qs['avg_price'].mean()
@@ -162,26 +163,24 @@ class DailyReportFactory(object):
             if q['date'] >= self.this_week_start.date():
                 self.result[product].update(
                     {f"""{self.col_dict[f"{q['date']}"]}{row}""": q['avg_price']}
-                    )
+                )
             if has_volume and q['date'] >= self.this_week_start.date():
                 self.result[product].update(
                     {f"""{self.col_dict[f"{q['date']}_volume"]}{row}""": q[
-                            'sum_volume'
-                        ]
-                    })
-        last_qs = qs[(pd.to_datetime(qs['date']) >= self.last_week_start)
-                                          & (pd.to_datetime(qs['date']) <= self.last_week_end)]
-        this_qs = qs[(pd.to_datetime(qs['date']) >= self.this_week_start)
-                                          & (pd.to_datetime(qs['date']) <= self.this_week_end)]
+                        'sum_volume'
+                    ]
+                     })
+
+        last_qs = qs[(pd.to_datetime(qs['date']).dt.date >= self.last_week_start.date())
+                     & (pd.to_datetime(qs['date']).dt.date <= self.last_week_end.date())]
+        this_qs = qs[(pd.to_datetime(qs['date']).dt.date >= self.this_week_start.date())
+                     & (pd.to_datetime(qs['date']).dt.date <= self.this_week_end.date())]
+
         last_avg_price = get_avg_price(last_qs, has_volume, has_weight)
         this_avg_price = get_avg_price(this_qs, has_volume, has_weight)
         if last_avg_price > 0:
             self.result[product].update(
-                {
-                    f'L{row}': (this_avg_price - last_avg_price)
-                    / last_avg_price
-                    * 100
-                }
+                {f'L{row}': (this_avg_price - last_avg_price) / last_avg_price * 100}
             )
         if has_volume:
             last_avg_volume = get_avg_volume(last_qs)
@@ -189,11 +188,7 @@ class DailyReportFactory(object):
             self.result[product].update({f'T{row}': this_avg_volume})
             if last_avg_volume > 0:
                 self.result[product].update(
-                    {
-                        f'U{row}': (this_avg_volume - last_avg_volume)
-                        / last_avg_volume
-                        * 100
-                    }
+                    {f'U{row}': (this_avg_volume - last_avg_volume) / last_avg_volume * 100}
                 )
         if monitor_price:
             self.result[product].update({f'F{row}': monitor_price})
@@ -206,7 +201,6 @@ class DailyReportFactory(object):
         last_year_avg_price = get_avg_price(qs, has_volume, has_weight)
         if last_year_avg_price > 0:
             self.result[product].update({f'G{row}': last_year_avg_price})
-
 
     def update_rams(self, item, row):
         query_set = DailyTran.objects.filter(product__in=item.product_list(), source__in=item.sources())
@@ -260,8 +254,8 @@ class DailyReportFactory(object):
             self.result[item.product.name].update(
                 {
                     f'L{row}': (this_week_avg_price - last_week_avg_price)
-                    / last_week_avg_price
-                    * 100
+                               / last_week_avg_price
+                               * 100
                 }
             )
 
@@ -292,9 +286,8 @@ class DailyReportFactory(object):
             self.get_data(query_set, item.product.name, item.row, item.price)
             # last year avg_price of month
             query_set = DailyTran.objects.filter(product__in=item.product_list(),
-                                                date__year=self.specify_day.year-1,
-                                                date__month=self.specify_day.month)
-
+                                                 date__year=self.specify_day.year - 1,
+                                                 date__month=self.specify_day.month)
 
             # 因應措施是梨
             if self.specify_day.month in [5, 6]:
@@ -324,11 +317,12 @@ class DailyReportFactory(object):
         self._extract_data(73, Fruit, 50063, Source.objects.filter(id__in=[20001, 20002]), self.specify_day)
 
         # 青香蕉下品()內銷)
-        self._extract_data(72, Fruit, 59019, Source.objects.filter(id__in=range(10030,20001)), self.specify_day)
+        self._extract_data(72, Fruit, 59019, Source.objects.filter(id__in=range(10030, 20001)), self.specify_day)
 
         # 2020/4/16 主管會報陳副主委要求花卉品項,農糧署建議新增香水百合 FS  
-        self._extract_data(107, Flower, 60068, Source.objects.filter(id__in=[30001, 30002, 30003, 30004, 30005]), self.specify_day)
-        
+        self._extract_data(107, Flower, 60068, Source.objects.filter(id__in=[30001, 30002, 30003, 30004, 30005]),
+                           self.specify_day)
+
     def _extract_data(self, row, model, product_id, sources=None, date=None):
         self.row_visible.append(row)
         if model == WatchlistItem:
@@ -343,9 +337,9 @@ class DailyReportFactory(object):
             query_set = query_set.filter(source__in=sources)
         self.get_data(query_set, f'{product.name}{product.type}', row, None)
         if date:
-            query_set = DailyTran.objects.filter(product=product, date__year=date.year-1, date__month=date.month)
+            query_set = DailyTran.objects.filter(product=product, date__year=date.year - 1, date__month=date.month)
             if sources:
-                query_set = query_set.filter(source__in=sources)   
+                query_set = query_set.filter(source__in=sources)
             self.update_data(query_set, f'{product.name}{product.type}', row)
 
     @staticmethod
@@ -410,7 +404,7 @@ class DailyReportFactory(object):
                 row_no = cell.row
                 if row_no > 134:
                     cell.value = None
-        
+
         sheet.cell(row=133, column=1).value = sheet.cell(row=133, column=1).value.replace('本會', '本部')
         sheet.cell(row=134, column=1).value = sheet.cell(row=134, column=1).value.replace('本會', '本部')
 
@@ -426,7 +420,7 @@ class DailyReportFactory(object):
                 tmp = (now_row == 135 and '3.') or '   '
                 td.value = f"{tmp}{desc_1_text}；"
                 now_row += 1
-        td = sheet.cell(row=now_row-1, column=1)
+        td = sheet.cell(row=now_row - 1, column=1)
         td.value = td.value.replace('；', '—農產品價格查報，本部農糧署。')
         desc_2_tmp = []
         pn = 4
@@ -438,8 +432,8 @@ class DailyReportFactory(object):
                     desc_2_tmp.append(item_name)
         if desc_2_tmp:
             td = sheet.cell(row=now_row, column=1)
-            desc_2_text = '4.'+'、'.join(desc_2_tmp) + \
-                '交易量價(東勢果菜市場價格)－農產品行情報導，本部農糧署。'
+            desc_2_text = '4.' + '、'.join(desc_2_tmp) + \
+                          '交易量價(東勢果菜市場價格)－農產品行情報導，本部農糧署。'
             td.value = desc_2_text
             now_row += 1
             pn += 1
