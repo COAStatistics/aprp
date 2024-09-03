@@ -127,7 +127,8 @@ def get_daily_price_volume(_type, items, sources=None, start_date=None, end_date
     query_set = get_query_set(_type, items, sources)
     q, has_volume, has_weight = get_group_by_date_query_set(query_set, start_date, end_date)
 
-    if q.size == 0: return {'no_data': True}
+    if q.size == 0:
+        return {'no_data': True}
 
     columns = [
         {'value': _('Date'), 'format': 'date'},
@@ -199,7 +200,7 @@ def get_daily_price_by_year(_type, items, sources=None):
         date_list = pd.date_range(datetime.date(2016, 1, 1), datetime.date(2016, 12, 31), freq='D')
         for i, dic in q.iterrows():
             date = datetime.date(year=2016, month=dic['date'].month, day=dic['date'].day)
-            result[str(dic['date'].year)].append((to_unix(date), dic[key]) if dic[key] else None)
+            result[str(dic['date'].year)].append((to_unix(date), None if pd.isna(dic[key]) else dic[key]) if dic[key] else None)
 
             if not ((dic['date'].year % 4 == 0 and dic['date'].year % 100 != 0) or dic['date'].year % 400 == 0) and \
                     dic['date'].month == 2 and dic['date'].day == 28:
@@ -233,7 +234,7 @@ def get_daily_price_by_year(_type, items, sources=None):
             'no_data': True
         }
 
-    years = {date.year for date in q['date']}
+    years = sorted({date.year for date in q['date']})
 
     def selected_year(y):
         this_year = datetime.date.today().year
@@ -386,14 +387,12 @@ def get_monthly_price_distribution(_type, items, sources=None, selected_years=No
         }
 
     query_set = get_query_set(_type, items, sources)
-
+    years = sorted({date[0].year for date in query_set.values_list('date')})
     if selected_years:
         query_set = query_set.filter(date__year__in=selected_years)
 
     q, has_volume, has_weight = get_group_by_date_query_set(query_set)
     q['month'] = pd.to_datetime(q['date']).dt.month
-
-    years = list(pd.to_datetime(q['date']).dt.year.unique())
 
     response_data = {
         'type': TypeSerializer(_type).data,
