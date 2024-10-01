@@ -18,7 +18,6 @@ LOGGER_TYPE_CODE = 'LOT-crops'
 
 @director
 def direct(*args, **kwargs):
-
     direct_wholesale_05(*args, **kwargs)
     direct_origin(*args, **kwargs)
     direct_wholesale_02(*args, **kwargs)
@@ -32,13 +31,12 @@ def direct_wholesale(*args, **kwargs):
 
 @director
 def direct_wholesale_05(start_date, end_date, *args, **kwargs):
-
     data = DirectData('COG05', 1, LOGGER_TYPE_CODE)
 
     for model in MODELS:
         wholesale_api = WholeSaleApi05(model=model, **data._asdict())
         date_diff = end_date - start_date
-        for delta in range(date_diff.days+1):
+        for delta in range(date_diff.days + 1):
             response = wholesale_api.request(start_date=start_date + datetime.timedelta(days=delta),
                                              end_date=start_date + datetime.timedelta(days=delta), tc_type='N04')
             wholesale_api.load(response)
@@ -48,23 +46,24 @@ def direct_wholesale_05(start_date, end_date, *args, **kwargs):
 
 @director
 def direct_origin(start_date, end_date, *args, **kwargs):
-
     data = DirectData('COG05', 2, LOGGER_TYPE_CODE)
 
     for model in MODELS:
         origin_api = OriginApi(model=model, **data._asdict())
-
-        for obj in product_generator(model, type=2, **kwargs):
-            for delta_start_date, delta_end_date in date_generator(start_date, end_date, ORIGIN_DELTA_DAYS):
-                response = origin_api.request(start_date=delta_start_date, end_date=delta_end_date, name=obj.code)
-                origin_api.load(response)
-
+        date_diff = end_date - start_date
+        for delta in range(date_diff.days + 1):
+            response = origin_api.request(start_date=start_date + datetime.timedelta(days=delta),
+                                          end_date=start_date + datetime.timedelta(days=delta), *args, **kwargs)
+            origin_api.load(response)
+            # response_garlic = origin_api.request(start_date=start_date + datetime.timedelta(days=delta),
+            #                                      end_date=start_date + datetime.timedelta(days=delta),
+            #                                      name='蒜頭(蒜球)(旬價)')
+            # origin_api.load(response_garlic)
     return data
 
 
 @director
 def direct_wholesale_02(start_date, end_date, *args, **kwargs):
-
     data = DirectData('COG02', 1, LOGGER_TYPE_CODE)
 
     for model in MODELS:
