@@ -27,6 +27,7 @@ class Api(AbstractApi):
         super(Api, self).__init__(model=model, config_code=config_code, type_id=type_id,
                                   logger='aprp', logger_type_code=logger_type_code)
 
+    # hook is stopped using
     def hook(self, dic):
         for key, value in dic.items():
             if isinstance(value, str):
@@ -104,6 +105,8 @@ class Api(AbstractApi):
                 data = json.loads(response.text)
             except Exception as e:
                 self.LOGGER.exception(f'exception: {e}, response: {response.text}', extra=self.LOGGER_EXTRA)
+        if not data:
+            return
         data = pd.DataFrame(data,
                             columns=['上價', '中價', '下價', '平均價', '交易量', '交易日期', '作物代號', '市場名稱',
                                      '種類代碼'])

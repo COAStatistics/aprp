@@ -102,6 +102,9 @@ class Api(AbstractApi):
             except Exception as e:
                 self.LOGGER.exception(f'exception: {e}, response: {response.text}', extra=self.LOGGER_EXTRA)
 
+        if not data:
+            return
+
         data = pd.DataFrame(data,
                             columns=['上價', '中價', '下價', '平均價', '交易量', '交易日期', '品種代碼', '市場名稱',
                                      '魚貨名稱'])
