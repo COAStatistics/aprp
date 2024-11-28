@@ -26,7 +26,7 @@ django-crispy-forms==1.7.0
 django-markdown-deux==1.0.5
 django-model-utils==3.0.0
 django-widget-tweaks==1.4.1
-djangorestframework==3.6.4
+djangorestframework==3.11.2
 whitenoise==3.3.1
 django-db-logger==0.1.6
 django-admin-rangefilter==0.3.6
