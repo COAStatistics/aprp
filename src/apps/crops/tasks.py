@@ -25,7 +25,7 @@ def build_crop_wholesale(delta):
 
 
 @task(name='DailyOriginCropBuilder')
-def build_crop_wholesale(delta):
+def build_crop_origin(delta):
     db_logger = logging.getLogger('aprp')
     logger_extra = {
         'type_code': 'LOT-crops',
