@@ -195,22 +195,21 @@ class Api(AbstractApi):
         """
         data = []
         for response in responses:
-            if response.text and '"DATASET":\n' not in response.text:
-                try:
-                    # load data
-                    data_set = json.loads(response.text)
-                    data_set = data_set.get('DATASET')
-                    # handle special cases
-                    if re.search(r'status=(\d+)', response.url).group(1) == '7':
-                        # handle "status=7" case
-                        data_set = [_access_garlic_data_from_api(item) for item in data_set]
-                    elif re.search(r'status=(\d+)', response.url).group(1) == '6':
-                        # handle "status=6" case
-                        data_set = list(map(lambda x: {**x, 'PRODUCTNAME': x['PRODUCTNAME'][:3] + '下品' + x['PRODUCTNAME'][3:]}, data_set))
-                    data.extend(data_set)
-                except Exception as e:
-                    # log exception
-                    self.LOGGER.exception('%s \n%s' % (response.request.url, e), extra=self.LOGGER_EXTRA)
+            try:
+                # load data
+                data_set = response.json()
+                data_set = data_set.get('DATASET')
+                # handle special cases
+                if re.search(r'status=(\d+)', response.url).group(1) == '7':
+                    # handle "status=7" case
+                    data_set = [_access_garlic_data_from_api(item) for item in data_set]
+                elif re.search(r'status=(\d+)', response.url).group(1) == '6':
+                    # handle "status=6" case
+                    data_set = list(map(lambda x: {**x, 'PRODUCTNAME': x['PRODUCTNAME'][:3] + '下品' + x['PRODUCTNAME'][3:]}, data_set))
+                data.extend(data_set)
+            except Exception as e:
+                # log exception
+                self.LOGGER.exception('%s \n%s' % (response.request.url, e), extra=self.LOGGER_EXTRA)
 
         # data should look like [D, B, {}, C, {}...] after loads
         if not data:
@@ -234,7 +233,7 @@ class Api(AbstractApi):
         try:
             self._access_data_from_api(data_api)
         except Exception as e:
-            self.LOGGER.exception(f'exception: {e}, response: {responses[0].text}', extra=self.LOGGER_EXTRA)
+            self.LOGGER.exception(f'exception: {e}, data_api: {data_api}', extra=self.LOGGER_EXTRA)
 
     def _access_data_from_api(self, data: pd.DataFrame):
         """
