@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib import admin
 from django.forms import ModelForm
 from django.forms.utils import ErrorList
