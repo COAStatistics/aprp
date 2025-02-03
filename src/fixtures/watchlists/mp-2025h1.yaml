@@ -1,0 +1,1228 @@
+# Crops
+
+- model: watchlists.MonitorProfile
+  pk: 1401
+  fields:
+    product: 40160 # 落花生
+    watchlist: 16
+    type: 2
+    price: 39.5
+    row: 14
+    comparator: __lt__
+    color: danger
+    info: |
+          1.落花生交易以產地商販向農民價購為主，以產地價格監控
+          2.參酌農民生產成本及產地價格調查資料訂定
+    period: |
+            1期作：6月上旬~7月
+            2期作：11月中旬~次年1月
+    months: [1, 6, 7, 11, 12]
+    action: |
+            輔導購貯及促銷等措施
+
+- model: watchlists.MonitorProfile
+  pk: 1402
+  fields:
+    product: 49002 # 紅豆
+    watchlist: 16
+    type: 2
+    price: 40.9
+    row: 15
+    comparator: __lt__
+    color: danger
+    info: |
+          1.紅豆交易以產地商販向農民價購為主，以產地價格監控
+          2.參酌農民生產成本及產地價格調查資料訂定
+    period: |
+            12月下旬~次年2月
+    months: [12, 1, 2]
+    action: |
+            輔導購貯及促銷等措施
+
+- model: watchlists.MonitorProfile
+  pk: 1403
+  fields:
+    product: 40477 # 甘藷
+    watchlist: 16
+    type: 2
+    price: 4.7
+    row: 33
+    comparator: __lt__
+    color: danger
+    info: |
+          1.甘藷交易以產地商販向農民價購為主，以產地價格監控
+          2.參酌農民生產成本及產地價格調查資料訂定
+    period: |
+            2期作：12月~次年2月中旬
+            裡作：2月中旬~次年4月
+    months: [1, 2, 3, 4, 12]
+    action: |
+            1.輔導購貯及促銷等措施
+            2.輔導加工
+
+- model: watchlists.MonitorProfile
+  pk: 1404
+  fields:
+    product: 40438 # 大蒜
+    watchlist: 16
+    type: 2
+    price: 42
+    row: 16
+    comparator: __lt__
+    color: danger
+    info: |
+          1.大蒜交易以產地商販向農民價購為主，以產地價格監控
+          2.參酌農民生產成本及產地價格調查資料訂定。
+    period: |
+            3月~5月
+    months: [3, 4, 5]
+    action: |
+            輔導外銷及促銷、加工、收購作飼料添加物等措施。
+
+# 2021/9/6 農糧署來函新增監控大蒜高價
+- model: watchlists.MonitorProfile
+  pk: 1458
+  fields:
+    product: 40438 # 大蒜
+    watchlist: 16
+    type: 2
+    price: 162.9        # 2022/3/18 農糧署來函更新大蒜高價
+    comparator: __gt__
+    color: danger
+    info: |
+          1.大蒜交易以產地商販向農民價購為主，以產地價格監控
+          2.依大蒜之前一年平均產地批發價加上50%，並參考物價水準為大蒜高價監控價格，並得視產銷情形檢討調整
+    period: |
+            3月~5月
+    months: [3, 4, 5]
+    action: |
+            1.由農糧署召開「穩定大蒜產銷調節」會議
+            2.依據行政院物價穩定物價小組機制提報處理
+            3.函請各部會啟動查價工作
+            4.函請地方政府依農產品市場交易法第 6 條進行查處
+            5.請產業團體發布訊息秩序釋出大蒜
+
+- model: watchlists.MonitorProfile
+  pk: 1405
+  fields:
+    product: 40422 # 洋蔥
+    watchlist: 16
+    type: 1
+    price: 7.8
+    row: 17
+    comparator: __lt__
+    color: danger
+    info: |
+          1.洋蔥主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、消費地批發市場價格訂定
+    period: |
+            3月~5月
+    months: [3, 4, 5]
+    action: |
+            外銷購貯冷藏調節產期及輔導促銷等措施
+
+- model: watchlists.MonitorProfile
+  pk: 1406
+  fields:
+    product: 40163 # 甘藍
+    watchlist: 16
+    type: 1
+    price: 6.2
+    row: 19
+    comparator: __lt__
+    color: danger
+    info: |
+          1.甘藍主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、消費地批發市場價格訂定
+    period: |
+            11月~次年4月
+    months: [1, 2, 3, 4, 11, 12]
+    always_display: True
+    action: |
+            啟動產銷三箭措施：拓展外銷、擴大行銷及輔導加工，另請校園團膳及國軍副食加強採購，並搭配產地分級分流措施，穩定市場品質與價格
+
+- model: watchlists.MonitorProfile
+  pk: 1407
+  fields:
+    product: 40539 # 青蔥日蔥
+    watchlist: 16
+    type: 1
+    price: 42.5
+    row: 21
+    comparator: __lt__
+    color: danger
+    info: |
+          1.日蔥主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、消費地批發市場價格訂定
+    period: |
+            11月~次年3月
+    months: [1, 2, 3, 11, 12]
+    always_display: True
+    action: |
+            採行促銷及加工措施
+
+- model: watchlists.MonitorProfile
+  pk: 1408
+  fields:
+    product: 40541 # 青蔥-粉蔥(含北蔥)
+    watchlist: 16
+    type: 1
+    price: 14.4
+    row: 23
+    comparator: __lt__
+    color: danger
+    info: |
+          1.北蔥、粉蔥主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、消費地批發市場價格訂定
+    period: |
+            11月~次年3月
+    months: [1, 2, 3, 11, 12]
+    always_display: True
+    action: |
+            採行促銷及加工措施
+
+- model: watchlists.MonitorProfile
+  pk: 1409
+  fields:
+    product: 40185 # 包心白菜
+    watchlist: 16
+    type: 1
+    price: 5.7
+    row: 20
+    comparator: __lt__
+    color: danger
+    info: |
+          1.結球白菜主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、消費地批發市場價格訂定
+    period: |
+            11月~次年3月
+    months: [1, 2, 3, 11, 12]
+    always_display: True
+    action: |
+            啟動產銷三箭措施：拓展外銷、擴大行銷及輔導加工，另請校園團膳及國軍副食加強採購，並搭配產地分級分流措施，穩定市場品質與價格
+
+- model: watchlists.MonitorProfile
+  pk: 1410
+  fields:
+    product: 40016 # 花椰菜
+    watchlist: 16
+    type: 1
+    price: 9.0
+    row: 24
+    comparator: __lt__
+    color: danger
+    info: |
+          1.花椰菜主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、消費地批發市場價格訂定
+    period: |
+            11月~次年3月
+    months: [1, 2, 3, 11, 12]
+    always_display: True
+    action: |
+            採行加工調節措施
+
+- model: watchlists.MonitorProfile
+  pk: 1411
+  fields:
+    product: 40387 # 蘿蔔
+    watchlist: 16
+    type: 1
+    price: 4.9
+    row: 28
+    comparator: __lt__
+    color: danger
+    info: |
+          1.蘿蔔主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、消費地批發市場價格及歷年辦理收購價格訂定
+    period: |
+            11月~次年3月
+    months: [1, 2, 3, 11, 12]
+    action: |
+            辦理促銷、收購購貯作截切及醃漬加工等
+
+- model: watchlists.MonitorProfile
+  pk: 1412
+  fields:
+    product: 40027 # 胡瓜
+    watchlist: 16
+    type: 1
+    price: 9.1
+    row: 26
+    comparator: __lt__
+    color: danger
+    info: |
+          1.胡瓜主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、消費地批發市場價格及產期盛產及非盛產期間之產量平減訂定
+    period: |
+            4月~6月
+            10月~次年1月
+    months: [1, 4, 5, 6, 10, 11, 12]
+    always_display: True
+    action: |
+            1.輔導農民團體辦理促銷
+            2.輔導加工
+
+- model: watchlists.MonitorProfile
+  pk: 1413
+  fields:
+    product: 40030 # 花胡瓜
+    watchlist: 16
+    type: 1
+    price: 13.3
+    row: 27
+    comparator: __lt__
+    color: danger
+    info: |
+          1.花胡瓜主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、消費地批發市場價格及產期盛產及非盛產期間之產量訂定
+    period: |
+            4月~6月
+            10月~次年1月
+    months: [1, 4, 5, 6, 10, 11, 12]
+    always_display: True
+    action: |
+            1.輔導農民團體辦理促銷
+            2.輔導加工
+
+- model: watchlists.MonitorProfile
+  pk: 1414
+  fields:
+    product: 40040 # 絲瓜
+    watchlist: 16
+    type: 1
+    price: 14.6
+    row: 31
+    comparator: __lt__
+    color: danger
+    info: |
+          1.絲瓜主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、消費地批發市場價格訂定
+    period: |
+            5月~8月
+    months: [5, 6, 7, 8]
+    always_display: True
+    action: |
+            1.輔導辦理促銷
+            2.輔導田間疏果，調整上市期間
+
+- model: watchlists.MonitorProfile
+  pk: 1415
+  fields:
+    product: 40059 # 茄子
+    watchlist: 16
+    type: 1
+    price: 11.9
+    row: 32
+    comparator: __lt__
+    color: danger
+    info: |
+          1.茄子主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本、產地批發市場價格及產期盛產及非盛產期間之產量訂定
+    period: |
+            11月~次年5月
+    months: [1, 2, 3, 4, 5, 11, 12]
+    always_display: True
+    action: |
+            1.輔導辦理促銷
+            2.輔導田間疏果，調整上市期間
+
+# Fruits
+
+- model: watchlists.MonitorProfile
+  pk: 1416
+  fields:
+    product: 50227 # 大西瓜
+    watchlist: 16
+    type: 1
+    price: 9.9
+    row: 39
+    comparator: __lt__
+    color: danger
+    info: |
+          1.大西瓜主要大面積經營為主，生產成本較低
+          2.參酌農民現金直接成本加上自家人工費乘60％訂定
+    period: |
+            4月~8月
+    months: [4, 5, 6, 7, 8]
+    action: |
+            採行促銷及加工等措施
+
+# - model: watchlists.MonitorProfile
+#   pk: 917
+#   fields:
+#     product: 50241 # 洋香瓜
+#     watchlist: 11
+#     type: 1
+#     price: 14.5
+#     row: 40
+#     comparator: __lt__
+#     color: danger
+#     info: |
+#           1.洋香瓜主要交易以消費地為主，以消費地批發市場價格監控
+#           2.參酌農民生產成本、消費地批發市場價格訂定
+#     period: |
+#             11月~次年5月
+#     months: [1, 2, 3, 4, 5, 11, 12]
+#     action: |
+#             採行促銷及加工等措施
+
+- model: watchlists.MonitorProfile
+  pk: 1418
+  fields:
+    product: 50182 # 梨(新興梨/豐水梨)
+    watchlist: 16
+    type: 1
+    price: 39.8
+    row: 57 #顯示新興梨需改為57;顯示豐水梨需改為58
+    comparator: __lt__
+    color: danger
+    info: |
+          1.梨優級品以上果品多於產地批發市場交易，良級品大部分送台北市場交易，為反映合理交易價格，以產地批發市場價格監控
+          2.參酌農民生產成本及主要產地指標市場平均價格訂定
+    period: |
+            5月~6月(豐水梨)
+            7月~8月(新興梨)
+            8月~9月(甘露梨)
+    months: [5, 6, 7, 8, 9]
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1419
+  fields:
+    product: 50008 # 棗子
+    watchlist: 16
+    type: 1
+    price: 24.4
+    row: 59
+    comparator: __lt__
+    color: danger
+    info: |
+          1.棗子主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本及消費地價格調查資料訂定
+    period: |
+            12月~次年2月
+    months: [1, 2, 12]
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+#109下半年監控清單取消
+# - model: watchlists.MonitorProfile
+#   pk: 920
+#   fields:
+#     product: 50218 # 巨峰葡萄
+#     watchlist: 11
+#     type: 1
+#     price: 33.7
+#     row: 61
+#     comparator: __lt__
+#     color: danger
+#     info: |
+#           1.巨峰葡萄主要交易以消費地為主，以消費地批發市場價格監控
+#           2.參酌農民生產成本及消費地價格調查資料訂定
+#     period: |
+#             6月~7月
+#     months: [6, 7]
+#     action: |
+#             辦理國軍及農會超市促銷與啟動國產水果優惠訂購平台等措施
+
+#番荔枝109下半年監控清單修改為12月~次年4月
+#番荔枝112上半年監控清單修改為11月~次年4月
+- model: watchlists.MonitorProfile
+  pk: 1421
+  fields:
+    product: 50013 # 番荔枝(釋迦)       #原本標註釋迦大品項50012,因釋迦大品項多了監控產地鳳梨釋迦,導致平台點釋迦大品項就出現批發的監控資訊,改成在各別的品項中才出現監控資訊避免混淆
+    watchlist: 16
+    type: 1
+    price: 39.8
+    row: 63
+    comparator: __lt__
+    color: danger
+    info: |
+          1.番荔枝主要交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本及消費地價格調查資料訂定
+    period: |
+            11月~次年4月  
+            7月~9月
+    months: [1, 2, 3, 4, 7, 8, 9, 11, 12]
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+#甜柿102上半年監控清單修改為11月~次年1月
+- model: watchlists.MonitorProfile
+  pk: 1422
+  fields:
+    product: 50288 # 甜柿
+    watchlist: 16
+    type: 1
+    price: 42.8
+    row: 67
+    comparator: __lt__
+    color: danger
+    info: |
+          1.甜柿優級品以上果品多於產地批發市場交易，良級品大部分送台北市場，為反映合理交易價格，以產地批發市場價格監控
+          2.參酌農民生產成本及主要產地批發市場價格調查資料訂定
+    period: |
+            11月~次年1月
+    months: [1, 11, 12]
+    action: |
+            與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1423
+  fields:
+    product: 50144 # 網室木瓜
+    watchlist: 16
+    type: 1
+    price: 14.3
+    row: 68
+    comparator: __lt__
+    color: danger
+    info: |
+          1.木瓜主要交易以消費地為主，以消費地批發市場價格監控
+          2.木瓜栽培成本以採收工資占比例較高，參酌農民現金直接成本加自家人工費乘60％訂定
+    period: |
+            3月~11月
+    months: [3, 4, 5, 6, 7, 8, 9, 10, 11]
+    always_display: True
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+# 2024/12/30 114上半年移除監控蓮霧
+#- model: watchlists.MonitorProfile
+#  pk: 1424
+#  fields:
+#    product: 50202 # 蓮霧
+#    watchlist: 16
+#    type: 2
+#    price: 36.2
+#    row: 69
+#    comparator: __lt__
+#    color: danger
+#    info: |
+#          1.蓮霧主要於產地銷售，餘送批發市場，以產地價格監控
+#          2.參酌農民生產成本及產地價格調查資料訂定
+#    period: |
+#            12月~次年3月
+#    months: [1, 2, 3, 12]
+#    action: |
+#            1.拓展外銷
+#            2.輔導加工
+#            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1425
+  fields:
+    product: 50208 # 愛文芒果
+    watchlist: 16
+    type: 1
+    price: 29.9
+    row: 70
+    comparator: __lt__
+    color: danger
+    info: |
+          1.愛文芒果交易以消費地為主，以消費地批發市場價格監控
+          2.參酌農民生產成本及消費地價格調查資料訂定
+    period: |
+            5月~7月
+    months: [5, 6, 7]
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1426
+  fields:
+    product: 50061 # 香蕉
+    watchlist: 16
+    type: 2
+    price: 7.1
+    row: 71
+    comparator: __lt__
+    color: danger
+    info: |
+          1.種植香蕉之蕉農大部分屬於兼業經營且加工催熟成本不一，以青香蕉產地價格監控
+          2.參酌農民現金直接成本加上自家人工費乘以10％訂定
+    period: |
+            3月~9月(春夏蕉)
+            10月~次年2月(秋冬蕉)
+    months: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    always_display: True
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+            4.活絡產地催熟設備，促進在地消費
+
+- model: watchlists.MonitorProfile
+  pk: 1427
+  fields:
+    product: 50066 # 金鑽鳳梨
+    watchlist: 16
+    type: 2
+    price: 9.1
+    row: 75
+    comparator: __lt__
+    color: danger
+    info: |
+          1.金鑽鳳梨採收後主要以產地交易為主，臺北果菜批發市場為輔，以產地價格監控
+          2.鳳梨栽培成本以採收工資占比例較高，參酌農民現金直接成本加自家人工費乘80％訂定
+    period: |
+            3月~7月
+    months: [3, 4, 5, 6, 7]
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1428
+  fields:
+    product: 50157 # 龍眼
+    watchlist: 16
+    type: 1
+    price: 21.5
+    row: 79
+    comparator: __lt__
+    color: danger
+    info: |
+          1.龍眼主要交易以消費地為主，以消費地批發市場價格監控
+          2.龍眼栽培較為粗放，參酌農民現金直接成本加上自家人工費用乘以60%訂定
+    period: |
+            7月~9月
+    months: [7, 8, 9]
+    action: |
+            1.輔導辦理促銷活動
+            2.輔導加工
+
+- model: watchlists.MonitorProfile
+  pk: 1429
+  fields:
+    product: 50195 # 番石榴(珍珠拔)
+    watchlist: 16
+    type: 1
+    price: 17.2
+    row: 80
+    comparator: __lt__
+    color: danger
+    info: |
+          1.番石榴主要交易以消費地為主，以消費地批發市場價格監控
+          2.番石榴栽培較為粗放，參酌農民現金直接成本加自家人工費用乘以60％訂定
+    period: |
+            全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    always_display: True
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1430
+  fields:
+    product: 50150 # 黑葉荔枝
+    watchlist: 16
+    type: 1
+    price: 22.5
+    row: 81
+    comparator: __lt__
+    color: danger
+    info: |
+          1.黑葉荔枝主要交易以消費地為主，以消費地批發市場價格監控
+          2.荔枝栽培較為粗放，參酌農民現金直接成本加上自家人工費用乘以60％訂定
+    period: |
+            6月~7月
+    months: [6, 7]
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1431
+  fields:
+    product: 50016 # 竿採梅
+    watchlist: 16
+    type: 2
+    price: 8.4
+    row: 82
+    comparator: __lt__
+    color: danger
+    info: |
+          1.竿採梅主要交易以產地為主，以產地價格監控
+          2.竿採梅栽培極為粗放，參酌農民現金直接成本加上自家人工費用乘以20%訂定
+    period: |
+            3月~5月
+    months: [3, 4, 5]
+    action: |
+            1.輔導辦理促銷活動
+            2.辦理廠農合作，契作加工
+            3.協調加工業者收購加工
+
+- model: watchlists.MonitorProfile
+  pk: 1432
+  fields:
+    product: 50039 # 紅龍果
+    watchlist: 16
+    type: 1
+    price: 17.6
+    row: 88
+    comparator: __lt__
+    color: danger
+    info: |
+          1.紅龍果主要交易以消費地為主，以消費地批發市場價格監控
+          2.紅龍果屬仙人掌科，農民可自行運用枝條扦插繁殖，存活極易，栽培管理簡易又鮮少疾病蟲害，每一枝條可留一至數果，亦可免套袋生產，經營甚略粗放，參酌農民現金直接成本加自家人工費乘60％訂定
+    period: |
+            6月~9月
+    months: [6, 7, 8, 9]
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1433
+  fields:
+    product: 50076 # 椪柑
+    watchlist: 16
+    type: 1
+    price: 21.5
+    row: 60
+    comparator: __lt__
+    color: danger
+    info: |
+          1.椪柑主要交易以消費地為主，以消費地批發市場價格監控
+          2.椪柑栽培成本以採收工資占比例較高，參酌農民現金直接成本加自家人工費乘80％訂定
+    period: |
+            10月~12月
+    months: [10, 11, 12]
+    action: |
+            1.輔導加工
+            2.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+#桶柑112上半年監控清單更改為1月~3月
+- model: watchlists.MonitorProfile
+  pk: 1434
+  fields:
+    product: 50092 # 桶柑
+    watchlist: 16
+    type: 2
+    price: 13.8
+    row: 65
+    comparator: __lt__
+    color: danger
+    info: |
+          1.桶柑主要交易以產地為主，以產地價格監控
+          2.桶柑栽培成本以採收工資占比例較高，參酌農民現金直接成本加自家人工費乘80％訂定
+    period: |
+            1月~3月
+    months: [1, 2, 3]
+    action: |
+            1.輔導加工
+            2.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1435
+  fields:
+    product: 50128 # 文旦柚
+    watchlist: 16
+    type: 2
+    price: 11.3
+    row: 66
+    comparator: __lt__
+    color: danger
+    info: |
+          1.文旦柚主要交易以產地為主，以產地價格監控
+          2.參酌農民生產成本及產地價格調查資料訂定
+    period: |
+            8月~10月
+    months: [8, 9, 10]
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1436
+  fields:
+    product: 50096 # 柳橙
+    watchlist: 16
+    type: 1
+    price: 14.2
+    row: 74
+    comparator: __lt__
+    color: danger
+    info: |
+          1.柳橙主要交易以消費地為主，以消費地批發市場價格監控
+          2.柳橙桶柑栽培成本以採收工資占比例較高，參酌農民現金直接成本加自家人工費乘80％訂定
+    period: |
+            11月~次年2月
+    months: [1, 2, 11, 12]
+    action: |
+            1.輔導加工
+            2.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1437
+  fields:
+    product: 50102 # 檸檬
+    watchlist: 16
+    type: 2
+    price: 12.7
+    row: 76
+    comparator: __lt__
+    color: danger
+    info: |
+          1.檸檬主要於產地銷售，餘送批發市場，以產地價格監控
+          2.檸檬栽培較為粗放，參酌農民現金直接成本加上自家人工費用乘以60％訂定
+    period: |
+            7月~9月
+    months: [7, 8, 9]
+    action: |
+            1.輔導加工
+            2.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+- model: watchlists.MonitorProfile
+  pk: 1438
+  fields:
+    product: 50080 # 茂谷柑
+    watchlist: 16
+    type: 1
+    price: 20.1
+    row: 89
+    comparator: __lt__
+    color: danger
+    info: |
+          1.茂谷柑主要交易以消費地為主，以消費地批發市場價格監控
+          2.茂谷柑栽培成本以採收工資占比例較高，參酌農民現金直接成本加自家人工費乘80％訂定
+    period: |
+            1月~3月
+    months: [1, 2, 3]
+    action: |
+            1.輔導加工
+            2.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+# 111 年上半年監控清單新增鳳梨釋迦產地
+- model: watchlists.MonitorProfile
+  pk: 1459
+  fields:
+    product: 59020 # 鳳梨釋迦 產地
+    watchlist: 16
+    type: 2
+    price: 42.5
+    row: 90
+    comparator: __lt__
+    color: danger
+    info: |
+          1.鳳梨釋迦主要交易以產地為主，以產地價格監控
+          2.參酌農民生產成本及產地價格調查資料訂定
+    period: |
+            12月~4月
+    months: [1, 2, 3, 4, 12]
+    action: |
+            1.拓展外銷
+            2.輔導加工
+            3.辦理國軍、監所團膳促銷，另與超市量販通路擴大行銷；在希望廣場、花博圓山廣場及假日農市定點行銷
+
+# Hogs
+# 2021/8/6 袁電話通知規格豬監控資訊有兩組下限,所以8/9和葉科討論後將此項刪除,留下107年設定的60元那組下限值設定
+# 2021/12/23 袁詢問過葉科後改成和畜牧處提供的監控價相同(原規格豬有兩組上限兩組下限,改為只留一組下限值)
+- model: watchlists.MonitorProfile
+  pk: 1439
+  fields:
+    product: 70001 #規格豬(95-155KG) #2021上半年規格豬改為95-155公斤,但API來源沒有改還是寫75公斤
+    watchlist: 16
+    type: 1
+    price: 80
+    row: 115
+    comparator: __lt__
+    color: danger
+    info: |
+          直接生產成本加計飼料價格浮動係數
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.低於監控價格第1天：召開臨時產銷緊急調節會議，擬訂相關調節措施或實施計畫
+            2.低於監控價格第3天：
+            (1)協調產業團體辦理平價產品行促銷活動，拉抬消費買氣
+            (2)積極拓展外銷通路或市場
+            3.低於監控價格第7天：協調產業團體開始啟動緊急調節措施(如屠宰凍存或淘汰種母豬及仔豬等)
+
+# - model: watchlists.MonitorProfile
+#   pk: 940
+#   fields:
+#     product: 70001
+#     watchlist: 11
+#     type: 1
+#     price: 60.0
+#     row: 115    #規格豬的另一組下限值設定刪除後,會導致日報中規格豬沒有數值且隱藏整列,所以新增此項
+#     comparator: __lt__
+#     color: danger
+#     info:
+#     period: 全年
+#     months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+#     action: |
+#             1. 召開會議協商屠宰凍存、淘汰種母豬、淘汰仔豬
+#             2. 協調產業團體宣導養豬農民秩序出豬適度減量
+#             3. 依據養豬頭數調查結果研判未來豬源過多現象，召開會議協調肉品市場增加拍賣日
+#             4. 請台糖配合調節毛豬供應頭數
+
+# - model: watchlists.MonitorProfile
+#   pk: 941
+#   fields:
+#     product: 70001
+#     watchlist: 11
+#     type: 1
+#     price: 66.5
+#     row: 115
+#     comparator: __lt__
+#     color: warning
+#     info:
+#     period: 全年
+#     months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+#     action: |
+#             1.低於監控價格第1天：召開臨時產銷緊急調節會議，擬訂相關調節措施或實施計畫
+#             2.低於監控價格第3天：
+#             (1)協調產業團體辦理平價產品行促銷活動，拉抬消費買氣
+#             (2)積極拓展外銷通路或市場
+#             3.低於監控價格第7天：協調產業團體開始啟動緊急調節措施(如屠宰凍存或淘汰種母豬及仔豬等)
+
+# - model: watchlists.MonitorProfile
+#   pk: 942
+#   fields:
+#     product: 70001
+#     watchlist: 11
+#     type: 1
+#     price: 79.0
+#     comparator: __gt__
+#     color: warning
+#     info:
+#     period: 全年
+#     months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+#     action: |
+#             1. 召開穩定毛豬價格措施協商會議
+#             2. 協調肉品市場調整每日拍賣數量
+#             3. 請台糖配合調節毛豬供應頭數
+#             4. 請產業團體發布訊息秩序出豬
+
+# - model: watchlists.MonitorProfile
+#   pk: 943
+#   fields:
+#     product: 70001
+#     watchlist: 11
+#     type: 1
+#     price: 84.0
+#     comparator: __gt__
+#     color: danger
+#     info:
+#     period: 全年
+#     months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+#     action: |
+#             1. 辦理專案進口豬肉釋出
+#             2. 召開會議協商大肉商及冷凍廠商減少肉品市場採購數量
+#             3. 依據養豬頭數調查結果研判未來有缺豬現象，召開會議協調肉品市場增加休市日
+
+# Cattle
+
+- model: watchlists.MonitorProfile
+  pk: 1444
+  fields:
+    product: 130001 # 肥育乳公牛550公斤以上
+    watchlist: 16
+    type: 2
+    price: 100.4
+    row: 116
+    comparator: __lt__
+    color: danger
+    info: |
+          直接生產成本加計飼料價格浮動係數
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.低於監控價格第1天：召開臨時產銷緊急調節會議，擬訂相關調節措施或實施計畫
+            2.低於監控價格第3天：
+            (1)協調產業團體辦理平價產品行促銷活動，拉抬消費買氣
+            (2)積極拓展外銷通路或市場
+            3.低於監控價格第7天：協調產業團體開始啟動緊急調節措施(如屠宰凍存或淘汰種母豬及仔豬等)
+
+# Rams
+
+- model: watchlists.MonitorProfile
+  pk: 1445
+  fields:
+    product: 80001 # 努比亞雜交閹公羊
+    watchlist: 16
+    type: 1
+    price: 163.4
+    row: 117
+    comparator: __lt__
+    color: danger
+    info: |
+          直接生產成本加計飼料價格浮動係數
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.低於監控價格第1天：召開臨時產銷緊急調節會議，擬訂相關調節措施或實施計畫
+            2.低於監控價格第3天：
+            (1)協調產業團體辦理平價產品行促銷活動，拉抬消費買氣
+            (2)積極拓展外銷通路或市場
+            3.低於監控價格第7天：協調產業團體開始啟動緊急調節措施(如屠宰凍存或淘汰種母豬及仔豬等)
+
+# Chickens
+
+- model: watchlists.MonitorProfile
+  pk: 1446
+  fields:
+    product: 90006 # 白肉雞
+    watchlist: 16
+    type: 2
+    price: 46.40
+    row: 120
+    comparator: __lt__
+    color: danger
+    info: |
+          直接生產成本加計飼料價格浮動係數及產業現況調整
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.低於監控價格第1天：召開臨時產銷緊急調節會議，擬訂相關淘汰凍存等調節措施或實施計畫。
+            2.低於監控價格第3天：協調產業團體開始啟動緊急調節措施，如屠宰凍存或淘汰寡產蛋雞等。
+            3.低於監控價格第7天：
+            (1)協調產業團體辦理平價禽品行促銷活動，拉抬消費買氣
+            (2)供應國軍、團膳等大消費戶平價禽品，加速去化數量
+            (3)拓展外銷通路或市場
+
+- model: watchlists.MonitorProfile
+  pk: 1447
+  fields:
+    product: 90004 # 紅羽土雞(北區)
+    watchlist: 16
+    type: 2
+    price: 58.5
+    row: 119
+    comparator: __lt__
+    color: danger
+    info: |
+          直接生產成本加計飼料價格浮動係數及產業現況調整
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.低於監控價格第1天：召開臨時產銷緊急調節會議，擬訂相關淘汰凍存等調節措施或實施計畫。
+            2.低於監控價格第3天：協調產業團體開始啟動緊急調節措施，如屠宰凍存或淘汰寡產蛋雞等。
+            3.低於監控價格第7天：
+            (1)協調產業團體辦理平價禽品行促銷活動，拉抬消費買氣
+            (2)供應國軍、團膳等大消費戶平價禽品，加速去化數量
+            (3)拓展外銷通路或市場
+
+- model: watchlists.MonitorProfile
+  pk: 1448
+  fields:
+    product: 90007 # 雞蛋
+    watchlist: 16
+    type: 2
+    price: 35.0
+    row: 121
+    comparator: __lt__
+    color: danger
+    info: |
+          直接生產成本加計飼料價格浮動係數及產業現況調整
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.低於監控價格第1天：召開臨時產銷緊急調節會議，擬訂相關淘汰凍存等調節措施或實施計畫。
+            2.低於監控價格第3天：協調產業團體開始啟動緊急調節措施，如屠宰凍存或淘汰寡產蛋雞等。
+            3.低於監控價格第7天：
+            (1)協調產業團體辦理平價禽品行促銷活動，拉抬消費買氣
+            (2)供應國軍、團膳等大消費戶平價禽品，加速去化數量
+            (3)拓展外銷通路或市場
+
+# Ducks
+
+- model: watchlists.MonitorProfile
+  pk: 1449
+  fields:
+    product: 100002 # 土番鴨(75天)
+    watchlist: 16
+    type: 2
+    price: 61.5
+    row: 118
+    comparator: __lt__
+    color: danger
+    info: |
+          直接生產成本加計飼料價格浮動係數及產業現況調整
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.低於監控價格第1天：召開臨時產銷緊急調節會議，擬訂相關淘汰凍存等調節措施或實施計畫。
+            2.低於監控價格第3天：協調產業團體開始啟動緊急調節措施，如屠宰凍存或淘汰寡產蛋雞等。
+            3.低於監控價格第7天：
+            (1)協調產業團體辦理平價禽品行促銷活動，拉抬消費買氣
+            (2)供應國軍、團膳等大消費戶平價禽品，加速去化數量
+            (3)拓展外銷通路或市場
+
+# Seafood
+
+- model: watchlists.MonitorProfile
+  pk: 1450
+  fields:
+    product: 120007 # 吳郭魚內銷(0.6-0.8公斤/尾)
+    watchlist: 16
+    type: 2
+    price: 44.8
+    row: 123
+    comparator: __lt__
+    color: danger
+    info: |
+          1.本案表列「啟動價格係指監控價格」，即每日通報價臨近監控價格，則啟動先期調節措施
+          2.監控價格之計算：
+          (1)推估生產者最低之直接生產成本，項目包含種苗、飼料餌料、水電油及人力等4項
+          (2)監控價格=最低直接生產成本*95％*110%
+
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.因漁產品具高替代性，價格上漲時消費者多選擇其他價廉魚產品替代，故產銷穩定多以連續14日低於監控價格啟動
+            2.池邊交易價低於監控價105%持續2週以上：適時辦理電商活動、百大企業及公(私)部門團購、輔導漁會等單位促進校園午餐、國軍副食、矯正機關採購、通路合作展售促銷、輔導生產者加入農民市集等加強多元通路行銷
+            3.緊急調節：經先期加強行銷措施後仍持續低於監控價2週以上，或政策決定時，鼓勵漁民業團體、加工廠收購、凍儲或獎勵外銷
+
+- model: watchlists.MonitorProfile
+  pk: 1451
+  fields:
+    product: 120198 # 虱目魚(0.6-0.8公斤/尾)晚撈
+    watchlist: 16
+    type: 2
+    price: 66.5
+    row: 122
+    comparator: __lt__
+    color: danger
+    info: |
+          1.本案表列「啟動價格係指監控價格」，即每日通報價臨近監控價格，則啟動先期調節措施
+          2.監控價格之計算：
+          (1)推估生產者最低之直接生產成本，項目包含種苗、飼料餌料、水電油及人力等4項
+          (2)監控價格=最低直接生產成本*95％*110%
+
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.因漁產品具高替代性，價格上漲時消費者多選擇其他價廉魚產品替代，故產銷穩定多以連續14日低於監控價格啟動
+            2.池邊交易價低於監控價105%持續2週以上：適時辦理電商活動、百大企業及公(私)部門團購、輔導漁會等單位促進校園午餐、國軍副食、矯正機關採購、通路合作展售促銷、輔導生產者加入農民市集等加強多元通路行銷
+            3.緊急調節：經先期加強行銷措施後仍持續低於監控價2週以上，或政策決定時，鼓勵漁民業團體、加工廠收購、凍儲或獎勵外銷
+
+- model: watchlists.MonitorProfile
+  pk: 1453
+  fields:
+    product: 120311 # 文蛤 40-60粒/0.6公斤
+    watchlist: 16
+    type: 2
+    price: 59.8
+    row: 128
+    comparator: __lt__
+    color: danger
+    info: |
+          1.本案表列「啟動價格係指監控價格」，即每日通報價臨近監控價格，則啟動先期調節措施
+          2.監控價格之計算：
+          (1)推估生產者最低之直接生產成本，項目包含種苗、飼料餌料、水電油及人力等4項
+          (2)監控價格=最低直接生產成本*95％*110%
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.因漁產品具高替代性，價格上漲時消費者多選擇其他價廉魚產品替代，故產銷穩定多以連續14日低於監控價格啟動
+            2.池邊交易價低於監控價105%持續2週以上：適時辦理電商活動、百大企業及公(私)部門團購、輔導漁會等單位促進校園午餐、國軍副食、矯正機關採購、通路合作展售促銷、輔導生產者加入農民市集等加強多元通路行銷
+            3.緊急調節：經先期加強行銷措施後仍持續低於監控價2週以上，或政策決定時，鼓勵漁民業團體、加工廠收購、凍儲或獎勵外銷
+
+- model: watchlists.MonitorProfile
+  pk: 1454
+  fields:
+    product: 120021 # 金目鱸(0.6-0.8公斤/尾)
+    watchlist: 16
+    type: 2
+    price: 88.3
+    row: 129
+    comparator: __lt__
+    color: danger
+    info: |
+          1.本案表列「啟動價格係指監控價格」，即每日通報價臨近監控價格，則啟動先期調節措施
+          2.監控價格之計算：
+          (1)推估生產者最低之直接生產成本，項目包含種苗、飼料餌料、水電油及人力等4項
+          (2)監控價格=最低直接生產成本*95％*110%
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.因漁產品具高替代性，價格上漲時消費者多選擇其他價廉魚產品替代，故產銷穩定多以連續14日低於監控價格啟動
+            2.池邊交易價低於監控價105%持續2週以上：適時辦理電商活動、百大企業及公(私)部門團購、輔導漁會等單位促進校園午餐、國軍副食、矯正機關採購、通路合作展售促銷、輔導生產者加入農民市集等加強多元通路行銷
+            3.緊急調節：經先期加強行銷措施後仍持續低於監控價2週以上，或政策決定時，鼓勵漁民業團體、加工廠收購、凍儲或獎勵外銷
+
+- model: watchlists.MonitorProfile
+  pk: 1455
+  fields:
+    product: 120040 # 午仔魚(300-375g/尾)
+    watchlist: 16
+    type: 2
+    price: 142.4
+    row: 131
+    comparator: __lt__
+    color: danger
+    info: |
+          1.本案表列「啟動價格係指監控價格」，即每日通報價臨近監控價格，則啟動先期調節措施
+          2.監控價格之計算：
+          (1)推估生產者最低之直接生產成本，項目包含種苗、飼料餌料、水電油及人力等4項
+          (2)監控價格=最低直接生產成本*95％*110%
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.因漁產品具高替代性，價格上漲時消費者多選擇其他價廉魚產品替代，故產銷穩定多以連續14日低於監控價格啟動
+            2.池邊交易價低於監控價105%持續2週以上：適時辦理電商活動、百大企業及公(私)部門團購、輔導漁會等單位促進校園午餐、國軍副食、矯正機關採購、通路合作展售促銷、輔導生產者加入農民市集等加強多元通路行銷
+            3.緊急調節：經先期加強行銷措施後仍持續低於監控價2週以上，或政策決定時，鼓勵漁民業團體、加工廠收購、凍儲或獎勵外銷
+
+- model: watchlists.MonitorProfile
+  pk: 1456
+  fields:
+    product: 120364 # 白蝦(50尾/0.6公斤)
+    watchlist: 16
+    type: 2
+    price: 83.8
+    row: 130
+    comparator: __lt__
+    color: danger
+    info: |
+          1.本案表列「啟動價格係指監控價格」，即每日通報價臨近監控價格，則啟動先期調節措施
+          2.監控價格之計算：
+          (1)推估生產者最低之直接生產成本，項目包含種苗、飼料餌料、水電油及人力等4項
+          (2)監控價格=最低直接生產成本*95％*110%
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.因漁產品具高替代性，價格上漲時消費者多選擇其他價廉魚產品替代，故產銷穩定多以連續14日低於監控價格啟動
+            2.池邊交易價低於監控價105%持續2週以上：適時辦理電商活動、百大企業及公(私)部門團購、輔導漁會等單位促進校園午餐、國軍副食、矯正機關採購、通路合作展售促銷、輔導生產者加入農民市集等加強多元通路行銷
+            3.緊急調節：經先期加強行銷措施後仍持續低於監控價2週以上，或政策決定時，鼓勵漁民業團體、加工廠收購、凍儲或獎勵外銷
+
+- model: watchlists.MonitorProfile
+  pk: 1457
+  fields:
+    product: 121041 # 龍虎斑 0.6-0.9公斤/尾
+    watchlist: 16
+    type: 2
+    price: 146.0
+    row: 127
+    comparator: __lt__
+    color: danger
+    info: |
+          1.本案表列「啟動價格係指監控價格」，即每日通報價臨近監控價格，則啟動先期調節措施
+          2.監控價格之計算：
+          (1)推估生產者最低之直接生產成本，項目包含種苗、飼料餌料、水電油及人力等4項
+          (2)監控價格=最低直接生產成本*95％*110%
+    period: 全年
+    months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    action: |
+            1.因漁產品具高替代性，價格上漲時消費者多選擇其他價廉魚產品替代，故產銷穩定多以連續14日低於監控價格啟動
+            2.池邊交易價低於監控價105%持續2週以上：適時辦理電商活動、百大企業及公(私)部門團購、輔導漁會等單位促進校園午餐、國軍副食、矯正機關採購、通路合作展售促銷、輔導生產者加入農民市集等加強多元通路行銷
+            3.緊急調節：經先期加強行銷措施後仍持續低於監控價2週以上，或政策決定時，鼓勵漁民業團體、加工廠收購、凍儲或獎勵外銷
