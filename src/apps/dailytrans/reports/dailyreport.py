@@ -1148,7 +1148,7 @@ class DailyReportFactory:
         return self.this_week_end - datetime.timedelta(7)
 
     @property
-    def this_week_date(self) -> List[datetime]:
+    def this_week_date(self):
         """
         生成最近一週的日期區間
         """
