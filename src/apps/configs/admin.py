@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.forms import ModelForm
+from django.forms.utils import ErrorList
+
 from .models import (
     AbstractProduct,
     Config,
@@ -19,12 +21,35 @@ class AbstractProductModelForm(ModelForm):
         model = AbstractProduct
         exclude = ['update_time']
 
+    def __init__(self, data=None, files=None, auto_id='id_%s', prefix=None, initial=None, error_class=ErrorList,
+                 label_suffix=None, empty_permitted=False, instance=None):
+        super().__init__(data, files, auto_id, prefix, initial, error_class, label_suffix, empty_permitted, instance)
+
+        # forcing add the `id` field can be edited
+        self.fields['id'] = forms.IntegerField(widget=forms.TextInput())
+        self.fields['parent'].choices = self.parent_field_choices
+
+    @property
+    def parent_field_choices(self):
+        qs_products = AbstractProduct.objects.all()
+
+        return [(obj.id, f"{obj.id} ({obj.name})") for obj in qs_products]
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        instance.id = self.cleaned_data['id']
+
+        if commit:
+            instance.save()
+        return instance
+
 
 class AbstractProductAdmin(admin.ModelAdmin):
-    model = AbstractProductModelForm
+    form = AbstractProductModelForm
     list_display = ['id', 'name', 'code', 'config', 'type', 'parent', 'track_item', 'unit']
     list_editable = ['name', 'code', 'track_item']
     list_filter = ('config', 'type', 'track_item')
+    fields = ['id', 'name', 'code', 'config', 'type', 'parent', 'track_item', 'unit']
 
     search_fields = (
         'id',
