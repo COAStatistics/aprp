@@ -28,14 +28,23 @@ def delete_not_updated_trans(not_updated_times=15):
 
 @task(name='UpdateDailyReport')
 def update_daily_report(delta_days=-1):
+    db_logger = logging.getLogger('aprp')
+    logger_extra = {
+        'type_code': 'LOT-dailytrans',
+    }
     folder_id = settings.DAILY_REPORT_FOLDER_ID
     google_drive_client = DefaultGoogleDriveClient()
 
     date = datetime.today() + timedelta(days=delta_days)
 
     # generate file
-    factory = DailyReportFactory(specify_day=date)
-    file_name, file_path = factory()
+    try:
+        factory = DailyReportFactory(specify_day=date)
+        file_name, file_path = factory()
+    except Exception as e:
+        db_logger.exception(e, extra=logger_extra)
+        
+        return
 
     daily_report = DailyReport.objects.filter(date=date).first()
     if not daily_report:
