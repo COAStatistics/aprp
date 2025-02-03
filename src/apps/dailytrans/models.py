@@ -42,6 +42,11 @@ class DailyTranQuerySet(QuerySet):
         else:
             return self.filter(date__month__lte=end_date.month, date__day__lte=end_date.day)
 
+    def filter_by_date_lte(self, days, products, sources = None):
+        qs = self.filter(product__in=products, source__in=sources) if sources else self.filter(product__in=products)
+
+        return [qs.filter(date__lte=d.date()).order_by('-date').first() for d in days]
+
 
 class DailyTran(Model):
     product = ForeignKey('configs.AbstractProduct', on_delete=CASCADE, verbose_name=_('Product'))
