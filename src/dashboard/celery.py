@@ -22,14 +22,14 @@ app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
     # ======================================== Job ========================================
-    'monitor_profile_active_update': {
-        'task': 'DefaultWatchlistMonitorProfileUpdate',
-        'schedule': crontab(minute='*/15'),
-    },
-    'delete_not_updated_trans': {
-        'task': 'DeleteNotUpdatedTrans',
-        'schedule': crontab(minute=0, hour='*'),
-    },
+    # 'monitor_profile_active_update': {
+    #     'task': 'DefaultWatchlistMonitorProfileUpdate',
+    #     'schedule': crontab(minute='*/15'),
+    # },
+    # 'delete_not_updated_trans': {
+    #     'task': 'DeleteNotUpdatedTrans',
+    #     'schedule': crontab(minute=0, hour='*'),
+    # },
     'update_daily_report': {
         'task': 'UpdateDailyReport',
         'schedule': crontab(minute='0,30', hour='2-4', day_of_week='1-5'),
