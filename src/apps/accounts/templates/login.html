@@ -8,13 +8,6 @@
 {% trans 'Log in' %}
 {% endblock title %}
 
-{% block header_link %}
-<span id="extr-page-header-space">
-	<span class="hidden-mobile hidden-xs">{% trans 'Need an account' %}?</span>
-	<a href="{% url 'accounts:register' %}" class="btn btn-danger">{% trans 'Register' %}</a>
-</span>
-{% endblock header_link %}
-
 {% block content %}
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
@@ -67,9 +60,6 @@
 						{% for error in form.password.errors %}
 							<small class="help-block text-danger" style="">{{ error|escape }}</small>
 						{% endfor %}
-						<div class="note">
-							<a href="{% url 'accounts:forgot_password' %}">{% trans 'Forgot password' %}?</a>
-						</div>
 					</section>
 
 					<section>
