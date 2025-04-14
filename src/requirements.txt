@@ -14,7 +14,7 @@ google-auth-httplib2==0.1.0
 google-auth-oauthlib==0.4.6
 httplib2shim==0.0.3
 
-celery==4.1.0
+celery==5.2.2
 redis==2.10.6
 django-celery-beat==1.1.1
 django-celery-results==1.0.1
